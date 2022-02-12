@@ -12,7 +12,9 @@ P = True
 N = False
 
 prime_chance_red = [1, 0.1, 0.01]
+prime_chance_black = [1, 0.2, 0.05]
 prime_chance_violet = [1, 0.1, 0.01, 0.01, 0.1, 0.01]
+prime_chance_equality = [1, 1, 1]
 
 prime_lines_weapon = [
   (P, BOSS, 40, 20.5),
@@ -67,6 +69,7 @@ def cube_calc(text, prime_lines, lines, print_combos):
   n = make_any_line(lines)
   combos_red = [x for x in product(p, n, n)]
   combos_violet = [x for x in product(p, n, n, n, n, n)]
+  combos_equality = [x for x in product(p, p, p)]
 
   def combo_chance(want, prime_chance, combos):
     good=set()
@@ -99,6 +102,14 @@ def cube_calc(text, prime_lines, lines, print_combos):
   print("violet")
   tabulate([fmt_chance(text, want, prime_chance_violet, combos_violet)
     for (text, want) in print_combos])
+  print("equality")
+  tabulate([fmt_chance(text, want, prime_chance_equality, combos_equality)
+    for (text, want) in print_combos])
+  print()
+  print("black")
+  tabulate([fmt_chance(text, want, prime_chance_black, combos_red)
+    for (text, want) in print_combos])
+  print()
 
 
 combos_ws = [
