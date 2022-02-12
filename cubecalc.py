@@ -57,6 +57,18 @@ lines_emblem = [
   (N, ATT,   9, 13.3333),
 ]
 
+def filter_impossible_lines(combos):
+  for combo in combos:
+    counts = {BOSS: 0, IED: 0}
+    for (_, t, _, _) in combo:
+      if t in counts:
+        counts[t] += 1
+    for x in counts.values():
+      if x > 2:
+        break
+    else:
+      yield combo
+
 def cube_calc(text, prime_lines, lines, print_combos):
   print(f" {text} ".center(80, "="))
   lines = lines + prime_lines
@@ -67,9 +79,9 @@ def cube_calc(text, prime_lines, lines, print_combos):
   # has 1-(sum of the chances of all lines we care about) chance
   p = make_any_line(prime_lines)
   n = make_any_line(lines)
-  combos_red = [x for x in product(p, n, n)]
-  combos_violet = [x for x in product(p, n, n, n, n, n)]
-  combos_equality = [x for x in product(p, p, p)]
+  combos_red = list(filter_impossible_lines(product(p, n, n)))
+  combos_violet = list(filter_impossible_lines(product(p, n, n, n, n, n)))
+  combos_equality = list(filter_impossible_lines(product(p, p, p)))
 
   def combo_chance(want, prime_chance, combos):
     good=set()
