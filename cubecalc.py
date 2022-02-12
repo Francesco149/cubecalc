@@ -102,6 +102,7 @@ def cube_calc(text, prime_lines, lines, print_combos):
   print("violet")
   tabulate([fmt_chance(text, want, prime_chance_violet, combos_violet)
     for (text, want) in print_combos])
+  print()
   print("equality")
   tabulate([fmt_chance(text, want, prime_chance_equality, combos_equality)
     for (text, want) in print_combos])
