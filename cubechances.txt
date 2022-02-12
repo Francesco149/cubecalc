@@ -1,0 +1,52 @@
+==================================== weapon ====================================
+red
+                               21+ att 1 in 192 cubes, 0.5213%
+                               30+ att 1 in 3909 cubes, 0.0256%
+                               33+ att 1 in 54414 cubes, 0.0018%
+                      21+ att and boss 1 in 1656 cubes, 0.0604%
+                       21+ att and ied 1 in 1764 cubes, 0.0567%
+                   18+ att and 30+boss 1 in 760 cubes, 0.1316%
+                    18+ att and 30+ied 1 in 960 cubes, 0.1042%
+21+ att and boss or 18+att and 30+boss 1 in 521 cubes, 0.1920%
+
+violet
+                               21+ att 1 in 159 cubes, 0.6270%
+                               30+ att 1 in 1011 cubes, 0.0989%
+                               33+ att 1 in 4751 cubes, 0.0210%
+                      21+ att and boss 1 in 430 cubes, 0.2328%
+                       21+ att and ied 1 in 457 cubes, 0.2187%
+                   18+ att and 30+boss 1 in 131 cubes, 0.7626%
+                    18+ att and 30+ied 1 in 144 cubes, 0.6949%
+21+ att and boss or 18+att and 30+boss 1 in 100 cubes, 0.9954%
+================================== secondary ===================================
+red
+                               21+ att 1 in 247 cubes, 0.4054%
+                               30+ att 1 in 6288 cubes, 0.0159%
+                               33+ att 1 in 84790 cubes, 0.0012%
+                      21+ att and boss 1 in 2651 cubes, 0.0377%
+                       21+ att and ied 1 in 2829 cubes, 0.0354%
+                   18+ att and 30+boss 1 in 1221 cubes, 0.0819%
+                    18+ att and 30+ied 1 in 1543 cubes, 0.0648%
+21+ att and boss or 18+att and 30+boss 1 in 836 cubes, 0.1196%
+
+violet
+                               21+ att 1 in 184 cubes, 0.5433%
+                               30+ att 1 in 1391 cubes, 0.0719%
+                               33+ att 1 in 7701 cubes, 0.0130%
+                      21+ att and boss 1 in 592 cubes, 0.1688%
+                       21+ att and ied 1 in 631 cubes, 0.1586%
+                   18+ att and 30+boss 1 in 178 cubes, 0.5627%
+                    18+ att and 30+ied 1 in 197 cubes, 0.5085%
+21+ att and boss or 18+att and 30+boss 1 in 137 cubes, 0.7315%
+==================================== emblem ====================================
+red
+        21+ att 1 in 132 cubes, 0.7581%
+        30+ att 1 in 2869 cubes, 0.0349%
+        33+ att 1 in 36866 cubes, 0.0027%
+21+ att and ied 1 in 1284 cubes, 0.0779%
+
+violet
+        21+ att 1 in 75 cubes, 1.3325%
+        30+ att 1 in 489 cubes, 0.2044%
+        33+ att 1 in 2501 cubes, 0.0400%
+21+ att and ied 1 in 222 cubes, 0.4494%
