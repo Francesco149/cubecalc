@@ -15,6 +15,7 @@ prime_chance_red = [1, 0.1, 0.01]
 prime_chance_black = [1, 0.2, 0.05]
 prime_chance_violet = [1, 0.1, 0.01, 0.01, 0.1, 0.01]
 prime_chance_equality = [1, 1, 1]
+prime_chance_bonus = [1, 0.004975, 0.004975]
 
 prime_lines_weapon = [
   (P, BOSS, 40, 20.5),
@@ -57,6 +58,30 @@ lines_emblem = [
   (N, ATT,   9, 13.3333),
 ]
 
+prime_lines_weapon_b = [
+  (P, ATT, 12, 19.5),
+]
+
+lines_weapon_b = [
+  (N, ATT, 9, 21.5),
+]
+
+prime_lines_secondary_b = [
+  (P, ATT, 12, 20.5),
+]
+
+lines_secondary_b = [
+  (N, ATT, 9, 21.5),
+]
+
+prime_lines_emblem_b = [
+  (P, ATT, 12, 19),
+]
+
+lines_emblem_b = [
+  (N, ATT, 9, 21),
+]
+
 def filter_impossible_lines(combos):
   for combo in combos:
     counts = {BOSS: 0, IED: 0}
@@ -69,7 +94,7 @@ def filter_impossible_lines(combos):
     else:
       yield combo
 
-def cube_calc(text, prime_lines, lines, print_combos):
+def cube_calc(text, prime_lines, lines, print_combos, bpot=False):
   print(f" {text} ".center(80, "="))
   lines = lines + prime_lines
   def make_any_line(lines):
@@ -79,9 +104,12 @@ def cube_calc(text, prime_lines, lines, print_combos):
   # has 1-(sum of the chances of all lines we care about) chance
   p = make_any_line(prime_lines)
   n = make_any_line(lines)
-  combos_red = list(filter_impossible_lines(product(p, n, n)))
-  combos_violet = list(filter_impossible_lines(product(p, n, n, n, n, n)))
-  combos_equality = list(filter_impossible_lines(product(p, p, p)))
+  if not bpot:
+    combos_red = list(filter_impossible_lines(product(p, n, n)))
+    combos_violet = list(filter_impossible_lines(product(p, n, n, n, n, n)))
+    combos_equality = list(filter_impossible_lines(product(p, p, p)))
+  else:
+    combos_bpot = list(product(p, n, n))
 
   def combo_chance(want, prime_chance, combos):
     good=set()
@@ -107,6 +135,10 @@ def cube_calc(text, prime_lines, lines, print_combos):
     for (text, result) in rows:
       print(f"{text.rjust(max_len)} {result}")
 
+  if bpot:
+    tabulate([fmt_chance(text, want, prime_chance_bonus, combos_bpot)
+      for (text, want) in print_combos])
+    return
   print("red")
   tabulate([fmt_chance(text, want, prime_chance_red, combos_red)
     for (text, want) in print_combos])
@@ -133,6 +165,10 @@ combos_ws = [
   ("21+ att and ied", [{ATT: 21, IED: 1}]),
   ("18+ att and 30+boss", [{ATT: 18, BOSS: 30}]),
   ("18+ att and 30+ied", [{ATT: 18, IED: 30}]),
+  ("60+ied", [{IED: 60}]),
+  ("70+ied", [{IED: 70}]),
+  ("60+ied and att", [{IED: 60, ATT: 1}]),
+  ("60+ied and boss", [{IED: 60, BOSS: 1}]),
   ("21+ att and boss or 18+att and 30+boss", [{ATT: 21, BOSS: 1}, {ATT: 18, BOSS: 30}]),
 ]
 
@@ -143,6 +179,16 @@ combos_e = [
   ("21+ att and ied", [{ATT: 21, IED: 1}]),
 ]
 
+combos_wse_b = [
+  ("21+ att", [{ATT: 21}]),
+  ("30+ att", [{ATT: 30}]),
+  ("33+ att", [{ATT: 33}]),
+]
+
 cube_calc("weapon", prime_lines_weapon, lines_weapon, combos_ws)
 cube_calc("secondary", prime_lines_secondary, lines_secondary, combos_ws)
 cube_calc("emblem", prime_lines_emblem, lines_emblem, combos_e)
+
+cube_calc("weapon bpot", prime_lines_weapon_b, lines_weapon_b, combos_wse_b, True)
+cube_calc("secondary bpot", prime_lines_secondary_b, lines_secondary_b, combos_wse_b, True)
+cube_calc("emblem bpot", prime_lines_emblem_b, lines_emblem_b, combos_wse_b, True)
