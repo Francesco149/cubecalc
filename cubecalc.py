@@ -8,6 +8,8 @@ BOSS = "boss"
 IED = "ied"
 ATT = "att"
 ANY = "any"
+STAT = "stat"
+ALLSTAT = "allstat"
 P = True
 N = False
 
@@ -16,6 +18,7 @@ prime_chance_black = [1, 0.2, 0.05]
 prime_chance_violet = [1, 0.1, 0.01, 0.01, 0.1, 0.01]
 prime_chance_equality = [1, 1, 1]
 prime_chance_bonus = [1, 0.004975, 0.004975]
+prime_chance_occult = [1] + [1.0/101]*2
 
 prime_lines_weapon = [
   (P, BOSS, 40, 20.5),
@@ -82,6 +85,25 @@ lines_emblem_b = [
   (N, ATT, 9, 21),
 ]
 
+prime_lines_top = [
+  (P, STAT, 12, 17),
+  (P, ALLSTAT, 9, 17),
+]
+
+lines_top = [
+  (N, STAT, 9, 13.2),
+  (N, ALLSTAT, 6, 16.5),
+]
+
+prime_lines_occult_accessory = [
+  (P, STAT, 6, 9),
+  (P, ALLSTAT, 3, 18),
+]
+
+lines_occult_accessory = [
+  (N, STAT, 3, 21),
+]
+
 def filter_impossible_lines(combos):
   for combo in combos:
     counts = {BOSS: 0, IED: 0}
@@ -94,7 +116,9 @@ def filter_impossible_lines(combos):
     else:
       yield combo
 
-def cube_calc(text, prime_lines, lines, print_combos, bpot=False):
+def cube_calc(
+  text, prime_lines, lines, print_combos, singular_cube=False, prime_chance_singular=[]
+):
   print(f" {text} ".center(80, "="))
   lines = lines + prime_lines
   def make_any_line(lines):
@@ -104,12 +128,12 @@ def cube_calc(text, prime_lines, lines, print_combos, bpot=False):
   # has 1-(sum of the chances of all lines we care about) chance
   p = make_any_line(prime_lines)
   n = make_any_line(lines)
-  if not bpot:
+  if not singular_cube:
     combos_red = list(filter_impossible_lines(product(p, n, n)))
     combos_violet = list(filter_impossible_lines(product(p, n, n, n, n, n)))
     combos_equality = list(filter_impossible_lines(product(p, p, p)))
   else:
-    combos_bpot = list(product(p, n, n))
+    combos_singular_cube = list(product(p, n, n))
 
   def combo_chance(want, prime_chance, combos):
     good=set()
@@ -118,6 +142,8 @@ def cube_calc(text, prime_lines, lines, print_combos, bpot=False):
       for (prime, typ, amount, onein) in combo:
         if typ not in amounts: amounts[typ] = 0
         amounts[typ] += amount
+      if ALLSTAT in amounts and STAT in amounts:
+        amounts[STAT] += amounts[ALLSTAT]
       for k in want.keys():
         if k not in amounts or amounts[k] < want[k]:
           break
@@ -135,8 +161,8 @@ def cube_calc(text, prime_lines, lines, print_combos, bpot=False):
     for (text, result) in rows:
       print(f"{text.rjust(max_len)} {result}")
 
-  if bpot:
-    tabulate([fmt_chance(text, want, prime_chance_bonus, combos_bpot)
+  if singular_cube:
+    tabulate([fmt_chance(text, want, prime_chance_singular, combos_singular_cube)
       for (text, want) in print_combos])
     return
   print("red")
@@ -155,6 +181,14 @@ def cube_calc(text, prime_lines, lines, print_combos, bpot=False):
   tabulate([fmt_chance(text, want, prime_chance_black, combos_red)
     for (text, want) in print_combos])
   print()
+
+
+def cube_calc_b(text, prime_lines, lines, print_combos):
+  return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_bonus)
+
+
+def cube_calc_o(text, prime_lines, lines, print_combos):
+  return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_occult)
 
 
 combos_ws = [
@@ -180,15 +214,39 @@ combos_e = [
 ]
 
 combos_wse_b = [
+  ("18+ att", [{ATT: 18}]),
   ("21+ att", [{ATT: 21}]),
   ("30+ att", [{ATT: 30}]),
   ("33+ att", [{ATT: 33}]),
+]
+
+combos_stat = [
+  ("18+ stat", [{STAT: 18}]),
+  ("21+ stat", [{STAT: 21}]),
+  ("30+ stat", [{STAT: 30}]),
+  ("33+ stat", [{STAT: 33}]),
+  ("12+ all stat", [{ALLSTAT: 12}]),
+  ("15+ all stat", [{ALLSTAT: 15}]),
+  ("21+ all stat", [{ALLSTAT: 21}]),
+]
+
+combos_occult_stat = [
+  ("6+ stat", [{STAT: 6}]),
+  ("9+ stat", [{STAT: 9}]),
+  ("12+ stat", [{STAT: 12}]),
+  ("3+ all stat", [{ALLSTAT: 3}]),
+  ("6+ all stat", [{ALLSTAT: 6}]),
 ]
 
 cube_calc("weapon", prime_lines_weapon, lines_weapon, combos_ws)
 cube_calc("secondary", prime_lines_secondary, lines_secondary, combos_ws)
 cube_calc("emblem", prime_lines_emblem, lines_emblem, combos_e)
 
-cube_calc("weapon bpot", prime_lines_weapon_b, lines_weapon_b, combos_wse_b, True)
-cube_calc("secondary bpot", prime_lines_secondary_b, lines_secondary_b, combos_wse_b, True)
-cube_calc("emblem bpot", prime_lines_emblem_b, lines_emblem_b, combos_wse_b, True)
+cube_calc_b("weapon bpot", prime_lines_weapon_b, lines_weapon_b, combos_wse_b)
+cube_calc_b("secondary bpot", prime_lines_secondary_b, lines_secondary_b, combos_wse_b)
+cube_calc_b("emblem bpot", prime_lines_emblem_b, lines_emblem_b, combos_wse_b)
+
+cube_calc("top/overall", prime_lines_top, lines_top, combos_stat)
+
+cube_calc_o("accessory (occult cubes)",
+  prime_lines_occult_accessory, lines_occult_accessory, combos_occult_stat)

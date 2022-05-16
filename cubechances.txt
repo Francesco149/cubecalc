@@ -138,14 +138,60 @@ black
 21+ att and ied 1 in 1041 cubes, 0.0960%
 
 ================================= weapon bpot ==================================
+18+ att 1 in 154 cubes, 0.6515%
 21+ att 1 in 224 cubes, 0.4462%
 30+ att 1 in 8916 cubes, 0.0112%
 33+ att 1 in 819398 cubes, 0.0001%
 ================================ secondary bpot ================================
+18+ att 1 in 158 cubes, 0.6313%
 21+ att 1 in 235 cubes, 0.4255%
 30+ att 1 in 9378 cubes, 0.0107%
 33+ att 1 in 905715 cubes, 0.0001%
 ================================= emblem bpot ==================================
+18+ att 1 in 146 cubes, 0.6827%
 21+ att 1 in 214 cubes, 0.4679%
 30+ att 1 in 8288 cubes, 0.0121%
 33+ att 1 in 759821 cubes, 0.0001%
+================================= top/overall ==================================
+red
+    18+ stat 1 in 36 cubes, 2.7910%
+    21+ stat 1 in 99 cubes, 1.0100%
+    30+ stat 1 in 2229 cubes, 0.0449%
+    33+ stat 1 in 33728 cubes, 0.0030%
+12+ all stat 1 in 97 cubes, 1.0264%
+15+ all stat 1 in 147 cubes, 0.6807%
+21+ all stat 1 in 4178 cubes, 0.0239%
+
+violet
+    18+ stat 1 in 14 cubes, 7.0205%
+    21+ stat 1 in 29 cubes, 3.4058%
+    30+ stat 1 in 196 cubes, 0.5107%
+    33+ stat 1 in 421 cubes, 0.2375%
+12+ all stat 1 in 30 cubes, 3.2841%
+15+ all stat 1 in 74 cubes, 1.3468%
+21+ all stat 1 in 593 cubes, 0.1686%
+
+equality
+    18+ stat 1 in 35 cubes, 2.8903%
+    21+ stat 1 in 35 cubes, 2.8903%
+    30+ stat 1 in 702 cubes, 0.1425%
+    33+ stat 1 in 1228 cubes, 0.0814%
+12+ all stat 1 in 100 cubes, 0.9974%
+15+ all stat 1 in 100 cubes, 0.9974%
+21+ all stat 1 in 4913 cubes, 0.0204%
+
+black
+    18+ stat 1 in 32 cubes, 3.0866%
+    21+ stat 1 in 83 cubes, 1.2065%
+    30+ stat 1 in 1664 cubes, 0.0601%
+    33+ stat 1 in 13573 cubes, 0.0074%
+12+ all stat 1 in 89 cubes, 1.1225%
+15+ all stat 1 in 129 cubes, 0.7768%
+21+ all stat 1 in 3696 cubes, 0.0271%
+
+=========================== accessory (occult cubes) ===========================
+    6+ stat 1 in 12 cubes, 8.5318%
+    9+ stat 1 in 109 cubes, 0.9192%
+   12+ stat 1 in 2133 cubes, 0.0469%
+3+ all stat 1 in 25 cubes, 3.9600%
+6+ all stat 1 in 19493 cubes, 0.0051%
