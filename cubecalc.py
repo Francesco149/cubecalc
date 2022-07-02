@@ -171,13 +171,13 @@ prime_lines_hat_meister = [
 
 lines_hat = [
   (N, STAT, 9, 11.2),
-  (N, STAT, 9, 9.3333),
+  (N, HP, 9, 9.3333),
   (N, ALLSTAT, 6, 14),
 ]
 
 lines_hat_meister = [
   (N, STAT, 9, 14.5),
-  (N, STAT, 9, 9.6666),
+  (N, HP, 9, 9.6666),
   (N, ALLSTAT, 6, 29),
 ]
 
