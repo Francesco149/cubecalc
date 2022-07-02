@@ -10,10 +10,13 @@ ATT = "att"
 ANY = "any"
 STAT = "stat"
 ALLSTAT = "allstat"
+HP = "hp"
+COOLDOWN = "cooldown"
 P = True
 N = False
 
 prime_chance_red = [1, 0.1, 0.01]
+prime_chance_meister = [1, 0.001996, 0.001996]
 prime_chance_black = [1, 0.2, 0.05]
 prime_chance_violet = [1, 0.1, 0.01, 0.01, 0.1, 0.01]
 prime_chance_equality = [1, 1, 1]
@@ -29,10 +32,25 @@ prime_lines_weapon = [
   (P, ATT,  12, 20.5),
 ]
 
+prime_lines_weapon_meister = [
+  (P, BOSS, 40, 36),
+  (P, BOSS, 35, 18),
+  (P, BOSS, 30, 18),
+  (P, IED,  40, 36),
+  (P, IED,  35, 18),
+  (P, ATT,  12, 18),
+]
+
 lines_weapon = [
   (N, BOSS, 30, 14.3333),
   (N, IED,  30, 14.3333),
   (N, ATT,   9, 14.3333),
+]
+
+lines_weapon_meister = [
+  (N, BOSS, 30, 15),
+  (N, IED,  30, 15),
+  (N, ATT,   9, 15),
 ]
 
 prime_lines_secondary = [
@@ -44,10 +62,25 @@ prime_lines_secondary = [
   (P, ATT,  12, 23.5),
 ]
 
+prime_lines_secondary_meister = [
+  (P, BOSS, 40, 24),
+  (P, BOSS, 35, 24),
+  (P, BOSS, 30, 48),
+  (P, IED,  40, 48),
+  (P, IED,  35, 24),
+  (P, ATT,  12, 24),
+]
+
 lines_secondary = [
   (N, BOSS, 30, 17.0),
   (N, IED,  30, 17.0),
   (N, ATT,   9, 17.0),
+]
+
+lines_secondary_meister = [
+  (N, BOSS, 30, 21),
+  (N, IED,  30, 21),
+  (N, ATT,   9, 21),
 ]
 
 prime_lines_emblem = [
@@ -56,9 +89,20 @@ prime_lines_emblem = [
   (P, ATT,  12, 17.5),
 ]
 
+prime_lines_emblem_meister = [
+  (P, IED,  40, 15.5),
+  (P, IED,  35, 31),
+  (P, ATT,  12, 15.5),
+]
+
 lines_emblem = [
   (N, IED,  30, 13.3333),
   (N, ATT,   9, 13.3333),
+]
+
+lines_emblem_meister = [
+  (N, IED,  30, 14),
+  (N, ATT,   9, 14),
 ]
 
 prime_lines_weapon_b = [
@@ -86,22 +130,66 @@ lines_emblem_b = [
 ]
 
 prime_lines_top = [
+  (P, STAT, 12, 10.75),
+  (P, ALLSTAT, 9, 10.75),
+  (P, HP, 12, 10.75),
+]
+
+prime_lines_top_meister = [
   (P, STAT, 12, 17),
   (P, ALLSTAT, 9, 17),
+  (P, HP, 12, 11.3333),
 ]
 
 lines_top = [
   (N, STAT, 9, 13.2),
+  (N, HP, 9, 11),
   (N, ALLSTAT, 6, 16.5),
+]
+
+lines_top_meister = [
+  (N, STAT, 9, 16.5),
+  (N, HP, 9, 11),
+  (N, ALLSTAT, 6, 33),
+]
+
+prime_lines_hat = [
+  (P, STAT, 12, 11.25),
+  (P, HP, 12, 11.25),
+  (P, ALLSTAT, 9, 15),
+  (P, COOLDOWN, 1, 15),
+  (P, COOLDOWN, 2, 22.5),
+]
+
+prime_lines_hat_meister = [
+  (P, STAT, 12, 18),
+  (P, HP, 12, 12),
+  (P, ALLSTAT, 9, 18),
+  (P, COOLDOWN, 1, 12),
+  (P, COOLDOWN, 2, 18),
+]
+
+lines_hat = [
+  (P, STAT, 9, 11.2),
+  (P, STAT, 9, 9.3333),
+  (P, ALLSTAT, 6, 14),
+]
+
+lines_hat_meister = [
+  (P, STAT, 9, 14.5),
+  (P, STAT, 9, 9.6666),
+  (P, ALLSTAT, 6, 29),
 ]
 
 prime_lines_occult_accessory = [
   (P, STAT, 6, 9),
+  (P, HP, 6, 6),
   (P, ALLSTAT, 3, 18),
 ]
 
 lines_occult_accessory = [
   (N, STAT, 3, 21),
+  (N, HP, 3, 14),
 ]
 
 def filter_impossible_lines(combos):
@@ -187,6 +275,10 @@ def cube_calc_b(text, prime_lines, lines, print_combos):
   return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_bonus)
 
 
+def cube_calc_m(text, prime_lines, lines, print_combos):
+  return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_meister)
+
+
 def cube_calc_o(text, prime_lines, lines, print_combos):
   return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_occult)
 
@@ -225,9 +317,27 @@ combos_stat = [
   ("21+ stat", [{STAT: 21}]),
   ("30+ stat", [{STAT: 30}]),
   ("33+ stat", [{STAT: 33}]),
+  ("18+ hp", [{HP: 18}]),
+  ("21+ hp", [{HP: 21}]),
+  ("30+ hp", [{HP: 30}]),
+  ("33+ hp", [{HP: 33}]),
   ("12+ all stat", [{ALLSTAT: 12}]),
   ("15+ all stat", [{ALLSTAT: 15}]),
   ("21+ all stat", [{ALLSTAT: 21}]),
+]
+
+combos_hat = combos_stat + [
+  ("2+s cooldown", [{COOLDOWN: 2}]),
+  ("2+s cooldown and any stat", [{COOLDOWN: 2, STAT: 1}]),
+  ("2+s cooldown and 9+ stat", [{COOLDOWN: 2, STAT: 9}]),
+  ("2+s cooldown and 12+ stat", [{COOLDOWN: 2, STAT: 12}]),
+  ("2+s cooldown and 18+ stat", [{COOLDOWN: 2, STAT: 18}]),
+  ("3+s cooldown", [{COOLDOWN: 3}]),
+  ("3+s cooldown and any stat", [{COOLDOWN: 3, STAT: 1}]),
+  ("4+s cooldown", [{COOLDOWN: 4}]),
+  ("4+s cooldown and any stat", [{COOLDOWN: 4, STAT: 1}]),
+  ("5+s cooldown", [{COOLDOWN: 5}]),
+  ("6+s cooldown", [{COOLDOWN: 6}]),
 ]
 
 combos_occult_stat = [
@@ -236,17 +346,26 @@ combos_occult_stat = [
   ("12+ stat", [{STAT: 12}]),
   ("3+ all stat", [{ALLSTAT: 3}]),
   ("6+ all stat", [{ALLSTAT: 6}]),
+  ("6+ hp", [{HP: 6}]),
+  ("9+ hp", [{HP: 9}]),
+  ("12+ hp", [{HP: 12}]),
 ]
 
 cube_calc("weapon", prime_lines_weapon, lines_weapon, combos_ws)
+cube_calc_m("weapon (meisters)", prime_lines_weapon_meister, lines_weapon_meister, combos_ws)
 cube_calc("secondary", prime_lines_secondary, lines_secondary, combos_ws)
+cube_calc_m("secondary (meisters)", prime_lines_secondary_meister, lines_secondary_meister, combos_ws)
 cube_calc("emblem", prime_lines_emblem, lines_emblem, combos_e)
+cube_calc_m("emblem (meisters)", prime_lines_emblem_meister, lines_emblem_meister, combos_e)
 
 cube_calc_b("weapon bpot", prime_lines_weapon_b, lines_weapon_b, combos_wse_b)
 cube_calc_b("secondary bpot", prime_lines_secondary_b, lines_secondary_b, combos_wse_b)
 cube_calc_b("emblem bpot", prime_lines_emblem_b, lines_emblem_b, combos_wse_b)
 
 cube_calc("top/overall", prime_lines_top, lines_top, combos_stat)
+cube_calc_m("top/overall (meisters)", prime_lines_top_meister, lines_top_meister, combos_stat)
+
+cube_calc("hat", prime_lines_hat, lines_hat, combos_hat)
 
 cube_calc_o("accessory (occult cubes)",
   prime_lines_occult_accessory, lines_occult_accessory, combos_occult_stat)
