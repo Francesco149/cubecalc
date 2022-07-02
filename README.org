@@ -8,3 +8,8 @@ for violet and equality cubes, I assume that the rates for lines are the same as
 
 * is it accurate?
 I don't really know. the math makes sense in my head, but I don't consider myself an expert on statistics and there's probabily more efficient ways to do the same thing. if you think I'm wrong, let me know and explain why. I would like to have an accurate estimate
+
+* how to run it
+- have python installed
+- run ~cubecalc.py~ . if you are on linux, you can do ~./run.sh~ and it will also update the text
+- if you are on nix/nixos, you can do ~nix develop~ and then ~./run.sh~
