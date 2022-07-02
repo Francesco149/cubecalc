@@ -170,15 +170,15 @@ prime_lines_hat_meister = [
 ]
 
 lines_hat = [
-  (P, STAT, 9, 11.2),
-  (P, STAT, 9, 9.3333),
-  (P, ALLSTAT, 6, 14),
+  (N, STAT, 9, 11.2),
+  (N, STAT, 9, 9.3333),
+  (N, ALLSTAT, 6, 14),
 ]
 
 lines_hat_meister = [
-  (P, STAT, 9, 14.5),
-  (P, STAT, 9, 9.6666),
-  (P, ALLSTAT, 6, 29),
+  (N, STAT, 9, 14.5),
+  (N, STAT, 9, 9.6666),
+  (N, ALLSTAT, 6, 29),
 ]
 
 prime_lines_occult_accessory = [
