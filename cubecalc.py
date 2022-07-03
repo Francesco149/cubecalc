@@ -289,6 +289,7 @@ def cube_calc_o(text, prime_lines, lines, print_combos):
 
 
 combos_ws = [
+  ("18+ att", [{ATT: 18}]),
   ("21+ att", [{ATT: 21}]),
   ("30+ att", [{ATT: 30}]),
   ("33+ att", [{ATT: 33}]),
@@ -304,6 +305,7 @@ combos_ws = [
 ]
 
 combos_e = [
+  ("18+ att", [{ATT: 18}]),
   ("21+ att", [{ATT: 21}]),
   ("30+ att", [{ATT: 30}]),
   ("33+ att", [{ATT: 33}]),

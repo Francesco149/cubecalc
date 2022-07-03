@@ -1,5 +1,6 @@
 ==================================== weapon ====================================
 red
+                               18+ att 1 in 113 cubes, 0.8828%
                                21+ att 1 in 213 cubes, 0.4703%
                                30+ att 1 in 4355 cubes, 0.0230%
                                33+ att 1 in 55415 cubes, 0.0018%
@@ -14,6 +15,7 @@ red
 21+ att and boss or 18+att and 30+boss 1 in 577 cubes, 0.1734%
 
 violet
+                               18+ att 1 in 67 cubes, 1.4856%
                                21+ att 1 in 200 cubes, 0.4996%
                                30+ att 1 in 1260 cubes, 0.0793%
                                33+ att 1 in 5854 cubes, 0.0171%
@@ -28,6 +30,7 @@ violet
 21+ att and boss or 18+att and 30+boss 1 in 128 cubes, 0.7832%
 
 equality
+                               18+ att 1 in 145 cubes, 0.6906%
                                21+ att 1 in 145 cubes, 0.6906%
                                30+ att 1 in 8615 cubes, 0.0116%
                                33+ att 1 in 8615 cubes, 0.0116%
@@ -42,6 +45,7 @@ equality
 21+ att and boss or 18+att and 30+boss 1 in 479 cubes, 0.2089%
 
 black
+                               18+ att 1 in 120 cubes, 0.8355%
                                21+ att 1 in 207 cubes, 0.4837%
                                30+ att 1 in 4550 cubes, 0.0220%
                                33+ att 1 in 25417 cubes, 0.0039%
@@ -56,6 +60,7 @@ black
 21+ att and boss or 18+att and 30+boss 1 in 550 cubes, 0.1819%
 
 ============================== weapon (meisters) ===============================
+                               18+ att 1 in 108 cubes, 0.9289%
                                21+ att 1 in 196 cubes, 0.5109%
                                30+ att 1 in 4053 cubes, 0.0247%
                                33+ att 1 in 1218854 cubes, 0.0001%
@@ -70,6 +75,7 @@ black
 21+ att and boss or 18+att and 30+boss 1 in 622 cubes, 0.1608%
 ================================== secondary ===================================
 red
+                               18+ att 1 in 151 cubes, 0.6607%
                                21+ att 1 in 274 cubes, 0.3655%
                                30+ att 1 in 7004 cubes, 0.0143%
                                33+ att 1 in 86350 cubes, 0.0012%
@@ -84,6 +90,7 @@ red
 21+ att and boss or 18+att and 30+boss 1 in 925 cubes, 0.1081%
 
 violet
+                               18+ att 1 in 76 cubes, 1.3085%
                                21+ att 1 in 230 cubes, 0.4344%
                                30+ att 1 in 1733 cubes, 0.0577%
                                33+ att 1 in 9436 cubes, 0.0106%
@@ -98,6 +105,7 @@ violet
 21+ att and boss or 18+att and 30+boss 1 in 173 cubes, 0.5790%
 
 equality
+                               18+ att 1 in 189 cubes, 0.5278%
                                21+ att 1 in 189 cubes, 0.5278%
                                30+ att 1 in 12978 cubes, 0.0077%
                                33+ att 1 in 12978 cubes, 0.0077%
@@ -112,6 +120,7 @@ equality
 21+ att and boss or 18+att and 30+boss 1 in 721 cubes, 0.1387%
 
 black
+                               18+ att 1 in 160 cubes, 0.6249%
                                21+ att 1 in 268 cubes, 0.3731%
                                30+ att 1 in 7290 cubes, 0.0137%
                                33+ att 1 in 39574 cubes, 0.0025%
@@ -126,6 +135,7 @@ black
 21+ att and boss or 18+att and 30+boss 1 in 877 cubes, 0.1140%
 
 ============================= secondary (meisters) =============================
+                               18+ att 1 in 192 cubes, 0.5214%
                                21+ att 1 in 328 cubes, 0.3049%
                                30+ att 1 in 10589 cubes, 0.0094%
                                33+ att 1 in 3033466 cubes, 0.0000%
@@ -140,30 +150,35 @@ black
 21+ att and boss or 18+att and 30+boss 1 in 1624 cubes, 0.0616%
 ==================================== emblem ====================================
 red
+        18+ att 1 in 87 cubes, 1.1553%
         21+ att 1 in 146 cubes, 0.6827%
         30+ att 1 in 3195 cubes, 0.0313%
         33+ att 1 in 37544 cubes, 0.0027%
 21+ att and ied 1 in 1416 cubes, 0.0706%
 
 violet
+        18+ att 1 in 35 cubes, 2.8796%
         21+ att 1 in 94 cubes, 1.0635%
         30+ att 1 in 611 cubes, 0.1638%
         33+ att 1 in 3069 cubes, 0.0326%
 21+ att and ied 1 in 279 cubes, 0.3581%
 
 equality
+        18+ att 1 in 106 cubes, 0.9423%
         21+ att 1 in 106 cubes, 0.9423%
         30+ att 1 in 5359 cubes, 0.0187%
         33+ att 1 in 5359 cubes, 0.0187%
 21+ att and ied 1 in 893 cubes, 0.1120%
 
 black
+        18+ att 1 in 92 cubes, 1.0888%
         21+ att 1 in 146 cubes, 0.6858%
         30+ att 1 in 3306 cubes, 0.0302%
         33+ att 1 in 17184 cubes, 0.0058%
 21+ att and ied 1 in 1280 cubes, 0.0781%
 
 ============================== emblem (meisters) ===============================
+        18+ att 1 in 82 cubes, 1.2158%
         21+ att 1 in 135 cubes, 0.7404%
         30+ att 1 in 3039 cubes, 0.0329%
         33+ att 1 in 843483 cubes, 0.0001%
