@@ -209,13 +209,13 @@ def cube_calc(
 ):
   print(f" {text} ".center(80, "="))
   lines = lines + prime_lines
-  def make_any_line(lines):
-    return lines + [(N, ANY, 0, 1.0/(1.0 - sum((1.0/onein for (_, _, _, onein) in lines))))]
+  def make_any_line(prime, lines):
+    return lines + [(prime, ANY, 0, 1.0/(1.0 - sum((1.0/onein for (_, _, _, onein) in lines))))]
 
   # to represent all the lines we don't care about I generate an ANY line that
   # has 1-(sum of the chances of all lines we care about) chance
-  p = make_any_line(prime_lines)
-  n = make_any_line(lines)
+  p = make_any_line(P, prime_lines)
+  n = make_any_line(N, lines)
   if not singular_cube:
     combos_red = list(filter_impossible_lines(product(p, n, n)))
     combos_violet = list(filter_impossible_lines(product(p, n, n, n, n, n)))
@@ -237,7 +237,12 @@ def cube_calc(
           break
       else:
         good.add(combo)
-    return sum([reduce(mul, [1.0/onein * (prime_chance[i] if prime else 1)
+
+    # for any lines that can be both prime and non-prime, we need to adjust the probability of prime lines
+    # by their prime chance, and the probability of non-prime lines by the inverse of the prime chance.
+    # this way, the sum of all proababilities of prime and non-prime lines will add up to 1
+
+    return sum([reduce(mul, [(1.0/onein) * (prime_chance[i] if prime else (1 - prime_chance[i]))
       for i, (prime, typ, amount, onein) in enumerate(combo)]) for combo in good])
 
   def fmt_chance(text, wants, prime_chance, combos):

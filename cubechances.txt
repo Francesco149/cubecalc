@@ -1,31 +1,31 @@
 ==================================== weapon ====================================
 red
-                               21+ att 1 in 192 cubes, 0.5213%
-                               30+ att 1 in 3909 cubes, 0.0256%
-                               33+ att 1 in 54414 cubes, 0.0018%
-                      21+ att and boss 1 in 1656 cubes, 0.0604%
-                       21+ att and ied 1 in 1764 cubes, 0.0567%
-                   18+ att and 30+boss 1 in 760 cubes, 0.1316%
-                    18+ att and 30+ied 1 in 960 cubes, 0.1042%
-                                60+ied 1 in 69 cubes, 1.4573%
-                                70+ied 1 in 184 cubes, 0.5430%
-                        60+ied and att 1 in 749 cubes, 0.1335%
-                       60+ied and boss 1 in 511 cubes, 0.1958%
-21+ att and boss or 18+att and 30+boss 1 in 521 cubes, 0.1920%
+                               21+ att 1 in 213 cubes, 0.4703%
+                               30+ att 1 in 4355 cubes, 0.0230%
+                               33+ att 1 in 55415 cubes, 0.0018%
+                      21+ att and boss 1 in 1819 cubes, 0.0550%
+                       21+ att and ied 1 in 1948 cubes, 0.0513%
+                   18+ att and 30+boss 1 in 844 cubes, 0.1184%
+                    18+ att and 30+ied 1 in 1068 cubes, 0.0937%
+                                60+ied 1 in 76 cubes, 1.3121%
+                                70+ied 1 in 203 cubes, 0.4938%
+                        60+ied and att 1 in 832 cubes, 0.1203%
+                       60+ied and boss 1 in 564 cubes, 0.1772%
+21+ att and boss or 18+att and 30+boss 1 in 577 cubes, 0.1734%
 
 violet
-                               21+ att 1 in 161 cubes, 0.6218%
-                               30+ att 1 in 1014 cubes, 0.0986%
-                               33+ att 1 in 4754 cubes, 0.0210%
-                      21+ att and boss 1 in 435 cubes, 0.2297%
-                       21+ att and ied 1 in 463 cubes, 0.2160%
-                   18+ att and 30+boss 1 in 133 cubes, 0.7494%
-                    18+ att and 30+ied 1 in 146 cubes, 0.6847%
-                                60+ied 1 in 51 cubes, 1.9601%
-                                70+ied 1 in 243 cubes, 0.4117%
-                        60+ied and att 1 in 145 cubes, 0.6873%
-                       60+ied and boss 1 in 124 cubes, 0.8065%
-21+ att and boss or 18+att and 30+boss 1 in 102 cubes, 0.9791%
+                               21+ att 1 in 200 cubes, 0.4996%
+                               30+ att 1 in 1260 cubes, 0.0793%
+                               33+ att 1 in 5854 cubes, 0.0171%
+                      21+ att and boss 1 in 539 cubes, 0.1856%
+                       21+ att and ied 1 in 574 cubes, 0.1742%
+                   18+ att and 30+boss 1 in 167 cubes, 0.5976%
+                    18+ att and 30+ied 1 in 183 cubes, 0.5454%
+                                60+ied 1 in 64 cubes, 1.5620%
+                                70+ied 1 in 299 cubes, 0.3343%
+                        60+ied and att 1 in 182 cubes, 0.5484%
+                       60+ied and boss 1 in 155 cubes, 0.6454%
+21+ att and boss or 18+att and 30+boss 1 in 128 cubes, 0.7832%
 
 equality
                                21+ att 1 in 145 cubes, 0.6906%
@@ -42,60 +42,60 @@ equality
 21+ att and boss or 18+att and 30+boss 1 in 479 cubes, 0.2089%
 
 black
-                               21+ att 1 in 165 cubes, 0.6050%
-                               30+ att 1 in 3570 cubes, 0.0280%
-                               33+ att 1 in 23439 cubes, 0.0043%
-                      21+ att and boss 1 in 1289 cubes, 0.0776%
-                       21+ att and ied 1 in 1451 cubes, 0.0689%
-                   18+ att and 30+boss 1 in 672 cubes, 0.1488%
-                    18+ att and 30+ied 1 in 859 cubes, 0.1164%
-                                60+ied 1 in 60 cubes, 1.6579%
-                                70+ied 1 in 145 cubes, 0.6913%
-                        60+ied and att 1 in 652 cubes, 0.1533%
-                       60+ied and boss 1 in 422 cubes, 0.2368%
-21+ att and boss or 18+att and 30+boss 1 in 442 cubes, 0.2264%
+                               21+ att 1 in 207 cubes, 0.4837%
+                               30+ att 1 in 4550 cubes, 0.0220%
+                               33+ att 1 in 25417 cubes, 0.0039%
+                      21+ att and boss 1 in 1566 cubes, 0.0639%
+                       21+ att and ied 1 in 1790 cubes, 0.0559%
+                   18+ att and 30+boss 1 in 847 cubes, 0.1180%
+                    18+ att and 30+ied 1 in 1087 cubes, 0.0920%
+                                60+ied 1 in 76 cubes, 1.3172%
+                                70+ied 1 in 176 cubes, 0.5676%
+                        60+ied and att 1 in 819 cubes, 0.1222%
+                       60+ied and boss 1 in 522 cubes, 0.1916%
+21+ att and boss or 18+att and 30+boss 1 in 550 cubes, 0.1819%
 
 ============================== weapon (meisters) ===============================
-                               21+ att 1 in 195 cubes, 0.5129%
-                               30+ att 1 in 4037 cubes, 0.0248%
-                               33+ att 1 in 1216423 cubes, 0.0001%
-                      21+ att and boss 1 in 2005 cubes, 0.0499%
-                       21+ att and ied 1 in 2012 cubes, 0.0497%
-                   18+ att and 30+boss 1 in 896 cubes, 0.1116%
-                    18+ att and 30+ied 1 in 1153 cubes, 0.0867%
-                                60+ied 1 in 85 cubes, 1.1773%
-                                70+ied 1 in 354 cubes, 0.2827%
-                        60+ied and att 1 in 1008 cubes, 0.0992%
-                       60+ied and boss 1 in 732 cubes, 0.1366%
-21+ att and boss or 18+att and 30+boss 1 in 619 cubes, 0.1615%
+                               21+ att 1 in 196 cubes, 0.5109%
+                               30+ att 1 in 4053 cubes, 0.0247%
+                               33+ att 1 in 1218854 cubes, 0.0001%
+                      21+ att and boss 1 in 2013 cubes, 0.0497%
+                       21+ att and ied 1 in 2020 cubes, 0.0495%
+                   18+ att and 30+boss 1 in 900 cubes, 0.1112%
+                    18+ att and 30+ied 1 in 1157 cubes, 0.0864%
+                                60+ied 1 in 85 cubes, 1.1726%
+                                70+ied 1 in 355 cubes, 0.2815%
+                        60+ied and att 1 in 1012 cubes, 0.0988%
+                       60+ied and boss 1 in 735 cubes, 0.1361%
+21+ att and boss or 18+att and 30+boss 1 in 622 cubes, 0.1608%
 ================================== secondary ===================================
 red
-                               21+ att 1 in 247 cubes, 0.4054%
-                               30+ att 1 in 6288 cubes, 0.0159%
-                               33+ att 1 in 84790 cubes, 0.0012%
-                      21+ att and boss 1 in 2651 cubes, 0.0377%
-                       21+ att and ied 1 in 2829 cubes, 0.0354%
-                   18+ att and 30+boss 1 in 1221 cubes, 0.0819%
-                    18+ att and 30+ied 1 in 1543 cubes, 0.0648%
-                                60+ied 1 in 89 cubes, 1.1186%
-                                70+ied 1 in 233 cubes, 0.4288%
-                        60+ied and att 1 in 1204 cubes, 0.0831%
-                       60+ied and boss 1 in 819 cubes, 0.1221%
-21+ att and boss or 18+att and 30+boss 1 in 836 cubes, 0.1196%
+                               21+ att 1 in 274 cubes, 0.3655%
+                               30+ att 1 in 7004 cubes, 0.0143%
+                               33+ att 1 in 86350 cubes, 0.0012%
+                      21+ att and boss 1 in 2910 cubes, 0.0344%
+                       21+ att and ied 1 in 3121 cubes, 0.0320%
+                   18+ att and 30+boss 1 in 1357 cubes, 0.0737%
+                    18+ att and 30+ied 1 in 1716 cubes, 0.0583%
+                                60+ied 1 in 99 cubes, 1.0072%
+                                70+ied 1 in 257 cubes, 0.3898%
+                        60+ied and att 1 in 1335 cubes, 0.0749%
+                       60+ied and boss 1 in 905 cubes, 0.1105%
+21+ att and boss or 18+att and 30+boss 1 in 925 cubes, 0.1081%
 
 violet
-                               21+ att 1 in 185 cubes, 0.5408%
-                               30+ att 1 in 1393 cubes, 0.0718%
-                               33+ att 1 in 7704 cubes, 0.0130%
-                      21+ att and boss 1 in 598 cubes, 0.1673%
-                       21+ att and ied 1 in 636 cubes, 0.1573%
-                   18+ att and 30+boss 1 in 180 cubes, 0.5566%
-                    18+ att and 30+ied 1 in 199 cubes, 0.5038%
-                                60+ied 1 in 55 cubes, 1.8107%
-                                70+ied 1 in 250 cubes, 0.4000%
-                        60+ied and att 1 in 192 cubes, 0.5197%
-                       60+ied and boss 1 in 161 cubes, 0.6227%
-21+ att and boss or 18+att and 30+boss 1 in 138 cubes, 0.7239%
+                               21+ att 1 in 230 cubes, 0.4344%
+                               30+ att 1 in 1733 cubes, 0.0577%
+                               33+ att 1 in 9436 cubes, 0.0106%
+                      21+ att and boss 1 in 739 cubes, 0.1353%
+                       21+ att and ied 1 in 788 cubes, 0.1269%
+                   18+ att and 30+boss 1 in 225 cubes, 0.4437%
+                    18+ att and 30+ied 1 in 249 cubes, 0.4011%
+                                60+ied 1 in 69 cubes, 1.4422%
+                                70+ied 1 in 308 cubes, 0.3244%
+                        60+ied and att 1 in 241 cubes, 0.4146%
+                       60+ied and boss 1 in 201 cubes, 0.4983%
+21+ att and boss or 18+att and 30+boss 1 in 173 cubes, 0.5790%
 
 equality
                                21+ att 1 in 189 cubes, 0.5278%
@@ -112,44 +112,44 @@ equality
 21+ att and boss or 18+att and 30+boss 1 in 721 cubes, 0.1387%
 
 black
-                               21+ att 1 in 214 cubes, 0.4676%
-                               30+ att 1 in 5726 cubes, 0.0175%
-                               33+ att 1 in 36497 cubes, 0.0027%
-                      21+ att and boss 1 in 2050 cubes, 0.0488%
-                       21+ att and ied 1 in 2313 cubes, 0.0432%
-                   18+ att and 30+boss 1 in 1076 cubes, 0.0930%
-                    18+ att and 30+ied 1 in 1376 cubes, 0.0727%
-                                60+ied 1 in 79 cubes, 1.2724%
-                                70+ied 1 in 184 cubes, 0.5445%
-                        60+ied and att 1 in 1043 cubes, 0.0958%
-                       60+ied and boss 1 in 674 cubes, 0.1485%
-21+ att and boss or 18+att and 30+boss 1 in 706 cubes, 0.1417%
+                               21+ att 1 in 268 cubes, 0.3731%
+                               30+ att 1 in 7290 cubes, 0.0137%
+                               33+ att 1 in 39574 cubes, 0.0025%
+                      21+ att and boss 1 in 2486 cubes, 0.0402%
+                       21+ att and ied 1 in 2850 cubes, 0.0351%
+                   18+ att and 30+boss 1 in 1355 cubes, 0.0738%
+                    18+ att and 30+ied 1 in 1740 cubes, 0.0575%
+                                60+ied 1 in 99 cubes, 1.0108%
+                                70+ied 1 in 224 cubes, 0.4468%
+                        60+ied and att 1 in 1308 cubes, 0.0765%
+                       60+ied and boss 1 in 831 cubes, 0.1203%
+21+ att and boss or 18+att and 30+boss 1 in 877 cubes, 0.1140%
 
 ============================= secondary (meisters) =============================
-                               21+ att 1 in 327 cubes, 0.3061%
-                               30+ att 1 in 10547 cubes, 0.0095%
-                               33+ att 1 in 3027416 cubes, 0.0000%
-                      21+ att and boss 1 in 5237 cubes, 0.0191%
-                       21+ att and ied 1 in 5255 cubes, 0.0190%
-                   18+ att and 30+boss 1 in 2341 cubes, 0.0427%
-                    18+ att and 30+ied 1 in 3012 cubes, 0.0332%
-                                60+ied 1 in 149 cubes, 0.6722%
-                                70+ied 1 in 612 cubes, 0.1635%
-                        60+ied and att 1 in 2634 cubes, 0.0380%
-                       60+ied and boss 1 in 1913 cubes, 0.0523%
-21+ att and boss or 18+att and 30+boss 1 in 1618 cubes, 0.0618%
+                               21+ att 1 in 328 cubes, 0.3049%
+                               30+ att 1 in 10589 cubes, 0.0094%
+                               33+ att 1 in 3033466 cubes, 0.0000%
+                      21+ att and boss 1 in 5258 cubes, 0.0190%
+                       21+ att and ied 1 in 5276 cubes, 0.0190%
+                   18+ att and 30+boss 1 in 2350 cubes, 0.0425%
+                    18+ att and 30+ied 1 in 3024 cubes, 0.0331%
+                                60+ied 1 in 149 cubes, 0.6695%
+                                70+ied 1 in 614 cubes, 0.1628%
+                        60+ied and att 1 in 2644 cubes, 0.0378%
+                       60+ied and boss 1 in 1920 cubes, 0.0521%
+21+ att and boss or 18+att and 30+boss 1 in 1624 cubes, 0.0616%
 ==================================== emblem ====================================
 red
-        21+ att 1 in 132 cubes, 0.7581%
-        30+ att 1 in 2869 cubes, 0.0349%
-        33+ att 1 in 36866 cubes, 0.0027%
-21+ att and ied 1 in 1284 cubes, 0.0779%
+        21+ att 1 in 146 cubes, 0.6827%
+        30+ att 1 in 3195 cubes, 0.0313%
+        33+ att 1 in 37544 cubes, 0.0027%
+21+ att and ied 1 in 1416 cubes, 0.0706%
 
 violet
-        21+ att 1 in 75 cubes, 1.3280%
-        30+ att 1 in 490 cubes, 0.2042%
-        33+ att 1 in 2501 cubes, 0.0400%
-21+ att and ied 1 in 225 cubes, 0.4450%
+        21+ att 1 in 94 cubes, 1.0635%
+        30+ att 1 in 611 cubes, 0.1638%
+        33+ att 1 in 3069 cubes, 0.0326%
+21+ att and ied 1 in 279 cubes, 0.3581%
 
 equality
         21+ att 1 in 106 cubes, 0.9423%
@@ -158,57 +158,57 @@ equality
 21+ att and ied 1 in 893 cubes, 0.1120%
 
 black
-        21+ att 1 in 116 cubes, 0.8630%
-        30+ att 1 in 2601 cubes, 0.0385%
-        33+ att 1 in 15850 cubes, 0.0063%
-21+ att and ied 1 in 1041 cubes, 0.0960%
+        21+ att 1 in 146 cubes, 0.6858%
+        30+ att 1 in 3306 cubes, 0.0302%
+        33+ att 1 in 17184 cubes, 0.0058%
+21+ att and ied 1 in 1280 cubes, 0.0781%
 
 ============================== emblem (meisters) ===============================
-        21+ att 1 in 135 cubes, 0.7434%
-        30+ att 1 in 3027 cubes, 0.0330%
-        33+ att 1 in 841801 cubes, 0.0001%
-21+ att and ied 1 in 1508 cubes, 0.0663%
+        21+ att 1 in 135 cubes, 0.7404%
+        30+ att 1 in 3039 cubes, 0.0329%
+        33+ att 1 in 843483 cubes, 0.0001%
+21+ att and ied 1 in 1514 cubes, 0.0660%
 ================================= weapon bpot ==================================
-18+ att 1 in 154 cubes, 0.6515%
-21+ att 1 in 224 cubes, 0.4462%
-30+ att 1 in 8916 cubes, 0.0112%
-33+ att 1 in 819398 cubes, 0.0001%
+18+ att 1 in 155 cubes, 0.6450%
+21+ att 1 in 226 cubes, 0.4418%
+30+ att 1 in 9005 cubes, 0.0111%
+33+ att 1 in 823484 cubes, 0.0001%
 ================================ secondary bpot ================================
-18+ att 1 in 158 cubes, 0.6313%
-21+ att 1 in 235 cubes, 0.4255%
-30+ att 1 in 9378 cubes, 0.0107%
-33+ att 1 in 905715 cubes, 0.0001%
+18+ att 1 in 160 cubes, 0.6250%
+21+ att 1 in 237 cubes, 0.4213%
+30+ att 1 in 9472 cubes, 0.0106%
+33+ att 1 in 910232 cubes, 0.0001%
 ================================= emblem bpot ==================================
-18+ att 1 in 146 cubes, 0.6827%
-21+ att 1 in 214 cubes, 0.4679%
-30+ att 1 in 8288 cubes, 0.0121%
-33+ att 1 in 759821 cubes, 0.0001%
+18+ att 1 in 148 cubes, 0.6760%
+21+ att 1 in 216 cubes, 0.4633%
+30+ att 1 in 8370 cubes, 0.0119%
+33+ att 1 in 763609 cubes, 0.0001%
 ================================= top/overall ==================================
 red
-    18+ stat 1 in 29 cubes, 3.4990%
-    21+ stat 1 in 70 cubes, 1.4222%
-    30+ stat 1 in 1229 cubes, 0.0814%
-    33+ stat 1 in 13275 cubes, 0.0075%
-      18+ hp 1 in 48 cubes, 2.0635%
-      21+ hp 1 in 76 cubes, 1.3139%
-      30+ hp 1 in 1168 cubes, 0.0856%
-      33+ hp 1 in 11450 cubes, 0.0087%
-12+ all stat 1 in 80 cubes, 1.2495%
-15+ all stat 1 in 109 cubes, 0.9163%
-21+ all stat 1 in 2499 cubes, 0.0400%
+    18+ stat 1 in 32 cubes, 3.1552%
+    21+ stat 1 in 77 cubes, 1.2933%
+    30+ stat 1 in 1333 cubes, 0.0750%
+    33+ stat 1 in 13510 cubes, 0.0074%
+      18+ hp 1 in 54 cubes, 1.8542%
+      21+ hp 1 in 84 cubes, 1.1863%
+      30+ hp 1 in 1297 cubes, 0.0771%
+      33+ hp 1 in 11660 cubes, 0.0086%
+12+ all stat 1 in 89 cubes, 1.1258%
+15+ all stat 1 in 121 cubes, 0.8290%
+21+ all stat 1 in 2763 cubes, 0.0362%
 
 violet
-    18+ stat 1 in 23 cubes, 4.3325%
-    21+ stat 1 in 41 cubes, 2.4233%
-    30+ stat 1 in 207 cubes, 0.4832%
-    33+ stat 1 in 405 cubes, 0.2470%
-      18+ hp 1 in 29 cubes, 3.4696%
-      21+ hp 1 in 66 cubes, 1.5179%
-      30+ hp 1 in 313 cubes, 0.3191%
-      33+ hp 1 in 1251 cubes, 0.0800%
-12+ all stat 1 in 50 cubes, 1.9883%
-15+ all stat 1 in 101 cubes, 0.9914%
-21+ all stat 1 in 648 cubes, 0.1543%
+    18+ stat 1 in 29 cubes, 3.4629%
+    21+ stat 1 in 51 cubes, 1.9440%
+    30+ stat 1 in 256 cubes, 0.3910%
+    33+ stat 1 in 500 cubes, 0.2000%
+      18+ hp 1 in 36 cubes, 2.7600%
+      21+ hp 1 in 82 cubes, 1.2201%
+      30+ hp 1 in 389 cubes, 0.2570%
+      33+ hp 1 in 1530 cubes, 0.0654%
+12+ all stat 1 in 63 cubes, 1.5861%
+15+ all stat 1 in 125 cubes, 0.7998%
+21+ all stat 1 in 802 cubes, 0.1247%
 
 equality
     18+ stat 1 in 14 cubes, 6.9025%
@@ -224,78 +224,78 @@ equality
 21+ all stat 1 in 1242 cubes, 0.0805%
 
 black
-    18+ stat 1 in 25 cubes, 4.0492%
-    21+ stat 1 in 55 cubes, 1.8114%
-    30+ stat 1 in 824 cubes, 0.1213%
-    33+ stat 1 in 5100 cubes, 0.0196%
-      18+ hp 1 in 44 cubes, 2.2909%
-      21+ hp 1 in 65 cubes, 1.5414%
-      30+ hp 1 in 1027 cubes, 0.0974%
-      33+ hp 1 in 4885 cubes, 0.0205%
-12+ all stat 1 in 70 cubes, 1.4338%
-15+ all stat 1 in 91 cubes, 1.1006%
-21+ all stat 1 in 2080 cubes, 0.0481%
+    18+ stat 1 in 31 cubes, 3.2340%
+    21+ stat 1 in 67 cubes, 1.4873%
+    30+ stat 1 in 966 cubes, 0.1035%
+    33+ stat 1 in 5465 cubes, 0.0183%
+      18+ hp 1 in 55 cubes, 1.8059%
+      21+ hp 1 in 81 cubes, 1.2362%
+      30+ hp 1 in 1293 cubes, 0.0773%
+      33+ hp 1 in 5291 cubes, 0.0189%
+12+ all stat 1 in 88 cubes, 1.1421%
+15+ all stat 1 in 112 cubes, 0.8889%
+21+ all stat 1 in 2575 cubes, 0.0388%
 
 ============================ top/overall (meisters) ============================
-    18+ stat 1 in 60 cubes, 1.6762%
-    21+ stat 1 in 167 cubes, 0.5980%
-    30+ stat 1 in 4566 cubes, 0.0219%
-    33+ stat 1 in 1189904 cubes, 0.0001%
-      18+ hp 1 in 51 cubes, 1.9604%
-      21+ hp 1 in 83 cubes, 1.2068%
-      30+ hp 1 in 1366 cubes, 0.0732%
-      33+ hp 1 in 353585 cubes, 0.0003%
-12+ all stat 1 in 273 cubes, 0.3660%
-15+ all stat 1 in 358 cubes, 0.2796%
-21+ all stat 1 in 18370 cubes, 0.0054%
+    18+ stat 1 in 60 cubes, 1.6696%
+    21+ stat 1 in 168 cubes, 0.5956%
+    30+ stat 1 in 4584 cubes, 0.0218%
+    33+ stat 1 in 1192274 cubes, 0.0001%
+      18+ hp 1 in 51 cubes, 1.9526%
+      21+ hp 1 in 83 cubes, 1.2020%
+      30+ hp 1 in 1371 cubes, 0.0729%
+      33+ hp 1 in 354292 cubes, 0.0003%
+12+ all stat 1 in 274 cubes, 0.3645%
+15+ all stat 1 in 359 cubes, 0.2785%
+21+ all stat 1 in 18444 cubes, 0.0054%
 ===================================== hat ======================================
 red
-                 18+ stat 1 in 30 cubes, 3.3786%
-                 21+ stat 1 in 73 cubes, 1.3740%
-                 30+ stat 1 in 1033 cubes, 0.0968%
-                 33+ stat 1 in 12518 cubes, 0.0080%
-                   18+ hp 1 in 43 cubes, 2.3520%
-                   21+ hp 1 in 77 cubes, 1.3061%
-                   30+ hp 1 in 897 cubes, 0.1114%
-                   33+ hp 1 in 10658 cubes, 0.0094%
-             12+ all stat 1 in 87 cubes, 1.1522%
-             15+ all stat 1 in 148 cubes, 0.6760%
-             21+ all stat 1 in 2664 cubes, 0.0375%
-             2+s cooldown 1 in 44 cubes, 2.2944%
-2+s cooldown and any stat 1 in 170 cubes, 0.5872%
- 2+s cooldown and 9+ stat 1 in 170 cubes, 0.5872%
-2+s cooldown and 12+ stat 1 in 644 cubes, 0.1553%
-2+s cooldown and 18+ stat 1 in 1802 cubes, 0.0555%
-             3+s cooldown 1 in 1747 cubes, 0.0572%
-3+s cooldown and any stat 1 in 12546 cubes, 0.0080%
-             4+s cooldown 1 in 6953 cubes, 0.0144%
-4+s cooldown and any stat 1 in 50183 cubes, 0.0020%
+                 18+ stat 1 in 33 cubes, 3.0449%
+                 21+ stat 1 in 80 cubes, 1.2459%
+                 30+ stat 1 in 1128 cubes, 0.0886%
+                 33+ stat 1 in 12743 cubes, 0.0078%
+                   18+ hp 1 in 47 cubes, 2.1121%
+                   21+ hp 1 in 85 cubes, 1.1801%
+                   30+ hp 1 in 999 cubes, 0.1001%
+                   33+ hp 1 in 10854 cubes, 0.0092%
+             12+ all stat 1 in 97 cubes, 1.0353%
+             15+ all stat 1 in 164 cubes, 0.6110%
+             21+ all stat 1 in 2962 cubes, 0.0338%
+             2+s cooldown 1 in 48 cubes, 2.0852%
+2+s cooldown and any stat 1 in 188 cubes, 0.5333%
+ 2+s cooldown and 9+ stat 1 in 188 cubes, 0.5333%
+2+s cooldown and 12+ stat 1 in 694 cubes, 0.1441%
+2+s cooldown and 18+ stat 1 in 1951 cubes, 0.0513%
+             3+s cooldown 1 in 1779 cubes, 0.0562%
+3+s cooldown and any stat 1 in 12772 cubes, 0.0078%
+             4+s cooldown 1 in 7078 cubes, 0.0141%
+4+s cooldown and any stat 1 in 51087 cubes, 0.0020%
              5+s cooldown 1 in 2071023 cubes, 0.0000%
              6+s cooldown 1 in 11390625 cubes, 0.0000%
 
 violet
-                 18+ stat 1 in 30 cubes, 3.3551%
-                 21+ stat 1 in 48 cubes, 2.0731%
-                 30+ stat 1 in 209 cubes, 0.4789%
-                 33+ stat 1 in 371 cubes, 0.2692%
-                   18+ hp 1 in 34 cubes, 2.9587%
-                   21+ hp 1 in 82 cubes, 1.2233%
-                   30+ hp 1 in 331 cubes, 0.3022%
-                   33+ hp 1 in 1058 cubes, 0.0945%
-             12+ all stat 1 in 64 cubes, 1.5602%
-             15+ all stat 1 in 166 cubes, 0.6008%
-             21+ all stat 1 in 922 cubes, 0.1085%
-             2+s cooldown 1 in 131 cubes, 0.7607%
-2+s cooldown and any stat 1 in 251 cubes, 0.3989%
- 2+s cooldown and 9+ stat 1 in 251 cubes, 0.3989%
-2+s cooldown and 12+ stat 1 in 412 cubes, 0.2429%
-2+s cooldown and 18+ stat 1 in 685 cubes, 0.1461%
-             3+s cooldown 1 in 2715 cubes, 0.0368%
-3+s cooldown and any stat 1 in 5997 cubes, 0.0167%
-             4+s cooldown 1 in 10475 cubes, 0.0095%
-4+s cooldown and any stat 1 in 23300 cubes, 0.0043%
-             5+s cooldown 1 in 445317 cubes, 0.0002%
-             6+s cooldown 1 in 2398616 cubes, 0.0000%
+                 18+ stat 1 in 37 cubes, 2.6822%
+                 21+ stat 1 in 60 cubes, 1.6601%
+                 30+ stat 1 in 259 cubes, 0.3857%
+                 33+ stat 1 in 461 cubes, 0.2167%
+                   18+ hp 1 in 42 cubes, 2.3566%
+                   21+ hp 1 in 102 cubes, 0.9837%
+                   30+ hp 1 in 410 cubes, 0.2436%
+                   33+ hp 1 in 1307 cubes, 0.0765%
+             12+ all stat 1 in 80 cubes, 1.2436%
+             15+ all stat 1 in 206 cubes, 0.4846%
+             21+ all stat 1 in 1142 cubes, 0.0876%
+             2+s cooldown 1 in 161 cubes, 0.6197%
+2+s cooldown and any stat 1 in 308 cubes, 0.3250%
+ 2+s cooldown and 9+ stat 1 in 308 cubes, 0.3250%
+2+s cooldown and 12+ stat 1 in 504 cubes, 0.1986%
+2+s cooldown and 18+ stat 1 in 835 cubes, 0.1198%
+             3+s cooldown 1 in 3108 cubes, 0.0322%
+3+s cooldown and any stat 1 in 6860 cubes, 0.0146%
+             4+s cooldown 1 in 11959 cubes, 0.0084%
+4+s cooldown and any stat 1 in 26598 cubes, 0.0038%
+             5+s cooldown 1 in 475457 cubes, 0.0002%
+             6+s cooldown 1 in 2559332 cubes, 0.0000%
 
 equality
                  18+ stat 1 in 19 cubes, 5.3509%
@@ -322,35 +322,35 @@ equality
              6+s cooldown 1 in 11391 cubes, 0.0088%
 
 black
-                 18+ stat 1 in 26 cubes, 3.8836%
-                 21+ stat 1 in 59 cubes, 1.6990%
-                 30+ stat 1 in 755 cubes, 0.1325%
-                 33+ stat 1 in 5020 cubes, 0.0199%
-                   18+ hp 1 in 39 cubes, 2.5912%
-                   21+ hp 1 in 65 cubes, 1.5453%
-                   30+ hp 1 in 807 cubes, 0.1239%
-                   33+ hp 1 in 4573 cubes, 0.0219%
-             12+ all stat 1 in 78 cubes, 1.2801%
-             15+ all stat 1 in 124 cubes, 0.8039%
-             21+ all stat 1 in 2367 cubes, 0.0422%
-             2+s cooldown 1 in 35 cubes, 2.8966%
-2+s cooldown and any stat 1 in 135 cubes, 0.7388%
- 2+s cooldown and 9+ stat 1 in 135 cubes, 0.7388%
-2+s cooldown and 12+ stat 1 in 407 cubes, 0.2458%
-2+s cooldown and 18+ stat 1 in 1204 cubes, 0.0830%
-             3+s cooldown 1 in 717 cubes, 0.1396%
-3+s cooldown and any stat 1 in 5065 cubes, 0.0197%
-             4+s cooldown 1 in 2807 cubes, 0.0356%
-4+s cooldown and any stat 1 in 20260 cubes, 0.0049%
+                 18+ stat 1 in 32 cubes, 3.0953%
+                 21+ stat 1 in 72 cubes, 1.3837%
+                 30+ stat 1 in 902 cubes, 0.1109%
+                 33+ stat 1 in 5403 cubes, 0.0185%
+                   18+ hp 1 in 49 cubes, 2.0375%
+                   21+ hp 1 in 80 cubes, 1.2426%
+                   30+ hp 1 in 1023 cubes, 0.0977%
+                   33+ hp 1 in 4957 cubes, 0.0202%
+             12+ all stat 1 in 99 cubes, 1.0093%
+             15+ all stat 1 in 154 cubes, 0.6474%
+             21+ all stat 1 in 2990 cubes, 0.0334%
+             2+s cooldown 1 in 42 cubes, 2.3728%
+2+s cooldown and any stat 1 in 165 cubes, 0.6046%
+ 2+s cooldown and 9+ stat 1 in 165 cubes, 0.6046%
+2+s cooldown and 12+ stat 1 in 471 cubes, 0.2124%
+2+s cooldown and 18+ stat 1 in 1410 cubes, 0.0709%
+             3+s cooldown 1 in 773 cubes, 0.1294%
+3+s cooldown and any stat 1 in 5455 cubes, 0.0183%
+             4+s cooldown 1 in 3023 cubes, 0.0331%
+4+s cooldown and any stat 1 in 21819 cubes, 0.0046%
              5+s cooldown 1 in 207102 cubes, 0.0005%
              6+s cooldown 1 in 1139062 cubes, 0.0001%
 
 =========================== accessory (occult cubes) ===========================
-    6+ stat 1 in 18 cubes, 5.6528%
-    9+ stat 1 in 136 cubes, 0.7366%
-   12+ stat 1 in 2334 cubes, 0.0428%
-3+ all stat 1 in 39 cubes, 2.5632%
-6+ all stat 1 in 24263 cubes, 0.0041%
-      6+ hp 1 in 12 cubes, 8.0901%
-      9+ hp 1 in 64 cubes, 1.5629%
-     12+ hp 1 in 819 cubes, 0.1221%
+    6+ stat 1 in 18 cubes, 5.5433%
+    9+ stat 1 in 138 cubes, 0.7225%
+   12+ stat 1 in 2371 cubes, 0.0422%
+3+ all stat 1 in 40 cubes, 2.5136%
+6+ all stat 1 in 24503 cubes, 0.0041%
+      6+ hp 1 in 13 cubes, 7.9333%
+      9+ hp 1 in 65 cubes, 1.5327%
+     12+ hp 1 in 833 cubes, 0.1200%
