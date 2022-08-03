@@ -471,3 +471,13 @@ black
   12 stat 1 in 434 cubes, 0.2306%
     12 hp 1 in 434 cubes, 0.2306%
 9 allstat 1 in 1732 cubes, 0.0578%
+====================== hat: 2nd/3rd line reroll (unicube) ======================
+     6+ stat 1 in 49 cubes, 2.0469%
+     9+ stat 1 in 59 cubes, 1.6844%
+       9+ hp 1 in 61 cubes, 1.6375%
+   6 allstat 1 in 244 cubes, 0.4094%
+     12 stat 1 in 533 cubes, 0.1875%
+       12 hp 1 in 533 cubes, 0.1875%
+   9 allstat 1 in 2133 cubes, 0.0469%
+1+s cooldown 1 in 133 cubes, 0.7500%
+ 2s cooldown 1 in 267 cubes, 0.3750%

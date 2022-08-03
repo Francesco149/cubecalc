@@ -407,6 +407,20 @@ lines_hat_violet = [
   (N, ALLSTAT, 6, 1/6.35*100),
 ]
 
+prime_lines_hat_uni = [
+  (P, STAT, 12, 1/5.0*100),
+  (P, HP, 12, 1/5.0*100),
+  (P, ALLSTAT, 9, 1/1.25*100),
+  (P, COOLDOWN, 2, 1/10.0*100),
+  (P, COOLDOWN, 1, 1/10.0*100),
+]
+
+lines_hat_uni = [
+  (N, STAT, 9, 1/5.8*100),
+  (N, HP, 9, 1/5.8*100),
+  (N, ALLSTAT, 6, 1/1.45*100),
+]
+
 def filter_impossible_lines(combos):
   for combo in combos:
     counts = {BOSS: 0, IED: 0}
@@ -690,9 +704,15 @@ def unicube_calcs():
     ("6 allstat", [{ALLSTAT: 6}]),
   ]
 
+  combos_uni_hat_prime = combos_uni_stat_prime + [
+    ("1+s cooldown", [{COOLDOWN: 1}]),
+    ("2s cooldown", [{COOLDOWN: 2}]),
+  ]
+
   combos_uni_stat = combos_uni_stat_nonprime + combos_uni_stat_prime
   combos_uni_glove_prime = combos_uni_stat_prime + [ ("8 crit damage", [{CRITDMG: 8}]) ]
   combos_uni_glove = combos_uni_stat_nonprime + combos_uni_glove_prime
+  combos_uni_hat = combos_uni_stat_nonprime + combos_uni_hat_prime
 
   unicube_calc("accessory: 2nd/3rd line reroll", prime_lines_accessory_uni, lines_accessory_uni, combos_uni_stat)
   unicube_calc("cape/belt/shoulder: 2nd/3rd line reroll", prime_lines_cape_belt_shoulder_uni, lines_cape_belt_shoulder_uni, combos_uni_stat)
@@ -700,6 +720,7 @@ def unicube_calcs():
   unicube_calc("glove: 2nd/3rd line reroll", prime_lines_glove_uni, lines_glove_uni, combos_uni_glove)
   unicube_calc("bottom: 2nd/3rd line reroll", prime_lines_bottom_uni, lines_bottom_uni, combos_uni_stat)
   unicube_calc("top/overall: 2nd/3rd line reroll", prime_lines_top_overall_uni, lines_top_overall_uni, combos_uni_stat)
+  unicube_calc("hat: 2nd/3rd line reroll", prime_lines_hat_uni, lines_hat_uni, combos_uni_hat)
 
 cube_calcs()
 unicube_calcs()
