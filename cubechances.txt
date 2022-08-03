@@ -455,3 +455,11 @@ black
         12 hp 1 in 460 cubes, 0.2175%
     9 allstat 1 in 1839 cubes, 0.0544%
 8 crit damage 1 in 920 cubes, 0.1087%
+==================== bottom: 2nd/3rd line reroll (unicube) =====================
+  6+ stat 1 in 42 cubes, 2.4016%
+  9+ stat 1 in 50 cubes, 2.0041%
+    9+ hp 1 in 52 cubes, 1.9209%
+6 allstat 1 in 208 cubes, 0.4808%
+  12 stat 1 in 300 cubes, 0.3334%
+    12 hp 1 in 300 cubes, 0.3334%
+9 allstat 1 in 1201 cubes, 0.0833%
