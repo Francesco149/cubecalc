@@ -685,8 +685,8 @@ def unicube_calcs():
   combos_uni_e = combos_uni_e_nonprime + combos_uni_e_prime
   combos_uni_ws = combos_uni_ws_nonprime + combos_uni_ws_prime
 
-  unicube_calc("weapon/secondary: 2nd/3rd line reroll", prime_lines_ws_uni, lines_ws_uni, combos_uni_ws)
-  unicube_calc("emblem: 2nd/3rd line reroll", prime_lines_emblem_uni, lines_emblem_uni, combos_uni_e)
+  unicube_calc("weapon/secondary: 2l->3l by rerolling 2nd or 3rd line", prime_lines_ws_uni, lines_ws_uni, combos_uni_ws)
+  unicube_calc("emblem: 2l->3l by rerolling 2nd or 3rd line", prime_lines_emblem_uni, lines_emblem_uni, combos_uni_e)
 
   unicube_calc("weapon/secondary: 1st line reroll", prime_lines_ws_uni, [], combos_uni_ws_prime, 1)
   unicube_calc("emblem: 1st line reroll", prime_lines_emblem_uni, [], combos_uni_e_prime, 1)
@@ -714,13 +714,13 @@ def unicube_calcs():
   combos_uni_glove = combos_uni_stat_nonprime + combos_uni_glove_prime
   combos_uni_hat = combos_uni_stat_nonprime + combos_uni_hat_prime
 
-  unicube_calc("accessory: 2nd/3rd line reroll", prime_lines_accessory_uni, lines_accessory_uni, combos_uni_stat)
-  unicube_calc("cape/belt/shoulder: 2nd/3rd line reroll", prime_lines_cape_belt_shoulder_uni, lines_cape_belt_shoulder_uni, combos_uni_stat)
-  unicube_calc("shoe: 2nd/3rd line reroll", prime_lines_shoe_uni, lines_shoe_uni, combos_uni_stat)
-  unicube_calc("glove: 2nd/3rd line reroll", prime_lines_glove_uni, lines_glove_uni, combos_uni_glove)
-  unicube_calc("bottom: 2nd/3rd line reroll", prime_lines_bottom_uni, lines_bottom_uni, combos_uni_stat)
-  unicube_calc("top/overall: 2nd/3rd line reroll", prime_lines_top_overall_uni, lines_top_overall_uni, combos_uni_stat)
-  unicube_calc("hat: 2nd/3rd line reroll", prime_lines_hat_uni, lines_hat_uni, combos_uni_hat)
+  unicube_calc("accessory: 2l->3l by rerolling 2nd or 3rd line", prime_lines_accessory_uni, lines_accessory_uni, combos_uni_stat)
+  unicube_calc("cape/belt/shoulder: 2l->3l by rerolling 2nd or 3rd line", prime_lines_cape_belt_shoulder_uni, lines_cape_belt_shoulder_uni, combos_uni_stat)
+  unicube_calc("shoe: 2l->3l by rerolling 2nd or 3rd line", prime_lines_shoe_uni, lines_shoe_uni, combos_uni_stat)
+  unicube_calc("glove: 2l->3l by rerolling 2nd or 3rd line", prime_lines_glove_uni, lines_glove_uni, combos_uni_glove)
+  unicube_calc("bottom: 2l->3l by rerolling 2nd or 3rd line", prime_lines_bottom_uni, lines_bottom_uni, combos_uni_stat)
+  unicube_calc("top/overall: 2l->3l by rerolling 2nd or 3rd line", prime_lines_top_overall_uni, lines_top_overall_uni, combos_uni_stat)
+  unicube_calc("hat: 2l->3l by rerolling 2nd or 3rd line", prime_lines_hat_uni, lines_hat_uni, combos_uni_hat)
 
 cube_calcs()
 unicube_calcs()
