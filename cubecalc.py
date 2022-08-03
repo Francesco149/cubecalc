@@ -307,6 +307,18 @@ lines_shoe_violet = [
   (N, ALLSTAT, 6, 1/6.35*100),
 ]
 
+prime_lines_shoe_uni = [
+  (P, STAT, 12, 1/7.27*100),
+  (P, HP, 12, 1/7.27*100),
+  (P, ALLSTAT, 9, 1/1.82*100),
+]
+
+lines_shoe_uni = [
+  (N, STAT, 9, 1/6.33*100),
+  (N, HP, 9, 1/6.33*100),
+  (N, ALLSTAT, 6, 1/1.27*100),
+]
+
 prime_lines_glove_violet = [
   (P, STAT, 12, 1/7.69*100),
   (P, HP, 12, 1/7.69*100),
@@ -645,6 +657,7 @@ def unicube_calcs():
 
   unicube_calc("accessory: 2nd/3rd line reroll", prime_lines_accessory_uni, lines_accessory_uni, combos_uni_stat)
   unicube_calc("cape/belt/shoulder: 2nd/3rd line reroll", prime_lines_cape_belt_shoulder_uni, lines_cape_belt_shoulder_uni, combos_uni_stat)
+  unicube_calc("shoe: 2nd/3rd line reroll", prime_lines_shoe_uni, lines_shoe_uni, combos_uni_stat)
 
 cube_calcs()
 unicube_calcs()

@@ -438,3 +438,11 @@ black
   12 stat 1 in 300 cubes, 0.3334%
     12 hp 1 in 300 cubes, 0.3334%
 9 allstat 1 in 400 cubes, 0.2501%
+===================== shoe: 2nd/3rd line reroll (unicube) ======================
+  6+ stat 1 in 45 cubes, 2.2409%
+  9+ stat 1 in 52 cubes, 1.9234%
+    9+ hp 1 in 54 cubes, 1.8551%
+6 allstat 1 in 259 cubes, 0.3858%
+  12 stat 1 in 367 cubes, 0.2726%
+    12 hp 1 in 367 cubes, 0.2726%
+9 allstat 1 in 1465 cubes, 0.0683%
