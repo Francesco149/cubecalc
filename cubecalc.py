@@ -12,6 +12,7 @@ STAT = "stat"
 ALLSTAT = "allstat"
 HP = "hp"
 COOLDOWN = "cooldown"
+CRITDMG = "critdmg"
 P = True
 N = False
 
@@ -249,6 +250,7 @@ prime_lines_glove_violet = [
   (P, STAT, 12, 1/7.69*100),
   (P, HP, 12, 1/7.69*100),
   (P, ALLSTAT, 9, 1/5.77*100),
+  (P, CRITDMG, 8, 1/7.69*100),
 ]
 
 lines_glove_violet = [
@@ -399,6 +401,20 @@ combos_stat = [
   ("21+ all stat", [{ALLSTAT: 21}]),
 ]
 
+combos_glove = combos_stat + [
+  ("8+ crit damage", [{CRITDMG: 8}]),
+  ("8+ crit damage and 6+ stat", [{CRITDMG: 8, STAT: 6}]),
+  ("8+ crit damage and 9+ stat", [{CRITDMG: 8, STAT: 9}]),
+  ("8+ crit damage and 12+ stat", [{CRITDMG: 8, STAT: 12}]),
+  ("8+ crit damage and 18+ stat", [{CRITDMG: 8, STAT: 18}]),
+  ("8+ crit damage and 24 stat", [{CRITDMG: 8, STAT: 24}]),
+  ("16+ crit damage", [{CRITDMG: 16}]),
+  ("16+ crit damage and 6+ stat", [{CRITDMG: 16, STAT: 6}]),
+  ("16+ crit damage and 9+ stat", [{CRITDMG: 16, STAT: 9}]),
+  ("16+ crit damage and 12 stat", [{CRITDMG: 16, STAT: 12}]),
+  ("24 crit damage", [{CRITDMG: 24}]),
+]
+
 combos_hat = combos_stat + [
   ("2+s cooldown", [{COOLDOWN: 2}]),
   ("2+s cooldown and any stat", [{COOLDOWN: 2, STAT: 1}]),
@@ -447,4 +463,4 @@ cube_calc_o("accessory (occult cubes)",
 cube_calc_v("accessory (violets)", prime_lines_accessory_violet, lines_accessory_violet, combos_stat)
 cube_calc_v("cape, belt, shoulder (violets)", prime_lines_cape_belt_shoulder_violet, lines_cape_belt_shoulder_violet, combos_stat)
 cube_calc_v("shoe (violets)", prime_lines_shoe_violet, lines_shoe_violet, combos_stat)
-cube_calc_v("glove (violets)", prime_lines_glove_violet, lines_glove_violet, combos_stat)
+cube_calc_v("glove (violets)", prime_lines_glove_violet, lines_glove_violet, combos_glove)

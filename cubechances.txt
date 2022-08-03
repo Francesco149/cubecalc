@@ -346,14 +346,25 @@ black
 15+ all stat 1 in 135 cubes, 0.7435%
 21+ all stat 1 in 927 cubes, 0.1079%
 =============================== glove (violets) ================================
-    18+ stat 1 in 25 cubes, 4.0316%
-    21+ stat 1 in 47 cubes, 2.1238%
-    30+ stat 1 in 275 cubes, 0.3634%
-    33+ stat 1 in 579 cubes, 0.1728%
-      18+ hp 1 in 29 cubes, 3.4525%
-      21+ hp 1 in 71 cubes, 1.4057%
-      30+ hp 1 in 375 cubes, 0.2664%
-      33+ hp 1 in 1606 cubes, 0.0623%
-12+ all stat 1 in 57 cubes, 1.7563%
-15+ all stat 1 in 143 cubes, 0.7016%
-21+ all stat 1 in 1059 cubes, 0.0944%
+                   18+ stat 1 in 35 cubes, 2.8390%
+                   21+ stat 1 in 65 cubes, 1.5503%
+                   30+ stat 1 in 351 cubes, 0.2848%
+                   33+ stat 1 in 705 cubes, 0.1419%
+                     18+ hp 1 in 41 cubes, 2.4647%
+                     21+ hp 1 in 101 cubes, 0.9900%
+                     30+ hp 1 in 499 cubes, 0.2006%
+                     33+ hp 1 in 1969 cubes, 0.0508%
+               12+ all stat 1 in 79 cubes, 1.2622%
+               15+ all stat 1 in 204 cubes, 0.4912%
+               21+ all stat 1 in 1404 cubes, 0.0712%
+             8+ crit damage 1 in 62 cubes, 1.6002%
+ 8+ crit damage and 6+ stat 1 in 145 cubes, 0.6902%
+ 8+ crit damage and 9+ stat 1 in 145 cubes, 0.6902%
+8+ crit damage and 12+ stat 1 in 281 cubes, 0.3554%
+8+ crit damage and 18+ stat 1 in 510 cubes, 0.1961%
+ 8+ crit damage and 24 stat 1 in 1733 cubes, 0.0577%
+            16+ crit damage 1 in 2873 cubes, 0.0348%
+16+ crit damage and 6+ stat 1 in 7899 cubes, 0.0127%
+16+ crit damage and 9+ stat 1 in 7899 cubes, 0.0127%
+16+ crit damage and 12 stat 1 in 19112 cubes, 0.0052%
+             24 crit damage 1 in 380376 cubes, 0.0003%
