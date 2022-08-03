@@ -321,3 +321,15 @@ black
 12+ all stat 1 in 38 cubes, 2.6078%
 15+ all stat 1 in 105 cubes, 0.9535%
 21+ all stat 1 in 635 cubes, 0.1576%
+======================== cape, belt, shoulder (violets) ========================
+    18+ stat 1 in 23 cubes, 4.3439%
+    21+ stat 1 in 40 cubes, 2.4771%
+    30+ stat 1 in 201 cubes, 0.4967%
+    33+ stat 1 in 391 cubes, 0.2561%
+      18+ hp 1 in 27 cubes, 3.7197%
+      21+ hp 1 in 64 cubes, 1.5746%
+      30+ hp 1 in 291 cubes, 0.3434%
+      33+ hp 1 in 1103 cubes, 0.0907%
+12+ all stat 1 in 52 cubes, 1.9274%
+15+ all stat 1 in 127 cubes, 0.7874%
+21+ all stat 1 in 813 cubes, 0.1230%
