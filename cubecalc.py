@@ -648,8 +648,8 @@ def unicube_calc(text, prime_lines, lines, print_combos, prime_chance=0.15):
     want_value = want[want_stat]
     eligible_lines = [(prime, stat, value, onein) for (prime, stat, value, onein) in lines
                       if (stat == want_stat or (stat == ALLSTAT and want_stat == STAT)) and value >= want_value]
-    return sum([1/onein * (prime_chance if prime else 1) for (prime, _, _, onein) in eligible_lines]) / 4
-    # divide by 4 because 3 cubes avg to select line, 1 to reroll it
+    return sum([1/onein * (prime_chance if prime else (1 - prime_chance)) for (prime, _, _, onein) in eligible_lines]) / 3
+    # divide by 3 because 3 cubes avg to select line, and then you reroll the line without spending an extra cube
 
   def fmt_chance(text, wants):
     chance = sum([combo_chance(want) for want in wants])

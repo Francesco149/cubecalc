@@ -394,121 +394,121 @@ black
              5+s cooldown 1 in 3391 cubes, 0.0295%
              6+s cooldown 1 in 18663 cubes, 0.0054%
 ======= weapon/secondary: 2l->3l by rerolling 2nd or 3rd line (unicube) ========
-9+ att or 30+ boss or 30+ ied 1 in 10 cubes, 10.4979%
-           9+ att or 30+ boss 1 in 26 cubes, 3.7828%
-                     30+ boss 1 in 62 cubes, 1.6062%
-            9+ att or 30+ ied 1 in 11 cubes, 8.8916%
-                       9+ att 1 in 46 cubes, 2.1765%
-                      30+ ied 1 in 15 cubes, 6.7151%
-                     35+ boss 1 in 826 cubes, 0.1211%
-                      40 boss 1 in 2360 cubes, 0.0424%
-                       12 att 1 in 823 cubes, 0.1215%
-                       40 ied 1 in 165 cubes, 0.6068%
-                      35+ ied 1 in 63 cubes, 1.5776%
+9+ att or 30+ boss or 30+ ied 1 in 8 cubes, 12.2847%
+           9+ att or 30+ boss 1 in 23 cubes, 4.3587%
+                     30+ boss 1 in 54 cubes, 1.8677%
+            9+ att or 30+ ied 1 in 10 cubes, 10.4170%
+                       9+ att 1 in 40 cubes, 2.4910%
+                      30+ ied 1 in 13 cubes, 7.9260%
+                     35+ boss 1 in 619 cubes, 0.1615%
+                      40 boss 1 in 1770 cubes, 0.0565%
+                       12 att 1 in 617 cubes, 0.1620%
+                       40 ied 1 in 124 cubes, 0.8090%
+                      35+ ied 1 in 48 cubes, 2.1035%
 ============ emblem: 2l->3l by rerolling 2nd or 3rd line (unicube) =============
-9+ att or 30+ ied 1 in 11 cubes, 9.4231%
-           9+ att 1 in 43 cubes, 2.3044%
-          30+ ied 1 in 14 cubes, 7.1187%
-           12 att 1 in 773 cubes, 0.1294%
-           40 ied 1 in 154 cubes, 0.6476%
-          35+ ied 1 in 59 cubes, 1.6837%
+9+ att or 30+ ied 1 in 9 cubes, 11.0422%
+           9+ att 1 in 38 cubes, 2.6375%
+          30+ ied 1 in 12 cubes, 8.4047%
+           12 att 1 in 580 cubes, 0.1725%
+           40 ied 1 in 116 cubes, 0.8635%
+          35+ ied 1 in 45 cubes, 2.2450%
 ================= weapon/secondary: 1st line reroll (unicube) ==================
-35+ boss 1 in 124 cubes, 0.8075%
- 40 boss 1 in 354 cubes, 0.2825%
-  12 att 1 in 123 cubes, 0.8100%
-  40 ied 1 in 25 cubes, 4.0450%
- 35+ ied 1 in 10 cubes, 10.5175%
+35+ boss 1 in 93 cubes, 1.0767%
+ 40 boss 1 in 265 cubes, 0.3767%
+  12 att 1 in 93 cubes, 1.0800%
+  40 ied 1 in 19 cubes, 5.3933%
+ 35+ ied 1 in 7 cubes, 14.0233%
 ====================== emblem: 1st line reroll (unicube) =======================
- 12 att 1 in 116 cubes, 0.8625%
- 40 ied 1 in 23 cubes, 4.3175%
-35+ ied 1 in 9 cubes, 11.2250%
+ 12 att 1 in 87 cubes, 1.1500%
+ 40 ied 1 in 17 cubes, 5.7567%
+35+ ied 1 in 7 cubes, 14.9667%
 =========== accessory: 2l->3l by rerolling 2nd or 3rd line (unicube) ===========
-  6+ stat 1 in 26 cubes, 3.7742%
-  9+ stat 1 in 31 cubes, 3.1918%
-    9+ hp 1 in 32 cubes, 3.1347%
-6 allstat 1 in 156 cubes, 0.6395%
-  12 stat 1 in 440 cubes, 0.2273%
-    12 hp 1 in 440 cubes, 0.2273%
-9 allstat 1 in 1754 cubes, 0.0570%
+  6+ stat 1 in 23 cubes, 4.3343%
+  9+ stat 1 in 27 cubes, 3.6742%
+    9+ hp 1 in 28 cubes, 3.5982%
+6 allstat 1 in 136 cubes, 0.7362%
+  12 stat 1 in 330 cubes, 0.3030%
+    12 hp 1 in 330 cubes, 0.3030%
+9 allstat 1 in 1316 cubes, 0.0760%
 ====== cape/belt/shoulder: 2l->3l by rerolling 2nd or 3rd line (unicube) =======
-  6+ stat 1 in 35 cubes, 2.8910%
-  9+ stat 1 in 40 cubes, 2.5060%
-    9+ hp 1 in 44 cubes, 2.2559%
-6 allstat 1 in 157 cubes, 0.6351%
-  12 stat 1 in 300 cubes, 0.3334%
-    12 hp 1 in 300 cubes, 0.3334%
-9 allstat 1 in 400 cubes, 0.2501%
+  6+ stat 1 in 29 cubes, 3.3932%
+  9+ stat 1 in 34 cubes, 2.9568%
+    9+ hp 1 in 38 cubes, 2.6233%
+6 allstat 1 in 130 cubes, 0.7698%
+  12 stat 1 in 225 cubes, 0.4445%
+    12 hp 1 in 225 cubes, 0.4445%
+9 allstat 1 in 300 cubes, 0.3335%
 ============= shoe: 2l->3l by rerolling 2nd or 3rd line (unicube) ==============
-  6+ stat 1 in 45 cubes, 2.2409%
-  9+ stat 1 in 52 cubes, 1.9234%
-    9+ hp 1 in 54 cubes, 1.8551%
-6 allstat 1 in 259 cubes, 0.3858%
-  12 stat 1 in 367 cubes, 0.2726%
-    12 hp 1 in 367 cubes, 0.2726%
-9 allstat 1 in 1465 cubes, 0.0683%
+  6+ stat 1 in 38 cubes, 2.6078%
+  9+ stat 1 in 44 cubes, 2.2480%
+    9+ hp 1 in 46 cubes, 2.1570%
+6 allstat 1 in 222 cubes, 0.4508%
+  12 stat 1 in 275 cubes, 0.3635%
+    12 hp 1 in 275 cubes, 0.3635%
+9 allstat 1 in 1099 cubes, 0.0910%
 ============= glove: 2l->3l by rerolling 2nd or 3rd line (unicube) =============
-      6+ stat 1 in 54 cubes, 1.8494%
-      9+ stat 1 in 63 cubes, 1.5869%
-        9+ hp 1 in 65 cubes, 1.5325%
-    6 allstat 1 in 316 cubes, 0.3169%
-      12 stat 1 in 460 cubes, 0.2175%
-        12 hp 1 in 460 cubes, 0.2175%
-    9 allstat 1 in 1839 cubes, 0.0544%
-8 crit damage 1 in 920 cubes, 0.1087%
+      6+ stat 1 in 47 cubes, 2.1503%
+      9+ stat 1 in 54 cubes, 1.8528%
+        9+ hp 1 in 56 cubes, 1.7803%
+    6 allstat 1 in 270 cubes, 0.3700%
+      12 stat 1 in 345 cubes, 0.2900%
+        12 hp 1 in 345 cubes, 0.2900%
+    9 allstat 1 in 1379 cubes, 0.0725%
+8 crit damage 1 in 690 cubes, 0.1450%
 ============ bottom: 2l->3l by rerolling 2nd or 3rd line (unicube) =============
-  6+ stat 1 in 42 cubes, 2.4016%
-  9+ stat 1 in 50 cubes, 2.0041%
-    9+ hp 1 in 52 cubes, 1.9209%
-6 allstat 1 in 208 cubes, 0.4808%
-  12 stat 1 in 300 cubes, 0.3334%
-    12 hp 1 in 300 cubes, 0.3334%
-9 allstat 1 in 1201 cubes, 0.0833%
+  6+ stat 1 in 36 cubes, 2.8052%
+  9+ stat 1 in 42 cubes, 2.3547%
+    9+ hp 1 in 45 cubes, 2.2437%
+6 allstat 1 in 178 cubes, 0.5615%
+  12 stat 1 in 225 cubes, 0.4445%
+    12 hp 1 in 225 cubes, 0.4445%
+9 allstat 1 in 901 cubes, 0.1110%
 ========== top/overall: 2l->3l by rerolling 2nd or 3rd line (unicube) ==========
-  6+ stat 1 in 64 cubes, 1.5634%
-  9+ stat 1 in 76 cubes, 1.3084%
-    9+ hp 1 in 80 cubes, 1.2506%
-6 allstat 1 in 320 cubes, 0.3128%
-  12 stat 1 in 434 cubes, 0.2306%
-    12 hp 1 in 434 cubes, 0.2306%
-9 allstat 1 in 1732 cubes, 0.0578%
+  6+ stat 1 in 55 cubes, 1.8295%
+  9+ stat 1 in 65 cubes, 1.5405%
+    9+ hp 1 in 68 cubes, 1.4635%
+6 allstat 1 in 273 cubes, 0.3660%
+  12 stat 1 in 325 cubes, 0.3075%
+    12 hp 1 in 325 cubes, 0.3075%
+9 allstat 1 in 1299 cubes, 0.0770%
 ============== hat: 2l->3l by rerolling 2nd or 3rd line (unicube) ==============
-     6+ stat 1 in 49 cubes, 2.0469%
-     9+ stat 1 in 59 cubes, 1.6844%
-       9+ hp 1 in 61 cubes, 1.6375%
-   6 allstat 1 in 244 cubes, 0.4094%
-     12 stat 1 in 533 cubes, 0.1875%
-       12 hp 1 in 533 cubes, 0.1875%
-   9 allstat 1 in 2133 cubes, 0.0469%
-1+s cooldown 1 in 133 cubes, 0.7500%
- 2s cooldown 1 in 267 cubes, 0.3750%
+     6+ stat 1 in 42 cubes, 2.3667%
+     9+ stat 1 in 51 cubes, 1.9558%
+       9+ hp 1 in 53 cubes, 1.8933%
+   6 allstat 1 in 211 cubes, 0.4733%
+     12 stat 1 in 400 cubes, 0.2500%
+       12 hp 1 in 400 cubes, 0.2500%
+   9 allstat 1 in 1600 cubes, 0.0625%
+1+s cooldown 1 in 100 cubes, 1.0000%
+ 2s cooldown 1 in 200 cubes, 0.5000%
 ===================== accessory: 1st line reroll (unicube) =====================
-  12 stat 1 in 66 cubes, 1.5150%
-    12 hp 1 in 66 cubes, 1.5150%
-9 allstat 1 in 263 cubes, 0.3800%
+  12 stat 1 in 50 cubes, 2.0200%
+    12 hp 1 in 50 cubes, 2.0200%
+9 allstat 1 in 197 cubes, 0.5067%
 ================ cape/belt/shoulder: 1st line reroll (unicube) =================
-  12 stat 1 in 45 cubes, 2.2225%
-    12 hp 1 in 45 cubes, 2.2225%
-9 allstat 1 in 60 cubes, 1.6675%
+  12 stat 1 in 34 cubes, 2.9633%
+    12 hp 1 in 34 cubes, 2.9633%
+9 allstat 1 in 45 cubes, 2.2233%
 ======================= shoe: 1st line reroll (unicube) ========================
-  12 stat 1 in 55 cubes, 1.8175%
-    12 hp 1 in 55 cubes, 1.8175%
-9 allstat 1 in 220 cubes, 0.4550%
+  12 stat 1 in 41 cubes, 2.4233%
+    12 hp 1 in 41 cubes, 2.4233%
+9 allstat 1 in 165 cubes, 0.6067%
 ======================= glove: 1st line reroll (unicube) =======================
-      12 stat 1 in 69 cubes, 1.4500%
-        12 hp 1 in 69 cubes, 1.4500%
-    9 allstat 1 in 276 cubes, 0.3625%
-8 crit damage 1 in 138 cubes, 0.7250%
+      12 stat 1 in 52 cubes, 1.9333%
+        12 hp 1 in 52 cubes, 1.9333%
+    9 allstat 1 in 207 cubes, 0.4833%
+8 crit damage 1 in 103 cubes, 0.9667%
 ====================== bottom: 1st line reroll (unicube) =======================
-  12 stat 1 in 45 cubes, 2.2225%
-    12 hp 1 in 45 cubes, 2.2225%
-9 allstat 1 in 180 cubes, 0.5550%
+  12 stat 1 in 34 cubes, 2.9633%
+    12 hp 1 in 34 cubes, 2.9633%
+9 allstat 1 in 135 cubes, 0.7400%
 ==================== top/overall: 1st line reroll (unicube) ====================
-  12 stat 1 in 65 cubes, 1.5375%
-    12 hp 1 in 65 cubes, 1.5375%
-9 allstat 1 in 260 cubes, 0.3850%
+  12 stat 1 in 49 cubes, 2.0500%
+    12 hp 1 in 49 cubes, 2.0500%
+9 allstat 1 in 195 cubes, 0.5133%
 ======================== hat: 1st line reroll (unicube) ========================
-     12 stat 1 in 80 cubes, 1.2500%
-       12 hp 1 in 80 cubes, 1.2500%
-   9 allstat 1 in 320 cubes, 0.3125%
-1+s cooldown 1 in 20 cubes, 5.0000%
- 2s cooldown 1 in 40 cubes, 2.5000%
+     12 stat 1 in 60 cubes, 1.6667%
+       12 hp 1 in 60 cubes, 1.6667%
+   9 allstat 1 in 240 cubes, 0.4167%
+1+s cooldown 1 in 15 cubes, 6.6667%
+ 2s cooldown 1 in 30 cubes, 3.3333%
