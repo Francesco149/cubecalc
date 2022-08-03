@@ -722,5 +722,13 @@ def unicube_calcs():
   unicube_calc("top/overall: 2l->3l by rerolling 2nd or 3rd line", prime_lines_top_overall_uni, lines_top_overall_uni, combos_uni_stat)
   unicube_calc("hat: 2l->3l by rerolling 2nd or 3rd line", prime_lines_hat_uni, lines_hat_uni, combos_uni_hat)
 
+  unicube_calc("accessory: 1st line reroll", prime_lines_accessory_uni, [], combos_uni_stat_prime, 1)
+  unicube_calc("cape/belt/shoulder: 1st line reroll", prime_lines_cape_belt_shoulder_uni, [], combos_uni_stat_prime, 1)
+  unicube_calc("shoe: 1st line reroll", prime_lines_shoe_uni, [], combos_uni_stat_prime, 1)
+  unicube_calc("glove: 1st line reroll", prime_lines_glove_uni, [], combos_uni_glove_prime, 1)
+  unicube_calc("bottom: 1st line reroll", prime_lines_bottom_uni, [], combos_uni_stat_prime, 1)
+  unicube_calc("top/overall: 1st line reroll", prime_lines_top_overall_uni, [], combos_uni_stat_prime, 1)
+  unicube_calc("hat: 1st line reroll", prime_lines_hat_uni, [], combos_uni_hat_prime, 1)
+
 cube_calcs()
 unicube_calcs()

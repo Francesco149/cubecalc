@@ -481,3 +481,34 @@ black
    9 allstat 1 in 2133 cubes, 0.0469%
 1+s cooldown 1 in 133 cubes, 0.7500%
  2s cooldown 1 in 267 cubes, 0.3750%
+===================== accessory: 1st line reroll (unicube) =====================
+  12 stat 1 in 66 cubes, 1.5150%
+    12 hp 1 in 66 cubes, 1.5150%
+9 allstat 1 in 263 cubes, 0.3800%
+================ cape/belt/shoulder: 1st line reroll (unicube) =================
+  12 stat 1 in 45 cubes, 2.2225%
+    12 hp 1 in 45 cubes, 2.2225%
+9 allstat 1 in 60 cubes, 1.6675%
+======================= shoe: 1st line reroll (unicube) ========================
+  12 stat 1 in 55 cubes, 1.8175%
+    12 hp 1 in 55 cubes, 1.8175%
+9 allstat 1 in 220 cubes, 0.4550%
+======================= glove: 1st line reroll (unicube) =======================
+      12 stat 1 in 69 cubes, 1.4500%
+        12 hp 1 in 69 cubes, 1.4500%
+    9 allstat 1 in 276 cubes, 0.3625%
+8 crit damage 1 in 138 cubes, 0.7250%
+====================== bottom: 1st line reroll (unicube) =======================
+  12 stat 1 in 45 cubes, 2.2225%
+    12 hp 1 in 45 cubes, 2.2225%
+9 allstat 1 in 180 cubes, 0.5550%
+==================== top/overall: 1st line reroll (unicube) ====================
+  12 stat 1 in 65 cubes, 1.5375%
+    12 hp 1 in 65 cubes, 1.5375%
+9 allstat 1 in 260 cubes, 0.3850%
+======================== hat: 1st line reroll (unicube) ========================
+     12 stat 1 in 80 cubes, 1.2500%
+       12 hp 1 in 80 cubes, 1.2500%
+   9 allstat 1 in 320 cubes, 0.3125%
+1+s cooldown 1 in 20 cubes, 5.0000%
+ 2s cooldown 1 in 40 cubes, 2.5000%
