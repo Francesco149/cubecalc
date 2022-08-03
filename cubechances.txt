@@ -380,3 +380,15 @@ black
 12+ all stat 1 in 57 cubes, 1.7520%
 15+ all stat 1 in 136 cubes, 0.7334%
 21+ all stat 1 in 917 cubes, 0.1091%
+============================ top/overall (violets) =============================
+    18+ stat 1 in 28 cubes, 3.6000%
+    21+ stat 1 in 54 cubes, 1.8571%
+    30+ stat 1 in 329 cubes, 0.3036%
+    33+ stat 1 in 720 cubes, 0.1389%
+      18+ hp 1 in 33 cubes, 3.0168%
+      21+ hp 1 in 79 cubes, 1.2717%
+      30+ hp 1 in 438 cubes, 0.2285%
+      33+ hp 1 in 1962 cubes, 0.0510%
+12+ all stat 1 in 65 cubes, 1.5308%
+15+ all stat 1 in 156 cubes, 0.6397%
+21+ all stat 1 in 1234 cubes, 0.0810%
