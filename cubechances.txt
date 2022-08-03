@@ -333,3 +333,15 @@ black
 12+ all stat 1 in 52 cubes, 1.9274%
 15+ all stat 1 in 127 cubes, 0.7874%
 21+ all stat 1 in 813 cubes, 0.1230%
+================================ shoe (violets) ================================
+    18+ stat 1 in 24 cubes, 4.1800%
+    21+ stat 1 in 44 cubes, 2.2922%
+    30+ stat 1 in 235 cubes, 0.4254%
+    33+ stat 1 in 474 cubes, 0.2108%
+      18+ hp 1 in 28 cubes, 3.5667%
+      21+ hp 1 in 67 cubes, 1.4858%
+      30+ hp 1 in 331 cubes, 0.3023%
+      33+ hp 1 in 1334 cubes, 0.0750%
+12+ all stat 1 in 55 cubes, 1.8331%
+15+ all stat 1 in 135 cubes, 0.7435%
+21+ all stat 1 in 927 cubes, 0.1079%
