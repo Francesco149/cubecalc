@@ -334,7 +334,6 @@ def cube_calc(
   n = make_any_line(N, lines)
   if not singular_cube:
     combos_red = list(filter_impossible_lines(product(p, n, n)))
-    combos_equality = list(filter_impossible_lines(product(p, p, p)))
   elif is_violet:
     combos_singular_cube = list(filter_impossible_lines(product(p, n, n, n, n, n)))
   else:
@@ -379,10 +378,6 @@ def cube_calc(
   tabulate([fmt_chance(text, want, prime_chance_red, combos_red)
     for (text, want) in print_combos])
   print()
-  print("equality")
-  tabulate([fmt_chance(text, want, prime_chance_equality, combos_equality)
-    for (text, want) in print_combos])
-  print()
   print("black")
   tabulate([fmt_chance(text, want, prime_chance_black, combos_red)
     for (text, want) in print_combos])
@@ -403,6 +398,10 @@ def cube_calc_o(text, prime_lines, lines, print_combos):
 
 def cube_calc_v(text, prime_lines, lines, print_combos):
   return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_violet, True)
+
+
+def cube_calc_e(text, prime_lines, lines, print_combos):
+  return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_equality)
 
 
 combos_ws = [
@@ -517,3 +516,8 @@ cube_calc_v("glove (violets)", prime_lines_glove_violet, lines_glove_violet, com
 cube_calc_v("bottom (violets)", prime_lines_bottom_violet, lines_bottom_violet, combos_stat)
 cube_calc_v("top/overall (violets)", prime_lines_top_overall_violet, lines_top_overall_violet, combos_stat)
 cube_calc_v("hat (violets)", prime_lines_hat_violet, lines_hat_violet, combos_hat)
+
+# pretty sure the equality chances are the same as violet at least for these linesA
+# except you can't roll non-prime lines
+cube_calc_e("glove (equality)", prime_lines_glove_violet, [], combos_glove)
+cube_calc_e("hat (equality)", prime_lines_hat_violet, [], combos_hat)
