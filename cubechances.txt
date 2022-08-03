@@ -422,3 +422,11 @@ black
  12 att 1 in 116 cubes, 0.8625%
  40 ied 1 in 23 cubes, 4.3175%
 35+ ied 1 in 9 cubes, 11.2250%
+=================== accessory: 2nd/3rd line reroll (unicube) ===================
+  6+ stat 1 in 26 cubes, 3.7742%
+  9+ stat 1 in 31 cubes, 3.1918%
+    9+ hp 1 in 32 cubes, 3.1347%
+6 allstat 1 in 156 cubes, 0.6395%
+  12 stat 1 in 440 cubes, 0.2273%
+    12 hp 1 in 440 cubes, 0.2273%
+9 allstat 1 in 1754 cubes, 0.0570%

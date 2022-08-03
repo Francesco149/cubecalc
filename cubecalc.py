@@ -259,6 +259,18 @@ lines_accessory_violet = [
   (N, ALLSTAT, 6, 1/7.84*100),
 ]
 
+prime_lines_accessory_uni = [
+  (P, STAT, 12, 1/6.06*100),
+  (P, ALLSTAT, 9, 1/1.52*100),
+  (P, HP, 12, 1/6.06*100),
+]
+
+lines_accessory_uni = [
+  (N, STAT, 9, 1/11.63*100),
+  (N, HP, 9, 1/11.63*100),
+  (N, ALLSTAT, 6, 1/2.33*100),
+]
+
 prime_lines_cape_belt_shoulder_violet = [
   (P, STAT, 12, 1/8.89*100),
   (P, HP, 12, 1/8.89*100),
@@ -559,7 +571,8 @@ def unicube_calc(text, prime_lines, lines, print_combos, prime_chance=0.15):
   def combo_chance(want):
     want_stat = list(want.keys())[0]
     want_value = want[want_stat]
-    eligible_lines = [(prime, stat, value, onein) for (prime, stat, value, onein) in lines if stat == want_stat and value >= want_value]
+    eligible_lines = [(prime, stat, value, onein) for (prime, stat, value, onein) in lines
+                      if (stat == want_stat or (stat == ALLSTAT and want_stat == STAT)) and value >= want_value]
     return sum([1/onein * (prime_chance if prime else 1) for (prime, _, _, onein) in eligible_lines]) / 4
     # divide by 4 because 3 cubes avg to select line, 1 to reroll it
 
@@ -602,6 +615,23 @@ def unicube_calcs():
 
   unicube_calc("weapon/secondary: 1st line reroll", prime_lines_ws_uni, [], combos_uni_ws_prime, 1)
   unicube_calc("emblem: 1st line reroll", prime_lines_emblem_uni, [], combos_uni_e_prime, 1)
+
+  combos_uni_stat_prime = [
+    ("12 stat", [{STAT: 12}]),
+    ("12 hp", [{HP: 12}]),
+    ("9 allstat", [{ALLSTAT: 9}]),
+  ]
+
+  combos_uni_stat_nonprime = [
+    ("6+ stat", [{STAT: 6}]),
+    ("9+ stat", [{STAT: 9}]),
+    ("9+ hp", [{HP: 9}]),
+    ("6 allstat", [{ALLSTAT: 6}]),
+  ]
+
+  combos_uni_stat = combos_uni_stat_nonprime + combos_uni_stat_prime
+
+  unicube_calc("accessory: 2nd/3rd line reroll", prime_lines_accessory_uni, lines_accessory_uni, combos_uni_stat)
 
 cube_calcs()
 unicube_calcs()
