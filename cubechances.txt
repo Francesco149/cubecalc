@@ -345,3 +345,15 @@ black
 12+ all stat 1 in 55 cubes, 1.8331%
 15+ all stat 1 in 135 cubes, 0.7435%
 21+ all stat 1 in 927 cubes, 0.1079%
+=============================== glove (violets) ================================
+    18+ stat 1 in 25 cubes, 4.0316%
+    21+ stat 1 in 47 cubes, 2.1238%
+    30+ stat 1 in 275 cubes, 0.3634%
+    33+ stat 1 in 579 cubes, 0.1728%
+      18+ hp 1 in 29 cubes, 3.4525%
+      21+ hp 1 in 71 cubes, 1.4057%
+      30+ hp 1 in 375 cubes, 0.2664%
+      33+ hp 1 in 1606 cubes, 0.0623%
+12+ all stat 1 in 57 cubes, 1.7563%
+15+ all stat 1 in 143 cubes, 0.7016%
+21+ all stat 1 in 1059 cubes, 0.0944%
