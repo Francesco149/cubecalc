@@ -192,6 +192,22 @@ lines_occult_accessory = [
   (N, HP, 3, 14),
 ]
 
+# https://tw.beanfun.com/beanfuncommon/EventAD_Mobile/EventAD.aspx?EventADID=8421
+prime_lines_ws_violet = [
+  (P, BOSS, 40, 1/4.44*100),
+  (P, BOSS, 35, 1/4.44*100),
+  (P, BOSS, 30, 1/4.44*100),
+  (P, ATT, 12, 1/4.44*100),
+  (P, IED, 40, 1/6.67*100),
+  (P, IED, 35, 1/6.67*100),
+]
+
+lines_ws_violet = [
+  (N, BOSS, 30, 1/6.52*100),
+  (N, ATT, 9, 1/6.52*100),
+  (N, IED, 30, 1/8.7*100),
+]
+
 def filter_impossible_lines(combos):
   for combo in combos:
     counts = {BOSS: 0, IED: 0}
@@ -205,7 +221,7 @@ def filter_impossible_lines(combos):
       yield combo
 
 def cube_calc(
-  text, prime_lines, lines, print_combos, singular_cube=False, prime_chance_singular=[]
+    text, prime_lines, lines, print_combos, singular_cube=False, prime_chance_singular=[], is_violet=False
 ):
   print(f" {text} ".center(80, "="))
   lines = lines + prime_lines
@@ -218,8 +234,9 @@ def cube_calc(
   n = make_any_line(N, lines)
   if not singular_cube:
     combos_red = list(filter_impossible_lines(product(p, n, n)))
-    combos_violet = list(filter_impossible_lines(product(p, n, n, n, n, n)))
     combos_equality = list(filter_impossible_lines(product(p, p, p)))
+  elif is_violet:
+    combos_singular_cube = list(filter_impossible_lines(product(p, n, n, n, n, n)))
   else:
     combos_singular_cube = list(product(p, n, n))
 
@@ -262,10 +279,6 @@ def cube_calc(
   tabulate([fmt_chance(text, want, prime_chance_red, combos_red)
     for (text, want) in print_combos])
   print()
-  print("violet")
-  tabulate([fmt_chance(text, want, prime_chance_violet, combos_violet)
-    for (text, want) in print_combos])
-  print()
   print("equality")
   tabulate([fmt_chance(text, want, prime_chance_equality, combos_equality)
     for (text, want) in print_combos])
@@ -286,6 +299,10 @@ def cube_calc_m(text, prime_lines, lines, print_combos):
 
 def cube_calc_o(text, prime_lines, lines, print_combos):
   return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_occult)
+
+
+def cube_calc_v(text, prime_lines, lines, print_combos):
+  return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_violet, True)
 
 
 combos_ws = [
@@ -362,6 +379,7 @@ cube_calc("weapon", prime_lines_weapon, lines_weapon, combos_ws)
 cube_calc_m("weapon (meisters)", prime_lines_weapon_meister, lines_weapon_meister, combos_ws)
 cube_calc("secondary", prime_lines_secondary, lines_secondary, combos_ws)
 cube_calc_m("secondary (meisters)", prime_lines_secondary_meister, lines_secondary_meister, combos_ws)
+cube_calc_v("weapon/secondary (violets)", prime_lines_ws_violet, lines_ws_violet, combos_ws)
 cube_calc("emblem", prime_lines_emblem, lines_emblem, combos_e)
 cube_calc_m("emblem (meisters)", prime_lines_emblem_meister, lines_emblem_meister, combos_e)
 
