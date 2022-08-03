@@ -368,3 +368,15 @@ black
 16+ crit damage and 9+ stat 1 in 7899 cubes, 0.0127%
 16+ crit damage and 12 stat 1 in 19112 cubes, 0.0052%
              24 crit damage 1 in 380376 cubes, 0.0003%
+=============================== bottom (violets) ===============================
+    18+ stat 1 in 25 cubes, 4.0184%
+    21+ stat 1 in 45 cubes, 2.2404%
+    30+ stat 1 in 232 cubes, 0.4305%
+    33+ stat 1 in 464 cubes, 0.2155%
+      18+ hp 1 in 29 cubes, 3.3938%
+      21+ hp 1 in 69 cubes, 1.4582%
+      30+ hp 1 in 328 cubes, 0.3045%
+      33+ hp 1 in 1302 cubes, 0.0768%
+12+ all stat 1 in 57 cubes, 1.7520%
+15+ all stat 1 in 136 cubes, 0.7334%
+21+ all stat 1 in 917 cubes, 0.1091%
