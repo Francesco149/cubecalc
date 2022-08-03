@@ -283,6 +283,20 @@ lines_top_overall_violet = [
   (N, ALLSTAT, 6, 1/5.48*100),
 ]
 
+prime_lines_hat_violet = [
+  (P, STAT, 12, 1/7.55*100),
+  (P, HP, 12, 1/7.55*100),
+  (P, ALLSTAT, 9, 1/5.66*100),
+  (P, COOLDOWN, 2, 1/3.77*100),
+  (P, COOLDOWN, 1, 1/5.66*100),
+]
+
+lines_hat_violet = [
+  (N, STAT, 9, 1/7.94*100),
+  (N, HP, 9, 1/9.52*100),
+  (N, ALLSTAT, 6, 1/6.35*100),
+]
+
 def filter_impossible_lines(combos):
   for combo in combos:
     counts = {BOSS: 0, IED: 0}
@@ -490,3 +504,4 @@ cube_calc_v("shoe (violets)", prime_lines_shoe_violet, lines_shoe_violet, combos
 cube_calc_v("glove (violets)", prime_lines_glove_violet, lines_glove_violet, combos_glove)
 cube_calc_v("bottom (violets)", prime_lines_bottom_violet, lines_bottom_violet, combos_stat)
 cube_calc_v("top/overall (violets)", prime_lines_top_overall_violet, lines_top_overall_violet, combos_stat)
+cube_calc_v("hat (violets)", prime_lines_hat_violet, lines_hat_violet, combos_hat)

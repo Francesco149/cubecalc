@@ -392,3 +392,26 @@ black
 12+ all stat 1 in 65 cubes, 1.5308%
 15+ all stat 1 in 156 cubes, 0.6397%
 21+ all stat 1 in 1234 cubes, 0.0810%
+================================ hat (violets) =================================
+                 18+ stat 1 in 35 cubes, 2.8543%
+                 21+ stat 1 in 62 cubes, 1.6019%
+                 30+ stat 1 in 324 cubes, 0.3087%
+                 33+ stat 1 in 627 cubes, 0.1594%
+                   18+ hp 1 in 40 cubes, 2.5127%
+                   21+ hp 1 in 101 cubes, 0.9862%
+                   30+ hp 1 in 478 cubes, 0.2093%
+                   33+ hp 1 in 1772 cubes, 0.0564%
+             12+ all stat 1 in 77 cubes, 1.2947%
+             15+ all stat 1 in 206 cubes, 0.4852%
+             21+ all stat 1 in 1344 cubes, 0.0744%
+             2+s cooldown 1 in 134 cubes, 0.7460%
+2+s cooldown and any stat 1 in 295 cubes, 0.3389%
+ 2+s cooldown and 9+ stat 1 in 295 cubes, 0.3389%
+2+s cooldown and 12+ stat 1 in 551 cubes, 0.1814%
+2+s cooldown and 18+ stat 1 in 979 cubes, 0.1021%
+             3+s cooldown 1 in 3201 cubes, 0.0312%
+3+s cooldown and any stat 1 in 8265 cubes, 0.0121%
+             4+s cooldown 1 in 12424 cubes, 0.0080%
+4+s cooldown and any stat 1 in 32280 cubes, 0.0031%
+             5+s cooldown 1 in 618103 cubes, 0.0002%
+             6+s cooldown 1 in 3344676 cubes, 0.0000%
