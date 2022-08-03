@@ -220,6 +220,32 @@ lines_emblem_violet = [
   (N, IED, 30, 1/9.3*100),
 ]
 
+prime_lines_ws_uni = [
+  (P, BOSS, 40, 1/1.13*100),
+  (P, BOSS, 35, 1/2.10*100),
+  (P, BOSS, 30, 1/3.07*100),
+  (P, ATT, 12, 1/3.24*100),
+  (P, IED, 40, 1/16.18*100),
+  (P, IED, 35, 1/25.89*100),
+]
+
+lines_ws_uni = [
+  (N, BOSS, 30, 1/5.48*100),
+  (N, ATT, 9, 1/8.22*100),
+  (N, IED, 30, 1/20.55*100),
+]
+
+prime_lines_emblem_uni = [
+  (P, ATT, 12, 1/3.45*100),
+  (P, IED, 40, 1/17.27*100),
+  (P, IED, 35, 1/27.63*100),
+]
+
+lines_emblem_uni = [
+  (N, ATT, 9, 1/8.7*100),
+  (N, IED, 30, 1/21.74*100),
+]
+
 # pendants, rings, face, eye, earrings
 prime_lines_accessory_violet = [
   (P, STAT, 12, 1/7.84*100),
@@ -320,6 +346,13 @@ def filter_impossible_lines(combos):
     else:
       yield combo
 
+
+def tabulate(rows):
+  max_len = max((len(text) for (text, _) in rows))
+  for (text, result) in rows:
+    print(f"{text.rjust(max_len)} {result}")
+
+
 def cube_calc(
     text, prime_lines, lines, print_combos, singular_cube=False, prime_chance_singular=[], is_violet=False
 ):
@@ -365,11 +398,6 @@ def cube_calc(
     chance = sum([combo_chance(want, prime_chance, combos) for want in wants])
     return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
 
-  def tabulate(rows):
-    max_len = max((len(text) for (text, _) in rows))
-    for (text, result) in rows:
-      print(f"{text.rjust(max_len)} {result}")
-
   if singular_cube:
     tabulate([fmt_chance(text, want, prime_chance_singular, combos_singular_cube)
       for (text, want) in print_combos])
@@ -404,120 +432,176 @@ def cube_calc_e(text, prime_lines, lines, print_combos):
   return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_equality)
 
 
-combos_ws = [
-  ("18+ att", [{ATT: 18}]),
-  ("21+ att", [{ATT: 21}]),
-  ("30+ att", [{ATT: 30}]),
-  ("33+ att", [{ATT: 33}]),
-  ("21+ att and boss", [{ATT: 21, BOSS: 1}]),
-  ("21+ att and ied", [{ATT: 21, IED: 1}]),
-  ("18+ att and 30+boss", [{ATT: 18, BOSS: 30}]),
-  ("18+ att and 30+ied", [{ATT: 18, IED: 30}]),
-  ("60+ied", [{IED: 60}]),
-  ("70+ied", [{IED: 70}]),
-  ("60+ied and att", [{IED: 60, ATT: 1}]),
-  ("60+ied and boss", [{IED: 60, BOSS: 1}]),
-  ("21+ att and boss or 18+att and 30+boss", [{ATT: 21, BOSS: 1}, {ATT: 18, BOSS: 30}]),
-]
+def cube_calcs():
+  combos_ws = [
+    ("18+ att", [{ATT: 18}]),
+    ("21+ att", [{ATT: 21}]),
+    ("30+ att", [{ATT: 30}]),
+    ("33+ att", [{ATT: 33}]),
+    ("21+ att and boss", [{ATT: 21, BOSS: 1}]),
+    ("21+ att and ied", [{ATT: 21, IED: 1}]),
+    ("18+ att and 30+boss", [{ATT: 18, BOSS: 30}]),
+    ("18+ att and 30+ied", [{ATT: 18, IED: 30}]),
+    ("60+ied", [{IED: 60}]),
+    ("70+ied", [{IED: 70}]),
+    ("60+ied and att", [{IED: 60, ATT: 1}]),
+    ("60+ied and boss", [{IED: 60, BOSS: 1}]),
+    ("21+ att and boss or 18+att and 30+boss", [{ATT: 21, BOSS: 1}, {ATT: 18, BOSS: 30}]),
+  ]
 
-combos_e = [
-  ("18+ att", [{ATT: 18}]),
-  ("21+ att", [{ATT: 21}]),
-  ("30+ att", [{ATT: 30}]),
-  ("33+ att", [{ATT: 33}]),
-  ("21+ att and ied", [{ATT: 21, IED: 1}]),
-]
+  combos_e = [
+    ("18+ att", [{ATT: 18}]),
+    ("21+ att", [{ATT: 21}]),
+    ("30+ att", [{ATT: 30}]),
+    ("33+ att", [{ATT: 33}]),
+    ("21+ att and ied", [{ATT: 21, IED: 1}]),
+  ]
 
-combos_wse_b = [
-  ("18+ att", [{ATT: 18}]),
-  ("21+ att", [{ATT: 21}]),
-  ("30+ att", [{ATT: 30}]),
-  ("33+ att", [{ATT: 33}]),
-]
+  combos_wse_b = [
+    ("18+ att", [{ATT: 18}]),
+    ("21+ att", [{ATT: 21}]),
+    ("30+ att", [{ATT: 30}]),
+    ("33+ att", [{ATT: 33}]),
+  ]
 
-combos_stat = [
-  ("18+ stat", [{STAT: 18}]),
-  ("21+ stat", [{STAT: 21}]),
-  ("30+ stat", [{STAT: 30}]),
-  ("33+ stat", [{STAT: 33}]),
-  ("18+ hp", [{HP: 18}]),
-  ("21+ hp", [{HP: 21}]),
-  ("30+ hp", [{HP: 30}]),
-  ("33+ hp", [{HP: 33}]),
-  ("12+ all stat", [{ALLSTAT: 12}]),
-  ("15+ all stat", [{ALLSTAT: 15}]),
-  ("21+ all stat", [{ALLSTAT: 21}]),
-]
+  combos_stat = [
+    ("18+ stat", [{STAT: 18}]),
+    ("21+ stat", [{STAT: 21}]),
+    ("30+ stat", [{STAT: 30}]),
+    ("33+ stat", [{STAT: 33}]),
+    ("18+ hp", [{HP: 18}]),
+    ("21+ hp", [{HP: 21}]),
+    ("30+ hp", [{HP: 30}]),
+    ("33+ hp", [{HP: 33}]),
+    ("12+ all stat", [{ALLSTAT: 12}]),
+    ("15+ all stat", [{ALLSTAT: 15}]),
+    ("21+ all stat", [{ALLSTAT: 21}]),
+  ]
 
-combos_glove = combos_stat + [
-  ("8+ crit damage", [{CRITDMG: 8}]),
-  ("8+ crit damage and 6+ stat", [{CRITDMG: 8, STAT: 6}]),
-  ("8+ crit damage and 9+ stat", [{CRITDMG: 8, STAT: 9}]),
-  ("8+ crit damage and 12+ stat", [{CRITDMG: 8, STAT: 12}]),
-  ("8+ crit damage and 18+ stat", [{CRITDMG: 8, STAT: 18}]),
-  ("8+ crit damage and 24 stat", [{CRITDMG: 8, STAT: 24}]),
-  ("16+ crit damage", [{CRITDMG: 16}]),
-  ("16+ crit damage and 6+ stat", [{CRITDMG: 16, STAT: 6}]),
-  ("16+ crit damage and 9+ stat", [{CRITDMG: 16, STAT: 9}]),
-  ("16+ crit damage and 12 stat", [{CRITDMG: 16, STAT: 12}]),
-  ("24 crit damage", [{CRITDMG: 24}]),
-]
+  combos_glove = combos_stat + [
+    ("8+ crit damage", [{CRITDMG: 8}]),
+    ("8+ crit damage and 6+ stat", [{CRITDMG: 8, STAT: 6}]),
+    ("8+ crit damage and 9+ stat", [{CRITDMG: 8, STAT: 9}]),
+    ("8+ crit damage and 12+ stat", [{CRITDMG: 8, STAT: 12}]),
+    ("8+ crit damage and 18+ stat", [{CRITDMG: 8, STAT: 18}]),
+    ("8+ crit damage and 24 stat", [{CRITDMG: 8, STAT: 24}]),
+    ("16+ crit damage", [{CRITDMG: 16}]),
+    ("16+ crit damage and 6+ stat", [{CRITDMG: 16, STAT: 6}]),
+    ("16+ crit damage and 9+ stat", [{CRITDMG: 16, STAT: 9}]),
+    ("16+ crit damage and 12 stat", [{CRITDMG: 16, STAT: 12}]),
+    ("24 crit damage", [{CRITDMG: 24}]),
+  ]
 
-combos_hat = combos_stat + [
-  ("2+s cooldown", [{COOLDOWN: 2}]),
-  ("2+s cooldown and any stat", [{COOLDOWN: 2, STAT: 1}]),
-  ("2+s cooldown and 9+ stat", [{COOLDOWN: 2, STAT: 9}]),
-  ("2+s cooldown and 12+ stat", [{COOLDOWN: 2, STAT: 12}]),
-  ("2+s cooldown and 18+ stat", [{COOLDOWN: 2, STAT: 18}]),
-  ("3+s cooldown", [{COOLDOWN: 3}]),
-  ("3+s cooldown and any stat", [{COOLDOWN: 3, STAT: 1}]),
-  ("4+s cooldown", [{COOLDOWN: 4}]),
-  ("4+s cooldown and any stat", [{COOLDOWN: 4, STAT: 1}]),
-  ("5+s cooldown", [{COOLDOWN: 5}]),
-  ("6+s cooldown", [{COOLDOWN: 6}]),
-]
+  combos_hat = combos_stat + [
+    ("2+s cooldown", [{COOLDOWN: 2}]),
+    ("2+s cooldown and any stat", [{COOLDOWN: 2, STAT: 1}]),
+    ("2+s cooldown and 9+ stat", [{COOLDOWN: 2, STAT: 9}]),
+    ("2+s cooldown and 12+ stat", [{COOLDOWN: 2, STAT: 12}]),
+    ("2+s cooldown and 18+ stat", [{COOLDOWN: 2, STAT: 18}]),
+    ("3+s cooldown", [{COOLDOWN: 3}]),
+    ("3+s cooldown and any stat", [{COOLDOWN: 3, STAT: 1}]),
+    ("4+s cooldown", [{COOLDOWN: 4}]),
+    ("4+s cooldown and any stat", [{COOLDOWN: 4, STAT: 1}]),
+    ("5+s cooldown", [{COOLDOWN: 5}]),
+    ("6+s cooldown", [{COOLDOWN: 6}]),
+  ]
 
-combos_occult_stat = [
-  ("6+ stat", [{STAT: 6}]),
-  ("9+ stat", [{STAT: 9}]),
-  ("12+ stat", [{STAT: 12}]),
-  ("3+ all stat", [{ALLSTAT: 3}]),
-  ("6+ all stat", [{ALLSTAT: 6}]),
-  ("6+ hp", [{HP: 6}]),
-  ("9+ hp", [{HP: 9}]),
-  ("12+ hp", [{HP: 12}]),
-]
+  combos_occult_stat = [
+    ("6+ stat", [{STAT: 6}]),
+    ("9+ stat", [{STAT: 9}]),
+    ("12+ stat", [{STAT: 12}]),
+    ("3+ all stat", [{ALLSTAT: 3}]),
+    ("6+ all stat", [{ALLSTAT: 6}]),
+    ("6+ hp", [{HP: 6}]),
+    ("9+ hp", [{HP: 9}]),
+    ("12+ hp", [{HP: 12}]),
+  ]
 
-cube_calc("weapon", prime_lines_weapon, lines_weapon, combos_ws)
-cube_calc_m("weapon (meisters)", prime_lines_weapon_meister, lines_weapon_meister, combos_ws)
-cube_calc("secondary", prime_lines_secondary, lines_secondary, combos_ws)
-cube_calc_m("secondary (meisters)", prime_lines_secondary_meister, lines_secondary_meister, combos_ws)
-cube_calc_v("weapon/secondary (violets)", prime_lines_ws_violet, lines_ws_violet, combos_ws)
-cube_calc("emblem", prime_lines_emblem, lines_emblem, combos_e)
-cube_calc_m("emblem (meisters)", prime_lines_emblem_meister, lines_emblem_meister, combos_e)
-cube_calc_v("emblem (violets)", prime_lines_emblem_violet, lines_emblem_violet, combos_e)
+  cube_calc("weapon", prime_lines_weapon, lines_weapon, combos_ws)
+  cube_calc_m("weapon (meisters)", prime_lines_weapon_meister, lines_weapon_meister, combos_ws)
+  cube_calc("secondary", prime_lines_secondary, lines_secondary, combos_ws)
+  cube_calc_m("secondary (meisters)", prime_lines_secondary_meister, lines_secondary_meister, combos_ws)
+  cube_calc_v("weapon/secondary (violets)", prime_lines_ws_violet, lines_ws_violet, combos_ws)
+  cube_calc("emblem", prime_lines_emblem, lines_emblem, combos_e)
+  cube_calc_m("emblem (meisters)", prime_lines_emblem_meister, lines_emblem_meister, combos_e)
+  cube_calc_v("emblem (violets)", prime_lines_emblem_violet, lines_emblem_violet, combos_e)
 
-cube_calc_b("weapon bpot", prime_lines_weapon_b, lines_weapon_b, combos_wse_b)
-cube_calc_b("secondary bpot", prime_lines_secondary_b, lines_secondary_b, combos_wse_b)
-cube_calc_b("emblem bpot", prime_lines_emblem_b, lines_emblem_b, combos_wse_b)
+  cube_calc_b("weapon bpot", prime_lines_weapon_b, lines_weapon_b, combos_wse_b)
+  cube_calc_b("secondary bpot", prime_lines_secondary_b, lines_secondary_b, combos_wse_b)
+  cube_calc_b("emblem bpot", prime_lines_emblem_b, lines_emblem_b, combos_wse_b)
 
-cube_calc("top/overall", prime_lines_top, lines_top, combos_stat)
-cube_calc_m("top/overall (meisters)", prime_lines_top_meister, lines_top_meister, combos_stat)
+  cube_calc("top/overall", prime_lines_top, lines_top, combos_stat)
+  cube_calc_m("top/overall (meisters)", prime_lines_top_meister, lines_top_meister, combos_stat)
 
-cube_calc("hat", prime_lines_hat, lines_hat, combos_hat)
+  cube_calc("hat", prime_lines_hat, lines_hat, combos_hat)
 
-cube_calc_o("accessory (occult cubes)",
-  prime_lines_occult_accessory, lines_occult_accessory, combos_occult_stat)
+  cube_calc_o("accessory (occult cubes)",
+    prime_lines_occult_accessory, lines_occult_accessory, combos_occult_stat)
 
-cube_calc_v("accessory (violets)", prime_lines_accessory_violet, lines_accessory_violet, combos_stat)
-cube_calc_v("cape, belt, shoulder (violets)", prime_lines_cape_belt_shoulder_violet, lines_cape_belt_shoulder_violet, combos_stat)
-cube_calc_v("shoe (violets)", prime_lines_shoe_violet, lines_shoe_violet, combos_stat)
-cube_calc_v("glove (violets)", prime_lines_glove_violet, lines_glove_violet, combos_glove)
-cube_calc_v("bottom (violets)", prime_lines_bottom_violet, lines_bottom_violet, combos_stat)
-cube_calc_v("top/overall (violets)", prime_lines_top_overall_violet, lines_top_overall_violet, combos_stat)
-cube_calc_v("hat (violets)", prime_lines_hat_violet, lines_hat_violet, combos_hat)
+  cube_calc_v("accessory (violets)", prime_lines_accessory_violet, lines_accessory_violet, combos_stat)
+  cube_calc_v("cape, belt, shoulder (violets)", prime_lines_cape_belt_shoulder_violet, lines_cape_belt_shoulder_violet, combos_stat)
+  cube_calc_v("shoe (violets)", prime_lines_shoe_violet, lines_shoe_violet, combos_stat)
+  cube_calc_v("glove (violets)", prime_lines_glove_violet, lines_glove_violet, combos_glove)
+  cube_calc_v("bottom (violets)", prime_lines_bottom_violet, lines_bottom_violet, combos_stat)
+  cube_calc_v("top/overall (violets)", prime_lines_top_overall_violet, lines_top_overall_violet, combos_stat)
+  cube_calc_v("hat (violets)", prime_lines_hat_violet, lines_hat_violet, combos_hat)
 
-# pretty sure the equality chances are the same as violet at least for these linesA
-# except you can't roll non-prime lines
-cube_calc_e("glove (equality)", prime_lines_glove_violet, [], combos_glove)
-cube_calc_e("hat (equality)", prime_lines_hat_violet, [], combos_hat)
+  # pretty sure the equality chances are the same as violet at least for these linesA
+  # except you can't roll non-prime lines
+  cube_calc_e("glove (equality)", prime_lines_glove_violet, [], combos_glove)
+  cube_calc_e("hat (equality)", prime_lines_hat_violet, [], combos_hat)
+
+
+def unicube_calc(text, prime_lines, lines, print_combos, prime_chance=0.15):
+  print(f" {text} (unicube) ".center(80, "="))
+  lines = lines + prime_lines
+
+  def combo_chance(want):
+    want_stat = list(want.keys())[0]
+    want_value = want[want_stat]
+    eligible_lines = [(prime, stat, value, onein) for (prime, stat, value, onein) in lines if stat == want_stat and value >= want_value]
+    return sum([1/onein * (prime_chance if prime else 1) for (prime, _, _, onein) in eligible_lines]) / 4
+    # divide by 4 because 3 cubes avg to select line, 1 to reroll it
+
+  def fmt_chance(text, wants):
+    chance = sum([combo_chance(want) for want in wants])
+    return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
+
+  tabulate([fmt_chance(text, want) for (text, want) in print_combos])
+
+
+def unicube_calcs():
+  combos_uni_e_prime = [
+    ("12 att", [{ATT: 12}]),
+    ("40 ied", [{IED: 40}]),
+    ("35+ ied", [{IED: 35}]),
+  ]
+
+  combos_uni_e_nonprime = [
+    ("9+ att or 30+ ied", [{ATT: 9}, {IED: 30}]),
+    ("9+ att", [{ATT: 9}]),
+    ("30+ ied", [{IED: 30}]),
+  ]
+
+  combos_uni_ws_prime = [
+    ("35+ boss", [{BOSS: 35}]),
+    ("40 boss", [{BOSS: 40}]),
+  ] + combos_uni_e_prime
+
+  combos_uni_ws_nonprime = [
+    ("9+ att or 30+ boss or 30+ ied", [{ATT: 9}, {BOSS: 30}, {IED: 30}]),
+    ("9+ att or 30+ boss", [{ATT: 9}, {BOSS: 30}]),
+    ("30+ boss", [{BOSS: 30}]),
+  ] + combos_uni_e_nonprime
+
+  combos_uni_e = combos_uni_e_nonprime + combos_uni_e_prime
+  combos_uni_ws = combos_uni_ws_nonprime + combos_uni_ws_prime
+
+  unicube_calc("weapon/secondary: 2nd/3rd line reroll", prime_lines_ws_uni, lines_ws_uni, combos_uni_ws)
+  unicube_calc("emblem: 2nd/3rd line reroll", prime_lines_emblem_uni, lines_emblem_uni, combos_uni_e)
+
+  unicube_calc("weapon/secondary: 1st line reroll", prime_lines_ws_uni, [], combos_uni_ws_prime, 1)
+  unicube_calc("emblem: 1st line reroll", prime_lines_emblem_uni, [], combos_uni_e_prime, 1)
+
+cube_calcs()
+unicube_calcs()

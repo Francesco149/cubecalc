@@ -393,3 +393,32 @@ black
 4+s cooldown and any stat 1 in 3106 cubes, 0.0322%
              5+s cooldown 1 in 3391 cubes, 0.0295%
              6+s cooldown 1 in 18663 cubes, 0.0054%
+=============== weapon/secondary: 2nd/3rd line reroll (unicube) ================
+9+ att or 30+ boss or 30+ ied 1 in 10 cubes, 10.4979%
+           9+ att or 30+ boss 1 in 26 cubes, 3.7828%
+                     30+ boss 1 in 62 cubes, 1.6062%
+            9+ att or 30+ ied 1 in 11 cubes, 8.8916%
+                       9+ att 1 in 46 cubes, 2.1765%
+                      30+ ied 1 in 15 cubes, 6.7151%
+                     35+ boss 1 in 826 cubes, 0.1211%
+                      40 boss 1 in 2360 cubes, 0.0424%
+                       12 att 1 in 823 cubes, 0.1215%
+                       40 ied 1 in 165 cubes, 0.6068%
+                      35+ ied 1 in 63 cubes, 1.5776%
+==================== emblem: 2nd/3rd line reroll (unicube) =====================
+9+ att or 30+ ied 1 in 11 cubes, 9.4231%
+           9+ att 1 in 43 cubes, 2.3044%
+          30+ ied 1 in 14 cubes, 7.1187%
+           12 att 1 in 773 cubes, 0.1294%
+           40 ied 1 in 154 cubes, 0.6476%
+          35+ ied 1 in 59 cubes, 1.6837%
+================= weapon/secondary: 1st line reroll (unicube) ==================
+35+ boss 1 in 124 cubes, 0.8075%
+ 40 boss 1 in 354 cubes, 0.2825%
+  12 att 1 in 123 cubes, 0.8100%
+  40 ied 1 in 25 cubes, 4.0450%
+ 35+ ied 1 in 10 cubes, 10.5175%
+====================== emblem: 1st line reroll (unicube) =======================
+ 12 att 1 in 116 cubes, 0.8625%
+ 40 ied 1 in 23 cubes, 4.3175%
+35+ ied 1 in 9 cubes, 11.2250%
