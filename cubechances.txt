@@ -160,6 +160,12 @@ black
         30+ att 1 in 3039 cubes, 0.0329%
         33+ att 1 in 843483 cubes, 0.0001%
 21+ att and ied 1 in 1514 cubes, 0.0660%
+=============================== emblem (violets) ===============================
+        18+ att 1 in 46 cubes, 2.1877%
+        21+ att 1 in 129 cubes, 0.7729%
+        30+ att 1 in 873 cubes, 0.1146%
+        33+ att 1 in 4457 cubes, 0.0224%
+21+ att and ied 1 in 310 cubes, 0.3221%
 ================================= weapon bpot ==================================
 18+ att 1 in 155 cubes, 0.6450%
 21+ att 1 in 226 cubes, 0.4418%

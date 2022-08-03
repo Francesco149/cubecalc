@@ -209,6 +209,17 @@ lines_ws_violet = [
   (N, IED, 30, 1/8.7*100),
 ]
 
+prime_lines_emblem_violet = [
+  (P, ATT, 12, 1/5.13*100),
+  (P, IED, 40, 1/7.69*100),
+  (P, IED, 35, 1/7.69*100),
+]
+
+lines_emblem_violet = [
+  (N, ATT, 9, 1/6.98*100),
+  (N, IED, 30, 1/9.3*100),
+]
+
 # pendants, rings, face, eye, earrings
 prime_lines_accessory_violet = [
   (P, STAT, 12, 1/7.84*100),
@@ -485,6 +496,7 @@ cube_calc_m("secondary (meisters)", prime_lines_secondary_meister, lines_seconda
 cube_calc_v("weapon/secondary (violets)", prime_lines_ws_violet, lines_ws_violet, combos_ws)
 cube_calc("emblem", prime_lines_emblem, lines_emblem, combos_e)
 cube_calc_m("emblem (meisters)", prime_lines_emblem_meister, lines_emblem_meister, combos_e)
+cube_calc_v("emblem (violets)", prime_lines_emblem_violet, lines_emblem_violet, combos_e)
 
 cube_calc_b("weapon bpot", prime_lines_weapon_b, lines_weapon_b, combos_wse_b)
 cube_calc_b("secondary bpot", prime_lines_secondary_b, lines_secondary_b, combos_wse_b)
