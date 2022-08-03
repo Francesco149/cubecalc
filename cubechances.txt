@@ -309,3 +309,15 @@ black
       6+ hp 1 in 13 cubes, 7.9333%
       9+ hp 1 in 65 cubes, 1.5327%
      12+ hp 1 in 833 cubes, 0.1200%
+============================= accessory (violets) ==============================
+    18+ stat 1 in 18 cubes, 5.6277%
+    21+ stat 1 in 30 cubes, 3.2928%
+    30+ stat 1 in 147 cubes, 0.6815%
+    33+ stat 1 in 272 cubes, 0.3677%
+      18+ hp 1 in 20 cubes, 5.0198%
+      21+ hp 1 in 51 cubes, 1.9566%
+      30+ hp 1 in 226 cubes, 0.4433%
+      33+ hp 1 in 775 cubes, 0.1290%
+12+ all stat 1 in 38 cubes, 2.6078%
+15+ all stat 1 in 105 cubes, 0.9535%
+21+ all stat 1 in 635 cubes, 0.1576%

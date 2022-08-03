@@ -208,6 +208,19 @@ lines_ws_violet = [
   (N, IED, 30, 1/8.7*100),
 ]
 
+# pendants, rings, face, eye, earrings
+prime_lines_accessory_violet = [
+  (P, STAT, 12, 1/7.84*100),
+  (P, ALLSTAT, 9, 1/5.88*100),
+  (P, HP, 12, 1/7.84*100),
+]
+
+lines_accessory_violet = [
+  (N, STAT, 9, 1/9.8*100),
+  (N, HP, 9, 1/11.76*100),
+  (N, ALLSTAT, 6, 1/7.84*100),
+]
+
 def filter_impossible_lines(combos):
   for combo in combos:
     counts = {BOSS: 0, IED: 0}
@@ -394,3 +407,5 @@ cube_calc("hat", prime_lines_hat, lines_hat, combos_hat)
 
 cube_calc_o("accessory (occult cubes)",
   prime_lines_occult_accessory, lines_occult_accessory, combos_occult_stat)
+
+cube_calc_v("accessory (violets)", prime_lines_accessory_violet, lines_accessory_violet, combos_stat)
