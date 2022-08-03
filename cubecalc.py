@@ -283,6 +283,18 @@ lines_cape_belt_shoulder_violet = [
   (N, ALLSTAT, 6, 1/6.78*100),
 ]
 
+prime_lines_cape_belt_shoulder_uni = [
+  (P, STAT, 12, 1/8.89*100),
+  (P, HP, 12, 1/8.89*100),
+  (P, ALLSTAT, 9, 1/6.67*100),
+]
+
+lines_cape_belt_shoulder_uni = [
+  (N, STAT, 9, 1/7.69*100),
+  (N, HP, 9, 1/7.69*100),
+  (N, ALLSTAT, 6, 1/1.54*100),
+]
+
 prime_lines_shoe_violet = [
   (P, STAT, 12, 1/8.33*100),
   (P, HP, 12, 1/8.33*100),
@@ -632,6 +644,7 @@ def unicube_calcs():
   combos_uni_stat = combos_uni_stat_nonprime + combos_uni_stat_prime
 
   unicube_calc("accessory: 2nd/3rd line reroll", prime_lines_accessory_uni, lines_accessory_uni, combos_uni_stat)
+  unicube_calc("cape/belt/shoulder: 2nd/3rd line reroll", prime_lines_cape_belt_shoulder_uni, lines_cape_belt_shoulder_uni, combos_uni_stat)
 
 cube_calcs()
 unicube_calcs()

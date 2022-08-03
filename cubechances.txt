@@ -430,3 +430,11 @@ black
   12 stat 1 in 440 cubes, 0.2273%
     12 hp 1 in 440 cubes, 0.2273%
 9 allstat 1 in 1754 cubes, 0.0570%
+============== cape/belt/shoulder: 2nd/3rd line reroll (unicube) ===============
+  6+ stat 1 in 35 cubes, 2.8910%
+  9+ stat 1 in 40 cubes, 2.5060%
+    9+ hp 1 in 44 cubes, 2.2559%
+6 allstat 1 in 157 cubes, 0.6351%
+  12 stat 1 in 300 cubes, 0.3334%
+    12 hp 1 in 300 cubes, 0.3334%
+9 allstat 1 in 400 cubes, 0.2501%
