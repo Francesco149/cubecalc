@@ -412,16 +412,6 @@ black
            12 att 1 in 580 cubes, 0.1725%
            40 ied 1 in 116 cubes, 0.8635%
           35+ ied 1 in 45 cubes, 2.2450%
-================= weapon/secondary: 1st line reroll (unicube) ==================
-35+ boss 1 in 93 cubes, 1.0767%
- 40 boss 1 in 265 cubes, 0.3767%
-  12 att 1 in 93 cubes, 1.0800%
-  40 ied 1 in 19 cubes, 5.3933%
- 35+ ied 1 in 7 cubes, 14.0233%
-====================== emblem: 1st line reroll (unicube) =======================
- 12 att 1 in 87 cubes, 1.1500%
- 40 ied 1 in 17 cubes, 5.7567%
-35+ ied 1 in 7 cubes, 14.9667%
 =========== accessory: 2l->3l by rerolling 2nd or 3rd line (unicube) ===========
   6+ stat 1 in 23 cubes, 4.3343%
   9+ stat 1 in 27 cubes, 3.6742%
@@ -481,34 +471,3 @@ black
    9 allstat 1 in 1600 cubes, 0.0625%
 1+s cooldown 1 in 100 cubes, 1.0000%
  2s cooldown 1 in 200 cubes, 0.5000%
-===================== accessory: 1st line reroll (unicube) =====================
-  12 stat 1 in 50 cubes, 2.0200%
-    12 hp 1 in 50 cubes, 2.0200%
-9 allstat 1 in 197 cubes, 0.5067%
-================ cape/belt/shoulder: 1st line reroll (unicube) =================
-  12 stat 1 in 34 cubes, 2.9633%
-    12 hp 1 in 34 cubes, 2.9633%
-9 allstat 1 in 45 cubes, 2.2233%
-======================= shoe: 1st line reroll (unicube) ========================
-  12 stat 1 in 41 cubes, 2.4233%
-    12 hp 1 in 41 cubes, 2.4233%
-9 allstat 1 in 165 cubes, 0.6067%
-======================= glove: 1st line reroll (unicube) =======================
-      12 stat 1 in 52 cubes, 1.9333%
-        12 hp 1 in 52 cubes, 1.9333%
-    9 allstat 1 in 207 cubes, 0.4833%
-8 crit damage 1 in 103 cubes, 0.9667%
-====================== bottom: 1st line reroll (unicube) =======================
-  12 stat 1 in 34 cubes, 2.9633%
-    12 hp 1 in 34 cubes, 2.9633%
-9 allstat 1 in 135 cubes, 0.7400%
-==================== top/overall: 1st line reroll (unicube) ====================
-  12 stat 1 in 49 cubes, 2.0500%
-    12 hp 1 in 49 cubes, 2.0500%
-9 allstat 1 in 195 cubes, 0.5133%
-======================== hat: 1st line reroll (unicube) ========================
-     12 stat 1 in 60 cubes, 1.6667%
-       12 hp 1 in 60 cubes, 1.6667%
-   9 allstat 1 in 240 cubes, 0.4167%
-1+s cooldown 1 in 15 cubes, 6.6667%
- 2s cooldown 1 in 30 cubes, 3.3333%
