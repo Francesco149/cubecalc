@@ -13,6 +13,7 @@ ALLSTAT = "allstat"
 HP = "hp"
 COOLDOWN = "cooldown"
 CRITDMG = "critdmg"
+LINES = "match by number of lines and what lines are allowed"
 P = True
 N = False
 
@@ -460,18 +461,30 @@ def cube_calc(
 
   def combo_chance(want, prime_chance, combos):
     good=set()
-    for combo in combos:
-      amounts = {}
-      for (prime, typ, amount, onein) in combo:
-        if typ not in amounts: amounts[typ] = 0
-        amounts[typ] += amount
-      if ALLSTAT in amounts and STAT in amounts:
-        amounts[STAT] += amounts[ALLSTAT]
-      for k in want.keys():
-        if k not in amounts or amounts[k] < want[k]:
-          break
-      else:
-        good.add(combo)
+    if LINES in want:
+      # we are looking for all combinations that contains at least n lines of any of the stats specified
+      for combo in combos:
+        lines = 0
+        for (prime, typ, amount, onein) in combo:
+          if typ == ALLSTAT and typ not in want:
+            typ = STAT
+          if typ in want and amount >= want[typ]:
+            lines += 1
+        if lines >= want[LINES]:
+          good.add(combo)
+    else:
+      for combo in combos:
+        amounts = {}
+        for (prime, typ, amount, onein) in combo:
+          if typ not in amounts: amounts[typ] = 0
+          amounts[typ] += amount
+        if ALLSTAT in amounts and STAT in amounts:
+          amounts[STAT] += amounts[ALLSTAT]
+        for k in want.keys():
+          if k not in amounts or amounts[k] < want[k]:
+            break
+        else:
+          good.add(combo)
 
     # for any lines that can be both prime and non-prime, we need to adjust the probability of prime lines
     # by their prime chance, and the probability of non-prime lines by the inverse of the prime chance.
@@ -526,13 +539,16 @@ def cube_calcs():
     ("33+ att", [{ATT: 33}]),
     ("21+ att and boss", [{ATT: 21, BOSS: 1}]),
     ("21+ att and ied", [{ATT: 21, IED: 1}]),
-    ("18+ att and 30+boss", [{ATT: 18, BOSS: 30}]),
-    ("18+ att and 30+ied", [{ATT: 18, IED: 30}]),
+    ("18+ att and boss", [{ATT: 18, BOSS: 1}]),
+    ("18+ att and ied", [{ATT: 18, IED: 1}]),
+    ("any 2l combo of att+boss", [{ATT: 1, BOSS: 1, LINES: 2}]),
+    ("any 2l combo of att+boss+ied", [{ATT: 1, BOSS: 1, IED: 1, LINES: 2}]),
+    ("any 3l combo of att+boss", [{ATT: 1, BOSS: 1, LINES: 3}]),
+    ("any 3l combo of att+boss+ied", [{ATT: 1, BOSS: 1, IED: 1, LINES: 3}]),
     ("60+ied", [{IED: 60}]),
     ("70+ied", [{IED: 70}]),
     ("60+ied and att", [{IED: 60, ATT: 1}]),
     ("60+ied and boss", [{IED: 60, BOSS: 1}]),
-    ("21+ att and boss or 18+att and 30+boss", [{ATT: 21, BOSS: 1}, {ATT: 18, BOSS: 30}]),
   ]
 
   combos_e = [
