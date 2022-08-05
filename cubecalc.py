@@ -444,14 +444,13 @@ def cube_calc(
     text, prime_lines, lines, print_combos, singular_cube=False, prime_chance_singular=[], is_violet=False
 ):
   print(f" {text} ".center(80, "="))
-  lines = lines + prime_lines
   def make_any_line(prime, lines):
     return lines + [(prime, ANY, 0, 1.0/(1.0 - sum((1.0/onein for (_, _, _, onein) in lines))))]
 
   # to represent all the lines we don't care about I generate an ANY line that
   # has 1-(sum of the chances of all lines we care about) chance
   p = make_any_line(P, prime_lines)
-  n = make_any_line(N, lines)
+  n = make_any_line(N, lines) + p
   if not singular_cube:
     combos_red = list(filter_impossible_lines(product(p, n, n)))
   elif is_violet:
