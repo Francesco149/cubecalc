@@ -863,12 +863,11 @@ def cube_calcs():
   with Combos(combos_stat) as c:
     c.calc(top_overall)
     c.calc(top_overall_noncash, MEISTER)
+    c.calc(top_overall_violet_equality, [VIOLET, EQUALITY])
     c.calc(accessory_violet_equality, [VIOLET, EQUALITY])
     c.calc(cape_belt_shoulder_violet_equality, [VIOLET, EQUALITY])
     c.calc(shoe_violet_equality, [VIOLET, EQUALITY])
     c.calc(bottom_violet_equality, [VIOLET, EQUALITY])
-    c.calc(top_overall_violet_equality, [VIOLET, EQUALITY])
-    c.calc(hat_violet_equality, [VIOLET, EQUALITY])
 
   with Combos(combos_hat) as c:
     c.calc(hat)

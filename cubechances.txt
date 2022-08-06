@@ -225,6 +225,30 @@ any 3l combo of att+ied 1 in 200 cubes, 0.4990%
 12+ all stat 1 in 228 cubes, 0.4385%
 15+ all stat 1 in 284 cubes, 0.3524%
 21+ all stat 1 in 18444 cubes, 0.0054%
+============================= top/overall (violet) =============================
+    18+ stat 1 in 10 cubes, 9.9953%
+    21+ stat 1 in 21 cubes, 4.7519%
+    30+ stat 1 in 159 cubes, 0.6277%
+    33+ stat 1 in 404 cubes, 0.2475%
+      18+ hp 1 in 13 cubes, 7.9741%
+      21+ hp 1 in 28 cubes, 3.5923%
+      30+ hp 1 in 192 cubes, 0.5203%
+      33+ hp 1 in 1055 cubes, 0.0948%
+12+ all stat 1 in 25 cubes, 3.9935%
+15+ all stat 1 in 55 cubes, 1.8237%
+21+ all stat 1 in 547 cubes, 0.1829%
+============================ top/overall (equality) ============================
+    18+ stat 1 in 24 cubes, 4.2154%
+    21+ stat 1 in 24 cubes, 4.2154%
+    30+ stat 1 in 420 cubes, 0.2379%
+    33+ stat 1 in 639 cubes, 0.1566%
+      18+ hp 1 in 57 cubes, 1.7476%
+      21+ hp 1 in 57 cubes, 1.7476%
+      30+ hp 1 in 2075 cubes, 0.0482%
+      33+ hp 1 in 2075 cubes, 0.0482%
+12+ all stat 1 in 100 cubes, 0.9966%
+15+ all stat 1 in 100 cubes, 0.9966%
+21+ all stat 1 in 4919 cubes, 0.0203%
 ============================== accessory (violet) ==============================
     18+ stat 1 in 6 cubes, 15.4683%
     21+ stat 1 in 12 cubes, 8.0802%
@@ -321,54 +345,6 @@ any 3l combo of att+ied 1 in 200 cubes, 0.4990%
 12+ all stat 1 in 78 cubes, 1.2753%
 15+ all stat 1 in 78 cubes, 1.2753%
 21+ all stat 1 in 3370 cubes, 0.0297%
-============================= top/overall (violet) =============================
-    18+ stat 1 in 10 cubes, 9.9953%
-    21+ stat 1 in 21 cubes, 4.7519%
-    30+ stat 1 in 159 cubes, 0.6277%
-    33+ stat 1 in 404 cubes, 0.2475%
-      18+ hp 1 in 13 cubes, 7.9741%
-      21+ hp 1 in 28 cubes, 3.5923%
-      30+ hp 1 in 192 cubes, 0.5203%
-      33+ hp 1 in 1055 cubes, 0.0948%
-12+ all stat 1 in 25 cubes, 3.9935%
-15+ all stat 1 in 55 cubes, 1.8237%
-21+ all stat 1 in 547 cubes, 0.1829%
-============================ top/overall (equality) ============================
-    18+ stat 1 in 24 cubes, 4.2154%
-    21+ stat 1 in 24 cubes, 4.2154%
-    30+ stat 1 in 420 cubes, 0.2379%
-    33+ stat 1 in 639 cubes, 0.1566%
-      18+ hp 1 in 57 cubes, 1.7476%
-      21+ hp 1 in 57 cubes, 1.7476%
-      30+ hp 1 in 2075 cubes, 0.0482%
-      33+ hp 1 in 2075 cubes, 0.0482%
-12+ all stat 1 in 100 cubes, 0.9966%
-15+ all stat 1 in 100 cubes, 0.9966%
-21+ all stat 1 in 4919 cubes, 0.0203%
-================================= hat (violet) =================================
-    18+ stat 1 in 9 cubes, 11.6900%
-    21+ stat 1 in 18 cubes, 5.7030%
-    30+ stat 1 in 121 cubes, 0.8233%
-    33+ stat 1 in 285 cubes, 0.3506%
-      18+ hp 1 in 10 cubes, 9.7253%
-      21+ hp 1 in 25 cubes, 4.0624%
-      30+ hp 1 in 152 cubes, 0.6557%
-      33+ hp 1 in 789 cubes, 0.1267%
-12+ all stat 1 in 20 cubes, 4.8883%
-15+ all stat 1 in 49 cubes, 2.0433%
-21+ all stat 1 in 433 cubes, 0.2309%
-================================ hat (equality) ================================
-    18+ stat 1 in 25 cubes, 3.9218%
-    21+ stat 1 in 25 cubes, 3.9218%
-    30+ stat 1 in 471 cubes, 0.2124%
-    33+ stat 1 in 715 cubes, 0.1398%
-      18+ hp 1 in 62 cubes, 1.6240%
-      21+ hp 1 in 62 cubes, 1.6240%
-      30+ hp 1 in 2324 cubes, 0.0430%
-      33+ hp 1 in 2324 cubes, 0.0430%
-12+ all stat 1 in 108 cubes, 0.9248%
-15+ all stat 1 in 108 cubes, 0.9248%
-21+ all stat 1 in 5515 cubes, 0.0181%
 ================================== hat (red) ===================================
                  18+ stat 1 in 22 cubes, 4.5464%
                  21+ stat 1 in 53 cubes, 1.8824%
