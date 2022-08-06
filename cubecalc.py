@@ -839,7 +839,9 @@ def __cube_calc(print_combos, lines, type, tier):
         for (prime, typ, amount, onein) in combo:
           if typ not in amounts: amounts[typ] = 0
           amounts[typ] += amount
-        if ALLSTAT in amounts and STAT in amounts:
+        if ALLSTAT in amounts:
+          if STAT not in amounts:
+            amounts[STAT] = 0
           amounts[STAT] += amounts[ALLSTAT]
         for k in want.keys():
           if k not in amounts or amounts[k] < want[k]:
