@@ -22,6 +22,14 @@ EPIC = 2
 UNIQUE = 3
 LEGENDARY = 4
 
+tier_names = {
+  COMMON: "common",
+  RARE: "rare",
+  EPIC: "epic",
+  UNIQUE: "unique",
+  LEGENDARY: "legendary",
+}
+
 DEFAULT_TIER = LEGENDARY
 
 RED = "red"
@@ -764,7 +772,7 @@ def fmt_chance(text, wants, combos, combo_chance):
 
 
 def unicube_calc(print_combos, lines, tier=DEFAULT_TIER):
-  print(f" {lines[NAME]}: 2l->3l by rerolling 2nd or 3rd line (unicube) ".center(80, "="))
+  print(f" {lines[NAME]}: 2l->3l by rerolling 2nd or 3rd line (unicube at {tier_names[tier]}) ".center(80, "="))
 
   prime_chance = prime_chances[UNI]
   lines = mklines(False, lines[tier - 1]) + mklines(True, lines[tier])
@@ -790,7 +798,7 @@ def __cube_calc(print_combos, lines, type, tier):
     unicube_calc(print_combos, lines, tier)
     return
   
-  print(f" {lines[NAME]} ({type}) ".center(80, "="))
+  print(f" {lines[NAME]} ({type} at {tier_names[tier]}) ".center(80, "="))
 
   prime_chance = prime_chances[type]
   if not isinstance(prime_chance, list):
