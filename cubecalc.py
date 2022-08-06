@@ -15,6 +15,12 @@ COOLDOWN = "cooldown"
 CRITDMG = "critdmg"
 LINES = "match by number of lines and what lines are allowed"
 
+COMMON = 0
+RARE = 1
+EPIC = 2
+UNIQUE = 3
+LEGENDARY = 4
+
 prime_chance_red = [1, 0.1, 0.01]
 prime_chance_meister = [1, 0.001996, 0.001996]
 prime_chance_black = [1, 0.2, 0.05]
@@ -23,402 +29,531 @@ prime_chance_equality = [1, 1, 1]
 prime_chance_bonus = [1, 0.004975, 0.004975]
 prime_chance_occult = [1] + [1.0/101]*2
 
-prime_lines_weapon = [
-  (BOSS, 40, 20.5),
-  (BOSS, 35, 20.5),
-  (BOSS, 30, 20.5),
-  (IED,  40, 20.5),
-  (IED,  35, 20.5),
-  (ATT,  12, 20.5),
-]
+weapon = {
 
-prime_lines_weapon_meister = [
-  (BOSS, 40, 36),
-  (BOSS, 35, 18),
-  (BOSS, 30, 18),
-  (IED,  40, 36),
-  (IED,  35, 18),
-  (ATT,  12, 18),
-]
+  UNIQUE: [
+    (BOSS, 30, 14.3333),
+    (IED,  30, 14.3333),
+    (ATT,   9, 14.3333),
+  ],
+  
+  LEGENDARY: [
+    (BOSS, 40, 20.5),
+    (BOSS, 35, 20.5),
+    (BOSS, 30, 20.5),
+    (IED,  40, 20.5),
+    (IED,  35, 20.5),
+    (ATT,  12, 20.5),
+  ],
 
-lines_weapon = [
-  (BOSS, 30, 14.3333),
-  (IED,  30, 14.3333),
-  (ATT,   9, 14.3333),
-]
+}
 
-lines_weapon_meister = [
-  (BOSS, 30, 15),
-  (IED,  30, 15),
-  (ATT,   9, 15),
-]
+weapon_noncash = {
 
-prime_lines_secondary = [
-  (BOSS, 40, 23.5),
-  (BOSS, 35, 23.5),
-  (BOSS, 30, 23.5),
-  (IED,  40, 23.5),
-  (IED,  35, 23.5),
-  (ATT,  12, 23.5),
-]
+  UNIQUE: [
+    (BOSS, 30, 15),
+    (IED,  30, 15),
+    (ATT,   9, 15),
+  ],
 
-prime_lines_secondary_meister = [
-  (BOSS, 40, 24),
-  (BOSS, 35, 24),
-  (BOSS, 30, 48),
-  (IED,  40, 48),
-  (IED,  35, 24),
-  (ATT,  12, 24),
-]
+  LEGENDARY: [
+    (BOSS, 40, 36),
+    (BOSS, 35, 18),
+    (BOSS, 30, 18),
+    (IED,  40, 36),
+    (IED,  35, 18),
+    (ATT,  12, 18),
+  ],
+  
+}
 
-lines_secondary = [
-  (BOSS, 30, 17.0),
-  (IED,  30, 17.0),
-  (ATT,   9, 17.0),
-]
+secondary = {
 
-lines_secondary_meister = [
-  (BOSS, 30, 21),
-  (IED,  30, 21),
-  (ATT,   9, 21),
-]
+  UNIQUE: [
+    (BOSS, 30, 17.0),
+    (IED,  30, 17.0),
+    (ATT,   9, 17.0),
+  ],
 
-prime_lines_emblem = [
-  (IED,  40, 17.5),
-  (IED,  35, 17.5),
-  (ATT,  12, 17.5),
-]
+  LEGENDARY: [
+    (BOSS, 40, 23.5),
+    (BOSS, 35, 23.5),
+    (BOSS, 30, 23.5),
+    (IED,  40, 23.5),
+    (IED,  35, 23.5),
+    (ATT,  12, 23.5),
+  ],
 
-prime_lines_emblem_meister = [
-  (IED,  40, 15.5),
-  (IED,  35, 31),
-  (ATT,  12, 15.5),
-]
+}
 
-lines_emblem = [
-  (IED,  30, 13.3333),
-  (ATT,   9, 13.3333),
-]
+secondary_noncash = {
 
-lines_emblem_meister = [
-  (IED,  30, 14),
-  (ATT,   9, 14),
-]
+  UNIQUE: [
+    (BOSS, 30, 21),
+    (IED,  30, 21),
+    (ATT,   9, 21),
+  ],
 
-prime_lines_weapon_b = [
-  (ATT, 12, 19.5),
-]
+  LEGENDARY: [
+    (BOSS, 40, 24),
+    (BOSS, 35, 24),
+    (BOSS, 30, 48),
+    (IED,  40, 48),
+    (IED,  35, 24),
+    (ATT,  12, 24),
+  ],
+  
+}
 
-lines_weapon_b = [
-  (ATT, 9, 21.5),
-]
+emblem = {
 
-prime_lines_secondary_b = [
-  (ATT, 12, 20.5),
-]
+  LEGENDARY: [
+    (IED,  40, 17.5),
+    (IED,  35, 17.5),
+    (ATT,  12, 17.5),
+  ],
 
-lines_secondary_b = [
-  (ATT, 9, 21.5),
-]
+  UNIQUE: [
+    (IED,  30, 13.3333),
+    (ATT,   9, 13.3333),
+  ],
 
-prime_lines_emblem_b = [
-  (ATT, 12, 19),
-]
+}
 
-lines_emblem_b = [
-  (ATT, 9, 21),
-]
+emblem_noncash = {
 
-prime_lines_top = [
-  (STAT, 12, 10.75),
-  (ALLSTAT, 9, 10.75),
-  (HP, 12, 10.75),
-]
+  UNIQUE: [
+    (IED,  30, 14),
+    (ATT,   9, 14),
+  ],
 
-prime_lines_top_meister = [
-  (STAT, 12, 17),
-  (ALLSTAT, 9, 17),
-  (HP, 12, 11.3333),
-]
+  LEGENDARY: [
+    (IED,  40, 15.5),
+    (IED,  35, 31),
+    (ATT,  12, 15.5),
+  ],
+  
+}
 
-lines_top = [
-  (STAT, 9, 13.2),
-  (HP, 9, 11),
-  (ALLSTAT, 6, 16.5),
-]
+weapon_bonus = {
 
-lines_top_meister = [
-  (STAT, 9, 16.5),
-  (HP, 9, 11),
-  (ALLSTAT, 6, 33),
-]
+  UNIQUE: [
+    (ATT, 9, 21.5),
+  ],
 
-prime_lines_hat = [
-  (STAT, 12, 11.25),
-  (HP, 12, 11.25),
-  (ALLSTAT, 9, 15),
-  (COOLDOWN, 1, 15),
-  (COOLDOWN, 2, 22.5),
-]
+  LEGENDARY: [
+    (ATT, 12, 19.5),
+  ],
+  
+}
 
-prime_lines_hat_meister = [
-  (STAT, 12, 18),
-  (HP, 12, 12),
-  (ALLSTAT, 9, 18),
-  (COOLDOWN, 1, 12),
-  (COOLDOWN, 2, 18),
-]
+secondary_bonus = {
 
-lines_hat = [
-  (STAT, 9, 11.2),
-  (HP, 9, 9.3333),
-  (ALLSTAT, 6, 14),
-]
+  UNIQUE: [
+    (ATT, 9, 21.5),
+  ],
 
-lines_hat_meister = [
-  (STAT, 9, 14.5),
-  (HP, 9, 9.6666),
-  (ALLSTAT, 6, 29),
-]
+  LEGENDARY: [
+    (ATT, 12, 20.5),
+  ],
+  
+}
 
-lines_epic_accessory = [
-  (STAT, 6, 9),
-  (HP, 6, 6),
-  (ALLSTAT, 3, 18),
-]
+emblem_bonus = {
 
-lines_rare_accessory = [
-  (STAT, 3, 21),
-  (HP, 3, 14),
-]
+  UNIQUE: [
+    (ATT, 9, 21),
+  ],
 
+  LEGENDARY: [
+    (ATT, 12, 19),
+  ],
+
+}
+
+top = {
+
+  UNIQUE: [
+    (STAT, 9, 13.2),
+    (HP, 9, 11),
+    (ALLSTAT, 6, 16.5),
+  ],
+
+  LEGENDARY: [
+    (STAT, 12, 10.75),
+    (ALLSTAT, 9, 10.75),
+    (HP, 12, 10.75),
+  ],
+
+}
+
+top_noncash = {
+
+  UNIQUE: [
+    (STAT, 9, 16.5),
+    (HP, 9, 11),
+    (ALLSTAT, 6, 33),
+  ],
+
+  LEGENDARY: [
+    (STAT, 12, 17),
+    (ALLSTAT, 9, 17),
+    (HP, 12, 11.3333),
+  ],
+  
+}
+
+hat = {
+
+  UNIQUE: [
+    (STAT, 9, 11.2),
+    (HP, 9, 9.3333),
+    (ALLSTAT, 6, 14),
+  ],
+
+  LEGENDARY: [
+    (STAT, 12, 11.25),
+    (HP, 12, 11.25),
+    (ALLSTAT, 9, 15),
+    (COOLDOWN, 1, 15),
+    (COOLDOWN, 2, 22.5),
+  ],
+  
+}
+
+hat_noncash = {
+
+  UNIQUE: [
+    (STAT, 9, 14.5),
+    (HP, 9, 9.6666),
+    (ALLSTAT, 6, 29),
+  ],
+
+  LEGENDARY: [
+    (STAT, 12, 18),
+    (HP, 12, 12),
+    (ALLSTAT, 9, 18),
+    (COOLDOWN, 1, 12),
+    (COOLDOWN, 2, 18),
+  ],
+  
+}
+
+accessory_noncash = {
+
+  RARE: [
+    (STAT, 3, 21),
+    (HP, 3, 14),
+  ],
+
+  EPIC: [
+    (STAT, 6, 9),
+    (HP, 6, 6),
+    (ALLSTAT, 3, 18),
+  ],
+}
+
+# TMS cubes
 # https://tw.beanfun.com/beanfuncommon/EventAD_Mobile/EventAD.aspx?EventADID=8421
-prime_lines_ws_violet = [
-  (BOSS, 40, 1/4.44*100),
-  (BOSS, 35, 1/4.44*100),
-  (BOSS, 30, 1/4.44*100),
-  (ATT, 12, 1/4.44*100),
-  (IED, 40, 1/6.67*100),
-  (IED, 35, 1/6.67*100),
-]
 
-lines_ws_violet = [
-  (BOSS, 30, 1/6.52*100),
-  (ATT, 9, 1/6.52*100),
-  (IED, 30, 1/8.7*100),
-]
+weapon_secondary_violet_equality = {
 
-prime_lines_emblem_violet = [
-  (ATT, 12, 1/5.13*100),
-  (IED, 40, 1/7.69*100),
-  (IED, 35, 1/7.69*100),
-]
+  UNIQUE: [
+    (BOSS, 30, 1/6.52*100),
+    (ATT, 9, 1/6.52*100),
+    (IED, 30, 1/8.7*100),
+  ],
 
-lines_emblem_violet = [
-  (ATT, 9, 1/6.98*100),
-  (IED, 30, 1/9.3*100),
-]
+  LEGENDARY: [
+    (BOSS, 40, 1/4.44*100),
+    (BOSS, 35, 1/4.44*100),
+    (BOSS, 30, 1/4.44*100),
+    (ATT, 12, 1/4.44*100),
+    (IED, 40, 1/6.67*100),
+    (IED, 35, 1/6.67*100),
+  ],
+  
+}
 
-prime_lines_ws_uni = [
-  (BOSS, 40, 1/1.13*100),
-  (BOSS, 35, 1/2.10*100),
-  (BOSS, 30, 1/3.07*100),
-  (ATT, 12, 1/3.24*100),
-  (IED, 40, 1/16.18*100),
-  (IED, 35, 1/25.89*100),
-]
+emblem_violet_equality = {
 
-lines_ws_uni = [
-  (BOSS, 30, 1/5.48*100),
-  (ATT, 9, 1/8.22*100),
-  (IED, 30, 1/20.55*100),
-]
+  UNIQUE: [
+    (ATT, 9, 1/6.98*100),
+    (IED, 30, 1/9.3*100),
+  ],
 
-prime_lines_emblem_uni = [
-  (ATT, 12, 1/3.45*100),
-  (IED, 40, 1/17.27*100),
-  (IED, 35, 1/27.63*100),
-]
+  LEGENDARY: [
+    (ATT, 12, 1/5.13*100),
+    (IED, 40, 1/7.69*100),
+    (IED, 35, 1/7.69*100),
+  ],
 
-lines_emblem_uni = [
-  (ATT, 9, 1/8.7*100),
-  (IED, 30, 1/21.74*100),
-]
+}
+
+weapon_secondary_uni = {
+
+  UNIQUE: [
+    (BOSS, 30, 1/5.48*100),
+    (ATT, 9, 1/8.22*100),
+    (IED, 30, 1/20.55*100),
+  ],
+
+  LEGENDARY: [
+    (BOSS, 40, 1/1.13*100),
+    (BOSS, 35, 1/2.10*100),
+    (BOSS, 30, 1/3.07*100),
+    (ATT, 12, 1/3.24*100),
+    (IED, 40, 1/16.18*100),
+    (IED, 35, 1/25.89*100),
+  ],
+
+}
+
+emblem_uni = {
+
+  UNIQUE: [
+    (ATT, 9, 1/8.7*100),
+    (IED, 30, 1/21.74*100),
+  ],
+
+  LEGENDARY: [
+    (ATT, 12, 1/3.45*100),
+    (IED, 40, 1/17.27*100),
+    (IED, 35, 1/27.63*100),
+  ],
+
+}
 
 # pendants, rings, face, eye, earrings
-prime_lines_accessory_violet = [
-  (STAT, 12, 1/7.84*100),
-  (ALLSTAT, 9, 1/5.88*100),
-  (HP, 12, 1/7.84*100),
-]
+accessory_violet_equality = {
 
-lines_accessory_violet = [
-  (STAT, 9, 1/9.8*100),
-  (HP, 9, 1/11.76*100),
-  (ALLSTAT, 6, 1/7.84*100),
-]
+  UNIQUE: [
+    (STAT, 9, 1/9.8*100),
+    (HP, 9, 1/11.76*100),
+    (ALLSTAT, 6, 1/7.84*100),
+  ],
 
-prime_lines_accessory_uni = [
-  (STAT, 12, 1/6.06*100),
-  (ALLSTAT, 9, 1/1.52*100),
-  (HP, 12, 1/6.06*100),
-]
+  LEGENDARY: [
+    (STAT, 12, 1/7.84*100),
+    (ALLSTAT, 9, 1/5.88*100),
+    (HP, 12, 1/7.84*100),
+  ],
+  
+}
 
-lines_accessory_uni = [
-  (STAT, 9, 1/11.63*100),
-  (HP, 9, 1/11.63*100),
-  (ALLSTAT, 6, 1/2.33*100),
-]
+accessory_uni = {
 
-prime_lines_cape_belt_shoulder_violet = [
-  (STAT, 12, 1/8.89*100),
-  (HP, 12, 1/8.89*100),
-  (ALLSTAT, 9, 1/6.67*100),
-]
+  UNIQUE: [
+    (STAT, 9, 1/11.63*100),
+    (HP, 9, 1/11.63*100),
+    (ALLSTAT, 6, 1/2.33*100),
+  ],
 
-lines_cape_belt_shoulder_violet = [
-  (STAT, 9, 1/8.47*100),
-  (HP, 9, 1/10.17*100),
-  (ALLSTAT, 6, 1/6.78*100),
-]
+  LEGENDARY: [
+    (STAT, 12, 1/6.06*100),
+    (ALLSTAT, 9, 1/1.52*100),
+    (HP, 12, 1/6.06*100),
+  ],
+  
+}
 
-prime_lines_cape_belt_shoulder_uni = [
-  (STAT, 12, 1/8.89*100),
-  (HP, 12, 1/8.89*100),
-  (ALLSTAT, 9, 1/6.67*100),
-]
+cape_belt_shoulder_violet_equality = {
 
-lines_cape_belt_shoulder_uni = [
-  (STAT, 9, 1/7.69*100),
-  (HP, 9, 1/7.69*100),
-  (ALLSTAT, 6, 1/1.54*100),
-]
+  UNIQUE: [
+    (STAT, 9, 1/8.47*100),
+    (HP, 9, 1/10.17*100),
+    (ALLSTAT, 6, 1/6.78*100),
+  ],
 
-prime_lines_shoe_violet = [
-  (STAT, 12, 1/8.33*100),
-  (HP, 12, 1/8.33*100),
-  (ALLSTAT, 9, 1/6.25*100),
-]
+  LEGENDARY: [
+    (STAT, 12, 1/8.89*100),
+    (HP, 12, 1/8.89*100),
+    (ALLSTAT, 9, 1/6.67*100),
+  ],
+  
+}
 
-lines_shoe_violet = [
-  (STAT, 9, 1/7.94*100),
-  (HP, 9, 1/9.52*100),
-  (ALLSTAT, 6, 1/6.35*100),
-]
+cape_belt_shoulder_uni = {
 
-prime_lines_shoe_uni = [
-  (STAT, 12, 1/7.27*100),
-  (HP, 12, 1/7.27*100),
-  (ALLSTAT, 9, 1/1.82*100),
-]
+  UNIQUE: [
+    (STAT, 9, 1/7.69*100),
+    (HP, 9, 1/7.69*100),
+    (ALLSTAT, 6, 1/1.54*100),
+  ],
 
-lines_shoe_uni = [
-  (STAT, 9, 1/6.33*100),
-  (HP, 9, 1/6.33*100),
-  (ALLSTAT, 6, 1/1.27*100),
-]
+  LEGENDARY: [
+    (STAT, 12, 1/8.89*100),
+    (HP, 12, 1/8.89*100),
+    (ALLSTAT, 9, 1/6.67*100),
+  ],
+  
+}
 
-prime_lines_glove_violet = [
-  (STAT, 12, 1/7.69*100),
-  (HP, 12, 1/7.69*100),
-  (ALLSTAT, 9, 1/5.77*100),
-  (CRITDMG, 8, 1/7.69*100),
-]
+shoe_violet_equality = {
 
-lines_glove_violet = [
-  (STAT, 9, 1/7.46*100),
-  (HP, 9, 1/8.96*100),
-  (ALLSTAT, 6, 1/5.97*100),
-]
+  UNIQUE: [
+    (STAT, 9, 1/7.94*100),
+    (HP, 9, 1/9.52*100),
+    (ALLSTAT, 6, 1/6.35*100),
+  ],
 
-prime_lines_glove_uni = [
-  (STAT, 12, 1/5.8*100),
-  (HP, 12, 1/5.8*100),
-  (ALLSTAT, 9, 1/1.45*100),
-  (CRITDMG, 8, 1/2.9*100),
-]
+  LEGENDARY: [
+    (STAT, 12, 1/8.33*100),
+    (HP, 12, 1/8.33*100),
+    (ALLSTAT, 9, 1/6.25*100),
+  ],
 
-lines_glove_uni = [
-  (STAT, 9, 1/5.26*100),
-  (HP, 9, 1/5.26*100),
-  (ALLSTAT, 6, 1/1.05*100),
-]
+}
 
-prime_lines_bottom_violet = [
-  (STAT, 12, 1/8.89*100),
-  (HP, 12, 1/8.89*100),
-  (ALLSTAT, 9, 1/6.67*100),
-]
+shoe_uni = {
 
-lines_bottom_violet = [
-  (STAT, 9, 1/7.94*100),
-  (HP, 9, 1/9.52*100),
-  (ALLSTAT, 6, 1/6.35*100),
-]
+  UNIQUE: [
+    (STAT, 9, 1/6.33*100),
+    (HP, 9, 1/6.33*100),
+    (ALLSTAT, 6, 1/1.27*100),
+  ],
 
-prime_lines_bottom_uni = [
-  (STAT, 12, 1/8.89*100),
-  (HP, 12, 1/8.89*100),
-  (ALLSTAT, 9, 1/2.22*100),
-]
+  LEGENDARY: [
+    (STAT, 12, 1/7.27*100),
+    (HP, 12, 1/7.27*100),
+    (ALLSTAT, 9, 1/1.82*100),
+  ],
+  
+}
 
-lines_bottom_uni = [
-  (STAT, 9, 1/6.35*100),
-  (HP, 9, 1/6.35*100),
-  (ALLSTAT, 6, 1/1.59*100),
-]
+glove_violet_equality = {
 
-prime_lines_top_overall_violet = [
-  (STAT, 12, 1/7.84*100),
-  (HP, 12, 1/7.84*100),
-  (ALLSTAT, 9, 1/5.88*100),
-]
+  UNIQUE: [
+    (STAT, 9, 1/7.46*100),
+    (HP, 9, 1/8.96*100),
+    (ALLSTAT, 6, 1/5.97*100),
+  ],
 
-lines_top_overall_violet = [
-  (STAT, 9, 1/6.85*100),
-  (HP, 9, 1/8.22*100),
-  (ALLSTAT, 6, 1/5.48*100),
-]
+  LEGENDARY: [
+    (STAT, 12, 1/7.69*100),
+    (HP, 12, 1/7.69*100),
+    (ALLSTAT, 9, 1/5.77*100),
+    (CRITDMG, 8, 1/7.69*100),
+  ],
+  
+}
 
-prime_lines_top_overall_uni = [
-  (STAT, 12, 1/6.15*100),
-  (HP, 12, 1/6.15*100),
-  (ALLSTAT, 9, 1/1.54*100),
-]
+glove_uni = {
 
-lines_top_overall_uni = [
-  (STAT, 9, 1/4.08*100),
-  (HP, 9, 1/4.08*100),
-  (ALLSTAT, 6, 1/1.02*100),
-]
+  UNIQUE: [
+    (STAT, 9, 1/5.26*100),
+    (HP, 9, 1/5.26*100),
+    (ALLSTAT, 6, 1/1.05*100),
+  ],
 
-prime_lines_hat_violet = [
-  (STAT, 12, 1/7.55*100),
-  (HP, 12, 1/7.55*100),
-  (ALLSTAT, 9, 1/5.66*100),
-  (COOLDOWN, 2, 1/3.77*100),
-  (COOLDOWN, 1, 1/5.66*100),
-]
+  LEGENDARY: [
+    (STAT, 12, 1/5.8*100),
+    (HP, 12, 1/5.8*100),
+    (ALLSTAT, 9, 1/1.45*100),
+    (CRITDMG, 8, 1/2.9*100),
+  ],
+  
+}
 
-lines_hat_violet = [
-  (STAT, 9, 1/7.94*100),
-  (HP, 9, 1/9.52*100),
-  (ALLSTAT, 6, 1/6.35*100),
-]
+bottom_violet_equality = {
 
-prime_lines_hat_uni = [
-  (STAT, 12, 1/5.0*100),
-  (HP, 12, 1/5.0*100),
-  (ALLSTAT, 9, 1/1.25*100),
-  (COOLDOWN, 2, 1/10.0*100),
-  (COOLDOWN, 1, 1/10.0*100),
-]
+  UNIQUE: [
+    (STAT, 9, 1/7.94*100),
+    (HP, 9, 1/9.52*100),
+    (ALLSTAT, 6, 1/6.35*100),
+  ],
 
-lines_hat_uni = [
-  (STAT, 9, 1/5.8*100),
-  (HP, 9, 1/5.8*100),
-  (ALLSTAT, 6, 1/1.45*100),
-]
+  LEGENDARY: [
+    (STAT, 12, 1/8.89*100),
+    (HP, 12, 1/8.89*100),
+    (ALLSTAT, 9, 1/6.67*100),
+  ],
+  
+}
+
+bottom_uni = {
+
+  UNIQUE: [
+    (STAT, 9, 1/6.35*100),
+    (HP, 9, 1/6.35*100),
+    (ALLSTAT, 6, 1/1.59*100),
+  ],
+
+  LEGENDARY: [
+    (STAT, 12, 1/8.89*100),
+    (HP, 12, 1/8.89*100),
+    (ALLSTAT, 9, 1/2.22*100),
+  ],
+  
+}
+
+top_overall_violet_equality = {
+
+  UNIQUE: [
+    (STAT, 9, 1/6.85*100),
+    (HP, 9, 1/8.22*100),
+    (ALLSTAT, 6, 1/5.48*100),
+  ],
+
+  LEGENDARY: [
+    (STAT, 12, 1/7.84*100),
+    (HP, 12, 1/7.84*100),
+    (ALLSTAT, 9, 1/5.88*100),
+  ],
+  
+}
+
+top_overall_uni = {
+
+  UNIQUE: [
+    (STAT, 9, 1/4.08*100),
+    (HP, 9, 1/4.08*100),
+    (ALLSTAT, 6, 1/1.02*100),
+  ],
+
+  LEGENDARY: [
+    (STAT, 12, 1/6.15*100),
+    (HP, 12, 1/6.15*100),
+    (ALLSTAT, 9, 1/1.54*100),
+  ],
+  
+}
+
+hat_violet_equality = {
+
+  UNIQUE: [
+    (STAT, 9, 1/7.94*100),
+    (HP, 9, 1/9.52*100),
+    (ALLSTAT, 6, 1/6.35*100),
+  ],
+
+  LEGENDARY: [
+    (STAT, 12, 1/7.55*100),
+    (HP, 12, 1/7.55*100),
+    (ALLSTAT, 9, 1/5.66*100),
+    (COOLDOWN, 2, 1/3.77*100),
+    (COOLDOWN, 1, 1/5.66*100),
+  ],
+  
+}
+
+hat_uni = {
+
+  UNIQUE: [
+    (STAT, 9, 1/5.8*100),
+    (HP, 9, 1/5.8*100),
+    (ALLSTAT, 6, 1/1.45*100),
+  ],
+
+  LEGENDARY: [
+    (STAT, 12, 1/5.0*100),
+    (HP, 12, 1/5.0*100),
+    (ALLSTAT, 9, 1/1.25*100),
+    (COOLDOWN, 2, 1/10.0*100),
+    (COOLDOWN, 1, 1/10.0*100),
+  ],
+  
+}
 
 def filter_impossible_lines(combos):
   for combo in combos:
@@ -444,7 +579,7 @@ def mklines(prime, lines):
 
 
 def cube_calc(
-    text, prime_lines, lines, print_combos, singular_cube=False, prime_chance_singular=[], is_violet=False
+    text, lines, print_combos, tier=LEGENDARY, singular_cube=False, prime_chance_singular=[], is_violet=False
 ):
   print(f" {text} ".center(80, "="))
 
@@ -454,8 +589,8 @@ def cube_calc(
 
   # to represent all the lines we don't care about I generate an ANY line that
   # has 1-(sum of the chances of all lines we care about) chance
-  p = make_any_line(True, prime_lines)
-  n = make_any_line(False, lines) + p
+  p = make_any_line(True, lines[tier])
+  n = make_any_line(False, lines[tier - 1]) + p
   if not singular_cube:
     combos_red = list(filter_impossible_lines(product(p, n, n)))
   elif is_violet:
@@ -515,24 +650,24 @@ def cube_calc(
   print()
 
 
-def cube_calc_b(text, prime_lines, lines, print_combos):
-  return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_bonus)
+def cube_calc_b(text, lines, print_combos, tier=LEGENDARY):
+  return cube_calc(text, lines, print_combos, tier, True, prime_chance_bonus)
 
 
-def cube_calc_m(text, prime_lines, lines, print_combos):
-  return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_meister)
+def cube_calc_m(text, lines, print_combos, tier=LEGENDARY):
+  return cube_calc(text, lines, print_combos, tier, True, prime_chance_meister)
 
 
-def cube_calc_o(text, prime_lines, lines, print_combos):
-  return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_occult)
+def cube_calc_o(text, lines, print_combos, tier=EPIC):
+  return cube_calc(text, lines, print_combos, tier, True, prime_chance_occult)
 
 
-def cube_calc_v(text, prime_lines, lines, print_combos):
-  return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_violet, True)
+def cube_calc_v(text, lines, print_combos, tier=LEGENDARY):
+  return cube_calc(text, lines, print_combos, tier, True, prime_chance_violet, True)
 
 
-def cube_calc_e(text, prime_lines, lines, print_combos):
-  return cube_calc(text, prime_lines, lines, print_combos, True, prime_chance_equality)
+def cube_calc_e(text, lines, print_combos, tier=LEGENDARY):
+  return cube_calc(text, lines, print_combos, tier, True, prime_chance_equality)
 
 
 def cube_calcs():
@@ -623,44 +758,42 @@ def cube_calcs():
     ("12+ hp", [{HP: 12}]),
   ]
 
-  cube_calc("weapon", prime_lines_weapon, lines_weapon, combos_ws)
-  cube_calc_m("weapon (meisters)", prime_lines_weapon_meister, lines_weapon_meister, combos_ws)
-  cube_calc("secondary", prime_lines_secondary, lines_secondary, combos_ws)
-  cube_calc_m("secondary (meisters)", prime_lines_secondary_meister, lines_secondary_meister, combos_ws)
-  cube_calc_v("weapon/secondary (violets)", prime_lines_ws_violet, lines_ws_violet, combos_ws)
-  cube_calc("emblem", prime_lines_emblem, lines_emblem, combos_e)
-  cube_calc_m("emblem (meisters)", prime_lines_emblem_meister, lines_emblem_meister, combos_e)
-  cube_calc_v("emblem (violets)", prime_lines_emblem_violet, lines_emblem_violet, combos_e)
+  cube_calc("weapon", weapon, combos_ws)
+  cube_calc_m("weapon (meisters)", weapon_noncash, combos_ws)
+  cube_calc("secondary", secondary, combos_ws)
+  cube_calc_m("secondary (meisters)", secondary_noncash, combos_ws)
+  cube_calc_v("weapon/secondary (violets)", weapon_secondary_violet_equality, combos_ws)
+  cube_calc("emblem", emblem, combos_e)
+  cube_calc_m("emblem (meisters)", emblem_noncash, combos_e)
+  cube_calc_v("emblem (violets)", emblem_violet_equality, combos_e)
 
-  cube_calc_b("weapon bpot", prime_lines_weapon_b, lines_weapon_b, combos_wse_b)
-  cube_calc_b("secondary bpot", prime_lines_secondary_b, lines_secondary_b, combos_wse_b)
-  cube_calc_b("emblem bpot", prime_lines_emblem_b, lines_emblem_b, combos_wse_b)
+  cube_calc_b("weapon bpot", weapon_bonus, combos_wse_b)
+  cube_calc_b("secondary bpot", secondary_bonus, combos_wse_b)
+  cube_calc_b("emblem bpot", emblem_bonus, combos_wse_b)
 
-  cube_calc("top/overall", prime_lines_top, lines_top, combos_stat)
-  cube_calc_m("top/overall (meisters)", prime_lines_top_meister, lines_top_meister, combos_stat)
+  cube_calc("top/overall", top, combos_stat)
+  cube_calc_m("top/overall (meisters)", top_noncash, combos_stat)
 
-  cube_calc("hat", prime_lines_hat, lines_hat, combos_hat)
+  cube_calc("hat", hat, combos_hat)
+  cube_calc_m("hat (meisters)", hat_noncash, combos_hat)
 
-  cube_calc_o("accessory (occult cubes)",
-    lines_epic_accessory, lines_rare_accessory, combos_occult_stat)
+  cube_calc_o("accessory (occult cubes)", accessory_noncash, combos_occult_stat)
 
-  cube_calc_v("accessory (violets)", prime_lines_accessory_violet, lines_accessory_violet, combos_stat)
-  cube_calc_v("cape, belt, shoulder (violets)", prime_lines_cape_belt_shoulder_violet, lines_cape_belt_shoulder_violet, combos_stat)
-  cube_calc_v("shoe (violets)", prime_lines_shoe_violet, lines_shoe_violet, combos_stat)
-  cube_calc_v("glove (violets)", prime_lines_glove_violet, lines_glove_violet, combos_glove)
-  cube_calc_v("bottom (violets)", prime_lines_bottom_violet, lines_bottom_violet, combos_stat)
-  cube_calc_v("top/overall (violets)", prime_lines_top_overall_violet, lines_top_overall_violet, combos_stat)
-  cube_calc_v("hat (violets)", prime_lines_hat_violet, lines_hat_violet, combos_hat)
+  cube_calc_v("accessory (violets)", accessory_violet_equality, combos_stat)
+  cube_calc_v("cape, belt, shoulder (violets)", cape_belt_shoulder_violet_equality, combos_stat)
+  cube_calc_v("shoe (violets)", shoe_violet_equality, combos_stat)
+  cube_calc_v("glove (violets)", glove_violet_equality, combos_glove)
+  cube_calc_v("bottom (violets)", bottom_violet_equality, combos_stat)
+  cube_calc_v("top/overall (violets)", top_overall_violet_equality, combos_stat)
+  cube_calc_v("hat (violets)", hat_violet_equality, combos_hat)
 
-  # pretty sure the equality chances are the same as violet at least for these linesA
-  # except you can't roll non-prime lines
-  cube_calc_e("glove (equality)", prime_lines_glove_violet, [], combos_glove)
-  cube_calc_e("hat (equality)", prime_lines_hat_violet, [], combos_hat)
+  cube_calc_e("glove (equality)", glove_violet_equality, combos_glove)
+  cube_calc_e("hat (equality)", hat_violet_equality, combos_hat)
 
 
-def unicube_calc(text, prime_lines, lines, print_combos, prime_chance=0.15):
-  print(f" {text} (unicube) ".center(80, "="))
-  lines = mklines(False, lines) + mklines(True, prime_lines)
+def unicube_calc(text, lines, print_combos, tier=LEGENDARY, prime_chance=0.15):
+  print(f" {text}: 2l->3l by rerolling 2nd or 3rd line (unicube) ".center(80, "="))
+  lines = mklines(False, lines[tier - 1]) + mklines(True, lines[tier])
 
   def combo_chance(want):
     want_stat = list(want.keys())[0]
@@ -704,8 +837,8 @@ def unicube_calcs():
   combos_uni_e = combos_uni_e_nonprime + combos_uni_e_prime
   combos_uni_ws = combos_uni_ws_nonprime + combos_uni_ws_prime
 
-  unicube_calc("weapon/secondary: 2l->3l by rerolling 2nd or 3rd line", prime_lines_ws_uni, lines_ws_uni, combos_uni_ws)
-  unicube_calc("emblem: 2l->3l by rerolling 2nd or 3rd line", prime_lines_emblem_uni, lines_emblem_uni, combos_uni_e)
+  unicube_calc("weapon/secondary", weapon_secondary_uni, combos_uni_ws)
+  unicube_calc("emblem", emblem_uni, combos_uni_e)
 
   combos_uni_stat_prime = [
     ("12 stat", [{STAT: 12}]),
@@ -730,13 +863,13 @@ def unicube_calcs():
   combos_uni_glove = combos_uni_stat_nonprime + combos_uni_glove_prime
   combos_uni_hat = combos_uni_stat_nonprime + combos_uni_hat_prime
 
-  unicube_calc("accessory: 2l->3l by rerolling 2nd or 3rd line", prime_lines_accessory_uni, lines_accessory_uni, combos_uni_stat)
-  unicube_calc("cape/belt/shoulder: 2l->3l by rerolling 2nd or 3rd line", prime_lines_cape_belt_shoulder_uni, lines_cape_belt_shoulder_uni, combos_uni_stat)
-  unicube_calc("shoe: 2l->3l by rerolling 2nd or 3rd line", prime_lines_shoe_uni, lines_shoe_uni, combos_uni_stat)
-  unicube_calc("glove: 2l->3l by rerolling 2nd or 3rd line", prime_lines_glove_uni, lines_glove_uni, combos_uni_glove)
-  unicube_calc("bottom: 2l->3l by rerolling 2nd or 3rd line", prime_lines_bottom_uni, lines_bottom_uni, combos_uni_stat)
-  unicube_calc("top/overall: 2l->3l by rerolling 2nd or 3rd line", prime_lines_top_overall_uni, lines_top_overall_uni, combos_uni_stat)
-  unicube_calc("hat: 2l->3l by rerolling 2nd or 3rd line", prime_lines_hat_uni, lines_hat_uni, combos_uni_hat)
+  unicube_calc("accessory", accessory_uni, combos_uni_stat)
+  unicube_calc("cape/belt/shoulder", cape_belt_shoulder_uni, combos_uni_stat)
+  unicube_calc("shoe", shoe_uni, combos_uni_stat)
+  unicube_calc("glove", glove_uni, combos_uni_glove)
+  unicube_calc("bottom", bottom_uni, combos_uni_stat)
+  unicube_calc("top/overall", top_overall_uni, combos_uni_stat)
+  unicube_calc("hat", hat_uni, combos_uni_hat)
 
 cube_calcs()
 unicube_calcs()

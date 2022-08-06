@@ -253,6 +253,29 @@ black
              5+s cooldown 1 in 207102 cubes, 0.0005%
              6+s cooldown 1 in 1139062 cubes, 0.0001%
 
+================================ hat (meisters) ================================
+                 18+ stat 1 in 44 cubes, 2.2542%
+                 21+ stat 1 in 125 cubes, 0.8026%
+                 30+ stat 1 in 3757 cubes, 0.0266%
+                 33+ stat 1 in 1175420 cubes, 0.0001%
+                   18+ hp 1 in 38 cubes, 2.6146%
+                   21+ hp 1 in 61 cubes, 1.6375%
+                   30+ hp 1 in 1122 cubes, 0.0891%
+                   33+ hp 1 in 349111 cubes, 0.0003%
+             12+ all stat 1 in 204 cubes, 0.4896%
+             15+ all stat 1 in 265 cubes, 0.3777%
+             21+ all stat 1 in 15101 cubes, 0.0066%
+             2+s cooldown 1 in 18 cubes, 5.5793%
+2+s cooldown and any stat 1 in 135 cubes, 0.7424%
+ 2+s cooldown and 9+ stat 1 in 135 cubes, 0.7424%
+2+s cooldown and 12+ stat 1 in 1809 cubes, 0.0553%
+2+s cooldown and 18+ stat 1 in 3739 cubes, 0.0267%
+             3+s cooldown 1 in 20274 cubes, 0.0049%
+3+s cooldown and any stat 1 in 294091 cubes, 0.0003%
+             4+s cooldown 1 in 81060 cubes, 0.0012%
+4+s cooldown and any stat 1 in 1176365 cubes, 0.0001%
+             5+s cooldown 1 in 266154462 cubes, 0.0000%
+             6+s cooldown 1 in 1463849543 cubes, 0.0000%
 =========================== accessory (occult cubes) ===========================
     6+ stat 1 in 8 cubes, 12.0071%
     9+ stat 1 in 92 cubes, 1.0916%
