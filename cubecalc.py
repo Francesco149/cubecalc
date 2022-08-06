@@ -100,6 +100,16 @@ weapon_noncash = {
   NAME: "weapon",
   DEFAULT_CUBE: MEISTER,
 
+  COMMON: [],
+
+  RARE: [
+    (ATT, 3, 57),
+  ],
+
+  EPIC: [
+    (ATT, 6, 26),
+  ],
+
   UNIQUE: [
     (BOSS, 30, 15),
     (IED,  30, 15),
@@ -142,6 +152,16 @@ secondary_noncash = {
   NAME: "secondary",
   DEFAULT_CUBE: MEISTER,
 
+  COMMON: [],
+
+  RARE: [
+    (ATT, 3, 57),
+  ],
+
+  EPIC: [
+    (ATT, 6, 35),
+  ],
+
   UNIQUE: [
     (BOSS, 30, 21),
     (IED,  30, 21),
@@ -163,15 +183,15 @@ emblem = {
   NAME: "emblem",
   DEFAULT_CUBE: [RED, BLACK],
 
+  UNIQUE: [
+    (IED,  30, 13.3333),
+    (ATT,   9, 13.3333),
+  ],
+
   LEGENDARY: [
     (IED,  40, 17.5),
     (IED,  35, 17.5),
     (ATT,  12, 17.5),
-  ],
-
-  UNIQUE: [
-    (IED,  30, 13.3333),
-    (ATT,   9, 13.3333),
   ],
 
 }
@@ -179,6 +199,14 @@ emblem = {
 emblem_noncash = {
   NAME: "emblem",
   DEFAULT_CUBE: MEISTER,
+
+  RARE: [
+    (ATT, 3, 57),
+  ],
+
+  EPIC: [
+    (ATT, 6, 26),
+  ],
 
   UNIQUE: [
     (IED,  30, 14),
@@ -856,7 +884,31 @@ class Combos:
 
 
 def cube_calcs():
-  combos_ws = [
+  combos_wse_occult = [
+    ("6+ att", [{ATT: 6}]),
+    ("9+ att", [{ATT: 9}]),
+    ("12+ att", [{ATT: 12}]),
+  ]
+
+  combos_any_ws = [
+    ("any 2l combo of att+boss", [{ATT: 1, BOSS: 1, LINES: 2}]),
+    ("any 2l combo of att+boss+ied", [{ATT: 1, BOSS: 1, IED: 1, LINES: 2}]),
+    ("any 3l combo of att+boss", [{ATT: 1, BOSS: 1, LINES: 3}]),
+    ("any 3l combo of att+boss+ied", [{ATT: 1, BOSS: 1, IED: 1, LINES: 3}]),
+  ]
+
+  combos_wse_master = [
+    ("9+ att", [{ATT: 9}]),
+    ("12+ att", [{ATT: 12}]),
+    ("15+ att", [{ATT: 15}]),
+    ("21+ att", [{ATT: 21}]),
+  ]
+
+  combos_ws_master = combos_any_ws + combos_wse_master + [
+    ("any boss", [{BOSS: 1}]),
+  ]
+
+  combos_ws = combos_any_ws + [
     ("18+ att", [{ATT: 18}]),
     ("21+ att", [{ATT: 21}]),
     ("30+ att", [{ATT: 30}]),
@@ -865,24 +917,25 @@ def cube_calcs():
     ("21+ att and ied", [{ATT: 21, IED: 1}]),
     ("18+ att and boss", [{ATT: 18, BOSS: 1}]),
     ("18+ att and ied", [{ATT: 18, IED: 1}]),
-    ("any 2l combo of att+boss", [{ATT: 1, BOSS: 1, LINES: 2}]),
-    ("any 2l combo of att+boss+ied", [{ATT: 1, BOSS: 1, IED: 1, LINES: 2}]),
-    ("any 3l combo of att+boss", [{ATT: 1, BOSS: 1, LINES: 3}]),
-    ("any 3l combo of att+boss+ied", [{ATT: 1, BOSS: 1, IED: 1, LINES: 3}]),
     ("60+ied", [{IED: 60}]),
     ("70+ied", [{IED: 70}]),
     ("60+ied and att", [{IED: 60, ATT: 1}]),
     ("60+ied and boss", [{IED: 60, BOSS: 1}]),
   ]
 
-  combos_e = [
+  combos_any_e = [
+    ("any 2l combo of att+ied", [{ATT: 1, IED: 1, LINES: 2}]),
+    ("any 3l combo of att+ied", [{ATT: 1, IED: 1, LINES: 3}]),
+  ]
+
+  combos_e_master = combos_any_e + combos_wse_master
+  
+  combos_e = combos_any_e + [
     ("18+ att", [{ATT: 18}]),
     ("21+ att", [{ATT: 21}]),
     ("30+ att", [{ATT: 30}]),
     ("33+ att", [{ATT: 33}]),
     ("21+ att and ied", [{ATT: 21, IED: 1}]),
-    ("any 2l combo of att+ied", [{ATT: 1, IED: 1, LINES: 2}]),
-    ("any 3l combo of att+ied", [{ATT: 1, IED: 1, LINES: 3}]),
   ]
 
   combos_wse_b = [
@@ -958,10 +1011,22 @@ def cube_calcs():
     c.calc(secondary_noncash)
     c.calc(weapon_secondary_violet_equality)
 
+  with Combos(combos_ws_master) as c:
+    c.calc(weapon_noncash, MASTER)
+    c.calc(secondary_noncash, MASTER)
+
   with Combos(combos_e) as c:
     c.calc(emblem)
     c.calc(emblem_noncash)
     c.calc(emblem_violet_equality)
+
+  with Combos(combos_e_master) as c:
+    c.calc(emblem_noncash, MASTER)
+
+  with Combos(combos_wse_occult) as c:
+    c.calc(weapon_noncash, OCCULT)
+    c.calc(secondary_noncash, OCCULT)
+    c.calc(emblem_noncash, OCCULT)
 
   with Combos(combos_wse_b) as c:
     c.calc(weapon_bonus)
