@@ -2,6 +2,7 @@
 
 from itertools import product
 from functools import reduce
+from functools import partial
 from operator import mul
 
 BOSS = "boss"
@@ -21,15 +22,37 @@ EPIC = 2
 UNIQUE = 3
 LEGENDARY = 4
 
-prime_chance_red = [1, 0.1, 0.01]
-prime_chance_meister = [1, 0.001996, 0.001996]
-prime_chance_black = [1, 0.2, 0.05]
-prime_chance_violet = [1, 0.1, 0.01, 0.01, 0.1, 0.01]
-prime_chance_equality = [1, 1, 1]
-prime_chance_bonus = [1, 0.004975, 0.004975]
-prime_chance_occult = [1] + [1.0/101]*2
+DEFAULT_TIER = LEGENDARY
+
+RED = "red"
+MEISTER = "meister"
+BLACK = "black"
+VIOLET = "violet"
+EQUALITY = "equality"
+BONUS = "bonus"
+OCCULT = "occult"
+UNI = "uni"
+
+DEFAULT_CUBE = [RED, BLACK]
+COMBOS = "combos"
+COMBOS_VIOLET = "combos (violet)"
+NAME = "name"
+
+lines_base = { COMBOS: None }
+
+prime_chances = {
+  RED: [1, 0.1, 0.01],
+  MEISTER: [1, 0.001996, 0.001996],
+  BLACK: [1, 0.2, 0.05],
+  VIOLET: [1, 0.1, 0.01, 0.01, 0.1, 0.01],
+  EQUALITY: [1, 1, 1],
+  BONUS: [1, 0.004975, 0.004975],
+  OCCULT: [1] + [1.0/101]*2,
+  UNI: 0.15,
+}
 
 weapon = {
+  NAME: "weapon",
 
   UNIQUE: [
     (BOSS, 30, 14.3333),
@@ -49,6 +72,7 @@ weapon = {
 }
 
 weapon_noncash = {
+  NAME: "weapon",
 
   UNIQUE: [
     (BOSS, 30, 15),
@@ -68,6 +92,7 @@ weapon_noncash = {
 }
 
 secondary = {
+  NAME: "secondary",
 
   UNIQUE: [
     (BOSS, 30, 17.0),
@@ -87,6 +112,7 @@ secondary = {
 }
 
 secondary_noncash = {
+  NAME: "secondary",
 
   UNIQUE: [
     (BOSS, 30, 21),
@@ -106,6 +132,7 @@ secondary_noncash = {
 }
 
 emblem = {
+  NAME: "emblem",
 
   LEGENDARY: [
     (IED,  40, 17.5),
@@ -121,6 +148,7 @@ emblem = {
 }
 
 emblem_noncash = {
+  NAME: "emblem",
 
   UNIQUE: [
     (IED,  30, 14),
@@ -136,6 +164,7 @@ emblem_noncash = {
 }
 
 weapon_bonus = {
+  NAME: "weapon",
 
   UNIQUE: [
     (ATT, 9, 21.5),
@@ -148,6 +177,7 @@ weapon_bonus = {
 }
 
 secondary_bonus = {
+  NAME: "secondary",
 
   UNIQUE: [
     (ATT, 9, 21.5),
@@ -160,6 +190,7 @@ secondary_bonus = {
 }
 
 emblem_bonus = {
+  NAME: "emblem",
 
   UNIQUE: [
     (ATT, 9, 21),
@@ -171,7 +202,8 @@ emblem_bonus = {
 
 }
 
-top = {
+top_overall = {
+  NAME: "top/overall",
 
   UNIQUE: [
     (STAT, 9, 13.2),
@@ -187,7 +219,8 @@ top = {
 
 }
 
-top_noncash = {
+top_overall_noncash = {
+  NAME: "top/overall",
 
   UNIQUE: [
     (STAT, 9, 16.5),
@@ -204,6 +237,7 @@ top_noncash = {
 }
 
 hat = {
+  NAME: "hat",
 
   UNIQUE: [
     (STAT, 9, 11.2),
@@ -222,6 +256,7 @@ hat = {
 }
 
 hat_noncash = {
+  NAME: "hat",
 
   UNIQUE: [
     (STAT, 9, 14.5),
@@ -240,6 +275,7 @@ hat_noncash = {
 }
 
 accessory_noncash = {
+  NAME: "accessory",
 
   RARE: [
     (STAT, 3, 21),
@@ -257,6 +293,7 @@ accessory_noncash = {
 # https://tw.beanfun.com/beanfuncommon/EventAD_Mobile/EventAD.aspx?EventADID=8421
 
 weapon_secondary_violet_equality = {
+  NAME: "weapon",
 
   UNIQUE: [
     (BOSS, 30, 1/6.52*100),
@@ -276,6 +313,7 @@ weapon_secondary_violet_equality = {
 }
 
 emblem_violet_equality = {
+  NAME: "emblem",
 
   UNIQUE: [
     (ATT, 9, 1/6.98*100),
@@ -291,6 +329,7 @@ emblem_violet_equality = {
 }
 
 weapon_secondary_uni = {
+  NAME: "weapon/secondary",
 
   UNIQUE: [
     (BOSS, 30, 1/5.48*100),
@@ -310,6 +349,7 @@ weapon_secondary_uni = {
 }
 
 emblem_uni = {
+  NAME: "emblem",
 
   UNIQUE: [
     (ATT, 9, 1/8.7*100),
@@ -326,6 +366,7 @@ emblem_uni = {
 
 # pendants, rings, face, eye, earrings
 accessory_violet_equality = {
+  NAME: "accessory",
 
   UNIQUE: [
     (STAT, 9, 1/9.8*100),
@@ -342,6 +383,7 @@ accessory_violet_equality = {
 }
 
 accessory_uni = {
+  NAME: "accessory",
 
   UNIQUE: [
     (STAT, 9, 1/11.63*100),
@@ -358,6 +400,7 @@ accessory_uni = {
 }
 
 cape_belt_shoulder_violet_equality = {
+  NAME: "cape/belt/shoulder",
 
   UNIQUE: [
     (STAT, 9, 1/8.47*100),
@@ -374,6 +417,7 @@ cape_belt_shoulder_violet_equality = {
 }
 
 cape_belt_shoulder_uni = {
+  NAME: "cape/belt/shoulder",
 
   UNIQUE: [
     (STAT, 9, 1/7.69*100),
@@ -390,6 +434,7 @@ cape_belt_shoulder_uni = {
 }
 
 shoe_violet_equality = {
+  NAME: "shoe",
 
   UNIQUE: [
     (STAT, 9, 1/7.94*100),
@@ -406,6 +451,7 @@ shoe_violet_equality = {
 }
 
 shoe_uni = {
+  NAME: "shoe",
 
   UNIQUE: [
     (STAT, 9, 1/6.33*100),
@@ -422,6 +468,7 @@ shoe_uni = {
 }
 
 glove_violet_equality = {
+  NAME: "glove",
 
   UNIQUE: [
     (STAT, 9, 1/7.46*100),
@@ -439,6 +486,7 @@ glove_violet_equality = {
 }
 
 glove_uni = {
+  NAME: "glove",
 
   UNIQUE: [
     (STAT, 9, 1/5.26*100),
@@ -456,6 +504,7 @@ glove_uni = {
 }
 
 bottom_violet_equality = {
+  NAME: "bottom",
 
   UNIQUE: [
     (STAT, 9, 1/7.94*100),
@@ -472,6 +521,7 @@ bottom_violet_equality = {
 }
 
 bottom_uni = {
+  NAME: "bottom",
 
   UNIQUE: [
     (STAT, 9, 1/6.35*100),
@@ -488,6 +538,7 @@ bottom_uni = {
 }
 
 top_overall_violet_equality = {
+  NAME: "top/overall",
 
   UNIQUE: [
     (STAT, 9, 1/6.85*100),
@@ -504,6 +555,7 @@ top_overall_violet_equality = {
 }
 
 top_overall_uni = {
+  NAME: "top/overall",
 
   UNIQUE: [
     (STAT, 9, 1/4.08*100),
@@ -520,6 +572,7 @@ top_overall_uni = {
 }
 
 hat_violet_equality = {
+  NAME: "hat",
 
   UNIQUE: [
     (STAT, 9, 1/7.94*100),
@@ -538,6 +591,7 @@ hat_violet_equality = {
 }
 
 hat_uni = {
+  NAME: "hat",
 
   UNIQUE: [
     (STAT, 9, 1/5.8*100),
@@ -554,6 +608,8 @@ hat_uni = {
   ],
   
 }
+
+# ---------------------------------------------------------------------------------------------------------
 
 def filter_impossible_lines(combos):
   for combo in combos:
@@ -578,10 +634,41 @@ def mklines(prime, lines):
   return [(prime, typ, amt, onein) for (typ, amt, onein) in lines]
 
 
-def cube_calc(
-    text, lines, print_combos, tier=LEGENDARY, singular_cube=False, prime_chance_singular=[], is_violet=False
-):
-  print(f" {text} ".center(80, "="))
+def fmt_chance(text, wants, combos, combo_chance):
+  chance = sum([combo_chance(want, combos) for want in wants])
+  return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
+
+
+def unicube_calc(print_combos, lines, tier=DEFAULT_TIER):
+  print(f" {lines[NAME]}: 2l->3l by rerolling 2nd or 3rd line (unicube) ".center(80, "="))
+
+  prime_chance = prime_chances[UNI]
+  lines = mklines(False, lines[tier - 1]) + mklines(True, lines[tier])
+
+  def combo_chance(want, _combos):
+    # _combos is unused arg, I need to refactor fmt_chance
+    want_stat = list(want.keys())[0]
+    want_value = want[want_stat]
+    eligible_lines = [(prime, stat, value, onein) for (prime, stat, value, onein) in lines
+                      if (stat == want_stat or (stat == ALLSTAT and want_stat == STAT)) and value >= want_value]
+    return sum([1/onein * (prime_chance if prime else (1 - prime_chance))
+                for (prime, _, _, onein) in eligible_lines]) / 3
+    # divide by 3 because 3 cubes avg to select line, and then you reroll the line without spending an extra cube
+
+  tabulate([fmt_chance(text, want, [], combo_chance) for (text, want) in print_combos])
+
+
+def __cube_calc(print_combos, lines, type, tier):
+  if type == UNI:
+    unicube_calc(print_combos, lines, tier)
+    return
+
+  print(f" {lines[NAME]} ({type}) ".center(80, "="))
+
+  prime_chance = prime_chances[type]
+
+  if type == OCCULT:
+    tier = min(EPIC, tier)
 
   def make_any_line(prime, lines):
     lines = mklines(prime, lines)
@@ -591,14 +678,21 @@ def cube_calc(
   # has 1-(sum of the chances of all lines we care about) chance
   p = make_any_line(True, lines[tier])
   n = make_any_line(False, lines[tier - 1]) + p
-  if not singular_cube:
-    combos_red = list(filter_impossible_lines(product(p, n, n)))
-  elif is_violet:
-    combos_singular_cube = list(filter_impossible_lines(product(p, n, n, n, n, n)))
-  else:
-    combos_singular_cube = list(product(p, n, n))
 
-  def combo_chance(want, prime_chance, combos):
+  combos_i = COMBOS_VIOLET if type == VIOLET else COMBOS
+
+  # cache combos for each set of lines
+  if combos_i not in lines:
+    if type == VIOLET:
+      lines[combos_i] = product(p, n, n, n, n, n)
+    else:
+      lines[combos_i] = product(p, n, n)
+
+    lines[combos_i] = list(filter_impossible_lines(lines[combos_i]))
+
+  combos = lines[combos_i]
+
+  def combo_chance(want, combos):
     good=set()
     if LINES in want:
       # we are looking for all combinations that contains at least n lines of any of the stats specified
@@ -632,42 +726,31 @@ def cube_calc(
     return sum([reduce(mul, [(1.0/onein) * (prime_chance[i] if prime else (1 - prime_chance[i]))
       for i, (prime, typ, amount, onein) in enumerate(combo)]) for combo in good])
 
-  def fmt_chance(text, wants, prime_chance, combos):
-    chance = sum([combo_chance(want, prime_chance, combos) for want in wants])
+  def fmt_chance(text, wants, combos):
+    chance = sum([combo_chance(want, combos) for want in wants])
     return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
 
-  if singular_cube:
-    tabulate([fmt_chance(text, want, prime_chance_singular, combos_singular_cube)
-      for (text, want) in print_combos])
-    return
-  print("red")
-  tabulate([fmt_chance(text, want, prime_chance_red, combos_red)
-    for (text, want) in print_combos])
-  print()
-  print("black")
-  tabulate([fmt_chance(text, want, prime_chance_black, combos_red)
-    for (text, want) in print_combos])
-  print()
+  tabulate([fmt_chance(text, want, combos) for (text, want) in print_combos])
 
 
-def cube_calc_b(text, lines, print_combos, tier=LEGENDARY):
-  return cube_calc(text, lines, print_combos, tier, True, prime_chance_bonus)
+def single_or_list(x):
+  return x if isinstance(x, list) else [x]
 
 
-def cube_calc_m(text, lines, print_combos, tier=LEGENDARY):
-  return cube_calc(text, lines, print_combos, tier, True, prime_chance_meister)
+def cube_calc(print_combos, lines, types=DEFAULT_CUBE, tier=DEFAULT_TIER):
+  for type in single_or_list(types):
+    __cube_calc(print_combos, lines, type, tier)
 
 
-def cube_calc_o(text, lines, print_combos, tier=EPIC):
-  return cube_calc(text, lines, print_combos, tier, True, prime_chance_occult)
+class Combos:
+  def __init__(self, combos):
+    self.calc = partial(cube_calc, combos)
 
+  def __enter__(self):
+    return self
 
-def cube_calc_v(text, lines, print_combos, tier=LEGENDARY):
-  return cube_calc(text, lines, print_combos, tier, True, prime_chance_violet, True)
-
-
-def cube_calc_e(text, lines, print_combos, tier=LEGENDARY):
-  return cube_calc(text, lines, print_combos, tier, True, prime_chance_equality)
+  def __exit__(self, type, value, traceback):
+    pass
 
 
 def cube_calcs():
@@ -758,56 +841,43 @@ def cube_calcs():
     ("12+ hp", [{HP: 12}]),
   ]
 
-  cube_calc("weapon", weapon, combos_ws)
-  cube_calc_m("weapon (meisters)", weapon_noncash, combos_ws)
-  cube_calc("secondary", secondary, combos_ws)
-  cube_calc_m("secondary (meisters)", secondary_noncash, combos_ws)
-  cube_calc_v("weapon/secondary (violets)", weapon_secondary_violet_equality, combos_ws)
-  cube_calc("emblem", emblem, combos_e)
-  cube_calc_m("emblem (meisters)", emblem_noncash, combos_e)
-  cube_calc_v("emblem (violets)", emblem_violet_equality, combos_e)
+  with Combos(combos_ws) as c:
+    c.calc(weapon)
+    c.calc(weapon_noncash, MEISTER)
+    c.calc(secondary)
+    c.calc(secondary_noncash, MEISTER)
+    c.calc(weapon_secondary_violet_equality, [VIOLET, EQUALITY])
 
-  cube_calc_b("weapon bpot", weapon_bonus, combos_wse_b)
-  cube_calc_b("secondary bpot", secondary_bonus, combos_wse_b)
-  cube_calc_b("emblem bpot", emblem_bonus, combos_wse_b)
+  with Combos(combos_e) as c:
+    c.calc(emblem)
+    c.calc(emblem_noncash, MEISTER)
+    c.calc(emblem_violet_equality, [VIOLET, EQUALITY])
 
-  cube_calc("top/overall", top, combos_stat)
-  cube_calc_m("top/overall (meisters)", top_noncash, combos_stat)
+  with Combos(combos_wse_b) as c:
+    c.calc(weapon_bonus, BONUS)
+    c.calc(secondary_bonus, BONUS)
+    c.calc(emblem_bonus, BONUS)
 
-  cube_calc("hat", hat, combos_hat)
-  cube_calc_m("hat (meisters)", hat_noncash, combos_hat)
+  with Combos(combos_stat) as c:
+    c.calc(top_overall)
+    c.calc(top_overall_noncash, MEISTER)
+    c.calc(accessory_violet_equality, [VIOLET, EQUALITY])
+    c.calc(cape_belt_shoulder_violet_equality, [VIOLET, EQUALITY])
+    c.calc(shoe_violet_equality, [VIOLET, EQUALITY])
+    c.calc(bottom_violet_equality, [VIOLET, EQUALITY])
+    c.calc(top_overall_violet_equality, [VIOLET, EQUALITY])
+    c.calc(hat_violet_equality, [VIOLET, EQUALITY])
 
-  cube_calc_o("accessory (occult cubes)", accessory_noncash, combos_occult_stat)
+  with Combos(combos_hat) as c:
+    c.calc(hat)
+    c.calc(hat_noncash, MEISTER)
+    c.calc(hat_violet_equality, [VIOLET, EQUALITY])
 
-  cube_calc_v("accessory (violets)", accessory_violet_equality, combos_stat)
-  cube_calc_v("cape, belt, shoulder (violets)", cape_belt_shoulder_violet_equality, combos_stat)
-  cube_calc_v("shoe (violets)", shoe_violet_equality, combos_stat)
-  cube_calc_v("glove (violets)", glove_violet_equality, combos_glove)
-  cube_calc_v("bottom (violets)", bottom_violet_equality, combos_stat)
-  cube_calc_v("top/overall (violets)", top_overall_violet_equality, combos_stat)
-  cube_calc_v("hat (violets)", hat_violet_equality, combos_hat)
+  with Combos(combos_occult_stat) as c:
+    c.calc(accessory_noncash, OCCULT)
 
-  cube_calc_e("glove (equality)", glove_violet_equality, combos_glove)
-  cube_calc_e("hat (equality)", hat_violet_equality, combos_hat)
-
-
-def unicube_calc(text, lines, print_combos, tier=LEGENDARY, prime_chance=0.15):
-  print(f" {text}: 2l->3l by rerolling 2nd or 3rd line (unicube) ".center(80, "="))
-  lines = mklines(False, lines[tier - 1]) + mklines(True, lines[tier])
-
-  def combo_chance(want):
-    want_stat = list(want.keys())[0]
-    want_value = want[want_stat]
-    eligible_lines = [(prime, stat, value, onein) for (prime, stat, value, onein) in lines
-                      if (stat == want_stat or (stat == ALLSTAT and want_stat == STAT)) and value >= want_value]
-    return sum([1/onein * (prime_chance if prime else (1 - prime_chance)) for (prime, _, _, onein) in eligible_lines]) / 3
-    # divide by 3 because 3 cubes avg to select line, and then you reroll the line without spending an extra cube
-
-  def fmt_chance(text, wants):
-    chance = sum([combo_chance(want) for want in wants])
-    return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
-
-  tabulate([fmt_chance(text, want) for (text, want) in print_combos])
+  with Combos(combos_glove) as c:
+    c.calc(glove_violet_equality, [VIOLET, EQUALITY])
 
 
 def unicube_calcs():
@@ -837,9 +907,6 @@ def unicube_calcs():
   combos_uni_e = combos_uni_e_nonprime + combos_uni_e_prime
   combos_uni_ws = combos_uni_ws_nonprime + combos_uni_ws_prime
 
-  unicube_calc("weapon/secondary", weapon_secondary_uni, combos_uni_ws)
-  unicube_calc("emblem", emblem_uni, combos_uni_e)
-
   combos_uni_stat_prime = [
     ("12 stat", [{STAT: 12}]),
     ("12 hp", [{HP: 12}]),
@@ -863,13 +930,24 @@ def unicube_calcs():
   combos_uni_glove = combos_uni_stat_nonprime + combos_uni_glove_prime
   combos_uni_hat = combos_uni_stat_nonprime + combos_uni_hat_prime
 
-  unicube_calc("accessory", accessory_uni, combos_uni_stat)
-  unicube_calc("cape/belt/shoulder", cape_belt_shoulder_uni, combos_uni_stat)
-  unicube_calc("shoe", shoe_uni, combos_uni_stat)
-  unicube_calc("glove", glove_uni, combos_uni_glove)
-  unicube_calc("bottom", bottom_uni, combos_uni_stat)
-  unicube_calc("top/overall", top_overall_uni, combos_uni_stat)
-  unicube_calc("hat", hat_uni, combos_uni_hat)
+  with Combos(combos_uni_ws) as c:
+    c.calc(weapon_secondary_uni, UNI)
+
+  with Combos(combos_uni_e) as c:
+    c.calc(emblem_uni, UNI)
+
+  with Combos(combos_uni_stat) as c:
+    c.calc(accessory_uni, UNI)
+    c.calc(cape_belt_shoulder_uni, UNI)
+    c.calc(shoe_uni, UNI)
+    c.calc(bottom_uni, UNI)
+    c.calc(top_overall_uni, UNI)
+
+  with Combos(combos_uni_glove) as c:
+    c.calc(glove_uni, UNI)
+
+  with Combos(combos_uni_hat) as c:
+    c.calc(hat_uni, UNI)
 
 cube_calcs()
 unicube_calcs()
