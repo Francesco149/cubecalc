@@ -481,6 +481,24 @@ any 3l combo of att+ied 1 in 200 cubes, 0.4990%
       6+ hp 1 in 6 cubes, 17.3583%
       9+ hp 1 in 43 cubes, 2.3448%
      12+ hp 1 in 722 cubes, 0.1385%
+============================= top/overall (occult) =============================
+    6+ stat 1 in 13 cubes, 7.4218%
+    9+ stat 1 in 134 cubes, 0.7469%
+   12+ stat 1 in 3390 cubes, 0.0295%
+3+ all stat 1 in 29 cubes, 3.3971%
+6+ all stat 1 in 45241 cubes, 0.0022%
+      6+ hp 1 in 9 cubes, 10.7908%
+      9+ hp 1 in 62 cubes, 1.6150%
+     12+ hp 1 in 1137 cubes, 0.0880%
+================================= hat (occult) =================================
+    6+ stat 1 in 8 cubes, 12.0071%
+    9+ stat 1 in 63 cubes, 1.5943%
+   12+ stat 1 in 1157 cubes, 0.0864%
+3+ all stat 1 in 18 cubes, 5.6594%
+6+ all stat 1 in 18 cubes, 5.6594%
+      6+ hp 1 in 6 cubes, 17.3583%
+      9+ hp 1 in 43 cubes, 2.3448%
+     12+ hp 1 in 722 cubes, 0.1385%
 ============================== accessory (master) ==============================
     6+ stat 1 in 4 cubes, 28.4824%
     9+ stat 1 in 8 cubes, 12.7923%
@@ -493,6 +511,30 @@ any 3l combo of att+ied 1 in 200 cubes, 0.4990%
    15+ stat 1 in 46 cubes, 2.1815%
 9+ all stat 1 in 192 cubes, 0.5195%
      15+ hp 1 in 23 cubes, 4.4064%
+============================= top/overall (master) =============================
+    6+ stat 1 in 6 cubes, 18.1557%
+    9+ stat 1 in 14 cubes, 7.3747%
+   12+ stat 1 in 51 cubes, 1.9523%
+3+ all stat 1 in 11 cubes, 9.3805%
+6+ all stat 1 in 31 cubes, 3.2052%
+      6+ hp 1 in 4 cubes, 26.3460%
+      9+ hp 1 in 10 cubes, 10.1745%
+     12+ hp 1 in 38 cubes, 2.6326%
+   15+ stat 1 in 120 cubes, 0.8305%
+9+ all stat 1 in 498 cubes, 0.2008%
+     15+ hp 1 in 57 cubes, 1.7450%
+================================= hat (master) =================================
+    6+ stat 1 in 4 cubes, 26.3540%
+    9+ stat 1 in 10 cubes, 9.9333%
+   12+ stat 1 in 20 cubes, 5.0131%
+3+ all stat 1 in 7 cubes, 13.8327%
+6+ all stat 1 in 7 cubes, 13.8327%
+      6+ hp 1 in 3 cubes, 37.6275%
+      9+ hp 1 in 8 cubes, 12.9964%
+     12+ hp 1 in 18 cubes, 5.6161%
+   15+ stat 1 in 45 cubes, 2.2120%
+9+ all stat 1 in 150 cubes, 0.6662%
+     15+ hp 1 in 31 cubes, 3.1844%
 ================================ glove (violet) ================================
                    18+ stat 1 in 9 cubes, 10.9473%
                    21+ stat 1 in 19 cubes, 5.2790%

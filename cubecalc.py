@@ -257,6 +257,19 @@ top_overall_noncash = {
   NAME: "top/overall",
   DEFAULT_CUBE: MEISTER,
 
+  COMMON: [],
+
+  RARE: [
+    (STAT, 3, 18),
+    (HP, 3, 12),
+  ],
+
+  EPIC: [
+    (STAT, 6, 15),
+    (HP, 6, 10),
+    (ALLSTAT, 3, 30),
+  ],
+
   UNIQUE: [
     (STAT, 9, 16.5),
     (HP, 9, 11),
@@ -294,6 +307,19 @@ hat = {
 hat_noncash = {
   NAME: "hat",
   DEFAULT_CUBE: MEISTER,
+
+  COMMON: [],
+
+  RARE: [
+    (STAT, 3, 21),
+    (HP, 3, 14),
+  ],
+
+  EPIC: [
+    (STAT, 6, 9),
+    (HP, 6, 6),
+    (ALLSTAT, 6, 18),
+  ],
 
   UNIQUE: [
     (STAT, 9, 14.5),
@@ -959,9 +985,13 @@ def cube_calcs():
 
   with Combos(combos_occult_stat) as c:
     c.calc(accessory_noncash, OCCULT)
+    c.calc(top_overall_noncash, OCCULT)
+    c.calc(hat_noncash, OCCULT)
 
   with Combos(combos_master_stat) as c:
     c.calc(accessory_noncash, MASTER)
+    c.calc(top_overall_noncash, MASTER)
+    c.calc(hat_noncash, MASTER)
 
   with Combos(combos_glove) as c:
     c.calc(glove_violet_equality)
