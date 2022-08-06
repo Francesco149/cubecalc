@@ -26,12 +26,18 @@ DEFAULT_TIER = LEGENDARY
 
 RED = "red"
 MEISTER = "meister"
+MASTER = "master"
+OCCULT = "occult"
 BLACK = "black"
 VIOLET = "violet"
 EQUALITY = "equality"
 BONUS = "bonus"
-OCCULT = "occult"
 UNI = "uni"
+
+tier_limits = {
+  OCCULT: EPIC,
+  MASTER: UNIQUE,
+}
 
 COMBOS = "combos"
 COMBOS_VIOLET = "combos (violet)"
@@ -42,12 +48,30 @@ lines_base = { COMBOS: None }
 
 prime_chances = {
   RED: [1, 0.1, 0.01],
-  MEISTER: [1, 0.001996, 0.001996],
   BLACK: [1, 0.2, 0.05],
   VIOLET: [1, 0.1, 0.01, 0.01, 0.1, 0.01],
   EQUALITY: [1, 1, 1],
-  BONUS: [1, 0.004975, 0.004975],
-  OCCULT: [1] + [1.0/101]*2,
+  BONUS: {
+    RARE: [1] + [1.0/51]*2,
+    EPIC: [1] + [1.0/21]*2,
+    UNIQUE: [1] + [1.0/51]*2,
+    LEGENDARY: [1] + [0.004975]*2,
+  },
+  OCCULT: {
+    RARE: [1] + [1.0/1001]*2,
+    EPIC: [1] + [1.0/101]*2,
+  },
+  MASTER: {
+    RARE: [1] + [1.0/6]*2,
+    EPIC: [1] + [1.0/21]*2,
+    UNIQUE: [1] + [1.0/84.3333]*2,
+  },
+  MEISTER: {
+    RARE: [1] + [1.0/6]*2,
+    EPIC: [1] + [1.0/12.5008]*2,
+    UNIQUE: [1] + [1.0/58.9666]*2,
+    LEGENDARY: [1] + [0.001996]*2,
+  },
   UNI: 0.15,
 }
 
@@ -291,6 +315,8 @@ accessory_noncash = {
   NAME: "accessory",
   DEFAULT_CUBE: MEISTER,
 
+  COMMON: [],
+
   RARE: [
     (STAT, 3, 21),
     (HP, 3, 14),
@@ -300,6 +326,18 @@ accessory_noncash = {
     (STAT, 6, 9),
     (HP, 6, 6),
     (ALLSTAT, 3, 18),
+  ],
+
+  UNIQUE: [
+    (STAT, 9, 10.5),
+    (HP, 9, 7),
+    (ALLSTAT, 6, 21),
+  ],
+
+  LEGENDARY: [
+    (STAT, 12, 17),
+    (HP, 12, 11.3333),
+    (ALLSTAT, 9, 17),
   ],
 }
 
@@ -691,16 +729,18 @@ def unicube_calc(print_combos, lines, tier=DEFAULT_TIER):
 
 
 def __cube_calc(print_combos, lines, type, tier):
+  if type in tier_limits:
+    tier = min(tier_limits[type], tier)
+
   if type == UNI:
     unicube_calc(print_combos, lines, tier)
     return
-
+  
   print(f" {lines[NAME]} ({type}) ".center(80, "="))
 
   prime_chance = prime_chances[type]
-
-  if type == OCCULT:
-    tier = min(EPIC, tier)
+  if not isinstance(prime_chance, list):
+    prime_chance = prime_chance[tier]
 
   def make_any_line(prime, lines):
     lines = mklines(prime, lines)
@@ -711,18 +751,20 @@ def __cube_calc(print_combos, lines, type, tier):
   p = make_any_line(True, lines[tier])
   n = make_any_line(False, lines[tier - 1]) + p
 
-  combos_i = COMBOS_VIOLET if type == VIOLET else COMBOS
-
   # cache combos for each set of lines
+  combos_i = COMBOS_VIOLET if type == VIOLET else COMBOS
   if combos_i not in lines:
+    lines[combos_i] = {}
+
+  if tier not in lines[combos_i]:
     if type == VIOLET:
-      lines[combos_i] = product(p, n, n, n, n, n)
+      lines[combos_i][tier] = product(p, n, n, n, n, n)
     else:
-      lines[combos_i] = product(p, n, n)
+      lines[combos_i][tier] = product(p, n, n)
 
-    lines[combos_i] = list(filter_impossible_lines(lines[combos_i]))
+    lines[combos_i][tier] = list(filter_impossible_lines(lines[combos_i][tier]))
 
-  combos = lines[combos_i]
+  combos = lines[combos_i][tier]
 
   def combo_chance(want, combos):
     good=set()
@@ -877,6 +919,12 @@ def cube_calcs():
     ("12+ hp", [{HP: 12}]),
   ]
 
+  combos_master_stat = combos_occult_stat + [
+    ("15+ stat", [{STAT: 15}]),
+    ("9+ all stat", [{ALLSTAT: 9}]),
+    ("15+ hp", [{HP: 15}]),
+  ]
+
   with Combos(combos_ws) as c:
     c.calc(weapon)
     c.calc(weapon_noncash)
@@ -898,6 +946,7 @@ def cube_calcs():
     c.calc(top_overall)
     c.calc(top_overall_noncash)
     c.calc(top_overall_violet_equality)
+    c.calc(accessory_noncash)
     c.calc(accessory_violet_equality)
     c.calc(cape_belt_shoulder_violet_equality)
     c.calc(shoe_violet_equality)
@@ -910,6 +959,9 @@ def cube_calcs():
 
   with Combos(combos_occult_stat) as c:
     c.calc(accessory_noncash, OCCULT)
+
+  with Combos(combos_master_stat) as c:
+    c.calc(accessory_noncash, MASTER)
 
   with Combos(combos_glove) as c:
     c.calc(glove_violet_equality)

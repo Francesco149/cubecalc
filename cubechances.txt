@@ -249,6 +249,18 @@ any 3l combo of att+ied 1 in 200 cubes, 0.4990%
 12+ all stat 1 in 100 cubes, 0.9966%
 15+ all stat 1 in 100 cubes, 0.9966%
 21+ all stat 1 in 4919 cubes, 0.0203%
+============================= accessory (meister) ==============================
+    18+ stat 1 in 29 cubes, 3.4285%
+    21+ stat 1 in 84 cubes, 1.1906%
+    30+ stat 1 in 1866 cubes, 0.0536%
+    33+ stat 1 in 759788 cubes, 0.0001%
+      18+ hp 1 in 24 cubes, 4.1972%
+      21+ hp 1 in 43 cubes, 2.3439%
+      30+ hp 1 in 556 cubes, 0.1798%
+      33+ hp 1 in 225538 cubes, 0.0004%
+12+ all stat 1 in 131 cubes, 0.7608%
+15+ all stat 1 in 182 cubes, 0.5482%
+21+ all stat 1 in 7490 cubes, 0.0134%
 ============================== accessory (violet) ==============================
     18+ stat 1 in 6 cubes, 15.4683%
     21+ stat 1 in 12 cubes, 8.0802%
@@ -469,6 +481,18 @@ any 3l combo of att+ied 1 in 200 cubes, 0.4990%
       6+ hp 1 in 6 cubes, 17.3583%
       9+ hp 1 in 43 cubes, 2.3448%
      12+ hp 1 in 722 cubes, 0.1385%
+============================== accessory (master) ==============================
+    6+ stat 1 in 4 cubes, 28.4824%
+    9+ stat 1 in 8 cubes, 12.7923%
+   12+ stat 1 in 20 cubes, 4.9794%
+3+ all stat 1 in 7 cubes, 15.0330%
+6+ all stat 1 in 19 cubes, 5.1564%
+      6+ hp 1 in 2 cubes, 40.4359%
+      9+ hp 1 in 6 cubes, 16.9007%
+     12+ hp 1 in 15 cubes, 6.7312%
+   15+ stat 1 in 46 cubes, 2.1815%
+9+ all stat 1 in 192 cubes, 0.5195%
+     15+ hp 1 in 23 cubes, 4.4064%
 ================================ glove (violet) ================================
                    18+ stat 1 in 9 cubes, 10.9473%
                    21+ stat 1 in 19 cubes, 5.2790%
