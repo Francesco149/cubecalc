@@ -135,35 +135,45 @@ any 3l combo of att+boss+ied 1 in 39 cubes, 2.5343%
               60+ied and att 1 in 422 cubes, 0.2370%
              60+ied and boss 1 in 141 cubes, 0.7111%
 ================================= emblem (red) =================================
-        18+ att 1 in 75 cubes, 1.3311%
-        21+ att 1 in 116 cubes, 0.8586%
-        30+ att 1 in 3195 cubes, 0.0313%
-        33+ att 1 in 37544 cubes, 0.0027%
-21+ att and ied 1 in 1416 cubes, 0.0706%
+                18+ att 1 in 75 cubes, 1.3311%
+                21+ att 1 in 116 cubes, 0.8586%
+                30+ att 1 in 3195 cubes, 0.0313%
+                33+ att 1 in 37544 cubes, 0.0027%
+        21+ att and ied 1 in 1416 cubes, 0.0706%
+any 2l combo of att+ied 1 in 15 cubes, 6.6171%
+any 3l combo of att+ied 1 in 309 cubes, 0.3238%
 ================================ emblem (black) ================================
-        18+ att 1 in 77 cubes, 1.3005%
-        21+ att 1 in 111 cubes, 0.8974%
-        30+ att 1 in 3306 cubes, 0.0302%
-        33+ att 1 in 17184 cubes, 0.0058%
-21+ att and ied 1 in 1280 cubes, 0.0781%
+                18+ att 1 in 77 cubes, 1.3005%
+                21+ att 1 in 111 cubes, 0.8974%
+                30+ att 1 in 3306 cubes, 0.0302%
+                33+ att 1 in 17184 cubes, 0.0058%
+        21+ att and ied 1 in 1280 cubes, 0.0781%
+any 2l combo of att+ied 1 in 15 cubes, 6.6935%
+any 3l combo of att+ied 1 in 306 cubes, 0.3267%
 =============================== emblem (meister) ===============================
-        18+ att 1 in 73 cubes, 1.3657%
-        21+ att 1 in 112 cubes, 0.8903%
-        30+ att 1 in 3039 cubes, 0.0329%
-        33+ att 1 in 843483 cubes, 0.0001%
-21+ att and ied 1 in 1514 cubes, 0.0660%
+                18+ att 1 in 73 cubes, 1.3657%
+                21+ att 1 in 112 cubes, 0.8903%
+                30+ att 1 in 3039 cubes, 0.0329%
+                33+ att 1 in 843483 cubes, 0.0001%
+        21+ att and ied 1 in 1514 cubes, 0.0660%
+any 2l combo of att+ied 1 in 17 cubes, 5.9432%
+any 3l combo of att+ied 1 in 357 cubes, 0.2799%
 =============================== emblem (violet) ================================
-        18+ att 1 in 18 cubes, 5.4337%
-        21+ att 1 in 49 cubes, 2.0596%
-        30+ att 1 in 402 cubes, 0.2489%
-        33+ att 1 in 2545 cubes, 0.0393%
-21+ att and ied 1 in 142 cubes, 0.7058%
+                18+ att 1 in 18 cubes, 5.4337%
+                21+ att 1 in 49 cubes, 2.0596%
+                30+ att 1 in 402 cubes, 0.2489%
+                33+ att 1 in 2545 cubes, 0.0393%
+        21+ att and ied 1 in 142 cubes, 0.7058%
+any 2l combo of att+ied 1 in 4 cubes, 25.6770%
+any 3l combo of att+ied 1 in 20 cubes, 4.8822%
 ============================== emblem (equality) ===============================
-        18+ att 1 in 131 cubes, 0.7625%
-        21+ att 1 in 131 cubes, 0.7625%
-        30+ att 1 in 7407 cubes, 0.0135%
-        33+ att 1 in 7407 cubes, 0.0135%
-21+ att and ied 1 in 824 cubes, 0.1214%
+                18+ att 1 in 131 cubes, 0.7625%
+                21+ att 1 in 131 cubes, 0.7625%
+                30+ att 1 in 7407 cubes, 0.0135%
+                33+ att 1 in 7407 cubes, 0.0135%
+        21+ att and ied 1 in 824 cubes, 0.1214%
+any 2l combo of att+ied 1 in 9 cubes, 10.5304%
+any 3l combo of att+ied 1 in 200 cubes, 0.4990%
 ================================ weapon (bonus) ================================
 18+ att 1 in 149 cubes, 0.6716%
 21+ att 1 in 213 cubes, 0.4684%

@@ -779,6 +779,8 @@ def cube_calcs():
     ("30+ att", [{ATT: 30}]),
     ("33+ att", [{ATT: 33}]),
     ("21+ att and ied", [{ATT: 21, IED: 1}]),
+    ("any 2l combo of att+ied", [{ATT: 1, IED: 1, LINES: 2}]),
+    ("any 3l combo of att+ied", [{ATT: 1, IED: 1, LINES: 3}]),
   ]
 
   combos_wse_b = [
