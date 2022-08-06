@@ -772,7 +772,7 @@ def fmt_chance(text, wants, combos, combo_chance):
 
 
 def unicube_calc(print_combos, lines, tier=DEFAULT_TIER):
-  print(f" {lines[NAME]}: 2l->3l by rerolling 2nd or 3rd line (unicube at {tier_names[tier]}) ".center(80, "="))
+  print(f" {lines[NAME]}: 2l->3l (unicube at {tier_names[tier]}) ".center(80, "="))
 
   prime_chance = prime_chances[UNI]
   lines = mklines(False, lines[tier - 1]) + mklines(True, lines[tier])
