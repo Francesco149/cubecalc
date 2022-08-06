@@ -33,10 +33,10 @@ BONUS = "bonus"
 OCCULT = "occult"
 UNI = "uni"
 
-DEFAULT_CUBE = [RED, BLACK]
 COMBOS = "combos"
 COMBOS_VIOLET = "combos (violet)"
 NAME = "name"
+DEFAULT_CUBE = "default cube"
 
 lines_base = { COMBOS: None }
 
@@ -53,6 +53,7 @@ prime_chances = {
 
 weapon = {
   NAME: "weapon",
+  DEFAULT_CUBE: [RED, BLACK],
 
   UNIQUE: [
     (BOSS, 30, 14.3333),
@@ -73,6 +74,7 @@ weapon = {
 
 weapon_noncash = {
   NAME: "weapon",
+  DEFAULT_CUBE: MEISTER,
 
   UNIQUE: [
     (BOSS, 30, 15),
@@ -93,6 +95,7 @@ weapon_noncash = {
 
 secondary = {
   NAME: "secondary",
+  DEFAULT_CUBE: [RED, BLACK],
 
   UNIQUE: [
     (BOSS, 30, 17.0),
@@ -113,6 +116,7 @@ secondary = {
 
 secondary_noncash = {
   NAME: "secondary",
+  DEFAULT_CUBE: MEISTER,
 
   UNIQUE: [
     (BOSS, 30, 21),
@@ -133,6 +137,7 @@ secondary_noncash = {
 
 emblem = {
   NAME: "emblem",
+  DEFAULT_CUBE: [RED, BLACK],
 
   LEGENDARY: [
     (IED,  40, 17.5),
@@ -149,6 +154,7 @@ emblem = {
 
 emblem_noncash = {
   NAME: "emblem",
+  DEFAULT_CUBE: MEISTER,
 
   UNIQUE: [
     (IED,  30, 14),
@@ -165,6 +171,7 @@ emblem_noncash = {
 
 weapon_bonus = {
   NAME: "weapon",
+  DEFAULT_CUBE: BONUS,
 
   UNIQUE: [
     (ATT, 9, 21.5),
@@ -178,6 +185,7 @@ weapon_bonus = {
 
 secondary_bonus = {
   NAME: "secondary",
+  DEFAULT_CUBE: BONUS,
 
   UNIQUE: [
     (ATT, 9, 21.5),
@@ -191,6 +199,7 @@ secondary_bonus = {
 
 emblem_bonus = {
   NAME: "emblem",
+  DEFAULT_CUBE: BONUS,
 
   UNIQUE: [
     (ATT, 9, 21),
@@ -204,6 +213,7 @@ emblem_bonus = {
 
 top_overall = {
   NAME: "top/overall",
+  DEFAULT_CUBE: [RED, BLACK],
 
   UNIQUE: [
     (STAT, 9, 13.2),
@@ -221,6 +231,7 @@ top_overall = {
 
 top_overall_noncash = {
   NAME: "top/overall",
+  DEFAULT_CUBE: MEISTER,
 
   UNIQUE: [
     (STAT, 9, 16.5),
@@ -238,6 +249,7 @@ top_overall_noncash = {
 
 hat = {
   NAME: "hat",
+  DEFAULT_CUBE: [RED, BLACK],
 
   UNIQUE: [
     (STAT, 9, 11.2),
@@ -257,6 +269,7 @@ hat = {
 
 hat_noncash = {
   NAME: "hat",
+  DEFAULT_CUBE: MEISTER,
 
   UNIQUE: [
     (STAT, 9, 14.5),
@@ -276,6 +289,7 @@ hat_noncash = {
 
 accessory_noncash = {
   NAME: "accessory",
+  DEFAULT_CUBE: MEISTER,
 
   RARE: [
     (STAT, 3, 21),
@@ -294,6 +308,7 @@ accessory_noncash = {
 
 weapon_secondary_violet_equality = {
   NAME: "weapon",
+  DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
     (BOSS, 30, 1/6.52*100),
@@ -314,6 +329,7 @@ weapon_secondary_violet_equality = {
 
 emblem_violet_equality = {
   NAME: "emblem",
+  DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
     (ATT, 9, 1/6.98*100),
@@ -330,6 +346,7 @@ emblem_violet_equality = {
 
 weapon_secondary_uni = {
   NAME: "weapon/secondary",
+  DEFAULT_CUBE: UNI,
 
   UNIQUE: [
     (BOSS, 30, 1/5.48*100),
@@ -350,6 +367,7 @@ weapon_secondary_uni = {
 
 emblem_uni = {
   NAME: "emblem",
+  DEFAULT_CUBE: UNI,
 
   UNIQUE: [
     (ATT, 9, 1/8.7*100),
@@ -367,6 +385,7 @@ emblem_uni = {
 # pendants, rings, face, eye, earrings
 accessory_violet_equality = {
   NAME: "accessory",
+  DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
     (STAT, 9, 1/9.8*100),
@@ -384,6 +403,7 @@ accessory_violet_equality = {
 
 accessory_uni = {
   NAME: "accessory",
+  DEFAULT_CUBE: UNI,
 
   UNIQUE: [
     (STAT, 9, 1/11.63*100),
@@ -401,6 +421,7 @@ accessory_uni = {
 
 cape_belt_shoulder_violet_equality = {
   NAME: "cape/belt/shoulder",
+  DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
     (STAT, 9, 1/8.47*100),
@@ -418,6 +439,7 @@ cape_belt_shoulder_violet_equality = {
 
 cape_belt_shoulder_uni = {
   NAME: "cape/belt/shoulder",
+  DEFAULT_CUBE: UNI,
 
   UNIQUE: [
     (STAT, 9, 1/7.69*100),
@@ -435,6 +457,7 @@ cape_belt_shoulder_uni = {
 
 shoe_violet_equality = {
   NAME: "shoe",
+  DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
     (STAT, 9, 1/7.94*100),
@@ -452,6 +475,7 @@ shoe_violet_equality = {
 
 shoe_uni = {
   NAME: "shoe",
+  DEFAULT_CUBE: UNI,
 
   UNIQUE: [
     (STAT, 9, 1/6.33*100),
@@ -469,6 +493,7 @@ shoe_uni = {
 
 glove_violet_equality = {
   NAME: "glove",
+  DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
     (STAT, 9, 1/7.46*100),
@@ -487,6 +512,7 @@ glove_violet_equality = {
 
 glove_uni = {
   NAME: "glove",
+  DEFAULT_CUBE: UNI,
 
   UNIQUE: [
     (STAT, 9, 1/5.26*100),
@@ -505,6 +531,7 @@ glove_uni = {
 
 bottom_violet_equality = {
   NAME: "bottom",
+  DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
     (STAT, 9, 1/7.94*100),
@@ -522,6 +549,7 @@ bottom_violet_equality = {
 
 bottom_uni = {
   NAME: "bottom",
+  DEFAULT_CUBE: UNI,
 
   UNIQUE: [
     (STAT, 9, 1/6.35*100),
@@ -539,6 +567,7 @@ bottom_uni = {
 
 top_overall_violet_equality = {
   NAME: "top/overall",
+  DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
     (STAT, 9, 1/6.85*100),
@@ -556,6 +585,7 @@ top_overall_violet_equality = {
 
 top_overall_uni = {
   NAME: "top/overall",
+  DEFAULT_CUBE: UNI,
 
   UNIQUE: [
     (STAT, 9, 1/4.08*100),
@@ -573,6 +603,7 @@ top_overall_uni = {
 
 hat_violet_equality = {
   NAME: "hat",
+  DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
     (STAT, 9, 1/7.94*100),
@@ -592,6 +623,7 @@ hat_violet_equality = {
 
 hat_uni = {
   NAME: "hat",
+  DEFAULT_CUBE: UNI,
 
   UNIQUE: [
     (STAT, 9, 1/5.8*100),
@@ -737,7 +769,9 @@ def single_or_list(x):
   return x if isinstance(x, list) else [x]
 
 
-def cube_calc(print_combos, lines, types=DEFAULT_CUBE, tier=DEFAULT_TIER):
+def cube_calc(print_combos, lines, types=[], tier=DEFAULT_TIER):
+  if not types:
+    types = lines[DEFAULT_CUBE]
   for type in single_or_list(types):
     __cube_calc(print_combos, lines, type, tier)
 
@@ -845,40 +879,40 @@ def cube_calcs():
 
   with Combos(combos_ws) as c:
     c.calc(weapon)
-    c.calc(weapon_noncash, MEISTER)
+    c.calc(weapon_noncash)
     c.calc(secondary)
-    c.calc(secondary_noncash, MEISTER)
-    c.calc(weapon_secondary_violet_equality, [VIOLET, EQUALITY])
+    c.calc(secondary_noncash)
+    c.calc(weapon_secondary_violet_equality)
 
   with Combos(combos_e) as c:
     c.calc(emblem)
-    c.calc(emblem_noncash, MEISTER)
-    c.calc(emblem_violet_equality, [VIOLET, EQUALITY])
+    c.calc(emblem_noncash)
+    c.calc(emblem_violet_equality)
 
   with Combos(combos_wse_b) as c:
-    c.calc(weapon_bonus, BONUS)
-    c.calc(secondary_bonus, BONUS)
-    c.calc(emblem_bonus, BONUS)
+    c.calc(weapon_bonus)
+    c.calc(secondary_bonus)
+    c.calc(emblem_bonus)
 
   with Combos(combos_stat) as c:
     c.calc(top_overall)
-    c.calc(top_overall_noncash, MEISTER)
-    c.calc(top_overall_violet_equality, [VIOLET, EQUALITY])
-    c.calc(accessory_violet_equality, [VIOLET, EQUALITY])
-    c.calc(cape_belt_shoulder_violet_equality, [VIOLET, EQUALITY])
-    c.calc(shoe_violet_equality, [VIOLET, EQUALITY])
-    c.calc(bottom_violet_equality, [VIOLET, EQUALITY])
+    c.calc(top_overall_noncash)
+    c.calc(top_overall_violet_equality)
+    c.calc(accessory_violet_equality)
+    c.calc(cape_belt_shoulder_violet_equality)
+    c.calc(shoe_violet_equality)
+    c.calc(bottom_violet_equality)
 
   with Combos(combos_hat) as c:
     c.calc(hat)
-    c.calc(hat_noncash, MEISTER)
-    c.calc(hat_violet_equality, [VIOLET, EQUALITY])
+    c.calc(hat_noncash)
+    c.calc(hat_violet_equality)
 
   with Combos(combos_occult_stat) as c:
     c.calc(accessory_noncash, OCCULT)
 
   with Combos(combos_glove) as c:
-    c.calc(glove_violet_equality, [VIOLET, EQUALITY])
+    c.calc(glove_violet_equality)
 
 
 def unicube_calcs():
@@ -932,23 +966,23 @@ def unicube_calcs():
   combos_uni_hat = combos_uni_stat_nonprime + combos_uni_hat_prime
 
   with Combos(combos_uni_ws) as c:
-    c.calc(weapon_secondary_uni, UNI)
+    c.calc(weapon_secondary_uni)
 
   with Combos(combos_uni_e) as c:
-    c.calc(emblem_uni, UNI)
+    c.calc(emblem_uni)
 
   with Combos(combos_uni_stat) as c:
-    c.calc(accessory_uni, UNI)
-    c.calc(cape_belt_shoulder_uni, UNI)
-    c.calc(shoe_uni, UNI)
-    c.calc(bottom_uni, UNI)
-    c.calc(top_overall_uni, UNI)
+    c.calc(accessory_uni)
+    c.calc(cape_belt_shoulder_uni)
+    c.calc(shoe_uni)
+    c.calc(bottom_uni)
+    c.calc(top_overall_uni)
 
   with Combos(combos_uni_glove) as c:
-    c.calc(glove_uni, UNI)
+    c.calc(glove_uni)
 
   with Combos(combos_uni_hat) as c:
-    c.calc(hat_uni, UNI)
+    c.calc(hat_uni)
 
 cube_calcs()
 unicube_calcs()
