@@ -80,7 +80,7 @@ prime_chances = {
     UNIQUE: [1] + [1.0/58.9666]*2,
     LEGENDARY: [1] + [0.001996]*2,
   },
-  UNI: 0.15,
+  UNI: [0.15],
 }
 
 weapon = {
@@ -92,7 +92,7 @@ weapon = {
     (IED,  30, 14.3333),
     (ATT,   9, 14.3333),
   ],
-  
+
   LEGENDARY: [
     (BOSS, 40, 20.5),
     (BOSS, 35, 20.5),
@@ -770,33 +770,9 @@ def fmt_chance(text, wants, combos, combo_chance):
   chance = sum([combo_chance(want, combos) for want in wants])
   return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
 
-
-def unicube_calc(print_combos, lines, tier=DEFAULT_TIER):
-  print(f" {lines[NAME]}: 2l->3l (unicube at {tier_names[tier]}) ".center(80, "="))
-
-  prime_chance = prime_chances[UNI]
-  lines = mklines(False, lines[tier - 1]) + mklines(True, lines[tier])
-
-  def combo_chance(want, _combos):
-    # _combos is unused arg, I need to refactor fmt_chance
-    want_stat = list(want.keys())[0]
-    want_value = want[want_stat]
-    eligible_lines = [(prime, stat, value, onein) for (prime, stat, value, onein) in lines
-                      if (stat == want_stat or (stat == ALLSTAT and want_stat == STAT)) and value >= want_value]
-    return sum([1/onein * (prime_chance if prime else (1 - prime_chance))
-                for (prime, _, _, onein) in eligible_lines]) / 3
-    # divide by 3 because 3 cubes avg to select line, and then you reroll the line without spending an extra cube
-
-  tabulate([fmt_chance(text, want, [], combo_chance) for (text, want) in print_combos])
-
-
 def __cube_calc(print_combos, lines, type, tier):
   if type in tier_limits:
     tier = min(tier_limits[type], tier)
-
-  if type == UNI:
-    unicube_calc(print_combos, lines, tier)
-    return
   
   print(f" {lines[NAME]} ({type} at {tier_names[tier]}) ".center(80, "="))
 
@@ -813,20 +789,27 @@ def __cube_calc(print_combos, lines, type, tier):
   p = make_any_line(True, lines[tier])
   n = make_any_line(False, lines[tier - 1]) + p
 
+  def cache_combos(cache):
+    if tier not in cache:
+      if type == VIOLET:
+        cache[tier] = product(p, n, n, n, n, n)
+      elif type == UNI:
+        cache[tier] = product(n)
+      else:
+        cache[tier] = product(p, n, n)
+
+      cache[tier] = list(filter_impossible_lines(cache[tier]))
+
+    return cache[tier]
+
   # cache combos for each set of lines
   combos_i = COMBOS_VIOLET if type == VIOLET else COMBOS
   if combos_i not in lines:
     lines[combos_i] = {}
+  combos = cache_combos(lines[combos_i])
 
-  if tier not in lines[combos_i]:
-    if type == VIOLET:
-      lines[combos_i][tier] = product(p, n, n, n, n, n)
-    else:
-      lines[combos_i][tier] = product(p, n, n)
-
-    lines[combos_i][tier] = list(filter_impossible_lines(lines[combos_i][tier]))
-
-  combos = lines[combos_i][tier]
+  # unicubes are 1/3rd the line chances because you roll 3 cubes on average to select
+  chance_multiplier = 3 if type == UNI else 1
 
   def combo_chance(want, combos):
     good=set()
@@ -839,18 +822,23 @@ def __cube_calc(print_combos, lines, type, tier):
             typ = STAT
           if typ in want and amount >= want[typ]:
             lines += 1
+
         if lines >= want[LINES]:
           good.add(combo)
     else:
+      # we are looking for all combinations that contain all of the stats and with at least the requested amt
       for combo in combos:
         amounts = {}
         for (prime, typ, amount, onein) in combo:
-          if typ not in amounts: amounts[typ] = 0
+          if typ not in amounts:
+            amounts[typ] = 0
           amounts[typ] += amount
+
         if ALLSTAT in amounts:
           if STAT not in amounts:
             amounts[STAT] = 0
           amounts[STAT] += amounts[ALLSTAT]
+
         for k in want.keys():
           if k not in amounts or amounts[k] < want[k]:
             break
@@ -861,8 +849,10 @@ def __cube_calc(print_combos, lines, type, tier):
     # by their prime chance, and the probability of non-prime lines by the inverse of the prime chance.
     # this way, the sum of all proababilities of prime and non-prime lines will add up to 1
 
-    return sum([reduce(mul, [(1.0/onein) * (prime_chance[i] if prime else (1 - prime_chance[i]))
-      for i, (prime, typ, amount, onein) in enumerate(combo)]) for combo in good])
+    return sum([reduce(mul, [(1.0/(onein * chance_multiplier)) *
+                             (prime_chance[i] if prime else (1 - prime_chance[i]))
+                             for i, (prime, typ, amount, onein) in enumerate(combo)])
+                for combo in good])
 
   def fmt_chance(text, wants, combos):
     chance = sum([combo_chance(want, combos) for want in wants])
