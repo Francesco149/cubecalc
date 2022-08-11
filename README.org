@@ -17,11 +17,11 @@ figure out the calculation for each new line combo I want to calculate, and it's
 error prone as long as my combinations code is not wrong.
 
 * how to run it
-# method 1: manually install dependencies and run it
+** method 1: manually install dependencies and run it
 - have python3 and numpy installed
 - run ~cubecalc.py~ . if you are on linux, you can do ~./run.sh~ and it will also update the text
 
-# method 2: nix dev shell (this is what I use)
+** method 2: nix dev shell (this is what I use)
 this method is more reliable as the nix environment has exactly the python and numpy versions
 that I used during development.
 
