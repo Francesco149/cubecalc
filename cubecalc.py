@@ -1079,7 +1079,7 @@ def __cube_calc(print_combos, type, tier, lines):
     c = line_cache.copy()
 
     # filter out lines that are not in our want dict to exponentially reduce combinations
-    relevant_line_bits = reduce(or_, [x for x in want.keys() if x != LINES]) | ANY
+    relevant_line_bits = reduce(or_, want.keys()) | ANY
     c.filt(c.types & relevant_line_bits != 0)
 
     # remember to update the number of prime lines
@@ -1122,15 +1122,13 @@ def __cube_calc(print_combos, type, tier, lines):
       mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > 2 for x in forbidden])
       c.filt(np.logical_not(mask))
 
-    types, values, _, _ = c.lines
     if LINES in want:
       # all combinations that contains at least n lines of any of the stats specified
       # TODO: allow specifying minimum amount for the lines
-      mask = sum([np.count_nonzero(types & x != 0, axis=1)
-                  for x in want.keys() if x != LINES]) >= want[LINES]
+      mask = np.count_nonzero(c.types & (relevant_line_bits & ~ANY) != 0, axis=1) >= want[LINES]
     else:
       # all combinations that contain all of the stats and with at least the requested amt.
-      mask = reduce(and_, [np.sum(values * (types & x != 0).astype(int), axis=1) >= want[x]
+      mask = reduce(and_, [np.sum(c.values * (c.types & x != 0).astype(int), axis=1) >= want[x]
                            for x in want.keys()])
 
     good = c.filt(mask)
