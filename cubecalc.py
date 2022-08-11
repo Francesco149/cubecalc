@@ -73,6 +73,22 @@ COMBOS_VIOLET = "combos (violet)"
 NAME = "name"
 DEFAULT_CUBE = "default cube"
 
+
+
+# official KMS probabilities:
+#   https://maplestory.nexon.com/Guide/OtherProbability/cube/red
+#   https://maplestory.nexon.com/Guide/OtherProbability/cube/black
+#   https://maplestory.nexon.com/Guide/OtherProbability/cube/strange
+#   https://maplestory.nexon.com/Guide/OtherProbability/cube/master
+#   https://maplestory.nexon.com/Guide/OtherProbability/cube/artisan
+
+# strategywiki page which converts the KMS probabilities in a format that's easier to work with
+# since the official probabilities gives you different probabilities for 1st, 2nd, 3rd line
+# pre-adjusted for prime chance instead of just giving the base line chance + the prime chance
+#   https://strategywiki.org/wiki/MapleStory/Potential_System
+
+# TMS violet prime chance from the strategywiki page
+
 prime_chances = {
   RED: [1, 0.1, 0.01],
   BLACK: [1, 0.2, 0.05],
@@ -426,8 +442,8 @@ accessory_noncash = {
   ],
 }
 
-# TMS cubes
-# https://tw.beanfun.com/beanfuncommon/EventAD_Mobile/EventAD.aspx?EventADID=8421
+# TMS probabilities for violet, equality and unicube lines
+#   https://tw.beanfun.com/beanfuncommon/EventAD_Mobile/EventAD.aspx?EventADID=8421
 
 weapon_secondary_violet_equality = {
   NAME: "weapon",
@@ -1177,6 +1193,27 @@ def unicube_calcs():
 
   with Combos(combos_uni_hat) as c:
     c.calc(hat_uni)
+
+
+print(f" ! DISCLAIMER ! ".center(80, "="))
+print("""
+even though the numbers look reasonable, I cannot guarantee that the math here
+is correct. this is a calculator I made for myself and you should never
+blindly trust anything like this. before you gamble your time and/or money,
+double check the math yourself
+
+I also make a few assumptions that might not be true but we just don't know
+because GMS hasn't released any official data:
+  - that line rates are the same as KMS
+  - that line rates for TMS cubes like violet, uni are the same as TMS
+  - that prime chance for violets on strategywiki applies to GMS
+    (it's lower than TMS)
+
+the assumptions are reasonable in my opinion but we just don't know for sure
+
+you can check line probabilities in the source and see where I got them from
+""")
+print(f"".center(80, "="))
 
 cube_calcs()
 unicube_calcs()
