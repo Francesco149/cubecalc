@@ -1075,7 +1075,7 @@ def __cube_calc(print_combos, type, tier, lines):
       # so for example [a, b, c][ [True, False, True] ] returns [a, c]
 
       # can't have more than 2 of these in a combo
-      forbidden = [BOSS, IED]
+      forbidden = [BOSS, IED, DROP]
       if reduce(or_, [np.any(c.types & x != 0) for x in forbidden]):
         mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > 2 for x in forbidden])
         c.filt(np.logical_not(mask))
