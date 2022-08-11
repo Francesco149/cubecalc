@@ -793,14 +793,6 @@ any 3l combo of att+ied 1 in 4443 cubes, 0.0225%
            12 att 1 in 580 cubes, 0.1725%
            40 ied 1 in 116 cubes, 0.8635%
           35+ ied 1 in 45 cubes, 2.2450%
-========================= accessory (uni at legendary) =========================
-  6+ stat 1 in 23 cubes, 4.3343%
-  9+ stat 1 in 27 cubes, 3.6742%
-    9+ hp 1 in 28 cubes, 3.5982%
-6 allstat 1 in 136 cubes, 0.7362%
-  12 stat 1 in 330 cubes, 0.3030%
-    12 hp 1 in 330 cubes, 0.3030%
-9 allstat 1 in 1316 cubes, 0.0760%
 ==================== cape/belt/shoulder (uni at legendary) =====================
   6+ stat 1 in 29 cubes, 3.3932%
   9+ stat 1 in 34 cubes, 2.9568%
@@ -833,6 +825,17 @@ any 3l combo of att+ied 1 in 4443 cubes, 0.0225%
   12 stat 1 in 325 cubes, 0.3075%
     12 hp 1 in 325 cubes, 0.3075%
 9 allstat 1 in 1299 cubes, 0.0770%
+========================= accessory (uni at legendary) =========================
+           6+ stat 1 in 23 cubes, 4.3343%
+           9+ stat 1 in 27 cubes, 3.6742%
+             9+ hp 1 in 28 cubes, 3.5982%
+         6 allstat 1 in 136 cubes, 0.7362%
+           12 stat 1 in 330 cubes, 0.3030%
+             12 hp 1 in 330 cubes, 0.3030%
+         9 allstat 1 in 1316 cubes, 0.0760%
+           20 meso 1 in 220 cubes, 0.4545%
+           20 drop 1 in 220 cubes, 0.4545%
+20 meso or 20 drop 1 in 110 cubes, 0.9090%
 =========================== glove (uni at legendary) ===========================
       6+ stat 1 in 47 cubes, 2.1503%
       9+ stat 1 in 54 cubes, 1.8528%

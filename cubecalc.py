@@ -1254,6 +1254,11 @@ def unicube_calcs():
     ("2s cooldown", [{COOLDOWN: 2}]),
   ]
 
+  combos_uni_mesodrop = [
+    ("20 meso", [{MESO: 20}]),
+    ("20 drop", [{DROP: 20}]),
+    ("20 meso or 20 drop", [{MESO: 20}, {DROP: 20}]),
+  ]
 
   combos_uni_stat = combos_uni_stat_nonprime + combos_uni_stat_prime
   combos_uni_glove_prime = combos_uni_stat_prime + [ ("8 crit damage", [{CRITDMG: 8}]) ]
@@ -1267,18 +1272,19 @@ def unicube_calcs():
     c.calc(emblem_uni)
 
   with Combos(combos_uni_stat) as c:
-    c.calc(accessory_uni)
     c.calc(cape_belt_shoulder_uni)
     c.calc(shoe_uni)
     c.calc(bottom_uni)
     c.calc(top_overall_uni)
+
+  with Combos(combos_uni_stat + combos_uni_mesodrop) as c:
+    c.calc(accessory_uni)
 
   with Combos(combos_uni_glove) as c:
     c.calc(glove_uni)
 
   with Combos(combos_uni_hat) as c:
     c.calc(hat_uni)
-
 
 print(f" ! DISCLAIMER ! ".center(80, "="))
 print("""
