@@ -1329,8 +1329,9 @@ def unicube_calcs():
     hat_uni,
   )
 
-print(f" ! DISCLAIMER ! ".center(80, "="))
-print(disclaimer)
+if __name__ == "__main__":
+  print(f" ! DISCLAIMER ! ".center(80, "="))
+  print(disclaimer)
 
-cube_calcs()
-unicube_calcs()
+  cube_calcs()
+  unicube_calcs()
