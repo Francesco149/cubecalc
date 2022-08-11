@@ -993,12 +993,13 @@ def single_or_list(x):
   return x if isinstance(x, list) else [x]
 
 
-def cube_calc(print_combos, types, tier, lines):
-  if not types:
-    types = lines[DEFAULT_CUBE]
-  for type in single_or_list(types):
-    for l in single_or_list(lines):
-      __cube_calc(print_combos, type, tier, l)
+def cube_calc(print_combos, types, tier, *args):
+  for l in args:
+    lt = types
+    if not lt:
+      lt = l[DEFAULT_CUBE]
+    for t in single_or_list(lt):
+      __cube_calc(print_combos, t, tier, l)
 
 
 class Combos:
@@ -1143,148 +1144,167 @@ def cube_calcs():
     ("15+ hp", [{HP: 15}]),
   ]
 
-  with Combos(combos_ws) as c:
-    c.calc(weapon)
-    c.calc(weapon_noncash)
-    c.calc(secondary)
-    c.calc(secondary_noncash)
-    c.calc(weapon_secondary_violet_equality)
+  Combos(combos_ws).calc(
+    weapon,
+    weapon_noncash,
+    secondary,
+    secondary_noncash,
+    weapon_secondary_violet_equality,
+  )
 
-  with Combos(combos_ws_master, MASTER) as c:
-    c.calc(weapon_noncash)
-    c.calc(secondary_noncash)
+  Combos(combos_ws_master, MASTER).calc(
+    weapon_noncash,
+    secondary_noncash,
+  )
 
-  with Combos(combos_e) as c:
-    c.calc(emblem)
-    c.calc(emblem_noncash)
-    c.calc(emblem_violet_equality)
+  Combos(combos_e).calc(
+    emblem,
+    emblem_noncash,
+    emblem_violet_equality,
+  )
 
-  with Combos(combos_e_master, MASTER) as c:
-    c.calc(emblem_noncash)
+  Combos(combos_e_master, MASTER).calc(
+    emblem_noncash,
+  )
 
-  with Combos(combos_wse_occult, OCCULT) as c:
-    c.calc(weapon_noncash)
-    c.calc(secondary_noncash)
-    c.calc(emblem_noncash)
+  Combos(combos_wse_occult, OCCULT).calc(
+    weapon_noncash,
+    secondary_noncash,
+    emblem_noncash,
+  )
 
-  with Combos(combos_wse_b) as c:
-    c.calc(weapon_bonus)
-    c.calc(secondary_bonus)
-    c.calc(emblem_bonus)
+  Combos(combos_wse_b).calc(
+    weapon_bonus,
+    secondary_bonus,
+    emblem_bonus,
+  )
 
-  with Combos(combos_stat) as c:
-    c.calc(top_overall)
-    c.calc(top_overall_noncash)
-    c.calc(top_overall_violet_equality)
-    c.calc(cape_belt_shoulder_violet_equality)
-    c.calc(shoe_violet_equality)
-    c.calc(bottom_violet_equality)
+  Combos(combos_stat).calc(
+    top_overall,
+    top_overall_noncash,
+    top_overall_violet_equality,
+    cape_belt_shoulder_violet_equality,
+    shoe_violet_equality,
+    bottom_violet_equality,
+  )
 
-  with Combos(combos_stat + combos_mesodrop) as c:
-    c.calc(accessory)
-    c.calc(accessory_noncash)
-    c.calc(accessory_violet_equality)
+  Combos(combos_stat + combos_mesodrop).calc(
+    accessory,
+    accessory_noncash,
+    accessory_violet_equality,
+  )
 
-  with Combos(combos_hat) as c:
-    c.calc(hat)
-    c.calc(hat_noncash)
-    c.calc(hat_violet_equality)
+  Combos(combos_hat).calc(
+    hat,
+    hat_noncash,
+    hat_violet_equality,
+  )
 
-  with Combos(combos_occult_stat, OCCULT) as c:
-    c.calc(accessory_noncash)
-    c.calc(top_overall_noncash)
-    c.calc(hat_noncash)
+  Combos(combos_occult_stat, OCCULT).calc(
+    accessory_noncash,
+    top_overall_noncash,
+    hat_noncash,
+  )
 
-  with Combos(combos_master_stat, [MASTER, MEISTER], UNIQUE) as c:
-    c.calc(accessory_noncash)
-    c.calc(top_overall_noncash)
-    c.calc(hat_noncash)
+  Combos(combos_master_stat, [MASTER, MEISTER], UNIQUE).calc(
+    accessory_noncash,
+    top_overall_noncash,
+    hat_noncash,
+  )
 
-  with Combos(combos_master_stat, RED, UNIQUE) as c:
-    c.calc(accessory)
-    c.calc(top_overall)
-    c.calc(hat)
+  Combos(combos_master_stat, RED, UNIQUE).calc(
+    accessory,
+    top_overall,
+    hat,
+  )
 
-  with Combos(combos_glove) as c:
-    c.calc(glove_violet_equality)
+  Combos(combos_glove).calc(
+    glove_violet_equality,
+  )
 
 
 def unicube_calcs():
-  combos_uni_e_prime = [
+  combos_e_prime = [
     ("12 att", [{ATT: 12}]),
     ("40 ied", [{IED: 40}]),
     ("35+ ied", [{IED: 35}]),
   ]
 
-  combos_uni_e_nonprime = [
+  combos_e_nonprime = [
     ("9+ att or 30+ ied", [{ATT: 9}, {IED: 30}]),
     ("9+ att", [{ATT: 9}]),
     ("30+ ied", [{IED: 30}]),
   ]
 
-  combos_uni_ws_prime = [
+  combos_ws_prime = [
     ("35+ boss", [{BOSS: 35}]),
     ("40 boss", [{BOSS: 40}]),
-  ] + combos_uni_e_prime
+  ] + combos_e_prime
 
-  combos_uni_ws_nonprime = [
+  combos_ws_nonprime = [
     ("9+ att or 30+ boss or 30+ ied", [{ATT: 9}, {BOSS: 30}, {IED: 30}]),
     ("9+ att or 30+ boss", [{ATT: 9}, {BOSS: 30}]),
     ("30+ boss", [{BOSS: 30}]),
-  ] + combos_uni_e_nonprime
+  ] + combos_e_nonprime
 
-  combos_uni_e = combos_uni_e_nonprime + combos_uni_e_prime
-  combos_uni_ws = combos_uni_ws_nonprime + combos_uni_ws_prime
+  combos_e = combos_e_nonprime + combos_e_prime
+  combos_ws = combos_ws_nonprime + combos_ws_prime
 
-  combos_uni_stat_prime = [
+  combos_stat_prime = [
     ("12 stat", [{STAT: 12}]),
     ("12 hp", [{HP: 12}]),
     ("9 allstat", [{ALLSTAT: 9}]),
   ]
 
-  combos_uni_stat_nonprime = [
+  combos_stat_nonprime = [
     ("6+ stat", [{STAT: 6}]),
     ("9+ stat", [{STAT: 9}]),
     ("9+ hp", [{HP: 9}]),
     ("6 allstat", [{ALLSTAT: 6}]),
   ]
 
-  combos_uni_hat_prime = combos_uni_stat_prime + [
+  combos_hat_prime = combos_stat_prime + [
     ("1+s cooldown", [{COOLDOWN: 1}]),
     ("2s cooldown", [{COOLDOWN: 2}]),
   ]
 
-  combos_uni_mesodrop = [
+  combos_mesodrop = [
     ("20 meso", [{MESO: 20}]),
     ("20 drop", [{DROP: 20}]),
     ("20 meso or 20 drop", [{MESO: 20}, {DROP: 20}]),
   ]
 
-  combos_uni_stat = combos_uni_stat_nonprime + combos_uni_stat_prime
-  combos_uni_glove_prime = combos_uni_stat_prime + [ ("8 crit damage", [{CRITDMG: 8}]) ]
-  combos_uni_glove = combos_uni_stat_nonprime + combos_uni_glove_prime
-  combos_uni_hat = combos_uni_stat_nonprime + combos_uni_hat_prime
+  combos_stat = combos_stat_nonprime + combos_stat_prime
+  combos_glove_prime = combos_stat_prime + [ ("8 crit damage", [{CRITDMG: 8}]) ]
+  combos_glove = combos_stat_nonprime + combos_glove_prime
+  combos_hat = combos_stat_nonprime + combos_hat_prime
 
-  with Combos(combos_uni_ws) as c:
-    c.calc(weapon_secondary_uni)
+  Combos(combos_ws).calc(
+    weapon_secondary_uni,
+  )
 
-  with Combos(combos_uni_e) as c:
-    c.calc(emblem_uni)
+  Combos(combos_e).calc(
+    emblem_uni,
+  )
 
-  with Combos(combos_uni_stat) as c:
-    c.calc(cape_belt_shoulder_uni)
-    c.calc(shoe_uni)
-    c.calc(bottom_uni)
-    c.calc(top_overall_uni)
+  Combos(combos_stat).calc(
+    cape_belt_shoulder_uni,
+    shoe_uni,
+    bottom_uni,
+    top_overall_uni,
+  )
 
-  with Combos(combos_uni_stat + combos_uni_mesodrop) as c:
-    c.calc(accessory_uni)
+  Combos(combos_stat + combos_mesodrop).calc(
+    accessory_uni,
+  )
 
-  with Combos(combos_uni_glove) as c:
-    c.calc(glove_uni)
+  Combos(combos_glove).calc(
+    glove_uni,
+  )
 
-  with Combos(combos_uni_hat) as c:
-    c.calc(hat_uni)
+  Combos(combos_hat).calc(
+    hat_uni,
+  )
 
 print(f" ! DISCLAIMER ! ".center(80, "="))
 print("""
