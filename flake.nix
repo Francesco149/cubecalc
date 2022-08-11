@@ -14,7 +14,13 @@
   outputs = { self, nixpkgs, flake-compat, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       with nixpkgs.legacyPackages.${system}; {
-        devShell = mkShell { buildInputs = [ python3 ]; };
+        devShell = mkShell {
+          buildInputs = [
+            python310
+          ] ++ (with python310Packages; [
+            numpy
+          ]);
+        };
       }
     );
 }

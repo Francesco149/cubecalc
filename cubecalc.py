@@ -1,58 +1,79 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from itertools import product
 from functools import reduce
 from functools import partial
-from operator import mul
+from operator import mul, or_, and_, add
+import numpy as np
+from enum import IntEnum, IntFlag, auto
 
-BOSS = "boss"
-IED = "ied"
-ATT = "att"
-ANY = "any"
-STAT = "stat"
-ALLSTAT = "allstat"
-HP = "hp"
-COOLDOWN = "cooldown"
-CRITDMG = "critdmg"
-LINES = "match by number of lines and what lines are allowed"
+def global_enum(enum):
+  globals().update(enum.__members__)
+  return enum
 
-COMMON = 0
-RARE = 1
-EPIC = 2
-UNIQUE = 3
-LEGENDARY = 4
+@global_enum
+class Line(IntFlag):
+  LINE_NULL = 0
+  BOSS = auto()
+  IED = auto()
+  ATT = auto()
+  ANY = auto()
+  MAINSTAT = auto()
+  ALLSTAT = auto()
+  STAT = MAINSTAT | ALLSTAT
+  HP = auto()
+  COOLDOWN = auto()
+  CRITDMG = auto()
 
-tier_names = {
-  COMMON: "common",
-  RARE: "rare",
-  EPIC: "epic",
-  UNIQUE: "unique",
-  LEGENDARY: "legendary",
-}
+  LINE_LAST = auto()
 
-DEFAULT_TIER = LEGENDARY
+  # special keys for matching lines
+  LINES = auto() # match by number of lines and what lines are allowed
 
-RED = "red"
-MEISTER = "meister"
-MASTER = "master"
-OCCULT = "occult"
-BLACK = "black"
-VIOLET = "violet"
-EQUALITY = "equality"
-BONUS = "bonus"
-UNI = "uni"
+@global_enum
+class Tier(IntEnum):
+  TIER_NULL = auto()
+  COMMON = auto()
+  RARE = auto()
+  EPIC = auto()
+  UNIQUE = auto()
+  LEGENDARY = auto()
+
+  TIER_LAST = auto()
+  TIER_DEFAULT = LEGENDARY
+
+@global_enum
+class Cube(IntEnum):
+  CUBE_NULL = auto()
+  RED = auto()
+  MEISTER = auto()
+  MASTER = auto()
+  OCCULT = auto()
+  BLACK = auto()
+  VIOLET = auto()
+  EQUALITY = auto()
+  BONUS = auto()
+  UNI = auto()
+
+  CUBE_LAST = auto()
 
 tier_limits = {
   OCCULT: EPIC,
   MASTER: UNIQUE,
 }
 
+def debug_print_combos(good):
+  a = np.dstack((good.types, good.values, good.onein, good.is_prime)).tolist()
+  a = [[[Line(c[0]), c[1], c[2], c[3]] for c in x] for x in a]
+  from pprint import pprint
+  pprint(a)
+  import sys
+  sys.exit(0)
+
 COMBOS = "combos"
 COMBOS_VIOLET = "combos (violet)"
 NAME = "name"
 DEFAULT_CUBE = "default cube"
-
-lines_base = { COMBOS: None }
 
 prime_chances = {
   RED: [1, 0.1, 0.01],
@@ -83,23 +104,27 @@ prime_chances = {
   UNI: [0.15],
 }
 
+LINE_TYPE = 0
+LINE_VALUE = 1
+LINE_ONEIN = 2
+
 weapon = {
   NAME: "weapon",
   DEFAULT_CUBE: [RED, BLACK],
 
   UNIQUE: [
-    (BOSS, 30, 14.3333),
-    (IED,  30, 14.3333),
-    (ATT,   9, 14.3333),
+    [BOSS, 30, 14.3333],
+    [IED,  30, 14.3333],
+    [ATT,   9, 14.3333],
   ],
 
   LEGENDARY: [
-    (BOSS, 40, 20.5),
-    (BOSS, 35, 20.5),
-    (BOSS, 30, 20.5),
-    (IED,  40, 20.5),
-    (IED,  35, 20.5),
-    (ATT,  12, 20.5),
+    [BOSS, 40, 20.5],
+    [BOSS, 35, 20.5],
+    [BOSS, 30, 20.5],
+    [IED,  40, 20.5],
+    [IED,  35, 20.5],
+    [ATT,  12, 20.5],
   ],
 
 }
@@ -111,28 +136,28 @@ weapon_noncash = {
   COMMON: [],
 
   RARE: [
-    (ATT, 3, 57),
+    [ATT, 3, 57],
   ],
 
   EPIC: [
-    (ATT, 6, 26),
+    [ATT, 6, 26],
   ],
 
   UNIQUE: [
-    (BOSS, 30, 15),
-    (IED,  30, 15),
-    (ATT,   9, 15),
+    [BOSS, 30, 15],
+    [IED,  30, 15],
+    [ATT,   9, 15],
   ],
 
   LEGENDARY: [
-    (BOSS, 40, 36),
-    (BOSS, 35, 18),
-    (BOSS, 30, 18),
-    (IED,  40, 36),
-    (IED,  35, 18),
-    (ATT,  12, 18),
+    [BOSS, 40, 36],
+    [BOSS, 35, 18],
+    [BOSS, 30, 18],
+    [IED,  40, 36],
+    [IED,  35, 18],
+    [ATT,  12, 18],
   ],
-  
+
 }
 
 secondary = {
@@ -140,18 +165,18 @@ secondary = {
   DEFAULT_CUBE: [RED, BLACK],
 
   UNIQUE: [
-    (BOSS, 30, 17.0),
-    (IED,  30, 17.0),
-    (ATT,   9, 17.0),
+    [BOSS, 30, 17.0],
+    [IED,  30, 17.0],
+    [ATT,   9, 17.0],
   ],
 
   LEGENDARY: [
-    (BOSS, 40, 23.5),
-    (BOSS, 35, 23.5),
-    (BOSS, 30, 23.5),
-    (IED,  40, 23.5),
-    (IED,  35, 23.5),
-    (ATT,  12, 23.5),
+    [BOSS, 40, 23.5],
+    [BOSS, 35, 23.5],
+    [BOSS, 30, 23.5],
+    [IED,  40, 23.5],
+    [IED,  35, 23.5],
+    [ATT,  12, 23.5],
   ],
 
 }
@@ -163,28 +188,28 @@ secondary_noncash = {
   COMMON: [],
 
   RARE: [
-    (ATT, 3, 57),
+    [ATT, 3, 57],
   ],
 
   EPIC: [
-    (ATT, 6, 35),
+    [ATT, 6, 35],
   ],
 
   UNIQUE: [
-    (BOSS, 30, 21),
-    (IED,  30, 21),
-    (ATT,   9, 21),
+    [BOSS, 30, 21],
+    [IED,  30, 21],
+    [ATT,   9, 21],
   ],
 
   LEGENDARY: [
-    (BOSS, 40, 24),
-    (BOSS, 35, 24),
-    (BOSS, 30, 48),
-    (IED,  40, 48),
-    (IED,  35, 24),
-    (ATT,  12, 24),
+    [BOSS, 40, 24],
+    [BOSS, 35, 24],
+    [BOSS, 30, 48],
+    [IED,  40, 48],
+    [IED,  35, 24],
+    [ATT,  12, 24],
   ],
-  
+
 }
 
 emblem = {
@@ -192,14 +217,14 @@ emblem = {
   DEFAULT_CUBE: [RED, BLACK],
 
   UNIQUE: [
-    (IED,  30, 13.3333),
-    (ATT,   9, 13.3333),
+    [IED,  30, 13.3333],
+    [ATT,   9, 13.3333],
   ],
 
   LEGENDARY: [
-    (IED,  40, 17.5),
-    (IED,  35, 17.5),
-    (ATT,  12, 17.5),
+    [IED,  40, 17.5],
+    [IED,  35, 17.5],
+    [ATT,  12, 17.5],
   ],
 
 }
@@ -209,24 +234,24 @@ emblem_noncash = {
   DEFAULT_CUBE: MEISTER,
 
   RARE: [
-    (ATT, 3, 57),
+    [ATT, 3, 57],
   ],
 
   EPIC: [
-    (ATT, 6, 26),
+    [ATT, 6, 26],
   ],
 
   UNIQUE: [
-    (IED,  30, 14),
-    (ATT,   9, 14),
+    [IED,  30, 14],
+    [ATT,   9, 14],
   ],
 
   LEGENDARY: [
-    (IED,  40, 15.5),
-    (IED,  35, 31),
-    (ATT,  12, 15.5),
+    [IED,  40, 15.5],
+    [IED,  35, 31],
+    [ATT,  12, 15.5],
   ],
-  
+
 }
 
 weapon_bonus = {
@@ -234,13 +259,13 @@ weapon_bonus = {
   DEFAULT_CUBE: BONUS,
 
   UNIQUE: [
-    (ATT, 9, 21.5),
+    [ATT, 9, 21.5],
   ],
 
   LEGENDARY: [
-    (ATT, 12, 19.5),
+    [ATT, 12, 19.5],
   ],
-  
+
 }
 
 secondary_bonus = {
@@ -248,13 +273,13 @@ secondary_bonus = {
   DEFAULT_CUBE: BONUS,
 
   UNIQUE: [
-    (ATT, 9, 21.5),
+    [ATT, 9, 21.5],
   ],
 
   LEGENDARY: [
-    (ATT, 12, 20.5),
+    [ATT, 12, 20.5],
   ],
-  
+
 }
 
 emblem_bonus = {
@@ -262,11 +287,11 @@ emblem_bonus = {
   DEFAULT_CUBE: BONUS,
 
   UNIQUE: [
-    (ATT, 9, 21),
+    [ATT, 9, 21],
   ],
 
   LEGENDARY: [
-    (ATT, 12, 19),
+    [ATT, 12, 19],
   ],
 
 }
@@ -276,15 +301,15 @@ top_overall = {
   DEFAULT_CUBE: [RED, BLACK],
 
   UNIQUE: [
-    (STAT, 9, 13.2),
-    (HP, 9, 11),
-    (ALLSTAT, 6, 16.5),
+    [MAINSTAT, 9, 13.2],
+    [HP, 9, 11],
+    [ALLSTAT, 6, 16.5],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 10.75),
-    (ALLSTAT, 9, 10.75),
-    (HP, 12, 10.75),
+    [MAINSTAT, 12, 10.75],
+    [ALLSTAT, 9, 10.75],
+    [HP, 12, 10.75],
   ],
 
 }
@@ -296,28 +321,28 @@ top_overall_noncash = {
   COMMON: [],
 
   RARE: [
-    (STAT, 3, 18),
-    (HP, 3, 12),
+    [MAINSTAT, 3, 18],
+    [HP, 3, 12],
   ],
 
   EPIC: [
-    (STAT, 6, 15),
-    (HP, 6, 10),
-    (ALLSTAT, 3, 30),
+    [MAINSTAT, 6, 15],
+    [HP, 6, 10],
+    [ALLSTAT, 3, 30],
   ],
 
   UNIQUE: [
-    (STAT, 9, 16.5),
-    (HP, 9, 11),
-    (ALLSTAT, 6, 33),
+    [MAINSTAT, 9, 16.5],
+    [HP, 9, 11],
+    [ALLSTAT, 6, 33],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 17),
-    (ALLSTAT, 9, 17),
-    (HP, 12, 11.3333),
+    [MAINSTAT, 12, 17],
+    [ALLSTAT, 9, 17],
+    [HP, 12, 11.3333],
   ],
-  
+
 }
 
 hat = {
@@ -325,19 +350,19 @@ hat = {
   DEFAULT_CUBE: [RED, BLACK],
 
   UNIQUE: [
-    (STAT, 9, 11.2),
-    (HP, 9, 9.3333),
-    (ALLSTAT, 6, 14),
+    [MAINSTAT, 9, 11.2],
+    [HP, 9, 9.3333],
+    [ALLSTAT, 6, 14],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 11.25),
-    (HP, 12, 11.25),
-    (ALLSTAT, 9, 15),
-    (COOLDOWN, 1, 15),
-    (COOLDOWN, 2, 22.5),
+    [MAINSTAT, 12, 11.25],
+    [HP, 12, 11.25],
+    [ALLSTAT, 9, 15],
+    [COOLDOWN, 1, 15],
+    [COOLDOWN, 2, 22.5],
   ],
-  
+
 }
 
 hat_noncash = {
@@ -347,30 +372,30 @@ hat_noncash = {
   COMMON: [],
 
   RARE: [
-    (STAT, 3, 21),
-    (HP, 3, 14),
+    [MAINSTAT, 3, 21],
+    [HP, 3, 14],
   ],
 
   EPIC: [
-    (STAT, 6, 9),
-    (HP, 6, 6),
-    (ALLSTAT, 6, 18),
+    [MAINSTAT, 6, 9],
+    [HP, 6, 6],
+    [ALLSTAT, 6, 18],
   ],
 
   UNIQUE: [
-    (STAT, 9, 14.5),
-    (HP, 9, 9.6666),
-    (ALLSTAT, 6, 29),
+    [MAINSTAT, 9, 14.5],
+    [HP, 9, 9.6666],
+    [ALLSTAT, 6, 29],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 18),
-    (HP, 12, 12),
-    (ALLSTAT, 9, 18),
-    (COOLDOWN, 1, 12),
-    (COOLDOWN, 2, 18),
+    [MAINSTAT, 12, 18],
+    [HP, 12, 12],
+    [ALLSTAT, 9, 18],
+    [COOLDOWN, 1, 12],
+    [COOLDOWN, 2, 18],
   ],
-  
+
 }
 
 accessory_noncash = {
@@ -380,26 +405,26 @@ accessory_noncash = {
   COMMON: [],
 
   RARE: [
-    (STAT, 3, 21),
-    (HP, 3, 14),
+    [MAINSTAT, 3, 21],
+    [HP, 3, 14],
   ],
 
   EPIC: [
-    (STAT, 6, 9),
-    (HP, 6, 6),
-    (ALLSTAT, 3, 18),
+    [MAINSTAT, 6, 9],
+    [HP, 6, 6],
+    [ALLSTAT, 3, 18],
   ],
 
   UNIQUE: [
-    (STAT, 9, 10.5),
-    (HP, 9, 7),
-    (ALLSTAT, 6, 21),
+    [MAINSTAT, 9, 10.5],
+    [HP, 9, 7],
+    [ALLSTAT, 6, 21],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 17),
-    (HP, 12, 11.3333),
-    (ALLSTAT, 9, 17),
+    [MAINSTAT, 12, 17],
+    [HP, 12, 11.3333],
+    [ALLSTAT, 9, 17],
   ],
 }
 
@@ -411,20 +436,20 @@ weapon_secondary_violet_equality = {
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    (BOSS, 30, 1/6.52*100),
-    (ATT, 9, 1/6.52*100),
-    (IED, 30, 1/8.7*100),
+    [BOSS, 30, 1/6.52*100],
+    [ATT, 9, 1/6.52*100],
+    [IED, 30, 1/8.7*100],
   ],
 
   LEGENDARY: [
-    (BOSS, 40, 1/4.44*100),
-    (BOSS, 35, 1/4.44*100),
-    (BOSS, 30, 1/4.44*100),
-    (ATT, 12, 1/4.44*100),
-    (IED, 40, 1/6.67*100),
-    (IED, 35, 1/6.67*100),
+    [BOSS, 40, 1/4.44*100],
+    [BOSS, 35, 1/4.44*100],
+    [BOSS, 30, 1/4.44*100],
+    [ATT, 12, 1/4.44*100],
+    [IED, 40, 1/6.67*100],
+    [IED, 35, 1/6.67*100],
   ],
-  
+
 }
 
 emblem_violet_equality = {
@@ -432,14 +457,14 @@ emblem_violet_equality = {
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    (ATT, 9, 1/6.98*100),
-    (IED, 30, 1/9.3*100),
+    [ATT, 9, 1/6.98*100],
+    [IED, 30, 1/9.3*100],
   ],
 
   LEGENDARY: [
-    (ATT, 12, 1/5.13*100),
-    (IED, 40, 1/7.69*100),
-    (IED, 35, 1/7.69*100),
+    [ATT, 12, 1/5.13*100],
+    [IED, 40, 1/7.69*100],
+    [IED, 35, 1/7.69*100],
   ],
 
 }
@@ -449,18 +474,18 @@ weapon_secondary_uni = {
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    (BOSS, 30, 1/5.48*100),
-    (ATT, 9, 1/8.22*100),
-    (IED, 30, 1/20.55*100),
+    [BOSS, 30, 1/5.48*100],
+    [ATT, 9, 1/8.22*100],
+    [IED, 30, 1/20.55*100],
   ],
 
   LEGENDARY: [
-    (BOSS, 40, 1/1.13*100),
-    (BOSS, 35, 1/2.10*100),
-    (BOSS, 30, 1/3.07*100),
-    (ATT, 12, 1/3.24*100),
-    (IED, 40, 1/16.18*100),
-    (IED, 35, 1/25.89*100),
+    [BOSS, 40, 1/1.13*100],
+    [BOSS, 35, 1/2.10*100],
+    [BOSS, 30, 1/3.07*100],
+    [ATT, 12, 1/3.24*100],
+    [IED, 40, 1/16.18*100],
+    [IED, 35, 1/25.89*100],
   ],
 
 }
@@ -470,14 +495,14 @@ emblem_uni = {
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    (ATT, 9, 1/8.7*100),
-    (IED, 30, 1/21.74*100),
+    [ATT, 9, 1/8.7*100],
+    [IED, 30, 1/21.74*100],
   ],
 
   LEGENDARY: [
-    (ATT, 12, 1/3.45*100),
-    (IED, 40, 1/17.27*100),
-    (IED, 35, 1/27.63*100),
+    [ATT, 12, 1/3.45*100],
+    [IED, 40, 1/17.27*100],
+    [IED, 35, 1/27.63*100],
   ],
 
 }
@@ -488,17 +513,17 @@ accessory_violet_equality = {
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    (STAT, 9, 1/9.8*100),
-    (HP, 9, 1/11.76*100),
-    (ALLSTAT, 6, 1/7.84*100),
+    [MAINSTAT, 9, 1/9.8*100],
+    [HP, 9, 1/11.76*100],
+    [ALLSTAT, 6, 1/7.84*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/7.84*100),
-    (ALLSTAT, 9, 1/5.88*100),
-    (HP, 12, 1/7.84*100),
+    [MAINSTAT, 12, 1/7.84*100],
+    [ALLSTAT, 9, 1/5.88*100],
+    [HP, 12, 1/7.84*100],
   ],
-  
+
 }
 
 accessory_uni = {
@@ -506,17 +531,17 @@ accessory_uni = {
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    (STAT, 9, 1/11.63*100),
-    (HP, 9, 1/11.63*100),
-    (ALLSTAT, 6, 1/2.33*100),
+    [MAINSTAT, 9, 1/11.63*100],
+    [HP, 9, 1/11.63*100],
+    [ALLSTAT, 6, 1/2.33*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/6.06*100),
-    (ALLSTAT, 9, 1/1.52*100),
-    (HP, 12, 1/6.06*100),
+    [MAINSTAT, 12, 1/6.06*100],
+    [ALLSTAT, 9, 1/1.52*100],
+    [HP, 12, 1/6.06*100],
   ],
-  
+
 }
 
 cape_belt_shoulder_violet_equality = {
@@ -524,17 +549,17 @@ cape_belt_shoulder_violet_equality = {
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    (STAT, 9, 1/8.47*100),
-    (HP, 9, 1/10.17*100),
-    (ALLSTAT, 6, 1/6.78*100),
+    [MAINSTAT, 9, 1/8.47*100],
+    [HP, 9, 1/10.17*100],
+    [ALLSTAT, 6, 1/6.78*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/8.89*100),
-    (HP, 12, 1/8.89*100),
-    (ALLSTAT, 9, 1/6.67*100),
+    [MAINSTAT, 12, 1/8.89*100],
+    [HP, 12, 1/8.89*100],
+    [ALLSTAT, 9, 1/6.67*100],
   ],
-  
+
 }
 
 cape_belt_shoulder_uni = {
@@ -542,17 +567,17 @@ cape_belt_shoulder_uni = {
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    (STAT, 9, 1/7.69*100),
-    (HP, 9, 1/7.69*100),
-    (ALLSTAT, 6, 1/1.54*100),
+    [MAINSTAT, 9, 1/7.69*100],
+    [HP, 9, 1/7.69*100],
+    [ALLSTAT, 6, 1/1.54*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/8.89*100),
-    (HP, 12, 1/8.89*100),
-    (ALLSTAT, 9, 1/6.67*100),
+    [MAINSTAT, 12, 1/8.89*100],
+    [HP, 12, 1/8.89*100],
+    [ALLSTAT, 9, 1/6.67*100],
   ],
-  
+
 }
 
 shoe_violet_equality = {
@@ -560,15 +585,15 @@ shoe_violet_equality = {
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    (STAT, 9, 1/7.94*100),
-    (HP, 9, 1/9.52*100),
-    (ALLSTAT, 6, 1/6.35*100),
+    [MAINSTAT, 9, 1/7.94*100],
+    [HP, 9, 1/9.52*100],
+    [ALLSTAT, 6, 1/6.35*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/8.33*100),
-    (HP, 12, 1/8.33*100),
-    (ALLSTAT, 9, 1/6.25*100),
+    [MAINSTAT, 12, 1/8.33*100],
+    [HP, 12, 1/8.33*100],
+    [ALLSTAT, 9, 1/6.25*100],
   ],
 
 }
@@ -578,17 +603,17 @@ shoe_uni = {
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    (STAT, 9, 1/6.33*100),
-    (HP, 9, 1/6.33*100),
-    (ALLSTAT, 6, 1/1.27*100),
+    [MAINSTAT, 9, 1/6.33*100],
+    [HP, 9, 1/6.33*100],
+    [ALLSTAT, 6, 1/1.27*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/7.27*100),
-    (HP, 12, 1/7.27*100),
-    (ALLSTAT, 9, 1/1.82*100),
+    [MAINSTAT, 12, 1/7.27*100],
+    [HP, 12, 1/7.27*100],
+    [ALLSTAT, 9, 1/1.82*100],
   ],
-  
+
 }
 
 glove_violet_equality = {
@@ -596,18 +621,18 @@ glove_violet_equality = {
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    (STAT, 9, 1/7.46*100),
-    (HP, 9, 1/8.96*100),
-    (ALLSTAT, 6, 1/5.97*100),
+    [MAINSTAT, 9, 1/7.46*100],
+    [HP, 9, 1/8.96*100],
+    [ALLSTAT, 6, 1/5.97*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/7.69*100),
-    (HP, 12, 1/7.69*100),
-    (ALLSTAT, 9, 1/5.77*100),
-    (CRITDMG, 8, 1/7.69*100),
+    [MAINSTAT, 12, 1/7.69*100],
+    [HP, 12, 1/7.69*100],
+    [ALLSTAT, 9, 1/5.77*100],
+    [CRITDMG, 8, 1/7.69*100],
   ],
-  
+
 }
 
 glove_uni = {
@@ -615,18 +640,18 @@ glove_uni = {
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    (STAT, 9, 1/5.26*100),
-    (HP, 9, 1/5.26*100),
-    (ALLSTAT, 6, 1/1.05*100),
+    [MAINSTAT, 9, 1/5.26*100],
+    [HP, 9, 1/5.26*100],
+    [ALLSTAT, 6, 1/1.05*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/5.8*100),
-    (HP, 12, 1/5.8*100),
-    (ALLSTAT, 9, 1/1.45*100),
-    (CRITDMG, 8, 1/2.9*100),
+    [MAINSTAT, 12, 1/5.8*100],
+    [HP, 12, 1/5.8*100],
+    [ALLSTAT, 9, 1/1.45*100],
+    [CRITDMG, 8, 1/2.9*100],
   ],
-  
+
 }
 
 bottom_violet_equality = {
@@ -634,17 +659,17 @@ bottom_violet_equality = {
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    (STAT, 9, 1/7.94*100),
-    (HP, 9, 1/9.52*100),
-    (ALLSTAT, 6, 1/6.35*100),
+    [MAINSTAT, 9, 1/7.94*100],
+    [HP, 9, 1/9.52*100],
+    [ALLSTAT, 6, 1/6.35*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/8.89*100),
-    (HP, 12, 1/8.89*100),
-    (ALLSTAT, 9, 1/6.67*100),
+    [MAINSTAT, 12, 1/8.89*100],
+    [HP, 12, 1/8.89*100],
+    [ALLSTAT, 9, 1/6.67*100],
   ],
-  
+
 }
 
 bottom_uni = {
@@ -652,17 +677,17 @@ bottom_uni = {
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    (STAT, 9, 1/6.35*100),
-    (HP, 9, 1/6.35*100),
-    (ALLSTAT, 6, 1/1.59*100),
+    [MAINSTAT, 9, 1/6.35*100],
+    [HP, 9, 1/6.35*100],
+    [ALLSTAT, 6, 1/1.59*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/8.89*100),
-    (HP, 12, 1/8.89*100),
-    (ALLSTAT, 9, 1/2.22*100),
+    [MAINSTAT, 12, 1/8.89*100],
+    [HP, 12, 1/8.89*100],
+    [ALLSTAT, 9, 1/2.22*100],
   ],
-  
+
 }
 
 top_overall_violet_equality = {
@@ -670,17 +695,17 @@ top_overall_violet_equality = {
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    (STAT, 9, 1/6.85*100),
-    (HP, 9, 1/8.22*100),
-    (ALLSTAT, 6, 1/5.48*100),
+    [MAINSTAT, 9, 1/6.85*100],
+    [HP, 9, 1/8.22*100],
+    [ALLSTAT, 6, 1/5.48*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/7.84*100),
-    (HP, 12, 1/7.84*100),
-    (ALLSTAT, 9, 1/5.88*100),
+    [MAINSTAT, 12, 1/7.84*100],
+    [HP, 12, 1/7.84*100],
+    [ALLSTAT, 9, 1/5.88*100],
   ],
-  
+
 }
 
 top_overall_uni = {
@@ -688,17 +713,17 @@ top_overall_uni = {
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    (STAT, 9, 1/4.08*100),
-    (HP, 9, 1/4.08*100),
-    (ALLSTAT, 6, 1/1.02*100),
+    [MAINSTAT, 9, 1/4.08*100],
+    [HP, 9, 1/4.08*100],
+    [ALLSTAT, 6, 1/1.02*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/6.15*100),
-    (HP, 12, 1/6.15*100),
-    (ALLSTAT, 9, 1/1.54*100),
+    [MAINSTAT, 12, 1/6.15*100],
+    [HP, 12, 1/6.15*100],
+    [ALLSTAT, 9, 1/1.54*100],
   ],
-  
+
 }
 
 hat_violet_equality = {
@@ -706,19 +731,19 @@ hat_violet_equality = {
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    (STAT, 9, 1/7.94*100),
-    (HP, 9, 1/9.52*100),
-    (ALLSTAT, 6, 1/6.35*100),
+    [MAINSTAT, 9, 1/7.94*100],
+    [HP, 9, 1/9.52*100],
+    [ALLSTAT, 6, 1/6.35*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/7.55*100),
-    (HP, 12, 1/7.55*100),
-    (ALLSTAT, 9, 1/5.66*100),
-    (COOLDOWN, 2, 1/3.77*100),
-    (COOLDOWN, 1, 1/5.66*100),
+    [MAINSTAT, 12, 1/7.55*100],
+    [HP, 12, 1/7.55*100],
+    [ALLSTAT, 9, 1/5.66*100],
+    [COOLDOWN, 2, 1/3.77*100],
+    [COOLDOWN, 1, 1/5.66*100],
   ],
-  
+
 }
 
 hat_uni = {
@@ -726,44 +751,27 @@ hat_uni = {
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    (STAT, 9, 1/5.8*100),
-    (HP, 9, 1/5.8*100),
-    (ALLSTAT, 6, 1/1.45*100),
+    [MAINSTAT, 9, 1/5.8*100],
+    [HP, 9, 1/5.8*100],
+    [ALLSTAT, 6, 1/1.45*100],
   ],
 
   LEGENDARY: [
-    (STAT, 12, 1/5.0*100),
-    (HP, 12, 1/5.0*100),
-    (ALLSTAT, 9, 1/1.25*100),
-    (COOLDOWN, 2, 1/10.0*100),
-    (COOLDOWN, 1, 1/10.0*100),
+    [MAINSTAT, 12, 1/5.0*100],
+    [HP, 12, 1/5.0*100],
+    [ALLSTAT, 9, 1/1.25*100],
+    [COOLDOWN, 2, 1/10.0*100],
+    [COOLDOWN, 1, 1/10.0*100],
   ],
-  
+
 }
 
 # ---------------------------------------------------------------------------------------------------------
-
-def filter_impossible_lines(combos):
-  for combo in combos:
-    counts = {BOSS: 0, IED: 0}
-    for (_, t, _, _) in combo:
-      if t in counts:
-        counts[t] += 1
-    for x in counts.values():
-      if x > 2:
-        break
-    else:
-      yield combo
-
 
 def tabulate(rows):
   max_len = max((len(text) for (text, _) in rows))
   for (text, result) in rows:
     print(f"{text.rjust(max_len)} {result}")
-
-
-def mklines(prime, lines):
-  return [(prime, typ, amt, onein) for (typ, amt, onein) in lines]
 
 
 def fmt_chance(text, wants, combos, combo_chance):
@@ -773,99 +781,140 @@ def fmt_chance(text, wants, combos, combo_chance):
 def __cube_calc(print_combos, lines, type, tier):
   if type in tier_limits:
     tier = min(tier_limits[type], tier)
-  
-  print(f" {lines[NAME]} ({type} at {tier_names[tier]}) ".center(80, "="))
 
-  prime_chance = prime_chances[type]
-  if not isinstance(prime_chance, list):
-    prime_chance = prime_chance[tier]
+  print(f" {lines[NAME]} ({type.name.lower()} at {tier.name.lower()}) ".center(80, "="))
 
-  def make_any_line(prime, lines):
-    lines = mklines(prime, lines)
-    return lines + [(prime, ANY, 0, 1.0/(1.0 - sum((1.0/onein for (_, _, _, onein) in lines))))]
+  def make_lines():
+    # to represent all the lines we don't care about I generate an ANY line that
+    # has 1-(sum of the chances of all lines we care about) chance
+    def make_any_line(x):
+      return x + [[ANY, 0, 0]] # chance is calculated later
 
-  # to represent all the lines we don't care about I generate an ANY line that
-  # has 1-(sum of the chances of all lines we care about) chance
-  p = make_any_line(True, lines[tier])
-  n = make_any_line(False, lines[tier - 1]) + p
+    lines_prime = make_any_line(lines[tier])
+    return lines_prime + make_any_line(lines[tier - 1]), len(lines_prime)
 
   def cache_combos(cache):
     if tier not in cache:
+      lines, num_prime = make_lines()
+
+      # convert each column into a numpy array. we want them packed together for performance
+      class LineCache:
+        def __init__(self, lines):
+          self.lines = lines
+          self.__update()
+
+        def __update(self):
+            self.types, self.values, self.onein, self.is_prime = self.lines
+
+        def filt(self, mask):
+          self.lines = tuple([x[mask] for x in self.lines])
+          self.__update()
+          return self
+
+        def copy(self):
+          return LineCache(self.lines)
+
+      def col(c, dtype=None):
+        return np.array([x[c] for x in lines], dtype=dtype)
+
+      # arrays of line indices to generate combinations
+      p = np.arange(num_prime)
+      n = np.arange(len(lines))
+      is_prime_pn = np.concatenate((np.repeat(True, len(p)), np.repeat(False, len(n))))
+      c = LineCache((col(LINE_TYPE), col(LINE_VALUE), col(LINE_ONEIN, 'float64'), is_prime_pn))
+
+      # calculate ANY line chance
+      any_p = sum(1/c.onein[:num_prime-1])
+      any_n = sum(1/c.onein[num_prime:-1])
+      c.onein[num_prime - 1] = 1/(1 - any_p)
+      c.onein[-1] = 1/(1 - any_n)
+
       if type == VIOLET:
-        cache[tier] = product(p, n, n, n, n, n)
+        combo_idxs = np.array(np.meshgrid(p, n, n, n, n, n)).T.reshape(-1, 6)
       elif type == UNI:
-        cache[tier] = product(n)
+        combo_idxs = np.array(np.meshgrid(n)).T.reshape(-1, 1)
       else:
-        cache[tier] = product(p, n, n)
+        combo_idxs = np.array(np.meshgrid(p, n, n)).T.reshape(-1, 3)
 
-      cache[tier] = list(filter_impossible_lines(cache[tier]))
+      c.filt(combo_idxs)
 
-    return cache[tier]
+      # combo_idxs is an array of line combos as indices into pn: [[1, 2, 3], [1, 3, 2], ...]
+
+      # when we do x[mask] in filt() and mask is an array of indices, we replace those indices
+      #  with elements from x
+      # so for example [a, b, c][ [[1, 2, 0], [0, 0, 0]] ] returns [[b, c, a], [a, a, a]]
+
+      # when we do x[mask] in filt() and mask is an array of bools, we filter only the elements
+      #  that are True in mask
+      # so for example [a, b, c][ [True, False, True] ] returns [a, c]
+
+      # can't have more than 2 of these in a combo
+      forbidden = [BOSS, IED]
+      if reduce(or_, [np.any(c.types == x) for x in forbidden]):
+        mask = reduce(or_, [np.count_nonzero(c.types == x, axis=1) > 2 for x in forbidden])
+        c.filt(np.logical_not(mask))
+
+      cache[tier] = c
+    else:
+      c = cache[tier]
+
+    return c
 
   # cache combos for each set of lines
   combos_i = COMBOS_VIOLET if type == VIOLET else COMBOS
   if combos_i not in lines:
     lines[combos_i] = {}
-  combos = cache_combos(lines[combos_i])
+  c = cache_combos(lines[combos_i])
 
   # unicubes are 1/3rd the line chances because you roll 3 cubes on average to select
   chance_multiplier = 3 if type == UNI else 1
 
-  def combo_chance(want, combos):
-    good=set()
+  prime_chance = prime_chances[type]
+  if not isinstance(prime_chance, list):
+      prime_chance = prime_chance[tier]
+
+  # prime_chance = [prime_chance]
+  prime_chance =         np.array(prime_chance, dtype='float64') .reshape(1, -1)
+  nonprime_chance = (1 - np.array(prime_chance, dtype='float64')).reshape(1, -1)
+
+  def combo_chance(want):
+    types, values, _, _ = c.lines
     if LINES in want:
-      # we are looking for all combinations that contains at least n lines of any of the stats specified
-      for combo in combos:
-        lines = 0
-        for (prime, typ, amount, onein) in combo:
-          if typ == ALLSTAT and typ not in want:
-            typ = STAT
-          if typ in want and amount >= want[typ]:
-            lines += 1
-
-        if lines >= want[LINES]:
-          good.add(combo)
+      # all combinations that contains at least n lines of any of the stats specified
+      # TODO: allow specifying minimum amount for the lines
+      mask = sum([np.count_nonzero(types == x, axis=1)
+                  for x in want.keys() if x != LINES]) >= want[LINES]
     else:
-      # we are looking for all combinations that contain all of the stats and with at least the requested amt
-      for combo in combos:
-        amounts = {}
-        for (prime, typ, amount, onein) in combo:
-          if typ not in amounts:
-            amounts[typ] = 0
-          amounts[typ] += amount
+      # all combinations that contain all of the stats and with at least the requested amt.
+      # note: we AND with the line type because some lines match multiple lines. for example
+      #       when we look for stat we also want to match allstat, so we set up the lines enum
+      #       to be a bitmask so we can match multiple things such as MAINSTAT | ALLSTAT
+      mask = reduce(and_, [np.sum(values * (types & x != 0).astype(int), axis=1) >= want[x]
+                           for x in want.keys()])
 
-        if ALLSTAT in amounts:
-          if STAT not in amounts:
-            amounts[STAT] = 0
-          amounts[STAT] += amounts[ALLSTAT]
+    good = c.copy().filt(mask)
 
-        for k in want.keys():
-          if k not in amounts or amounts[k] < want[k]:
-            break
-        else:
-          good.add(combo)
-
-    # for any lines that can be both prime and non-prime, we need to adjust the probability of prime lines
-    # by their prime chance, and the probability of non-prime lines by the inverse of the prime chance.
+    # adjust the probability of prime lines by their prime chance,
+    # and the probability of non-prime lines by the inverse of the prime chance.
     # this way, the sum of all proababilities of prime and non-prime lines will add up to 1
+    good.onein /= np.where(good.is_prime, np.repeat(prime_chance, len(good.onein), axis=0),
+                           np.repeat(nonprime_chance, len(good.onein), axis=0))
 
-    return sum([reduce(mul, [(1.0/(onein * chance_multiplier)) *
-                             (prime_chance[i] if prime else (1 - prime_chance[i]))
-                             for i, (prime, typ, amount, onein) in enumerate(combo)])
-                for combo in good])
+    return sum(np.prod(1/(good.onein * chance_multiplier), axis=1))
 
-  def fmt_chance(text, wants, combos):
-    chance = sum([combo_chance(want, combos) for want in wants])
+  def fmt_chance(text, wants):
+    chance = sum([combo_chance(want) for want in wants])
+
     return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
 
-  tabulate([fmt_chance(text, want, combos) for (text, want) in print_combos])
+  tabulate([fmt_chance(text, want) for (text, want) in print_combos])
 
 
 def single_or_list(x):
   return x if isinstance(x, list) else [x]
 
 
-def cube_calc(print_combos, lines, types=[], tier=DEFAULT_TIER):
+def cube_calc(print_combos, lines, types=[], tier=TIER_DEFAULT):
   if not types:
     types = lines[DEFAULT_CUBE]
   for type in single_or_list(types):
@@ -929,7 +978,7 @@ def cube_calcs():
   ]
 
   combos_e_master = combos_any_e + combos_wse_master
-  
+
   combos_e = combos_any_e + [
     ("18+ att", [{ATT: 18}]),
     ("21+ att", [{ATT: 21}]),
