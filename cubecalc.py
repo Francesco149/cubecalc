@@ -94,13 +94,14 @@ tier_limits = {
   MASTER: UNIQUE,
 }
 
-def debug_print_combos(good):
+def debug_print_combos(good, exit=True):
   a = np.dstack((good.types, good.values, good.onein, good.is_prime)).tolist()
   a = [[[Line(c[0]), c[1], c[2], c[3]] for c in x] for x in a]
   from pprint import pprint
   pprint(a)
-  import sys
-  sys.exit(0)
+  if exit:
+    import sys
+    sys.exit(0)
 
 COMBOS = "combos"
 COMBOS_VIOLET = "combos (violet)"
@@ -1041,10 +1042,6 @@ def __cube_calc(print_combos, type, tier, lines):
       def col(c, dtype=None):
         return np.array([x[c] for x in lines], dtype=dtype)
 
-      # arrays of line indices to generate combinations
-      p = np.arange(num_prime)
-      n = np.arange(len(lines))
-
       # generate numpy arrays for each column
       types_col = col(LINE_TYPE)
       types_l = [Line(x) for x in types_col]
@@ -1052,43 +1049,9 @@ def __cube_calc(print_combos, type, tier, lines):
         [line_values[tier][x] for x in types_l[:num_prime]] +
         [line_values[tier - 1][x] for x in types_l[num_prime:]]
       )
-      is_prime_pn = np.concatenate((np.repeat(True, len(p)), np.repeat(False, len(n))))
+      is_prime_pn = np.concatenate((np.repeat(True, num_prime),
+                                    np.repeat(False, len(types_col) - num_prime)))
       c = LineCache((types_col, values_col, col(LINE_ONEIN, 'float64'), is_prime_pn))
-
-      # calculate ANY line chance
-      any_p = sum(1/c.onein[:num_prime-1])
-      any_n = sum(1/c.onein[num_prime:-1])
-      c.onein[num_prime - 1] = 1/(1 - any_p)
-      c.onein[-1] = 1/(1 - any_n)
-
-      if type == VIOLET:
-        combo_idxs = np.array(np.meshgrid(p, n, n, n, n, n)).T.reshape(-1, 6)
-      elif type == UNI:
-        combo_idxs = np.array(np.meshgrid(n)).T.reshape(-1, 1)
-      else:
-        combo_idxs = np.array(np.meshgrid(p, n, n)).T.reshape(-1, 3)
-
-      c.filt(combo_idxs)
-
-      # combo_idxs is an array of line combos as indices into pn: [[1, 2, 3], [1, 3, 2], ...]
-
-      # when we do x[mask] in filt() and mask is an array of indices, we replace those indices
-      #  with elements from x
-      # so for example [a, b, c][ [[1, 2, 0], [0, 0, 0]] ] returns [[b, c, a], [a, a, a]]
-
-      # when we do x[mask] in filt() and mask is an array of bools, we filter only the elements
-      #  that are True in mask
-      # so for example [a, b, c][ [True, False, True] ] returns [a, c]
-
-      # can't have more than 2 of these in a combo
-      # note: we AND with the line type because some lines match multiple lines. for example
-      #       when we look for stat we also want to match allstat, so we set up the lines enum
-      #       to be a bitmask so we can match multiple things such as MAINSTAT | ALLSTAT
-      forbidden = [BOSS, IED, DROP]
-      if reduce(or_, [np.any(c.types & x != 0) for x in forbidden]):
-        mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > 2 for x in forbidden])
-        c.filt(np.logical_not(mask))
-
       cache[tier] = c
     else:
       c = cache[tier]
@@ -1099,7 +1062,7 @@ def __cube_calc(print_combos, type, tier, lines):
   combos_i = COMBOS_VIOLET if type == VIOLET else COMBOS
   if combos_i not in lines:
     lines[combos_i] = {}
-  c = cache_combos(lines[combos_i])
+  line_cache = cache_combos(lines[combos_i])
 
   # unicubes are 1/3rd the line chances because you roll 3 cubes on average to select
   chance_multiplier = 3 if type == UNI else 1
@@ -1113,6 +1076,52 @@ def __cube_calc(print_combos, type, tier, lines):
   nonprime_chance = (1 - np.array(prime_chance, dtype='float64')).reshape(1, -1)
 
   def combo_chance(want):
+    c = line_cache.copy()
+
+    # filter out lines that are not in our want dict to exponentially reduce combinations
+    relevant_line_bits = reduce(or_, [x for x in want.keys() if x != LINES]) | ANY
+    c.filt(c.types & relevant_line_bits != 0)
+
+    # remember to update the number of prime lines
+    num_prime = np.count_nonzero(c.is_prime)
+
+    # calculate ANY line chance
+    any_p = sum(1/c.onein[:num_prime-1])
+    any_n = sum(1/c.onein[num_prime:-1])
+    c.onein[num_prime - 1] = 1/(1 - any_p)
+    c.onein[-1] = 1/(1 - any_n)
+
+    # arrays of line indices to generate combinations
+    p = np.arange(num_prime)
+    n = np.arange(len(c.types))
+
+    if type == VIOLET:
+      combo_idxs = np.array(np.meshgrid(p, n, n, n, n, n)).T.reshape(-1, 6)
+    elif type == UNI:
+      combo_idxs = np.array(np.meshgrid(n)).T.reshape(-1, 1)
+    else:
+      combo_idxs = np.array(np.meshgrid(p, n, n)).T.reshape(-1, 3)
+
+    c.filt(combo_idxs)
+    # combo_idxs is an array of line combos as indices into pn: [[1, 2, 3], [1, 3, 2], ...]
+
+    # when we do x[mask] in filt() and mask is an array of indices, we replace those indices
+    #  with elements from x
+    # so for example [a, b, c][ [[1, 2, 0], [0, 0, 0]] ] returns [[b, c, a], [a, a, a]]
+
+    # when we do x[mask] in filt() and mask is an array of bools, we filter only the elements
+    #  that are True in mask
+    # so for example [a, b, c][ [True, False, True] ] returns [a, c]
+
+    # can't have more than 2 of these in a combo
+    # note: we AND with the line type because some lines match multiple lines. for example
+    #       when we look for stat we also want to match allstat, so we set up the lines enum
+    #       to be a bitmask so we can match multiple things such as MAINSTAT | ALLSTAT
+    forbidden = [BOSS, IED, DROP]
+    if np.any(c.types & reduce(or_, forbidden) != 0):
+      mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > 2 for x in forbidden])
+      c.filt(np.logical_not(mask))
+
     types, values, _, _ = c.lines
     if LINES in want:
       # all combinations that contains at least n lines of any of the stats specified
@@ -1124,7 +1133,7 @@ def __cube_calc(print_combos, type, tier, lines):
       mask = reduce(and_, [np.sum(values * (types & x != 0).astype(int), axis=1) >= want[x]
                            for x in want.keys()])
 
-    good = c.copy().filt(mask)
+    good = c.filt(mask)
 
     # adjust the probability of prime lines by their prime chance,
     # and the probability of non-prime lines by the inverse of the prime chance.
