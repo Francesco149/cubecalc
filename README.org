@@ -6,6 +6,16 @@ I take my line chances from [[https://strategywiki.org/wiki/MapleStory/Potential
 * is it accurate?
 I don't really know. the math makes sense in my head, but I don't consider myself an expert on statistics and there's probabily more efficient ways to do the same thing. if you think I'm wrong, let me know and explain why. I would like to have an accurate estimate
 
+* suckhard's calculator disagrees with your results
+the discrepancies between this and suckhard's calculator are mainly because suckhard doesn't always
+take double/triple prime combinations into account.
+also "2l attack" on suckhard calculator means 18% or better.
+
+I wrote this calculator in such a way that it figures out the line combinations by itself given
+any desired amount of whatever lines you're looking for. this means I don't have to manually
+figure out the calculation for each new line combo I want to calculate, and it's hopefully less
+error prone as long as my combinations code is not wrong.
+
 * how to run it
 - have python installed
 - run ~cubecalc.py~ . if you are on linux, you can do ~./run.sh~ and it will also update the text
