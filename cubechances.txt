@@ -18,6 +18,8 @@ you can check line probabilities in the source and see where I got them from
 
 NOTE: for simplicity, all the values use lvl<160 lines, so for example
       30% att means 12 9 9 and it's the same as 33% on a lvl 160+ item
+NOTE: for cases where the tier is lower than the max tier of the cube
+      (such as red cubes on unique) it's assumed that you won't tier up
 
 ========================== weapon (red at legendary) ===========================
     any 2l combo of att+boss 1 in 15 cubes, 6.7241%
@@ -630,6 +632,18 @@ any 3l combo of att+ied 1 in 4443 cubes, 0.0225%
    15+ stat 1 in 46 cubes, 2.1818%
 9+ all stat 1 in 192 cubes, 0.5195%
      15+ hp 1 in 23 cubes, 4.4064%
+======================== accessory (meister at unique) =========================
+    6+ stat 1 in 3 cubes, 32.6128%
+    9+ stat 1 in 8 cubes, 13.3203%
+   12+ stat 1 in 20 cubes, 5.0054%
+3+ all stat 1 in 7 cubes, 15.0258%
+6+ all stat 1 in 19 cubes, 5.1997%
+      6+ hp 1 in 2 cubes, 40.4185%
+      9+ hp 1 in 6 cubes, 17.0014%
+     12+ hp 1 in 15 cubes, 6.7249%
+   15+ stat 1 in 46 cubes, 2.1973%
+9+ all stat 1 in 192 cubes, 0.5217%
+     15+ hp 1 in 23 cubes, 4.4240%
 ======================== top/overall (master at unique) ========================
     6+ stat 1 in 5 cubes, 20.9555%
     9+ stat 1 in 13 cubes, 7.5619%
@@ -642,6 +656,18 @@ any 3l combo of att+ied 1 in 4443 cubes, 0.0225%
    15+ stat 1 in 120 cubes, 0.8305%
 9+ all stat 1 in 498 cubes, 0.2008%
      15+ hp 1 in 57 cubes, 1.7450%
+======================= top/overall (meister at unique) ========================
+    6+ stat 1 in 5 cubes, 20.9754%
+    9+ stat 1 in 13 cubes, 7.6124%
+   12+ stat 1 in 51 cubes, 1.9611%
+3+ all stat 1 in 11 cubes, 9.3776%
+6+ all stat 1 in 31 cubes, 3.2341%
+      6+ hp 1 in 4 cubes, 26.3384%
+      9+ hp 1 in 10 cubes, 10.2495%
+     12+ hp 1 in 38 cubes, 2.6310%
+   15+ stat 1 in 119 cubes, 0.8373%
+9+ all stat 1 in 496 cubes, 0.2016%
+     15+ hp 1 in 57 cubes, 1.7525%
 ============================ hat (master at unique) ============================
     6+ stat 1 in 3 cubes, 37.6274%
     9+ stat 1 in 9 cubes, 10.5363%
@@ -654,6 +680,54 @@ any 3l combo of att+ied 1 in 4443 cubes, 0.0225%
    15+ stat 1 in 45 cubes, 2.2226%
 9+ all stat 1 in 150 cubes, 0.6662%
      15+ hp 1 in 31 cubes, 3.1844%
+=========================== hat (meister at unique) ============================
+    6+ stat 1 in 3 cubes, 37.5792%
+    9+ stat 1 in 9 cubes, 10.5775%
+   12+ stat 1 in 18 cubes, 5.6009%
+3+ all stat 1 in 7 cubes, 13.8131%
+6+ all stat 1 in 7 cubes, 13.8131%
+      6+ hp 1 in 3 cubes, 37.5792%
+      9+ hp 1 in 8 cubes, 13.0659%
+     12+ hp 1 in 18 cubes, 5.6009%
+   15+ stat 1 in 45 cubes, 2.2308%
+9+ all stat 1 in 151 cubes, 0.6643%
+     15+ hp 1 in 31 cubes, 3.1943%
+========================== accessory (red at unique) ===========================
+    6+ stat 1 in 2 cubes, 49.1227%
+    9+ stat 1 in 5 cubes, 18.6251%
+   12+ stat 1 in 9 cubes, 10.5616%
+3+ all stat 1 in 5 cubes, 19.5019%
+6+ all stat 1 in 5 cubes, 19.5019%
+      6+ hp 1 in 3 cubes, 36.4963%
+      9+ hp 1 in 6 cubes, 16.5007%
+     12+ hp 1 in 19 cubes, 5.3632%
+   15+ stat 1 in 21 cubes, 4.7488%
+9+ all stat 1 in 74 cubes, 1.3573%
+     15+ hp 1 in 26 cubes, 3.7928%
+========================= top/overall (red at unique) ==========================
+    6+ stat 1 in 3 cubes, 35.1211%
+    9+ stat 1 in 8 cubes, 12.7986%
+   12+ stat 1 in 18 cubes, 5.5475%
+3+ all stat 1 in 6 cubes, 15.7668%
+6+ all stat 1 in 14 cubes, 6.9184%
+      6+ hp 1 in 3 cubes, 31.0871%
+      9+ hp 1 in 9 cubes, 11.4016%
+     12+ hp 1 in 27 cubes, 3.7202%
+   15+ stat 1 in 45 cubes, 2.2050%
+9+ all stat 1 in 152 cubes, 0.6589%
+     15+ hp 1 in 43 cubes, 2.3178%
+============================= hat (red at unique) ==============================
+    6+ stat 1 in 3 cubes, 38.7237%
+    9+ stat 1 in 7 cubes, 15.1759%
+   12+ stat 1 in 15 cubes, 6.8939%
+3+ all stat 1 in 6 cubes, 17.5895%
+6+ all stat 1 in 12 cubes, 8.1421%
+      6+ hp 1 in 3 cubes, 34.1016%
+      9+ hp 1 in 7 cubes, 13.3891%
+     12+ hp 1 in 22 cubes, 4.5786%
+   15+ stat 1 in 35 cubes, 2.8421%
+9+ all stat 1 in 118 cubes, 0.8450%
+     15+ hp 1 in 34 cubes, 2.9551%
 ========================= glove (violet at legendary) ==========================
                    18+ stat 1 in 9 cubes, 11.2780%
                    21+ stat 1 in 18 cubes, 5.4440%

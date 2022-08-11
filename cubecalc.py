@@ -75,8 +75,6 @@ COMBOS_VIOLET = "combos (violet)"
 NAME = "name"
 DEFAULT_CUBE = "default cube"
 
-
-
 # official KMS probabilities:
 #   https://maplestory.nexon.com/Guide/OtherProbability/cube/red
 #   https://maplestory.nexon.com/Guide/OtherProbability/cube/black
@@ -316,6 +314,19 @@ top_overall = {
   NAME: "top/overall",
   DEFAULT_CUBE: [RED, BLACK],
 
+  COMMON: [],
+
+  RARE: [
+    [MAINSTAT, 3, 13.3333],
+    [HP, 3, 20],
+  ],
+
+  EPIC: [
+    [MAINSTAT, 6, 7.6],
+    [HP, 6, 7.6],
+    [ALLSTAT, 3, 19],
+  ],
+
   UNIQUE: [
     [MAINSTAT, 9, 13.2],
     [HP, 9, 11],
@@ -364,6 +375,19 @@ top_overall_noncash = {
 hat = {
   NAME: "hat",
   DEFAULT_CUBE: [RED, BLACK],
+
+  COMMON: [],
+
+  RARE: [
+    [MAINSTAT, 3, 13.3333],
+    [HP, 3, 20],
+  ],
+
+  EPIC: [
+    [MAINSTAT, 6, 7],
+    [HP, 6, 7],
+    [ALLSTAT, 3, 17.5],
+  ],
 
   UNIQUE: [
     [MAINSTAT, 9, 11.2],
@@ -833,7 +857,7 @@ def fmt_chance(text, wants, combos, combo_chance):
   chance = sum([combo_chance(want, combos) for want in wants])
   return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
 
-def __cube_calc(print_combos, lines, type, tier):
+def __cube_calc(print_combos, type, tier, lines):
   if type in tier_limits:
     tier = min(tier_limits[type], tier)
 
@@ -969,16 +993,17 @@ def single_or_list(x):
   return x if isinstance(x, list) else [x]
 
 
-def cube_calc(print_combos, lines, types=[], tier=TIER_DEFAULT):
+def cube_calc(print_combos, types, tier, lines):
   if not types:
     types = lines[DEFAULT_CUBE]
   for type in single_or_list(types):
-    __cube_calc(print_combos, lines, type, tier)
+    for l in single_or_list(lines):
+      __cube_calc(print_combos, type, tier, l)
 
 
 class Combos:
-  def __init__(self, combos):
-    self.calc = partial(cube_calc, combos)
+  def __init__(self, combos, types=[], tier=TIER_DEFAULT):
+    self.calc = partial(cube_calc, combos, types, tier)
 
   def __enter__(self):
     return self
@@ -1125,22 +1150,22 @@ def cube_calcs():
     c.calc(secondary_noncash)
     c.calc(weapon_secondary_violet_equality)
 
-  with Combos(combos_ws_master) as c:
-    c.calc(weapon_noncash, MASTER)
-    c.calc(secondary_noncash, MASTER)
+  with Combos(combos_ws_master, MASTER) as c:
+    c.calc(weapon_noncash)
+    c.calc(secondary_noncash)
 
   with Combos(combos_e) as c:
     c.calc(emblem)
     c.calc(emblem_noncash)
     c.calc(emblem_violet_equality)
 
-  with Combos(combos_e_master) as c:
-    c.calc(emblem_noncash, MASTER)
+  with Combos(combos_e_master, MASTER) as c:
+    c.calc(emblem_noncash)
 
-  with Combos(combos_wse_occult) as c:
-    c.calc(weapon_noncash, OCCULT)
-    c.calc(secondary_noncash, OCCULT)
-    c.calc(emblem_noncash, OCCULT)
+  with Combos(combos_wse_occult, OCCULT) as c:
+    c.calc(weapon_noncash)
+    c.calc(secondary_noncash)
+    c.calc(emblem_noncash)
 
   with Combos(combos_wse_b) as c:
     c.calc(weapon_bonus)
@@ -1165,15 +1190,20 @@ def cube_calcs():
     c.calc(hat_noncash)
     c.calc(hat_violet_equality)
 
-  with Combos(combos_occult_stat) as c:
-    c.calc(accessory_noncash, OCCULT)
-    c.calc(top_overall_noncash, OCCULT)
-    c.calc(hat_noncash, OCCULT)
+  with Combos(combos_occult_stat, OCCULT) as c:
+    c.calc(accessory_noncash)
+    c.calc(top_overall_noncash)
+    c.calc(hat_noncash)
 
-  with Combos(combos_master_stat) as c:
-    c.calc(accessory_noncash, MASTER)
-    c.calc(top_overall_noncash, MASTER)
-    c.calc(hat_noncash, MASTER)
+  with Combos(combos_master_stat, [MASTER, MEISTER], UNIQUE) as c:
+    c.calc(accessory_noncash)
+    c.calc(top_overall_noncash)
+    c.calc(hat_noncash)
+
+  with Combos(combos_master_stat, RED, UNIQUE) as c:
+    c.calc(accessory)
+    c.calc(top_overall)
+    c.calc(hat)
 
   with Combos(combos_glove) as c:
     c.calc(glove_violet_equality)
@@ -1270,6 +1300,8 @@ you can check line probabilities in the source and see where I got them from
 
 NOTE: for simplicity, all the values use lvl<160 lines, so for example
       30% att means 12 9 9 and it's the same as 33% on a lvl 160+ item
+NOTE: for cases where the tier is lower than the max tier of the cube
+      (such as red cubes on unique) it's assumed that you won't tier up
 """)
 
 cube_calcs()
