@@ -395,6 +395,66 @@ top_overall_noncash = {
 
 }
 
+bottom = {
+  NAME: "bottom",
+  DEFAULT_CUBE: [RED, BLACK],
+
+  COMMON: [],
+
+  RARE: [
+    [MAINSTAT, 3, 13.3333],
+    [HP, 3, 20],
+  ],
+
+  EPIC: [
+    [MAINSTAT, 6, 7],
+    [HP, 6, 7],
+    [ALLSTAT, 3, 17.5],
+  ],
+
+  UNIQUE: [
+    [MAINSTAT, 9, 11.2],
+    [HP, 9, 9.3333],
+    [ALLSTAT, 6, 14],
+  ],
+
+  LEGENDARY: [
+    [MAINSTAT, 12, 9.25],
+    [HP, 12, 9.25],
+    [ALLSTAT, 9, 12.3333],
+  ],
+}
+
+bottom_noncash = {
+  NAME: "bottom",
+  DEFAULT_CUBE: [MEISTER],
+
+  COMMON: [],
+
+  RARE: [
+    [MAINSTAT, 3, 18],
+    [HP, 3, 12],
+  ],
+
+  EPIC: [
+    [MAINSTAT, 6, 13.5],
+    [HP, 6, 9],
+    [ALLSTAT, 3, 27],
+  ],
+
+  UNIQUE: [
+    [MAINSTAT, 9, 14.5],
+    [HP, 9, 9.6666],
+    [ALLSTAT, 6, 29],
+  ],
+
+  LEGENDARY: [
+    [MAINSTAT, 12, 17],
+    [HP, 12, 11.3333],
+    [ALLSTAT, 9, 17],
+  ],
+}
+
 hat = {
   NAME: "hat",
   DEFAULT_CUBE: [RED, BLACK],
@@ -1208,6 +1268,8 @@ def cube_calcs():
     top_overall_violet_equality,
     cape_belt_shoulder_violet_equality,
     shoe_violet_equality,
+    bottom,
+    bottom_noncash,
     bottom_violet_equality,
   )
 

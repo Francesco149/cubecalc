@@ -359,6 +359,42 @@ any 3l combo of att+ied 1 in 4443 cubes, 0.0225%
 12+ all stat 1 in 89 cubes, 1.1230%
 15+ all stat 1 in 89 cubes, 1.1230%
 21+ all stat 1 in 4096 cubes, 0.0244%
+========================== bottom (red at legendary) ===========================
+    18+ stat 1 in 18 cubes, 5.5196%
+    21+ stat 1 in 42 cubes, 2.3828%
+    30+ stat 1 in 873 cubes, 0.1146%
+    33+ stat 1 in 8561 cubes, 0.0117%
+      18+ hp 1 in 31 cubes, 3.2184%
+      21+ hp 1 in 43 cubes, 2.3061%
+      30+ hp 1 in 805 cubes, 0.1242%
+      33+ hp 1 in 7326 cubes, 0.0137%
+12+ all stat 1 in 62 cubes, 1.6007%
+15+ all stat 1 in 85 cubes, 1.1830%
+21+ all stat 1 in 2382 cubes, 0.0420%
+========================= bottom (black at legendary) ==========================
+    18+ stat 1 in 17 cubes, 5.8378%
+    21+ stat 1 in 37 cubes, 2.7369%
+    30+ stat 1 in 663 cubes, 0.1509%
+    33+ stat 1 in 3558 cubes, 0.0281%
+      18+ hp 1 in 31 cubes, 3.2210%
+      21+ hp 1 in 41 cubes, 2.4429%
+      30+ hp 1 in 804 cubes, 0.1244%
+      33+ hp 1 in 3326 cubes, 0.0301%
+12+ all stat 1 in 62 cubes, 1.6199%
+15+ all stat 1 in 79 cubes, 1.2635%
+21+ all stat 1 in 2338 cubes, 0.0428%
+======================== bottom (meister at legendary) =========================
+    18+ stat 1 in 42 cubes, 2.3674%
+    21+ stat 1 in 117 cubes, 0.8571%
+    30+ stat 1 in 3546 cubes, 0.0282%
+    33+ stat 1 in 1048248 cubes, 0.0001%
+      18+ hp 1 in 37 cubes, 2.7058%
+      21+ hp 1 in 58 cubes, 1.7340%
+      30+ hp 1 in 1060 cubes, 0.0944%
+      33+ hp 1 in 311382 cubes, 0.0003%
+12+ all stat 1 in 196 cubes, 0.5115%
+15+ all stat 1 in 250 cubes, 0.4000%
+21+ all stat 1 in 14257 cubes, 0.0070%
 ========================= bottom (violet at legendary) =========================
     18+ stat 1 in 8 cubes, 13.1997%
     21+ stat 1 in 15 cubes, 6.6366%
