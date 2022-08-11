@@ -22,6 +22,8 @@ class Line(IntFlag):
   HP = auto()
   COOLDOWN = auto()
   CRITDMG = auto()
+  MESO = auto()
+  DROP = auto()
 
   LINE_LAST = auto()
 
@@ -412,6 +414,39 @@ hat_noncash = {
 
 }
 
+accessory = {
+  NAME: "accessory",
+  DEFAULT_CUBE: [RED, BLACK],
+
+  COMMON: [],
+
+  RARE: [
+    [MAINSTAT, 3, 13.3333],
+    [HP, 3, 20],
+  ],
+
+  EPIC: [
+    [MAINSTAT, 6, 7],
+    [HP, 6, 7],
+    [ALLSTAT, 6, 17.5],
+  ],
+
+  UNIQUE: [
+    [MAINSTAT, 9, 8.8],
+    [HP, 9, 7.3333],
+    [ALLSTAT, 6, 11],
+  ],
+
+  LEGENDARY: [
+    [MAINSTAT, 12, 10.75],
+    [HP, 12, 10.75],
+    [ALLSTAT, 9, 14.3333],
+    [MESO, 20, 14.3333],
+    [DROP, 20, 14.3333],
+  ],
+
+}
+
 accessory_noncash = {
   NAME: "accessory",
   DEFAULT_CUBE: MEISTER,
@@ -439,6 +474,8 @@ accessory_noncash = {
     [MAINSTAT, 12, 17],
     [HP, 12, 11.3333],
     [ALLSTAT, 9, 17],
+    [MESO, 20, 11.3333],
+    [DROP, 20, 11.3333],
   ],
 }
 
@@ -536,6 +573,8 @@ accessory_violet_equality = {
     [MAINSTAT, 12, 1/7.84*100],
     [ALLSTAT, 9, 1/5.88*100],
     [HP, 12, 1/7.84*100],
+    [MESO, 20, 1/5.88*100],
+    [DROP, 20, 1/5.88*100],
   ],
 
 }
@@ -554,6 +593,8 @@ accessory_uni = {
     [MAINSTAT, 12, 1/6.06*100],
     [ALLSTAT, 9, 1/1.52*100],
     [HP, 12, 1/6.06*100],
+    [MESO, 20, 1/9.09*100],
+    [DROP, 20, 1/9.09*100],
   ],
 
 }
@@ -1022,6 +1063,16 @@ def cube_calcs():
     ("21+ all stat", [{ALLSTAT: 21}]),
   ]
 
+  combos_mesodrop = [
+    ("20+ meso or 20+ drop", [{MESO: 20}, {DROP: 20}]),
+    ("20+ meso", [{MESO: 20}]),
+    ("20+ drop", [{DROP: 20}]),
+    ("40 meso or 40 drop", [{MESO: 40}, {DROP: 40}]),
+    ("40 meso", [{MESO: 40}]),
+    ("40 drop", [{DROP: 40}]),
+    ("20+ meso and 20+ drop", [{MESO: 20, DROP: 20}]),
+  ]
+
   combos_glove = combos_stat + [
     ("8+ crit damage", [{CRITDMG: 8}]),
     ("8+ crit damage and 6+ stat", [{CRITDMG: 8, STAT: 6}]),
@@ -1100,11 +1151,14 @@ def cube_calcs():
     c.calc(top_overall)
     c.calc(top_overall_noncash)
     c.calc(top_overall_violet_equality)
-    c.calc(accessory_noncash)
-    c.calc(accessory_violet_equality)
     c.calc(cape_belt_shoulder_violet_equality)
     c.calc(shoe_violet_equality)
     c.calc(bottom_violet_equality)
+
+  with Combos(combos_stat + combos_mesodrop) as c:
+    c.calc(accessory)
+    c.calc(accessory_noncash)
+    c.calc(accessory_violet_equality)
 
   with Combos(combos_hat) as c:
     c.calc(hat)
@@ -1169,6 +1223,7 @@ def unicube_calcs():
     ("1+s cooldown", [{COOLDOWN: 1}]),
     ("2s cooldown", [{COOLDOWN: 2}]),
   ]
+
 
   combos_uni_stat = combos_uni_stat_nonprime + combos_uni_stat_prime
   combos_uni_glove_prime = combos_uni_stat_prime + [ ("8 crit damage", [{CRITDMG: 8}]) ]
