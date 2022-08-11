@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-from itertools import product
-from functools import reduce
-from functools import partial
+from functools import reduce, partial
 from operator import mul, or_, and_, add
 import numpy as np
 from enum import IntEnum, IntFlag, auto
