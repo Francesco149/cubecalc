@@ -5,6 +5,29 @@ from operator import mul, or_, and_, add
 import numpy as np
 from enum import IntEnum, IntFlag, auto
 
+disclaimer = """
+even though the numbers look reasonable, I cannot guarantee that the math here
+is correct. this is a calculator I made for myself and you should never
+blindly trust anything like this. before you gamble your time and/or money,
+double check the math yourself
+
+I also make a few assumptions that might not be true but we just don't know
+because GMS hasn't released any official data:
+  - that line rates are the same as KMS
+  - that line rates for TMS cubes like violet, uni are the same as TMS
+  - that prime chance for violets on strategywiki applies to GMS
+    (it's lower than TMS)
+
+the assumptions are reasonable in my opinion but we just don't know for sure
+
+you can check line probabilities in the source and see where I got them from
+
+NOTE: for simplicity, all the values use lvl<160 lines, so for example
+      30% att means 12 9 9 and it's the same as 33% on a lvl 160+ item
+NOTE: for cases where the tier is lower than the max tier of the cube
+      (such as red cubes on unique) it's assumed that you won't tier up
+"""
+
 def global_enum(enum):
   globals().update(enum.__members__)
   return enum
@@ -1307,28 +1330,7 @@ def unicube_calcs():
   )
 
 print(f" ! DISCLAIMER ! ".center(80, "="))
-print("""
-even though the numbers look reasonable, I cannot guarantee that the math here
-is correct. this is a calculator I made for myself and you should never
-blindly trust anything like this. before you gamble your time and/or money,
-double check the math yourself
-
-I also make a few assumptions that might not be true but we just don't know
-because GMS hasn't released any official data:
-  - that line rates are the same as KMS
-  - that line rates for TMS cubes like violet, uni are the same as TMS
-  - that prime chance for violets on strategywiki applies to GMS
-    (it's lower than TMS)
-
-the assumptions are reasonable in my opinion but we just don't know for sure
-
-you can check line probabilities in the source and see where I got them from
-
-NOTE: for simplicity, all the values use lvl<160 lines, so for example
-      30% att means 12 9 9 and it's the same as 33% on a lvl 160+ item
-NOTE: for cases where the tier is lower than the max tier of the cube
-      (such as red cubes on unique) it's assumed that you won't tier up
-""")
+print(disclaimer)
 
 cube_calcs()
 unicube_calcs()
