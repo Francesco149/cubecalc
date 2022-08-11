@@ -594,347 +594,353 @@ accessory_noncash = {
   ],
 }
 
+def percents(lines):
+  for k in [COMMON, EPIC, UNIQUE, LEGENDARY]:
+    if k in lines:
+      lines[k] = [[x[0], 1/x[1]*100] for x in lines[k]]
+  return lines
+
 # TMS probabilities for violet, equality and unicube lines
 #   https://tw.beanfun.com/beanfuncommon/EventAD_Mobile/EventAD.aspx?EventADID=8421
 
-weapon_secondary_violet_equality = {
+weapon_secondary_violet_equality = percents({
   NAME: "weapon",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    [BOSS_30, 1/6.52*100],
-    [ATT, 1/6.52*100],
-    [IED_30, 1/8.7*100],
+    [BOSS_30, 6.52],
+    [ATT, 6.52],
+    [IED_30, 8.7],
   ],
 
   LEGENDARY: [
-    [BOSS_40, 1/4.44*100],
-    [BOSS_35, 1/4.44*100],
-    [BOSS_30, 1/4.44*100],
-    [ATT, 1/4.44*100],
-    [IED_40, 1/6.67*100],
-    [IED_35, 1/6.67*100],
+    [BOSS_40, 4.44],
+    [BOSS_35, 4.44],
+    [BOSS_30, 4.44],
+    [ATT, 4.44],
+    [IED_40, 6.67],
+    [IED_35, 6.67],
   ],
 
-}
+})
 
-emblem_violet_equality = {
+emblem_violet_equality = percents({
   NAME: "emblem",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    [ATT, 1/6.98*100],
-    [IED_30, 1/9.3*100],
+    [ATT, 6.98],
+    [IED_30, 9.3],
   ],
 
   LEGENDARY: [
-    [ATT, 1/5.13*100],
-    [IED_40, 1/7.69*100],
-    [IED_35, 1/7.69*100],
+    [ATT, 5.13],
+    [IED_40, 7.69],
+    [IED_35, 7.69],
   ],
 
-}
+})
 
-weapon_secondary_uni = {
+weapon_secondary_uni = percents({
   NAME: "weapon/secondary",
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    [BOSS_30, 1/5.48*100],
-    [ATT, 1/8.22*100],
-    [IED_30, 1/20.55*100],
+    [BOSS_30, 5.48],
+    [ATT, 8.22],
+    [IED_30, 20.55],
   ],
 
   LEGENDARY: [
-    [BOSS_40, 1/1.13*100],
-    [BOSS_35, 1/2.10*100],
-    [BOSS_30, 1/3.07*100],
-    [ATT, 1/3.24*100],
-    [IED_40, 1/16.18*100],
-    [IED_35, 1/25.89*100],
+    [BOSS_40, 1.13],
+    [BOSS_35, 2.10],
+    [BOSS_30, 3.07],
+    [ATT, 3.24],
+    [IED_40, 16.18],
+    [IED_35, 25.89],
   ],
 
-}
+})
 
-emblem_uni = {
+emblem_uni = percents({
   NAME: "emblem",
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    [ATT, 1/8.7*100],
-    [IED_30, 1/21.74*100],
+    [ATT, 8.7],
+    [IED_30, 21.74],
   ],
 
   LEGENDARY: [
-    [ATT, 1/3.45*100],
-    [IED_40, 1/17.27*100],
-    [IED_35, 1/27.63*100],
+    [ATT, 3.45],
+    [IED_40, 17.27],
+    [IED_35, 27.63],
   ],
 
-}
+})
 
 # pendants, rings, face, eye, earrings
-accessory_violet_equality = {
+accessory_violet_equality = percents({
   NAME: "accessory",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    [MAINSTAT, 1/9.8*100],
-    [HP, 1/11.76*100],
-    [ALLSTAT, 1/7.84*100],
+    [MAINSTAT, 9.8],
+    [HP, 11.76],
+    [ALLSTAT, 7.84],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/7.84*100],
-    [ALLSTAT, 1/5.88*100],
-    [HP, 1/7.84*100],
-    [MESO, 1/5.88*100],
-    [DROP, 1/5.88*100],
+    [MAINSTAT, 7.84],
+    [ALLSTAT, 5.88],
+    [HP, 7.84],
+    [MESO, 5.88],
+    [DROP, 5.88],
   ],
 
-}
+})
 
-accessory_uni = {
+accessory_uni = percents({
   NAME: "accessory",
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    [MAINSTAT, 1/11.63*100],
-    [HP, 1/11.63*100],
-    [ALLSTAT, 1/2.33*100],
+    [MAINSTAT, 11.63],
+    [HP, 11.63],
+    [ALLSTAT, 2.33],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/6.06*100],
-    [ALLSTAT, 1/1.52*100],
-    [HP, 1/6.06*100],
-    [MESO, 1/9.09*100],
-    [DROP, 1/9.09*100],
+    [MAINSTAT, 6.06],
+    [ALLSTAT, 1.52],
+    [HP, 6.06],
+    [MESO, 9.09],
+    [DROP, 9.09],
   ],
 
-}
+})
 
-cape_belt_shoulder_violet_equality = {
+cape_belt_shoulder_violet_equality = percents({
   NAME: "cape/belt/shoulder",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    [MAINSTAT, 1/8.47*100],
-    [HP, 1/10.17*100],
-    [ALLSTAT, 1/6.78*100],
+    [MAINSTAT, 8.47],
+    [HP, 10.17],
+    [ALLSTAT, 6.78],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/8.89*100],
-    [HP, 1/8.89*100],
-    [ALLSTAT, 1/6.67*100],
+    [MAINSTAT, 8.89],
+    [HP, 8.89],
+    [ALLSTAT, 6.67],
   ],
 
-}
+})
 
-cape_belt_shoulder_uni = {
+cape_belt_shoulder_uni = percents({
   NAME: "cape/belt/shoulder",
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    [MAINSTAT, 1/7.69*100],
-    [HP, 1/7.69*100],
-    [ALLSTAT, 1/1.54*100],
+    [MAINSTAT, 7.69],
+    [HP, 7.69],
+    [ALLSTAT, 1.54],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/8.89*100],
-    [HP, 1/8.89*100],
-    [ALLSTAT, 1/6.67*100],
+    [MAINSTAT, 8.89],
+    [HP, 8.89],
+    [ALLSTAT, 6.67],
   ],
 
-}
+})
 
-shoe_violet_equality = {
+shoe_violet_equality = percents({
   NAME: "shoe",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    [MAINSTAT, 1/7.94*100],
-    [HP, 1/9.52*100],
-    [ALLSTAT, 1/6.35*100],
+    [MAINSTAT, 7.94],
+    [HP, 9.52],
+    [ALLSTAT, 6.35],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/8.33*100],
-    [HP, 1/8.33*100],
-    [ALLSTAT, 1/6.25*100],
+    [MAINSTAT, 8.33],
+    [HP, 8.33],
+    [ALLSTAT, 6.25],
   ],
 
-}
+})
 
-shoe_uni = {
+shoe_uni = percents({
   NAME: "shoe",
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    [MAINSTAT, 1/6.33*100],
-    [HP, 1/6.33*100],
-    [ALLSTAT, 1/1.27*100],
+    [MAINSTAT, 6.33],
+    [HP, 6.33],
+    [ALLSTAT, 1.27],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/7.27*100],
-    [HP, 1/7.27*100],
-    [ALLSTAT, 1/1.82*100],
+    [MAINSTAT, 7.27],
+    [HP, 7.27],
+    [ALLSTAT, 1.82],
   ],
 
-}
+})
 
-glove_violet_equality = {
+glove_violet_equality = percents({
   NAME: "glove",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    [MAINSTAT, 1/7.46*100],
-    [HP, 1/8.96*100],
-    [ALLSTAT, 1/5.97*100],
+    [MAINSTAT, 7.46],
+    [HP, 8.96],
+    [ALLSTAT, 5.97],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/7.69*100],
-    [HP, 1/7.69*100],
-    [ALLSTAT, 1/5.77*100],
-    [CRITDMG, 1/7.69*100],
+    [MAINSTAT, 7.69],
+    [HP, 7.69],
+    [ALLSTAT, 5.77],
+    [CRITDMG, 7.69],
   ],
 
-}
+})
 
-glove_uni = {
+glove_uni = percents({
   NAME: "glove",
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    [MAINSTAT, 1/5.26*100],
-    [HP, 1/5.26*100],
-    [ALLSTAT, 1/1.05*100],
+    [MAINSTAT, 5.26],
+    [HP, 5.26],
+    [ALLSTAT, 1.05],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/5.8*100],
-    [HP, 1/5.8*100],
-    [ALLSTAT, 1/1.45*100],
-    [CRITDMG, 1/2.9*100],
+    [MAINSTAT, 5.8],
+    [HP, 5.8],
+    [ALLSTAT, 1.45],
+    [CRITDMG, 2.9],
   ],
 
-}
+})
 
-bottom_violet_equality = {
+bottom_violet_equality = percents({
   NAME: "bottom",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    [MAINSTAT, 1/7.94*100],
-    [HP, 1/9.52*100],
-    [ALLSTAT, 1/6.35*100],
+    [MAINSTAT, 7.94],
+    [HP, 9.52],
+    [ALLSTAT, 6.35],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/8.89*100],
-    [HP, 1/8.89*100],
-    [ALLSTAT, 1/6.67*100],
+    [MAINSTAT, 8.89],
+    [HP, 8.89],
+    [ALLSTAT, 6.67],
   ],
 
-}
+})
 
-bottom_uni = {
+bottom_uni = percents({
   NAME: "bottom",
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    [MAINSTAT, 1/6.35*100],
-    [HP, 1/6.35*100],
-    [ALLSTAT, 1/1.59*100],
+    [MAINSTAT, 6.35],
+    [HP, 6.35],
+    [ALLSTAT, 1.59],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/8.89*100],
-    [HP, 1/8.89*100],
-    [ALLSTAT, 1/2.22*100],
+    [MAINSTAT, 8.89],
+    [HP, 8.89],
+    [ALLSTAT, 2.22],
   ],
 
-}
+})
 
-top_overall_violet_equality = {
+top_overall_violet_equality = percents({
   NAME: "top/overall",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    [MAINSTAT, 1/6.85*100],
-    [HP, 1/8.22*100],
-    [ALLSTAT, 1/5.48*100],
+    [MAINSTAT, 6.85],
+    [HP, 8.22],
+    [ALLSTAT, 5.48],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/7.84*100],
-    [HP, 1/7.84*100],
-    [ALLSTAT, 1/5.88*100],
+    [MAINSTAT, 7.84],
+    [HP, 7.84],
+    [ALLSTAT, 5.88],
   ],
 
-}
+})
 
-top_overall_uni = {
+top_overall_uni = percents({
   NAME: "top/overall",
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    [MAINSTAT, 1/4.08*100],
-    [HP, 1/4.08*100],
-    [ALLSTAT, 1/1.02*100],
+    [MAINSTAT, 4.08],
+    [HP, 4.08],
+    [ALLSTAT, 1.02],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/6.15*100],
-    [HP, 1/6.15*100],
-    [ALLSTAT, 1/1.54*100],
+    [MAINSTAT, 6.15],
+    [HP, 6.15],
+    [ALLSTAT, 1.54],
   ],
 
-}
+})
 
-hat_violet_equality = {
+hat_violet_equality = percents({
   NAME: "hat",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
   UNIQUE: [
-    [MAINSTAT, 1/7.94*100],
-    [HP, 1/9.52*100],
-    [ALLSTAT, 1/6.35*100],
+    [MAINSTAT, 7.94],
+    [HP, 9.52],
+    [ALLSTAT, 6.35],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/7.55*100],
-    [HP, 1/7.55*100],
-    [ALLSTAT, 1/5.66*100],
-    [COOLDOWN_2, 1/3.77*100],
-    [COOLDOWN_1, 1/5.66*100],
+    [MAINSTAT, 7.55],
+    [HP, 7.55],
+    [ALLSTAT, 5.66],
+    [COOLDOWN_2, 3.77],
+    [COOLDOWN_1, 5.66],
   ],
 
-}
+})
 
-hat_uni = {
+hat_uni = percents({
   NAME: "hat",
   DEFAULT_CUBE: UNI,
 
   UNIQUE: [
-    [MAINSTAT, 1/5.8*100],
-    [HP, 1/5.8*100],
-    [ALLSTAT, 1/1.45*100],
+    [MAINSTAT, 5.8],
+    [HP, 5.8],
+    [ALLSTAT, 1.45],
   ],
 
   LEGENDARY: [
-    [MAINSTAT, 1/5.0*100],
-    [HP, 1/5.0*100],
-    [ALLSTAT, 1/1.25*100],
-    [COOLDOWN_2, 1/10.0*100],
-    [COOLDOWN_1, 1/10.0*100],
+    [MAINSTAT, 5.0],
+    [HP, 5.0],
+    [ALLSTAT, 1.25],
+    [COOLDOWN_2, 10.0],
+    [COOLDOWN_1, 10.0],
   ],
 
-}
+})
 
 # -------------------------------------------------------------------------------------------------
 
@@ -1075,6 +1081,9 @@ def __cube_calc(print_combos, type, tier, lines):
       # so for example [a, b, c][ [True, False, True] ] returns [a, c]
 
       # can't have more than 2 of these in a combo
+      # note: we AND with the line type because some lines match multiple lines. for example
+      #       when we look for stat we also want to match allstat, so we set up the lines enum
+      #       to be a bitmask so we can match multiple things such as MAINSTAT | ALLSTAT
       forbidden = [BOSS, IED, DROP]
       if reduce(or_, [np.any(c.types & x != 0) for x in forbidden]):
         mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > 2 for x in forbidden])
@@ -1105,9 +1114,6 @@ def __cube_calc(print_combos, type, tier, lines):
 
   def combo_chance(want):
     types, values, _, _ = c.lines
-    # note: we AND with the line type because some lines match multiple lines. for example
-    #       when we look for stat we also want to match allstat, so we set up the lines enum
-    #       to be a bitmask so we can match multiple things such as MAINSTAT | ALLSTAT
     if LINES in want:
       # all combinations that contains at least n lines of any of the stats specified
       # TODO: allow specifying minimum amount for the lines
