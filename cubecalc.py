@@ -1212,8 +1212,10 @@ because GMS hasn't released any official data:
 the assumptions are reasonable in my opinion but we just don't know for sure
 
 you can check line probabilities in the source and see where I got them from
+
+NOTE: for simplicity, all the values use lvl<160 lines, so for example
+      30% att means 12 9 9 and it's the same as 33% on a lvl 160+ item
 """)
-print(f"".center(80, "="))
 
 cube_calcs()
 unicube_calcs()
