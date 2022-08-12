@@ -246,7 +246,7 @@ for cube, cubedata in d.items():
       print(f"    {tier.name}: [")
       for (line, chance) in tierdata:
         if line & rl:
-          print(f"      [{line.name}, {chance}]")
+          print(f"      [{line.name}, {chance}],")
       print(f"    ],")
     print("  }),")
   print("},")
