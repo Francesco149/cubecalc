@@ -3,7 +3,6 @@
 from functools import reduce, partial
 from operator import mul, or_, and_, add
 import numpy as np
-from enum import IntEnum, IntFlag, auto
 from collections import namedtuple
 
 disclaimer = """
@@ -29,65 +28,8 @@ NOTE: for cases where the tier is lower than the max tier of the cube
       (such as red cubes on unique) it's assumed that you won't tier up
 """
 
-def global_enum(enum):
-  globals().update(enum.__members__)
-  return enum
-
-@global_enum
-class Line(IntFlag):
-  LINE_NULL = 0
-  BOSS_30 = auto()
-  BOSS_35 = auto()
-  BOSS_40 = auto()
-  BOSS = BOSS_30 | BOSS_35 | BOSS_40
-  IED_30 = auto()
-  IED_35 = auto()
-  IED_40 = auto()
-  IED = IED_30 | IED_35 | IED_40
-  ATT = auto()
-  ANY = auto()
-  MAINSTAT = auto()
-  ALLSTAT = auto()
-  STAT = MAINSTAT | ALLSTAT
-  HP = auto()
-  COOLDOWN_1 = auto()
-  COOLDOWN_2 = auto()
-  COOLDOWN = COOLDOWN_1 | COOLDOWN_2
-  CRITDMG = auto()
-  MESO = auto()
-  DROP = auto()
-
-  LINE_LAST = auto()
-
-  # special keys for matching lines
-  LINES = auto() # match by number of lines and what lines are allowed
-
-@global_enum
-class Tier(IntEnum):
-  TIER_NULL = auto()
-  COMMON = auto()
-  RARE = auto()
-  EPIC = auto()
-  UNIQUE = auto()
-  LEGENDARY = auto()
-
-  TIER_LAST = auto()
-  TIER_DEFAULT = LEGENDARY
-
-@global_enum
-class Cube(IntEnum):
-  CUBE_NULL = auto()
-  RED = auto()
-  MEISTER = auto()
-  MASTER = auto()
-  OCCULT = auto()
-  BLACK = auto()
-  VIOLET = auto()
-  EQUALITY = auto()
-  BONUS = auto()
-  UNI = auto()
-
-  CUBE_LAST = auto()
+from common import *
+from data.utils import percent
 
 tier_limits = {
   OCCULT: EPIC,
@@ -154,457 +96,47 @@ prime_chances = {
 LINE_TYPE = 0
 LINE_ONEIN = 1
 
-weapon = {
-  NAME: "weapon",
-  DEFAULT_CUBE: [RED, BLACK],
-
-  UNIQUE: [
-    [BOSS_30, 14.3333],
-    [IED_30, 14.3333],
-    [ATT, 14.3333],
-  ],
-
-  LEGENDARY: [
-    [BOSS_40, 20.5],
-    [BOSS_35, 20.5],
-    [BOSS_30, 20.5],
-    [IED_40, 20.5],
-    [IED_35, 20.5],
-    [ATT, 20.5],
-  ],
-
-}
-
-weapon_noncash = {
-  NAME: "weapon",
-  DEFAULT_CUBE: MEISTER,
-
-  COMMON: [],
-
-  RARE: [
-    [ATT, 57],
-  ],
-
-  EPIC: [
-    [ATT, 26],
-  ],
-
-  UNIQUE: [
-    [BOSS_30, 15],
-    [IED_30, 15],
-    [ATT, 15],
-  ],
-
-  LEGENDARY: [
-    [BOSS_40, 36],
-    [BOSS_35, 18],
-    [BOSS_30, 18],
-    [IED_40, 36],
-    [IED_35, 18],
-    [ATT, 18],
-  ],
-
-}
-
-secondary = {
-  NAME: "secondary",
-  DEFAULT_CUBE: [RED, BLACK],
-
-  UNIQUE: [
-    [BOSS_30, 17.0],
-    [IED_30, 17.0],
-    [ATT, 17.0],
-  ],
-
-  LEGENDARY: [
-    [BOSS_40, 23.5],
-    [BOSS_35, 23.5],
-    [BOSS_30, 23.5],
-    [IED_40, 23.5],
-    [IED_35, 23.5],
-    [ATT, 23.5],
-  ],
-
-}
-
-secondary_noncash = {
-  NAME: "secondary",
-  DEFAULT_CUBE: MEISTER,
-
-  COMMON: [],
-
-  RARE: [
-    [ATT, 57],
-  ],
-
-  EPIC: [
-    [ATT, 35],
-  ],
-
-  UNIQUE: [
-    [BOSS_30, 21],
-    [IED_30, 21],
-    [ATT, 21],
-  ],
-
-  LEGENDARY: [
-    [BOSS_40, 24],
-    [BOSS_35, 24],
-    [BOSS_30, 48],
-    [IED_40, 48],
-    [IED_35, 24],
-    [ATT, 24],
-  ],
-
-}
-
-emblem = {
-  NAME: "emblem",
-  DEFAULT_CUBE: [RED, BLACK],
-
-  UNIQUE: [
-    [IED_30, 13.3333],
-    [ATT, 13.3333],
-  ],
-
-  LEGENDARY: [
-    [IED_40, 17.5],
-    [IED_35, 17.5],
-    [ATT, 17.5],
-  ],
-
-}
-
-emblem_noncash = {
-  NAME: "emblem",
-  DEFAULT_CUBE: MEISTER,
-
-  RARE: [
-    [ATT, 57],
-  ],
-
-  EPIC: [
-    [ATT, 26],
-  ],
-
-  UNIQUE: [
-    [IED_30, 14],
-    [ATT, 14],
-  ],
-
-  LEGENDARY: [
-    [IED_40, 15.5],
-    [IED_35, 31],
-    [ATT, 15.5],
-  ],
-
-}
-
-weapon_bonus = {
-  NAME: "weapon",
-  DEFAULT_CUBE: BONUS,
-
-  UNIQUE: [
-    [ATT, 21.5],
-  ],
-
-  LEGENDARY: [
-    [ATT, 19.5],
-  ],
-
-}
-
-secondary_bonus = {
-  NAME: "secondary",
-  DEFAULT_CUBE: BONUS,
-
-  UNIQUE: [
-    [ATT, 21.5],
-  ],
-
-  LEGENDARY: [
-    [ATT, 20.5],
-  ],
-
-}
-
-emblem_bonus = {
-  NAME: "emblem",
-  DEFAULT_CUBE: BONUS,
-
-  UNIQUE: [
-    [ATT, 21],
-  ],
-
-  LEGENDARY: [
-    [ATT, 19],
-  ],
-
-}
-
-top_overall = {
-  NAME: "top/overall",
-  DEFAULT_CUBE: [RED, BLACK],
-
-  COMMON: [],
-
-  RARE: [
-    [MAINSTAT, 13.3333],
-    [HP, 20],
-  ],
-
-  EPIC: [
-    [MAINSTAT, 7.6],
-    [HP, 7.6],
-    [ALLSTAT, 19],
-  ],
-
-  UNIQUE: [
-    [MAINSTAT, 13.2],
-    [HP, 11],
-    [ALLSTAT, 16.5],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 10.75],
-    [ALLSTAT, 10.75],
-    [HP, 10.75],
-  ],
-
-}
-
-top_overall_noncash = {
-  NAME: "top/overall",
-  DEFAULT_CUBE: MEISTER,
-
-  COMMON: [],
-
-  RARE: [
-    [MAINSTAT, 18],
-    [HP, 12],
-  ],
-
-  EPIC: [
-    [MAINSTAT, 15],
-    [HP, 10],
-    [ALLSTAT, 30],
-  ],
-
-  UNIQUE: [
-    [MAINSTAT, 16.5],
-    [HP, 11],
-    [ALLSTAT, 33],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 17],
-    [ALLSTAT, 17],
-    [HP, 11.3333],
-  ],
-
-}
-
-bottom = {
-  NAME: "bottom",
-  DEFAULT_CUBE: [RED, BLACK],
-
-  COMMON: [],
-
-  RARE: [
-    [MAINSTAT, 13.3333],
-    [HP, 20],
-  ],
-
-  EPIC: [
-    [MAINSTAT, 7],
-    [HP, 7],
-    [ALLSTAT, 17.5],
-  ],
-
-  UNIQUE: [
-    [MAINSTAT, 11.2],
-    [HP, 9.3333],
-    [ALLSTAT, 14],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 9.25],
-    [HP, 9.25],
-    [ALLSTAT, 12.3333],
-  ],
-}
-
-bottom_noncash = {
-  NAME: "bottom",
-  DEFAULT_CUBE: [MEISTER],
-
-  COMMON: [],
-
-  RARE: [
-    [MAINSTAT, 18],
-    [HP, 12],
-  ],
-
-  EPIC: [
-    [MAINSTAT, 13.5],
-    [HP, 9],
-    [ALLSTAT, 27],
-  ],
-
-  UNIQUE: [
-    [MAINSTAT, 14.5],
-    [HP, 9.6666],
-    [ALLSTAT, 29],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 17],
-    [HP, 11.3333],
-    [ALLSTAT, 17],
-  ],
-}
-
-hat = {
-  NAME: "hat",
-  DEFAULT_CUBE: [RED, BLACK],
-
-  COMMON: [],
-
-  RARE: [
-    [MAINSTAT, 13.3333],
-    [HP, 20],
-  ],
-
-  EPIC: [
-    [MAINSTAT, 7],
-    [HP, 7],
-    [ALLSTAT, 17.5],
-  ],
-
-  UNIQUE: [
-    [MAINSTAT, 11.2],
-    [HP, 9.3333],
-    [ALLSTAT, 14],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 11.25],
-    [HP, 11.25],
-    [ALLSTAT, 15],
-    [COOLDOWN_1, 15],
-    [COOLDOWN_2, 22.5],
-  ],
-
-}
-
-hat_noncash = {
-  NAME: "hat",
-  DEFAULT_CUBE: MEISTER,
-
-  COMMON: [],
-
-  RARE: [
-    [MAINSTAT, 21],
-    [HP, 14],
-  ],
-
-  EPIC: [
-    [MAINSTAT, 9],
-    [HP, 6],
-    [ALLSTAT, 18],
-  ],
-
-  UNIQUE: [
-    [MAINSTAT, 14.5],
-    [HP, 9.6666],
-    [ALLSTAT, 29],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 18],
-    [HP, 12],
-    [ALLSTAT, 18],
-    [COOLDOWN_1, 12],
-    [COOLDOWN_2, 18],
-  ],
-
-}
-
-accessory = {
-  NAME: "accessory",
-  DEFAULT_CUBE: [RED, BLACK],
-
-  COMMON: [],
-
-  RARE: [
-    [MAINSTAT, 13.3333],
-    [HP, 20],
-  ],
-
-  EPIC: [
-    [MAINSTAT, 7],
-    [HP, 7],
-    [ALLSTAT, 17.5],
-  ],
-
-  UNIQUE: [
-    [MAINSTAT, 8.8],
-    [HP, 7.3333],
-    [ALLSTAT, 11],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 10.75],
-    [HP, 10.75],
-    [ALLSTAT, 14.3333],
-    [MESO, 14.3333],
-    [DROP, 14.3333],
-  ],
-
-}
-
-accessory_noncash = {
-  NAME: "accessory",
-  DEFAULT_CUBE: MEISTER,
-
-  COMMON: [],
-
-  RARE: [
-    [MAINSTAT, 21],
-    [HP, 14],
-  ],
-
-  EPIC: [
-    [MAINSTAT, 9],
-    [HP, 6],
-    [ALLSTAT, 18],
-  ],
-
-  UNIQUE: [
-    [MAINSTAT, 10.5],
-    [HP, 7],
-    [ALLSTAT, 21],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 17],
-    [HP, 11.3333],
-    [ALLSTAT, 17],
-    [MESO, 11.3333],
-    [DROP, 11.3333],
-  ],
-}
-
-def percents(lines):
-  for k in [COMMON, EPIC, UNIQUE, LEGENDARY]:
-    if k in lines:
-      lines[k] = [[x[0], 1/x[1]*100] for x in lines[k]]
-  return lines
+import data.kms as kms
+
+# TODO: don't manually do all of this, let the data scrapers do the job
+for k, v in kms.cash.items():
+  v[DEFAULT_CUBE] = [RED, BLACK]
+
+for k, v in kms.noncash.items():
+  v[DEFAULT_CUBE] = MEISTER
+
+for k, v in kms.bonus.items():
+  v[DEFAULT_CUBE] = BONUS
+
+for x in [kms.cash, kms.noncash, kms.bonus]:
+  for k, v in x.items():
+    v[NAME] = category_name(k)
+
+weapon = kms.cash[WEAPON]
+secondary = kms.cash[SECONDARY]
+emblem = kms.cash[EMBLEM]
+top_overall = kms.cash[TOP_OVERALL]
+bottom = kms.cash[BOTTOM]
+hat = kms.cash[HAT]
+accessory = kms.cash[FACE_EYE_RING_EARRING_PENDANT]
+
+weapon_noncash = kms.noncash[WEAPON]
+secondary_noncash = kms.noncash[SECONDARY]
+emblem_noncash = kms.noncash[EMBLEM]
+top_overall_noncash = kms.noncash[TOP_OVERALL]
+bottom_noncash = kms.noncash[BOTTOM]
+hat_noncash = kms.noncash[HAT]
+accessory_noncash = kms.noncash[FACE_EYE_RING_EARRING_PENDANT]
+
+weapon_bonus = kms.bonus[WEAPON]
+secondary_bonus = kms.bonus[SECONDARY]
+emblem_bonus = kms.bonus[EMBLEM]
 
 # TMS probabilities for violet, equality and unicube lines
+# TODO: scrape this
 #   https://tw.beanfun.com/beanfuncommon/EventAD_Mobile/EventAD.aspx?EventADID=8421
 
-weapon_secondary_violet_equality = percents({
+weapon_secondary_violet_equality = percent({
   NAME: "weapon",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
@@ -625,7 +157,7 @@ weapon_secondary_violet_equality = percents({
 
 })
 
-emblem_violet_equality = percents({
+emblem_violet_equality = percent({
   NAME: "emblem",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
@@ -642,7 +174,7 @@ emblem_violet_equality = percents({
 
 })
 
-weapon_secondary_uni = percents({
+weapon_secondary_uni = percent({
   NAME: "weapon/secondary",
   DEFAULT_CUBE: UNI,
 
@@ -663,7 +195,7 @@ weapon_secondary_uni = percents({
 
 })
 
-emblem_uni = percents({
+emblem_uni = percent({
   NAME: "emblem",
   DEFAULT_CUBE: UNI,
 
@@ -681,7 +213,7 @@ emblem_uni = percents({
 })
 
 # pendants, rings, face, eye, earrings
-accessory_violet_equality = percents({
+accessory_violet_equality = percent({
   NAME: "accessory",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
@@ -701,7 +233,7 @@ accessory_violet_equality = percents({
 
 })
 
-accessory_uni = percents({
+accessory_uni = percent({
   NAME: "accessory",
   DEFAULT_CUBE: UNI,
 
@@ -721,7 +253,7 @@ accessory_uni = percents({
 
 })
 
-cape_belt_shoulder_violet_equality = percents({
+cape_belt_shoulder_violet_equality = percent({
   NAME: "cape/belt/shoulder",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
@@ -739,7 +271,7 @@ cape_belt_shoulder_violet_equality = percents({
 
 })
 
-cape_belt_shoulder_uni = percents({
+cape_belt_shoulder_uni = percent({
   NAME: "cape/belt/shoulder",
   DEFAULT_CUBE: UNI,
 
@@ -757,7 +289,7 @@ cape_belt_shoulder_uni = percents({
 
 })
 
-shoe_violet_equality = percents({
+shoe_violet_equality = percent({
   NAME: "shoe",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
@@ -775,7 +307,7 @@ shoe_violet_equality = percents({
 
 })
 
-shoe_uni = percents({
+shoe_uni = percent({
   NAME: "shoe",
   DEFAULT_CUBE: UNI,
 
@@ -793,7 +325,7 @@ shoe_uni = percents({
 
 })
 
-glove_violet_equality = percents({
+glove_violet_equality = percent({
   NAME: "glove",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
@@ -812,7 +344,7 @@ glove_violet_equality = percents({
 
 })
 
-glove_uni = percents({
+glove_uni = percent({
   NAME: "glove",
   DEFAULT_CUBE: UNI,
 
@@ -831,7 +363,7 @@ glove_uni = percents({
 
 })
 
-bottom_violet_equality = percents({
+bottom_violet_equality = percent({
   NAME: "bottom",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
@@ -849,7 +381,7 @@ bottom_violet_equality = percents({
 
 })
 
-bottom_uni = percents({
+bottom_uni = percent({
   NAME: "bottom",
   DEFAULT_CUBE: UNI,
 
@@ -867,7 +399,7 @@ bottom_uni = percents({
 
 })
 
-top_overall_violet_equality = percents({
+top_overall_violet_equality = percent({
   NAME: "top/overall",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
@@ -885,7 +417,7 @@ top_overall_violet_equality = percents({
 
 })
 
-top_overall_uni = percents({
+top_overall_uni = percent({
   NAME: "top/overall",
   DEFAULT_CUBE: UNI,
 
@@ -903,7 +435,7 @@ top_overall_uni = percents({
 
 })
 
-hat_violet_equality = percents({
+hat_violet_equality = percent({
   NAME: "hat",
   DEFAULT_CUBE: [VIOLET, EQUALITY],
 
@@ -923,7 +455,7 @@ hat_violet_equality = percents({
 
 })
 
-hat_uni = percents({
+hat_uni = percent({
   NAME: "hat",
   DEFAULT_CUBE: UNI,
 
@@ -961,6 +493,7 @@ line_values = {
     MAINSTAT: 6,
     ALLSTAT: 3,
     HP: 6,
+    INVIN_1: 1,
   },
 
   UNIQUE: {
@@ -971,6 +504,7 @@ line_values = {
     MAINSTAT: 9,
     ALLSTAT: 6,
     HP: 9,
+    INVIN_2: 2,
   },
 
   LEGENDARY: {
@@ -990,6 +524,7 @@ line_values = {
     CRITDMG: 8,
     MESO: 20,
     DROP: 20,
+    INVIN_3: 3,
   },
 }
 

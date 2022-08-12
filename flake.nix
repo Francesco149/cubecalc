@@ -17,6 +17,7 @@
         devShell = mkShell {
           buildInputs = [
             python310
+            htmlq
           ] ++ (with python310Packages; [
             numpy
           ]);
