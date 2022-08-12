@@ -31,6 +31,7 @@ category_conversion = {
   "徽章": EMBLEM,
   "輔助武器(力量之盾, 靈魂戒指除外)": SECONDARY,
   "輔助武器(力量之盾, 靈魂戒指)": FORCE_SHIELD_SOUL_RING,
+  "輔助武器(包含力量之盾, 靈魂戒指)": SECONDARY | FORCE_SHIELD_SOUL_RING,
 }
 
 tier_conversion = {
@@ -130,9 +131,22 @@ def find_tier(f):
   return None
 
 
+def split_categories(s):
+  level = 0
+  start = 0
+  kw = { "(": 1, ")": -1 }
+  for i, x in enumerate(s):
+    if x in kw:
+      level += kw[x]
+    if level == 0 and x == ",":
+      yield s[start:i]
+      start = i + 1
+  yield s[start:]
+
+
 def parse_category(s):
   res = CATEGORY_NULL
-  for x in s.split(','):
+  for x in split_categories(s):
     s = x.strip()
     if s not in category_conversion:
       break
@@ -241,7 +255,6 @@ for cube, cubedata in d.items():
     rl = reduce(or_, [utils.relevant_lines(cube)[c] for c in Category if c & category])
     categories = bitmask_str(category, Category)
     print(f"  {categories}: percent({{")
-    print("    COMMON: [],")
     for tier, tierdata in categorydata.items():
       print(f"    {tier.name}: [")
       for (line, chance) in tierdata:

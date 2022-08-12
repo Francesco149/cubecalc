@@ -6,14 +6,12 @@ from common import *
 event = {
   VIOLET | EQUALITY: {
     HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER: percent({
-      COMMON: [],
       RARE: [
         [MAINSTAT, 6.00],
         [HP, 6.00],
       ],
     }),
     SHOE: percent({
-      COMMON: [],
       RARE: [
         [MAINSTAT, 5.56],
         [HP, 5.56],
@@ -35,7 +33,6 @@ event = {
       ],
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
-      COMMON: [],
       RARE: [
         [MAINSTAT, 6.00],
         [HP, 6.00],
@@ -58,8 +55,7 @@ event = {
         [DROP, 5.88],
       ],
     }),
-    WEAPON | EMBLEM: percent({
-      COMMON: [],
+    WEAPON | EMBLEM | SECONDARY: percent({
       RARE: [
         [ATT, 1.85],
         [IED_15, 1.85],
@@ -69,8 +65,17 @@ event = {
         [IED_15, 4.00],
       ],
     }),
+    FORCE_SHIELD_SOUL_RING: percent({
+      RARE: [
+        [ATT, 2.08],
+        [IED_15, 2.08],
+      ],
+      EPIC: [
+        [ATT, 4.65],
+        [IED_15, 4.65],
+      ],
+    }),
     HAT | BOTTOM | CAPE_BELT_SHOULDER: percent({
-      COMMON: [],
       EPIC: [
         [MAINSTAT, 11.90],
         [HP, 16.67],
@@ -78,7 +83,6 @@ event = {
       ],
     }),
     TOP_OVERALL: percent({
-      COMMON: [],
       EPIC: [
         [INVIN, 6.25],
         [INVIN, 6.25],
@@ -100,7 +104,6 @@ event = {
       ],
     }),
     GLOVE: percent({
-      COMMON: [],
       EPIC: [
         [MAINSTAT, 10.42],
         [HP, 14.58],
@@ -121,7 +124,6 @@ event = {
       ],
     }),
     HAT: percent({
-      COMMON: [],
       UNIQUE: [
         [MAINSTAT, 7.94],
         [HP, 9.52],
@@ -136,7 +138,6 @@ event = {
       ],
     }),
     BOTTOM: percent({
-      COMMON: [],
       UNIQUE: [
         [MAINSTAT, 7.94],
         [HP, 9.52],
@@ -149,7 +150,6 @@ event = {
       ],
     }),
     CAPE_BELT_SHOULDER: percent({
-      COMMON: [],
       UNIQUE: [
         [MAINSTAT, 8.47],
         [HP, 10.17],
@@ -161,8 +161,7 @@ event = {
         [ALLSTAT, 6.67],
       ],
     }),
-    WEAPON: percent({
-      COMMON: [],
+    WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING: percent({
       UNIQUE: [
         [ATT, 6.52],
         [IED_30, 8.70],
@@ -178,7 +177,6 @@ event = {
       ],
     }),
     EMBLEM: percent({
-      COMMON: [],
       UNIQUE: [
         [ATT, 6.98],
         [IED_30, 9.30],
@@ -192,14 +190,12 @@ event = {
   },
   UNI: {
     HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER: percent({
-      COMMON: [],
       RARE: [
         [MAINSTAT, 2.78],
         [HP, 2.78],
       ],
     }),
     SHOE: percent({
-      COMMON: [],
       RARE: [
         [MAINSTAT, 2.19],
         [HP, 2.19],
@@ -221,7 +217,6 @@ event = {
       ],
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
-      COMMON: [],
       RARE: [
         [MAINSTAT, 2.78],
         [HP, 2.78],
@@ -244,8 +239,7 @@ event = {
         [DROP, 9.09],
       ],
     }),
-    WEAPON | EMBLEM: percent({
-      COMMON: [],
+    WEAPON | EMBLEM | SECONDARY: percent({
       RARE: [
         [ATT, 1.85],
         [IED_15, 1.85],
@@ -255,8 +249,17 @@ event = {
         [IED_15, 6.85],
       ],
     }),
+    FORCE_SHIELD_SOUL_RING: percent({
+      RARE: [
+        [ATT, 2.00],
+        [IED_15, 2.00],
+      ],
+      EPIC: [
+        [ATT, 4.55],
+        [IED_15, 7.58],
+      ],
+    }),
     HAT | BOTTOM | CAPE_BELT_SHOULDER: percent({
-      COMMON: [],
       EPIC: [
         [MAINSTAT, 14.08],
         [HP, 14.08],
@@ -264,7 +267,6 @@ event = {
       ],
     }),
     TOP_OVERALL: percent({
-      COMMON: [],
       EPIC: [
         [INVIN, 2.80],
         [INVIN, 2.80],
@@ -286,7 +288,6 @@ event = {
       ],
     }),
     GLOVE: percent({
-      COMMON: [],
       EPIC: [
         [MAINSTAT, 13.08],
         [HP, 13.08],
@@ -307,7 +308,6 @@ event = {
       ],
     }),
     HAT: percent({
-      COMMON: [],
       UNIQUE: [
         [MAINSTAT, 5.80],
         [HP, 5.80],
@@ -322,7 +322,6 @@ event = {
       ],
     }),
     BOTTOM: percent({
-      COMMON: [],
       UNIQUE: [
         [MAINSTAT, 6.35],
         [HP, 6.35],
@@ -335,7 +334,6 @@ event = {
       ],
     }),
     CAPE_BELT_SHOULDER: percent({
-      COMMON: [],
       UNIQUE: [
         [MAINSTAT, 7.69],
         [HP, 7.69],
@@ -347,8 +345,7 @@ event = {
         [ALLSTAT, 6.67],
       ],
     }),
-    WEAPON: percent({
-      COMMON: [],
+    WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING: percent({
       UNIQUE: [
         [ATT, 8.22],
         [IED_30, 20.55],
@@ -364,7 +361,6 @@ event = {
       ],
     }),
     EMBLEM: percent({
-      COMMON: [],
       UNIQUE: [
         [ATT, 8.70],
         [IED_30, 21.74],
