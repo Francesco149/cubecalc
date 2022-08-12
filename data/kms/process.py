@@ -12,10 +12,6 @@ import sys
 lines = {stat.strip(): float(percent.strip().split('%')[0])
          for stat, percent in zip_longest(*[sys.stdin]*2)}
 
-for x in ["공격력 : +12", "마력 : +12"]:
-  if x in lines:
-    lines.pop(x)
-
 KW_MATT = "마력"
 KW_ATT = "공격력"
 KW_STAT = "STR"

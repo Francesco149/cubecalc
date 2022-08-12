@@ -649,6 +649,7 @@ bonus = {
       [ALLSTAT, 4.0],
     ],
     UNIQUE: [
+      [FLAT_ATT, 3.6364],
       [MAINSTAT, 3.6364],
       [HP, 5.4545],
       [ALLSTAT, 3.6364],
@@ -679,6 +680,7 @@ bonus = {
       [ALLSTAT, 4.0],
     ],
     UNIQUE: [
+      [FLAT_ATT, 3.6364],
       [MAINSTAT, 3.6364],
       [HP, 5.4545],
       [ALLSTAT, 3.6364],
@@ -708,6 +710,7 @@ bonus = {
       [ALLSTAT, 4.0],
     ],
     UNIQUE: [
+      [FLAT_ATT, 3.6364],
       [MAINSTAT, 3.6364],
       [HP, 5.4545],
       [ALLSTAT, 3.6364],
@@ -737,6 +740,7 @@ bonus = {
       [ALLSTAT, 4.0],
     ],
     UNIQUE: [
+      [FLAT_ATT, 3.6364],
       [MAINSTAT, 3.6364],
       [HP, 5.4545],
       [ALLSTAT, 3.6364],
@@ -766,6 +770,7 @@ bonus = {
       [ALLSTAT, 4.0],
     ],
     UNIQUE: [
+      [FLAT_ATT, 3.6364],
       [MAINSTAT, 3.6364],
       [HP, 5.4545],
       [ALLSTAT, 3.6364],
@@ -795,6 +800,7 @@ bonus = {
       [ALLSTAT, 4.0],
     ],
     UNIQUE: [
+      [FLAT_ATT, 3.6364],
       [MAINSTAT, 3.6364],
       [HP, 5.4545],
       [ALLSTAT, 3.6364],
@@ -824,6 +830,7 @@ bonus = {
       [ALLSTAT, 4.0],
     ],
     UNIQUE: [
+      [FLAT_ATT, 3.6364],
       [MAINSTAT, 3.6364],
       [HP, 5.4545],
       [ALLSTAT, 3.6364],
@@ -852,6 +859,7 @@ bonus = {
       [ALLSTAT, 4.0],
     ],
     UNIQUE: [
+      [FLAT_ATT, 3.6364],
       [MAINSTAT, 3.6364],
       [HP, 5.4545],
       [ALLSTAT, 3.6364],
