@@ -493,7 +493,7 @@ line_values = {
     MAINSTAT: 6,
     ALLSTAT: 3,
     HP: 6,
-    INVIN_1: 1,
+    INVIN: 1,
   },
 
   UNIQUE: {
@@ -504,7 +504,7 @@ line_values = {
     MAINSTAT: 9,
     ALLSTAT: 6,
     HP: 9,
-    INVIN_2: 2,
+    INVIN: 2,
   },
 
   LEGENDARY: {
@@ -524,7 +524,7 @@ line_values = {
     CRITDMG: 8,
     MESO: 20,
     DROP: 20,
-    INVIN_3: 3,
+    INVIN: 3,
   },
 }
 

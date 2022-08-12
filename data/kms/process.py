@@ -63,9 +63,9 @@ convert = {
   boss_text(40): BOSS_40,
   cd_text(1): COOLDOWN_1,
   cd_text(2): COOLDOWN_2,
-  invin_text(1): INVIN_1,
-  invin_text(2): INVIN_2,
-  invin_text(3): INVIN_3,
+  invin_text(1): INVIN,
+  invin_text(2): INVIN,
+  invin_text(3): INVIN,
   "<쓸만한 윈드 부스터> 스킬 사용 가능": DECENT_SPEED_INFUSION,
   "<쓸만한 샤프 아이즈> 스킬 사용 가능": DECENT_SHARP_EYES,
 }

@@ -6,6 +6,7 @@ def global_enum(enum):
 
 @global_enum
 class Category(IntFlag):
+  CATEGORY_NULL = 0
   WEAPON = auto()
   EMBLEM = auto()
   SECONDARY = auto()
@@ -38,10 +39,11 @@ class Line(IntFlag):
   BOSS_35 = auto()
   BOSS_40 = auto()
   BOSS = BOSS_30 | BOSS_35 | BOSS_40
+  IED_15 = auto()
   IED_30 = auto()
   IED_35 = auto()
   IED_40 = auto()
-  IED = IED_30 | IED_35 | IED_40
+  IED = IED_15 | IED_30 | IED_35 | IED_40
   ATT = auto()
   ANY = auto()
   MAINSTAT = auto()
@@ -54,10 +56,7 @@ class Line(IntFlag):
   CRITDMG = auto()
   MESO = auto()
   DROP = auto()
-  INVIN_1 = auto()
-  INVIN_2 = auto()
-  INVIN_3 = auto()
-  INVIN = INVIN_1 | INVIN_2 | INVIN_3
+  INVIN = auto()
   DECENT_SPEED_INFUSION = auto()
   DECENT_SHARP_EYES = auto()
   DECENT_COMBAT_ORDERS = auto()
