@@ -7,24 +7,11 @@
 
 from cubecalc import disclaimer, cube_calc
 from common import *
-from functools import partial, reduce
-from operator import or_, add
+from functools import partial
 
-from data.utils import percent
+from data.utils import percent, find_probabilities
 import data.kms as kms
 import data.tms as tms
-
-empty_tiers = {x: [] for x in [COMMON, RARE, EPIC, UNIQUE, LEGENDARY]}
-
-def find_probabilities(data, cubes_mask, categories_mask):
-  # find all the dicts that match both the desired cubes and categories and merge them
-  cubedatas = [v for k, v in data.items() if k & cubes_mask]
-  probabilities = reduce(add, [[v for k, v in x.items() if k & categories_mask] for x in cubedatas])
-  info = {
-    NAME: category_name(categories_mask),
-    DEFAULT_CUBE: MEISTER if cubes_mask & NONCASH_MAIN else [x for x in Cube if x & cubes_mask],
-  }
-  return empty_tiers | info | reduce(or_, probabilities, {})
 
 prob_cash = partial(find_probabilities, kms.cubes, CASH_MAIN)
 weapon = prob_cash(WEAPON)
