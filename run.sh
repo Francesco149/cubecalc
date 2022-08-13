@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./cubecalc.py | tee cubechances.txt
+./textfile.py | tee cubechances.txt
