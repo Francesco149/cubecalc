@@ -45,24 +45,15 @@ def debug_print_combos(good, exit=True):
     import sys
     sys.exit(0)
 
-COMBOS = "combos"
-COMBOS_VIOLET = "combos (violet)"
-NAME = "name"
-DEFAULT_CUBE = "default cube"
 
-# official KMS probabilities:
+# prime chances can be calculated from the official KMS probabilities:
 #   https://maplestory.nexon.com/Guide/OtherProbability/cube/red
 #   https://maplestory.nexon.com/Guide/OtherProbability/cube/black
 #   https://maplestory.nexon.com/Guide/OtherProbability/cube/strange
 #   https://maplestory.nexon.com/Guide/OtherProbability/cube/master
 #   https://maplestory.nexon.com/Guide/OtherProbability/cube/artisan
 
-# strategywiki page which converts the KMS probabilities in a format that's easier to work with
-# since the official probabilities gives you different probabilities for 1st, 2nd, 3rd line
-# pre-adjusted for prime chance instead of just giving the base line chance + the prime chance
-#   https://strategywiki.org/wiki/MapleStory/Potential_System
-
-# TMS violet prime chance from the strategywiki page
+# TMS violet prime chance from: https://strategywiki.org/wiki/MapleStory/Potential_System
 
 prime_chances = {
   RED: [1, 0.1, 0.01],
@@ -96,9 +87,11 @@ prime_chances = {
 LINE_TYPE = 0
 LINE_ONEIN = 1
 
+# data pre-processing. lots of unnecessary redundancy here that I should fix
+# this is all glue that replaces the previously hardcoded probability tables
 import data.kms as kms
+import data.tms as tms
 
-# TODO: don't manually do all of this, let the data scrapers do the job
 for k, v in kms.cash.items():
   v[DEFAULT_CUBE] = [RED, BLACK]
 
@@ -111,6 +104,18 @@ for k, v in kms.bonus.items():
 for x in [kms.cash, kms.noncash, kms.bonus]:
   for k, v in x.items():
     v[NAME] = category_name(k)
+
+empty_tiers = {x: [] for x in [COMMON, RARE, EPIC, UNIQUE, LEGENDARY]}
+
+def find_probabilities(data, cubes_mask, categories_mask):
+  # find all the dicts that match both the desired cubes and categories and merge them
+  cubedatas = [v for k, v in data.items() if k & cubes_mask]
+  probabilities = reduce(add, [[v for k, v in x.items() if k & categories_mask] for x in cubedatas])
+  info = {
+    NAME: category_name(categories_mask),
+    DEFAULT_CUBE: [x for x in Cube if x & cubes_mask],
+  }
+  return empty_tiers | info | reduce(or_, probabilities, {})
 
 weapon = kms.cash[WEAPON]
 secondary = kms.cash[SECONDARY]
@@ -132,348 +137,29 @@ weapon_bonus = kms.bonus[WEAPON]
 secondary_bonus = kms.bonus[SECONDARY]
 emblem_bonus = kms.bonus[EMBLEM]
 
-# TMS probabilities for violet, equality and unicube lines
-# TODO: scrape this
-#   https://tw.beanfun.com/beanfuncommon/EventAD_Mobile/EventAD.aspx?EventADID=8421
-
-weapon_secondary_violet_equality = percent({
-  NAME: "weapon",
-  DEFAULT_CUBE: [VIOLET, EQUALITY],
-
-  UNIQUE: [
-    [BOSS_30, 6.52],
-    [ATT, 6.52],
-    [IED_30, 8.7],
-  ],
-
-  LEGENDARY: [
-    [BOSS_40, 4.44],
-    [BOSS_35, 4.44],
-    [BOSS_30, 4.44],
-    [ATT, 4.44],
-    [IED_40, 6.67],
-    [IED_35, 6.67],
-  ],
-
-})
-
-emblem_violet_equality = percent({
-  NAME: "emblem",
-  DEFAULT_CUBE: [VIOLET, EQUALITY],
-
-  UNIQUE: [
-    [ATT, 6.98],
-    [IED_30, 9.3],
-  ],
-
-  LEGENDARY: [
-    [ATT, 5.13],
-    [IED_40, 7.69],
-    [IED_35, 7.69],
-  ],
-
-})
-
-weapon_secondary_uni = percent({
-  NAME: "weapon/secondary",
-  DEFAULT_CUBE: UNI,
-
-  UNIQUE: [
-    [BOSS_30, 5.48],
-    [ATT, 8.22],
-    [IED_30, 20.55],
-  ],
-
-  LEGENDARY: [
-    [BOSS_40, 1.13],
-    [BOSS_35, 2.10],
-    [BOSS_30, 3.07],
-    [ATT, 3.24],
-    [IED_40, 16.18],
-    [IED_35, 25.89],
-  ],
-
-})
-
-emblem_uni = percent({
-  NAME: "emblem",
-  DEFAULT_CUBE: UNI,
-
-  UNIQUE: [
-    [ATT, 8.7],
-    [IED_30, 21.74],
-  ],
-
-  LEGENDARY: [
-    [ATT, 3.45],
-    [IED_40, 17.27],
-    [IED_35, 27.63],
-  ],
-
-})
-
-# pendants, rings, face, eye, earrings
-accessory_violet_equality = percent({
-  NAME: "accessory",
-  DEFAULT_CUBE: [VIOLET, EQUALITY],
-
-  UNIQUE: [
-    [MAINSTAT, 9.8],
-    [HP, 11.76],
-    [ALLSTAT, 7.84],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 7.84],
-    [ALLSTAT, 5.88],
-    [HP, 7.84],
-    [MESO, 5.88],
-    [DROP, 5.88],
-  ],
-
-})
-
-accessory_uni = percent({
-  NAME: "accessory",
-  DEFAULT_CUBE: UNI,
-
-  UNIQUE: [
-    [MAINSTAT, 11.63],
-    [HP, 11.63],
-    [ALLSTAT, 2.33],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 6.06],
-    [ALLSTAT, 1.52],
-    [HP, 6.06],
-    [MESO, 9.09],
-    [DROP, 9.09],
-  ],
-
-})
-
-cape_belt_shoulder_violet_equality = percent({
-  NAME: "cape/belt/shoulder",
-  DEFAULT_CUBE: [VIOLET, EQUALITY],
-
-  UNIQUE: [
-    [MAINSTAT, 8.47],
-    [HP, 10.17],
-    [ALLSTAT, 6.78],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 8.89],
-    [HP, 8.89],
-    [ALLSTAT, 6.67],
-  ],
-
-})
-
-cape_belt_shoulder_uni = percent({
-  NAME: "cape/belt/shoulder",
-  DEFAULT_CUBE: UNI,
-
-  UNIQUE: [
-    [MAINSTAT, 7.69],
-    [HP, 7.69],
-    [ALLSTAT, 1.54],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 8.89],
-    [HP, 8.89],
-    [ALLSTAT, 6.67],
-  ],
-
-})
-
-shoe_violet_equality = percent({
-  NAME: "shoe",
-  DEFAULT_CUBE: [VIOLET, EQUALITY],
-
-  UNIQUE: [
-    [MAINSTAT, 7.94],
-    [HP, 9.52],
-    [ALLSTAT, 6.35],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 8.33],
-    [HP, 8.33],
-    [ALLSTAT, 6.25],
-  ],
-
-})
-
-shoe_uni = percent({
-  NAME: "shoe",
-  DEFAULT_CUBE: UNI,
-
-  UNIQUE: [
-    [MAINSTAT, 6.33],
-    [HP, 6.33],
-    [ALLSTAT, 1.27],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 7.27],
-    [HP, 7.27],
-    [ALLSTAT, 1.82],
-  ],
-
-})
-
-glove_violet_equality = percent({
-  NAME: "glove",
-  DEFAULT_CUBE: [VIOLET, EQUALITY],
-
-  UNIQUE: [
-    [MAINSTAT, 7.46],
-    [HP, 8.96],
-    [ALLSTAT, 5.97],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 7.69],
-    [HP, 7.69],
-    [ALLSTAT, 5.77],
-    [CRITDMG, 7.69],
-  ],
-
-})
-
-glove_uni = percent({
-  NAME: "glove",
-  DEFAULT_CUBE: UNI,
-
-  UNIQUE: [
-    [MAINSTAT, 5.26],
-    [HP, 5.26],
-    [ALLSTAT, 1.05],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 5.8],
-    [HP, 5.8],
-    [ALLSTAT, 1.45],
-    [CRITDMG, 2.9],
-  ],
-
-})
-
-bottom_violet_equality = percent({
-  NAME: "bottom",
-  DEFAULT_CUBE: [VIOLET, EQUALITY],
-
-  UNIQUE: [
-    [MAINSTAT, 7.94],
-    [HP, 9.52],
-    [ALLSTAT, 6.35],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 8.89],
-    [HP, 8.89],
-    [ALLSTAT, 6.67],
-  ],
-
-})
-
-bottom_uni = percent({
-  NAME: "bottom",
-  DEFAULT_CUBE: UNI,
-
-  UNIQUE: [
-    [MAINSTAT, 6.35],
-    [HP, 6.35],
-    [ALLSTAT, 1.59],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 8.89],
-    [HP, 8.89],
-    [ALLSTAT, 2.22],
-  ],
-
-})
-
-top_overall_violet_equality = percent({
-  NAME: "top/overall",
-  DEFAULT_CUBE: [VIOLET, EQUALITY],
-
-  UNIQUE: [
-    [MAINSTAT, 6.85],
-    [HP, 8.22],
-    [ALLSTAT, 5.48],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 7.84],
-    [HP, 7.84],
-    [ALLSTAT, 5.88],
-  ],
-
-})
-
-top_overall_uni = percent({
-  NAME: "top/overall",
-  DEFAULT_CUBE: UNI,
-
-  UNIQUE: [
-    [MAINSTAT, 4.08],
-    [HP, 4.08],
-    [ALLSTAT, 1.02],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 6.15],
-    [HP, 6.15],
-    [ALLSTAT, 1.54],
-  ],
-
-})
-
-hat_violet_equality = percent({
-  NAME: "hat",
-  DEFAULT_CUBE: [VIOLET, EQUALITY],
-
-  UNIQUE: [
-    [MAINSTAT, 7.94],
-    [HP, 9.52],
-    [ALLSTAT, 6.35],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 7.55],
-    [HP, 7.55],
-    [ALLSTAT, 5.66],
-    [COOLDOWN_2, 3.77],
-    [COOLDOWN_1, 5.66],
-  ],
-
-})
-
-hat_uni = percent({
-  NAME: "hat",
-  DEFAULT_CUBE: UNI,
-
-  UNIQUE: [
-    [MAINSTAT, 5.8],
-    [HP, 5.8],
-    [ALLSTAT, 1.45],
-  ],
-
-  LEGENDARY: [
-    [MAINSTAT, 5.0],
-    [HP, 5.0],
-    [ALLSTAT, 1.25],
-    [COOLDOWN_2, 10.0],
-    [COOLDOWN_1, 10.0],
-  ],
-
-})
+# note: w/s and force shield/soul ring should not be together if we're gonna go below uniq
+
+prob_ve = partial(find_probabilities, tms.event, VIOLET | EQUALITY)
+weapon_secondary_violet_equality = prob_ve(WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING)
+emblem_violet_equality = prob_ve(EMBLEM)
+accessory_violet_equality = prob_ve(FACE_EYE_RING_EARRING_PENDANT)
+cape_belt_shoulder_violet_equality = prob_ve(CAPE_BELT_SHOULDER)
+shoe_violet_equality = prob_ve(SHOE)
+glove_violet_equality = prob_ve(GLOVE)
+bottom_violet_equality = prob_ve(BOTTOM)
+top_overall_violet_equality = prob_ve(TOP_OVERALL)
+hat_violet_equality = prob_ve(HAT)
+
+prob_uni = partial(find_probabilities, tms.event, UNI)
+weapon_secondary_uni = prob_uni(WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING)
+emblem_uni = prob_uni(EMBLEM)
+accessory_uni = prob_uni(FACE_EYE_RING_EARRING_PENDANT)
+cape_belt_shoulder_uni = prob_uni(CAPE_BELT_SHOULDER)
+shoe_uni = prob_uni(SHOE)
+glove_uni = prob_uni(GLOVE)
+bottom_uni = prob_uni(BOTTOM)
+top_overall_uni = prob_uni(TOP_OVERALL)
+hat_uni = prob_uni(HAT)
 
 # -------------------------------------------------------------------------------------------------
 
@@ -505,6 +191,7 @@ line_values = {
     ALLSTAT: 6,
     HP: 9,
     INVIN: 2,
+    DECENT_SHARP_EYES: 1,
   },
 
   LEGENDARY: {
@@ -525,6 +212,8 @@ line_values = {
     MESO: 20,
     DROP: 20,
     INVIN: 3,
+    DECENT_SPEED_INFUSION: 1,
+    DECENT_COMBAT_ORDERS: 1,
   },
 }
 

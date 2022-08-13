@@ -20,17 +20,35 @@ class Category(IntFlag):
   FACE_EYE_RING_EARRING_PENDANT = auto()
   HEART_BADGE = auto()
 
+  # TODO: get rid of these
+  COMBOS = auto()
+  COMBOS_VIOLET = auto()
+  NAME = auto()
+  DEFAULT_CUBE = auto()
+
 category_names = {
-  SECONDARY: "secondary (excluding force shield and soul ring)",
-  FORCE_SHIELD_SOUL_RING: "force shield and soul ring",
-  TOP_OVERALL: "top and overall",
-  CAPE_BELT_SHOULDER: "cape, belt, shoulder",
-  FACE_EYE_RING_EARRING_PENDANT: "accessory (face, eye, ring, ear, pendant)",
-  HEART_BADGE: "heart and pottable badge",
+  SECONDARY: "2ndary excl. force shield/soul ring",
+  FORCE_SHIELD_SOUL_RING: "force shield/soul ring",
+  TOP_OVERALL: "top/overall",
+  CAPE_BELT_SHOULDER: "cape/belt/shoulder",
+  FACE_EYE_RING_EARRING_PENDANT: "accessory (face/eye/ring/ear/pend)",
+  HEART_BADGE: "heart/badge",
 }
 
+combined_category_names = {
+  SECONDARY | FORCE_SHIELD_SOUL_RING: "2ndary/force shield/soul ring",
+}
+
+enumbits = lambda v, e: [x for x in e if v & x]
+
 def category_name(c):
-  return category_names[c] if c in category_names else c.name.lower()
+  combined = []
+  for x in combined_category_names.keys():
+    if c & x == x:
+      combined += [combined_category_names[x]]
+      c &= ~x
+  return ", ".join([category_names[x] if x in category_names else x.name.lower()
+                    for x in enumbits(c, Category)] + combined)
 
 @global_enum
 class Line(IntFlag):
