@@ -9,9 +9,11 @@ cash = {
     COMMON: [],
     RARE: [
       [ATT, 2.0408],
+      [IED_15, 2.0408],
     ],
     EPIC: [
       [ATT, 4.3478],
+      [IED_15, 4.3478],
     ],
     UNIQUE: [
       [ATT, 6.9767],
@@ -31,9 +33,11 @@ cash = {
     COMMON: [],
     RARE: [
       [ATT, 2.0408],
+      [IED_15, 2.0408],
     ],
     EPIC: [
       [ATT, 4.3478],
+      [IED_15, 4.3478],
     ],
     UNIQUE: [
       [ATT, 7.5],
@@ -50,9 +54,11 @@ cash = {
     COMMON: [],
     RARE: [
       [ATT, 2.0408],
+      [IED_15, 2.0408],
     ],
     EPIC: [
       [ATT, 4.3478],
+      [IED_15, 4.3478],
     ],
     UNIQUE: [
       [ATT, 5.8824],
@@ -72,9 +78,11 @@ cash = {
     COMMON: [],
     RARE: [
       [ATT, 2.1739],
+      [IED_15, 2.1739],
     ],
     EPIC: [
       [ATT, 4.878],
+      [IED_15, 4.878],
     ],
     UNIQUE: [
       [ATT, 5.8824],
@@ -293,9 +301,11 @@ noncash = {
     COMMON: [],
     RARE: [
       [ATT, 1.7544],
+      [IED_15, 1.7544],
     ],
     EPIC: [
       [ATT, 3.8462],
+      [IED_15, 3.8462],
     ],
     UNIQUE: [
       [ATT, 6.6667],
@@ -315,9 +325,11 @@ noncash = {
     COMMON: [],
     RARE: [
       [ATT, 1.7544],
+      [IED_15, 1.7544],
     ],
     EPIC: [
       [ATT, 3.8462],
+      [IED_15, 3.8462],
     ],
     UNIQUE: [
       [ATT, 7.1429],
@@ -334,9 +346,11 @@ noncash = {
     COMMON: [],
     RARE: [
       [ATT, 1.7544],
+      [IED_15, 1.7544],
     ],
     EPIC: [
       [ATT, 2.8571],
+      [IED_15, 2.8571],
     ],
     UNIQUE: [
       [ATT, 4.7619],
@@ -356,9 +370,11 @@ noncash = {
     COMMON: [],
     RARE: [
       [ATT, 1.9608],
+      [IED_15, 1.9608],
     ],
     EPIC: [
       [ATT, 3.4483],
+      [IED_15, 3.4483],
     ],
     UNIQUE: [
       [ATT, 4.7619],

@@ -55,6 +55,7 @@ convert = {
   flat_text(KW_ATT, 11): FLAT_ATT,
   flat_text(KW_ATT): FLAT_ATT,
   flat_text(KW_ATT, 14): FLAT_ATT,
+  ied_text(15): IED_15,
   ied_text(30): IED_30,
   ied_text(35): IED_35,
   ied_text(40): IED_40,

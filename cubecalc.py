@@ -171,6 +171,7 @@ line_values = {
     ANY: 0,
     MAINSTAT: 3,
     HP: 3,
+    IED_15: 15,
   },
 
   EPIC: {
@@ -180,6 +181,7 @@ line_values = {
     ALLSTAT: 3,
     HP: 6,
     INVIN: 1,
+    IED_15: 15,
   },
 
   UNIQUE: {
