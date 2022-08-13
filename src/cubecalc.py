@@ -149,6 +149,46 @@ def debug_print_combos(good, exit=True):
 
 
 def cube_calc(wants, type, tier, lines):
+  """
+  calculate probability of rolling a combination of stats
+
+  Parameters
+  ----------
+  wants : dict
+    maps stats to the desired minimum amount.
+    for example, {STAT: 6, CRITDMG: 8} means "8%+ crit dmg and 6+stat together"
+
+    if the special key LINES is included, the probability of rolling any combination
+    that contains wants[LINES] or more of any of the lines specified, and the amount is ignored.
+    for example, {ATT: 1, BOSS: 1, LINES: 3} means
+      "any combination of 3 lines of either att or boss"
+
+  type : Cube enum
+    cube type. see the enum
+
+  tier : Tier enum
+    the tier of the item. if the cube's tier limit is lower than this, it will be adjusted to the
+    highest allowed
+
+  lines : dict
+    maps tiers to lists of lists that contain the line type and probability. probability should be
+    in the format of "one in x", meaning that 20 means 1/20 (5%).
+    the line type is a Line enum.
+    NOTE: this dict will be modified during the calculation for caching purposes and more keys
+          will be added to it. if you need to reuse the data, make a copy before passing it
+    example that also shows how to convert % probability to "one in"
+    {
+      UNIQUE: [
+        [ATT, 1/7.5*100],
+        [IED_30, 1/7.5*100],
+      ],
+      LEGENDARY: [
+        [ATT, 1/5.7143*100],
+        [IED_35, 1/5.7143*100],
+        [IED_40, 1/5.7143*100],
+      ],
+    }
+  """
   if type in tier_limits:
     tier = min(tier_limits[type], tier)
 
