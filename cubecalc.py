@@ -346,6 +346,11 @@ def __cube_calc(print_combos, type, tier, lines):
       mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > 2 for x in forbidden])
       c.filt(np.logical_not(mask))
 
+    forbidden = [DECENTS, INVIN]
+    if np.any(c.types & reduce(or_, forbidden) != 0):
+      mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > 1 for x in forbidden])
+      c.filt(np.logical_not(mask))
+
     if LINES in want:
       # all combinations that contains at least n lines of any of the stats specified
       # TODO: allow specifying minimum amount for the lines

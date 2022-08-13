@@ -68,6 +68,7 @@ convert = {
   invin_text(3): INVIN,
   "<쓸만한 윈드 부스터> 스킬 사용 가능": DECENT_SPEED_INFUSION,
   "<쓸만한 샤프 아이즈> 스킬 사용 가능": DECENT_SHARP_EYES,
+  "<쓸만한 컴뱃 오더스> 스킬 사용 가능": DECENT_COMBAT_ORDERS,
 }
 
 # we only take 1 stat and 1 type of att since they're all the same

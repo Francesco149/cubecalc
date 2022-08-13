@@ -3,7 +3,7 @@ from common import *
 def relevant_lines(cube):
   stat = STAT | HP
 
-  if cube & (RED | BLACK | OCCULT | MASTER | MEISTER | VIOLET | EQUALITY | UNI) != 0:
+  if cube & (RED | BLACK | OCCULT | MASTER | MEISTER | VIOLET | EQUALITY | UNI):
     e = IED | ATT
     ws = e | BOSS
     lines = {
@@ -14,14 +14,14 @@ def relevant_lines(cube):
       HAT: stat | COOLDOWN,
       TOP_OVERALL: stat | INVIN,
       BOTTOM: stat,
-      SHOE: stat,
+      SHOE: stat | DECENTS,
       GLOVE: stat | CRITDMG | DECENTS,
       CAPE_BELT_SHOULDER: stat,
       FACE_EYE_RING_EARRING_PENDANT: stat | MESO | DROP,
       HEART_BADGE: stat,
     }
 
-  elif cube & BONUS != 0:
+  elif cube & BONUS:
     e = IED | ATT
     ws = e | BOSS
     stat = STAT | HP | DROP | MESO | CRITDMG | FLAT_ATT

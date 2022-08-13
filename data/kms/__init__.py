@@ -184,6 +184,7 @@ cash = {
       [MAINSTAT, 10.0],
       [HP, 10.0],
       [ALLSTAT, 7.5],
+      [DECENT_COMBAT_ORDERS, 7.5],
     ],
   }),
   
@@ -467,6 +468,7 @@ noncash = {
       [MAINSTAT, 6.4516],
       [HP, 9.6774],
       [ALLSTAT, 6.4516],
+      [DECENT_COMBAT_ORDERS, 9.6774],
     ],
   }),
   

@@ -27,6 +27,7 @@ event = {
         [ALLSTAT, 6.35],
       ],
       LEGENDARY: [
+        [DECENT_COMBAT_ORDERS, 6.25],
         [MAINSTAT, 8.33],
         [HP, 8.33],
         [ALLSTAT, 6.25],
@@ -211,6 +212,7 @@ event = {
         [ALLSTAT, 1.27],
       ],
       LEGENDARY: [
+        [DECENT_COMBAT_ORDERS, 10.91],
         [MAINSTAT, 7.27],
         [HP, 7.27],
         [ALLSTAT, 1.82],
