@@ -127,6 +127,12 @@ line_values = {
 }
 
 
+forbidden_combos = [
+  (1, [DECENTS, INVIN]),
+  (2, [BOSS, IED, DROP]),
+]
+
+
 LINE_TYPE = 0
 LINE_ONEIN = 1
 
@@ -253,19 +259,17 @@ def cube_calc(wants, type, tier, lines):
     #  that are True in mask
     # so for example [a, b, c][ [True, False, True] ] returns [a, c]
 
-    # can't have more than 2 of these in a combo
-    # note: we AND with the line type because some lines match multiple lines. for example
-    #       when we look for stat we also want to match allstat, so we set up the lines enum
-    #       to be a bitmask so we can match multiple things such as MAINSTAT | ALLSTAT
-    forbidden = [BOSS, IED, DROP]
-    if np.any(c.types & reduce(or_, forbidden) != 0):
-      mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > 2 for x in forbidden])
-      c.filt(np.logical_not(mask))
+    # note: line types are a bitmask so that we can check for multiple line types in one operation
+    #       by just ANDing by a bit mask of all the types we want.
 
-    forbidden = [DECENTS, INVIN]
-    if np.any(c.types & reduce(or_, forbidden) != 0):
-      mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > 1 for x in forbidden])
-      c.filt(np.logical_not(mask))
+    #       this is also useful to match multiple lines later. for example
+    #       when we look for stat we also want to match allstat so we can check that
+    #       line_type & (MAINSTAT | ALLSTAT) != 0
+
+    for n, forbidden in forbidden_combos:
+      if np.any(c.types & reduce(or_, forbidden) != 0):
+        mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > n for x in forbidden])
+        c.filt(np.logical_not(mask))
 
     if LINES in want:
       # all combinations that contains at least n lines of any of the stats specified
