@@ -20,9 +20,8 @@ class Category(IntFlag):
   FACE_EYE_RING_EARRING_PENDANT = auto()
   HEART_BADGE = auto()
 
-  # TODO: get rid of these
+  # special internal values used for caching
   COMBOS = auto()
-  COMBOS_VIOLET = auto()
   NAME = auto()
   DEFAULT_CUBE = auto()
 

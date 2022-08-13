@@ -175,7 +175,8 @@ def cube_calc(wants, type, tier, lines):
     in the format of "one in x", meaning that 20 means 1/20 (5%).
     the line type is a Line enum.
     NOTE: this dict will be modified during the calculation for caching purposes and more keys
-          will be added to it. if you need to reuse the data, make a copy before passing it
+          will be added to it. if you need to reuse the data for other things, make a copy before
+          passing it. the caching makes subsequent calls for the same data and cubes faster.
     example that also shows how to convert % probability to "one in"
     {
       UNIQUE: [
@@ -244,11 +245,14 @@ def cube_calc(wants, type, tier, lines):
     return c
 
 
-  # cache combos for each set of lines
-  combos_i = COMBOS_VIOLET if type == VIOLET else COMBOS
-  if combos_i not in lines:
-    lines[combos_i] = {}
-  line_cache = cache_combos(lines[combos_i])
+  # cache combos for each cube category called for these lines.
+  # the category is mainly how many lines we're rolling and the prime/nonprime logic
+  if COMBOS not in lines:
+    lines[COMBOS] = {}
+  category = type if type in {VIOLET, UNI} else RED
+  if category not in lines[COMBOS]:
+    lines[COMBOS][category] = {}
+  line_cache = cache_combos(lines[COMBOS][category])
 
   # unicubes are 1/3rd the line chances because you roll 3 cubes on average to select
   chance_multiplier = 3 if type == UNI else 1
@@ -281,9 +285,9 @@ def cube_calc(wants, type, tier, lines):
     p = np.arange(num_prime)
     n = np.arange(len(c.types))
 
-    if type == VIOLET:
+    if category == VIOLET:
       combo_idxs = np.array(np.meshgrid(p, n, n, n, n, n)).T.reshape(-1, 6)
-    elif type == UNI:
+    elif category == UNI:
       combo_idxs = np.array(np.meshgrid(n)).T.reshape(-1, 1)
     else:
       combo_idxs = np.array(np.meshgrid(p, n, n)).T.reshape(-1, 3)
