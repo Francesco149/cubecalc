@@ -43,14 +43,12 @@ i() {
     level=100
   fi
   echo "$name: percent({"
-  echo "  COMMON: [],"
   for x in $(tiers); do
     tier=$(tier_names | cut -d' ' -f$x)
     printf "$tier: "
     get $cube $x $item $level | ./process.py $cube_name $equip_type || exit
   done | indent
   echo "}),"
-  echo
 }
 
 generate() {
@@ -74,18 +72,17 @@ generate() {
   echo "from data.utils import percent"
   echo "from common import *"
   echo
-  echo "# cash cubes (red, black)"
-  echo "cash = {"
-  generate | indent
-  echo "}"
-  echo
-  echo "# non-cash cubes (occult/suspicious, master/yellow, meister/artisan/purple)"
-  echo "noncash = {"
-  CUBENAME=MEISTER CUBE=$meister generate | indent
-  echo "}"
-  echo
-  echo "# bonus/additional potential"
-  echo "bonus = {"
-  CUBENAME=BONUS CUBE=$bonus generate | indent
+  echo "cubes = {"
+  (
+    echo "CASH_MAIN: {"
+    generate | indent
+    echo "},"
+    echo "NONCASH_MAIN: {"
+    CUBENAME=MEISTER CUBE=$meister generate | indent
+    echo "},"
+    echo "BONUS: {"
+    CUBENAME=BONUS CUBE=$bonus generate | indent
+    echo "},"
+  ) | indent
   echo "}"
 ) | tee __init__.py

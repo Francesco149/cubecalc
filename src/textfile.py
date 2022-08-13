@@ -14,19 +14,6 @@ from data.utils import percent
 import data.kms as kms
 import data.tms as tms
 
-for k, v in kms.cash.items():
-  v[DEFAULT_CUBE] = [RED, BLACK]
-
-for k, v in kms.noncash.items():
-  v[DEFAULT_CUBE] = MEISTER
-
-for k, v in kms.bonus.items():
-  v[DEFAULT_CUBE] = BONUS
-
-for x in [kms.cash, kms.noncash, kms.bonus]:
-  for k, v in x.items():
-    v[NAME] = category_name(k)
-
 empty_tiers = {x: [] for x in [COMMON, RARE, EPIC, UNIQUE, LEGENDARY]}
 
 def find_probabilities(data, cubes_mask, categories_mask):
@@ -35,29 +22,32 @@ def find_probabilities(data, cubes_mask, categories_mask):
   probabilities = reduce(add, [[v for k, v in x.items() if k & categories_mask] for x in cubedatas])
   info = {
     NAME: category_name(categories_mask),
-    DEFAULT_CUBE: [x for x in Cube if x & cubes_mask],
+    DEFAULT_CUBE: MEISTER if cubes_mask & NONCASH_MAIN else [x for x in Cube if x & cubes_mask],
   }
   return empty_tiers | info | reduce(or_, probabilities, {})
 
-weapon = kms.cash[WEAPON]
-secondary = kms.cash[SECONDARY]
-emblem = kms.cash[EMBLEM]
-top_overall = kms.cash[TOP_OVERALL]
-bottom = kms.cash[BOTTOM]
-hat = kms.cash[HAT]
-accessory = kms.cash[FACE_EYE_RING_EARRING_PENDANT]
+prob_cash = partial(find_probabilities, kms.cubes, CASH_MAIN)
+weapon = prob_cash(WEAPON)
+secondary = prob_cash(SECONDARY)
+emblem = prob_cash(EMBLEM)
+top_overall = prob_cash(TOP_OVERALL)
+bottom = prob_cash(BOTTOM)
+hat = prob_cash(HAT)
+accessory = prob_cash(FACE_EYE_RING_EARRING_PENDANT)
 
-weapon_noncash = kms.noncash[WEAPON]
-secondary_noncash = kms.noncash[SECONDARY]
-emblem_noncash = kms.noncash[EMBLEM]
-top_overall_noncash = kms.noncash[TOP_OVERALL]
-bottom_noncash = kms.noncash[BOTTOM]
-hat_noncash = kms.noncash[HAT]
-accessory_noncash = kms.noncash[FACE_EYE_RING_EARRING_PENDANT]
+prob_noncash = partial(find_probabilities, kms.cubes, NONCASH_MAIN)
+weapon_noncash = prob_noncash(WEAPON)
+secondary_noncash = prob_noncash(SECONDARY)
+emblem_noncash = prob_noncash(EMBLEM)
+top_overall_noncash = prob_noncash(TOP_OVERALL)
+bottom_noncash = prob_noncash(BOTTOM)
+hat_noncash = prob_noncash(HAT)
+accessory_noncash = prob_noncash(FACE_EYE_RING_EARRING_PENDANT)
 
-weapon_bonus = kms.bonus[WEAPON]
-secondary_bonus = kms.bonus[SECONDARY]
-emblem_bonus = kms.bonus[EMBLEM]
+prob_bonus = partial(find_probabilities, kms.cubes, BONUS)
+weapon_bonus = prob_bonus(WEAPON)
+secondary_bonus = prob_bonus(SECONDARY)
+emblem_bonus = prob_bonus(EMBLEM)
 
 # note: w/s and force shield/soul ring should not be together if we're gonna go below uniq
 

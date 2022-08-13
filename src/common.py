@@ -55,21 +55,17 @@ class Line(IntFlag):
   BOSS_30 = auto()
   BOSS_35 = auto()
   BOSS_40 = auto()
-  BOSS = BOSS_30 | BOSS_35 | BOSS_40
   IED_15 = auto()
   IED_30 = auto()
   IED_35 = auto()
   IED_40 = auto()
-  IED = IED_15 | IED_30 | IED_35 | IED_40
   ATT = auto()
   ANY = auto()
   MAINSTAT = auto()
   ALLSTAT = auto()
-  STAT = MAINSTAT | ALLSTAT
   HP = auto()
   COOLDOWN_1 = auto()
   COOLDOWN_2 = auto()
-  COOLDOWN = COOLDOWN_1 | COOLDOWN_2
   CRITDMG = auto()
   MESO = auto()
   DROP = auto()
@@ -77,7 +73,6 @@ class Line(IntFlag):
   DECENT_SPEED_INFUSION = auto()
   DECENT_SHARP_EYES = auto()
   DECENT_COMBAT_ORDERS = auto()
-  DECENTS = DECENT_SPEED_INFUSION | DECENT_SHARP_EYES | DECENT_COMBAT_ORDERS
   FLAT_ATT = auto()
   FLAT_MAINSTAT = auto()
   FLAT_ALLSTAT = auto()
@@ -85,6 +80,13 @@ class Line(IntFlag):
 
   # special keys for matching lines
   LINES = auto() # match by number of lines and what lines are allowed
+
+
+BOSS = BOSS_30 | BOSS_35 | BOSS_40
+STAT = MAINSTAT | ALLSTAT
+IED = IED_15 | IED_30 | IED_35 | IED_40
+COOLDOWN = COOLDOWN_1 | COOLDOWN_2
+DECENTS = DECENT_SPEED_INFUSION | DECENT_SHARP_EYES | DECENT_COMBAT_ORDERS
 
 @global_enum
 class Tier(IntEnum):
@@ -108,3 +110,6 @@ class Cube(IntFlag):
   EQUALITY = auto()
   BONUS = auto()
   UNI = auto()
+
+NONCASH_MAIN = OCCULT | MASTER | MEISTER
+CASH_MAIN = RED | BLACK
