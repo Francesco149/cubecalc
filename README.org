@@ -1,10 +1,12 @@
 this python script calculates average MapleStory cubing chances for various combinations of lines. it's something I quickly put together mainly for myself and I don't know for sure that my calculations are 100% accurate, I'm not an expert on statistics. if you don't want to run it yourself you can see its output [[cubechances.txt][here]]
 
 * how does it work
-I take my line chances from [[https://strategywiki.org/wiki/MapleStory/Potential_System][here]] which should agree with the official KMS probabilities [[https://maplestory.nexon.com/Guide/OtherProbability/cube/red][here]] . I get the chances for all the lines I care about and I generate a line for "any other line I don't care about" that has probability ~1 - sum of the probability of all the other lines~ . I then generate all possible combinations of lines (including multiple primes) and remove impossible combinations such as 3l IED. I scan all these combinations for desired lines, such as 21 or more % stat. I calculate and sum the probability of all these matching combinations, remembering to apply the probability of prime 2nd/3rd line in case of multiple prime combinations.
+I get the chances for all the lines I care about and I generate a line for "any other line I don't care about" that has probability ~1 - sum of the probability of all the other lines~ . I then generate all possible combinations of lines (including multiple primes) and remove impossible combinations such as 3l IED. I scan all these combinations for desired lines, such as 21 or more % stat. I calculate and sum the probability of all these matching combinations, remembering to apply the probability of prime 2nd/3rd line in case of multiple prime combinations.
 
 * is it accurate?
-I don't really know. the math makes sense in my head, but I don't consider myself an expert on statistics and there's probabily more efficient ways to do the same thing. if you think I'm wrong, let me know and explain why. I would like to have an accurate estimate
+I don't really know. the math makes sense in my head, but I don't consider myself an expert on statistics and there's probabily more efficient ways to do the same thing. if you think I'm wrong, let me know and explain why. I would like to have an accurate estimate.
+
+[[src/cubecalc.py#L5][the disclaimer]] lists all the assumptions made
 
 * suckhard's calculator disagrees with your results
 the discrepancies between this and suckhard's calculator are mainly because suckhard doesn't always
