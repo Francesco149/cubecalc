@@ -249,7 +249,7 @@ def cube_calc(wants, type, tier, lines):
   # the category is mainly how many lines we're rolling and the prime/nonprime logic
   if COMBOS not in lines:
     lines[COMBOS] = {}
-  category = type if type in {VIOLET, UNI} else RED
+  category = type if type in {VIOLET, UNI, EQUALITY} else RED
   if category not in lines[COMBOS]:
     lines[COMBOS][category] = {}
   line_cache = cache_combos(lines[COMBOS][category])
@@ -289,6 +289,8 @@ def cube_calc(wants, type, tier, lines):
       combo_idxs = np.array(np.meshgrid(p, n, n, n, n, n)).T.reshape(-1, 6)
     elif category == UNI:
       combo_idxs = np.array(np.meshgrid(n)).T.reshape(-1, 1)
+    elif category == EQUALITY:
+      combo_idxs = np.array(np.meshgrid(p, p, p)).T.reshape(-1, 3)
     else:
       combo_idxs = np.array(np.meshgrid(p, n, n)).T.reshape(-1, 3)
 
