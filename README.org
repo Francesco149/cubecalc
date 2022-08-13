@@ -19,12 +19,12 @@ error prone as long as my combinations code is not wrong.
 * how to run it
 ** method 1: manually install dependencies and run it
 - have python3 and numpy installed
-- run ~cubecalc.py~ . if you are on linux, you can do ~./run.sh~ and it will also update the text
+- run ~src/textfile.py~ . if you are on linux, you can do ~src/run.sh~ and it will also update the text
 
 ** method 2: nix dev shell (this is what I use)
 this method is more reliable as the nix environment has exactly the python and numpy versions
 that I used during development.
 
 - if you're not on nixos, install the nix package manager https://nix.dev/tutorials/install-nix
-- run ~nix develop~ and then ~./run.sh~
+- run ~nix develop~ and then ~./src/run.sh~
 - this works on linux, macos, docker and windows WSL2
