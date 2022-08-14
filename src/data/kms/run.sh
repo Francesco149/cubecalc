@@ -70,10 +70,6 @@ generate() {
 
 (
   header
-  echo "import sys"
-  echo "from datautils import percent"
-  echo "from common import *"
-  echo
   echo "cubes = {"
   (
     echo "CASH_MAIN: {"

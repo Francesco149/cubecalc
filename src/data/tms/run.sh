@@ -18,10 +18,6 @@ fi
 
 (
   header
-  echo "import sys"
-  echo "from datautils import percent"
-  echo "from common import *"
-  echo
   echo "event = {"
   ./process.py | sed 's/^/  /g'
   echo "}"
