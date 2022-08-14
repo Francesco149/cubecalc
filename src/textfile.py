@@ -9,9 +9,9 @@ from cubecalc import disclaimer, cube_calc
 from common import *
 from functools import partial
 
-from data.utils import percent, find_probabilities
-import data.kms as kms
-import data.tms as tms
+from datautils import percent, find_probabilities
+import kms
+import tms
 
 prob_cash = partial(find_probabilities, kms.cubes, CASH_MAIN)
 weapon = prob_cash(WEAPON)

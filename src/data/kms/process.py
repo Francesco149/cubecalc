@@ -4,7 +4,7 @@ import sys
 
 sys.path.append("../../")
 from common import *
-import data.utils as utils
+from datautils import relevant_lines
 
 from itertools import zip_longest
 import sys
@@ -91,7 +91,7 @@ def converted_lines():
     if c:
       yield c, v
 
-rl = utils.relevant_lines(Cube[sys.argv[1]])[Category[sys.argv[2]]]
+rl = relevant_lines(Cube[sys.argv[1]])[Category[sys.argv[2]]]
 lines = {k: v for k, v in converted_lines() if k & rl != 0}
 
 print("[")

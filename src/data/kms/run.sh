@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ../common.sh
+
 red=5062009
 meister=2711004
 bonus=5062500
@@ -67,9 +69,9 @@ generate() {
 }
 
 (
+  header
   echo "import sys"
-  echo "sys.path.append(\"../../\")"
-  echo "from data.utils import percent"
+  echo "from datautils import percent"
   echo "from common import *"
   echo
   echo "cubes = {"
@@ -85,4 +87,4 @@ generate() {
     echo "},"
   ) | indent
   echo "}"
-) | tee __init__.py
+) | tee ../../kms.py

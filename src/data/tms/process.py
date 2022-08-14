@@ -4,7 +4,7 @@ import sys
 
 sys.path.append("../../")
 from common import *
-import data.utils as utils
+import datautils as utils
 
 broad_categories = {
   "防具",

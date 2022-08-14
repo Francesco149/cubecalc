@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ../common.sh
+
 scrape() {
   tmp="$1"
   htmlq --text '#lblTopicContent1 td' < "$tmp" > cache/tier_prime_rates.txt
@@ -15,12 +17,12 @@ if ! [ -f cache/line_chances.txt ]; then
 fi
 
 (
+  header
   echo "import sys"
-  echo "sys.path.append(\"../../\")"
-  echo "from data.utils import percent"
+  echo "from datautils import percent"
   echo "from common import *"
   echo
   echo "event = {"
   ./process.py | sed 's/^/  /g'
   echo "}"
-) | tee ./__init__.py
+) | tee ../../tms.py
