@@ -6,8 +6,7 @@ def global_enum(enum):
 
 @global_enum
 class Category(IntFlag):
-  CATEGORY_NULL = 0
-  WEAPON = auto()
+  WEAPON = 1
   EMBLEM = auto()
   SECONDARY = auto()
   FORCE_SHIELD_SOUL_RING = auto()
@@ -51,8 +50,7 @@ def category_name(c):
 
 @global_enum
 class Line(IntFlag):
-  LINE_NULL = 0
-  BOSS_30 = auto()
+  BOSS_30 = 1
   BOSS_35 = auto()
   BOSS_40 = auto()
   IED_15 = auto()
@@ -90,18 +88,17 @@ DECENTS = DECENT_SPEED_INFUSION | DECENT_SHARP_EYES | DECENT_COMBAT_ORDERS
 
 @global_enum
 class Tier(IntEnum):
-  TIER_NULL = auto()
-  COMMON = auto()
+  COMMON = 1
   RARE = auto()
   EPIC = auto()
   UNIQUE = auto()
   LEGENDARY = auto()
-  TIER_DEFAULT = LEGENDARY
+
+TIER_DEFAULT = LEGENDARY
 
 @global_enum
 class Cube(IntFlag):
-  CUBE_NULL = auto()
-  RED = auto()
+  RED = 1
   MEISTER = auto()
   MASTER = auto()
   OCCULT = auto()

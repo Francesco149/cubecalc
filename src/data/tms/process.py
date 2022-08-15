@@ -106,9 +106,6 @@ irrelevant_lines = [
   "以角色等級為準每10級增加魔法攻擊力",
 ]
 
-for x in irrelevant_lines:
-  line_conversion[x] = LINE_NULL
-
 
 def nonempty(f):
   while True:
@@ -145,22 +142,25 @@ def split_categories(s):
 
 
 def parse_category(s):
-  res = CATEGORY_NULL
+  res = None
   for x in split_categories(s):
     s = x.strip()
     if s not in category_conversion:
       break
-    res |= category_conversion[s]
+    c = category_conversion[s]
+    res = res | c if res is not None else c
   return res
 
 
 def parse_line(f):
   pos = f.tell()
   line = skip(f)
-  if line not in line_conversion:
+  is_relevant = line in line_conversion
+  if not is_relevant and line not in irrelevant_lines:
     f.seek(pos)
     return None
-  line = line_conversion[line]
+  if is_relevant:
+    line = line_conversion[line]
 
   skip(f) # skip category
   skip(f) # skip animus
@@ -170,6 +170,8 @@ def parse_line(f):
     EQUALITY: skip(f),
     UNI: skip(f),
   }
+  if not is_relevant:
+    return line, {}
   if chances[VIOLET] != chances[EQUALITY]:
     sys.stderr.write(f"{line} {chances}: expected violet == equality\n")
     sys.exit(1)
@@ -182,7 +184,7 @@ def parse_lines(f):
     s = parse_line(f)
     if s is None:
       break
-    if s[0] != LINE_NULL:
+    if s[1]:
       yield s
 
 
@@ -211,7 +213,7 @@ with open("cache/line_chances.txt") as f:
       if s is None:
         break
       category = parse_category(s)
-      if category == CATEGORY_NULL:
+      if category is None:
         f.seek(pos)
         sys.stderr.write(f"DEBUG: tier ended at '{s}'\n")
         break
