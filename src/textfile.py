@@ -67,11 +67,6 @@ def tabulate(rows):
     print(f"{text.rjust(max_len)} {result}")
 
 
-def fmt_chance(text, wants, combos, combo_chance):
-  chance = sum([combo_chance(want, combos) for want in wants])
-  return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
-
-
 def __cube_calc_print(print_combos, type, tier, lines):
   def fmt_chance(text, wants):
     nonlocal tier
