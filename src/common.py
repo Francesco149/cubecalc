@@ -79,12 +79,13 @@ class Line(IntFlag):
   # special keys for matching lines
   LINES = auto() # match by number of lines and what lines are allowed
 
-
-BOSS = BOSS_30 | BOSS_35 | BOSS_40
-STAT = MAINSTAT | ALLSTAT
-IED = IED_15 | IED_30 | IED_35 | IED_40
-COOLDOWN = COOLDOWN_1 | COOLDOWN_2
-DECENTS = DECENT_SPEED_INFUSION | DECENT_SHARP_EYES | DECENT_COMBAT_ORDERS
+@global_enum
+class LineMasks(IntFlag):
+  BOSS = BOSS_30 | BOSS_35 | BOSS_40
+  STAT = MAINSTAT | ALLSTAT
+  IED = IED_15 | IED_30 | IED_35 | IED_40
+  COOLDOWN = COOLDOWN_1 | COOLDOWN_2
+  DECENTS = DECENT_SPEED_INFUSION | DECENT_SHARP_EYES | DECENT_COMBAT_ORDERS
 
 @global_enum
 class Tier(IntEnum):
@@ -93,8 +94,6 @@ class Tier(IntEnum):
   EPIC = auto()
   UNIQUE = auto()
   LEGENDARY = auto()
-
-TIER_DEFAULT = LEGENDARY
 
 @global_enum
 class Cube(IntFlag):
@@ -108,5 +107,7 @@ class Cube(IntFlag):
   BONUS = auto()
   UNI = auto()
 
-NONCASH_MAIN = OCCULT | MASTER | MEISTER
-CASH_MAIN = RED | BLACK
+@global_enum
+class CubeMasks(IntFlag):
+  NONCASH_MAIN = OCCULT | MASTER | MEISTER
+  CASH_MAIN = RED | BLACK

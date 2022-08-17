@@ -13,6 +13,8 @@ from datautils import percent, find_probabilities
 import kms
 import tms
 
+TIER_DEFAULT = LEGENDARY
+
 prob_cash = partial(find_probabilities, kms.cubes, CASH_MAIN)
 weapon = prob_cash(WEAPON)
 secondary = prob_cash(SECONDARY)
