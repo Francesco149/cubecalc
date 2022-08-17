@@ -111,3 +111,8 @@ class Cube(IntFlag):
 class CubeMasks(IntFlag):
   NONCASH_MAIN = OCCULT | MASTER | MEISTER
   CASH_MAIN = RED | BLACK
+
+tier_limits = {
+  OCCULT: EPIC,
+  MASTER: UNIQUE,
+}

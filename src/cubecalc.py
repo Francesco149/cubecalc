@@ -27,11 +27,6 @@ NOTE: for cases where the tier is lower than the max tier of the cube
 
 from common import *
 
-tier_limits = {
-  OCCULT: EPIC,
-  MASTER: UNIQUE,
-}
-
 # prime chances can be calculated from the official KMS probabilities:
 #   https://maplestory.nexon.com/Guide/OtherProbability/cube/red
 #   https://maplestory.nexon.com/Guide/OtherProbability/cube/black
