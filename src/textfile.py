@@ -23,6 +23,7 @@ top_overall = prob_cash(TOP_OVERALL)
 bottom = prob_cash(BOTTOM)
 hat = prob_cash(HAT)
 accessory = prob_cash(FACE_EYE_RING_EARRING_PENDANT)
+cape_belt_shoulder = prob_cash(CAPE_BELT_SHOULDER)
 
 prob_noncash = partial(find_probabilities, kms.cubes, NONCASH_MAIN)
 weapon_noncash = prob_noncash(WEAPON)
@@ -32,6 +33,7 @@ top_overall_noncash = prob_noncash(TOP_OVERALL)
 bottom_noncash = prob_noncash(BOTTOM)
 hat_noncash = prob_noncash(HAT)
 accessory_noncash = prob_noncash(FACE_EYE_RING_EARRING_PENDANT)
+cape_belt_shoulder_noncash = prob_noncash(CAPE_BELT_SHOULDER)
 
 prob_bonus = partial(find_probabilities, kms.cubes, BONUS)
 weapon_bonus = prob_bonus(WEAPON)
@@ -268,6 +270,8 @@ def cube_calcs():
     top_overall,
     top_overall_noncash,
     top_overall_violet_equality,
+    cape_belt_shoulder,
+    cape_belt_shoulder_noncash,
     cape_belt_shoulder_violet_equality,
     shoe_violet_equality,
     bottom,

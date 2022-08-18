@@ -311,6 +311,42 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 100 cubes, 0.9966%
 15+ all stat 1 in 100 cubes, 0.9966%
 21+ all stat 1 in 4919 cubes, 0.0203%
+==================== cape/belt/shoulder (red at legendary) =====================
+    18+ stat 1 in 17 cubes, 5.9391%
+    21+ stat 1 in 39 cubes, 2.5544%
+    30+ stat 1 in 771 cubes, 0.1297%
+    33+ stat 1 in 7970 cubes, 0.0125%
+      18+ hp 1 in 28 cubes, 3.5224%
+      21+ hp 1 in 41 cubes, 2.4644%
+      30+ hp 1 in 700 cubes, 0.1429%
+      33+ hp 1 in 6807 cubes, 0.0147%
+12+ all stat 1 in 57 cubes, 1.7498%
+15+ all stat 1 in 79 cubes, 1.2653%
+21+ all stat 1 in 2072 cubes, 0.0483%
+=================== cape/belt/shoulder (black at legendary) ====================
+    18+ stat 1 in 16 cubes, 6.2379%
+    21+ stat 1 in 34 cubes, 2.9010%
+    30+ stat 1 in 597 cubes, 0.1675%
+    33+ stat 1 in 3339 cubes, 0.0300%
+      18+ hp 1 in 29 cubes, 3.5022%
+      21+ hp 1 in 38 cubes, 2.5998%
+      30+ hp 1 in 706 cubes, 0.1417%
+      33+ hp 1 in 3098 cubes, 0.0323%
+12+ all stat 1 in 57 cubes, 1.7583%
+15+ all stat 1 in 74 cubes, 1.3451%
+21+ all stat 1 in 2056 cubes, 0.0486%
+================== cape/belt/shoulder (meister at legendary) ===================
+    18+ stat 1 in 33 cubes, 3.0035%
+    21+ stat 1 in 89 cubes, 1.1225%
+    30+ stat 1 in 2528 cubes, 0.0396%
+    33+ stat 1 in 661592 cubes, 0.0002%
+      18+ hp 1 in 30 cubes, 3.3507%
+      21+ hp 1 in 44 cubes, 2.2528%
+      30+ hp 1 in 756 cubes, 0.1323%
+      33+ hp 1 in 196596 cubes, 0.0005%
+12+ all stat 1 in 154 cubes, 0.6481%
+15+ all stat 1 in 192 cubes, 0.5212%
+21+ all stat 1 in 10168 cubes, 0.0098%
 =================== cape/belt/shoulder (violet at legendary) ===================
     18+ stat 1 in 7 cubes, 14.2566%
     21+ stat 1 in 14 cubes, 7.2798%
