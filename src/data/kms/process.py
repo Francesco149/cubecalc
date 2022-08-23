@@ -30,6 +30,8 @@ convert_s = {
   KW_ALLSTAT: ALLSTAT,
   "크리티컬 데미지": CRITDMG,
   "데미지": DAMAGE,
+  "캐릭터 기준 10레벨 당 STR": MAINSTAT_PER_10_LVLS,
+  "캐릭터 기준 10레벨 당 공격력": ATT_PER_10_LVLS,
 }
 
 ied_text = lambda x: f"몬스터 방어율 무시 : +{x}%"

@@ -109,6 +109,7 @@ line_values = {
     HP: 9,
     INVIN: 2,
     DECENT_SHARP_EYES: 1,
+    MAINSTAT_PER_10_LVLS: 1,
   },
 
   LEGENDARY: {
@@ -132,6 +133,7 @@ line_values = {
     INVIN: 3,
     DECENT_SPEED_INFUSION: 1,
     DECENT_COMBAT_ORDERS: 1,
+    ATT_PER_10_LVLS: 1,
   },
 }
 
@@ -172,7 +174,7 @@ line_values_bonus = {
     MAINSTAT: 5,
     HP: 7,
     ALLSTAT: 4,
-    #MAINSTAT_PER_10_LVLS: 1,
+    MAINSTAT_PER_10_LVLS: 1,
   },
 
   LEGENDARY: {
@@ -184,7 +186,7 @@ line_values_bonus = {
     HP: 10,
     CRITDMG: 1,
     ALLSTAT: 5,
-    #MAINSTAT_PER_10_LVLS: 2,
+    MAINSTAT_PER_10_LVLS: 2,
     COOLDOWN_1: 1,
     MESO: 5,
     DROP: 5,
@@ -230,7 +232,7 @@ line_values_bonus_wse = {
     ALLSTAT: 6,
     BOSS_12: 12,
     IED_4: 4,
-    #MAINSTAT_PER_10_LVLS: 1,
+    MAINSTAT_PER_10_LVLS: 1,
   },
 
   LEGENDARY: {
@@ -243,8 +245,8 @@ line_values_bonus_wse = {
     CRITDMG: 1,
     BOSS_18: 18,
     IED_5: 5,
-    #MAINSTAT_PER_10_LVLS: 2,
-    #ATT_PER_10_LVLS: 1,
+    MAINSTAT_PER_10_LVLS: 2,
+    ATT_PER_10_LVLS: 1,
   },
 }
 

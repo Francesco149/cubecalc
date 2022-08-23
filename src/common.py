@@ -81,6 +81,8 @@ class Line(IntFlag):
   FLAT_MAINSTAT = auto()
   FLAT_ALLSTAT = auto()
   FLAT_HP = auto()
+  MAINSTAT_PER_10_LVLS = auto()
+  ATT_PER_10_LVLS = auto()
 
   # special keys for matching lines
   LINES = auto() # match by number of lines and what lines are allowed
