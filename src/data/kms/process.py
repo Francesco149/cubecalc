@@ -29,6 +29,7 @@ convert_s = {
   KW_HP: HP,
   KW_ALLSTAT: ALLSTAT,
   "크리티컬 데미지": CRITDMG,
+  "데미지": DAMAGE,
 }
 
 ied_text = lambda x: f"몬스터 방어율 무시 : +{x}%"

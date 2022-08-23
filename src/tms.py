@@ -73,11 +73,13 @@ event = {
         [FLAT_ATT, 3.70],
         [MAINSTAT, 5.56],
         [ATT, 1.85],
+        [DAMAGE, 1.85],
         [FLAT_ALLSTAT, 3.70],
         [IED_15, 1.85],
       ],
       EPIC: [
         [ATT, 4.00],
+        [DAMAGE, 4.00],
         [IED_15, 4.00],
         [MAINSTAT, 10.00],
         [HP, 14.00],
@@ -91,11 +93,13 @@ event = {
         [FLAT_ATT, 4.17],
         [MAINSTAT, 6.25],
         [ATT, 2.08],
+        [DAMAGE, 2.08],
         [FLAT_ALLSTAT, 4.17],
         [IED_15, 2.08],
       ],
       EPIC: [
         [ATT, 4.65],
+        [DAMAGE, 4.65],
         [IED_15, 4.65],
         [MAINSTAT, 11.63],
         [HP, 16.28],
@@ -191,6 +195,7 @@ event = {
     WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING: percent({
       UNIQUE: [
         [ATT, 6.52],
+        [DAMAGE, 6.52],
         [IED_30, 8.70],
         [BOSS_30, 6.52],
         [MAINSTAT, 10.87],
@@ -198,6 +203,7 @@ event = {
       ],
       LEGENDARY: [
         [ATT, 4.44],
+        [DAMAGE, 4.44],
         [IED_35, 6.67],
         [IED_40, 6.67],
         [BOSS_30, 4.44],
@@ -210,12 +216,14 @@ event = {
     EMBLEM: percent({
       UNIQUE: [
         [ATT, 6.98],
+        [DAMAGE, 6.98],
         [IED_30, 9.30],
         [MAINSTAT, 11.63],
         [ALLSTAT, 11.63],
       ],
       LEGENDARY: [
         [ATT, 5.13],
+        [DAMAGE, 5.13],
         [IED_35, 7.69],
         [IED_40, 7.69],
         [MAINSTAT, 10.26],
@@ -291,11 +299,13 @@ event = {
         [FLAT_ATT, 3.70],
         [MAINSTAT, 5.56],
         [ATT, 1.85],
+        [DAMAGE, 1.85],
         [FLAT_ALLSTAT, 3.70],
         [IED_15, 1.85],
       ],
       EPIC: [
         [ATT, 4.11],
+        [DAMAGE, 4.11],
         [IED_15, 6.85],
         [MAINSTAT, 9.59],
         [HP, 9.59],
@@ -309,11 +319,13 @@ event = {
         [FLAT_ATT, 4.00],
         [MAINSTAT, 6.00],
         [ATT, 2.00],
+        [DAMAGE, 2.00],
         [FLAT_ALLSTAT, 4.00],
         [IED_15, 2.00],
       ],
       EPIC: [
         [ATT, 4.55],
+        [DAMAGE, 4.55],
         [IED_15, 7.58],
         [MAINSTAT, 10.61],
         [HP, 10.61],
@@ -409,6 +421,7 @@ event = {
     WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING: percent({
       UNIQUE: [
         [ATT, 8.22],
+        [DAMAGE, 16.44],
         [IED_30, 20.55],
         [BOSS_30, 5.48],
         [MAINSTAT, 2.74],
@@ -416,6 +429,7 @@ event = {
       ],
       LEGENDARY: [
         [ATT, 3.24],
+        [DAMAGE, 16.18],
         [IED_35, 25.89],
         [IED_40, 16.18],
         [BOSS_30, 3.07],
@@ -428,12 +442,14 @@ event = {
     EMBLEM: percent({
       UNIQUE: [
         [ATT, 8.70],
+        [DAMAGE, 17.39],
         [IED_30, 21.74],
         [MAINSTAT, 2.90],
         [ALLSTAT, 2.90],
       ],
       LEGENDARY: [
         [ATT, 3.45],
+        [DAMAGE, 17.27],
         [IED_35, 27.63],
         [IED_40, 17.27],
         [MAINSTAT, 1.21],

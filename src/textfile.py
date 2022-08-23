@@ -108,10 +108,10 @@ def cube_calcs():
   ]
 
   combos_any_ws = [
-    ("any 2l combo of att+boss", [{ATT: 1, BOSS: 1, LINES: 2}]),
-    ("any 2l combo of att+boss+ied", [{ATT: 1, BOSS: 1, IED: 1, LINES: 2}]),
-    ("any 3l combo of att+boss", [{ATT: 1, BOSS: 1, LINES: 3}]),
-    ("any 3l combo of att+boss+ied", [{ATT: 1, BOSS: 1, IED: 1, LINES: 3}]),
+    ("any 2l combo of att+boss", [{ATT: 1, BOSS_ONLY: 1, LINES: 2}]),
+    ("any 2l combo of att+boss+ied", [{ATT: 1, BOSS_ONLY: 1, IED: 1, LINES: 2}]),
+    ("any 3l combo of att+boss", [{ATT: 1, BOSS_ONLY: 1, LINES: 3}]),
+    ("any 3l combo of att+boss+ied", [{ATT: 1, BOSS_ONLY: 1, IED: 1, LINES: 3}]),
   ]
 
   combos_wse_master = [
@@ -122,7 +122,7 @@ def cube_calcs():
   ]
 
   combos_ws_master = combos_any_ws + combos_wse_master + [
-    ("any boss", [{BOSS: 1}]),
+    ("any boss", [{BOSS_ONLY: 1}]),
   ]
 
   combos_ws = combos_any_ws + [
@@ -130,14 +130,14 @@ def cube_calcs():
     ("21+ att", [{ATT: 21}]),
     ("30+ att", [{ATT: 30}]),
     ("33+ att", [{ATT: 33}]),
-    ("21+ att and boss", [{ATT: 21, BOSS: 1}]),
+    ("21+ att and boss", [{ATT: 21, BOSS_ONLY: 1}]),
     ("21+ att and ied", [{ATT: 21, IED: 1}]),
-    ("18+ att and boss", [{ATT: 18, BOSS: 1}]),
+    ("18+ att and boss", [{ATT: 18, BOSS_ONLY: 1}]),
     ("18+ att and ied", [{ATT: 18, IED: 1}]),
     ("60+ied", [{IED: 60}]),
     ("70+ied", [{IED: 70}]),
     ("60+ied and att", [{IED: 60, ATT: 1}]),
-    ("60+ied and boss", [{IED: 60, BOSS: 1}]),
+    ("60+ied and boss", [{IED: 60, BOSS_ONLY: 1}]),
   ]
 
   combos_any_e = [
@@ -333,14 +333,14 @@ def unicube_calcs():
   ]
 
   combos_ws_prime = [
-    ("35+ boss", [{BOSS: 35}]),
-    ("40 boss", [{BOSS: 40}]),
+    ("35+ boss", [{BOSS_ONLY: 35}]),
+    ("40 boss", [{BOSS_ONLY: 40}]),
   ] + combos_e_prime
 
   combos_ws_nonprime = [
-    ("9+ att or 30+ boss or 30+ ied", [{ATT: 9}, {BOSS: 30}, {IED: 30}]),
-    ("9+ att or 30+ boss", [{ATT: 9}, {BOSS: 30}]),
-    ("30+ boss", [{BOSS: 30}]),
+    ("9+ att or 30+ boss or 30+ ied", [{ATT: 9}, {BOSS_ONLY: 30}, {IED: 30}]),
+    ("9+ att or 30+ boss", [{ATT: 9}, {BOSS_ONLY: 30}]),
+    ("30+ boss", [{BOSS_ONLY: 30}]),
   ] + combos_e_nonprime
 
   combos_e = combos_e_nonprime + combos_e_prime
