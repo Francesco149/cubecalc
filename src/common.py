@@ -50,9 +50,14 @@ def category_name(c):
 
 @global_enum
 class Line(IntFlag):
-  BOSS_30 = 1
+  BOSS_12 = 1
+  BOSS_18 = auto()
+  BOSS_30 = auto()
   BOSS_35 = auto()
   BOSS_40 = auto()
+  IED_3 = auto()
+  IED_4 = auto()
+  IED_5 = auto()
   IED_15 = auto()
   IED_30 = auto()
   IED_35 = auto()

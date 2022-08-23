@@ -71,10 +71,10 @@ def tabulate(rows):
     print(f"{text.rjust(max_len)} {result}")
 
 
-def __cube_calc_print(print_combos, type, tier, lines):
+def __cube_calc_print(print_combos, category, type, tier, lines):
   def fmt_chance(text, wants):
     nonlocal tier
-    chance, tier = cube_calc(wants, type, tier, lines)
+    chance, tier = cube_calc(wants, category, type, tier, lines)
     return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
 
   # janky but we run this first to get the actual tier that's being computed
@@ -87,17 +87,17 @@ def single_or_list(x):
   return x if isinstance(x, list) else [x]
 
 
-def cube_calc_print(print_combos, types=[], tier=TIER_DEFAULT, *args):
+def cube_calc_print(print_combos, category, types=[], tier=TIER_DEFAULT, *args):
   for l in args:
     lt = types
     if not lt:
       lt = l[DEFAULT_CUBE]
     for t in single_or_list(lt):
-      __cube_calc_print(print_combos, t, tier, l)
+      __cube_calc_print(print_combos, category, t, tier, l)
 
 
-def Combos(combos, types=[], tier=TIER_DEFAULT):
-  return partial(cube_calc_print, combos, types, tier)
+def Combos(combos, category, types=[], tier=TIER_DEFAULT):
+  return partial(cube_calc_print, combos, category, types, tier)
 
 
 def cube_calcs():
@@ -231,7 +231,10 @@ def cube_calcs():
     ("15+ hp", [{HP: 15}]),
   ]
 
-  Combos(combos_ws)(
+  ws = WEAPON | SECONDARY
+  wse = ws | EMBLEM
+
+  Combos(combos_ws, ws)(
     weapon,
     weapon_noncash,
     secondary,
@@ -239,34 +242,34 @@ def cube_calcs():
     weapon_secondary_violet_equality,
   )
 
-  Combos(combos_ws_master, MASTER)(
+  Combos(combos_ws_master, ws, MASTER)(
     weapon_noncash,
     secondary_noncash,
   )
 
-  Combos(combos_e)(
+  Combos(combos_e, EMBLEM)(
     emblem,
     emblem_noncash,
     emblem_violet_equality,
   )
 
-  Combos(combos_e_master, MASTER)(
+  Combos(combos_e_master, EMBLEM, MASTER)(
     emblem_noncash,
   )
 
-  Combos(combos_wse_occult, OCCULT)(
+  Combos(combos_wse_occult, wse, OCCULT)(
     weapon_noncash,
     secondary_noncash,
     emblem_noncash,
   )
 
-  Combos(combos_wse_b)(
+  Combos(combos_wse_b, wse)(
     weapon_bonus,
     secondary_bonus,
     emblem_bonus,
   )
 
-  Combos(combos_stat)(
+  Combos(combos_stat, TOP_OVERALL | CAPE_BELT_SHOULDER | SHOE | BOTTOM)(
     top_overall,
     top_overall_noncash,
     top_overall_violet_equality,
@@ -279,37 +282,39 @@ def cube_calcs():
     bottom_violet_equality,
   )
 
-  Combos(combos_stat + combos_mesodrop)(
+  Combos(combos_stat + combos_mesodrop, FACE_EYE_RING_EARRING_PENDANT)(
     accessory,
     accessory_noncash,
     accessory_violet_equality,
   )
 
-  Combos(combos_hat)(
+  Combos(combos_hat, HAT)(
     hat,
     hat_noncash,
     hat_violet_equality,
   )
 
-  Combos(combos_occult_stat, OCCULT)(
+  stat = FACE_EYE_RING_EARRING_PENDANT | TOP_OVERALL | HAT
+
+  Combos(combos_occult_stat, stat, OCCULT)(
     accessory_noncash,
     top_overall_noncash,
     hat_noncash,
   )
 
-  Combos(combos_master_stat, [MASTER, MEISTER], UNIQUE)(
+  Combos(combos_master_stat, stat, [MASTER, MEISTER], UNIQUE)(
     accessory_noncash,
     top_overall_noncash,
     hat_noncash,
   )
 
-  Combos(combos_master_stat, RED, UNIQUE)(
+  Combos(combos_master_stat, stat, RED, UNIQUE)(
     accessory,
     top_overall,
     hat,
   )
 
-  Combos(combos_glove)(
+  Combos(combos_glove, GLOVE)(
     glove_violet_equality,
   )
 
@@ -370,30 +375,30 @@ def unicube_calcs():
   combos_glove = combos_stat_nonprime + combos_glove_prime
   combos_hat = combos_stat_nonprime + combos_hat_prime
 
-  Combos(combos_ws)(
+  Combos(combos_ws, WEAPON | SECONDARY)(
     weapon_secondary_uni,
   )
 
-  Combos(combos_e)(
+  Combos(combos_e, EMBLEM)(
     emblem_uni,
   )
 
-  Combos(combos_stat)(
+  Combos(combos_stat, CAPE_BELT_SHOULDER | SHOE | BOTTOM | TOP_OVERALL)(
     cape_belt_shoulder_uni,
     shoe_uni,
     bottom_uni,
     top_overall_uni,
   )
 
-  Combos(combos_stat + combos_mesodrop)(
+  Combos(combos_stat + combos_mesodrop, FACE_EYE_RING_EARRING_PENDANT)(
     accessory_uni,
   )
 
-  Combos(combos_glove)(
+  Combos(combos_glove, GLOVE)(
     glove_uni,
   )
 
-  Combos(combos_hat)(
+  Combos(combos_hat, HAT)(
     hat_uni,
   )
 

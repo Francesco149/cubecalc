@@ -65,24 +65,34 @@ prime_chances = {
   UNI: [0.15],
 }
 
+
 line_values = {
-  COMMON: { ANY: 0 },
+  COMMON: {
+    ANY: 0,
+    FLAT_MAINSTAT: 6,
+    FLAT_HP: 60,
+    FLAT_ATT: 6,
+  },
 
   RARE: {
-    ATT: 3,
     ANY: 0,
+    FLAT_MAINSTAT: 12,
+    FLAT_HP: 120,
+    FLAT_ATT: 12,
     MAINSTAT: 3,
     HP: 3,
+    FLAT_ALLSTAT: 5,
+    ATT: 3,
     IED_15: 15,
   },
 
   EPIC: {
-    ATT: 6,
     ANY: 0,
     MAINSTAT: 6,
     ALLSTAT: 3,
     HP: 6,
     INVIN: 1,
+    ATT: 6,
     IED_15: 15,
   },
 
@@ -122,6 +132,119 @@ line_values = {
 }
 
 
+line_values_bonus = {
+  COMMON: {
+    ANY: 0,
+    FLAT_MAINSTAT: 6,
+    FLAT_ATT: 3,
+    FLAT_HP: 60,
+  },
+
+  RARE: {
+    ANY: 0,
+    FLAT_MAINSTAT: 11,
+    FLAT_ATT: 10,
+    FLAT_HP: 100,
+    MAINSTAT: 3,
+    HP: 2,
+    FLAT_ALLSTAT: 3,
+  },
+
+  EPIC: {
+    ANY: 0,
+    FLAT_MAINSTAT: 14,
+    FLAT_ATT: 11,
+    FLAT_HP: 180,
+    MAINSTAT: 4,
+    HP: 5,
+    ALLSTAT: 3,
+  },
+
+  UNIQUE: {
+    ANY: 0,
+    FLAT_MAINSTAT: 16,
+    FLAT_ATT: 12,
+    FLAT_HP: 240,
+    MAINSTAT: 5,
+    HP: 7,
+    ALLSTAT: 4,
+    #MAINSTAT_PER_10_LVLS: 1,
+  },
+
+  LEGENDARY: {
+    ANY: 0,
+    FLAT_MAINSTAT: 18,
+    FLAT_ATT: 14,
+    FLAT_HP: 300,
+    MAINSTAT: 7,
+    HP: 10,
+    CRITDMG: 1,
+    ALLSTAT: 5,
+    #MAINSTAT_PER_10_LVLS: 2,
+    COOLDOWN_1: 1,
+    MESO: 5,
+    DROP: 5,
+  },
+}
+
+line_values_bonus_wse = {
+  COMMON: {
+    ANY: 0,
+    FLAT_MAINSTAT: 6,
+    FLAT_ATT: 6,
+    FLAT_HP: 60,
+  },
+
+  RARE: {
+    ANY: 0,
+    FLAT_MAINSTAT: 12,
+    FLAT_ATT: 12,
+    FLAT_HP: 100,
+    MAINSTAT: 3,
+    ATT: 3,
+    #DAMAGE: 3,
+    HP: 2,
+    FLAT_ALLSTAT: 5,
+  },
+
+  EPIC: {
+    ANY: 0,
+    MAINSTAT: 6,
+    ATT: 6,
+    #DAMAGE: 6,
+    HP: 5,
+    ALLSTAT: 3,
+    IED_3: 3,
+  },
+
+  UNIQUE: {
+    ANY: 0,
+    MAINSTAT: 9,
+    ATT: 9,
+    #DAMAGE: 9,
+    HP: 7,
+    ALLSTAT: 6,
+    BOSS_12: 12,
+    IED_4: 4,
+    #MAINSTAT_PER_10_LVLS: 1,
+  },
+
+  LEGENDARY: {
+    ANY: 0,
+    MAINSTAT: 12,
+    ATT: 12,
+    #DAMAGE: 12,
+    HP: 10,
+    ALLSTAT: 9,
+    CRITDMG: 1,
+    BOSS_18: 18,
+    IED_5: 5,
+    #MAINSTAT_PER_10_LVLS: 2,
+    #ATT_PER_10_LVLS: 1,
+  },
+}
+
+
 forbidden_combos = [
   (1, [DECENTS, INVIN]),
   (2, [BOSS, IED, DROP]),
@@ -143,7 +266,7 @@ def debug_print_combos(good, exit=True):
     sys.exit(0)
 
 
-def cube_calc(wants, type, tier, lines):
+def cube_calc(wants, category, type, tier, lines):
   """
   calculate probability of rolling a combination of stats
 
@@ -157,6 +280,9 @@ def cube_calc(wants, type, tier, lines):
     that contains wants[LINES] or more of any of the lines specified, and the amount is ignored.
     for example, {ATT: 1, BOSS: 1, LINES: 3} means
       "any combination of 3 lines of either att or boss"
+
+  category : Category enum
+    equip category. see the enum
 
   type : Cube enum
     cube type. see the enum
@@ -187,6 +313,13 @@ def cube_calc(wants, type, tier, lines):
   """
   if type in tier_limits:
     tier = min(tier_limits[type], tier)
+
+  lvals = line_values
+  if type == BONUS:
+    if category & (WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING | EMBLEM):
+      lvals = line_values_bonus_wse
+    else:
+      lvals = line_values_bonus
 
 
   def make_lines():
@@ -248,8 +381,8 @@ def cube_calc(wants, type, tier, lines):
       types_col = col(LINE_TYPE)
       types_l = [Line(x) for x in types_col]
       values_col = np.array(
-        [line_values[tier][x] for x in types_l[:num_prime]] +
-        [line_values[tier - 1][x] for x in types_l[num_prime:]]
+        [lvals[tier][x] for x in types_l[:num_prime]] +
+        [lvals[tier - 1][x] for x in types_l[num_prime:]]
       )
       is_prime_pn = np.concatenate((np.repeat(True, num_prime),
                                     np.repeat(False, len(types_col) - num_prime)))

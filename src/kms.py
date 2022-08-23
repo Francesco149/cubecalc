@@ -8,20 +8,32 @@ cubes = {
   CASH_MAIN: {
     WEAPON: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.1224],
+        [FLAT_HP, 6.1224],
+        [FLAT_ATT, 4.0816],
+        [MAINSTAT, 6.1224],
         [ATT, 2.0408],
+        [FLAT_ALLSTAT, 4.0816],
         [IED_15, 2.0408],
       ],
       EPIC: [
+        [MAINSTAT, 10.8696],
+        [HP, 10.8696],
         [ATT, 4.3478],
+        [ALLSTAT, 4.3478],
         [IED_15, 4.3478],
       ],
       UNIQUE: [
+        [MAINSTAT, 11.6279],
         [ATT, 6.9767],
+        [ALLSTAT, 9.3023],
         [IED_30, 6.9767],
         [BOSS_30, 6.9767],
       ],
       LEGENDARY: [
+        [MAINSTAT, 9.7561],
         [ATT, 4.878],
+        [ALLSTAT, 7.3171],
         [IED_35, 4.878],
         [IED_40, 4.878],
         [BOSS_35, 9.7561],
@@ -30,39 +42,63 @@ cubes = {
     }),
     EMBLEM: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.1224],
+        [FLAT_HP, 6.1224],
+        [FLAT_ATT, 4.0816],
+        [MAINSTAT, 6.1224],
         [ATT, 2.0408],
+        [FLAT_ALLSTAT, 4.0816],
         [IED_15, 2.0408],
       ],
       EPIC: [
+        [MAINSTAT, 10.8696],
+        [HP, 10.8696],
         [ATT, 4.3478],
+        [ALLSTAT, 4.3478],
         [IED_15, 4.3478],
       ],
       UNIQUE: [
+        [MAINSTAT, 12.5],
         [ATT, 7.5],
+        [ALLSTAT, 10.0],
         [IED_30, 7.5],
       ],
       LEGENDARY: [
+        [MAINSTAT, 11.4286],
         [ATT, 5.7143],
+        [ALLSTAT, 8.5714],
         [IED_35, 5.7143],
         [IED_40, 5.7143],
       ],
     }),
     SECONDARY: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.1224],
+        [FLAT_HP, 6.1224],
+        [FLAT_ATT, 4.0816],
+        [MAINSTAT, 6.1224],
         [ATT, 2.0408],
+        [FLAT_ALLSTAT, 4.0816],
         [IED_15, 2.0408],
       ],
       EPIC: [
+        [MAINSTAT, 10.8696],
+        [HP, 10.8696],
         [ATT, 4.3478],
+        [ALLSTAT, 4.3478],
         [IED_15, 4.3478],
       ],
       UNIQUE: [
+        [MAINSTAT, 9.8039],
         [ATT, 5.8824],
+        [ALLSTAT, 7.8431],
         [IED_30, 5.8824],
         [BOSS_30, 5.8824],
       ],
       LEGENDARY: [
+        [MAINSTAT, 8.5106],
         [ATT, 4.2553],
+        [ALLSTAT, 6.383],
         [IED_35, 4.2553],
         [IED_40, 4.2553],
         [BOSS_35, 8.5106],
@@ -71,20 +107,32 @@ cubes = {
     }),
     FORCE_SHIELD_SOUL_RING: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.5217],
+        [FLAT_HP, 6.5217],
+        [FLAT_ATT, 4.3478],
+        [MAINSTAT, 6.5217],
         [ATT, 2.1739],
+        [FLAT_ALLSTAT, 4.3478],
         [IED_15, 2.1739],
       ],
       EPIC: [
+        [MAINSTAT, 12.1951],
+        [HP, 12.1951],
         [ATT, 4.878],
+        [ALLSTAT, 4.878],
         [IED_15, 4.878],
       ],
       UNIQUE: [
+        [MAINSTAT, 9.8039],
         [ATT, 5.8824],
+        [ALLSTAT, 7.8431],
         [IED_30, 5.8824],
         [BOSS_30, 5.8824],
       ],
       LEGENDARY: [
+        [MAINSTAT, 8.5106],
         [ATT, 4.2553],
+        [ALLSTAT, 6.383],
         [IED_35, 4.2553],
         [IED_40, 4.2553],
         [BOSS_35, 8.5106],
@@ -93,8 +141,11 @@ cubes = {
     }),
     HAT: percent({
       RARE: [
+        [FLAT_MAINSTAT, 7.5],
+        [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
+        [FLAT_ALLSTAT, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -116,8 +167,11 @@ cubes = {
     }),
     TOP_OVERALL: percent({
       RARE: [
+        [FLAT_MAINSTAT, 7.5],
+        [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
+        [FLAT_ALLSTAT, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 13.1579],
@@ -140,8 +194,11 @@ cubes = {
     }),
     BOTTOM: percent({
       RARE: [
+        [FLAT_MAINSTAT, 7.5],
+        [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
+        [FLAT_ALLSTAT, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -161,8 +218,11 @@ cubes = {
     }),
     SHOE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.8182],
+        [FLAT_HP, 6.8182],
         [MAINSTAT, 6.8182],
         [HP, 4.5455],
+        [FLAT_ALLSTAT, 4.5455],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -183,8 +243,11 @@ cubes = {
     }),
     GLOVE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 7.5],
+        [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
+        [FLAT_ALLSTAT, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 12.1951],
@@ -207,8 +270,11 @@ cubes = {
     }),
     CAPE_BELT_SHOULDER: percent({
       RARE: [
+        [FLAT_MAINSTAT, 7.5],
+        [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
+        [FLAT_ALLSTAT, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -228,8 +294,11 @@ cubes = {
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
       RARE: [
+        [FLAT_MAINSTAT, 7.5],
+        [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
+        [FLAT_ALLSTAT, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -251,8 +320,11 @@ cubes = {
     }),
     HEART_BADGE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 7.5],
+        [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
+        [FLAT_ALLSTAT, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -274,20 +346,32 @@ cubes = {
   NONCASH_MAIN: {
     WEAPON: percent({
       RARE: [
+        [FLAT_MAINSTAT, 3.5088],
+        [FLAT_HP, 5.2632],
+        [FLAT_ATT, 3.5088],
+        [MAINSTAT, 3.5088],
         [ATT, 1.7544],
+        [FLAT_ALLSTAT, 3.5088],
         [IED_15, 1.7544],
       ],
       EPIC: [
+        [MAINSTAT, 7.6923],
+        [HP, 11.5385],
         [ATT, 3.8462],
+        [ALLSTAT, 3.8462],
         [IED_15, 3.8462],
       ],
       UNIQUE: [
+        [MAINSTAT, 13.3333],
         [ATT, 6.6667],
+        [ALLSTAT, 6.6667],
         [IED_30, 6.6667],
         [BOSS_30, 6.6667],
       ],
       LEGENDARY: [
+        [MAINSTAT, 11.1111],
         [ATT, 5.5556],
+        [ALLSTAT, 11.1111],
         [IED_35, 5.5556],
         [IED_40, 2.7778],
         [BOSS_35, 11.1111],
@@ -296,39 +380,63 @@ cubes = {
     }),
     EMBLEM: percent({
       RARE: [
+        [FLAT_MAINSTAT, 3.5088],
+        [FLAT_HP, 5.2632],
+        [FLAT_ATT, 3.5088],
+        [MAINSTAT, 3.5088],
         [ATT, 1.7544],
+        [FLAT_ALLSTAT, 3.5088],
         [IED_15, 1.7544],
       ],
       EPIC: [
+        [MAINSTAT, 7.6923],
+        [HP, 11.5385],
         [ATT, 3.8462],
+        [ALLSTAT, 3.8462],
         [IED_15, 3.8462],
       ],
       UNIQUE: [
+        [MAINSTAT, 14.2857],
         [ATT, 7.1429],
+        [ALLSTAT, 7.1429],
         [IED_30, 7.1429],
       ],
       LEGENDARY: [
+        [MAINSTAT, 12.9032],
         [ATT, 6.4516],
+        [ALLSTAT, 12.9032],
         [IED_35, 6.4516],
         [IED_40, 3.2258],
       ],
     }),
     SECONDARY: percent({
       RARE: [
+        [FLAT_MAINSTAT, 3.5088],
+        [FLAT_HP, 5.2632],
+        [FLAT_ATT, 3.5088],
+        [MAINSTAT, 3.5088],
         [ATT, 1.7544],
+        [FLAT_ALLSTAT, 3.5088],
         [IED_15, 1.7544],
       ],
       EPIC: [
+        [MAINSTAT, 5.7143],
+        [HP, 8.5714],
         [ATT, 2.8571],
+        [ALLSTAT, 2.8571],
         [IED_15, 2.8571],
       ],
       UNIQUE: [
+        [MAINSTAT, 9.5238],
         [ATT, 4.7619],
+        [ALLSTAT, 4.7619],
         [IED_30, 4.7619],
         [BOSS_30, 4.7619],
       ],
       LEGENDARY: [
+        [MAINSTAT, 8.3333],
         [ATT, 4.1667],
+        [ALLSTAT, 8.3333],
         [IED_35, 4.1667],
         [IED_40, 2.0833],
         [BOSS_35, 8.3333],
@@ -337,20 +445,32 @@ cubes = {
     }),
     FORCE_SHIELD_SOUL_RING: percent({
       RARE: [
+        [FLAT_MAINSTAT, 3.9216],
+        [FLAT_HP, 5.8824],
+        [FLAT_ATT, 3.9216],
+        [MAINSTAT, 3.9216],
         [ATT, 1.9608],
+        [FLAT_ALLSTAT, 3.9216],
         [IED_15, 1.9608],
       ],
       EPIC: [
+        [MAINSTAT, 6.8966],
+        [HP, 10.3448],
         [ATT, 3.4483],
+        [ALLSTAT, 3.4483],
         [IED_15, 3.4483],
       ],
       UNIQUE: [
+        [MAINSTAT, 9.5238],
         [ATT, 4.7619],
+        [ALLSTAT, 4.7619],
         [IED_30, 4.7619],
         [BOSS_30, 4.7619],
       ],
       LEGENDARY: [
+        [MAINSTAT, 8.3333],
         [ATT, 4.1667],
+        [ALLSTAT, 8.3333],
         [IED_35, 4.1667],
         [IED_40, 2.0833],
         [BOSS_35, 8.3333],
@@ -359,8 +479,11 @@ cubes = {
     }),
     HAT: percent({
       RARE: [
+        [FLAT_MAINSTAT, 5.5556],
+        [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
+        [FLAT_ALLSTAT, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 7.4074],
@@ -382,8 +505,11 @@ cubes = {
     }),
     TOP_OVERALL: percent({
       RARE: [
+        [FLAT_MAINSTAT, 5.5556],
+        [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
+        [FLAT_ALLSTAT, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 6.6667],
@@ -406,8 +532,11 @@ cubes = {
     }),
     BOTTOM: percent({
       RARE: [
+        [FLAT_MAINSTAT, 5.5556],
+        [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
+        [FLAT_ALLSTAT, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 7.4074],
@@ -427,8 +556,11 @@ cubes = {
     }),
     SHOE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 4.7619],
+        [FLAT_HP, 7.1429],
         [MAINSTAT, 4.7619],
         [HP, 7.1429],
+        [FLAT_ALLSTAT, 4.7619],
       ],
       EPIC: [
         [MAINSTAT, 7.4074],
@@ -449,8 +581,11 @@ cubes = {
     }),
     GLOVE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 5.5556],
+        [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
+        [FLAT_ALLSTAT, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 6.0606],
@@ -473,8 +608,11 @@ cubes = {
     }),
     CAPE_BELT_SHOULDER: percent({
       RARE: [
+        [FLAT_MAINSTAT, 5.5556],
+        [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
+        [FLAT_ALLSTAT, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 7.4074],
@@ -494,8 +632,11 @@ cubes = {
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
       RARE: [
+        [FLAT_MAINSTAT, 4.7619],
+        [FLAT_HP, 7.1429],
         [MAINSTAT, 4.7619],
         [HP, 7.1429],
+        [FLAT_ALLSTAT, 4.7619],
       ],
       EPIC: [
         [MAINSTAT, 11.1111],
@@ -517,8 +658,11 @@ cubes = {
     }),
     HEART_BADGE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 5.5556],
+        [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
+        [FLAT_ALLSTAT, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 11.1111],
@@ -540,79 +684,150 @@ cubes = {
   BONUS: {
     WEAPON: percent({
       RARE: [
+        [FLAT_HP, 5.8824],
+        [FLAT_MAINSTAT, 5.8824],
+        [FLAT_ATT, 3.9216],
+        [HP, 3.9216],
+        [MAINSTAT, 3.9216],
         [ATT, 1.9608],
+        [FLAT_ALLSTAT, 5.8824],
       ],
       EPIC: [
+        [HP, 8.8235],
         [ATT, 5.8824],
+        [MAINSTAT, 8.8235],
+        [ALLSTAT, 5.8824],
       ],
       UNIQUE: [
+        [HP, 6.9767],
         [ATT, 4.6512],
+        [MAINSTAT, 6.9767],
+        [ALLSTAT, 4.6512],
       ],
       LEGENDARY: [
+        [HP, 7.6923],
         [ATT, 5.1282],
+        [MAINSTAT, 7.6923],
+        [ALLSTAT, 5.1282],
       ],
     }),
     EMBLEM: percent({
       RARE: [
+        [FLAT_HP, 5.8824],
+        [FLAT_MAINSTAT, 5.8824],
+        [FLAT_ATT, 3.9216],
+        [HP, 3.9216],
+        [MAINSTAT, 3.9216],
         [ATT, 1.9608],
+        [FLAT_ALLSTAT, 5.8824],
       ],
       EPIC: [
+        [HP, 8.8235],
         [ATT, 5.8824],
+        [MAINSTAT, 8.8235],
+        [ALLSTAT, 5.8824],
       ],
       UNIQUE: [
+        [HP, 7.1429],
         [ATT, 4.7619],
+        [MAINSTAT, 7.1429],
+        [ALLSTAT, 4.7619],
       ],
       LEGENDARY: [
+        [HP, 7.8947],
         [ATT, 5.2632],
+        [MAINSTAT, 7.8947],
+        [ALLSTAT, 5.2632],
       ],
     }),
     SECONDARY: percent({
       RARE: [
+        [FLAT_HP, 5.8824],
+        [FLAT_MAINSTAT, 5.8824],
+        [FLAT_ATT, 3.9216],
+        [HP, 3.9216],
+        [MAINSTAT, 3.9216],
         [ATT, 1.9608],
+        [FLAT_ALLSTAT, 5.8824],
       ],
       EPIC: [
+        [HP, 8.8235],
         [ATT, 5.8824],
+        [MAINSTAT, 8.8235],
+        [ALLSTAT, 5.8824],
       ],
       UNIQUE: [
+        [HP, 6.9767],
         [ATT, 4.6512],
+        [MAINSTAT, 6.9767],
+        [ALLSTAT, 4.6512],
       ],
       LEGENDARY: [
+        [HP, 7.3171],
         [ATT, 4.878],
+        [CRITDMG, 4.878],
+        [MAINSTAT, 7.3171],
+        [ALLSTAT, 4.878],
       ],
     }),
     FORCE_SHIELD_SOUL_RING: percent({
       RARE: [
+        [FLAT_HP, 5.8824],
+        [FLAT_MAINSTAT, 5.8824],
+        [FLAT_ATT, 3.9216],
+        [HP, 3.9216],
+        [MAINSTAT, 3.9216],
         [ATT, 1.9608],
+        [FLAT_ALLSTAT, 5.8824],
       ],
       EPIC: [
+        [HP, 8.8235],
         [ATT, 5.8824],
+        [MAINSTAT, 8.8235],
+        [ALLSTAT, 5.8824],
       ],
       UNIQUE: [
+        [HP, 6.9767],
         [ATT, 4.6512],
+        [MAINSTAT, 6.9767],
+        [ALLSTAT, 4.6512],
       ],
       LEGENDARY: [
+        [HP, 7.3171],
         [ATT, 4.878],
+        [CRITDMG, 4.878],
+        [MAINSTAT, 7.3171],
+        [ALLSTAT, 4.878],
       ],
     }),
     HAT: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.383],
+        [FLAT_HP, 6.383],
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
+        [FLAT_ALLSTAT, 4.2553],
       ],
       EPIC: [
+        [FLAT_MAINSTAT, 6.0],
+        [FLAT_HP, 6.0],
         [FLAT_ATT, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
       ],
       UNIQUE: [
+        [FLAT_MAINSTAT, 5.4545],
+        [FLAT_HP, 5.4545],
         [FLAT_ATT, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
       ],
       LEGENDARY: [
+        [FLAT_MAINSTAT, 4.5455],
+        [FLAT_HP, 4.5455],
         [FLAT_ATT, 3.0303],
         [MAINSTAT, 3.0303],
         [HP, 4.5455],
@@ -625,23 +840,32 @@ cubes = {
     }),
     TOP_OVERALL: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.383],
+        [FLAT_HP, 6.383],
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
+        [FLAT_ALLSTAT, 4.2553],
       ],
       EPIC: [
+        [FLAT_MAINSTAT, 6.0],
+        [FLAT_HP, 6.0],
         [FLAT_ATT, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
       ],
       UNIQUE: [
+        [FLAT_MAINSTAT, 5.4545],
+        [FLAT_HP, 5.4545],
         [FLAT_ATT, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
       ],
       LEGENDARY: [
+        [FLAT_MAINSTAT, 4.7619],
+        [FLAT_HP, 4.7619],
         [FLAT_ATT, 3.1746],
         [MAINSTAT, 3.1746],
         [HP, 4.7619],
@@ -653,23 +877,32 @@ cubes = {
     }),
     BOTTOM: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.383],
+        [FLAT_HP, 6.383],
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
+        [FLAT_ALLSTAT, 4.2553],
       ],
       EPIC: [
+        [FLAT_MAINSTAT, 6.0],
+        [FLAT_HP, 6.0],
         [FLAT_ATT, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
       ],
       UNIQUE: [
+        [FLAT_MAINSTAT, 5.4545],
+        [FLAT_HP, 5.4545],
         [FLAT_ATT, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
       ],
       LEGENDARY: [
+        [FLAT_MAINSTAT, 4.7619],
+        [FLAT_HP, 4.7619],
         [FLAT_ATT, 3.1746],
         [MAINSTAT, 3.1746],
         [HP, 4.7619],
@@ -681,23 +914,32 @@ cubes = {
     }),
     SHOE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.383],
+        [FLAT_HP, 6.383],
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
+        [FLAT_ALLSTAT, 4.2553],
       ],
       EPIC: [
+        [FLAT_MAINSTAT, 6.0],
+        [FLAT_HP, 6.0],
         [FLAT_ATT, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
       ],
       UNIQUE: [
+        [FLAT_MAINSTAT, 5.4545],
+        [FLAT_HP, 5.4545],
         [FLAT_ATT, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
       ],
       LEGENDARY: [
+        [FLAT_MAINSTAT, 4.7619],
+        [FLAT_HP, 4.7619],
         [FLAT_ATT, 3.1746],
         [MAINSTAT, 3.1746],
         [HP, 4.7619],
@@ -709,23 +951,32 @@ cubes = {
     }),
     GLOVE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.383],
+        [FLAT_HP, 6.383],
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
+        [FLAT_ALLSTAT, 4.2553],
       ],
       EPIC: [
+        [FLAT_MAINSTAT, 6.0],
+        [FLAT_HP, 6.0],
         [FLAT_ATT, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
       ],
       UNIQUE: [
+        [FLAT_MAINSTAT, 5.4545],
+        [FLAT_HP, 5.4545],
         [FLAT_ATT, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
       ],
       LEGENDARY: [
+        [FLAT_MAINSTAT, 4.6154],
+        [FLAT_HP, 4.6154],
         [FLAT_ATT, 3.0769],
         [MAINSTAT, 3.0769],
         [HP, 4.6154],
@@ -737,23 +988,32 @@ cubes = {
     }),
     CAPE_BELT_SHOULDER: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.383],
+        [FLAT_HP, 6.383],
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
+        [FLAT_ALLSTAT, 4.2553],
       ],
       EPIC: [
+        [FLAT_MAINSTAT, 6.0],
+        [FLAT_HP, 6.0],
         [FLAT_ATT, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
       ],
       UNIQUE: [
+        [FLAT_MAINSTAT, 5.4545],
+        [FLAT_HP, 5.4545],
         [FLAT_ATT, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
       ],
       LEGENDARY: [
+        [FLAT_MAINSTAT, 4.7619],
+        [FLAT_HP, 4.7619],
         [FLAT_ATT, 3.1746],
         [MAINSTAT, 3.1746],
         [HP, 4.7619],
@@ -765,23 +1025,32 @@ cubes = {
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.383],
+        [FLAT_HP, 6.383],
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
+        [FLAT_ALLSTAT, 4.2553],
       ],
       EPIC: [
+        [FLAT_MAINSTAT, 6.0],
+        [FLAT_HP, 6.0],
         [FLAT_ATT, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
       ],
       UNIQUE: [
+        [FLAT_MAINSTAT, 5.4545],
+        [FLAT_HP, 5.4545],
         [FLAT_ATT, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
       ],
       LEGENDARY: [
+        [FLAT_MAINSTAT, 4.6875],
+        [FLAT_HP, 4.6875],
         [FLAT_ATT, 3.125],
         [MAINSTAT, 3.125],
         [HP, 4.6875],
@@ -792,23 +1061,32 @@ cubes = {
     }),
     HEART_BADGE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.383],
+        [FLAT_HP, 6.383],
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
+        [FLAT_ALLSTAT, 4.2553],
       ],
       EPIC: [
+        [FLAT_MAINSTAT, 6.0],
+        [FLAT_HP, 6.0],
         [FLAT_ATT, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
       ],
       UNIQUE: [
+        [FLAT_MAINSTAT, 5.4545],
+        [FLAT_HP, 5.4545],
         [FLAT_ATT, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
       ],
       LEGENDARY: [
+        [FLAT_MAINSTAT, 4.918],
+        [FLAT_HP, 4.918],
         [FLAT_ATT, 3.2787],
         [MAINSTAT, 3.2787],
         [HP, 4.918],

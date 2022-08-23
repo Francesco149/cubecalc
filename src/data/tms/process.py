@@ -254,14 +254,12 @@ for cube, cubedata in d.items():
   cubes = bitmask_str(cube, Cube)
   print(f"{cubes}: {{")
   for category, categorydata in cubedata.items():
-    rl = reduce(or_, [utils.relevant_lines(cube)[c] for c in Category if c & category])
     categories = bitmask_str(category, Category)
     print(f"  {categories}: percent({{")
     for tier, tierdata in categorydata.items():
       print(f"    {tier.name}: [")
       for (line, chance) in tierdata:
-        if line & rl:
-          print(f"      [{line.name}, {chance}],")
+        print(f"      [{line.name}, {chance}],")
       print(f"    ],")
     print("  }),")
   print("},")

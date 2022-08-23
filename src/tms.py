@@ -8,14 +8,20 @@ event = {
   VIOLET | EQUALITY: {
     HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.00],
+        [FLAT_HP, 10.00],
         [MAINSTAT, 6.00],
         [HP, 6.00],
+        [FLAT_ALLSTAT, 4.00],
       ],
     }),
     SHOE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 5.56],
+        [FLAT_HP, 9.25],
         [MAINSTAT, 5.56],
         [HP, 5.56],
+        [FLAT_ALLSTAT, 3.70],
       ],
       EPIC: [
         [MAINSTAT, 11.90],
@@ -36,8 +42,11 @@ event = {
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.00],
+        [FLAT_HP, 10.00],
         [MAINSTAT, 6.00],
         [HP, 6.00],
+        [FLAT_ALLSTAT, 4.00],
       ],
       EPIC: [
         [MAINSTAT, 11.90],
@@ -59,22 +68,38 @@ event = {
     }),
     WEAPON | EMBLEM | SECONDARY: percent({
       RARE: [
+        [FLAT_MAINSTAT, 5.56],
+        [FLAT_HP, 11.11],
+        [FLAT_ATT, 3.70],
+        [MAINSTAT, 5.56],
         [ATT, 1.85],
+        [FLAT_ALLSTAT, 3.70],
         [IED_15, 1.85],
       ],
       EPIC: [
         [ATT, 4.00],
         [IED_15, 4.00],
+        [MAINSTAT, 10.00],
+        [HP, 14.00],
+        [ALLSTAT, 4.00],
       ],
     }),
     FORCE_SHIELD_SOUL_RING: percent({
       RARE: [
+        [FLAT_MAINSTAT, 6.25],
+        [FLAT_HP, 12.50],
+        [FLAT_ATT, 4.17],
+        [MAINSTAT, 6.25],
         [ATT, 2.08],
+        [FLAT_ALLSTAT, 4.17],
         [IED_15, 2.08],
       ],
       EPIC: [
         [ATT, 4.65],
         [IED_15, 4.65],
+        [MAINSTAT, 11.63],
+        [HP, 16.28],
+        [ALLSTAT, 4.65],
       ],
     }),
     HAT | BOTTOM | CAPE_BELT_SHOULDER: percent({
@@ -168,6 +193,8 @@ event = {
         [ATT, 6.52],
         [IED_30, 8.70],
         [BOSS_30, 6.52],
+        [MAINSTAT, 10.87],
+        [ALLSTAT, 10.87],
       ],
       LEGENDARY: [
         [ATT, 4.44],
@@ -176,31 +203,43 @@ event = {
         [BOSS_30, 4.44],
         [BOSS_35, 4.44],
         [BOSS_40, 4.44],
+        [MAINSTAT, 8.89],
+        [ALLSTAT, 6.67],
       ],
     }),
     EMBLEM: percent({
       UNIQUE: [
         [ATT, 6.98],
         [IED_30, 9.30],
+        [MAINSTAT, 11.63],
+        [ALLSTAT, 11.63],
       ],
       LEGENDARY: [
         [ATT, 5.13],
         [IED_35, 7.69],
         [IED_40, 7.69],
+        [MAINSTAT, 10.26],
+        [ALLSTAT, 7.69],
       ],
     }),
   },
   UNI: {
     HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER: percent({
       RARE: [
+        [FLAT_MAINSTAT, 8.33],
+        [FLAT_HP, 9.26],
         [MAINSTAT, 2.78],
         [HP, 2.78],
+        [FLAT_ALLSTAT, 8.33],
       ],
     }),
     SHOE: percent({
       RARE: [
+        [FLAT_MAINSTAT, 7.30],
+        [FLAT_HP, 7.30],
         [MAINSTAT, 2.19],
         [HP, 2.19],
+        [FLAT_ALLSTAT, 7.30],
       ],
       EPIC: [
         [MAINSTAT, 13.70],
@@ -221,8 +260,11 @@ event = {
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
       RARE: [
+        [FLAT_MAINSTAT, 8.33],
+        [FLAT_HP, 9.26],
         [MAINSTAT, 2.78],
         [HP, 2.78],
+        [FLAT_ALLSTAT, 8.33],
       ],
       EPIC: [
         [MAINSTAT, 13.70],
@@ -244,22 +286,38 @@ event = {
     }),
     WEAPON | EMBLEM | SECONDARY: percent({
       RARE: [
+        [FLAT_MAINSTAT, 7.41],
+        [FLAT_HP, 7.41],
+        [FLAT_ATT, 3.70],
+        [MAINSTAT, 5.56],
         [ATT, 1.85],
+        [FLAT_ALLSTAT, 3.70],
         [IED_15, 1.85],
       ],
       EPIC: [
         [ATT, 4.11],
         [IED_15, 6.85],
+        [MAINSTAT, 9.59],
+        [HP, 9.59],
+        [ALLSTAT, 8.22],
       ],
     }),
     FORCE_SHIELD_SOUL_RING: percent({
       RARE: [
+        [FLAT_MAINSTAT, 8.00],
+        [FLAT_HP, 8.00],
+        [FLAT_ATT, 4.00],
+        [MAINSTAT, 6.00],
         [ATT, 2.00],
+        [FLAT_ALLSTAT, 4.00],
         [IED_15, 2.00],
       ],
       EPIC: [
         [ATT, 4.55],
         [IED_15, 7.58],
+        [MAINSTAT, 10.61],
+        [HP, 10.61],
+        [ALLSTAT, 9.09],
       ],
     }),
     HAT | BOTTOM | CAPE_BELT_SHOULDER: percent({
@@ -353,6 +411,8 @@ event = {
         [ATT, 8.22],
         [IED_30, 20.55],
         [BOSS_30, 5.48],
+        [MAINSTAT, 2.74],
+        [ALLSTAT, 2.74],
       ],
       LEGENDARY: [
         [ATT, 3.24],
@@ -361,17 +421,23 @@ event = {
         [BOSS_30, 3.07],
         [BOSS_35, 2.10],
         [BOSS_40, 1.13],
+        [MAINSTAT, 1.13],
+        [ALLSTAT, 1.13],
       ],
     }),
     EMBLEM: percent({
       UNIQUE: [
         [ATT, 8.70],
         [IED_30, 21.74],
+        [MAINSTAT, 2.90],
+        [ALLSTAT, 2.90],
       ],
       LEGENDARY: [
         [ATT, 3.45],
         [IED_35, 27.63],
         [IED_40, 17.27],
+        [MAINSTAT, 1.21],
+        [ALLSTAT, 1.21],
       ],
     }),
   },
