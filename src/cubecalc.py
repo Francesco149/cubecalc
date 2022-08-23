@@ -199,11 +199,33 @@ def cube_calc(wants, type, tier, lines):
     return lines_prime + make_any_line(lines[tier - 1]), len(lines_prime)
 
 
-  def cache_combos(cache):
+  # the first time we are called for a certains set of lines, we convert the lines into numpy
+  # arrays for each column (all types, all values, all probabilities, etc...). this is for
+  # performance, since we want to filter based on certain columns and it's a lot faster if
+  # we have the values packed together and we use numpy (which most likely uses vectorized
+  # instructions).
+
+  # the LineCache class holds these arrays and allows us to filter and reshape all of them at once.
+
+  # the filt() method filters all the arrays through numpy fancy indexing on by passing either:
+  # - an array of bools to filter out some elements. used to quickly filter out irrelevant lines
+  # - an array of indices to replace with the elements, which could also be in a different shape
+  #   than a flat array. used to go from a list of all the possible lines to a 2D array of all
+  #   possible relevant line combinations
+
+  # the copy() method creates a copy of the line cache so that we can store a LineCache of just
+  # all the possible lines for subsequent calls, then copy it and filter every time without
+  # affecting the cache object
+
+  # because of how we store a line cache for each tier we're called with that also contains
+  # lines for the lower tier, there will be some duplication. this is fine, it's nice to do it this
+  # way for simplicity
+
+
+  def cache_lines(cache):
     if tier not in cache:
       lines, num_prime = make_lines()
 
-      # convert each column into a numpy array. we want them packed together for performance
       class LineCache:
         def __init__(self, lines):
           self.lines = lines
@@ -223,7 +245,6 @@ def cube_calc(wants, type, tier, lines):
       def col(c, dtype=None):
         return np.array([x[c] for x in lines], dtype=dtype)
 
-      # generate numpy arrays for each column
       types_col = col(LINE_TYPE)
       types_l = [Line(x) for x in types_col]
       values_col = np.array(
@@ -242,12 +263,12 @@ def cube_calc(wants, type, tier, lines):
 
   # cache combos for each cube category called for these lines.
   # the category is mainly how many lines we're rolling and the prime/nonprime logic
-  if COMBOS not in lines:
-    lines[COMBOS] = {}
+  if LINE_CACHE not in lines:
+    lines[LINE_CACHE] = {}
   category = type if type in {VIOLET, UNI, EQUALITY} else RED
-  if category not in lines[COMBOS]:
-    lines[COMBOS][category] = {}
-  line_cache = cache_combos(lines[COMBOS][category])
+  if category not in lines[LINE_CACHE]:
+    lines[LINE_CACHE][category] = {}
+  line_cache = cache_lines(lines[LINE_CACHE][category])
 
   # unicubes are 1/3rd the line chances because you roll 3 cubes on average to select
   chance_multiplier = 3 if type == UNI else 1

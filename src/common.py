@@ -20,7 +20,7 @@ class Category(IntFlag):
   HEART_BADGE = auto()
 
   # special internal values used for caching
-  COMBOS = auto()
+  LINE_CACHE = auto()
   NAME = auto()
   DEFAULT_CUBE = auto()
 
