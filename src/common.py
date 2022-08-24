@@ -50,17 +50,11 @@ def category_name(c):
 
 @global_enum
 class Line(IntFlag):
-  BOSS_12 = 1
-  BOSS_18 = auto()
-  BOSS_30 = auto()
+  BOSS_OTHER = 1
   BOSS_35 = auto()
   BOSS_40 = auto()
   DAMAGE = auto()
-  IED_3 = auto()
-  IED_4 = auto()
-  IED_5 = auto()
-  IED_15 = auto()
-  IED_30 = auto()
+  IED_OTHER = auto()
   IED_35 = auto()
   IED_40 = auto()
   ATT = auto()
@@ -89,10 +83,10 @@ class Line(IntFlag):
 
 @global_enum
 class LineMasks(IntFlag):
-  BOSS_ONLY = BOSS_12 | BOSS_18 | BOSS_30 | BOSS_35 | BOSS_40
+  BOSS_ONLY = BOSS_OTHER | BOSS_35 | BOSS_40
   BOSS = BOSS_ONLY | DAMAGE
   STAT = MAINSTAT | ALLSTAT
-  IED = IED_3 | IED_4 | IED_5 | IED_15 | IED_30 | IED_35 | IED_40
+  IED = IED_OTHER | IED_35 | IED_40
   COOLDOWN = COOLDOWN_1 | COOLDOWN_2
   DECENTS = DECENT_SPEED_INFUSION | DECENT_SHARP_EYES | DECENT_COMBAT_ORDERS
 

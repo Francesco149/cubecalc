@@ -194,7 +194,7 @@ def find_line_values(cube, category, region):
       FLAT_ALLSTAT: flat_allstat_6,
       ATT: mpot_4,
       DAMAGE: mpot_4,
-      IED_15: minlvl(30, 15),
+      IED_OTHER: minlvl(30, 15),
     },
 
     EPIC: {
@@ -205,13 +205,13 @@ def find_line_values(cube, category, region):
       INVIN: 1,
       ATT: mpot_7,
       DAMAGE: mpot_7,
-      IED_15: minlvl(50, 15),
+      IED_OTHER: minlvl(50, 15),
     },
 
     UNIQUE: {
       ANY: 1,
-      BOSS_30: minlvl(100, 30),
-      IED_30: minlvl(50, 30),
+      BOSS_OTHER: minlvl(100, 30),
+      IED_OTHER: minlvl(50, 30),
       ATT: mpot_10,
       DAMAGE: mpot_10,
       MAINSTAT: mpot_10,
@@ -224,7 +224,7 @@ def find_line_values(cube, category, region):
 
     LEGENDARY: {
       ANY: 1,
-      BOSS_30: minlvl(50, 30),
+      BOSS_OTHER: minlvl(50, 30),
       BOSS_35: minlvl(100, 35),
       BOSS_40: minlvl(100, 40),
       IED_35: minlvl(50, 35),
@@ -518,7 +518,7 @@ def find_line_values(cube, category, region):
       DAMAGE: mpot_7,
       HP: hp_6,
       ALLSTAT: mpot_4,
-      IED_3: 3,
+      IED_OTHER: 3,
     },
 
     UNIQUE: {
@@ -528,8 +528,8 @@ def find_line_values(cube, category, region):
       DAMAGE: mpot_10,
       HP: hp_8,
       ALLSTAT: mpot_7,
-      BOSS_12: 12,
-      IED_4: 4,
+      BOSS_OTHER: 12,
+      IED_OTHER: 4,
       MAINSTAT_PER_10_LVLS: 1,
     },
 
@@ -541,8 +541,8 @@ def find_line_values(cube, category, region):
       HP: hp_11,
       ALLSTAT: mpot_10,
       CRITDMG: 1,
-      BOSS_18: 18,
-      IED_5: 5,
+      BOSS_OTHER: 18,
+      IED_OTHER: 5,
       MAINSTAT_PER_10_LVLS: 2,
       ATT_PER_10_LVLS: 1,
     },
@@ -619,7 +619,7 @@ def cube_calc(wants, category, type, tier, level, region, lines):
     {
       UNIQUE: [
         [ATT, 1/7.5*100],
-        [IED_30, 1/7.5*100],
+        [IED_OTHER, 1/7.5*100],
       ],
       LEGENDARY: [
         [ATT, 1/5.7143*100],

@@ -32,6 +32,8 @@ convert_s = {
   "데미지": DAMAGE,
   "캐릭터 기준 10레벨 당 STR": MAINSTAT_PER_10_LVLS,
   "캐릭터 기준 10레벨 당 공격력": ATT_PER_10_LVLS,
+  "몬스터 방어율 무시": IED_OTHER,
+  "보스 몬스터 공격 시 데미지": BOSS_OTHER,
 }
 
 ied_text = lambda x: f"몬스터 방어율 무시 : +{x}%"
@@ -57,16 +59,8 @@ convert = {
   flat_text(KW_ATT, 11): FLAT_ATT,
   flat_text(KW_ATT): FLAT_ATT,
   flat_text(KW_ATT, 14): FLAT_ATT,
-  ied_text(3): IED_3,
-  ied_text(4): IED_4,
-  ied_text(5): IED_5,
-  ied_text(15): IED_15,
-  ied_text(30): IED_30,
   ied_text(35): IED_35,
   ied_text(40): IED_40,
-  boss_text(12): BOSS_12,
-  boss_text(18): BOSS_18,
-  boss_text(30): BOSS_30,
   boss_text(35): BOSS_35,
   boss_text(40): BOSS_40,
   cd_text(1): COOLDOWN_1,
