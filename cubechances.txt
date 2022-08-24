@@ -21,7 +21,7 @@ NOTE: for simplicity, all the values use lvl<160 lines, so for example
 NOTE: for cases where the tier is lower than the max tier of the cube
       (such as red cubes on unique) it's assumed that you won't tier up
 
-========================== weapon (red at legendary) ===========================
+======================= weapon (red on lv150 legendary) ========================
     any 2l combo of att+boss 1 in 15 cubes, 6.7240%
 any 2l combo of att+boss+ied 1 in 7 cubes, 14.2869%
     any 3l combo of att+boss 1 in 316 cubes, 0.3167%
@@ -38,7 +38,7 @@ any 3l combo of att+boss+ied 1 in 83 cubes, 1.2090%
                       70+ied 1 in 137 cubes, 0.7287%
               60+ied and att 1 in 832 cubes, 0.1203%
              60+ied and boss 1 in 564 cubes, 0.1772%
-========================= weapon (black at legendary) ==========================
+====================== weapon (black on lv150 legendary) =======================
     any 2l combo of att+boss 1 in 14 cubes, 6.9320%
 any 2l combo of att+boss+ied 1 in 7 cubes, 14.7180%
     any 3l combo of att+boss 1 in 306 cubes, 0.3267%
@@ -55,7 +55,7 @@ any 3l combo of att+boss+ied 1 in 79 cubes, 1.2679%
                       70+ied 1 in 117 cubes, 0.8519%
               60+ied and att 1 in 819 cubes, 0.1222%
              60+ied and boss 1 in 522 cubes, 0.1916%
-======================== weapon (meister at legendary) =========================
+===================== weapon (meister on lv150 legendary) ======================
     any 2l combo of att+boss 1 in 16 cubes, 6.2164%
 any 2l combo of att+boss+ied 1 in 8 cubes, 12.8013%
     any 3l combo of att+boss 1 in 352 cubes, 0.2843%
@@ -72,7 +72,7 @@ any 3l combo of att+boss+ied 1 in 99 cubes, 1.0138%
                       70+ied 1 in 287 cubes, 0.3482%
               60+ied and att 1 in 1012 cubes, 0.0988%
              60+ied and boss 1 in 735 cubes, 0.1361%
-============ 2ndary excl. force shield/soul ring (red at legendary) ============
+========= 2ndary excl. force shield/soul ring (red on lv150 legendary) =========
     any 2l combo of att+boss 1 in 20 cubes, 5.0115%
 any 2l combo of att+boss+ied 1 in 9 cubes, 10.7511%
     any 3l combo of att+boss 1 in 507 cubes, 0.1973%
@@ -89,7 +89,7 @@ any 3l combo of att+boss+ied 1 in 133 cubes, 0.7535%
                       70+ied 1 in 184 cubes, 0.5449%
               60+ied and att 1 in 1335 cubes, 0.0749%
              60+ied and boss 1 in 905 cubes, 0.1105%
-=========== 2ndary excl. force shield/soul ring (black at legendary) ===========
+======== 2ndary excl. force shield/soul ring (black on lv150 legendary) ========
     any 2l combo of att+boss 1 in 19 cubes, 5.1877%
 any 2l combo of att+boss+ied 1 in 9 cubes, 11.1213%
     any 3l combo of att+boss 1 in 489 cubes, 0.2047%
@@ -106,7 +106,7 @@ any 3l combo of att+boss+ied 1 in 126 cubes, 0.7950%
                       70+ied 1 in 156 cubes, 0.6401%
               60+ied and att 1 in 1308 cubes, 0.0765%
              60+ied and boss 1 in 831 cubes, 0.1203%
-========== 2ndary excl. force shield/soul ring (meister at legendary) ==========
+======= 2ndary excl. force shield/soul ring (meister on lv150 legendary) =======
     any 2l combo of att+boss 1 in 29 cubes, 3.4008%
 any 2l combo of att+boss+ied 1 in 14 cubes, 7.1125%
     any 3l combo of att+boss 1 in 919 cubes, 0.1088%
@@ -123,7 +123,7 @@ any 3l combo of att+boss+ied 1 in 258 cubes, 0.3880%
                       70+ied 1 in 525 cubes, 0.1904%
               60+ied and att 1 in 2644 cubes, 0.0378%
              60+ied and boss 1 in 1920 cubes, 0.0521%
-========= weapon, 2ndary/force shield/soul ring (violet at legendary) ==========
+====== weapon, 2ndary/force shield/soul ring (violet on lv150 legendary) =======
     any 2l combo of att+boss 1 in 5 cubes, 19.2373%
 any 2l combo of att+boss+ied 1 in 2 cubes, 41.2118%
     any 3l combo of att+boss 1 in 32 cubes, 3.1385%
@@ -140,7 +140,7 @@ any 3l combo of att+boss+ied 1 in 8 cubes, 12.5944%
                       70+ied 1 in 39 cubes, 2.5443%
               60+ied and att 1 in 44 cubes, 2.2774%
              60+ied and boss 1 in 36 cubes, 2.7931%
-======== weapon, 2ndary/force shield/soul ring (equality at legendary) =========
+===== weapon, 2ndary/force shield/soul ring (equality on lv150 legendary) ======
     any 2l combo of att+boss 1 in 12 cubes, 8.1058%
 any 2l combo of att+boss+ied 1 in 4 cubes, 22.5265%
     any 3l combo of att+boss 1 in 309 cubes, 0.3239%
@@ -157,7 +157,7 @@ any 3l combo of att+boss+ied 1 in 39 cubes, 2.5343%
                       70+ied 1 in 22 cubes, 4.6265%
               60+ied and att 1 in 422 cubes, 0.2370%
              60+ied and boss 1 in 141 cubes, 0.7111%
-========================== weapon (master at unique) ===========================
+======================= weapon (master on lv150 unique) ========================
     any 2l combo of att+boss 1 in 85 cubes, 1.1706%
 any 2l combo of att+boss+ied 1 in 29 cubes, 3.4939%
     any 3l combo of att+boss 1 in 4787 cubes, 0.0209%
@@ -167,7 +167,7 @@ any 3l combo of att+boss+ied 1 in 886 cubes, 0.1128%
                      15+ att 1 in 195 cubes, 0.5129%
                      21+ att 1 in 9966 cubes, 0.0100%
                     any boss 1 in 15 cubes, 6.8142%
-============ 2ndary excl. force shield/soul ring (master at unique) ============
+========= 2ndary excl. force shield/soul ring (master on lv150 unique) =========
     any 2l combo of att+boss 1 in 159 cubes, 0.6291%
 any 2l combo of att+boss+ied 1 in 53 cubes, 1.8993%
     any 3l combo of att+boss 1 in 12182 cubes, 0.0082%
@@ -177,7 +177,7 @@ any 3l combo of att+boss+ied 1 in 2254 cubes, 0.0444%
                      15+ att 1 in 366 cubes, 0.2734%
                      21+ att 1 in 25324 cubes, 0.0039%
                     any boss 1 in 21 cubes, 4.8694%
-========================== emblem (red at legendary) ===========================
+======================= emblem (red on lv150 legendary) ========================
 any 2l combo of att+ied 1 in 15 cubes, 6.6171%
 any 3l combo of att+ied 1 in 309 cubes, 0.3238%
                 18+ att 1 in 75 cubes, 1.3311%
@@ -185,7 +185,7 @@ any 3l combo of att+ied 1 in 309 cubes, 0.3238%
                 30+ att 1 in 3195 cubes, 0.0313%
                 33+ att 1 in 37544 cubes, 0.0027%
         21+ att and ied 1 in 1416 cubes, 0.0706%
-========================= emblem (black at legendary) ==========================
+====================== emblem (black on lv150 legendary) =======================
 any 2l combo of att+ied 1 in 15 cubes, 6.6935%
 any 3l combo of att+ied 1 in 306 cubes, 0.3267%
                 18+ att 1 in 77 cubes, 1.3005%
@@ -193,7 +193,7 @@ any 3l combo of att+ied 1 in 306 cubes, 0.3267%
                 30+ att 1 in 3306 cubes, 0.0302%
                 33+ att 1 in 17184 cubes, 0.0058%
         21+ att and ied 1 in 1280 cubes, 0.0781%
-======================== emblem (meister at legendary) =========================
+===================== emblem (meister on lv150 legendary) ======================
 any 2l combo of att+ied 1 in 17 cubes, 5.9433%
 any 3l combo of att+ied 1 in 357 cubes, 0.2799%
                 18+ att 1 in 73 cubes, 1.3657%
@@ -201,7 +201,7 @@ any 3l combo of att+ied 1 in 357 cubes, 0.2799%
                 30+ att 1 in 3039 cubes, 0.0329%
                 33+ att 1 in 843482 cubes, 0.0001%
         21+ att and ied 1 in 1514 cubes, 0.0660%
-========================= emblem (violet at legendary) =========================
+====================== emblem (violet on lv150 legendary) ======================
 any 2l combo of att+ied 1 in 4 cubes, 25.6770%
 any 3l combo of att+ied 1 in 20 cubes, 4.8822%
                 18+ att 1 in 18 cubes, 5.4605%
@@ -209,7 +209,7 @@ any 3l combo of att+ied 1 in 20 cubes, 4.8822%
                 30+ att 1 in 401 cubes, 0.2492%
                 33+ att 1 in 2544 cubes, 0.0393%
         21+ att and ied 1 in 142 cubes, 0.7058%
-======================== emblem (equality at legendary) ========================
+===================== emblem (equality on lv150 legendary) =====================
 any 2l combo of att+ied 1 in 9 cubes, 10.5304%
 any 3l combo of att+ied 1 in 200 cubes, 0.4990%
                 18+ att 1 in 131 cubes, 0.7625%
@@ -217,41 +217,41 @@ any 3l combo of att+ied 1 in 200 cubes, 0.4990%
                 30+ att 1 in 7407 cubes, 0.0135%
                 33+ att 1 in 7407 cubes, 0.0135%
         21+ att and ied 1 in 824 cubes, 0.1214%
-========================== emblem (master at unique) ===========================
+======================= emblem (master on lv150 unique) ========================
 any 2l combo of att+ied 1 in 38 cubes, 2.6407%
 any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
                  9+ att 1 in 13 cubes, 7.4343%
                 12+ att 1 in 146 cubes, 0.6844%
                 15+ att 1 in 182 cubes, 0.5503%
                 21+ att 1 in 9274 cubes, 0.0108%
-=========================== weapon (occult at epic) ============================
+======================== weapon (occult on lv150 epic) =========================
  6+ att 1 in 25 cubes, 3.9484%
  9+ att 1 in 732 cubes, 0.1366%
 12+ att 1 in 24371 cubes, 0.0041%
-============= 2ndary excl. force shield/soul ring (occult at epic) =============
+========== 2ndary excl. force shield/soul ring (occult on lv150 epic) ==========
  6+ att 1 in 34 cubes, 2.9414%
  9+ att 1 in 991 cubes, 0.1009%
 12+ att 1 in 40224 cubes, 0.0025%
-=========================== emblem (occult at epic) ============================
+======================== emblem (occult on lv150 epic) =========================
  6+ att 1 in 25 cubes, 3.9484%
  9+ att 1 in 732 cubes, 0.1366%
 12+ att 1 in 24371 cubes, 0.0041%
-========================= weapon (bonus at legendary) ==========================
+====================== weapon (bonus on lv150 legendary) =======================
 18+ att 1 in 149 cubes, 0.6716%
 21+ att 1 in 213 cubes, 0.4684%
 30+ att 1 in 9005 cubes, 0.0111%
 33+ att 1 in 823479 cubes, 0.0001%
-=========== 2ndary excl. force shield/soul ring (bonus at legendary) ===========
+======== 2ndary excl. force shield/soul ring (bonus on lv150 legendary) ========
 18+ att 1 in 154 cubes, 0.6492%
 21+ att 1 in 224 cubes, 0.4455%
 30+ att 1 in 9471 cubes, 0.0106%
 33+ att 1 in 910243 cubes, 0.0001%
-========================= emblem (bonus at legendary) ==========================
+====================== emblem (bonus on lv150 legendary) =======================
 18+ att 1 in 142 cubes, 0.7046%
 21+ att 1 in 203 cubes, 0.4919%
 30+ att 1 in 8370 cubes, 0.0119%
 33+ att 1 in 763598 cubes, 0.0001%
-======================== top/overall (red at legendary) ========================
+===================== top/overall (red on lv150 legendary) =====================
     18+ stat 1 in 24 cubes, 4.0817%
     21+ stat 1 in 58 cubes, 1.7284%
     30+ stat 1 in 1402 cubes, 0.0713%
@@ -263,7 +263,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 85 cubes, 1.1740%
 15+ all stat 1 in 115 cubes, 0.8696%
 21+ all stat 1 in 3838 cubes, 0.0261%
-======================= top/overall (black at legendary) =======================
+==================== top/overall (black on lv150 legendary) ====================
     18+ stat 1 in 23 cubes, 4.3267%
     21+ stat 1 in 50 cubes, 1.9980%
     30+ stat 1 in 1060 cubes, 0.0943%
@@ -275,7 +275,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 84 cubes, 1.1897%
 15+ all stat 1 in 108 cubes, 0.9300%
 21+ all stat 1 in 3759 cubes, 0.0266%
-====================== top/overall (meister at legendary) ======================
+=================== top/overall (meister on lv150 legendary) ===================
     18+ stat 1 in 49 cubes, 2.0455%
     21+ stat 1 in 133 cubes, 0.7492%
     30+ stat 1 in 4584 cubes, 0.0218%
@@ -287,7 +287,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 228 cubes, 0.4385%
 15+ all stat 1 in 284 cubes, 0.3524%
 21+ all stat 1 in 18444 cubes, 0.0054%
-====================== top/overall (violet at legendary) =======================
+=================== top/overall (violet on lv150 legendary) ====================
     18+ stat 1 in 10 cubes, 10.2863%
     21+ stat 1 in 20 cubes, 4.8983%
     30+ stat 1 in 159 cubes, 0.6291%
@@ -299,7 +299,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 25 cubes, 3.9935%
 15+ all stat 1 in 55 cubes, 1.8237%
 21+ all stat 1 in 547 cubes, 0.1829%
-===================== top/overall (equality at legendary) ======================
+================== top/overall (equality on lv150 legendary) ===================
     18+ stat 1 in 19 cubes, 5.1306%
     21+ stat 1 in 24 cubes, 4.2357%
     30+ stat 1 in 420 cubes, 0.2379%
@@ -311,7 +311,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 100 cubes, 0.9966%
 15+ all stat 1 in 100 cubes, 0.9966%
 21+ all stat 1 in 4919 cubes, 0.0203%
-==================== cape/belt/shoulder (red at legendary) =====================
+================= cape/belt/shoulder (red on lv150 legendary) ==================
     18+ stat 1 in 17 cubes, 5.9391%
     21+ stat 1 in 39 cubes, 2.5544%
     30+ stat 1 in 771 cubes, 0.1297%
@@ -323,7 +323,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 57 cubes, 1.7498%
 15+ all stat 1 in 79 cubes, 1.2653%
 21+ all stat 1 in 2072 cubes, 0.0483%
-=================== cape/belt/shoulder (black at legendary) ====================
+================ cape/belt/shoulder (black on lv150 legendary) =================
     18+ stat 1 in 16 cubes, 6.2379%
     21+ stat 1 in 34 cubes, 2.9010%
     30+ stat 1 in 597 cubes, 0.1675%
@@ -335,7 +335,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 57 cubes, 1.7583%
 15+ all stat 1 in 74 cubes, 1.3451%
 21+ all stat 1 in 2056 cubes, 0.0486%
-================== cape/belt/shoulder (meister at legendary) ===================
+=============== cape/belt/shoulder (meister on lv150 legendary) ================
     18+ stat 1 in 33 cubes, 3.0035%
     21+ stat 1 in 89 cubes, 1.1225%
     30+ stat 1 in 2528 cubes, 0.0396%
@@ -347,7 +347,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 154 cubes, 0.6481%
 15+ all stat 1 in 192 cubes, 0.5212%
 21+ all stat 1 in 10168 cubes, 0.0098%
-=================== cape/belt/shoulder (violet at legendary) ===================
+================ cape/belt/shoulder (violet on lv150 legendary) ================
     18+ stat 1 in 7 cubes, 14.2566%
     21+ stat 1 in 14 cubes, 7.2798%
     30+ stat 1 in 90 cubes, 1.1159%
@@ -359,7 +359,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 18 cubes, 5.7057%
 15+ all stat 1 in 39 cubes, 2.5438%
 21+ all stat 1 in 323 cubes, 0.3091%
-================== cape/belt/shoulder (equality at legendary) ==================
+=============== cape/belt/shoulder (equality on lv150 legendary) ===============
     18+ stat 1 in 15 cubes, 6.5100%
     21+ stat 1 in 19 cubes, 5.3830%
     30+ stat 1 in 288 cubes, 0.3471%
@@ -371,7 +371,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 78 cubes, 1.2753%
 15+ all stat 1 in 78 cubes, 1.2753%
 21+ all stat 1 in 3370 cubes, 0.0297%
-========================== shoe (violet at legendary) ==========================
+======================= shoe (violet on lv150 legendary) =======================
     18+ stat 1 in 8 cubes, 12.7205%
     21+ stat 1 in 16 cubes, 6.3199%
     30+ stat 1 in 110 cubes, 0.9109%
@@ -383,7 +383,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 20 cubes, 5.0649%
 15+ all stat 1 in 45 cubes, 2.2402%
 21+ all stat 1 in 391 cubes, 0.2560%
-========================= shoe (equality at legendary) =========================
+====================== shoe (equality on lv150 legendary) ======================
     18+ stat 1 in 17 cubes, 5.7574%
     21+ stat 1 in 21 cubes, 4.7564%
     30+ stat 1 in 350 cubes, 0.2855%
@@ -395,7 +395,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 89 cubes, 1.1230%
 15+ all stat 1 in 89 cubes, 1.1230%
 21+ all stat 1 in 4096 cubes, 0.0244%
-========================== bottom (red at legendary) ===========================
+======================= bottom (red on lv150 legendary) ========================
     18+ stat 1 in 18 cubes, 5.5196%
     21+ stat 1 in 42 cubes, 2.3828%
     30+ stat 1 in 873 cubes, 0.1146%
@@ -407,7 +407,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 62 cubes, 1.6008%
 15+ all stat 1 in 85 cubes, 1.1830%
 21+ all stat 1 in 2382 cubes, 0.0420%
-========================= bottom (black at legendary) ==========================
+====================== bottom (black on lv150 legendary) =======================
     18+ stat 1 in 17 cubes, 5.8378%
     21+ stat 1 in 37 cubes, 2.7369%
     30+ stat 1 in 663 cubes, 0.1509%
@@ -419,7 +419,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 62 cubes, 1.6199%
 15+ all stat 1 in 79 cubes, 1.2635%
 21+ all stat 1 in 2338 cubes, 0.0428%
-======================== bottom (meister at legendary) =========================
+===================== bottom (meister on lv150 legendary) ======================
     18+ stat 1 in 42 cubes, 2.3674%
     21+ stat 1 in 117 cubes, 0.8571%
     30+ stat 1 in 3546 cubes, 0.0282%
@@ -431,7 +431,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 196 cubes, 0.5115%
 15+ all stat 1 in 250 cubes, 0.4000%
 21+ all stat 1 in 14256 cubes, 0.0070%
-========================= bottom (violet at legendary) =========================
+====================== bottom (violet on lv150 legendary) ======================
     18+ stat 1 in 8 cubes, 13.1997%
     21+ stat 1 in 15 cubes, 6.6366%
     30+ stat 1 in 103 cubes, 0.9740%
@@ -443,7 +443,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 19 cubes, 5.1912%
 15+ all stat 1 in 42 cubes, 2.3809%
 21+ all stat 1 in 365 cubes, 0.2740%
-======================== bottom (equality at legendary) ========================
+===================== bottom (equality on lv150 legendary) =====================
     18+ stat 1 in 15 cubes, 6.5100%
     21+ stat 1 in 19 cubes, 5.3830%
     30+ stat 1 in 288 cubes, 0.3471%
@@ -455,7 +455,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 12+ all stat 1 in 78 cubes, 1.2753%
 15+ all stat 1 in 78 cubes, 1.2753%
 21+ all stat 1 in 3370 cubes, 0.0297%
-============ accessory (face/eye/ring/ear/pend) (red at legendary) =============
+========= accessory (face/eye/ring/ear/pend) (red on lv150 legendary) ==========
              18+ stat 1 in 16 cubes, 6.1718%
              21+ stat 1 in 39 cubes, 2.5467%
              30+ stat 1 in 702 cubes, 0.1425%
@@ -474,7 +474,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
               40 meso 1 in 1853 cubes, 0.0540%
               40 drop 1 in 1854 cubes, 0.0539%
 20+ meso and 20+ drop 1 in 927 cubes, 0.1079%
-=========== accessory (face/eye/ring/ear/pend) (black at legendary) ============
+======== accessory (face/eye/ring/ear/pend) (black on lv150 legendary) =========
              18+ stat 1 in 16 cubes, 6.3169%
              21+ stat 1 in 36 cubes, 2.7819%
              30+ stat 1 in 589 cubes, 0.1699%
@@ -493,7 +493,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
               40 meso 1 in 794 cubes, 0.1259%
               40 drop 1 in 797 cubes, 0.1255%
 20+ meso and 20+ drop 1 in 398 cubes, 0.2511%
-========== accessory (face/eye/ring/ear/pend) (meister at legendary) ===========
+======= accessory (face/eye/ring/ear/pend) (meister on lv150 legendary) ========
              18+ stat 1 in 29 cubes, 3.4430%
              21+ stat 1 in 83 cubes, 1.2040%
              30+ stat 1 in 1866 cubes, 0.0536%
@@ -512,7 +512,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
               40 meso 1 in 32149 cubes, 0.0031%
               40 drop 1 in 32152 cubes, 0.0031%
 20+ meso and 20+ drop 1 in 16076 cubes, 0.0062%
-=========== accessory (face/eye/ring/ear/pend) (violet at legendary) ===========
+======== accessory (face/eye/ring/ear/pend) (violet on lv150 legendary) ========
              18+ stat 1 in 6 cubes, 16.0127%
              21+ stat 1 in 12 cubes, 8.3394%
              30+ stat 1 in 73 cubes, 1.3609%
@@ -531,7 +531,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
               40 meso 1 in 1184 cubes, 0.0845%
               40 drop 1 in 1188 cubes, 0.0841%
 20+ meso and 20+ drop 1 in 594 cubes, 0.1683%
-========== accessory (face/eye/ring/ear/pend) (equality at legendary) ==========
+======= accessory (face/eye/ring/ear/pend) (equality on lv150 legendary) =======
              18+ stat 1 in 19 cubes, 5.1306%
              21+ stat 1 in 24 cubes, 4.2357%
              30+ stat 1 in 420 cubes, 0.2379%
@@ -550,7 +550,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
               40 meso 1 in 100 cubes, 0.9966%
               40 drop 1 in 102 cubes, 0.9762%
 20+ meso and 20+ drop 1 in 51 cubes, 1.9525%
-============================ hat (red at legendary) ============================
+========================= hat (red on lv150 legendary) =========================
                  18+ stat 1 in 22 cubes, 4.6216%
                  21+ stat 1 in 52 cubes, 1.9162%
                  30+ stat 1 in 1128 cubes, 0.0886%
@@ -573,7 +573,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 4+s cooldown and any stat 1 in 28403 cubes, 0.0035%
              5+s cooldown 1 in 2071059 cubes, 0.0000%
              6+s cooldown 1 in 11390967 cubes, 0.0000%
-=========================== hat (black at legendary) ===========================
+======================== hat (black on lv150 legendary) ========================
                  18+ stat 1 in 21 cubes, 4.8066%
                  21+ stat 1 in 46 cubes, 2.1507%
                  30+ stat 1 in 902 cubes, 0.1109%
@@ -596,7 +596,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 4+s cooldown and any stat 1 in 12161 cubes, 0.0082%
              5+s cooldown 1 in 207106 cubes, 0.0005%
              6+s cooldown 1 in 1139097 cubes, 0.0001%
-========================== hat (meister at legendary) ==========================
+======================= hat (meister on lv150 legendary) =======================
                  18+ stat 1 in 44 cubes, 2.2620%
                  21+ stat 1 in 124 cubes, 0.8093%
                  30+ stat 1 in 3757 cubes, 0.0266%
@@ -619,7 +619,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 4+s cooldown and any stat 1 in 783595 cubes, 0.0001%
              5+s cooldown 1 in 266150688 cubes, 0.0000%
              6+s cooldown 1 in 1463814411 cubes, 0.0000%
-========================== hat (violet at legendary) ===========================
+======================= hat (violet on lv150 legendary) ========================
                  18+ stat 1 in 8 cubes, 12.0531%
                  21+ stat 1 in 17 cubes, 5.8817%
                  30+ stat 1 in 121 cubes, 0.8250%
@@ -642,7 +642,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 4+s cooldown and any stat 1 in 6164 cubes, 0.0162%
              5+s cooldown 1 in 204158 cubes, 0.0005%
              6+s cooldown 1 in 1110547 cubes, 0.0001%
-========================= hat (equality at legendary) ==========================
+====================== hat (equality on lv150 legendary) =======================
                  18+ stat 1 in 21 cubes, 4.7741%
                  21+ stat 1 in 25 cubes, 3.9400%
                  30+ stat 1 in 471 cubes, 0.2124%
@@ -665,7 +665,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 4+s cooldown and any stat 1 in 1775 cubes, 0.0563%
              5+s cooldown 1 in 3391 cubes, 0.0295%
              6+s cooldown 1 in 18663 cubes, 0.0054%
-============= accessory (face/eye/ring/ear/pend) (occult at epic) ==============
+========== accessory (face/eye/ring/ear/pend) (occult on lv150 epic) ===========
     6+ stat 1 in 8 cubes, 12.0129%
     9+ stat 1 in 92 cubes, 1.0916%
    12+ stat 1 in 1984 cubes, 0.0504%
@@ -674,7 +674,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
       6+ hp 1 in 6 cubes, 17.3583%
       9+ hp 1 in 43 cubes, 2.3448%
      12+ hp 1 in 722 cubes, 0.1385%
-========================= top/overall (occult at epic) =========================
+====================== top/overall (occult on lv150 epic) ======================
     6+ stat 1 in 13 cubes, 7.4239%
     9+ stat 1 in 134 cubes, 0.7469%
    12+ stat 1 in 3390 cubes, 0.0295%
@@ -683,7 +683,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
       6+ hp 1 in 9 cubes, 10.7908%
       9+ hp 1 in 62 cubes, 1.6150%
      12+ hp 1 in 1137 cubes, 0.0880%
-============================= hat (occult at epic) =============================
+========================== hat (occult on lv150 epic) ==========================
     6+ stat 1 in 12 cubes, 8.2142%
     9+ stat 1 in 120 cubes, 0.8319%
    12+ stat 1 in 2948 cubes, 0.0339%
@@ -692,7 +692,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
       6+ hp 1 in 8 cubes, 11.9117%
       9+ hp 1 in 56 cubes, 1.7965%
      12+ hp 1 in 998 cubes, 0.1002%
-============ accessory (face/eye/ring/ear/pend) (master at unique) =============
+========= accessory (face/eye/ring/ear/pend) (master on lv150 unique) ==========
     6+ stat 1 in 3 cubes, 32.5908%
     9+ stat 1 in 8 cubes, 13.2526%
    12+ stat 1 in 20 cubes, 4.9985%
@@ -704,7 +704,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    15+ stat 1 in 46 cubes, 2.1818%
 9+ all stat 1 in 192 cubes, 0.5195%
      15+ hp 1 in 23 cubes, 4.4064%
-============ accessory (face/eye/ring/ear/pend) (meister at unique) ============
+========= accessory (face/eye/ring/ear/pend) (meister on lv150 unique) =========
     6+ stat 1 in 3 cubes, 32.6128%
     9+ stat 1 in 8 cubes, 13.3202%
    12+ stat 1 in 20 cubes, 5.0054%
@@ -716,7 +716,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    15+ stat 1 in 46 cubes, 2.1973%
 9+ all stat 1 in 192 cubes, 0.5217%
      15+ hp 1 in 23 cubes, 4.4240%
-======================== top/overall (master at unique) ========================
+===================== top/overall (master on lv150 unique) =====================
     6+ stat 1 in 5 cubes, 20.9555%
     9+ stat 1 in 13 cubes, 7.5619%
    12+ stat 1 in 51 cubes, 1.9577%
@@ -728,7 +728,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    15+ stat 1 in 120 cubes, 0.8305%
 9+ all stat 1 in 498 cubes, 0.2007%
      15+ hp 1 in 57 cubes, 1.7450%
-======================= top/overall (meister at unique) ========================
+==================== top/overall (meister on lv150 unique) =====================
     6+ stat 1 in 5 cubes, 20.9755%
     9+ stat 1 in 13 cubes, 7.6124%
    12+ stat 1 in 51 cubes, 1.9612%
@@ -740,7 +740,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    15+ stat 1 in 119 cubes, 0.8373%
 9+ all stat 1 in 496 cubes, 0.2016%
      15+ hp 1 in 57 cubes, 1.7525%
-============================ hat (master at unique) ============================
+========================= hat (master on lv150 unique) =========================
     6+ stat 1 in 4 cubes, 23.3131%
     9+ stat 1 in 11 cubes, 8.7351%
    12+ stat 1 in 41 cubes, 2.4470%
@@ -752,7 +752,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    15+ stat 1 in 95 cubes, 1.0513%
 9+ all stat 1 in 395 cubes, 0.2534%
      15+ hp 1 in 46 cubes, 2.1937%
-=========================== hat (meister at unique) ============================
+======================== hat (meister on lv150 unique) =========================
     6+ stat 1 in 4 cubes, 23.3367%
     9+ stat 1 in 11 cubes, 8.7914%
    12+ stat 1 in 41 cubes, 2.4517%
@@ -764,7 +764,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    15+ stat 1 in 94 cubes, 1.0600%
 9+ all stat 1 in 393 cubes, 0.2546%
      15+ hp 1 in 45 cubes, 2.2034%
-============== accessory (face/eye/ring/ear/pend) (red at unique) ==============
+=========== accessory (face/eye/ring/ear/pend) (red on lv150 unique) ===========
     6+ stat 1 in 2 cubes, 42.2522%
     9+ stat 1 in 5 cubes, 18.3937%
    12+ stat 1 in 12 cubes, 8.3432%
@@ -776,7 +776,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    15+ stat 1 in 27 cubes, 3.6851%
 9+ all stat 1 in 92 cubes, 1.0929%
      15+ hp 1 in 26 cubes, 3.7928%
-========================= top/overall (red at unique) ==========================
+====================== top/overall (red on lv150 unique) =======================
     6+ stat 1 in 3 cubes, 35.1211%
     9+ stat 1 in 8 cubes, 12.7987%
    12+ stat 1 in 18 cubes, 5.5476%
@@ -788,7 +788,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    15+ stat 1 in 45 cubes, 2.2050%
 9+ all stat 1 in 152 cubes, 0.6589%
      15+ hp 1 in 43 cubes, 2.3178%
-============================= hat (red at unique) ==============================
+========================== hat (red on lv150 unique) ===========================
     6+ stat 1 in 3 cubes, 38.7237%
     9+ stat 1 in 7 cubes, 15.1759%
    12+ stat 1 in 15 cubes, 6.8939%
@@ -800,7 +800,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    15+ stat 1 in 35 cubes, 2.8421%
 9+ all stat 1 in 118 cubes, 0.8450%
      15+ hp 1 in 34 cubes, 2.9551%
-========================= glove (violet at legendary) ==========================
+====================== glove (violet on lv150 legendary) =======================
                    18+ stat 1 in 9 cubes, 11.2780%
                    21+ stat 1 in 18 cubes, 5.4440%
                    30+ stat 1 in 136 cubes, 0.7363%
@@ -823,7 +823,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 16+ crit damage and 9+ stat 1 in 2375 cubes, 0.0421%
 16+ crit damage and 12 stat 1 in 6907 cubes, 0.0145%
              24 crit damage 1 in 132652 cubes, 0.0008%
-======================== glove (equality at legendary) =========================
+===================== glove (equality on lv150 legendary) ======================
                    18+ stat 1 in 20 cubes, 4.9474%
                    21+ stat 1 in 24 cubes, 4.0831%
                    30+ stat 1 in 445 cubes, 0.2246%
@@ -846,7 +846,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 16+ crit damage and 9+ stat 1 in 419 cubes, 0.2388%
 16+ crit damage and 12 stat 1 in 733 cubes, 0.1364%
              24 crit damage 1 in 2199 cubes, 0.0455%
-=========== weapon, 2ndary/force shield/soul ring (uni at legendary) ===========
+======== weapon, 2ndary/force shield/soul ring (uni on lv150 legendary) ========
 9+ att or 30+ boss or 30+ ied 1 in 8 cubes, 12.2847%
            9+ att or 30+ boss 1 in 23 cubes, 4.3587%
                      30+ boss 1 in 54 cubes, 1.8677%
@@ -858,14 +858,14 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
                        12 att 1 in 617 cubes, 0.1620%
                        40 ied 1 in 124 cubes, 0.8090%
                       35+ ied 1 in 48 cubes, 2.1035%
-========================== emblem (uni at legendary) ===========================
+======================= emblem (uni on lv150 legendary) ========================
 9+ att or 30+ ied 1 in 9 cubes, 11.0422%
            9+ att 1 in 38 cubes, 2.6375%
           30+ ied 1 in 12 cubes, 8.4047%
            12 att 1 in 580 cubes, 0.1725%
            40 ied 1 in 116 cubes, 0.8635%
           35+ ied 1 in 45 cubes, 2.2450%
-==================== cape/belt/shoulder (uni at legendary) =====================
+================= cape/belt/shoulder (uni on lv150 legendary) ==================
   6+ stat 1 in 29 cubes, 3.3932%
   9+ stat 1 in 34 cubes, 2.9568%
     9+ hp 1 in 38 cubes, 2.6233%
@@ -873,7 +873,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
   12 stat 1 in 225 cubes, 0.4445%
     12 hp 1 in 225 cubes, 0.4445%
 9 allstat 1 in 300 cubes, 0.3335%
-=========================== shoe (uni at legendary) ============================
+======================== shoe (uni on lv150 legendary) =========================
   6+ stat 1 in 38 cubes, 2.6078%
   9+ stat 1 in 44 cubes, 2.2480%
     9+ hp 1 in 46 cubes, 2.1570%
@@ -881,7 +881,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
   12 stat 1 in 275 cubes, 0.3635%
     12 hp 1 in 275 cubes, 0.3635%
 9 allstat 1 in 1099 cubes, 0.0910%
-========================== bottom (uni at legendary) ===========================
+======================= bottom (uni on lv150 legendary) ========================
   6+ stat 1 in 36 cubes, 2.8052%
   9+ stat 1 in 42 cubes, 2.3547%
     9+ hp 1 in 45 cubes, 2.2437%
@@ -889,7 +889,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
   12 stat 1 in 225 cubes, 0.4445%
     12 hp 1 in 225 cubes, 0.4445%
 9 allstat 1 in 901 cubes, 0.1110%
-======================== top/overall (uni at legendary) ========================
+===================== top/overall (uni on lv150 legendary) =====================
   6+ stat 1 in 55 cubes, 1.8295%
   9+ stat 1 in 65 cubes, 1.5405%
     9+ hp 1 in 68 cubes, 1.4635%
@@ -897,7 +897,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
   12 stat 1 in 325 cubes, 0.3075%
     12 hp 1 in 325 cubes, 0.3075%
 9 allstat 1 in 1299 cubes, 0.0770%
-============ accessory (face/eye/ring/ear/pend) (uni at legendary) =============
+========= accessory (face/eye/ring/ear/pend) (uni on lv150 legendary) ==========
            6+ stat 1 in 23 cubes, 4.3343%
            9+ stat 1 in 27 cubes, 3.6742%
              9+ hp 1 in 28 cubes, 3.5982%
@@ -908,7 +908,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
            20 meso 1 in 220 cubes, 0.4545%
            20 drop 1 in 220 cubes, 0.4545%
 20 meso or 20 drop 1 in 110 cubes, 0.9090%
-=========================== glove (uni at legendary) ===========================
+======================== glove (uni on lv150 legendary) ========================
       6+ stat 1 in 47 cubes, 2.1503%
       9+ stat 1 in 54 cubes, 1.8528%
         9+ hp 1 in 56 cubes, 1.7803%
@@ -917,7 +917,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
         12 hp 1 in 345 cubes, 0.2900%
     9 allstat 1 in 1379 cubes, 0.0725%
 8 crit damage 1 in 690 cubes, 0.1450%
-============================ hat (uni at legendary) ============================
+========================= hat (uni on lv150 legendary) =========================
      6+ stat 1 in 42 cubes, 2.3667%
      9+ stat 1 in 51 cubes, 1.9558%
        9+ hp 1 in 53 cubes, 1.8933%

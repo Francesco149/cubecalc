@@ -79,7 +79,7 @@ def __cube_calc_print(print_combos, category, type, tier, level, region, lines):
 
   # janky but we run this first to get the actual tier that's being computed
   formatted = [fmt_chance(text, want) for (text, want) in print_combos]
-  print(f" {lines[NAME]} ({type.name.lower()} at {tier.name.lower()}) ".center(80, "="))
+  print(f" {lines[NAME]} ({type.name.lower()} on lv{level} {tier.name.lower()}) ".center(80, "="))
   tabulate(formatted)
 
 
