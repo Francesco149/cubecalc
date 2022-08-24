@@ -65,190 +65,497 @@ prime_chances = {
   UNI: [0.15],
 }
 
+# amounts are either just the amount of all lvl ranges or a lists of tuples of (max lvl, amount)
+# line values from https://strategywiki.org/wiki/MapleStory/Potential_System#Bonus_Potential
+# TODO: consider scraping this data or at least moving it out of this file
 
-line_values = {
-  COMMON: {
-    ANY: 0,
-    FLAT_MAINSTAT: 6,
-    FLAT_HP: 60,
-    FLAT_ATT: 6,
-  },
+MAXLVL = 300
+HIGHLVL_KMS = 250
 
-  RARE: {
-    ANY: 0,
-    FLAT_MAINSTAT: 12,
-    FLAT_HP: 120,
-    FLAT_ATT: 12,
-    MAINSTAT: 3,
-    HP: 3,
-    FLAT_ALLSTAT: 5,
-    ATT: 3,
-    DAMAGE: 3,
-    IED_15: 15,
-  },
+def find_line_values(cube, category, region):
+  has_gms_lines = (region & HAS_GMS_LINES) != 0
+  highlvl = 151 if has_gms_lines else HIGHLVL_KMS
+  lowlvlmax = highlvl - 1
 
-  EPIC: {
-    ANY: 0,
-    MAINSTAT: 6,
-    ALLSTAT: 3,
-    HP: 6,
-    INVIN: 1,
-    ATT: 6,
-    DAMAGE: 6,
-    IED_15: 15,
-  },
+  minlvl = lambda minlvl, amt: [ (minlvl - 1, 0), (MAXLVL, amt) ]
 
-  UNIQUE: {
-    BOSS_30: 30,
-    IED_30: 30,
-    ATT: 9,
-    DAMAGE: 9,
-    ANY: 0,
-    MAINSTAT: 9,
-    ALLSTAT: 6,
-    HP: 9,
-    INVIN: 2,
-    DECENT_SHARP_EYES: 1,
-    MAINSTAT_PER_10_LVLS: 1,
-  },
+  def addtier(values, amount, minlv=highlvl):
+    _, lastamt = values[-1]
+    return values[:-1] + [(minlv - 1, lastamt), (MAXLVL, amount)]
 
-  LEGENDARY: {
-    BOSS_30: 30,
-    BOSS_35: 35,
-    BOSS_40: 40,
-    IED_30: 30,
-    IED_35: 35,
-    IED_40: 40,
-    ATT: 12,
-    DAMAGE: 12,
-    ANY: 0,
-    MAINSTAT: 12,
-    ALLSTAT: 9,
-    HP: 12,
-    COOLDOWN_2: 2,
-    COOLDOWN_1: 1,
-    CRITDMG: 8,
-    MESO: 20,
-    DROP: 20,
-    INVIN: 3,
-    DECENT_SPEED_INFUSION: 1,
-    DECENT_COMBAT_ORDERS: 1,
-    ATT_PER_10_LVLS: 1,
-  },
-}
+  mpot_4 = [
+    (30, 1),
+    (70, 2),
+    (lowlvlmax, 3),
+    (MAXLVL, 4),
+  ]
 
+  mpot_7 = [
+    (30, 2),
+    (70, 4),
+    (lowlvlmax, 6),
+    (MAXLVL, 7),
+  ]
 
-line_values_bonus = {
-  COMMON: {
-    ANY: 0,
-    FLAT_MAINSTAT: 6,
-    FLAT_ATT: 3,
-    FLAT_HP: 60,
-  },
+  mpot_8 = [
+    (49, 0),
+    (60, 5),
+    (80, 6),
+    (MAXLVL, 8),
+  ]
 
-  RARE: {
-    ANY: 0,
-    FLAT_MAINSTAT: 11,
-    FLAT_ATT: 10,
-    FLAT_HP: 100,
-    MAINSTAT: 3,
-    HP: 2,
-    FLAT_ALLSTAT: 3,
-  },
+  mpot_9 = [
+    (30, 3),
+    (70, 6),
+    (MAXLVL, 9),
+  ]
 
-  EPIC: {
-    ANY: 0,
-    FLAT_MAINSTAT: 14,
-    FLAT_ATT: 11,
-    FLAT_HP: 180,
-    MAINSTAT: 4,
-    HP: 5,
-    ALLSTAT: 3,
-  },
+  mpot_10_kms = addtier(mpot_9, 10, HIGHLVL_KMS)
+  mpot_10 = addtier(mpot_9, 10) if has_gms_lines else mpot_10_kms
 
-  UNIQUE: {
-    ANY: 0,
-    FLAT_MAINSTAT: 16,
-    FLAT_ATT: 12,
-    FLAT_HP: 240,
-    MAINSTAT: 5,
-    HP: 7,
-    ALLSTAT: 4,
-    MAINSTAT_PER_10_LVLS: 1,
-  },
+  mpot_12 = [
+    (30, 6),
+    (70, 9),
+    (150, 12),
+  ]
 
-  LEGENDARY: {
-    ANY: 0,
-    FLAT_MAINSTAT: 18,
-    FLAT_ATT: 14,
-    FLAT_HP: 300,
-    MAINSTAT: 7,
-    HP: 10,
-    CRITDMG: 1,
-    ALLSTAT: 5,
-    MAINSTAT_PER_10_LVLS: 2,
-    COOLDOWN_1: 1,
-    MESO: 5,
-    DROP: 5,
-  },
-}
+  mpot_13_kms = addtier(mpot_12, 13, HIGHLVL_KMS)
+  mpot_13 = addtier(mpot_12, 13) if has_gms_lines else mpot_13_kms
 
-line_values_bonus_wse = {
-  COMMON: {
-    ANY: 0,
-    FLAT_MAINSTAT: 6,
-    FLAT_ATT: 6,
-    FLAT_HP: 60,
-  },
+  mpot_20 = [
+    (30, 10),
+    (70, 15),
+    (MAXLVL, 20),
+  ]
 
-  RARE: {
-    ANY: 0,
-    FLAT_MAINSTAT: 12,
-    FLAT_ATT: 12,
-    FLAT_HP: 100,
-    MAINSTAT: 3,
-    ATT: 3,
-    DAMAGE: 3,
-    HP: 2,
-    FLAT_ALLSTAT: 5,
-  },
+  flat_mainstat_13 = [
+    (20, 2),
+    (40, 4),
+    (50, 6),
+    (70, 8),
+    (90, 10),
+    (lowlvlmax, 12),
+    (MAXLVL, 13),
+  ]
 
-  EPIC: {
-    ANY: 0,
-    MAINSTAT: 6,
-    ATT: 6,
-    DAMAGE: 6,
-    HP: 5,
-    ALLSTAT: 3,
-    IED_3: 3,
-  },
+  flat_hp_125 = [(x, x) for x in range(10, 120, 10)] + [
+    (lowlvlmax, 120),
+    (MAXLVL, 125),
+  ]
 
-  UNIQUE: {
-    ANY: 0,
-    MAINSTAT: 9,
-    ATT: 9,
-    DAMAGE: 9,
-    HP: 7,
-    ALLSTAT: 6,
-    BOSS_12: 12,
-    IED_4: 4,
-    MAINSTAT_PER_10_LVLS: 1,
-  },
+  flat_att_13 = [
+    (20, 2),
+    (40, 4),
+    (60, 6),
+    (80, 8),
+    (90, 10),
+    (lowlvlmax, 12),
+    (MAXLVL, 13),
+  ]
 
-  LEGENDARY: {
-    ANY: 0,
-    MAINSTAT: 12,
-    ATT: 12,
-    DAMAGE: 12,
-    HP: 10,
-    ALLSTAT: 9,
-    CRITDMG: 1,
-    BOSS_18: 18,
-    IED_5: 5,
-    MAINSTAT_PER_10_LVLS: 2,
-    ATT_PER_10_LVLS: 1,
-  },
-}
+  flat_allstat_6 = [(x, x//20) for x in range(20, 100, 20)] + [
+    (lowlvlmax, 5),
+    (MAXLVL, 6),
+  ]
+
+  flat_mainstat_6 = [
+    (20, 1),
+    (40, 2),
+    (50, 3),
+    (70, 4),
+    (90, 5),
+    (MAXLVL, 6),
+  ]
+
+  flat_hp_60 = [(x, x//2) for x in range(10, 120, 10)] + [(MAXLVL, 60)]
+
+  flat_att_6 = [
+    (20, 1),
+    (40, 2),
+    (60, 3),
+    (80, 4),
+    (90, 5),
+    (MAXLVL, 6),
+  ]
+
+  values = {
+    COMMON: {
+      ANY: 1,
+      FLAT_MAINSTAT: flat_mainstat_6,
+      FLAT_HP: flat_hp_60,
+      FLAT_ATT: flat_att_6,
+    },
+
+    RARE: {
+      ANY: 1,
+      FLAT_MAINSTAT: flat_mainstat_13,
+      FLAT_HP: flat_hp_125,
+      FLAT_ATT: flat_att_13,
+      MAINSTAT: mpot_4,
+      HP: mpot_4,
+      FLAT_ALLSTAT: flat_allstat_6,
+      ATT: mpot_4,
+      DAMAGE: mpot_4,
+      IED_15: minlvl(30, 15),
+    },
+
+    EPIC: {
+      ANY: 1,
+      MAINSTAT: mpot_7,
+      ALLSTAT: mpot_4,
+      HP: mpot_7,
+      INVIN: 1,
+      ATT: mpot_7,
+      DAMAGE: mpot_7,
+      IED_15: minlvl(50, 15),
+    },
+
+    UNIQUE: {
+      ANY: 1,
+      BOSS_30: minlvl(100, 30),
+      IED_30: minlvl(50, 30),
+      ATT: mpot_10,
+      DAMAGE: mpot_10,
+      MAINSTAT: mpot_10,
+      ALLSTAT: mpot_7,
+      HP: mpot_10_kms,
+      INVIN: 2,
+      DECENT_SHARP_EYES: minlvl(120, 1),
+      MAINSTAT_PER_10_LVLS: minlvl(30, 1),
+    },
+
+    LEGENDARY: {
+      ANY: 1,
+      BOSS_30: minlvl(50, 30),
+      BOSS_35: minlvl(100, 35),
+      BOSS_40: minlvl(100, 40),
+      IED_35: minlvl(50, 35),
+      IED_40: minlvl(100, 40),
+      ATT: mpot_13,
+      DAMAGE: mpot_13,
+      MAINSTAT: mpot_13,
+      ALLSTAT: mpot_10,
+      HP: mpot_13_kms,
+      COOLDOWN_2: minlvl(120, 2),
+      COOLDOWN_1: minlvl(70, 1),
+      CRITDMG: mpot_8,
+      MESO: mpot_20,
+      DROP: mpot_20,
+      INVIN: 3,
+      DECENT_SPEED_INFUSION: minlvl(120, 1),
+      DECENT_COMBAT_ORDERS: minlvl(70, 1),
+      ATT_PER_10_LVLS: minlvl(30, 1),
+    },
+  }
+
+  flat_att_3 = [
+    (50, 1),
+    (100, 2),
+    (101, 3),
+  ]
+
+  flat_mainstat_11 = [
+    (20, 2),
+    (50, 4),
+    (70, 6),
+    (90, 8),
+    (lowlvlmax, 10),
+    (MAXLVL, 11),
+  ]
+
+  flat_att_11 = [
+    (20, 1),
+    (40, 2),
+    (60, 4),
+    (80, 6),
+    (90, 8),
+    (lowlvlmax, 10),
+    (MAXLVL, 11),
+  ]
+
+  flat_hp_125 = [
+    (20, 10),
+    (50, 15),
+    (90, 50),
+    (lowlvlmax, 100),
+    (MAXLVL, 125),
+  ]
+
+  mainstat_3 = [
+    (90, 1),
+    (lowlvlmax, 2),
+    (MAXLVL, 3),
+  ]
+
+  flat_allstat_3 = [
+    (50, 1),
+    (90, 2),
+    (MAXLVL, 3),
+  ]
+
+  flat_mainstat_15 = [
+    (20, 4),
+    (40, 5),
+    (50, 8),
+    (70, 10),
+    (90, 12),
+    (lowlvlmax, 14),
+    (MAXLVL, 15),
+  ]
+
+  flat_att_12 = [
+    (20, 4),
+    (50, 6),
+    (90, 8),
+    (lowlvlmax, 11),
+    (MAXLVL, 12),
+  ]
+
+  flat_hp_195 = [(x, int(x*1.5)) for x in range(10, 120, 10)] + [
+    (lowlvlmax, 180),
+  ]
+
+  if has_gms_lines:
+    flat_hp_195 += (HIGHLVL_KMS - 1, 185)
+
+  flat_hp_195 += [(MAXLVL, 195)]
+
+  mainstat_5 = [
+    (20, 1),
+    (50, 2),
+    (90, 3),
+    (lowlvlmax, 4),
+    (MAXLVL, 4),
+  ]
+
+  hp_6 = mainstat_5[:3] + [
+    (lowlvlmax, 5),
+    (MAXLVL, 6),
+  ]
+
+  allstat_3 = [
+    (90, 1),
+    (lowlvlmax, 2),
+    (MAXLVL, 3),
+  ]
+
+  flat_mainstat_17 = [
+    (20, 8),
+    (50, 10),
+    (70, 12),
+    (90, 14),
+    (lowlvlmax, 16),
+    (MAXLVL, 17),
+  ]
+
+  flat_att_13 = [
+    (20, 6),
+    (50, 8),
+    (90, 10),
+    (lowlvlmax, 12),
+    (MAXLVL, 13),
+  ]
+
+  flat_hp_250 = [(x, x*2) for x in range(10, 120, 10)] + [
+    (lowlvlmax, 240),
+    (MAXLVL, 250),
+  ]
+
+  mainstat_6 = [
+    (20, 2),
+    (50, 3),
+    (90, 4),
+    (lowlvlmax, 5),
+    (MAXLVL, 6),
+  ]
+
+  hp_8 = mainstat_6[:2] + [
+    (90, 5),
+    (lowlvlmax, 7),
+    (MAXLVL, 8),
+  ]
+
+  allstat_5 = [
+    (20, 1),
+    (50, 2),
+    (90, 3),
+    (lowlvlmax, 4),
+    (MAXLVL, 5),
+  ]
+
+  flat_mainstat_19 = [
+    (20, 8),
+    (40, 10),
+    (50, 12),
+    (70, 14),
+    (90, 16),
+    (lowlvlmax, 18),
+    (MAXLVL, 19),
+  ]
+
+  flat_att_15 = [
+    (20, 8),
+    (50, 10),
+    (90, 12),
+    (lowlvlmax, 14),
+    (MAXLVL, 15),
+  ]
+
+  flat_hp_310 = [(x, int(x*2.5)) for x in range(10, 120, 10)] + [
+    (lowlvlmax, 300),
+    (MAXLVL, 310),
+  ]
+
+  mainstat_8 = [
+    (20, 3),
+    (50, 4),
+    (90, 5),
+    (lowlvlmax, 7),
+    (MAXLVL, 8),
+  ]
+
+  hp_11 = [
+    (20, 3),
+    (50, 5),
+    (90, 7),
+    (lowlvlmax, 10),
+    (MAXLVL, 11),
+  ]
+
+  allstat_6 = [
+    (20, 2),
+    (50, 3),
+    (90, 4),
+    (lowlvlmax, 5),
+    (MAXLVL, 6),
+  ]
+
+  values_bonus = {
+    COMMON: {
+      ANY: 1,
+      FLAT_MAINSTAT: flat_mainstat_6,
+      FLAT_ATT: flat_att_3,
+      FLAT_HP: flat_hp_60,
+    },
+
+    RARE: {
+      ANY: 1,
+      FLAT_MAINSTAT: flat_mainstat_11,
+      FLAT_ATT: flat_att_11,
+      FLAT_HP: flat_hp_125,
+      MAINSTAT: mainstat_3,
+      HP: mainstat_3,
+      FLAT_ALLSTAT: flat_allstat_3,
+    },
+
+    EPIC: {
+      ANY: 1,
+      FLAT_MAINSTAT: flat_mainstat_15,
+      FLAT_ATT: flat_att_12,
+      FLAT_HP: flat_hp_195,
+      MAINSTAT: mainstat_5,
+      HP: hp_6,
+      ALLSTAT: allstat_3,
+    },
+
+    UNIQUE: {
+      ANY: 1,
+      FLAT_MAINSTAT: flat_mainstat_17,
+      FLAT_ATT: flat_att_13,
+      FLAT_HP: flat_hp_250,
+      MAINSTAT: mainstat_6,
+      HP: hp_8,
+      ALLSTAT: allstat_5,
+      MAINSTAT_PER_10_LVLS: 1,
+    },
+
+    LEGENDARY: {
+      ANY: 1,
+      FLAT_MAINSTAT: flat_mainstat_19,
+      FLAT_ATT: flat_att_15,
+      FLAT_HP: flat_hp_310,
+      MAINSTAT: mainstat_8,
+      HP: hp_11,
+      CRITDMG: 1,
+      ALLSTAT: allstat_6,
+      MAINSTAT_PER_10_LVLS: 2,
+      COOLDOWN_1: 1,
+      MESO: 5,
+      DROP: 5,
+    },
+  }
+
+  flat_hp_125_wse = [
+    (20, 10),
+    (50, 15),
+    (90, 50),
+    (lowlvlmax, 100),
+    (MAXLVL, 125),
+  ]
+
+  values_bonus_wse = {
+    COMMON: {
+      ANY: 1,
+      FLAT_MAINSTAT: flat_mainstat_6,
+      FLAT_ATT: flat_att_6,
+      FLAT_HP: flat_hp_60,
+    },
+
+    RARE: {
+      ANY: 1,
+      FLAT_MAINSTAT: flat_mainstat_13,
+      FLAT_ATT: flat_att_13,
+      FLAT_HP: flat_hp_125_wse,
+      MAINSTAT: mpot_4,
+      ATT: mpot_4,
+      DAMAGE: mpot_4,
+      HP: mainstat_3,
+      FLAT_ALLSTAT: flat_allstat_6,
+    },
+
+    EPIC: {
+      ANY: 1,
+      MAINSTAT: mpot_7,
+      ATT: mpot_7,
+      DAMAGE: mpot_7,
+      HP: hp_6,
+      ALLSTAT: mpot_4,
+      IED_3: 3,
+    },
+
+    UNIQUE: {
+      ANY: 1,
+      MAINSTAT: mpot_10,
+      ATT: mpot_10,
+      DAMAGE: mpot_10,
+      HP: hp_8,
+      ALLSTAT: mpot_7,
+      BOSS_12: 12,
+      IED_4: 4,
+      MAINSTAT_PER_10_LVLS: 1,
+    },
+
+    LEGENDARY: {
+      ANY: 1,
+      MAINSTAT: mpot_13,
+      ATT: mpot_13,
+      DAMAGE: mpot_13,
+      HP: hp_11,
+      ALLSTAT: mpot_10,
+      CRITDMG: 1,
+      BOSS_18: 18,
+      IED_5: 5,
+      MAINSTAT_PER_10_LVLS: 2,
+      ATT_PER_10_LVLS: 1,
+    },
+  }
+
+  if cube == BONUS:
+    if category & (WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING | EMBLEM):
+      return values_bonus_wse
+    else:
+      return values_bonus
+  return values
 
 
 forbidden_combos = [
@@ -272,7 +579,7 @@ def debug_print_combos(good, exit=True):
     sys.exit(0)
 
 
-def cube_calc(wants, category, type, tier, lines):
+def cube_calc(wants, category, type, tier, level, region, lines):
   """
   calculate probability of rolling a combination of stats
 
@@ -297,6 +604,12 @@ def cube_calc(wants, category, type, tier, lines):
     the tier of the item. if the cube's tier limit is lower than this, it will be adjusted to the
     highest allowed
 
+  level : int
+    level of the item
+
+  region : Region enum
+    the game region. see the enum
+
   lines : dict
     maps tiers to lists of lists that contain the line type and probability. probability should be
     in the format of "one in x", meaning that 20 means 1/20 (5%).
@@ -320,13 +633,7 @@ def cube_calc(wants, category, type, tier, lines):
   if type in tier_limits:
     tier = min(tier_limits[type], tier)
 
-  lvals = line_values
-  if type == BONUS:
-    if category & (WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING | EMBLEM):
-      lvals = line_values_bonus_wse
-    else:
-      lvals = line_values_bonus
-
+  lvals = find_line_values(type, category, region)
 
   def make_lines():
     # to represent all the lines we don't care about I generate an ANY line that
@@ -384,18 +691,31 @@ def cube_calc(wants, category, type, tier, lines):
       def col(c, dtype=None):
         return np.array([x[c] for x in lines], dtype=dtype)
 
+
+      def get_lval(tier, line):
+        v = lvals[tier][line]
+        if isinstance(v, list):
+          for maxlvl, amt in v:
+            if level <= maxlvl:
+              return amt
+        return v
+
+
       types_col = col(LINE_TYPE)
       types_l = [Line(x) for x in types_col]
       values_col = np.array(
-        [lvals[tier][x] for x in types_l[:num_prime]] +
-        [lvals[tier - 1][x] for x in types_l[num_prime:]]
+        [get_lval(tier, x) for x in types_l[:num_prime]] +
+        [get_lval(tier - 1, x) for x in types_l[num_prime:]]
       )
       is_prime_pn = np.concatenate((np.repeat(True, num_prime),
                                     np.repeat(False, len(types_col) - num_prime)))
       c = LineCache((types_col, values_col, col(LINE_ONEIN, 'float64'), is_prime_pn))
-      cache[tier] = c
+      c.filt(c.values != 0) # zero value means it's impossible at this lvl
+      if tier not in cache:
+        cache[tier] = {}
+      cache[tier][level] = c
     else:
-      c = cache[tier]
+      c = cache[tier][level]
 
     return c
 

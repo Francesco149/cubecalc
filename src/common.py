@@ -121,6 +121,20 @@ class CubeMasks(IntFlag):
   NONCASH_MAIN = OCCULT | MASTER | MEISTER
   CASH_MAIN = RED | BLACK
 
+@global_enum
+class Region(IntFlag):
+  KMS = 1
+  MSEA = auto()
+  GMS = auto()
+  JMS = auto()
+  TMS = auto()
+  CMS = auto()
+
+@global_enum
+class RegionMasks(IntFlag):
+  HAS_GMS_LINES = GMS | TMS
+  NO_FLAME_ADVANTAGE = CMS | TMS # unused, just a reminder for myself
+
 tier_limits = {
   OCCULT: EPIC,
   MASTER: UNIQUE,

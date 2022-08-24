@@ -71,10 +71,10 @@ def tabulate(rows):
     print(f"{text.rjust(max_len)} {result}")
 
 
-def __cube_calc_print(print_combos, category, type, tier, lines):
+def __cube_calc_print(print_combos, category, type, tier, level, region, lines):
   def fmt_chance(text, wants):
     nonlocal tier
-    chance, tier = cube_calc(wants, category, type, tier, lines)
+    chance, tier = cube_calc(wants, category, type, tier, level, region, lines)
     return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
 
   # janky but we run this first to get the actual tier that's being computed
@@ -87,17 +87,17 @@ def single_or_list(x):
   return x if isinstance(x, list) else [x]
 
 
-def cube_calc_print(print_combos, category, types=[], tier=TIER_DEFAULT, *args):
+def cube_calc_print(print_combos, category, types, tier, level, region, *args):
   for l in args:
     lt = types
     if not lt:
       lt = l[DEFAULT_CUBE]
     for t in single_or_list(lt):
-      __cube_calc_print(print_combos, category, t, tier, l)
+      __cube_calc_print(print_combos, category, t, tier, level, region, l)
 
 
-def Combos(combos, category, types=[], tier=TIER_DEFAULT):
-  return partial(cube_calc_print, combos, category, types, tier)
+def Combos(combos, category, types=[], tier=TIER_DEFAULT, level=150, region=GMS):
+  return partial(cube_calc_print, combos, category, types, tier, level, region)
 
 
 def cube_calcs():
