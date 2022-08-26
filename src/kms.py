@@ -7,6 +7,11 @@ from common import *
 cubes = {
   CASH_MAIN: {
     WEAPON: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.2727],
+        [FLAT_HP, 12.2727],
+        [FLAT_ATT, 8.1818],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.1224],
         [FLAT_HP, 6.1224],
@@ -46,6 +51,11 @@ cubes = {
       ],
     }),
     EMBLEM: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.2727],
+        [HP, 12.2727],
+        [FLAT_ATT, 8.1818],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.1224],
         [FLAT_HP, 6.1224],
@@ -82,6 +92,11 @@ cubes = {
       ],
     }),
     SECONDARY: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.2727],
+        [FLAT_HP, 12.2727],
+        [FLAT_ATT, 8.1818],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.1224],
         [FLAT_HP, 6.1224],
@@ -121,6 +136,11 @@ cubes = {
       ],
     }),
     FORCE_SHIELD_SOUL_RING: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 14.2105],
+        [HP, 14.2105],
+        [FLAT_ATT, 9.4737],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.5217],
         [FLAT_HP, 6.5217],
@@ -160,6 +180,10 @@ cubes = {
       ],
     }),
     HAT: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.8571],
+        [FLAT_HP, 12.8571],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 7.5],
         [FLAT_HP, 7.5],
@@ -186,6 +210,10 @@ cubes = {
       ],
     }),
     TOP_OVERALL: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.8571],
+        [FLAT_HP, 12.8571],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 7.5],
         [FLAT_HP, 7.5],
@@ -213,6 +241,10 @@ cubes = {
       ],
     }),
     BOTTOM: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.8571],
+        [FLAT_HP, 12.8571],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 7.5],
         [FLAT_HP, 7.5],
@@ -237,6 +269,10 @@ cubes = {
       ],
     }),
     SHOE: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 10.8],
+        [FLAT_HP, 10.8],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.8182],
         [FLAT_HP, 6.8182],
@@ -262,6 +298,10 @@ cubes = {
       ],
     }),
     GLOVE: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.8571],
+        [FLAT_HP, 12.8571],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 7.5],
         [FLAT_HP, 7.5],
@@ -290,6 +330,10 @@ cubes = {
       ],
     }),
     CAPE_BELT_SHOULDER: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.8571],
+        [FLAT_HP, 12.8571],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 7.5],
         [FLAT_HP, 7.5],
@@ -314,6 +358,10 @@ cubes = {
       ],
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.8571],
+        [FLAT_HP, 12.8571],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 7.5],
         [FLAT_HP, 7.5],
@@ -340,6 +388,10 @@ cubes = {
       ],
     }),
     HEART_BADGE: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.8571],
+        [FLAT_HP, 12.8571],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 7.5],
         [FLAT_HP, 7.5],
@@ -366,6 +418,11 @@ cubes = {
   },
   NONCASH_MAIN: {
     WEAPON: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 10.4167],
+        [FLAT_HP, 15.625],
+        [FLAT_ATT, 5.2083],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 3.5088],
         [FLAT_HP, 5.2632],
@@ -404,6 +461,11 @@ cubes = {
       ],
     }),
     EMBLEM: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 10.4167],
+        [HP, 15.625],
+        [FLAT_ATT, 5.2083],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 3.5088],
         [FLAT_HP, 5.2632],
@@ -439,6 +501,11 @@ cubes = {
       ],
     }),
     SECONDARY: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 10.4167],
+        [FLAT_HP, 15.625],
+        [FLAT_ATT, 5.2083],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 3.5088],
         [FLAT_HP, 5.2632],
@@ -477,6 +544,11 @@ cubes = {
       ],
     }),
     FORCE_SHIELD_SOUL_RING: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 12.8205],
+        [HP, 19.2308],
+        [FLAT_ATT, 6.4103],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 3.9216],
         [FLAT_HP, 5.8824],
@@ -515,6 +587,10 @@ cubes = {
       ],
     }),
     HAT: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 5.2083],
+        [FLAT_HP, 7.8125],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 5.5556],
         [FLAT_HP, 8.3333],
@@ -541,6 +617,10 @@ cubes = {
       ],
     }),
     TOP_OVERALL: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 9.8039],
+        [FLAT_HP, 14.7059],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 5.5556],
         [FLAT_HP, 8.3333],
@@ -568,6 +648,10 @@ cubes = {
       ],
     }),
     BOTTOM: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 9.8039],
+        [FLAT_HP, 14.7059],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 5.5556],
         [FLAT_HP, 8.3333],
@@ -592,6 +676,10 @@ cubes = {
       ],
     }),
     SHOE: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2464],
+        [FLAT_HP, 10.8696],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 4.7619],
         [FLAT_HP, 7.1429],
@@ -617,6 +705,10 @@ cubes = {
       ],
     }),
     GLOVE: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 9.8039],
+        [FLAT_HP, 14.7059],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 5.5556],
         [FLAT_HP, 8.3333],
@@ -644,6 +736,10 @@ cubes = {
       ],
     }),
     CAPE_BELT_SHOULDER: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 9.8039],
+        [FLAT_HP, 14.7059],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 5.5556],
         [FLAT_HP, 8.3333],
@@ -668,6 +764,10 @@ cubes = {
       ],
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 9.8039],
+        [FLAT_HP, 14.7059],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 4.7619],
         [FLAT_HP, 7.1429],
@@ -694,6 +794,10 @@ cubes = {
       ],
     }),
     HEART_BADGE: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 9.8039],
+        [FLAT_HP, 14.7059],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 5.5556],
         [FLAT_HP, 8.3333],
@@ -720,6 +824,11 @@ cubes = {
   },
   BONUS: {
     WEAPON: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [FLAT_HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_HP, 5.8824],
         [FLAT_MAINSTAT, 5.8824],
@@ -761,6 +870,11 @@ cubes = {
       ],
     }),
     EMBLEM: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_HP, 5.8824],
         [FLAT_MAINSTAT, 5.8824],
@@ -800,6 +914,11 @@ cubes = {
       ],
     }),
     SECONDARY: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [FLAT_HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_HP, 5.8824],
         [FLAT_MAINSTAT, 5.8824],
@@ -842,6 +961,11 @@ cubes = {
       ],
     }),
     FORCE_SHIELD_SOUL_RING: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_HP, 5.8824],
         [FLAT_MAINSTAT, 5.8824],
@@ -884,6 +1008,11 @@ cubes = {
       ],
     }),
     HAT: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [FLAT_HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.383],
         [FLAT_HP, 6.383],
@@ -924,6 +1053,11 @@ cubes = {
       ],
     }),
     TOP_OVERALL: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [FLAT_HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.383],
         [FLAT_HP, 6.383],
@@ -963,6 +1097,11 @@ cubes = {
       ],
     }),
     BOTTOM: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [FLAT_HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.383],
         [FLAT_HP, 6.383],
@@ -1002,6 +1141,11 @@ cubes = {
       ],
     }),
     SHOE: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [FLAT_HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.383],
         [FLAT_HP, 6.383],
@@ -1041,6 +1185,11 @@ cubes = {
       ],
     }),
     GLOVE: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [FLAT_HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.383],
         [FLAT_HP, 6.383],
@@ -1080,6 +1229,11 @@ cubes = {
       ],
     }),
     CAPE_BELT_SHOULDER: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [FLAT_HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.383],
         [FLAT_HP, 6.383],
@@ -1119,6 +1273,11 @@ cubes = {
       ],
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [FLAT_HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.383],
         [FLAT_HP, 6.383],
@@ -1157,6 +1316,11 @@ cubes = {
       ],
     }),
     HEART_BADGE: percent({
+      COMMON: [
+        [FLAT_MAINSTAT, 7.2622],
+        [FLAT_HP, 10.8932],
+        [FLAT_ATT, 7.2622],
+      ],
       RARE: [
         [FLAT_MAINSTAT, 6.383],
         [FLAT_HP, 6.383],

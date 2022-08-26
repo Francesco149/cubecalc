@@ -15,7 +15,7 @@ tiers() {
 }
 
 get() {
-  cfile="./cache/${1}_${2}_${3}_${4}.txt"
+  cfile="./cache/${1}_${2}_${3}_${4}${SELECTOR}.txt"
   if ! [ -f "$cfile" ]; then
     curl -sL 'https://maplestory.nexon.com/Guide/OtherProbability/cube/GetSearchProbList' \
       -X POST \
@@ -23,7 +23,7 @@ get() {
       -F "nCubeItemID=${1}" \
       -F "nGrade=${2}" \
       -F "nPartsType=${3}" \
-      -F "nReqLev=${4}" | htmlq --text .cube_data._1 td > "$cfile"
+      -F "nReqLev=${4}" | htmlq --text ${SELECTOR:-.cube_data._1} td > "$cfile"
   fi
   cat "$cfile"
 }
@@ -47,6 +47,16 @@ i() {
   echo "$name: percent({"
   for x in $(tiers); do
     tier=$(tier_names | cut -d' ' -f$x)
+    if [ $tier = "RARE" ]; then
+      printf "COMMON: "
+      # janky way to remove the rare lines since the site doesn't have an option to only
+      # show common. this relies on the fact that the non-common lines are grouped together and
+      # in the same order as in the rare column
+      firstrare=$(get $cube $x $item $level | head -n 1)
+      SELECTOR=.cube_data._2 get $cube $x $item $level |
+        sed "/$firstrare/q" | head -n -1 |
+        ./process.py $cube_name $equip_type || exit
+    fi
     printf "$tier: "
     get $cube $x $item $level | ./process.py $cube_name $equip_type || exit
   done | indent
