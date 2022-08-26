@@ -249,7 +249,7 @@ def find_line_values(cube, category, region):
   flat_att_3 = [
     (50, 1),
     (100, 2),
-    (101, 3),
+    (MAXLVL, 3),
   ]
 
   flat_mainstat_11 = [
@@ -696,6 +696,8 @@ def cube_calc(wants, category, type, tier, level, region, lines):
           for maxlvl, amt in v:
             if level <= maxlvl:
               return amt
+          raise RuntimeError(f"failed to find {Tier(tier).name} {Line(line).name} "+
+              f"for level {level}: {v}")
         return v
 
 

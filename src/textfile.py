@@ -39,6 +39,7 @@ prob_bonus = partial(find_probabilities, kms.cubes, BONUS)
 weapon_bonus = prob_bonus(WEAPON)
 secondary_bonus = prob_bonus(SECONDARY)
 emblem_bonus = prob_bonus(EMBLEM)
+hat_bonus = prob_bonus(HAT)
 
 # note: w/s and force shield/soul ring should not be together if we're gonna go below uniq
 
@@ -162,6 +163,11 @@ def cube_calcs():
     ("33+ att", [{ATT: 33}]),
   ]
 
+  combos_rare_b = [
+    ("10+ flat att", [{FLAT_ATT: 10}]),
+    ("13+ flat att", [{FLAT_ATT: 13}]),
+  ]
+
   combos_stat = [
     ("18+ stat", [{STAT: 18}]),
     ("21+ stat", [{STAT: 21}]),
@@ -267,6 +273,10 @@ def cube_calcs():
     weapon_bonus,
     secondary_bonus,
     emblem_bonus,
+  )
+
+  Combos(combos_rare_b, HAT, BONUS, RARE)(
+    hat_bonus,
   )
 
   Combos(combos_stat, TOP_OVERALL | CAPE_BELT_SHOULDER | SHOE | BOTTOM)(

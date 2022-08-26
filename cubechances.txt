@@ -249,6 +249,9 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 21+ att 1 in 203 cubes, 0.4919%
 30+ att 1 in 8370 cubes, 0.0119%
 33+ att 1 in 763598 cubes, 0.0001%
+========================== hat (bonus on lv150 rare) ===========================
+10+ flat att 1 in 23 cubes, 4.4150%
+13+ flat att 1 in 166 cubes, 0.6024%
 ===================== top/overall (red on lv150 legendary) =====================
     18+ stat 1 in 24 cubes, 4.0817%
     21+ stat 1 in 58 cubes, 1.7284%
