@@ -739,7 +739,7 @@ def cube_calc(wants, category, type, tier, level, region, lines):
   prime_chance = prime_chances[type]
   if not isinstance(prime_chance, list):
     if tier == COMMON:
-      prime_chance = [0] * prime_chance[RARE]
+      prime_chance = [0] * len(prime_chance[RARE])
     else:
       prime_chance = prime_chance[tier]
 
