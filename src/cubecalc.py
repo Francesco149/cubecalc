@@ -639,8 +639,12 @@ def cube_calc(wants, category, type, tier, level, region, lines):
     def make_any_line(x):
       return x + [[ANY, 0]] # chance is calculated later
 
-    lines_prime = make_any_line(lines[tier])
-    return lines_prime + make_any_line(lines[tier - 1]), len(lines_prime)
+    res = make_any_line(lines[tier])
+    num_primes = 0
+    if tier > COMMON:
+      num_primes = len(res)
+      res += make_any_line(lines[tier - 1])
+    return res, num_primes
 
 
   # the first time we are called for a certains set of lines, we convert the lines into numpy
@@ -703,10 +707,10 @@ def cube_calc(wants, category, type, tier, level, region, lines):
 
       types_col = col(LINE_TYPE)
       types_l = [Line(x) for x in types_col]
-      values_col = np.array(
-        [get_lval(tier, x) for x in types_l[:num_prime]] +
-        [get_lval(tier - 1, x) for x in types_l[num_prime:]]
-      )
+      values_list = [get_lval(tier, x) for x in types_l[:num_prime]]
+      if tier > COMMON:
+        values_list += [get_lval(tier - 1, x) for x in types_l[num_prime:]]
+      values_col = np.array(values_list)
       is_prime_pn = np.concatenate((np.repeat(True, num_prime),
                                     np.repeat(False, len(types_col) - num_prime)))
       c = LineCache((types_col, values_col, col(LINE_ONEIN, 'float64'), is_prime_pn))
