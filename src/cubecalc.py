@@ -640,9 +640,8 @@ def cube_calc(wants, category, type, tier, level, region, lines):
       return x + [[ANY, 0]] # chance is calculated later
 
     res = make_any_line(lines[tier])
-    num_primes = 0
+    num_primes = len(res)
     if tier > COMMON:
-      num_primes = len(res)
       res += make_any_line(lines[tier - 1])
     return res, num_primes
 
