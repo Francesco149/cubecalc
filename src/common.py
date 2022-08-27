@@ -18,6 +18,7 @@ class Category(IntFlag):
   CAPE_BELT_SHOULDER = auto()
   FACE_EYE_RING_EARRING_PENDANT = auto()
   HEART_BADGE = auto()
+  FAMILIAR_STATS = auto()
 
   # special internal values used for caching
   LINE_CACHE = auto()
@@ -31,6 +32,7 @@ category_names = {
   CAPE_BELT_SHOULDER: "cape/belt/shoulder",
   FACE_EYE_RING_EARRING_PENDANT: "accessory (face/eye/ring/ear/pend)",
   HEART_BADGE: "heart/badge",
+  FAMILIAR_STATS: "familiar",
 }
 
 combined_category_names = {
@@ -53,7 +55,8 @@ class Line(IntFlag):
   BOSS_A = 1
   BOSS_B = auto()
   BOSS_C = auto()
-  DAMAGE = auto()
+  DAMAGE_A = auto()
+  DAMAGE_B = auto()
   IED_A = auto()
   IED_B = auto()
   IED_C = auto()
@@ -64,7 +67,8 @@ class Line(IntFlag):
   HP = auto()
   COOLDOWN_1 = auto()
   COOLDOWN_2 = auto()
-  CRITDMG = auto()
+  CRITDMG_A = auto()
+  CRITDMG_B = auto()
   SMALL_MESO = auto()
   SMALL_DROP = auto()
   SMALL_DROP_MESO = auto()
@@ -92,13 +96,15 @@ class Line(IntFlag):
 @global_enum
 class LineMasks(IntFlag):
   BOSS_ONLY = BOSS_A | BOSS_B | BOSS_C
-  BOSS = BOSS_ONLY | DAMAGE
+  BOSS = BOSS_ONLY | DAMAGE_A
   STAT = MAINSTAT | ALLSTAT
   IED = IED_A | IED_B | IED_C
   COOLDOWN = COOLDOWN_1 | COOLDOWN_2
   DECENTS = DECENT_SPEED_INFUSION | DECENT_SHARP_EYES | DECENT_COMBAT_ORDERS
   DROP = DROP_A | SMALL_DROP | LARGE_DROP | DROP_MESO | LARGE_DROP_MESO
   MESO = MESO_A | SMALL_MESO | LARGE_DROP | DROP_MESO | LARGE_DROP_MESO
+  CRITDMG = CRITDMG_A | CRITDMG_B
+  DAMAGE = DAMAGE_A | DAMAGE_B
 
 @global_enum
 class Tier(IntEnum):
@@ -120,6 +126,7 @@ class Cube(IntFlag):
   EQUALITY = auto()
   BONUS = auto()
   UNI = auto()
+  FAMILIAR = auto()
 
 @global_enum
 class CubeMasks(IntFlag):

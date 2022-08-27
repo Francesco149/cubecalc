@@ -66,6 +66,9 @@ bottom_uni = prob_uni(BOTTOM)
 top_overall_uni = prob_uni(TOP_OVERALL)
 hat_uni = prob_uni(HAT)
 
+from familiars import familiars as familiars_data
+familiars = find_probabilities(familiars_data, FAMILIAR, FAMILIAR_STATS)
+
 
 def tabulate(rows):
   max_len = max((len(text) for (text, _) in rows))
@@ -413,9 +416,54 @@ def unicube_calcs():
     hat_uni,
   )
 
+
+def familiar_calcs():
+  combos_fam_epic = [
+    ("20+ boss", [{BOSS: 20}]),
+    ("30+ boss", [{BOSS: 30}]),
+    ("20+ ied", [{IED: 20}]),
+    ("30+ ied", [{IED: 30}]),
+    ("25+ drop", [{DROP: 25}]),
+    ("50+ drop", [{DROP: 50}]),
+    ("100+ drop", [{DROP: 100}]),
+    ("25+ meso", [{MESO: 25}]),
+    ("25+ meso and drop", [{MESO: 25, DROP: 25}]),
+    ("60+ meso and drop", [{MESO: 60, DROP: 60}]),
+  ]
+
+  combos_fam_unique = combos_fam_epic + [
+    ("35+ boss", [{BOSS: 35}]),
+    ("40+ boss", [{BOSS: 40}]),
+    ("35+ ied", [{IED: 35}]),
+    ("40+ ied", [{IED: 40}]),
+    ("any 2l combo of boss and ied", [{BOSS: 1, IED: 1, LINES: 2}]),
+    ("any 2l combo of boss", [{BOSS: 1, LINES: 2}]),
+    ("50+ boss ", [{BOSS: 50}]),
+    ("25+ meso and 100+ drop", [{MESO: 25, DROP: 100}]),
+    ("any 2l combo of meso and drop", [{MESO: 1, DROP: 1, LINES: 2}]),
+  ]
+
+  combos_fam_legendary = [
+    ("40+ boss", [{BOSS: 40}]),
+    ("45+ boss", [{BOSS: 45}]),
+    ("50+ boss", [{BOSS: 50}]),
+    ("60+ boss", [{BOSS: 60}]),
+
+    ("40+ ied", [{IED: 40}]),
+    ("45+ ied", [{IED: 45}]),
+    ("50+ ied", [{IED: 50}]),
+    ("60+ ied", [{IED: 60}]),
+  ]
+
+  Combos(combos_fam_epic, FAMILIAR_STATS, FAMILIAR, EPIC)(familiars)
+  Combos(combos_fam_unique, FAMILIAR_STATS, FAMILIAR, UNIQUE)(familiars)
+  Combos(combos_fam_legendary, FAMILIAR_STATS)(familiars)
+
+
 if __name__ == "__main__":
   print(f" ! DISCLAIMER ! ".center(80, "="))
   print(disclaimer)
 
   cube_calcs()
   unicube_calcs()
+  familiar_calcs()

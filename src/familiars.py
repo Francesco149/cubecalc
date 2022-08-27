@@ -5,65 +5,137 @@ from datautils import percent
 from common import *
 
 familiars = {
-  BASE: [
-  ],
-  COMMON: [
-    [IED_C, 1.234], # 15
-    [SMALL_DROP, 2.47], # 30
-    [SMALL_MESO, 2.47], # 30
-    [DAMAGE, 0.74], # 3
-  ],
-  RARE: [
-    [IED_C, 0.528], # 15
-    [DROP_A, 1.76], # 50
-    [SMALL_DROP, 1.76], # 30
-    [SMALL_DROP_MESO, 1.76], # 20
-    [MESO_A, 1.76], # 50
-    [SMALL_MESO, 1.76], # 30
-    [DAMAGE, 0.528], # 6
-    [INVIN, 0.88], # 1
-  ],
-  EPIC: [
-    [IED_A, 0.44], # 30
-    [IED_C, 0.44], # 20
-    [BOSS_C, 0.294], # 20
-    [BOSS_A, 0.294], # 30
-    [DROP_A, 1.468], # 60
-    [LARGE_DROP, 1.468], # 100
-    [DROP_MESO, 1.468], # 40
-    [SMALL_DROP_MESO, 1.468], # 25
-    [MESO_A, 1.468], # 60
-    [LARGE_MESO, 1.468], # 100
-    [DAMAGE, 0.44], # 9
-    [INVIN, 0.734], # 2
-  ],
-  UNIQUE: [
-    [IED_B, 0.438], # 35
-    [IED_A, 0.438], # 40
-    [IED_C, 0.438], # 30
-    [BOSS_C, 0.292], # 30
-    [BOSS_B, 0.292], # 35
-    [BOSS_A, 0.292], # 40
-    [CRITDMG, 0.876], # 15
-    [CRITDMG, 0.876], # 2
-    [LARGE_DROP_MESO, 1.46], # 60
-    [LARGE_DROP_MESO, 1.46], # 50
-    [SMALL_DROP, 0.73], # 20
-    [FLAT_MESO, 0.73], # 20
-    [DAMAGE, 0.438], # 12
-    [DAMAGE, 0.438], # 5
-    [INVIN, 0.73], # 3
-  ],
-  LEGENDARY: [
-    [IED_B, 2.912], # 45
-    [IED_A, 2.912], # 50
-    [BOSS_C, 1.942], # 40
-    [BOSS_B, 1.942], # 45
-    [BOSS_A, 1.942], # 50
-    [CRITDMG, 5.824], # 17
-    [SMALL_DROP, 4.854], # 12
-    [FLAT_MESO, 4.854], # 12
-    [DAMAGE, 2.912], # 14
-    [INVIN, 4.854], # 4
-  ],
+  FAMILIAR: {
+    FAMILIAR_STATS: percent({
+      BASE: [
+      ],
+      COMMON: [
+        [IED_C, 0.617], # 15
+        [SMALL_DROP, 1.235], # 30
+        [SMALL_MESO, 1.235], # 30
+        [DAMAGE_A, 0.37], # 3
+      ],
+      RARE: [
+        [IED_C, 0.264], # 15
+        [DROP_A, 0.88], # 50
+        [SMALL_DROP, 0.88], # 30
+        [SMALL_DROP_MESO, 0.88], # 20
+        [MESO_A, 0.88], # 50
+        [SMALL_MESO, 0.88], # 30
+        [DAMAGE_A, 0.264], # 6
+        [INVIN, 0.44], # 1
+      ],
+      EPIC: [
+        [IED_A, 0.22], # 30
+        [IED_C, 0.22], # 20
+        [BOSS_C, 0.147], # 20
+        [BOSS_A, 0.147], # 30
+        [DROP_A, 0.734], # 60
+        [LARGE_DROP, 0.734], # 100
+        [DROP_MESO, 0.734], # 40
+        [SMALL_DROP_MESO, 0.734], # 25
+        [MESO_A, 0.734], # 60
+        [LARGE_MESO, 0.734], # 100
+        [DAMAGE_A, 0.22], # 9
+        [INVIN, 0.367], # 2
+      ],
+      UNIQUE: [
+        [IED_B, 0.219], # 35
+        [IED_A, 0.219], # 40
+        [IED_C, 0.219], # 30
+        [BOSS_C, 0.146], # 30
+        [BOSS_B, 0.146], # 35
+        [BOSS_A, 0.146], # 40
+        [CRITDMG_A, 0.438], # 15
+        [CRITDMG_B, 0.438], # 2
+        [LARGE_DROP_MESO, 0.73], # 60
+        [SMALL_DROP, 0.365], # 20
+        [FLAT_MESO, 0.365], # 20
+        [DAMAGE_A, 0.219], # 12
+        [DAMAGE_B, 0.219], # 5
+        [INVIN, 0.365], # 3
+      ],
+      LEGENDARY: [
+        [IED_B, 1.456], # 45
+        [IED_A, 1.456], # 50
+        [BOSS_C, 0.971], # 40
+        [BOSS_B, 0.971], # 45
+        [BOSS_A, 0.971], # 50
+        [CRITDMG_A, 2.912], # 17
+        [SMALL_DROP, 2.427], # 12
+        [FLAT_MESO, 2.427], # 12
+        [DAMAGE_A, 1.456], # 14
+        [INVIN, 2.427], # 4
+      ],
+    }),
+  },
+}
+
+values = {
+  BASE: {
+    ANY: 1,
+  },
+  COMMON: {
+    ANY: 1,
+    IED_C: 15,
+    SMALL_DROP: 30,
+    SMALL_MESO: 30,
+    DAMAGE_A: 3,
+  },
+  RARE: {
+    ANY: 1,
+    IED_C: 15,
+    DROP_A: 50,
+    SMALL_DROP: 30,
+    SMALL_DROP_MESO: 20,
+    MESO_A: 50,
+    SMALL_MESO: 30,
+    DAMAGE_A: 6,
+    INVIN: 1,
+  },
+  EPIC: {
+    ANY: 1,
+    IED_A: 30,
+    IED_C: 20,
+    BOSS_C: 20,
+    BOSS_A: 30,
+    DROP_A: 60,
+    LARGE_DROP: 100,
+    DROP_MESO: 40,
+    SMALL_DROP_MESO: 25,
+    MESO_A: 60,
+    LARGE_MESO: 100,
+    DAMAGE_A: 9,
+    INVIN: 2,
+  },
+  UNIQUE: {
+    ANY: 1,
+    IED_B: 35,
+    IED_A: 40,
+    IED_C: 30,
+    BOSS_C: 30,
+    BOSS_B: 35,
+    BOSS_A: 40,
+    CRITDMG_A: 15,
+    CRITDMG_B: 2,
+    LARGE_DROP_MESO: 60,
+    SMALL_DROP: 20,
+    FLAT_MESO: 20,
+    DAMAGE_A: 12,
+    DAMAGE_B: 5,
+    INVIN: 3,
+  },
+  LEGENDARY: {
+    ANY: 1,
+    IED_B: 45,
+    IED_A: 50,
+    BOSS_C: 40,
+    BOSS_B: 45,
+    BOSS_A: 50,
+    CRITDMG_A: 17,
+    SMALL_DROP: 12,
+    FLAT_MESO: 12,
+    DAMAGE_A: 14,
+    INVIN: 4,
+  },
 }

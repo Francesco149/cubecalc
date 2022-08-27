@@ -64,8 +64,8 @@ line_conversion = {
   decent_text("實用的會心之眼"): DECENT_SHARP_EYES,
   decent_text("實用的最終極速"): DECENT_SPEED_INFUSION,
   decent_text("實用的戰鬥命令"): DECENT_COMBAT_ORDERS,
-  "爆擊傷害%": CRITDMG,
-  "總傷害%": DAMAGE,
+  "爆擊傷害%": CRITDMG_A,
+  "總傷害%": DAMAGE_A,
 
   # NOTE: the page has the same text for 1s and 2s so we have to guess that the one with lower
   #       chance is the 2s line. this is done later

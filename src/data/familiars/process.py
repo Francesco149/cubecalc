@@ -228,12 +228,12 @@ convert_lines = {
   "Item Acquisition Rate: +#incRewardProp%": SMALL_DROP,
   "Mesos Obtained: +#incMesoProp": FLAT_MESO,
 
-  "Total Damage: +#incDAMr%": DAMAGE,
+  "Total Damage: +#incDAMr%": DAMAGE_A,
   "When hit, get +#time sec of invincibility": INVIN,
   "When hit, gain +#time sec of invincibility": INVIN,
   "Damage to Bosses: +#incDAMr%": BOSS_C,
   "Boss Damage: +#incDAMr%": BOSS_C,
-  "Critical Damage: +#incCriticaldamage%": CRITDMG,
+  "Critical Damage: +#incCriticaldamage%": CRITDMG_A,
 }
 
 def parse_stat(f):
@@ -296,6 +296,19 @@ with open("cache/familiars.txt") as f:
             i = 0
           stat = boss_ied_conversion[stat][i]
 
+        if stat == CRITDMG_A:
+          if amount == 2:
+            stat = CRITDMG_B
+
+        if stat == DAMAGE_A:
+          if amount == 5:
+            stat = DAMAGE_B
+
+        if stat == LARGE_DROP_MESO:
+          if amount == 50:
+            # this line doesn't seem to be used
+            continue
+
         line = (stat, percent, amount)
         if line not in counts:
           counts[line] = 1
@@ -313,8 +326,23 @@ with open("cache/familiars.txt") as f:
         lines[tier][i] = (stat, new_percent, amount)
 
 
+print("familiars = {")
+print("  FAMILIAR: {")
+print("    FAMILIAR_STATS: percent({")
 for k, v in lines.items():
-  print(f"{k.name}: [")
+  print(f"      {k.name}: [")
   for (stat, percent, amount) in v:
-    print(f"  [{stat.name}, {percent}], # {amount}")
-  print("],")
+    print(f"        [{stat.name}, {percent}], # {amount}")
+  print("      ],")
+print("    }),")
+print("  },")
+print("}")
+print()
+print("values = {")
+for k, v in lines.items():
+  print(f"  {k.name}: {{")
+  print("    ANY: 1,")
+  for (stat, percent, amount) in v:
+    print(f"    {stat.name}: {amount},")
+  print("  },")
+print("}")

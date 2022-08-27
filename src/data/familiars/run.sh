@@ -4,7 +4,7 @@
 
 scrape() {
   tmp="$1"
-  htmlq --text 'blockquote .spoiler' < "$tmp" > cache/familiars.txt
+  htmlq --text 'blockquote > .spoiler' < "$tmp" > cache/familiars.txt
 }
 
 if ! [ -f cache/familiars.txt ]; then
@@ -17,7 +17,5 @@ fi
 
 (
   header
-  echo "familiars = {"
-  ./process.py | sed 's/^/  /g'
-  echo "}"
+  ./process.py
 ) | tee ../../familiars.py

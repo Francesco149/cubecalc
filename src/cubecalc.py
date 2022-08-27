@@ -14,6 +14,7 @@ because GMS hasn't released any official data:
   - that line rates for TMS cubes like violet, uni are the same as TMS
   - that prime chance for violets on strategywiki applies to GMS
     (it's lower than TMS)
+  - that the data on southperry for familiar line chances is accurate
 
 the assumptions are reasonable in my opinion but we just don't know for sure
 
@@ -21,6 +22,8 @@ you can check line probabilities in the source and see where I got them from
 
 NOTE: for cases where the tier is lower than the max tier of the cube
       (such as red cubes on unique) it's assumed that you won't tier up
+NOTE: familiar chances are probably only on reveal. it would be too easy if
+      those were the chances with red cards
 """
 
 from common import *
@@ -69,6 +72,7 @@ prime_chances = {
     LEGENDARY: [1] + [0.001996]*2,
   },
   UNI: [0.15],
+  FAMILIAR: [1, 0],
 }
 
 # amounts are either just the amount of all lvl ranges or a lists of tuples of (max lvl, amount)
@@ -201,7 +205,7 @@ def find_line_values(cube, category, region):
       HP: mpot_4,
       FLAT_ALLSTAT: flat_allstat_6,
       ATT: mpot_4,
-      DAMAGE: mpot_4,
+      DAMAGE_A: mpot_4,
       IED_C: minlvl(30, 15),
     },
 
@@ -212,7 +216,7 @@ def find_line_values(cube, category, region):
       HP: mpot_7,
       INVIN: 1,
       ATT: mpot_7,
-      DAMAGE: mpot_7,
+      DAMAGE_A: mpot_7,
       IED_C: minlvl(50, 15),
     },
 
@@ -221,7 +225,7 @@ def find_line_values(cube, category, region):
       BOSS_C: minlvl(100, 30),
       IED_C: minlvl(50, 30),
       ATT: mpot_10,
-      DAMAGE: mpot_10,
+      DAMAGE_A: mpot_10,
       MAINSTAT: mpot_10,
       ALLSTAT: mpot_7,
       HP: mpot_10_kms,
@@ -238,13 +242,13 @@ def find_line_values(cube, category, region):
       IED_B: minlvl(50, 35),
       IED_A: minlvl(100, 40),
       ATT: mpot_13,
-      DAMAGE: mpot_13,
+      DAMAGE_A: mpot_13,
       MAINSTAT: mpot_13,
       ALLSTAT: mpot_10,
       HP: mpot_13_kms,
       COOLDOWN_2: minlvl(120, 2),
       COOLDOWN_1: minlvl(70, 1),
-      CRITDMG: mpot_8,
+      CRITDMG_A: mpot_8,
       MESO_A: mpot_20,
       DROP_A: mpot_20,
       INVIN: 3,
@@ -482,7 +486,7 @@ def find_line_values(cube, category, region):
       FLAT_HP: flat_hp_310,
       MAINSTAT: mainstat_8,
       HP: hp_11,
-      CRITDMG: 1,
+      CRITDMG_A: 1,
       ALLSTAT: allstat_6,
       MAINSTAT_PER_10_LVLS: 2,
       COOLDOWN_1: 1,
@@ -514,7 +518,7 @@ def find_line_values(cube, category, region):
       FLAT_HP: flat_hp_125_wse,
       MAINSTAT: mpot_4,
       ATT: mpot_4,
-      DAMAGE: mpot_4,
+      DAMAGE_A: mpot_4,
       HP: mainstat_3,
       FLAT_ALLSTAT: flat_allstat_6,
     },
@@ -523,7 +527,7 @@ def find_line_values(cube, category, region):
       ANY: 1,
       MAINSTAT: mpot_7,
       ATT: mpot_7,
-      DAMAGE: mpot_7,
+      DAMAGE_A: mpot_7,
       HP: hp_6,
       ALLSTAT: mpot_4,
       IED_C: 3,
@@ -533,7 +537,7 @@ def find_line_values(cube, category, region):
       ANY: 1,
       MAINSTAT: mpot_10,
       ATT: mpot_10,
-      DAMAGE: mpot_10,
+      DAMAGE_A: mpot_10,
       HP: hp_8,
       ALLSTAT: mpot_7,
       BOSS_C: 12,
@@ -545,10 +549,10 @@ def find_line_values(cube, category, region):
       ANY: 1,
       MAINSTAT: mpot_13,
       ATT: mpot_13,
-      DAMAGE: mpot_13,
+      DAMAGE_A: mpot_13,
       HP: hp_11,
       ALLSTAT: mpot_10,
-      CRITDMG: 1,
+      CRITDMG_A: 1,
       BOSS_C: 18,
       IED_C: 5,
       MAINSTAT_PER_10_LVLS: 2,
@@ -561,6 +565,9 @@ def find_line_values(cube, category, region):
       return values_bonus_wse
     else:
       return values_bonus
+  elif cube == FAMILIAR:
+    from familiars import values as values_familiar
+    return values_familiar
   return values
 
 
@@ -735,10 +742,10 @@ def cube_calc(wants, category, type, tier, level, region, lines):
   # the category is mainly how many lines we're rolling and the prime/nonprime logic
   if LINE_CACHE not in lines:
     lines[LINE_CACHE] = {}
-  category = type if type in {VIOLET, UNI, EQUALITY} else RED
-  if category not in lines[LINE_CACHE]:
-    lines[LINE_CACHE][category] = {}
-  line_cache = cache_lines(lines[LINE_CACHE][category])
+  cube_category = type if type in {VIOLET, UNI, EQUALITY, FAMILIAR} else RED
+  if cube_category not in lines[LINE_CACHE]:
+    lines[LINE_CACHE][cube_category] = {}
+  line_cache = cache_lines(lines[LINE_CACHE][cube_category])
 
   # unicubes are 1/3rd the line chances because you roll 3 cubes on average to select
   chance_multiplier = 3 if type == UNI else 1
@@ -771,12 +778,14 @@ def cube_calc(wants, category, type, tier, level, region, lines):
     p = np.arange(num_prime)
     n = np.arange(len(c.types))
 
-    if category == VIOLET:
+    if cube_category == VIOLET:
       combo_idxs = np.array(np.meshgrid(p, n, n, n, n, n)).T.reshape(-1, 6)
-    elif category == UNI:
+    elif cube_category == UNI:
       combo_idxs = np.array(np.meshgrid(n)).T.reshape(-1, 1)
-    elif category == EQUALITY:
+    elif cube_category == EQUALITY:
       combo_idxs = np.array(np.meshgrid(p, p, p)).T.reshape(-1, 3)
+    elif cube_category == FAMILIAR:
+      combo_idxs = np.array(np.meshgrid(p, n)).T.reshape(-1, 2)
     else:
       combo_idxs = np.array(np.meshgrid(p, n, n)).T.reshape(-1, 3)
 

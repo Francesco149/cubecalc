@@ -11,6 +11,7 @@ because GMS hasn't released any official data:
   - that line rates for TMS cubes like violet, uni are the same as TMS
   - that prime chance for violets on strategywiki applies to GMS
     (it's lower than TMS)
+  - that the data on southperry for familiar line chances is accurate
 
 the assumptions are reasonable in my opinion but we just don't know for sure
 
@@ -18,6 +19,8 @@ you can check line probabilities in the source and see where I got them from
 
 NOTE: for cases where the tier is lower than the max tier of the cube
       (such as red cubes on unique) it's assumed that you won't tier up
+NOTE: familiar chances are probably only on reveal. it would be too easy if
+      those were the chances with red cards
 
 ======================= weapon (red on lv150 legendary) ========================
     any 2l combo of att+boss 1 in 15 cubes, 6.7240%
@@ -928,3 +931,43 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    9 allstat 1 in 1600 cubes, 0.0625%
 1+s cooldown 1 in 100 cubes, 1.0000%
  2s cooldown 1 in 200 cubes, 0.5000%
+====================== familiar (familiar on lv150 epic) =======================
+         20+ boss 1 in 340 cubes, 0.2940%
+         30+ boss 1 in 680 cubes, 0.1470%
+          20+ ied 1 in 227 cubes, 0.4400%
+          30+ ied 1 in 453 cubes, 0.2206%
+         25+ drop 1 in 25 cubes, 3.9232%
+         50+ drop 1 in 43 cubes, 2.3415%
+        100+ drop 1 in 135 cubes, 0.7405%
+         25+ meso 1 in 25 cubes, 3.9232%
+25+ meso and drop 1 in 67 cubes, 1.4938%
+60+ meso and drop 1 in 136 cubes, 0.7340%
+===================== familiar (familiar on lv150 unique) ======================
+                     20+ boss 1 in 137 cubes, 0.7312%
+                     30+ boss 1 in 171 cubes, 0.5847%
+                      20+ ied 1 in 91 cubes, 1.0941%
+                      30+ ied 1 in 114 cubes, 0.8756%
+                     25+ drop 1 in 34 cubes, 2.9159%
+                     50+ drop 1 in 46 cubes, 2.1900%
+                    100+ drop 1 in 134 cubes, 0.7447%
+                     25+ meso 1 in 34 cubes, 2.9159%
+            25+ meso and drop 1 in 46 cubes, 2.1873%
+            60+ meso and drop 1 in 69 cubes, 1.4586%
+                     35+ boss 1 in 341 cubes, 0.2931%
+                     40+ boss 1 in 678 cubes, 0.1475%
+                      35+ ied 1 in 228 cubes, 0.4390%
+                      40+ ied 1 in 453 cubes, 0.2209%
+ any 2l combo of boss and ied 1 in 7977 cubes, 0.0125%
+         any 2l combo of boss 1 in 29612 cubes, 0.0034%
+                    50+ boss  1 in 77657 cubes, 0.0013%
+       25+ meso and 100+ drop 1 in 134 cubes, 0.7447%
+any 2l combo of meso and drop 1 in 3110 cubes, 0.0321%
+==================== familiar (familiar on lv150 legendary) ====================
+40+ boss 1 in 33 cubes, 3.0590%
+45+ boss 1 in 51 cubes, 1.9526%
+50+ boss 1 in 101 cubes, 0.9859%
+60+ boss 1 in 6718 cubes, 0.0149%
+ 40+ ied 1 in 32 cubes, 3.1246%
+ 45+ ied 1 in 34 cubes, 2.9120%
+ 50+ ied 1 in 68 cubes, 1.4656%
+ 60+ ied 1 in 5227 cubes, 0.0191%
