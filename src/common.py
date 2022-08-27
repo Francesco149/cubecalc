@@ -50,13 +50,13 @@ def category_name(c):
 
 @global_enum
 class Line(IntFlag):
-  BOSS_OTHER = 1
-  BOSS_35 = auto()
-  BOSS_40 = auto()
+  BOSS_A = 1
+  BOSS_B = auto()
+  BOSS_C = auto()
   DAMAGE = auto()
-  IED_OTHER = auto()
-  IED_35 = auto()
-  IED_40 = auto()
+  IED_A = auto()
+  IED_B = auto()
+  IED_C = auto()
   ATT = auto()
   ANY = auto()
   MAINSTAT = auto()
@@ -65,8 +65,15 @@ class Line(IntFlag):
   COOLDOWN_1 = auto()
   COOLDOWN_2 = auto()
   CRITDMG = auto()
-  MESO = auto()
-  DROP = auto()
+  SMALL_MESO = auto()
+  SMALL_DROP = auto()
+  SMALL_DROP_MESO = auto()
+  DROP_MESO = auto()
+  LARGE_DROP_MESO = auto()
+  MESO_A = auto()
+  LARGE_MESO = auto()
+  DROP_A = auto()
+  LARGE_DROP = auto()
   INVIN = auto()
   DECENT_SPEED_INFUSION = auto()
   DECENT_SHARP_EYES = auto()
@@ -77,22 +84,26 @@ class Line(IntFlag):
   FLAT_HP = auto()
   MAINSTAT_PER_10_LVLS = auto()
   ATT_PER_10_LVLS = auto()
+  FLAT_MESO = auto()
 
   # special keys for matching lines
   LINES = auto() # match by number of lines and what lines are allowed
 
 @global_enum
 class LineMasks(IntFlag):
-  BOSS_ONLY = BOSS_OTHER | BOSS_35 | BOSS_40
+  BOSS_ONLY = BOSS_A | BOSS_B | BOSS_C
   BOSS = BOSS_ONLY | DAMAGE
   STAT = MAINSTAT | ALLSTAT
-  IED = IED_OTHER | IED_35 | IED_40
+  IED = IED_A | IED_B | IED_C
   COOLDOWN = COOLDOWN_1 | COOLDOWN_2
   DECENTS = DECENT_SPEED_INFUSION | DECENT_SHARP_EYES | DECENT_COMBAT_ORDERS
+  DROP = DROP_A | SMALL_DROP | LARGE_DROP | DROP_MESO | LARGE_DROP_MESO
+  MESO = MESO_A | SMALL_MESO | LARGE_DROP | DROP_MESO | LARGE_DROP_MESO
 
 @global_enum
 class Tier(IntEnum):
-  COMMON = 1
+  BASE = 1
+  COMMON = auto()
   RARE = auto()
   EPIC = auto()
   UNIQUE = auto()

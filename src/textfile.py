@@ -9,7 +9,8 @@ from cubecalc import disclaimer, cube_calc
 from common import *
 from functools import partial
 
-from datautils import percent, find_probabilities
+from datautils import percent
+from datautils import find_validate_probabilities as find_probabilities
 import kms
 import tms
 

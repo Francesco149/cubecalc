@@ -4,7 +4,7 @@ import sys
 
 sys.path.append("../../")
 from common import *
-import datautils as utils
+from datautils import nonempty, skip, merge_duplicate_lines
 
 broad_categories = {
   "防具",
@@ -54,13 +54,13 @@ line_conversion = {
   "最大HP%": HP,
   "全屬性%": ALLSTAT,
   "物理攻擊力%": ATT,
-  ied_text(15): IED_OTHER,
-  ied_text(30): IED_OTHER,
-  ied_text(35): IED_35,
-  ied_text(40): IED_40,
-  boss_text(30): BOSS_OTHER,
-  boss_text(35): BOSS_35,
-  boss_text(40): BOSS_40,
+  ied_text(15): IED_C,
+  ied_text(30): IED_C,
+  ied_text(35): IED_B,
+  ied_text(40): IED_A,
+  boss_text(30): BOSS_C,
+  boss_text(35): BOSS_B,
+  boss_text(40): BOSS_A,
   decent_text("實用的會心之眼"): DECENT_SHARP_EYES,
   decent_text("實用的最終極速"): DECENT_SPEED_INFUSION,
   decent_text("實用的戰鬥命令"): DECENT_COMBAT_ORDERS,
@@ -71,8 +71,8 @@ line_conversion = {
   #       chance is the 2s line. this is done later
   "減少所有技能冷卻時間(10秒以下會減少5%，不會減少到未滿5秒)": COOLDOWN_1,
   "被擊中後無敵時間增加": INVIN,
-  "楓幣獲得量%": MESO,
-  "道具掉落率%": DROP,
+  "楓幣獲得量%": MESO_A,
+  "道具掉落率%": DROP_A,
   "以角色等級為準每10級增加力量": MAINSTAT_PER_10_LVLS,
   "以角色等級為準每10級增加物理攻擊力": ATT_PER_10_LVLS,
 }
@@ -106,19 +106,6 @@ irrelevant_lines = [
   "以角色等級為準每10級增加幸運",
   "以角色等級為準每10級增加魔法攻擊力",
 ]
-
-
-def nonempty(f):
-  while True:
-    l = f.readline()
-    if not l:
-      break
-    s = l.strip()
-    if s:
-      yield s
-
-
-skip = lambda x: next(nonempty(x), None)
 
 
 def find_tier(f):
@@ -255,6 +242,7 @@ for cube, cubedata in d.items():
   cubes = bitmask_str(cube, Cube)
   print(f"{cubes}: {{")
   for category, categorydata in cubedata.items():
+    merge_duplicate_lines(categorydata)
     categories = bitmask_str(category, Category)
     print(f"  {categories}: percent({{")
     for tier, tierdata in categorydata.items():

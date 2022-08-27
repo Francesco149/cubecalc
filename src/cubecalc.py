@@ -40,21 +40,29 @@ prime_chances = {
   VIOLET: [1, 0.1, 0.01, 0.01, 0.1, 0.01],
   EQUALITY: [1, 1, 1],
   BONUS: {
+    BASE: [1] * 3,
+    COMMON: [1] * 3,
     RARE: [1] + [1.0/51]*2,
     EPIC: [1] + [1.0/21]*2,
     UNIQUE: [1] + [1.0/51]*2,
     LEGENDARY: [1] + [0.004975]*2,
   },
   OCCULT: {
+    BASE: [1] * 3,
+    COMMON: [1] * 3,
     RARE: [1] + [1.0/1001]*2,
     EPIC: [1] + [1.0/101]*2,
   },
   MASTER: {
+    BASE: [1] * 3,
+    COMMON: [1] * 3,
     RARE: [1] + [1.0/6]*2,
     EPIC: [1] + [1.0/21]*2,
     UNIQUE: [1] + [1.0/84.3333]*2,
   },
   MEISTER: {
+    BASE: [1] * 3,
+    COMMON: [1] * 3,
     RARE: [1] + [1.0/6]*2,
     EPIC: [1] + [1.0/12.5008]*2,
     UNIQUE: [1] + [1.0/58.9666]*2,
@@ -194,7 +202,7 @@ def find_line_values(cube, category, region):
       FLAT_ALLSTAT: flat_allstat_6,
       ATT: mpot_4,
       DAMAGE: mpot_4,
-      IED_OTHER: minlvl(30, 15),
+      IED_C: minlvl(30, 15),
     },
 
     EPIC: {
@@ -205,13 +213,13 @@ def find_line_values(cube, category, region):
       INVIN: 1,
       ATT: mpot_7,
       DAMAGE: mpot_7,
-      IED_OTHER: minlvl(50, 15),
+      IED_C: minlvl(50, 15),
     },
 
     UNIQUE: {
       ANY: 1,
-      BOSS_OTHER: minlvl(100, 30),
-      IED_OTHER: minlvl(50, 30),
+      BOSS_C: minlvl(100, 30),
+      IED_C: minlvl(50, 30),
       ATT: mpot_10,
       DAMAGE: mpot_10,
       MAINSTAT: mpot_10,
@@ -224,11 +232,11 @@ def find_line_values(cube, category, region):
 
     LEGENDARY: {
       ANY: 1,
-      BOSS_OTHER: minlvl(50, 30),
-      BOSS_35: minlvl(100, 35),
-      BOSS_40: minlvl(100, 40),
-      IED_35: minlvl(50, 35),
-      IED_40: minlvl(100, 40),
+      BOSS_C: minlvl(50, 30),
+      BOSS_B: minlvl(100, 35),
+      BOSS_A: minlvl(100, 40),
+      IED_B: minlvl(50, 35),
+      IED_A: minlvl(100, 40),
       ATT: mpot_13,
       DAMAGE: mpot_13,
       MAINSTAT: mpot_13,
@@ -237,8 +245,8 @@ def find_line_values(cube, category, region):
       COOLDOWN_2: minlvl(120, 2),
       COOLDOWN_1: minlvl(70, 1),
       CRITDMG: mpot_8,
-      MESO: mpot_20,
-      DROP: mpot_20,
+      MESO_A: mpot_20,
+      DROP_A: mpot_20,
       INVIN: 3,
       DECENT_SPEED_INFUSION: minlvl(120, 1),
       DECENT_COMBAT_ORDERS: minlvl(70, 1),
@@ -478,8 +486,8 @@ def find_line_values(cube, category, region):
       ALLSTAT: allstat_6,
       MAINSTAT_PER_10_LVLS: 2,
       COOLDOWN_1: 1,
-      MESO: 5,
-      DROP: 5,
+      MESO_A: 5,
+      DROP_A: 5,
     },
   }
 
@@ -518,7 +526,7 @@ def find_line_values(cube, category, region):
       DAMAGE: mpot_7,
       HP: hp_6,
       ALLSTAT: mpot_4,
-      IED_OTHER: 3,
+      IED_C: 3,
     },
 
     UNIQUE: {
@@ -528,8 +536,8 @@ def find_line_values(cube, category, region):
       DAMAGE: mpot_10,
       HP: hp_8,
       ALLSTAT: mpot_7,
-      BOSS_OTHER: 12,
-      IED_OTHER: 4,
+      BOSS_C: 12,
+      IED_C: 4,
       MAINSTAT_PER_10_LVLS: 1,
     },
 
@@ -541,8 +549,8 @@ def find_line_values(cube, category, region):
       HP: hp_11,
       ALLSTAT: mpot_10,
       CRITDMG: 1,
-      BOSS_OTHER: 18,
-      IED_OTHER: 5,
+      BOSS_C: 18,
+      IED_C: 5,
       MAINSTAT_PER_10_LVLS: 2,
       ATT_PER_10_LVLS: 1,
     },
@@ -619,12 +627,12 @@ def cube_calc(wants, category, type, tier, level, region, lines):
     {
       UNIQUE: [
         [ATT, 1/7.5*100],
-        [IED_OTHER, 1/7.5*100],
+        [IED_C, 1/7.5*100],
       ],
       LEGENDARY: [
         [ATT, 1/5.7143*100],
-        [IED_35, 1/5.7143*100],
-        [IED_40, 1/5.7143*100],
+        [IED_B, 1/5.7143*100],
+        [IED_A, 1/5.7143*100],
       ],
     }
   """
@@ -641,7 +649,7 @@ def cube_calc(wants, category, type, tier, level, region, lines):
 
     res = make_any_line(lines[tier])
     num_primes = len(res)
-    if tier > COMMON:
+    if (tier - 1) in lines:
       res += make_any_line(lines[tier - 1])
     return res, num_primes
 
@@ -707,7 +715,7 @@ def cube_calc(wants, category, type, tier, level, region, lines):
       types_col = col(LINE_TYPE)
       types_l = [Line(x) for x in types_col]
       values_list = [get_lval(tier, x) for x in types_l[:num_prime]]
-      if tier > COMMON:
+      if (tier - 1) in lvals:
         values_list += [get_lval(tier - 1, x) for x in types_l[num_prime:]]
       values_col = np.array(values_list)
       is_prime_pn = np.concatenate((np.repeat(True, num_prime),
@@ -737,10 +745,7 @@ def cube_calc(wants, category, type, tier, level, region, lines):
 
   prime_chance = prime_chances[type]
   if not isinstance(prime_chance, list):
-    if tier == COMMON:
-      prime_chance = [1] * len(prime_chance[RARE])
-    else:
-      prime_chance = prime_chance[tier]
+    prime_chance = prime_chance[tier]
 
   # prime_chance = [prime_chance]
   prime_chance =         np.array(prime_chance, dtype='float64') .reshape(1, -1)
