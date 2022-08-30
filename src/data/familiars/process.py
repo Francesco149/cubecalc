@@ -283,9 +283,10 @@ with open("cache/familiars.txt") as f:
       if not line:
         break
 
-      amount = int(re.findall("[0-9]+", line)[-1])
-
       if stat != ANY:
+        linetext = re.split(r"[0-9]", line)[1]
+        linetext = line.split(f"2{linetext}")[0][1:]
+        amount = int(re.findall(r"[0-9]+", linetext)[-1])
         i = 2
         if stat & (IED_C | BOSS_C):
           if amount == 50 or (amount == 40 and tier == UNIQUE):
@@ -305,8 +306,9 @@ with open("cache/familiars.txt") as f:
             stat = DAMAGE_B
 
         if stat == LARGE_DROP_MESO:
-          if amount == 50:
+          if amount == 60:
             # this line doesn't seem to be used
+            # it's the big spider line i think
             continue
 
         line = (stat, percent, amount)

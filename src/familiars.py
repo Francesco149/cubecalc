@@ -13,7 +13,7 @@ familiars = {
         [IED_C, 0.617], # 15
         [SMALL_DROP, 1.235], # 30
         [SMALL_MESO, 1.235], # 30
-        [DAMAGE_A, 0.37], # 3
+        [DAMAGE_A, 0.37], # 1
       ],
       RARE: [
         [IED_C, 0.264], # 15
@@ -22,7 +22,7 @@ familiars = {
         [SMALL_DROP_MESO, 0.88], # 20
         [MESO_A, 0.88], # 50
         [SMALL_MESO, 0.88], # 30
-        [DAMAGE_A, 0.264], # 6
+        [DAMAGE_A, 0.264], # 2
         [INVIN, 0.44], # 1
       ],
       EPIC: [
@@ -36,7 +36,7 @@ familiars = {
         [SMALL_DROP_MESO, 0.734], # 25
         [MESO_A, 0.734], # 60
         [LARGE_MESO, 0.734], # 100
-        [DAMAGE_A, 0.22], # 9
+        [DAMAGE_A, 0.22], # 3
         [INVIN, 0.367], # 2
       ],
       UNIQUE: [
@@ -46,12 +46,12 @@ familiars = {
         [BOSS_C, 0.146], # 30
         [BOSS_B, 0.146], # 35
         [BOSS_A, 0.146], # 40
-        [CRITDMG_A, 0.438], # 15
+        [CRITDMG_A, 0.438], # 3
         [CRITDMG_B, 0.438], # 2
-        [LARGE_DROP_MESO, 0.73], # 60
-        [SMALL_DROP, 0.365], # 20
-        [FLAT_MESO, 0.365], # 20
-        [DAMAGE_A, 0.219], # 12
+        [LARGE_DROP_MESO, 0.73], # 50
+        [SMALL_DROP, 0.365], # 10
+        [FLAT_MESO, 0.365], # 10
+        [DAMAGE_A, 0.219], # 6
         [DAMAGE_B, 0.219], # 5
         [INVIN, 0.365], # 3
       ],
@@ -61,10 +61,10 @@ familiars = {
         [BOSS_C, 0.971], # 40
         [BOSS_B, 0.971], # 45
         [BOSS_A, 0.971], # 50
-        [CRITDMG_A, 2.912], # 17
+        [CRITDMG_A, 2.912], # 6
         [SMALL_DROP, 2.427], # 12
         [FLAT_MESO, 2.427], # 12
-        [DAMAGE_A, 1.456], # 14
+        [DAMAGE_A, 1.456], # 9
         [INVIN, 2.427], # 4
       ],
     }),
@@ -80,7 +80,7 @@ values = {
     IED_C: 15,
     SMALL_DROP: 30,
     SMALL_MESO: 30,
-    DAMAGE_A: 3,
+    DAMAGE_A: 1,
   },
   RARE: {
     ANY: 1,
@@ -90,7 +90,7 @@ values = {
     SMALL_DROP_MESO: 20,
     MESO_A: 50,
     SMALL_MESO: 30,
-    DAMAGE_A: 6,
+    DAMAGE_A: 2,
     INVIN: 1,
   },
   EPIC: {
@@ -105,7 +105,7 @@ values = {
     SMALL_DROP_MESO: 25,
     MESO_A: 60,
     LARGE_MESO: 100,
-    DAMAGE_A: 9,
+    DAMAGE_A: 3,
     INVIN: 2,
   },
   UNIQUE: {
@@ -116,12 +116,12 @@ values = {
     BOSS_C: 30,
     BOSS_B: 35,
     BOSS_A: 40,
-    CRITDMG_A: 15,
+    CRITDMG_A: 3,
     CRITDMG_B: 2,
-    LARGE_DROP_MESO: 60,
-    SMALL_DROP: 20,
-    FLAT_MESO: 20,
-    DAMAGE_A: 12,
+    LARGE_DROP_MESO: 50,
+    SMALL_DROP: 10,
+    FLAT_MESO: 10,
+    DAMAGE_A: 6,
     DAMAGE_B: 5,
     INVIN: 3,
   },
@@ -132,10 +132,10 @@ values = {
     BOSS_C: 40,
     BOSS_B: 45,
     BOSS_A: 50,
-    CRITDMG_A: 17,
+    CRITDMG_A: 6,
     SMALL_DROP: 12,
     FLAT_MESO: 12,
-    DAMAGE_A: 14,
+    DAMAGE_A: 9,
     INVIN: 4,
   },
 }
