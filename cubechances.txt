@@ -943,30 +943,30 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 25+ meso and drop 1 in 67 cubes, 1.4938%
 60+ meso and drop 1 in 136 cubes, 0.7340%
 ===================== familiar (familiar on lv150 unique) ======================
-                     20+ boss 1 in 137 cubes, 0.7312%
-                     30+ boss 1 in 171 cubes, 0.5847%
+                     20+ boss 1 in 137 cubes, 0.7307%
+                     30+ boss 1 in 171 cubes, 0.5844%
                       20+ ied 1 in 91 cubes, 1.0941%
                       30+ ied 1 in 114 cubes, 0.8756%
                      25+ drop 1 in 34 cubes, 2.9159%
                      50+ drop 1 in 46 cubes, 2.1900%
-                    100+ drop 1 in 134 cubes, 0.7447%
+                    100+ drop 1 in 135 cubes, 0.7394%
                      25+ meso 1 in 34 cubes, 2.9159%
             25+ meso and drop 1 in 46 cubes, 2.1873%
-            60+ meso and drop 1 in 69 cubes, 1.4586%
-                     35+ boss 1 in 341 cubes, 0.2931%
-                     40+ boss 1 in 678 cubes, 0.1475%
+            60+ meso and drop 1 in 135 cubes, 0.7394%
+                     35+ boss 1 in 342 cubes, 0.2928%
+                     40+ boss 1 in 681 cubes, 0.1469%
                       35+ ied 1 in 228 cubes, 0.4390%
                       40+ ied 1 in 453 cubes, 0.2209%
  any 2l combo of boss and ied 1 in 7977 cubes, 0.0125%
          any 2l combo of boss 1 in 29612 cubes, 0.0034%
                     50+ boss  1 in 77657 cubes, 0.0013%
-       25+ meso and 100+ drop 1 in 134 cubes, 0.7447%
+       25+ meso and 100+ drop 1 in 135 cubes, 0.7394%
 any 2l combo of meso and drop 1 in 3110 cubes, 0.0321%
 ==================== familiar (familiar on lv150 legendary) ====================
-40+ boss 1 in 33 cubes, 3.0590%
-45+ boss 1 in 51 cubes, 1.9526%
-50+ boss 1 in 101 cubes, 0.9859%
-60+ boss 1 in 6718 cubes, 0.0149%
+40+ boss 1 in 33 cubes, 3.0569%
+45+ boss 1 in 51 cubes, 1.9505%
+50+ boss 1 in 102 cubes, 0.9816%
+60+ boss 1 in 7838 cubes, 0.0128%
  40+ ied 1 in 32 cubes, 3.1246%
  45+ ied 1 in 34 cubes, 2.9120%
  50+ ied 1 in 68 cubes, 1.4656%
