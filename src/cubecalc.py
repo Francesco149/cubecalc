@@ -14,16 +14,21 @@ because GMS hasn't released any official data:
   - that line rates for TMS cubes like violet, uni are the same as TMS
   - that prime chance for violets on strategywiki applies to GMS
     (it's lower than TMS)
-  - that the data on southperry for familiar line chances is accurate
 
 the assumptions are reasonable in my opinion but we just don't know for sure
 
 you can check line probabilities in the source and see where I got them from
 
+familiar calculations are very speculative and might not be accurate at all:
+  - for familiars we use the data mined rates from southperry. we don't know
+    whether these refer to reveal or familiard cards or both. we don't even
+    know the prime rates so it's hardcoded to never get double prime
+  - for red cards we use the data I collected from 2.9k rolls to estimate
+    line rates. this is probably not a big enough sample size to be
+    truly representative of the averages.
+
 NOTE: for cases where the tier is lower than the max tier of the cube
       (such as red cubes on unique) it's assumed that you won't tier up
-NOTE: familiar chances are probably only on reveal. it would be too easy if
-      those were the chances with red cards
 """
 
 from common import *
@@ -73,6 +78,7 @@ prime_chances = {
   },
   UNI: [0.15],
   FAMILIAR: [1, 0],
+  RED_FAM_CARD: [1, 197/2903],
 }
 
 # amounts are either just the amount of all lvl ranges or a lists of tuples of (max lvl, amount)
@@ -565,7 +571,7 @@ def find_line_values(cube, category, region):
       return values_bonus_wse
     else:
       return values_bonus
-  elif cube == FAMILIAR:
+  elif cube == FAMILIAR or cube == RED_FAM_CARD:
     from familiars import values as values_familiar
     return values_familiar
   return values
@@ -742,7 +748,10 @@ def cube_calc(wants, category, type, tier, level, region, lines):
   # the category is mainly how many lines we're rolling and the prime/nonprime logic
   if LINE_CACHE not in lines:
     lines[LINE_CACHE] = {}
-  cube_category = type if type in {VIOLET, UNI, EQUALITY, FAMILIAR} else RED
+  if type in {FAMILIAR, RED_FAM_CARD}:
+    cube_category = FAMILIAR
+  else:
+    cube_category = type if type in {VIOLET, UNI, EQUALITY} else RED
   if cube_category not in lines[LINE_CACHE]:
     lines[LINE_CACHE][cube_category] = {}
   line_cache = cache_lines(lines[LINE_CACHE][cube_category])

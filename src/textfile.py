@@ -67,7 +67,9 @@ top_overall_uni = prob_uni(TOP_OVERALL)
 hat_uni = prob_uni(HAT)
 
 from familiars import familiars as familiars_data
+from familiars import red_card_estimate
 familiars = find_probabilities(familiars_data, FAMILIAR, FAMILIAR_STATS)
+familiars_red_card = find_probabilities(red_card_estimate, RED_FAM_CARD, FAMILIAR_STATS)
 
 
 def tabulate(rows):
@@ -457,7 +459,10 @@ def familiar_calcs():
 
   Combos(combos_fam_epic, FAMILIAR_STATS, FAMILIAR, EPIC)(familiars)
   Combos(combos_fam_unique, FAMILIAR_STATS, FAMILIAR, UNIQUE)(familiars)
-  Combos(combos_fam_legendary, FAMILIAR_STATS)(familiars)
+  Combos(combos_fam_legendary, FAMILIAR_STATS)(
+    familiars,
+    familiars_red_card,
+  )
 
 
 if __name__ == "__main__":

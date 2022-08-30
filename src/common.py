@@ -127,6 +127,7 @@ class Cube(IntFlag):
   BONUS = auto()
   UNI = auto()
   FAMILIAR = auto()
+  RED_FAM_CARD = auto()
 
 @global_enum
 class CubeMasks(IntFlag):

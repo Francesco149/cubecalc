@@ -18,4 +18,5 @@ fi
 (
   header
   ./process.py
+  ./spreadsheet.py
 ) | tee ../../familiars.py

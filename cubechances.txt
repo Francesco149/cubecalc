@@ -11,16 +11,21 @@ because GMS hasn't released any official data:
   - that line rates for TMS cubes like violet, uni are the same as TMS
   - that prime chance for violets on strategywiki applies to GMS
     (it's lower than TMS)
-  - that the data on southperry for familiar line chances is accurate
 
 the assumptions are reasonable in my opinion but we just don't know for sure
 
 you can check line probabilities in the source and see where I got them from
 
+familiar calculations are very speculative and might not be accurate at all:
+  - for familiars we use the data mined rates from southperry. we don't know
+    whether these refer to reveal or familiard cards or both. we don't even
+    know the prime rates so it's hardcoded to never get double prime
+  - for red cards we use the data I collected from 2.9k rolls to estimate
+    line rates. this is probably not a big enough sample size to be
+    truly representative of the averages.
+
 NOTE: for cases where the tier is lower than the max tier of the cube
       (such as red cubes on unique) it's assumed that you won't tier up
-NOTE: familiar chances are probably only on reveal. it would be too easy if
-      those were the chances with red cards
 
 ======================= weapon (red on lv150 legendary) ========================
     any 2l combo of att+boss 1 in 15 cubes, 6.7240%
@@ -971,3 +976,12 @@ any 2l combo of meso and drop 1 in 3110 cubes, 0.0321%
  45+ ied 1 in 34 cubes, 2.9120%
  50+ ied 1 in 68 cubes, 1.4656%
  60+ ied 1 in 5227 cubes, 0.0191%
+================== familiar (red_fam_card on lv150 legendary) ==================
+40+ boss 1 in 49 cubes, 2.0587%
+45+ boss 1 in 71 cubes, 1.4019%
+50+ boss 1 in 122 cubes, 0.8168%
+60+ boss 1 in 9454 cubes, 0.0106%
+ 40+ ied 1 in 67 cubes, 1.4917%
+ 45+ ied 1 in 72 cubes, 1.3967%
+ 50+ ied 1 in 180 cubes, 0.5561%
+ 60+ ied 1 in 12678 cubes, 0.0079%

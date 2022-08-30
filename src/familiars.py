@@ -139,3 +139,40 @@ values = {
     INVIN: 4,
   },
 }
+red_card_estimate = {
+  RED_FAM_CARD: {
+    FAMILIAR_STATS: percent({
+      BASE: [],
+      COMMON: [],
+      RARE: [],
+      EPIC: [],
+      UNIQUE: [
+        [LARGE_DROP_MESO, 54 / 2903 * 100],
+        [INVIN, 33 / 2903 * 100],
+        [CRITDMG_B, 22 / 2903 * 100],
+        [CRITDMG_A, 17 / 2903 * 100],
+        [FLAT_MESO, 16 / 2903 * 100],
+        [DAMAGE_A, 9 / 2903 * 100],
+        [IED_B, 7 / 2903 * 100],
+        [BOSS_C, 7 / 2903 * 100],
+        [SMALL_DROP, 6 / 2903 * 100],
+        [BOSS_B, 6 / 2903 * 100],
+        [IED_C, 6 / 2903 * 100],
+        [DAMAGE_B, 6 / 2903 * 100],
+        [IED_A, 3 / 2903 * 100],
+      ],
+      LEGENDARY: [
+        [INVIN, 88 / 2903 * 100],
+        [CRITDMG_A, 34 / 2903 * 100],
+        [IED_B, 23 / 2903 * 100],
+        [FLAT_MESO, 23 / 2903 * 100],
+        [BOSS_A, 22 / 2903 * 100],
+        [DAMAGE_A, 20 / 2903 * 100],
+        [BOSS_C, 18 / 2903 * 100],
+        [SMALL_DROP, 17 / 2903 * 100],
+        [BOSS_B, 16 / 2903 * 100],
+        [IED_A, 15 / 2903 * 100],
+      ],
+    }),
+  },
+}

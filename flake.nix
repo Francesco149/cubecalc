@@ -20,6 +20,8 @@
             htmlq
           ] ++ (with python310Packages; [
             numpy
+            pandas
+            odfpy
           ]);
         };
       }
