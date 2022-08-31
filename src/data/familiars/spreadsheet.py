@@ -29,7 +29,6 @@ known = {
     "8% chance to Auto Steal",
     "6% chance to Auto Steal",
     "4% chance to Auto Steal",
-    "All Stats: +5%",
     "Abnormal Status Resistance: +7%",
     "All Skill Levels: +1",
     "HP Recovery Items and Skills: +30%",
@@ -89,8 +88,6 @@ known = {
     "3% chance to become invincible for 5 seconds when attacked.",
     "4% chance to become invincible for 5 seconds when attacked.",
     "Continually restores a large amount of HP & MP",
-    "All Stats: +2%",
-    "All Stats: +3%",
     "Magic ATT: +5%",
     "Magic ATT: +6%",
     "Magic ATT: +7",
@@ -125,6 +122,7 @@ conversion = {
     "STR: +9%": MAINSTAT_A,
     "ATT: +9%": ATT_A,
     "Max HP: +9%": HP_A,
+    "All Stats: +5%": ALLSTAT_A,
   },
   UNIQUE: {
     "Item Acquisition Rate: +10%": SMALL_DROP,
@@ -155,6 +153,8 @@ conversion = {
     "ATT: +6%": ATT_A,
     "Max HP: +5%": HP_B,
     "Max HP: +6%": HP_A,
+    "All Stats: +2%": ALLSTAT_B,
+    "All Stats: +3%": ALLSTAT_A,
   },
 }
 

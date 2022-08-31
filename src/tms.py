@@ -26,18 +26,18 @@ event = {
       EPIC: [
         [MAINSTAT_A, 11.9],
         [HP_A, 16.67],
-        [ALLSTAT, 4.76],
+        [ALLSTAT_A, 4.76],
       ],
       UNIQUE: [
         [MAINSTAT_A, 7.94],
         [HP_A, 9.52],
-        [ALLSTAT, 6.35],
+        [ALLSTAT_A, 6.35],
       ],
       LEGENDARY: [
         [DECENT_COMBAT_ORDERS, 6.25],
         [MAINSTAT_A, 8.33],
         [HP_A, 8.33],
-        [ALLSTAT, 6.25],
+        [ALLSTAT_A, 6.25],
       ],
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
@@ -51,17 +51,17 @@ event = {
       EPIC: [
         [MAINSTAT_A, 11.9],
         [HP_A, 16.67],
-        [ALLSTAT, 4.76],
+        [ALLSTAT_A, 4.76],
       ],
       UNIQUE: [
         [MAINSTAT_A, 9.8],
         [HP_A, 11.76],
-        [ALLSTAT, 7.84],
+        [ALLSTAT_A, 7.84],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 7.84],
         [HP_A, 7.84],
-        [ALLSTAT, 5.88],
+        [ALLSTAT_A, 5.88],
         [MESO_A, 5.88],
         [DROP_A, 5.88],
       ],
@@ -83,7 +83,7 @@ event = {
         [IED_C, 4.0],
         [MAINSTAT_A, 10.0],
         [HP_A, 14.0],
-        [ALLSTAT, 4.0],
+        [ALLSTAT_A, 4.0],
       ],
     }),
     FORCE_SHIELD_SOUL_RING: percent({
@@ -103,14 +103,14 @@ event = {
         [IED_C, 4.65],
         [MAINSTAT_A, 11.63],
         [HP_A, 16.28],
-        [ALLSTAT, 4.65],
+        [ALLSTAT_A, 4.65],
       ],
     }),
     HAT | BOTTOM | CAPE_BELT_SHOULDER: percent({
       EPIC: [
         [MAINSTAT_A, 11.9],
         [HP_A, 16.67],
-        [ALLSTAT, 4.76],
+        [ALLSTAT_A, 4.76],
       ],
     }),
     TOP_OVERALL: percent({
@@ -118,78 +118,78 @@ event = {
         [INVIN, 12.5],
         [MAINSTAT_A, 10.42],
         [HP_A, 14.58],
-        [ALLSTAT, 4.17],
+        [ALLSTAT_A, 4.17],
       ],
       UNIQUE: [
         [INVIN, 5.48],
         [MAINSTAT_A, 6.85],
         [HP_A, 8.22],
-        [ALLSTAT, 5.48],
+        [ALLSTAT_A, 5.48],
       ],
       LEGENDARY: [
         [INVIN, 5.88],
         [MAINSTAT_A, 7.84],
         [HP_A, 7.84],
-        [ALLSTAT, 5.88],
+        [ALLSTAT_A, 5.88],
       ],
     }),
     GLOVE: percent({
       EPIC: [
         [MAINSTAT_A, 10.42],
         [HP_A, 14.58],
-        [ALLSTAT, 4.17],
+        [ALLSTAT_A, 4.17],
       ],
       UNIQUE: [
         [MAINSTAT_PER_10_LVLS, 1.49],
         [DECENT_SHARP_EYES, 5.97],
         [MAINSTAT_A, 7.46],
         [HP_A, 8.96],
-        [ALLSTAT, 5.97],
+        [ALLSTAT_A, 5.97],
       ],
       LEGENDARY: [
         [CRITDMG_A, 7.69],
         [DECENT_SPEED_INFUSION, 5.77],
         [MAINSTAT_A, 7.69],
         [HP_A, 7.69],
-        [ALLSTAT, 5.77],
+        [ALLSTAT_A, 5.77],
       ],
     }),
     HAT: percent({
       UNIQUE: [
         [MAINSTAT_A, 7.94],
         [HP_A, 9.52],
-        [ALLSTAT, 6.35],
+        [ALLSTAT_A, 6.35],
       ],
       LEGENDARY: [
         [COOLDOWN_1, 5.66],
         [COOLDOWN_2, 3.77],
         [MAINSTAT_A, 7.55],
         [HP_A, 7.55],
-        [ALLSTAT, 5.66],
+        [ALLSTAT_A, 5.66],
       ],
     }),
     BOTTOM: percent({
       UNIQUE: [
         [MAINSTAT_A, 7.94],
         [HP_A, 9.52],
-        [ALLSTAT, 6.35],
+        [ALLSTAT_A, 6.35],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 8.89],
         [HP_A, 8.89],
-        [ALLSTAT, 6.67],
+        [ALLSTAT_A, 6.67],
       ],
     }),
     CAPE_BELT_SHOULDER: percent({
       UNIQUE: [
         [MAINSTAT_A, 8.47],
         [HP_A, 10.17],
-        [ALLSTAT, 6.78],
+        [ALLSTAT_A, 6.78],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 8.89],
         [HP_A, 8.89],
-        [ALLSTAT, 6.67],
+        [ALLSTAT_A, 6.67],
       ],
     }),
     WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING: percent({
@@ -199,7 +199,7 @@ event = {
         [IED_C, 8.7],
         [BOSS_C, 6.52],
         [MAINSTAT_A, 10.87],
-        [ALLSTAT, 10.87],
+        [ALLSTAT_A, 10.87],
       ],
       LEGENDARY: [
         [ATT_A, 4.44],
@@ -211,7 +211,7 @@ event = {
         [BOSS_A, 4.44],
         [ATT_PER_10_LVLS, 6.67],
         [MAINSTAT_A, 8.89],
-        [ALLSTAT, 6.67],
+        [ALLSTAT_A, 6.67],
       ],
     }),
     EMBLEM: percent({
@@ -220,7 +220,7 @@ event = {
         [DAMAGE_A, 6.98],
         [IED_C, 9.3],
         [MAINSTAT_A, 11.63],
-        [ALLSTAT, 11.63],
+        [ALLSTAT_A, 11.63],
       ],
       LEGENDARY: [
         [ATT_A, 5.13],
@@ -229,7 +229,7 @@ event = {
         [IED_A, 7.69],
         [ATT_PER_10_LVLS, 7.69],
         [MAINSTAT_A, 10.26],
-        [ALLSTAT, 7.69],
+        [ALLSTAT_A, 7.69],
       ],
     }),
   },
@@ -254,18 +254,18 @@ event = {
       EPIC: [
         [MAINSTAT_A, 13.7],
         [HP_A, 13.7],
-        [ALLSTAT, 1.37],
+        [ALLSTAT_A, 1.37],
       ],
       UNIQUE: [
         [MAINSTAT_A, 6.33],
         [HP_A, 6.33],
-        [ALLSTAT, 1.27],
+        [ALLSTAT_A, 1.27],
       ],
       LEGENDARY: [
         [DECENT_COMBAT_ORDERS, 10.91],
         [MAINSTAT_A, 7.27],
         [HP_A, 7.27],
-        [ALLSTAT, 1.82],
+        [ALLSTAT_A, 1.82],
       ],
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
@@ -279,17 +279,17 @@ event = {
       EPIC: [
         [MAINSTAT_A, 13.7],
         [HP_A, 13.7],
-        [ALLSTAT, 1.37],
+        [ALLSTAT_A, 1.37],
       ],
       UNIQUE: [
         [MAINSTAT_A, 11.63],
         [HP_A, 11.63],
-        [ALLSTAT, 2.33],
+        [ALLSTAT_A, 2.33],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 6.06],
         [HP_A, 6.06],
-        [ALLSTAT, 1.52],
+        [ALLSTAT_A, 1.52],
         [MESO_A, 9.09],
         [DROP_A, 9.09],
       ],
@@ -311,7 +311,7 @@ event = {
         [IED_C, 6.85],
         [MAINSTAT_A, 9.59],
         [HP_A, 9.59],
-        [ALLSTAT, 8.22],
+        [ALLSTAT_A, 8.22],
       ],
     }),
     FORCE_SHIELD_SOUL_RING: percent({
@@ -331,14 +331,14 @@ event = {
         [IED_C, 7.58],
         [MAINSTAT_A, 10.61],
         [HP_A, 10.61],
-        [ALLSTAT, 9.09],
+        [ALLSTAT_A, 9.09],
       ],
     }),
     HAT | BOTTOM | CAPE_BELT_SHOULDER: percent({
       EPIC: [
         [MAINSTAT_A, 14.08],
         [HP_A, 14.08],
-        [ALLSTAT, 1.41],
+        [ALLSTAT_A, 1.41],
       ],
     }),
     TOP_OVERALL: percent({
@@ -346,78 +346,78 @@ event = {
         [INVIN, 5.6],
         [MAINSTAT_A, 13.08],
         [HP_A, 13.08],
-        [ALLSTAT, 0.93],
+        [ALLSTAT_A, 0.93],
       ],
       UNIQUE: [
         [INVIN, 8.16],
         [MAINSTAT_A, 4.08],
         [HP_A, 4.08],
-        [ALLSTAT, 1.02],
+        [ALLSTAT_A, 1.02],
       ],
       LEGENDARY: [
         [INVIN, 12.31],
         [MAINSTAT_A, 6.15],
         [HP_A, 6.15],
-        [ALLSTAT, 1.54],
+        [ALLSTAT_A, 1.54],
       ],
     }),
     GLOVE: percent({
       EPIC: [
         [MAINSTAT_A, 13.08],
         [HP_A, 13.08],
-        [ALLSTAT, 0.93],
+        [ALLSTAT_A, 0.93],
       ],
       UNIQUE: [
         [MAINSTAT_PER_10_LVLS, 5.26],
         [DECENT_SHARP_EYES, 8.42],
         [MAINSTAT_A, 5.26],
         [HP_A, 5.26],
-        [ALLSTAT, 1.05],
+        [ALLSTAT_A, 1.05],
       ],
       LEGENDARY: [
         [CRITDMG_A, 2.9],
         [DECENT_SPEED_INFUSION, 11.59],
         [MAINSTAT_A, 5.8],
         [HP_A, 5.8],
-        [ALLSTAT, 1.45],
+        [ALLSTAT_A, 1.45],
       ],
     }),
     HAT: percent({
       UNIQUE: [
         [MAINSTAT_A, 5.8],
         [HP_A, 5.8],
-        [ALLSTAT, 1.45],
+        [ALLSTAT_A, 1.45],
       ],
       LEGENDARY: [
         [COOLDOWN_1, 10.0],
         [COOLDOWN_2, 10.0],
         [MAINSTAT_A, 5.0],
         [HP_A, 5.0],
-        [ALLSTAT, 1.25],
+        [ALLSTAT_A, 1.25],
       ],
     }),
     BOTTOM: percent({
       UNIQUE: [
         [MAINSTAT_A, 6.35],
         [HP_A, 6.35],
-        [ALLSTAT, 1.59],
+        [ALLSTAT_A, 1.59],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 8.89],
         [HP_A, 8.89],
-        [ALLSTAT, 2.22],
+        [ALLSTAT_A, 2.22],
       ],
     }),
     CAPE_BELT_SHOULDER: percent({
       UNIQUE: [
         [MAINSTAT_A, 7.69],
         [HP_A, 7.69],
-        [ALLSTAT, 1.54],
+        [ALLSTAT_A, 1.54],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 8.89],
         [HP_A, 8.89],
-        [ALLSTAT, 6.67],
+        [ALLSTAT_A, 6.67],
       ],
     }),
     WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING: percent({
@@ -427,7 +427,7 @@ event = {
         [IED_C, 20.55],
         [BOSS_C, 5.48],
         [MAINSTAT_A, 2.74],
-        [ALLSTAT, 2.74],
+        [ALLSTAT_A, 2.74],
       ],
       LEGENDARY: [
         [ATT_A, 3.24],
@@ -439,7 +439,7 @@ event = {
         [BOSS_A, 1.13],
         [ATT_PER_10_LVLS, 1.13],
         [MAINSTAT_A, 1.13],
-        [ALLSTAT, 1.13],
+        [ALLSTAT_A, 1.13],
       ],
     }),
     EMBLEM: percent({
@@ -448,7 +448,7 @@ event = {
         [DAMAGE_A, 17.39],
         [IED_C, 21.74],
         [MAINSTAT_A, 2.9],
-        [ALLSTAT, 2.9],
+        [ALLSTAT_A, 2.9],
       ],
       LEGENDARY: [
         [ATT_A, 3.45],
@@ -457,7 +457,7 @@ event = {
         [IED_A, 17.27],
         [ATT_PER_10_LVLS, 1.21],
         [MAINSTAT_A, 1.21],
-        [ALLSTAT, 1.21],
+        [ALLSTAT_A, 1.21],
       ],
     }),
   },

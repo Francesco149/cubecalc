@@ -135,6 +135,8 @@ class LineVariants(IntFlag):
   ATT_B = ATT | LINE_B
   HP_A = HP | LINE_A
   HP_B = HP | LINE_B
+  ALLSTAT_A = ALLSTAT | LINE_A
+  ALLSTAT_B = ALLSTAT | LINE_B
 
 @global_enum
 class LineMasks(IntFlag):

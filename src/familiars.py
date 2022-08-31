@@ -32,6 +32,7 @@ familiars = {
         [FLAT_ATT_A, 1.319], # ATT: +4
         [FLAT_ATT_B, 1.319], # ATT: +3
         [ATT_A, 0.264], # ATT: +2%
+        [ALLSTAT_A, 0.176], # All Stats: +1%
         [IED_C, 0.264], # Attacks ignore 15% Monster DEF
         [DROP_A, 0.88], # Increases Item Drop Rate (50)
         [SMALL_DROP, 0.88], # Increases Item Drop Rate by a small amount (30)
@@ -51,6 +52,7 @@ familiars = {
         [FLAT_ATT_A, 1.101], # ATT: +6
         [FLAT_ATT_B, 1.101], # ATT: +5
         [ATT_A, 0.22], # ATT: +3%
+        [ALLSTAT_A, 0.147], # All Stats: +2%
         [IED_A, 0.22], # Attacks ignore 30% Monster DEF
         [IED_C, 0.22], # Attacks ignore 20% Monster DEF
         [BOSS_C, 0.147], # Damage to Bosses: +20%
@@ -76,6 +78,8 @@ familiars = {
         [ATT_A, 0.219], # ATT: +6%
         [ATT_B, 0.219], # ATT: +5%
         [FLAT_ALLSTAT_A, 0.365], # All Stats: +4
+        [ALLSTAT_A, 0.146], # All Stats: +3%
+        [ALLSTAT_B, 0.146], # All Stats: +2%
         [IED_B, 0.219], # Attacks ignore 35% Monster DEF
         [IED_A, 0.219], # Attacks ignore 40% Monster DEF
         [IED_C, 0.219], # Attacks ignore 30% Monster DEF
@@ -105,6 +109,7 @@ familiars = {
       ],
       LEGENDARY: [
         [ATT_A, 1.456], # ATT: +9%
+        [ALLSTAT_A, 0.971], # All Stats: +5%
         [IED_B, 1.456], # Attacks ignore 45% Monster DEF
         [IED_A, 1.456], # Attacks ignore 50% Monster DEF
         [BOSS_C, 0.971], # Boss Damage: +40%
@@ -151,6 +156,7 @@ values = {
     FLAT_ATT_A: 4,
     FLAT_ATT_B: 3,
     ATT_A: 2,
+    ALLSTAT_A: 1,
     IED_C: 15,
     DROP_A: 50,
     SMALL_DROP: 30,
@@ -171,6 +177,7 @@ values = {
     FLAT_ATT_A: 6,
     FLAT_ATT_B: 5,
     ATT_A: 3,
+    ALLSTAT_A: 2,
     IED_A: 30,
     IED_C: 20,
     BOSS_C: 20,
@@ -197,6 +204,8 @@ values = {
     ATT_A: 6,
     ATT_B: 5,
     FLAT_ALLSTAT_A: 4,
+    ALLSTAT_A: 3,
+    ALLSTAT_B: 2,
     IED_B: 35,
     IED_A: 40,
     IED_C: 30,
@@ -227,6 +236,7 @@ values = {
   LEGENDARY: {
     ANY: 1,
     ATT_A: 9,
+    ALLSTAT_A: 5,
     IED_B: 45,
     IED_A: 50,
     BOSS_C: 40,
@@ -268,6 +278,7 @@ desc = {
     FLAT_ATT_A: "ATT: +4",
     FLAT_ATT_B: "ATT: +3",
     ATT_A: "ATT: +2%",
+    ALLSTAT_A: "All Stats: +1%",
     IED_C: "Attacks ignore 15% Monster DEF",
     DROP_A: "Increases Item Drop Rate (50)",
     SMALL_DROP: "Increases Item Drop Rate by a small amount (30)",
@@ -287,6 +298,7 @@ desc = {
     FLAT_ATT_A: "ATT: +6",
     FLAT_ATT_B: "ATT: +5",
     ATT_A: "ATT: +3%",
+    ALLSTAT_A: "All Stats: +2%",
     IED_A: "Attacks ignore 30% Monster DEF",
     IED_C: "Attacks ignore 20% Monster DEF",
     BOSS_C: "Damage to Bosses: +20%",
@@ -312,6 +324,8 @@ desc = {
     ATT_A: "ATT: +6%",
     ATT_B: "ATT: +5%",
     FLAT_ALLSTAT_A: "All Stats: +4",
+    ALLSTAT_A: "All Stats: +3%",
+    ALLSTAT_B: "All Stats: +2%",
     IED_B: "Attacks ignore 35% Monster DEF",
     IED_A: "Attacks ignore 40% Monster DEF",
     IED_C: "Attacks ignore 30% Monster DEF",
@@ -341,6 +355,7 @@ desc = {
   },
   LEGENDARY: {
     ATT_A: "ATT: +9%",
+    ALLSTAT_A: "All Stats: +5%",
     IED_B: "Attacks ignore 45% Monster DEF",
     IED_A: "Attacks ignore 50% Monster DEF",
     BOSS_C: "Boss Damage: +40%",
@@ -382,6 +397,8 @@ red_card_estimate = {
         [CRITDMG_A, 17 / 2903 * 100],
         [FLAT_MESO, 16 / 2903 * 100],
         [ATT_A, 16 / 2903 * 100],
+        [ALLSTAT_B, 11 / 2903 * 100],
+        [ALLSTAT_A, 10 / 2903 * 100],
         [DAMAGE_A, 9 / 2903 * 100],
         [ATT_B, 8 / 2903 * 100],
         [IED_B, 7 / 2903 * 100],
@@ -406,6 +423,7 @@ red_card_estimate = {
         [SMALL_DROP, 17 / 2903 * 100],
         [BOSS_B, 16 / 2903 * 100],
         [IED_A, 15 / 2903 * 100],
+        [ALLSTAT_A, 12 / 2903 * 100],
       ],
     }),
   },

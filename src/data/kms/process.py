@@ -27,7 +27,7 @@ convert_s = {
   "메소 획득량": MESO_A,
   "아이템 드롭률": DROP_A,
   KW_HP: HP_A,
-  KW_ALLSTAT: ALLSTAT,
+  KW_ALLSTAT: ALLSTAT_A,
   "크리티컬 데미지": CRITDMG_A,
   "데미지": DAMAGE_A,
   "캐릭터 기준 10레벨 당 STR": MAINSTAT_PER_10_LVLS,

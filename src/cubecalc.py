@@ -218,7 +218,7 @@ def find_line_values(cube, category, region):
     EPIC: {
       ANY: 1,
       MAINSTAT_A: mpot_7,
-      ALLSTAT: mpot_4,
+      ALLSTAT_A: mpot_4,
       HP_A: mpot_7,
       INVIN: 1,
       ATT_A: mpot_7,
@@ -233,7 +233,7 @@ def find_line_values(cube, category, region):
       ATT_A: mpot_10,
       DAMAGE_A: mpot_10,
       MAINSTAT_A: mpot_10,
-      ALLSTAT: mpot_7,
+      ALLSTAT_A: mpot_7,
       HP_A: mpot_10_kms,
       INVIN: 2,
       DECENT_SHARP_EYES: minlvl(120, 1),
@@ -250,7 +250,7 @@ def find_line_values(cube, category, region):
       ATT_A: mpot_13,
       DAMAGE_A: mpot_13,
       MAINSTAT_A: mpot_13,
-      ALLSTAT: mpot_10,
+      ALLSTAT_A: mpot_10,
       HP_A: mpot_13_kms,
       COOLDOWN_2: minlvl(120, 2),
       COOLDOWN_1: minlvl(70, 1),
@@ -471,7 +471,7 @@ def find_line_values(cube, category, region):
       FLAT_HP_A: flat_hp_195,
       MAINSTAT_A: mainstat_5,
       HP_A: hp_6,
-      ALLSTAT: allstat_3,
+      ALLSTAT_A: allstat_3,
     },
 
     UNIQUE: {
@@ -481,7 +481,7 @@ def find_line_values(cube, category, region):
       FLAT_HP_A: flat_hp_250,
       MAINSTAT_A: mainstat_6,
       HP_A: hp_8,
-      ALLSTAT: allstat_5,
+      ALLSTAT_A: allstat_5,
       MAINSTAT_PER_10_LVLS: 1,
     },
 
@@ -493,7 +493,7 @@ def find_line_values(cube, category, region):
       MAINSTAT_A: mainstat_8,
       HP_A: hp_11,
       CRITDMG_A: 1,
-      ALLSTAT: allstat_6,
+      ALLSTAT_A: allstat_6,
       MAINSTAT_PER_10_LVLS: 2,
       COOLDOWN_1: 1,
       MESO_A: 5,
@@ -535,7 +535,7 @@ def find_line_values(cube, category, region):
       ATT_A: mpot_7,
       DAMAGE_A: mpot_7,
       HP_A: hp_6,
-      ALLSTAT: mpot_4,
+      ALLSTAT_A: mpot_4,
       IED_C: 3,
     },
 
@@ -545,7 +545,7 @@ def find_line_values(cube, category, region):
       ATT_A: mpot_10,
       DAMAGE_A: mpot_10,
       HP_A: hp_8,
-      ALLSTAT: mpot_7,
+      ALLSTAT_A: mpot_7,
       BOSS_C: 12,
       IED_C: 4,
       MAINSTAT_PER_10_LVLS: 1,
@@ -557,7 +557,7 @@ def find_line_values(cube, category, region):
       ATT_A: mpot_13,
       DAMAGE_A: mpot_13,
       HP_A: hp_11,
-      ALLSTAT: mpot_10,
+      ALLSTAT_A: mpot_10,
       CRITDMG_A: 1,
       BOSS_C: 18,
       IED_C: 5,
@@ -818,7 +818,7 @@ def cube_calc(wants, category, type, tier, level, region, lines):
 
     #       this is also useful to match multiple lines later. for example
     #       when we look for stat we also want to match allstat so we can check that
-    #       line_type & (MAINSTAT_A | ALLSTAT) != 0
+    #       line_type & (MAINSTAT_A | ALLSTAT_A) != 0
 
     for n, forbidden in forbidden_combos:
       if np.any(c.types & reduce(or_, forbidden) != 0):

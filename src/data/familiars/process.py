@@ -171,7 +171,6 @@ known_lines = {
   "HP Recovery Items and Skills: +#RecoveryUP%",
   "Restores #RecoveryHP HP every 4 sec",
 
-  "All Stats: +#incSTRr%",
   "Increases party members' STR by a small percentage",
   "Increases party members' STR by a large percentage",
   "Increases nearby allies' STR by a percentage",
@@ -234,6 +233,7 @@ convert_lines = {
   "STR: +#incSTRr%": MAINSTAT_A,
   "Max HP: +#incMHPr%": HP_A,
   "ATT: +#incPADr%": ATT_A,
+  "All Stats: +#incSTRr%": ALLSTAT_A,
 }
 
 
@@ -349,6 +349,10 @@ with open("cache/familiars.txt") as f:
           if ((tier == UNIQUE and amount == 5)):
             stat &= ~LINE_A
             stat |= LINE_B
+
+        elif stat == ALLSTAT_A:
+          if (tier == UNIQUE and amount == 2):
+            stat = ALLSTAT_B
 
         desc = line_description(rawtext, stat, amount)
         line = (stat, percent, amount, desc)
