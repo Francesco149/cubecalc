@@ -254,8 +254,11 @@ red_card_estimate = {
       EPIC: [],
       UNIQUE: [
         [LARGE_DROP_MESO, 54 / 2903 * 100],
+        [FLAT_MAINSTAT_A, 33 / 2903 * 100],
         [INVIN, 33 / 2903 * 100],
+        [FLAT_ALLSTAT_A, 28 / 2903 * 100],
         [CRITDMG_B, 22 / 2903 * 100],
+        [FLAT_MAINSTAT_B, 21 / 2903 * 100],
         [CRITDMG_A, 17 / 2903 * 100],
         [FLAT_MESO, 16 / 2903 * 100],
         [DAMAGE_A, 9 / 2903 * 100],
