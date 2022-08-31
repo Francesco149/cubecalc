@@ -78,7 +78,7 @@ prime_chances = {
   },
   UNI: [0.15],
   FAMILIAR: [1, 0],
-  RED_FAM_CARD: [1, 144/2903],
+  RED_FAM_CARD: [1, 13/2903],
 }
 
 # amounts are either just the amount of all lvl ranges or a lists of tuples of (max lvl, amount)
