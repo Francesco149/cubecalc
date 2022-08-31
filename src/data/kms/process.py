@@ -23,7 +23,7 @@ def stat_name(s):
 
 convert_s = {
   KW_STAT: MAINSTAT_A,
-  KW_ATT: ATT,
+  KW_ATT: ATT_A,
   "메소 획득량": MESO_A,
   "아이템 드롭률": DROP_A,
   KW_HP: HP,

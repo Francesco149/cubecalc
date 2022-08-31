@@ -72,13 +72,13 @@ event = {
         [FLAT_HP_A, 11.11],
         [FLAT_ATT_A, 3.7],
         [MAINSTAT_A, 5.56],
-        [ATT, 1.85],
+        [ATT_A, 1.85],
         [DAMAGE_A, 1.85],
         [FLAT_ALLSTAT_A, 3.7],
         [IED_C, 1.85],
       ],
       EPIC: [
-        [ATT, 4.0],
+        [ATT_A, 4.0],
         [DAMAGE_A, 4.0],
         [IED_C, 4.0],
         [MAINSTAT_A, 10.0],
@@ -92,13 +92,13 @@ event = {
         [FLAT_HP_A, 12.5],
         [FLAT_ATT_A, 4.17],
         [MAINSTAT_A, 6.25],
-        [ATT, 2.08],
+        [ATT_A, 2.08],
         [DAMAGE_A, 2.08],
         [FLAT_ALLSTAT_A, 4.17],
         [IED_C, 2.08],
       ],
       EPIC: [
-        [ATT, 4.65],
+        [ATT_A, 4.65],
         [DAMAGE_A, 4.65],
         [IED_C, 4.65],
         [MAINSTAT_A, 11.63],
@@ -194,7 +194,7 @@ event = {
     }),
     WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING: percent({
       UNIQUE: [
-        [ATT, 6.52],
+        [ATT_A, 6.52],
         [DAMAGE_A, 6.52],
         [IED_C, 8.7],
         [BOSS_C, 6.52],
@@ -202,7 +202,7 @@ event = {
         [ALLSTAT, 10.87],
       ],
       LEGENDARY: [
-        [ATT, 4.44],
+        [ATT_A, 4.44],
         [DAMAGE_A, 4.44],
         [IED_B, 6.67],
         [IED_A, 6.67],
@@ -216,14 +216,14 @@ event = {
     }),
     EMBLEM: percent({
       UNIQUE: [
-        [ATT, 6.98],
+        [ATT_A, 6.98],
         [DAMAGE_A, 6.98],
         [IED_C, 9.3],
         [MAINSTAT_A, 11.63],
         [ALLSTAT, 11.63],
       ],
       LEGENDARY: [
-        [ATT, 5.13],
+        [ATT_A, 5.13],
         [DAMAGE_A, 5.13],
         [IED_B, 7.69],
         [IED_A, 7.69],
@@ -300,13 +300,13 @@ event = {
         [FLAT_HP_A, 7.41],
         [FLAT_ATT_A, 3.7],
         [MAINSTAT_A, 5.56],
-        [ATT, 1.85],
+        [ATT_A, 1.85],
         [DAMAGE_A, 1.85],
         [FLAT_ALLSTAT_A, 3.7],
         [IED_C, 1.85],
       ],
       EPIC: [
-        [ATT, 4.11],
+        [ATT_A, 4.11],
         [DAMAGE_A, 4.11],
         [IED_C, 6.85],
         [MAINSTAT_A, 9.59],
@@ -320,13 +320,13 @@ event = {
         [FLAT_HP_A, 8.0],
         [FLAT_ATT_A, 4.0],
         [MAINSTAT_A, 6.0],
-        [ATT, 2.0],
+        [ATT_A, 2.0],
         [DAMAGE_A, 2.0],
         [FLAT_ALLSTAT_A, 4.0],
         [IED_C, 2.0],
       ],
       EPIC: [
-        [ATT, 4.55],
+        [ATT_A, 4.55],
         [DAMAGE_A, 4.55],
         [IED_C, 7.58],
         [MAINSTAT_A, 10.61],
@@ -422,7 +422,7 @@ event = {
     }),
     WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING: percent({
       UNIQUE: [
-        [ATT, 8.22],
+        [ATT_A, 8.22],
         [DAMAGE_A, 16.44],
         [IED_C, 20.55],
         [BOSS_C, 5.48],
@@ -430,7 +430,7 @@ event = {
         [ALLSTAT, 2.74],
       ],
       LEGENDARY: [
-        [ATT, 3.24],
+        [ATT_A, 3.24],
         [DAMAGE_A, 16.18],
         [IED_B, 25.89],
         [IED_A, 16.18],
@@ -444,14 +444,14 @@ event = {
     }),
     EMBLEM: percent({
       UNIQUE: [
-        [ATT, 8.7],
+        [ATT_A, 8.7],
         [DAMAGE_A, 17.39],
         [IED_C, 21.74],
         [MAINSTAT_A, 2.9],
         [ALLSTAT, 2.9],
       ],
       LEGENDARY: [
-        [ATT, 3.45],
+        [ATT_A, 3.45],
         [DAMAGE_A, 17.27],
         [IED_B, 27.63],
         [IED_A, 17.27],

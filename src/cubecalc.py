@@ -210,7 +210,7 @@ def find_line_values(cube, category, region):
       MAINSTAT_A: mpot_4,
       HP: mpot_4,
       FLAT_ALLSTAT_A: flat_allstat_6,
-      ATT: mpot_4,
+      ATT_A: mpot_4,
       DAMAGE_A: mpot_4,
       IED_C: minlvl(30, 15),
     },
@@ -221,7 +221,7 @@ def find_line_values(cube, category, region):
       ALLSTAT: mpot_4,
       HP: mpot_7,
       INVIN: 1,
-      ATT: mpot_7,
+      ATT_A: mpot_7,
       DAMAGE_A: mpot_7,
       IED_C: minlvl(50, 15),
     },
@@ -230,7 +230,7 @@ def find_line_values(cube, category, region):
       ANY: 1,
       BOSS_C: minlvl(100, 30),
       IED_C: minlvl(50, 30),
-      ATT: mpot_10,
+      ATT_A: mpot_10,
       DAMAGE_A: mpot_10,
       MAINSTAT_A: mpot_10,
       ALLSTAT: mpot_7,
@@ -247,7 +247,7 @@ def find_line_values(cube, category, region):
       BOSS_A: minlvl(100, 40),
       IED_B: minlvl(50, 35),
       IED_A: minlvl(100, 40),
-      ATT: mpot_13,
+      ATT_A: mpot_13,
       DAMAGE_A: mpot_13,
       MAINSTAT_A: mpot_13,
       ALLSTAT: mpot_10,
@@ -523,7 +523,7 @@ def find_line_values(cube, category, region):
       FLAT_ATT_A: flat_att_13,
       FLAT_HP_A: flat_hp_125_wse,
       MAINSTAT_A: mpot_4,
-      ATT: mpot_4,
+      ATT_A: mpot_4,
       DAMAGE_A: mpot_4,
       HP: mainstat_3,
       FLAT_ALLSTAT_A: flat_allstat_6,
@@ -532,7 +532,7 @@ def find_line_values(cube, category, region):
     EPIC: {
       ANY: 1,
       MAINSTAT_A: mpot_7,
-      ATT: mpot_7,
+      ATT_A: mpot_7,
       DAMAGE_A: mpot_7,
       HP: hp_6,
       ALLSTAT: mpot_4,
@@ -542,7 +542,7 @@ def find_line_values(cube, category, region):
     UNIQUE: {
       ANY: 1,
       MAINSTAT_A: mpot_10,
-      ATT: mpot_10,
+      ATT_A: mpot_10,
       DAMAGE_A: mpot_10,
       HP: hp_8,
       ALLSTAT: mpot_7,
@@ -554,7 +554,7 @@ def find_line_values(cube, category, region):
     LEGENDARY: {
       ANY: 1,
       MAINSTAT_A: mpot_13,
-      ATT: mpot_13,
+      ATT_A: mpot_13,
       DAMAGE_A: mpot_13,
       HP: hp_11,
       ALLSTAT: mpot_10,
@@ -610,7 +610,7 @@ def cube_calc(wants, category, type, tier, level, region, lines):
 
     if the special key LINES is included, the probability of rolling any combination
     that contains wants[LINES] or more of any of the lines specified, and the amount is ignored.
-    for example, {ATT: 1, BOSS: 1, LINES: 3} means
+    for example, {ATT_A: 1, BOSS: 1, LINES: 3} means
       "any combination of 3 lines of either att or boss"
 
   category : Category enum
@@ -639,11 +639,11 @@ def cube_calc(wants, category, type, tier, level, region, lines):
     example that also shows how to convert % probability to "one in"
     {
       UNIQUE: [
-        [ATT, 1/7.5*100],
+        [ATT_A, 1/7.5*100],
         [IED_C, 1/7.5*100],
       ],
       LEGENDARY: [
-        [ATT, 1/5.7143*100],
+        [ATT_A, 1/5.7143*100],
         [IED_B, 1/5.7143*100],
         [IED_A, 1/5.7143*100],
       ],

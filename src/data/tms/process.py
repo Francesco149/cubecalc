@@ -53,7 +53,7 @@ line_conversion = {
   "STR%": MAINSTAT_A,
   "最大HP%": HP,
   "全屬性%": ALLSTAT,
-  "物理攻擊力%": ATT,
+  "物理攻擊力%": ATT_A,
   ied_text(15): IED_C,
   ied_text(30): IED_C,
   ied_text(35): IED_B,

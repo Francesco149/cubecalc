@@ -24,12 +24,11 @@ known = {
     "LUK: +9%",
     "DEX: +9%",
     "INT: +9%",
+    "Magic ATT: +9%",
 
     "8% chance to Auto Steal",
     "6% chance to Auto Steal",
     "4% chance to Auto Steal",
-    "ATT: +9%",
-    "Magic ATT: +9%",
     "Max HP: +9%",
     "All Stats: +5%",
     "Abnormal Status Resistance: +7%",
@@ -95,8 +94,6 @@ known = {
     "Max HP: +6%",
     "All Stats: +2%",
     "All Stats: +3%",
-    "ATT: +5%",
-    "ATT: +6%",
     "Magic ATT: +5%",
     "Magic ATT: +6%",
     "Magic ATT: +7",
@@ -129,6 +126,7 @@ conversion = {
     "When hit, gain +4 sec of invincibility": INVIN,
     "Item Acquisition Rate: +12%": SMALL_DROP,
     "STR: +9%": MAINSTAT_A,
+    "ATT: +9%": ATT_A,
   },
   UNIQUE: {
     "Item Acquisition Rate: +10%": SMALL_DROP,
@@ -155,6 +153,8 @@ conversion = {
     "Max HP: +25": FLAT_HP_A,
     "STR: +5%": MAINSTAT_B,
     "STR: +6%": MAINSTAT_A,
+    "ATT: +5%": ATT_B,
+    "ATT: +6%": ATT_A,
   },
 }
 

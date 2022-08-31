@@ -131,6 +131,8 @@ class LineVariants(IntFlag):
   FLAT_HP_B = FLAT_HP | LINE_B
   MAINSTAT_A = MAINSTAT | LINE_A
   MAINSTAT_B = MAINSTAT | LINE_B
+  ATT_A = ATT | LINE_A
+  ATT_B = ATT | LINE_B
 
 @global_enum
 class LineMasks(IntFlag):
