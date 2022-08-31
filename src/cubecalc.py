@@ -261,6 +261,9 @@ def find_line_values(cube, category, region):
       DECENT_SPEED_INFUSION: minlvl(120, 1),
       DECENT_COMBAT_ORDERS: minlvl(70, 1),
       ATT_PER_10_LVLS: minlvl(30, 1),
+      AUTOSTEAL_A: 7,
+      AUTOSTEAL_B: 5,
+      AUTOSTEAL_C: 3,
     },
   }
 
@@ -798,6 +801,8 @@ def cube_calc(wants, category, type, tier, level, region, lines):
     elif cube_category == EQUALITY:
       combo_idxs = np.array(np.meshgrid(p, p, p)).T.reshape(-1, 3)
     elif cube_category == FAMILIAR:
+      if type == FAMILIAR:
+        n = n[len(p):] # prevent division by 0
       combo_idxs = np.array(np.meshgrid(p, n)).T.reshape(-1, 2)
     else:
       combo_idxs = np.array(np.meshgrid(p, n, n)).T.reshape(-1, 3)

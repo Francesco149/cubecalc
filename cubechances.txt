@@ -809,6 +809,75 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    15+ stat 1 in 35 cubes, 2.8421%
 9+ all stat 1 in 118 cubes, 0.8450%
      15+ hp 1 in 34 cubes, 2.9551%
+======================== glove (red on lv150 legendary) ========================
+                   18+ stat 1 in 23 cubes, 4.3964%
+                   21+ stat 1 in 54 cubes, 1.8403%
+                   30+ stat 1 in 1232 cubes, 0.0812%
+                   33+ stat 1 in 13017 cubes, 0.0077%
+                     18+ hp 1 in 38 cubes, 2.6191%
+                     21+ hp 1 in 55 cubes, 1.8091%
+                     30+ hp 1 in 1111 cubes, 0.0900%
+                     33+ hp 1 in 11110 cubes, 0.0090%
+               12+ all stat 1 in 77 cubes, 1.2950%
+               15+ all stat 1 in 108 cubes, 0.9260%
+               21+ all stat 1 in 3292 cubes, 0.0304%
+             8+ crit damage 1 in 10 cubes, 9.9992%
+ 8+ crit damage and 6+ stat 1 in 36 cubes, 2.8020%
+ 8+ crit damage and 9+ stat 1 in 56 cubes, 1.7799%
+8+ crit damage and 12+ stat 1 in 259 cubes, 0.3855%
+8+ crit damage and 18+ stat 1 in 1054 cubes, 0.0949%
+ 8+ crit damage and 24 stat 1 in 443668 cubes, 0.0002%
+            16+ crit damage 1 in 1092 cubes, 0.0916%
+16+ crit damage and 6+ stat 1 in 7255 cubes, 0.0138%
+16+ crit damage and 9+ stat 1 in 12767 cubes, 0.0078%
+16+ crit damage and 12 stat 1 in 443668 cubes, 0.0002%
+             24 crit damage 1 in 1331004 cubes, 0.0001%
+======================= glove (black on lv150 legendary) =======================
+                   18+ stat 1 in 22 cubes, 4.6090%
+                   21+ stat 1 in 48 cubes, 2.0913%
+                   30+ stat 1 in 962 cubes, 0.1040%
+                   33+ stat 1 in 5470 cubes, 0.0183%
+                     18+ hp 1 in 39 cubes, 2.5972%
+                     21+ hp 1 in 52 cubes, 1.9063%
+                     30+ hp 1 in 1125 cubes, 0.0889%
+                     33+ hp 1 in 5061 cubes, 0.0198%
+               12+ all stat 1 in 77 cubes, 1.2977%
+               15+ all stat 1 in 102 cubes, 0.9830%
+               21+ all stat 1 in 3281 cubes, 0.0305%
+             8+ crit damage 1 in 9 cubes, 11.1495%
+ 8+ crit damage and 6+ stat 1 in 32 cubes, 3.1575%
+ 8+ crit damage and 9+ stat 1 in 46 cubes, 2.1527%
+8+ crit damage and 12+ stat 1 in 160 cubes, 0.6247%
+8+ crit damage and 18+ stat 1 in 737 cubes, 0.1357%
+ 8+ crit damage and 24 stat 1 in 44367 cubes, 0.0023%
+            16+ crit damage 1 in 469 cubes, 0.2134%
+16+ crit damage and 6+ stat 1 in 3081 cubes, 0.0325%
+16+ crit damage and 9+ stat 1 in 5054 cubes, 0.0198%
+16+ crit damage and 12 stat 1 in 44367 cubes, 0.0023%
+             24 crit damage 1 in 133100 cubes, 0.0008%
+====================== glove (meister on lv150 legendary) ======================
+                   18+ stat 1 in 64 cubes, 1.5529%
+                   21+ stat 1 in 184 cubes, 0.5440%
+                   30+ stat 1 in 6690 cubes, 0.0149%
+                   33+ stat 1 in 2119196 cubes, 0.0000%
+                     18+ hp 1 in 55 cubes, 1.8023%
+                     21+ hp 1 in 89 cubes, 1.1205%
+                     30+ hp 1 in 1998 cubes, 0.0501%
+                     33+ hp 1 in 629420 cubes, 0.0002%
+               12+ all stat 1 in 299 cubes, 0.3344%
+               15+ all stat 1 in 389 cubes, 0.2568%
+               21+ all stat 1 in 26887 cubes, 0.0037%
+             8+ crit damage 1 in 11 cubes, 9.1239%
+ 8+ crit damage and 6+ stat 1 in 67 cubes, 1.4977%
+ 8+ crit damage and 9+ stat 1 in 98 cubes, 1.0228%
+8+ crit damage and 12+ stat 1 in 1426 cubes, 0.0701%
+8+ crit damage and 18+ stat 1 in 3329 cubes, 0.0300%
+ 8+ crit damage and 24 stat 1 in 445438208 cubes, 0.0000%
+            16+ crit damage 1 in 30286 cubes, 0.0033%
+16+ crit damage and 6+ stat 1 in 353209 cubes, 0.0003%
+16+ crit damage and 9+ stat 1 in 528972 cubes, 0.0002%
+16+ crit damage and 12 stat 1 in 222721554 cubes, 0.0000%
+             24 crit damage 1 in 334086006 cubes, 0.0000%
 ====================== glove (violet on lv150 legendary) =======================
                    18+ stat 1 in 9 cubes, 11.2780%
                    21+ stat 1 in 18 cubes, 5.4440%
@@ -855,6 +924,18 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 16+ crit damage and 9+ stat 1 in 419 cubes, 0.2388%
 16+ crit damage and 12 stat 1 in 733 cubes, 0.1364%
              24 crit damage 1 in 2199 cubes, 0.0455%
+====================== glove (meister on lv150 legendary) ======================
+ 3+ auto steal 1 in 5 cubes, 20.5195%
+ 5+ auto steal 1 in 7 cubes, 13.6853%
+ 7+ auto steal 1 in 15 cubes, 6.8491%
+10+ auto steal 1 in 8975 cubes, 0.0111%
+12+ auto steal 1 in 17945 cubes, 0.0056%
+13+ auto steal 1 in 53780 cubes, 0.0019%
+14+ auto steal 1 in 53802 cubes, 0.0019%
+15+ auto steal 1 in 46582286 cubes, 0.0000%
+17+ auto steal 1 in 79189886 cubes, 0.0000%
+19+ auto steal 1 in 197974715 cubes, 0.0000%
+ 21 auto steal 1 in 791898859 cubes, 0.0000%
 ======== weapon, 2ndary/force shield/soul ring (uni on lv150 legendary) ========
 9+ att or 30+ boss or 30+ ied 1 in 8 cubes, 12.2847%
            9+ att or 30+ boss 1 in 23 cubes, 4.3587%

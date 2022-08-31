@@ -25,6 +25,7 @@ bottom = prob_cash(BOTTOM)
 hat = prob_cash(HAT)
 accessory = prob_cash(FACE_EYE_RING_EARRING_PENDANT)
 cape_belt_shoulder = prob_cash(CAPE_BELT_SHOULDER)
+glove = prob_cash(GLOVE)
 
 prob_noncash = partial(find_probabilities, kms.cubes, NONCASH_MAIN)
 weapon_noncash = prob_noncash(WEAPON)
@@ -35,6 +36,7 @@ bottom_noncash = prob_noncash(BOTTOM)
 hat_noncash = prob_noncash(HAT)
 accessory_noncash = prob_noncash(FACE_EYE_RING_EARRING_PENDANT)
 cape_belt_shoulder_noncash = prob_noncash(CAPE_BELT_SHOULDER)
+glove_noncash = prob_noncash(GLOVE)
 
 prob_bonus = partial(find_probabilities, kms.cubes, BONUS)
 weapon_bonus = prob_bonus(WEAPON)
@@ -212,6 +214,20 @@ def cube_calcs():
     ("24 crit damage", [{CRITDMG: 24}]),
   ]
 
+  combos_glove_steal = [
+    ("3+ auto steal", [{AUTOSTEAL: 3}]),
+    ("5+ auto steal", [{AUTOSTEAL: 5}]),
+    ("7+ auto steal", [{AUTOSTEAL: 7}]),
+    ("10+ auto steal", [{AUTOSTEAL: 10}]),
+    ("12+ auto steal", [{AUTOSTEAL: 12}]),
+    ("13+ auto steal", [{AUTOSTEAL: 13}]),
+    ("14+ auto steal", [{AUTOSTEAL: 14}]),
+    ("15+ auto steal", [{AUTOSTEAL: 15}]),
+    ("17+ auto steal", [{AUTOSTEAL: 17}]),
+    ("19+ auto steal", [{AUTOSTEAL: 19}]),
+    ("21 auto steal", [{AUTOSTEAL: 21}]),
+  ]
+
   combos_hat = combos_stat + [
     ("2+s cooldown", [{COOLDOWN: 2}]),
     ("2+s cooldown and any stat", [{COOLDOWN: 2, STAT: 1}]),
@@ -331,7 +347,13 @@ def cube_calcs():
   )
 
   Combos(combos_glove, GLOVE)(
+    glove,
+    glove_noncash,
     glove_violet_equality,
+  )
+
+  Combos(combos_glove_steal, GLOVE)(
+    glove_noncash,
   )
 
 
