@@ -62,6 +62,12 @@ known = {
     "Jump: +8",
     "Increases party members' Jump",
 
+    # these lines are both unique and leg, not prime
+    "Outlines your character in black",
+    "10% chance to reflect 30% damage",
+    "Shrouds your character in darkness",
+    "All Skill Levels: +1",
+    "Outlines your character in red",
 
     "DEX: +7",
     "INT: +7",
@@ -162,19 +168,19 @@ conversion = {
 
 df = pd.read_excel("red-card-data.ods", engine="odf", header=None, usecols=[0, 1])
 datapoints = len(df[0])
-nonprimes = 0
+primes = 0
 
 def process(tier, line, count, pr=True):
   if line in known[tier]:
-    return count
+    return 0
 
   if line not in conversion[tier]:
     # double prime
     if (tier + 1) in known and line in known[tier + 1]:
-      return 0
+      return count
 
-    if (tier + 1) in conversion and line in conversion[tier + 1].keys():
-      return 0
+    if (tier + 1) in conversion and line in conversion[tier + 1]:
+      return count
 
     raise RuntimeError(f"unknown line: {line}")
 
@@ -183,9 +189,10 @@ def process(tier, line, count, pr=True):
     nonprime = f" / ({nonprimes} / {datapoints})" if tier == UNIQUE else ""
     print(f"        [{conv.name}, {count} / {datapoints} * 100{nonprime}],")
 
-  return count
+  return 0
 
-nonprimes=sum([process(UNIQUE, *x, False) for x in df[1].value_counts().items()])
+primes = sum([process(UNIQUE, *x, False) for x in df[1].value_counts().items()])
+nonprimes = datapoints - primes
 
 print("red_card_estimate = {")
 print("  RED_FAM_CARD: {")
