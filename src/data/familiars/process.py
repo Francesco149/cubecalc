@@ -171,7 +171,6 @@ known_lines = {
   "HP Recovery Items and Skills: +#RecoveryUP%",
   "Restores #RecoveryHP HP every 4 sec",
 
-  "Max HP: +#incMHPr%",
   "All Stats: +#incSTRr%",
   "Increases party members' STR by a small percentage",
   "Increases party members' STR by a large percentage",
@@ -233,6 +232,7 @@ convert_lines = {
   "ATT: +#incPAD": FLAT_ATT_A,
 
   "STR: +#incSTRr%": MAINSTAT_A,
+  "Max HP: +#incMHPr%": HP_A,
   "ATT: +#incPADr%": ATT_A,
 }
 
@@ -345,7 +345,7 @@ with open("cache/familiars.txt") as f:
               (tier == UNIQUE and amount == 22)):
               stat = FLAT_HP_B
 
-        elif stat == MAINSTAT_A or stat == ATT_A:
+        elif stat == MAINSTAT_A or stat == ATT_A or stat == HP_A:
           if ((tier == UNIQUE and amount == 5)):
             stat &= ~LINE_A
             stat |= LINE_B

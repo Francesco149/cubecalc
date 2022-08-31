@@ -51,7 +51,7 @@ line_conversion = {
   "全屬性": FLAT_ALLSTAT_A,
   "物理攻擊力": FLAT_ATT_A,
   "STR%": MAINSTAT_A,
-  "最大HP%": HP,
+  "最大HP%": HP_A,
   "全屬性%": ALLSTAT,
   "物理攻擊力%": ATT_A,
   ied_text(15): IED_C,

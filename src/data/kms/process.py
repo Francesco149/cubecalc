@@ -26,7 +26,7 @@ convert_s = {
   KW_ATT: ATT_A,
   "메소 획득량": MESO_A,
   "아이템 드롭률": DROP_A,
-  KW_HP: HP,
+  KW_HP: HP_A,
   KW_ALLSTAT: ALLSTAT,
   "크리티컬 데미지": CRITDMG_A,
   "데미지": DAMAGE_A,
