@@ -936,6 +936,26 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
    9 allstat 1 in 1600 cubes, 0.0625%
 1+s cooldown 1 in 100 cubes, 1.0000%
  2s cooldown 1 in 200 cubes, 0.5000%
+===================== familiar (familiar on lv150 common) ======================
+  15+ ied 1 in 162 cubes, 0.6170%
+ 30+ meso 1 in 81 cubes, 1.2350%
+ 30+ drop 1 in 81 cubes, 1.2350%
+1+ damage 1 in 270 cubes, 0.3700%
+====================== familiar (familiar on lv150 rare) =======================
+          15+ ied 1 in 114 cubes, 0.8794%
+         30+ meso 1 in 34 cubes, 2.9733%
+         30+ drop 1 in 34 cubes, 2.9733%
+        1+ damage 1 in 158 cubes, 0.6330%
+          30+ ied 1 in 61392 cubes, 0.0016%
+        2+ damage 1 in 379 cubes, 0.2640%
+        3+ damage 1 in 102375 cubes, 0.0010%
+         20+ meso 1 in 34 cubes, 2.9733%
+         20+ drop 1 in 34 cubes, 2.9733%
+20+ meso and drop 1 in 2300 cubes, 0.0435%
+         50+ meso 1 in 112 cubes, 0.8909%
+         50+ drop 1 in 112 cubes, 0.8909%
+         70+ drop 1 in 9201 cubes, 0.0109%
+         70+ meso 1 in 9201 cubes, 0.0109%
 ====================== familiar (familiar on lv150 epic) =======================
          20+ boss 1 in 340 cubes, 0.2940%
          30+ boss 1 in 680 cubes, 0.1470%

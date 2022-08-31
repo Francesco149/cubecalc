@@ -420,6 +420,26 @@ def unicube_calcs():
 
 
 def familiar_calcs():
+  combos_fam_common = [
+    ("15+ ied", [{IED: 15}]),
+    ("30+ meso", [{MESO: 30}]),
+    ("30+ drop", [{DROP: 30}]),
+    ("1+ damage", [{DAMAGE: 1}]),
+  ]
+
+  combos_fam_rare = combos_fam_common + [
+    ("30+ ied", [{IED: 30}]),
+    ("2+ damage", [{DAMAGE: 2}]),
+    ("3+ damage", [{DAMAGE: 3}]),
+    ("20+ meso", [{MESO: 20}]),
+    ("20+ drop", [{DROP: 20}]),
+    ("20+ meso and drop", [{MESO: 20, DROP: 20}]),
+    ("50+ meso", [{MESO: 50}]),
+    ("50+ drop", [{DROP: 50}]),
+    ("70+ drop", [{DROP: 70}]),
+    ("70+ meso", [{DROP: 70}]),
+  ]
+
   combos_fam_epic = [
     ("20+ boss", [{BOSS: 20}]),
     ("30+ boss", [{BOSS: 30}]),
@@ -457,6 +477,8 @@ def familiar_calcs():
     ("60+ ied", [{IED: 60}]),
   ]
 
+  Combos(combos_fam_common, FAMILIAR_STATS, FAMILIAR, COMMON)(familiars)
+  Combos(combos_fam_rare, FAMILIAR_STATS, FAMILIAR, RARE)(familiars)
   Combos(combos_fam_epic, FAMILIAR_STATS, FAMILIAR, EPIC)(familiars)
   Combos(combos_fam_unique, FAMILIAR_STATS, FAMILIAR, UNIQUE)(familiars)
   Combos(combos_fam_legendary, FAMILIAR_STATS)(
