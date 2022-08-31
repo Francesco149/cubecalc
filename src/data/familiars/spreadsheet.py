@@ -80,6 +80,10 @@ known = {
     "DEX: +6%",
     "INT: +6%",
     "LUK: +6%",
+    "Magic ATT: +5%",
+    "Magic ATT: +6%",
+    "Magic ATT: +7",
+    "Magic ATT: +8",
 
     # TODO: add these lines
     "Abnormal Status Resistance: +5%",
@@ -88,10 +92,6 @@ known = {
     "3% chance to become invincible for 5 seconds when attacked.",
     "4% chance to become invincible for 5 seconds when attacked.",
     "Continually restores a large amount of HP & MP",
-    "Magic ATT: +5%",
-    "Magic ATT: +6%",
-    "Magic ATT: +7",
-    "Magic ATT: +8",
     "Continually restores a large amount of HP & MP to party members",
     "HP Recovery Items and Skills: +15%",
     "HP Recovery Items and Skills: +20%",
