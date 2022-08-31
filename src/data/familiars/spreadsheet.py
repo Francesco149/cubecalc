@@ -107,7 +107,6 @@ known = {
     "Max HP: +22",
     "Max HP: +25",
     "Increases your party's STR, INT, DEX, and LUK",
-    "Increases Speed, Jump, DEX, and Defense by a small amount",
     "Continually restores a large amount of HP & MP to party members",
     "HP Recovery Items and Skills: +15%",
     "HP Recovery Items and Skills: +20%",
@@ -155,6 +154,7 @@ conversion = {
     "All Stats: +4": FLAT_ALLSTAT_A,
     "ATT: +7": FLAT_ATT_A,
     "ATT: +8": FLAT_ATT_B,
+    "Increases Speed, Jump, DEX, and Defense by a small amount": FLAT_DEX_ONLY,
   },
 }
 

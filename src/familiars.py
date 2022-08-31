@@ -68,6 +68,7 @@ familiars = {
         [CRITDMG_B, 0.438], # Critical Damage: +2%
         [LARGE_DROP_MESO, 0.73], # Increases Item and Meso Drop Rate by a large amount (50)
         [FLAT_ALLSTAT_C, 0.73], # Increases Main Stat, INT, DEX, and LUK of players on the same map (2)
+        [FLAT_DEX_ONLY, 1.46], # Increases Speed, Jump, DEX, and Defense by a small amount (1)
         [FLAT_ALLSTAT_B, 0.73], # Increases your party's Main Stat, INT, DEX, and LUK (3)
         [FLAT_ALLSTAT_D, 0.73], # Increases your party's Main Stat, INT, DEX, and LUK (1)
         [SMALL_DROP, 0.365], # Item Acquisition Rate: +10%
@@ -161,6 +162,7 @@ values = {
     CRITDMG_B: 2,
     LARGE_DROP_MESO: 50,
     FLAT_ALLSTAT_C: 2,
+    FLAT_DEX_ONLY: 1,
     FLAT_ALLSTAT_B: 3,
     FLAT_ALLSTAT_D: 1,
     SMALL_DROP: 10,
@@ -248,6 +250,7 @@ desc = {
     CRITDMG_B: "Critical Damage: +2%",
     LARGE_DROP_MESO: "Increases Item and Meso Drop Rate by a large amount (50)",
     FLAT_ALLSTAT_C: "Increases Main Stat, INT, DEX, and LUK of players on the same map (2)",
+    FLAT_DEX_ONLY: "Increases Speed, Jump, DEX, and Defense by a small amount (1)",
     FLAT_ALLSTAT_B: "Increases your party's Main Stat, INT, DEX, and LUK (3)",
     FLAT_ALLSTAT_D: "Increases your party's Main Stat, INT, DEX, and LUK (1)",
     SMALL_DROP: "Item Acquisition Rate: +10%",
@@ -281,6 +284,7 @@ red_card_estimate = {
       EPIC: [],
       UNIQUE: [
         [LARGE_DROP_MESO, 54 / 2903 * 100],
+        [FLAT_DEX_ONLY, 49 / 2903 * 100],
         [FLAT_ATT_B, 35 / 2903 * 100],
         [FLAT_MAINSTAT_A, 33 / 2903 * 100],
         [INVIN, 33 / 2903 * 100],

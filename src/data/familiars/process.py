@@ -173,8 +173,6 @@ known_lines = {
 
   "Max HP: +#incMHP",
 
-  "Increases Speed, Jump, DEX, and Defense by a small amount",
-
 
   "ATT: +#incPADr%",
   "STR: +#incSTRr%",
@@ -235,6 +233,7 @@ convert_lines = {
   "All Stats: +#incSTR": FLAT_ALLSTAT_A,
   "Increases your party's STR, INT, DEX, and LUK": FLAT_ALLSTAT_A,
   "Increases STR, INT, DEX, and LUK of players on the same map": FLAT_ALLSTAT_A,
+  "Increases Speed, Jump, DEX, and Defense by a small amount": FLAT_DEX_ONLY,
 
   "ATT: +#incPAD": FLAT_ATT_A,
 }
