@@ -785,10 +785,6 @@ def cube_calc(wants, category, type, tier, level, region, lines):
   nonprime_chance = (1 - np.array(prime_chance, dtype='float64')).reshape(1, -1)
 
   def combo_chance(want):
-    for x in want.keys():
-      if x not in LineMasks and x not in Line:
-        raise RuntimeError(f"desired stat {x} not in LineMasks or Line")
-
     c = line_cache.copy()
 
     # filter out lines that are not in our want dict to exponentially reduce combinations
