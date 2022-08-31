@@ -238,14 +238,24 @@ convert_lines = {
   "Increases STR by a large amount": FLAT_MAINSTAT_A,
 }
 
+
+def line_description(rawtext, line, amount):
+  s = re.split(r"#[a-zA-Z]+", rawtext)
+  if len(s) > 1:
+    s.insert(1, f"{amount}")
+  else:
+    s.append(f" ({amount})")
+  return "".join(s)
+
+
 def parse_stat(f):
   s = skip(f)
   if s in known_lines:
-    return ANY
+    return ANY, "any"
   if s not in convert_lines:
     sys.stderr.write(f"stopped on non-stat: {s}\n")
-    return None
-  return convert_lines[s]
+    return None, None
+  return convert_lines[s], s
 
 
 def parse_tier(f):
@@ -273,7 +283,7 @@ with open("cache/familiars.txt") as f:
 
     while True:
       pos = f.tell()
-      stat = parse_stat(f)
+      stat, rawtext = parse_stat(f)
       if stat is None:
         f.seek(pos)
         break
@@ -320,7 +330,8 @@ with open("cache/familiars.txt") as f:
               (tier == UNIQUE and amount == 7)):
             stat = FLAT_MAINSTAT_B
 
-        line = (stat, percent, amount)
+        desc = line_description(rawtext, stat, amount)
+        line = (stat, percent, amount, desc)
         if line not in counts:
           counts[line] = 1
           lines[tier] += [line]
@@ -329,12 +340,12 @@ with open("cache/familiars.txt") as f:
 
     # TODO: use merge_duplicate_lines in datautils
     for i, l in enumerate(lines[tier]):
-      stat, percent, amount = l
+      stat, percent, amount, desc = l
       if counts[l] > 1:
         new_percent = percent * counts[l]
         sys.stderr.write(f"{tier.name}: merging duplicate line " +
             f"{amount} {stat.name} from {percent}% to {new_percent}%\n")
-        lines[tier][i] = (stat, new_percent, amount)
+        lines[tier][i] = (stat, new_percent, amount, desc)
 
 
 print("familiars = {")
@@ -342,8 +353,8 @@ print("  FAMILIAR: {")
 print("    FAMILIAR_STATS: percent({")
 for k, v in lines.items():
   print(f"      {k.name}: [")
-  for (stat, percent, amount) in v:
-    print(f"        [{stat.name}, {percent}], # {amount}")
+  for (stat, percent, amount, desc) in v:
+    print(f"        [{stat.name}, {percent}], # {desc}")
   print("      ],")
 print("    }),")
 print("  },")
@@ -353,7 +364,16 @@ print("values = {")
 for k, v in lines.items():
   print(f"  {k.name}: {{")
   print("    ANY: 1,")
-  for (stat, percent, amount) in v:
+  for (stat, _, amount, _) in v:
     print(f"    {stat.name}: {amount},")
   print("  },")
 print("}")
+print()
+print("desc = {")
+for k, v in lines.items():
+  print(f"  {k.name}: {{")
+  for (stat, percent, amount, desc) in v:
+    print(f"    {stat.name}: \"{desc}\",")
+  print("  },")
+print("}")
+print()

@@ -8,73 +8,73 @@ familiars = {
   FAMILIAR: {
     FAMILIAR_STATS: percent({
       BASE: [
-        [FLAT_MAINSTAT_A, 5.882], # 1
+        [FLAT_MAINSTAT_A, 5.882], # STR: +1
       ],
       COMMON: [
-        [IED_C, 0.617], # 15
-        [SMALL_DROP, 1.235], # 30
-        [SMALL_MESO, 1.235], # 30
-        [FLAT_MAINSTAT_A, 2.469], # 2
-        [FLAT_MAINSTAT_B, 2.469], # 1
-        [DAMAGE_A, 0.37], # 1
+        [IED_C, 0.617], # Attacks ignore 15% Monster DEF
+        [SMALL_DROP, 1.235], # Increases Item Drop Rate by a small amount (30)
+        [SMALL_MESO, 1.235], # Increases Meso Drop Rate by a small amount (30)
+        [FLAT_MAINSTAT_A, 2.469], # STR: +2
+        [FLAT_MAINSTAT_B, 2.469], # STR: +1
+        [DAMAGE_A, 0.37], # Total Damage: +1%
       ],
       RARE: [
-        [IED_C, 0.264], # 15
-        [DROP_A, 0.88], # 50
-        [SMALL_DROP, 0.88], # 30
-        [SMALL_DROP_MESO, 0.88], # 20
-        [MESO_A, 0.88], # 50
-        [SMALL_MESO, 0.88], # 30
-        [FLAT_MAINSTAT_A, 1.759], # 4
-        [FLAT_MAINSTAT_B, 1.759], # 3
-        [DAMAGE_A, 0.264], # 2
-        [INVIN, 0.44], # 1
+        [IED_C, 0.264], # Attacks ignore 15% Monster DEF
+        [DROP_A, 0.88], # Increases Item Drop Rate (50)
+        [SMALL_DROP, 0.88], # Increases Item Drop Rate by a small amount (30)
+        [SMALL_DROP_MESO, 0.88], # Increases Item and Meso Drop Rate by a small amount (20)
+        [MESO_A, 0.88], # Increases Meso Drop Rate (50)
+        [SMALL_MESO, 0.88], # Increases Meso Drop Rate by a small amount (30)
+        [FLAT_MAINSTAT_A, 1.759], # STR: +4
+        [FLAT_MAINSTAT_B, 1.759], # STR: +3
+        [DAMAGE_A, 0.264], # Total Damage: +2%
+        [INVIN, 0.44], # When hit, get +1 sec of invincibility
       ],
       EPIC: [
-        [IED_A, 0.22], # 30
-        [IED_C, 0.22], # 20
-        [BOSS_C, 0.147], # 20
-        [BOSS_A, 0.147], # 30
-        [DROP_A, 0.734], # 60
-        [LARGE_DROP, 0.734], # 100
-        [DROP_MESO, 0.734], # 40
-        [SMALL_DROP_MESO, 0.734], # 25
-        [MESO_A, 0.734], # 60
-        [LARGE_MESO, 0.734], # 100
-        [FLAT_MAINSTAT_A, 1.468], # 6
-        [FLAT_MAINSTAT_B, 1.468], # 5
-        [DAMAGE_A, 0.22], # 3
-        [INVIN, 0.367], # 2
+        [IED_A, 0.22], # Attacks ignore 30% Monster DEF
+        [IED_C, 0.22], # Attacks ignore 20% Monster DEF
+        [BOSS_C, 0.147], # Damage to Bosses: +20%
+        [BOSS_A, 0.147], # Damage to Bosses: +30%
+        [DROP_A, 0.734], # Increases Item Drop Rate (60)
+        [LARGE_DROP, 0.734], # Increases Item Drop Rate by a large amount (100)
+        [DROP_MESO, 0.734], # Increases Item and Meso Drop Rate (40)
+        [SMALL_DROP_MESO, 0.734], # Increases Item and Meso Drop Rate by a small amount (25)
+        [MESO_A, 0.734], # Increases Meso Drop Rate (60)
+        [LARGE_MESO, 0.734], # Increases Meso Drop Rate by a large amount (100)
+        [FLAT_MAINSTAT_A, 1.468], # STR: +6
+        [FLAT_MAINSTAT_B, 1.468], # STR: +5
+        [DAMAGE_A, 0.22], # Total Damage: +3%
+        [INVIN, 0.367], # When hit, get +2 sec of invincibility
       ],
       UNIQUE: [
-        [IED_B, 0.219], # 35
-        [IED_A, 0.219], # 40
-        [IED_C, 0.219], # 30
-        [BOSS_C, 0.146], # 30
-        [BOSS_B, 0.146], # 35
-        [BOSS_A, 0.146], # 40
-        [CRITDMG_A, 0.438], # 3
-        [CRITDMG_B, 0.438], # 2
-        [LARGE_DROP_MESO, 0.73], # 50
-        [SMALL_DROP, 0.365], # 10
-        [FLAT_MESO, 0.365], # 10
-        [FLAT_MAINSTAT_A, 1.46], # 8
-        [FLAT_MAINSTAT_B, 1.46], # 7
-        [DAMAGE_A, 0.219], # 6
-        [DAMAGE_B, 0.219], # 5
-        [INVIN, 0.365], # 3
+        [IED_B, 0.219], # Attacks ignore 35% Monster DEF
+        [IED_A, 0.219], # Attacks ignore 40% Monster DEF
+        [IED_C, 0.219], # Attacks ignore 30% Monster DEF
+        [BOSS_C, 0.146], # Boss Damage: +30%
+        [BOSS_B, 0.146], # Boss Damage: +35%
+        [BOSS_A, 0.146], # Boss Damage: +40%
+        [CRITDMG_A, 0.438], # Critical Damage: +3%
+        [CRITDMG_B, 0.438], # Critical Damage: +2%
+        [LARGE_DROP_MESO, 0.73], # Increases Item and Meso Drop Rate by a large amount (50)
+        [SMALL_DROP, 0.365], # Item Acquisition Rate: +10%
+        [FLAT_MESO, 0.365], # Mesos Obtained: +10
+        [FLAT_MAINSTAT_A, 1.46], # STR: +8
+        [FLAT_MAINSTAT_B, 1.46], # STR: +7
+        [DAMAGE_A, 0.219], # Total Damage: +6%
+        [DAMAGE_B, 0.219], # Total Damage: +5%
+        [INVIN, 0.365], # When hit, gain +3 sec of invincibility
       ],
       LEGENDARY: [
-        [IED_B, 1.456], # 45
-        [IED_A, 1.456], # 50
-        [BOSS_C, 0.971], # 40
-        [BOSS_B, 0.971], # 45
-        [BOSS_A, 0.971], # 50
-        [CRITDMG_A, 2.912], # 6
-        [SMALL_DROP, 2.427], # 12
-        [FLAT_MESO, 2.427], # 12
-        [DAMAGE_A, 1.456], # 9
-        [INVIN, 2.427], # 4
+        [IED_B, 1.456], # Attacks ignore 45% Monster DEF
+        [IED_A, 1.456], # Attacks ignore 50% Monster DEF
+        [BOSS_C, 0.971], # Boss Damage: +40%
+        [BOSS_B, 0.971], # Boss Damage: +45%
+        [BOSS_A, 0.971], # Boss Damage: +50%
+        [CRITDMG_A, 2.912], # Critical Damage: +6%
+        [SMALL_DROP, 2.427], # Item Acquisition Rate: +12%
+        [FLAT_MESO, 2.427], # Mesos Obtained: +12
+        [DAMAGE_A, 1.456], # Total Damage: +9%
+        [INVIN, 2.427], # When hit, gain +4 sec of invincibility
       ],
     }),
   },
@@ -157,6 +157,79 @@ values = {
     INVIN: 4,
   },
 }
+
+desc = {
+  BASE: {
+    FLAT_MAINSTAT_A: "STR: +1",
+  },
+  COMMON: {
+    IED_C: "Attacks ignore 15% Monster DEF",
+    SMALL_DROP: "Increases Item Drop Rate by a small amount (30)",
+    SMALL_MESO: "Increases Meso Drop Rate by a small amount (30)",
+    FLAT_MAINSTAT_A: "STR: +2",
+    FLAT_MAINSTAT_B: "STR: +1",
+    DAMAGE_A: "Total Damage: +1%",
+  },
+  RARE: {
+    IED_C: "Attacks ignore 15% Monster DEF",
+    DROP_A: "Increases Item Drop Rate (50)",
+    SMALL_DROP: "Increases Item Drop Rate by a small amount (30)",
+    SMALL_DROP_MESO: "Increases Item and Meso Drop Rate by a small amount (20)",
+    MESO_A: "Increases Meso Drop Rate (50)",
+    SMALL_MESO: "Increases Meso Drop Rate by a small amount (30)",
+    FLAT_MAINSTAT_A: "STR: +4",
+    FLAT_MAINSTAT_B: "STR: +3",
+    DAMAGE_A: "Total Damage: +2%",
+    INVIN: "When hit, get +1 sec of invincibility",
+  },
+  EPIC: {
+    IED_A: "Attacks ignore 30% Monster DEF",
+    IED_C: "Attacks ignore 20% Monster DEF",
+    BOSS_C: "Damage to Bosses: +20%",
+    BOSS_A: "Damage to Bosses: +30%",
+    DROP_A: "Increases Item Drop Rate (60)",
+    LARGE_DROP: "Increases Item Drop Rate by a large amount (100)",
+    DROP_MESO: "Increases Item and Meso Drop Rate (40)",
+    SMALL_DROP_MESO: "Increases Item and Meso Drop Rate by a small amount (25)",
+    MESO_A: "Increases Meso Drop Rate (60)",
+    LARGE_MESO: "Increases Meso Drop Rate by a large amount (100)",
+    FLAT_MAINSTAT_A: "STR: +6",
+    FLAT_MAINSTAT_B: "STR: +5",
+    DAMAGE_A: "Total Damage: +3%",
+    INVIN: "When hit, get +2 sec of invincibility",
+  },
+  UNIQUE: {
+    IED_B: "Attacks ignore 35% Monster DEF",
+    IED_A: "Attacks ignore 40% Monster DEF",
+    IED_C: "Attacks ignore 30% Monster DEF",
+    BOSS_C: "Boss Damage: +30%",
+    BOSS_B: "Boss Damage: +35%",
+    BOSS_A: "Boss Damage: +40%",
+    CRITDMG_A: "Critical Damage: +3%",
+    CRITDMG_B: "Critical Damage: +2%",
+    LARGE_DROP_MESO: "Increases Item and Meso Drop Rate by a large amount (50)",
+    SMALL_DROP: "Item Acquisition Rate: +10%",
+    FLAT_MESO: "Mesos Obtained: +10",
+    FLAT_MAINSTAT_A: "STR: +8",
+    FLAT_MAINSTAT_B: "STR: +7",
+    DAMAGE_A: "Total Damage: +6%",
+    DAMAGE_B: "Total Damage: +5%",
+    INVIN: "When hit, gain +3 sec of invincibility",
+  },
+  LEGENDARY: {
+    IED_B: "Attacks ignore 45% Monster DEF",
+    IED_A: "Attacks ignore 50% Monster DEF",
+    BOSS_C: "Boss Damage: +40%",
+    BOSS_B: "Boss Damage: +45%",
+    BOSS_A: "Boss Damage: +50%",
+    CRITDMG_A: "Critical Damage: +6%",
+    SMALL_DROP: "Item Acquisition Rate: +12%",
+    FLAT_MESO: "Mesos Obtained: +12",
+    DAMAGE_A: "Total Damage: +9%",
+    INVIN: "When hit, gain +4 sec of invincibility",
+  },
+}
+
 red_card_estimate = {
   RED_FAM_CARD: {
     FAMILIAR_STATS: percent({
