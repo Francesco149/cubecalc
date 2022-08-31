@@ -102,8 +102,6 @@ known = {
     "ATT: +6%",
     "Magic ATT: +5%",
     "Magic ATT: +6%",
-    "ATT: +7",
-    "ATT: +8",
     "Magic ATT: +7",
     "Magic ATT: +8",
     "Max HP: +22",
@@ -155,6 +153,8 @@ conversion = {
     "STR: +7": FLAT_MAINSTAT_B,
     "STR: +8": FLAT_MAINSTAT_A,
     "All Stats: +4": FLAT_ALLSTAT_A,
+    "ATT: +7": FLAT_ATT_A,
+    "ATT: +8": FLAT_ATT_B,
   },
 }
 

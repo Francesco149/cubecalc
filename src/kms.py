@@ -10,12 +10,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 12.2727],
         [FLAT_HP, 12.2727],
-        [FLAT_ATT, 8.1818],
+        [FLAT_ATT_A, 8.1818],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.1224],
         [FLAT_HP, 6.1224],
-        [FLAT_ATT, 4.0816],
+        [FLAT_ATT_A, 4.0816],
         [MAINSTAT, 6.1224],
         [ATT, 2.0408],
         [DAMAGE_A, 2.0408],
@@ -54,12 +54,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 12.2727],
         [HP, 12.2727],
-        [FLAT_ATT, 8.1818],
+        [FLAT_ATT_A, 8.1818],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.1224],
         [FLAT_HP, 6.1224],
-        [FLAT_ATT, 4.0816],
+        [FLAT_ATT_A, 4.0816],
         [MAINSTAT, 6.1224],
         [ATT, 2.0408],
         [DAMAGE_A, 2.0408],
@@ -95,12 +95,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 12.2727],
         [FLAT_HP, 12.2727],
-        [FLAT_ATT, 8.1818],
+        [FLAT_ATT_A, 8.1818],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.1224],
         [FLAT_HP, 6.1224],
-        [FLAT_ATT, 4.0816],
+        [FLAT_ATT_A, 4.0816],
         [MAINSTAT, 6.1224],
         [ATT, 2.0408],
         [DAMAGE_A, 2.0408],
@@ -139,12 +139,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 14.2105],
         [HP, 14.2105],
-        [FLAT_ATT, 9.4737],
+        [FLAT_ATT_A, 9.4737],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.5217],
         [FLAT_HP, 6.5217],
-        [FLAT_ATT, 4.3478],
+        [FLAT_ATT_A, 4.3478],
         [MAINSTAT, 6.5217],
         [ATT, 2.1739],
         [DAMAGE_A, 2.1739],
@@ -421,12 +421,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 10.4167],
         [FLAT_HP, 15.625],
-        [FLAT_ATT, 5.2083],
+        [FLAT_ATT_A, 5.2083],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 3.5088],
         [FLAT_HP, 5.2632],
-        [FLAT_ATT, 3.5088],
+        [FLAT_ATT_A, 3.5088],
         [MAINSTAT, 3.5088],
         [ATT, 1.7544],
         [DAMAGE_A, 1.7544],
@@ -464,12 +464,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 10.4167],
         [HP, 15.625],
-        [FLAT_ATT, 5.2083],
+        [FLAT_ATT_A, 5.2083],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 3.5088],
         [FLAT_HP, 5.2632],
-        [FLAT_ATT, 3.5088],
+        [FLAT_ATT_A, 3.5088],
         [MAINSTAT, 3.5088],
         [ATT, 1.7544],
         [DAMAGE_A, 1.7544],
@@ -504,12 +504,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 10.4167],
         [FLAT_HP, 15.625],
-        [FLAT_ATT, 5.2083],
+        [FLAT_ATT_A, 5.2083],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 3.5088],
         [FLAT_HP, 5.2632],
-        [FLAT_ATT, 3.5088],
+        [FLAT_ATT_A, 3.5088],
         [MAINSTAT, 3.5088],
         [ATT, 1.7544],
         [DAMAGE_A, 1.7544],
@@ -547,12 +547,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 12.8205],
         [HP, 19.2308],
-        [FLAT_ATT, 6.4103],
+        [FLAT_ATT_A, 6.4103],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 3.9216],
         [FLAT_HP, 5.8824],
-        [FLAT_ATT, 3.9216],
+        [FLAT_ATT_A, 3.9216],
         [MAINSTAT, 3.9216],
         [ATT, 1.9608],
         [DAMAGE_A, 1.9608],
@@ -827,12 +827,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [FLAT_HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_HP, 5.8824],
         [FLAT_MAINSTAT_A, 5.8824],
-        [FLAT_ATT, 3.9216],
+        [FLAT_ATT_A, 3.9216],
         [HP, 3.9216],
         [MAINSTAT, 3.9216],
         [ATT, 1.9608],
@@ -873,12 +873,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_HP, 5.8824],
         [FLAT_MAINSTAT_A, 5.8824],
-        [FLAT_ATT, 3.9216],
+        [FLAT_ATT_A, 3.9216],
         [HP, 3.9216],
         [MAINSTAT, 3.9216],
         [ATT, 1.9608],
@@ -917,12 +917,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [FLAT_HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_HP, 5.8824],
         [FLAT_MAINSTAT_A, 5.8824],
-        [FLAT_ATT, 3.9216],
+        [FLAT_ATT_A, 3.9216],
         [HP, 3.9216],
         [MAINSTAT, 3.9216],
         [ATT, 1.9608],
@@ -964,12 +964,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_HP, 5.8824],
         [FLAT_MAINSTAT_A, 5.8824],
-        [FLAT_ATT, 3.9216],
+        [FLAT_ATT_A, 3.9216],
         [HP, 3.9216],
         [MAINSTAT, 3.9216],
         [ATT, 1.9608],
@@ -1011,12 +1011,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [FLAT_HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.383],
         [FLAT_HP, 6.383],
-        [FLAT_ATT, 4.2553],
+        [FLAT_ATT_A, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
         [FLAT_ALLSTAT_A, 4.2553],
@@ -1024,7 +1024,7 @@ cubes = {
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
         [FLAT_HP, 6.0],
-        [FLAT_ATT, 4.0],
+        [FLAT_ATT_A, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
@@ -1032,7 +1032,7 @@ cubes = {
       UNIQUE: [
         [FLAT_MAINSTAT_A, 5.4545],
         [FLAT_HP, 5.4545],
-        [FLAT_ATT, 3.6364],
+        [FLAT_ATT_A, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
@@ -1041,7 +1041,7 @@ cubes = {
       LEGENDARY: [
         [FLAT_MAINSTAT_A, 4.5455],
         [FLAT_HP, 4.5455],
-        [FLAT_ATT, 3.0303],
+        [FLAT_ATT_A, 3.0303],
         [MAINSTAT, 3.0303],
         [HP, 4.5455],
         [CRITDMG_A, 3.0303],
@@ -1056,12 +1056,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [FLAT_HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.383],
         [FLAT_HP, 6.383],
-        [FLAT_ATT, 4.2553],
+        [FLAT_ATT_A, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
         [FLAT_ALLSTAT_A, 4.2553],
@@ -1069,7 +1069,7 @@ cubes = {
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
         [FLAT_HP, 6.0],
-        [FLAT_ATT, 4.0],
+        [FLAT_ATT_A, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
@@ -1077,7 +1077,7 @@ cubes = {
       UNIQUE: [
         [FLAT_MAINSTAT_A, 5.4545],
         [FLAT_HP, 5.4545],
-        [FLAT_ATT, 3.6364],
+        [FLAT_ATT_A, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
@@ -1086,7 +1086,7 @@ cubes = {
       LEGENDARY: [
         [FLAT_MAINSTAT_A, 4.7619],
         [FLAT_HP, 4.7619],
-        [FLAT_ATT, 3.1746],
+        [FLAT_ATT_A, 3.1746],
         [MAINSTAT, 3.1746],
         [HP, 4.7619],
         [CRITDMG_A, 3.1746],
@@ -1100,12 +1100,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [FLAT_HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.383],
         [FLAT_HP, 6.383],
-        [FLAT_ATT, 4.2553],
+        [FLAT_ATT_A, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
         [FLAT_ALLSTAT_A, 4.2553],
@@ -1113,7 +1113,7 @@ cubes = {
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
         [FLAT_HP, 6.0],
-        [FLAT_ATT, 4.0],
+        [FLAT_ATT_A, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
@@ -1121,7 +1121,7 @@ cubes = {
       UNIQUE: [
         [FLAT_MAINSTAT_A, 5.4545],
         [FLAT_HP, 5.4545],
-        [FLAT_ATT, 3.6364],
+        [FLAT_ATT_A, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
@@ -1130,7 +1130,7 @@ cubes = {
       LEGENDARY: [
         [FLAT_MAINSTAT_A, 4.7619],
         [FLAT_HP, 4.7619],
-        [FLAT_ATT, 3.1746],
+        [FLAT_ATT_A, 3.1746],
         [MAINSTAT, 3.1746],
         [HP, 4.7619],
         [CRITDMG_A, 3.1746],
@@ -1144,12 +1144,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [FLAT_HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.383],
         [FLAT_HP, 6.383],
-        [FLAT_ATT, 4.2553],
+        [FLAT_ATT_A, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
         [FLAT_ALLSTAT_A, 4.2553],
@@ -1157,7 +1157,7 @@ cubes = {
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
         [FLAT_HP, 6.0],
-        [FLAT_ATT, 4.0],
+        [FLAT_ATT_A, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
@@ -1165,7 +1165,7 @@ cubes = {
       UNIQUE: [
         [FLAT_MAINSTAT_A, 5.4545],
         [FLAT_HP, 5.4545],
-        [FLAT_ATT, 3.6364],
+        [FLAT_ATT_A, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
@@ -1174,7 +1174,7 @@ cubes = {
       LEGENDARY: [
         [FLAT_MAINSTAT_A, 4.7619],
         [FLAT_HP, 4.7619],
-        [FLAT_ATT, 3.1746],
+        [FLAT_ATT_A, 3.1746],
         [MAINSTAT, 3.1746],
         [HP, 4.7619],
         [CRITDMG_A, 3.1746],
@@ -1188,12 +1188,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [FLAT_HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.383],
         [FLAT_HP, 6.383],
-        [FLAT_ATT, 4.2553],
+        [FLAT_ATT_A, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
         [FLAT_ALLSTAT_A, 4.2553],
@@ -1201,7 +1201,7 @@ cubes = {
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
         [FLAT_HP, 6.0],
-        [FLAT_ATT, 4.0],
+        [FLAT_ATT_A, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
@@ -1209,7 +1209,7 @@ cubes = {
       UNIQUE: [
         [FLAT_MAINSTAT_A, 5.4545],
         [FLAT_HP, 5.4545],
-        [FLAT_ATT, 3.6364],
+        [FLAT_ATT_A, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
@@ -1218,7 +1218,7 @@ cubes = {
       LEGENDARY: [
         [FLAT_MAINSTAT_A, 4.6154],
         [FLAT_HP, 4.6154],
-        [FLAT_ATT, 3.0769],
+        [FLAT_ATT_A, 3.0769],
         [MAINSTAT, 3.0769],
         [HP, 4.6154],
         [CRITDMG_A, 3.0769],
@@ -1232,12 +1232,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [FLAT_HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.383],
         [FLAT_HP, 6.383],
-        [FLAT_ATT, 4.2553],
+        [FLAT_ATT_A, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
         [FLAT_ALLSTAT_A, 4.2553],
@@ -1245,7 +1245,7 @@ cubes = {
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
         [FLAT_HP, 6.0],
-        [FLAT_ATT, 4.0],
+        [FLAT_ATT_A, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
@@ -1253,7 +1253,7 @@ cubes = {
       UNIQUE: [
         [FLAT_MAINSTAT_A, 5.4545],
         [FLAT_HP, 5.4545],
-        [FLAT_ATT, 3.6364],
+        [FLAT_ATT_A, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
@@ -1262,7 +1262,7 @@ cubes = {
       LEGENDARY: [
         [FLAT_MAINSTAT_A, 4.7619],
         [FLAT_HP, 4.7619],
-        [FLAT_ATT, 3.1746],
+        [FLAT_ATT_A, 3.1746],
         [MAINSTAT, 3.1746],
         [HP, 4.7619],
         [CRITDMG_A, 3.1746],
@@ -1276,12 +1276,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [FLAT_HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.383],
         [FLAT_HP, 6.383],
-        [FLAT_ATT, 4.2553],
+        [FLAT_ATT_A, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
         [FLAT_ALLSTAT_A, 4.2553],
@@ -1289,7 +1289,7 @@ cubes = {
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
         [FLAT_HP, 6.0],
-        [FLAT_ATT, 4.0],
+        [FLAT_ATT_A, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
@@ -1297,7 +1297,7 @@ cubes = {
       UNIQUE: [
         [FLAT_MAINSTAT_A, 5.4545],
         [FLAT_HP, 5.4545],
-        [FLAT_ATT, 3.6364],
+        [FLAT_ATT_A, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
@@ -1306,7 +1306,7 @@ cubes = {
       LEGENDARY: [
         [FLAT_MAINSTAT_A, 4.6875],
         [FLAT_HP, 4.6875],
-        [FLAT_ATT, 3.125],
+        [FLAT_ATT_A, 3.125],
         [MAINSTAT, 3.125],
         [HP, 4.6875],
         [ALLSTAT, 3.125],
@@ -1319,12 +1319,12 @@ cubes = {
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
         [FLAT_HP, 10.8932],
-        [FLAT_ATT, 7.2622],
+        [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
         [FLAT_MAINSTAT_A, 6.383],
         [FLAT_HP, 6.383],
-        [FLAT_ATT, 4.2553],
+        [FLAT_ATT_A, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
         [FLAT_ALLSTAT_A, 4.2553],
@@ -1332,7 +1332,7 @@ cubes = {
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
         [FLAT_HP, 6.0],
-        [FLAT_ATT, 4.0],
+        [FLAT_ATT_A, 4.0],
         [MAINSTAT, 4.0],
         [HP, 6.0],
         [ALLSTAT, 4.0],
@@ -1340,7 +1340,7 @@ cubes = {
       UNIQUE: [
         [FLAT_MAINSTAT_A, 5.4545],
         [FLAT_HP, 5.4545],
-        [FLAT_ATT, 3.6364],
+        [FLAT_ATT_A, 3.6364],
         [MAINSTAT, 3.6364],
         [HP, 5.4545],
         [ALLSTAT, 3.6364],
@@ -1349,7 +1349,7 @@ cubes = {
       LEGENDARY: [
         [FLAT_MAINSTAT_A, 4.918],
         [FLAT_HP, 4.918],
-        [FLAT_ATT, 3.2787],
+        [FLAT_ATT_A, 3.2787],
         [MAINSTAT, 3.2787],
         [HP, 4.918],
         [ALLSTAT, 3.2787],

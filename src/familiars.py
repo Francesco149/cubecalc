@@ -8,9 +8,12 @@ familiars = {
   FAMILIAR: {
     FAMILIAR_STATS: percent({
       BASE: [
+        [FLAT_ATT_A, 4.412], # ATT: +1
         [FLAT_MAINSTAT_A, 5.882], # Main Stat: +1
       ],
       COMMON: [
+        [FLAT_ATT_A, 1.852], # ATT: +2
+        [FLAT_ATT_B, 1.852], # ATT: +1
         [FLAT_ALLSTAT_A, 0.617], # All Stats: +1
         [IED_C, 0.617], # Attacks ignore 15% Monster DEF
         [SMALL_DROP, 1.235], # Increases Item Drop Rate by a small amount (30)
@@ -20,6 +23,8 @@ familiars = {
         [DAMAGE_A, 0.37], # Total Damage: +1%
       ],
       RARE: [
+        [FLAT_ATT_A, 1.319], # ATT: +4
+        [FLAT_ATT_B, 1.319], # ATT: +3
         [IED_C, 0.264], # Attacks ignore 15% Monster DEF
         [DROP_A, 0.88], # Increases Item Drop Rate (50)
         [SMALL_DROP, 0.88], # Increases Item Drop Rate by a small amount (30)
@@ -32,6 +37,8 @@ familiars = {
         [INVIN, 0.44], # When hit, get +1 sec of invincibility
       ],
       EPIC: [
+        [FLAT_ATT_A, 1.101], # ATT: +6
+        [FLAT_ATT_B, 1.101], # ATT: +5
         [IED_A, 0.22], # Attacks ignore 30% Monster DEF
         [IED_C, 0.22], # Attacks ignore 20% Monster DEF
         [BOSS_C, 0.147], # Damage to Bosses: +20%
@@ -48,6 +55,8 @@ familiars = {
         [INVIN, 0.367], # When hit, get +2 sec of invincibility
       ],
       UNIQUE: [
+        [FLAT_ATT_A, 1.095], # ATT: +8
+        [FLAT_ATT_B, 1.095], # ATT: +7
         [FLAT_ALLSTAT_A, 0.365], # All Stats: +4
         [IED_B, 0.219], # Attacks ignore 35% Monster DEF
         [IED_A, 0.219], # Attacks ignore 40% Monster DEF
@@ -88,10 +97,13 @@ familiars = {
 values = {
   BASE: {
     ANY: 1,
+    FLAT_ATT_A: 1,
     FLAT_MAINSTAT_A: 1,
   },
   COMMON: {
     ANY: 1,
+    FLAT_ATT_A: 2,
+    FLAT_ATT_B: 1,
     FLAT_ALLSTAT_A: 1,
     IED_C: 15,
     SMALL_DROP: 30,
@@ -102,6 +114,8 @@ values = {
   },
   RARE: {
     ANY: 1,
+    FLAT_ATT_A: 4,
+    FLAT_ATT_B: 3,
     IED_C: 15,
     DROP_A: 50,
     SMALL_DROP: 30,
@@ -115,6 +129,8 @@ values = {
   },
   EPIC: {
     ANY: 1,
+    FLAT_ATT_A: 6,
+    FLAT_ATT_B: 5,
     IED_A: 30,
     IED_C: 20,
     BOSS_C: 20,
@@ -132,6 +148,8 @@ values = {
   },
   UNIQUE: {
     ANY: 1,
+    FLAT_ATT_A: 8,
+    FLAT_ATT_B: 7,
     FLAT_ALLSTAT_A: 4,
     IED_B: 35,
     IED_A: 40,
@@ -170,9 +188,12 @@ values = {
 
 desc = {
   BASE: {
+    FLAT_ATT_A: "ATT: +1",
     FLAT_MAINSTAT_A: "Main Stat: +1",
   },
   COMMON: {
+    FLAT_ATT_A: "ATT: +2",
+    FLAT_ATT_B: "ATT: +1",
     FLAT_ALLSTAT_A: "All Stats: +1",
     IED_C: "Attacks ignore 15% Monster DEF",
     SMALL_DROP: "Increases Item Drop Rate by a small amount (30)",
@@ -182,6 +203,8 @@ desc = {
     DAMAGE_A: "Total Damage: +1%",
   },
   RARE: {
+    FLAT_ATT_A: "ATT: +4",
+    FLAT_ATT_B: "ATT: +3",
     IED_C: "Attacks ignore 15% Monster DEF",
     DROP_A: "Increases Item Drop Rate (50)",
     SMALL_DROP: "Increases Item Drop Rate by a small amount (30)",
@@ -194,6 +217,8 @@ desc = {
     INVIN: "When hit, get +1 sec of invincibility",
   },
   EPIC: {
+    FLAT_ATT_A: "ATT: +6",
+    FLAT_ATT_B: "ATT: +5",
     IED_A: "Attacks ignore 30% Monster DEF",
     IED_C: "Attacks ignore 20% Monster DEF",
     BOSS_C: "Damage to Bosses: +20%",
@@ -210,6 +235,8 @@ desc = {
     INVIN: "When hit, get +2 sec of invincibility",
   },
   UNIQUE: {
+    FLAT_ATT_A: "ATT: +8",
+    FLAT_ATT_B: "ATT: +7",
     FLAT_ALLSTAT_A: "All Stats: +4",
     IED_B: "Attacks ignore 35% Monster DEF",
     IED_A: "Attacks ignore 40% Monster DEF",
@@ -254,8 +281,10 @@ red_card_estimate = {
       EPIC: [],
       UNIQUE: [
         [LARGE_DROP_MESO, 54 / 2903 * 100],
+        [FLAT_ATT_B, 35 / 2903 * 100],
         [FLAT_MAINSTAT_A, 33 / 2903 * 100],
         [INVIN, 33 / 2903 * 100],
+        [FLAT_ATT_A, 28 / 2903 * 100],
         [FLAT_ALLSTAT_A, 28 / 2903 * 100],
         [CRITDMG_B, 22 / 2903 * 100],
         [FLAT_MAINSTAT_B, 21 / 2903 * 100],

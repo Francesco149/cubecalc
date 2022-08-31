@@ -37,6 +37,15 @@ def nonempty(f):
     if s:
       yield s
 
+def line_name(l):
+  if l in Line:
+    return Line(l).name
+  if l in LineVariants:
+    return LineVariants(l).name
+  if l in LineMasks:
+    return LineMasks(l).name
+  return " | ".join([Line(x).name for x in Line if l & x])
+
 def validate_probabilities(data):
   """raises an error if data is not valid for cube_calc"""
   for tier, lines in data.items():
@@ -45,7 +54,7 @@ def validate_probabilities(data):
     seen = set()
     for i, l in enumerate(lines):
       if l[0] in seen:
-        raise RuntimeError(f"found duplicate stat {Line(l[0]).name} at tier {Tier(tier).name}")
+        raise RuntimeError(f"found duplicate stat {line_name(l[0])} at tier {Tier(tier).name}")
       seen.add(l[0])
 
 def find_validate_probabilities(data, cubes_mask, categories_mask):

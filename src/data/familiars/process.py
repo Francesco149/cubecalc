@@ -171,7 +171,6 @@ known_lines = {
   "HP Recovery Items and Skills: +#RecoveryUP%",
   "Restores #RecoveryHP HP every 4 sec",
 
-  "ATT: +#incPAD",
   "Max HP: +#incMHP",
 
   "Increases Speed, Jump, DEX, and Defense by a small amount",
@@ -236,6 +235,8 @@ convert_lines = {
   "All Stats: +#incSTR": FLAT_ALLSTAT_A,
   "Increases your party's STR, INT, DEX, and LUK": FLAT_ALLSTAT_A,
   "Increases STR, INT, DEX, and LUK of players on the same map": FLAT_ALLSTAT_A,
+
+  "ATT: +#incPAD": FLAT_ATT_A,
 }
 
 
@@ -313,30 +314,32 @@ with open("cache/familiars.txt") as f:
           if amount == 2:
             stat = CRITDMG_B
 
-        if stat == DAMAGE_A:
+        elif stat == DAMAGE_A:
           if amount == 5:
             stat = DAMAGE_B
 
-        if stat == LARGE_DROP_MESO:
+        elif stat == LARGE_DROP_MESO:
           if amount == 60:
             # this line doesn't seem to be used
             # it's the big spider line i think
             continue
 
-        if stat == FLAT_MAINSTAT_A:
+        elif stat == FLAT_MAINSTAT_A or stat == FLAT_ATT_A:
           if ((tier == COMMON and amount == 1) or
               (tier == RARE and amount == 3) or
               (tier == EPIC and amount == 5) or
               (tier == UNIQUE and amount == 7)):
-            stat = FLAT_MAINSTAT_B
+            stat &= ~LINE_A
+            stat |= LINE_B
 
-        if stat == FLAT_ALLSTAT_A and tier == UNIQUE:
-          if amount == 3:
-            stat = FLAT_ALLSTAT_B
-          elif amount == 2:
-            stat = FLAT_ALLSTAT_C
-          elif amount == 1:
-            stat = FLAT_ALLSTAT_D
+        elif stat == FLAT_ALLSTAT_A:
+          if tier == UNIQUE:
+            if amount == 3:
+              stat = FLAT_ALLSTAT_B
+            elif amount == 2:
+              stat = FLAT_ALLSTAT_C
+            elif amount == 1:
+              stat = FLAT_ALLSTAT_D
 
         desc = line_description(rawtext, stat, amount)
         line = (stat, percent, amount, desc)
