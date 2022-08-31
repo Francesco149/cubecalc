@@ -949,11 +949,11 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
           30+ ied 1 in 61392 cubes, 0.0016%
         2+ damage 1 in 379 cubes, 0.2640%
         3+ damage 1 in 102375 cubes, 0.0010%
-         20+ meso 1 in 34 cubes, 2.9733%
-         20+ drop 1 in 34 cubes, 2.9733%
-20+ meso and drop 1 in 2300 cubes, 0.0435%
-         50+ meso 1 in 112 cubes, 0.8909%
-         50+ drop 1 in 112 cubes, 0.8909%
+         20+ meso 1 in 26 cubes, 3.8424%
+         20+ drop 1 in 26 cubes, 3.8424%
+20+ meso and drop 1 in 108 cubes, 0.9235%
+         50+ meso 1 in 111 cubes, 0.9017%
+         50+ drop 1 in 111 cubes, 0.9017%
          70+ drop 1 in 9201 cubes, 0.0109%
          70+ meso 1 in 9201 cubes, 0.0109%
 ====================== familiar (familiar on lv150 epic) =======================
@@ -961,36 +961,37 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
          30+ boss 1 in 680 cubes, 0.1470%
           20+ ied 1 in 227 cubes, 0.4400%
           30+ ied 1 in 453 cubes, 0.2206%
-         25+ drop 1 in 25 cubes, 3.9232%
-         50+ drop 1 in 43 cubes, 2.3415%
+         25+ drop 1 in 22 cubes, 4.6443%
+         50+ drop 1 in 42 cubes, 2.3545%
         100+ drop 1 in 135 cubes, 0.7405%
-         25+ meso 1 in 25 cubes, 3.9232%
-25+ meso and drop 1 in 67 cubes, 1.4938%
-60+ meso and drop 1 in 136 cubes, 0.7340%
+         25+ meso 1 in 22 cubes, 4.6443%
+25+ meso and drop 1 in 66 cubes, 1.5197%
+40+ meso and drop 1 in 130 cubes, 0.7663%
 ===================== familiar (familiar on lv150 unique) ======================
                      20+ boss 1 in 137 cubes, 0.7307%
                      30+ boss 1 in 171 cubes, 0.5844%
                       20+ ied 1 in 91 cubes, 1.0941%
                       30+ ied 1 in 114 cubes, 0.8756%
-                     25+ drop 1 in 34 cubes, 2.9159%
+                     25+ drop 1 in 27 cubes, 3.6446%
                      50+ drop 1 in 46 cubes, 2.1900%
                     100+ drop 1 in 135 cubes, 0.7394%
-                     25+ meso 1 in 34 cubes, 2.9159%
+                     25+ meso 1 in 27 cubes, 3.6446%
             25+ meso and drop 1 in 46 cubes, 2.1873%
-            60+ meso and drop 1 in 135 cubes, 0.7394%
-                     35+ boss 1 in 342 cubes, 0.2928%
+            40+ meso and drop 1 in 69 cubes, 1.4586%
+                     35+ boss 1 in 341 cubes, 0.2931%
                      40+ boss 1 in 681 cubes, 0.1469%
                       35+ ied 1 in 228 cubes, 0.4390%
                       40+ ied 1 in 453 cubes, 0.2209%
- any 2l combo of boss and ied 1 in 7977 cubes, 0.0125%
-         any 2l combo of boss 1 in 29612 cubes, 0.0034%
+ any 2l combo of boss and ied 1 in 6838 cubes, 0.0146%
+         any 2l combo of boss 1 in 22209 cubes, 0.0045%
                     50+ boss  1 in 77657 cubes, 0.0013%
-       25+ meso and 100+ drop 1 in 135 cubes, 0.7394%
-any 2l combo of meso and drop 1 in 3110 cubes, 0.0321%
+            50+ meso and drop 1 in 137 cubes, 0.7300%
+        25+ meso and 90+ drop 1 in 6221 cubes, 0.0161%
+any 2l combo of meso and drop 1 in 2074 cubes, 0.0482%
 ==================== familiar (familiar on lv150 legendary) ====================
 40+ boss 1 in 33 cubes, 3.0569%
-45+ boss 1 in 51 cubes, 1.9505%
-50+ boss 1 in 102 cubes, 0.9816%
+45+ boss 1 in 51 cubes, 1.9526%
+50+ boss 1 in 102 cubes, 0.9838%
 60+ boss 1 in 7838 cubes, 0.0128%
  40+ ied 1 in 32 cubes, 3.1246%
  45+ ied 1 in 34 cubes, 2.9120%
@@ -998,8 +999,8 @@ any 2l combo of meso and drop 1 in 3110 cubes, 0.0321%
  60+ ied 1 in 5227 cubes, 0.0191%
 ================== familiar (red_fam_card on lv150 legendary) ==================
 40+ boss 1 in 49 cubes, 2.0587%
-45+ boss 1 in 71 cubes, 1.4019%
-50+ boss 1 in 122 cubes, 0.8168%
+45+ boss 1 in 71 cubes, 1.4031%
+50+ boss 1 in 122 cubes, 0.8179%
 60+ boss 1 in 9454 cubes, 0.0106%
  40+ ied 1 in 67 cubes, 1.4917%
  45+ ied 1 in 72 cubes, 1.3967%

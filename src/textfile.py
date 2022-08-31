@@ -450,7 +450,7 @@ def familiar_calcs():
     ("100+ drop", [{DROP: 100}]),
     ("25+ meso", [{MESO: 25}]),
     ("25+ meso and drop", [{MESO: 25, DROP: 25}]),
-    ("60+ meso and drop", [{MESO: 60, DROP: 60}]),
+    ("40+ meso and drop", [{MESO: 40, DROP: 40}]),
   ]
 
   combos_fam_unique = combos_fam_epic + [
@@ -461,7 +461,8 @@ def familiar_calcs():
     ("any 2l combo of boss and ied", [{BOSS: 1, IED: 1, LINES: 2}]),
     ("any 2l combo of boss", [{BOSS: 1, LINES: 2}]),
     ("50+ boss ", [{BOSS: 50}]),
-    ("25+ meso and 100+ drop", [{MESO: 25, DROP: 100}]),
+    ("50+ meso and drop", [{MESO: 50, DROP: 50}]),
+    ("25+ meso and 90+ drop", [{MESO: 25, DROP: 90}]),
     ("any 2l combo of meso and drop", [{MESO: 1, DROP: 1, LINES: 2}]),
   ]
 

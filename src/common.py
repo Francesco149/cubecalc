@@ -52,43 +52,41 @@ def category_name(c):
 
 @global_enum
 class Line(IntFlag):
-  BOSS_A = 1
-  BOSS_B = auto()
-  BOSS_C = auto()
-  DAMAGE_A = auto()
-  DAMAGE_B = auto()
-  IED_A = auto()
-  IED_B = auto()
-  IED_C = auto()
-  ATT = auto()
+
+  # lines are bitmasks of the line type and variant
+  # the line type is self explanatory: just ied, boss, etc
+  # the line variant are special bits (A, B, C, D, ...) that determine the amount for lines that
+  #   appear multiple times with different amounts in the same tier, for example:
+  #   IED | LINE_A = 40% ied
+  #   IED | LINE_B = 35% ied
+  # this way we compress the line bitmask in as little bits as possible while still enabling
+  #   quick scanning of line types through bitmasks
+
+  LINE_A = auto()
+  LINE_B = auto()
+  LINE_C = auto()
+  LINE_D = auto()
+
   ANY = auto()
+  BOSS_ONLY = auto()
+  DAMAGE = auto()
+  IED = auto()
+  ATT = auto()
   MAINSTAT = auto()
   ALLSTAT = auto()
   HP = auto()
-  COOLDOWN_1 = auto()
-  COOLDOWN_2 = auto()
-  CRITDMG_A = auto()
-  CRITDMG_B = auto()
-  SMALL_MESO = auto()
-  SMALL_DROP = auto()
-  SMALL_DROP_MESO = auto()
+  COOLDOWN = auto()
+  CRITDMG = auto()
   DROP_MESO = auto()
-  LARGE_DROP_MESO = auto()
-  MESO_A = auto()
-  LARGE_MESO = auto()
-  DROP_A = auto()
-  LARGE_DROP = auto()
+  MESO_ONLY = auto()
+  DROP_ONLY = auto()
   INVIN = auto()
   DECENT_SPEED_INFUSION = auto()
   DECENT_SHARP_EYES = auto()
   DECENT_COMBAT_ORDERS = auto()
   FLAT_ATT = auto()
-  FLAT_MAINSTAT_A = auto()
-  FLAT_MAINSTAT_B = auto()
-  FLAT_ALLSTAT_A = auto()
-  FLAT_ALLSTAT_B = auto()
-  FLAT_ALLSTAT_C = auto()
-  FLAT_ALLSTAT_D = auto()
+  FLAT_MAINSTAT = auto()
+  FLAT_ALLSTAT = auto()
   FLAT_HP = auto()
   MAINSTAT_PER_10_LVLS = auto()
   ATT_PER_10_LVLS = auto()
@@ -98,19 +96,43 @@ class Line(IntFlag):
   LINES = auto() # match by number of lines and what lines are allowed
 
 @global_enum
+class LineVariants(IntFlag):
+  BOSS_A = BOSS_ONLY | LINE_A
+  BOSS_B = BOSS_ONLY | LINE_B
+  BOSS_C = BOSS_ONLY | LINE_C
+  DAMAGE_A = DAMAGE | LINE_A
+  DAMAGE_B = DAMAGE | LINE_B
+  IED_A = IED | LINE_A
+  IED_B = IED | LINE_B
+  IED_C = IED | LINE_C
+  COOLDOWN_1 = COOLDOWN | LINE_A
+  COOLDOWN_2 = COOLDOWN | LINE_B
+  CRITDMG_A = CRITDMG | LINE_A
+  CRITDMG_B = CRITDMG | LINE_B
+  SMALL_DROP_MESO = DROP_MESO | LINE_A
+  NORMAL_DROP_MESO = DROP_MESO | LINE_B
+  LARGE_DROP_MESO = DROP_MESO | LINE_C
+  SMALL_MESO = MESO_ONLY | LINE_A
+  MESO_A = MESO_ONLY | LINE_B
+  LARGE_MESO = MESO_ONLY | LINE_C
+  SMALL_DROP = DROP_ONLY | LINE_A
+  DROP_A = DROP_ONLY | LINE_B
+  LARGE_DROP = DROP_ONLY | LINE_C
+  FLAT_MAINSTAT_A = FLAT_MAINSTAT | LINE_A
+  FLAT_MAINSTAT_B = FLAT_MAINSTAT | LINE_B
+  FLAT_ALLSTAT_A = FLAT_ALLSTAT | LINE_A
+  FLAT_ALLSTAT_B = FLAT_ALLSTAT | LINE_B
+  FLAT_ALLSTAT_C = FLAT_ALLSTAT | LINE_C
+  FLAT_ALLSTAT_D = FLAT_ALLSTAT | LINE_D
+
+@global_enum
 class LineMasks(IntFlag):
-  BOSS_ONLY = BOSS_A | BOSS_B | BOSS_C
-  BOSS = BOSS_ONLY | DAMAGE_A
+  BOSS = BOSS_ONLY | DAMAGE
   STAT = MAINSTAT | ALLSTAT
-  IED = IED_A | IED_B | IED_C
-  COOLDOWN = COOLDOWN_1 | COOLDOWN_2
+  FLAT_STAT = FLAT_MAINSTAT | FLAT_ALLSTAT
   DECENTS = DECENT_SPEED_INFUSION | DECENT_SHARP_EYES | DECENT_COMBAT_ORDERS
-  DROP = DROP_A | SMALL_DROP | LARGE_DROP | DROP_MESO | LARGE_DROP_MESO
-  MESO = MESO_A | SMALL_MESO | LARGE_DROP | DROP_MESO | LARGE_DROP_MESO
-  CRITDMG = CRITDMG_A | CRITDMG_B
-  DAMAGE = DAMAGE_A | DAMAGE_B
-  FLAT_ALLSTAT = FLAT_ALLSTAT_A | FLAT_ALLSTAT_B | FLAT_ALLSTAT_C | FLAT_ALLSTAT_D
-  FLAT_MAINSTAT = FLAT_MAINSTAT_A | FLAT_MAINSTAT_B | FLAT_ALLSTAT
+  MESO = MESO_ONLY | DROP_MESO
+  DROP = DROP_ONLY | DROP_MESO
 
 @global_enum
 class Tier(IntEnum):

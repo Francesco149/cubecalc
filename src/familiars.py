@@ -38,7 +38,7 @@ familiars = {
         [BOSS_A, 0.147], # Damage to Bosses: +30%
         [DROP_A, 0.734], # Increases Item Drop Rate (60)
         [LARGE_DROP, 0.734], # Increases Item Drop Rate by a large amount (100)
-        [DROP_MESO, 0.734], # Increases Item and Meso Drop Rate (40)
+        [NORMAL_DROP_MESO, 0.734], # Increases Item and Meso Drop Rate (40)
         [SMALL_DROP_MESO, 0.734], # Increases Item and Meso Drop Rate by a small amount (25)
         [MESO_A, 0.734], # Increases Meso Drop Rate (60)
         [LARGE_MESO, 0.734], # Increases Meso Drop Rate by a large amount (100)
@@ -121,7 +121,7 @@ values = {
     BOSS_A: 30,
     DROP_A: 60,
     LARGE_DROP: 100,
-    DROP_MESO: 40,
+    NORMAL_DROP_MESO: 40,
     SMALL_DROP_MESO: 25,
     MESO_A: 60,
     LARGE_MESO: 100,
@@ -200,7 +200,7 @@ desc = {
     BOSS_A: "Damage to Bosses: +30%",
     DROP_A: "Increases Item Drop Rate (60)",
     LARGE_DROP: "Increases Item Drop Rate by a large amount (100)",
-    DROP_MESO: "Increases Item and Meso Drop Rate (40)",
+    NORMAL_DROP_MESO: "Increases Item and Meso Drop Rate (40)",
     SMALL_DROP_MESO: "Increases Item and Meso Drop Rate by a small amount (25)",
     MESO_A: "Increases Meso Drop Rate (60)",
     LARGE_MESO: "Increases Meso Drop Rate by a large amount (100)",

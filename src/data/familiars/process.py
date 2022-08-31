@@ -208,7 +208,7 @@ convert_lines = {
   "Increases Meso Drop Rate by a large amount": LARGE_MESO,
 
   "Increases Item and Meso Drop Rate by a small amount": SMALL_DROP_MESO,
-  "Increases Item and Meso Drop Rate": DROP_MESO,
+  "Increases Item and Meso Drop Rate": NORMAL_DROP_MESO,
   "Increases Item and Meso Drop Rate by a large amount": LARGE_DROP_MESO,
 
   "Item Acquisition Rate: +#incRewardProp%": SMALL_DROP,
@@ -300,7 +300,7 @@ with open("cache/familiars.txt") as f:
         linetext = line.split(f"2{linetext}")[0][1:]
         amount = int(re.findall(r"[0-9]+", linetext)[-1])
         i = 2
-        if stat & (IED_C | BOSS_C):
+        if stat & (IED | BOSS_ONLY):
           if amount == 50 or (amount == 40 and tier == UNIQUE):
             i = 0
           elif amount == 35 or amount == 45:
