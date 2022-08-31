@@ -336,7 +336,10 @@ with open("cache/familiars.txt") as f:
             elif amount == 2:
               stat = FLAT_ALLSTAT_C
             elif amount == 1:
-              stat = FLAT_ALLSTAT_D
+              #stat = FLAT_ALLSTAT_D
+              # either this is not used or the +3 line is not used
+              # TODO: verify which one it is
+              continue
 
         elif stat == FLAT_HP_A:
           if ((tier == COMMON and amount == 5) or

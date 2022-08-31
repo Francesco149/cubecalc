@@ -92,7 +92,6 @@ familiars = {
         [FLAT_ALLSTAT_C, 0.73], # Increases Main Stat, INT, DEX, and LUK of players on the same map (2)
         [FLAT_DEX_ONLY, 1.46], # Increases Speed, Jump, DEX, and Defense by a small amount (1)
         [FLAT_ALLSTAT_B, 0.73], # Increases your party's Main Stat, INT, DEX, and LUK (3)
-        [FLAT_ALLSTAT_D, 0.73], # Increases your party's Main Stat, INT, DEX, and LUK (1)
         [SMALL_DROP, 0.365], # Item Acquisition Rate: +10%
         [FLAT_HP_B, 1.46], # Max HP: +22
         [FLAT_HP_A, 1.46], # Max HP: +25
@@ -218,7 +217,6 @@ values = {
     FLAT_ALLSTAT_C: 2,
     FLAT_DEX_ONLY: 1,
     FLAT_ALLSTAT_B: 3,
-    FLAT_ALLSTAT_D: 1,
     SMALL_DROP: 10,
     FLAT_HP_B: 22,
     FLAT_HP_A: 25,
@@ -338,7 +336,6 @@ desc = {
     FLAT_ALLSTAT_C: "Increases Main Stat, INT, DEX, and LUK of players on the same map (2)",
     FLAT_DEX_ONLY: "Increases Speed, Jump, DEX, and Defense by a small amount (1)",
     FLAT_ALLSTAT_B: "Increases your party's Main Stat, INT, DEX, and LUK (3)",
-    FLAT_ALLSTAT_D: "Increases your party's Main Stat, INT, DEX, and LUK (1)",
     SMALL_DROP: "Item Acquisition Rate: +10%",
     FLAT_HP_B: "Max HP: +22",
     FLAT_HP_A: "Max HP: +25",
@@ -380,6 +377,7 @@ red_card_estimate = {
       EPIC: [],
       UNIQUE: [
         [LARGE_DROP_MESO, 54 / 2903 * 100],
+        [FLAT_ALLSTAT_B, 53 / 2903 * 100],
         [FLAT_DEX_ONLY, 49 / 2903 * 100],
         [FLAT_HP_A, 37 / 2903 * 100],
         [FLAT_ATT_B, 35 / 2903 * 100],
@@ -393,6 +391,7 @@ red_card_estimate = {
         [FLAT_MAINSTAT_B, 21 / 2903 * 100],
         [MAINSTAT_B, 18 / 2903 * 100],
         [HP_A, 18 / 2903 * 100],
+        [FLAT_ALLSTAT_C, 18 / 2903 * 100],
         [MAINSTAT_A, 17 / 2903 * 100],
         [CRITDMG_A, 17 / 2903 * 100],
         [FLAT_MESO, 16 / 2903 * 100],

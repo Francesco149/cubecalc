@@ -65,7 +65,6 @@ class Line(IntFlag):
   LINE_A = auto()
   LINE_B = auto()
   LINE_C = auto()
-  LINE_D = auto()
 
   ANY = auto()
   BOSS_ONLY = auto()
@@ -124,7 +123,6 @@ class LineVariants(IntFlag):
   FLAT_ALLSTAT_A = FLAT_ALLSTAT | LINE_A
   FLAT_ALLSTAT_B = FLAT_ALLSTAT | LINE_B
   FLAT_ALLSTAT_C = FLAT_ALLSTAT | LINE_C
-  FLAT_ALLSTAT_D = FLAT_ALLSTAT | LINE_D
   FLAT_ATT_A = FLAT_ATT | LINE_A
   FLAT_ATT_B = FLAT_ATT | LINE_B
   FLAT_HP_A = FLAT_HP | LINE_A
