@@ -23,6 +23,7 @@ familiars = {
         [FLAT_HP_B, 2.469], # Max HP: +5
         [FLAT_MAINSTAT_A, 2.469], # Main Stat: +2
         [FLAT_MAINSTAT_B, 2.469], # Main Stat: +1
+        [MAINSTAT_A, 0.37], # Main Stat: +1%
         [DAMAGE_A, 0.37], # Total Damage: +1%
       ],
       RARE: [
@@ -38,6 +39,7 @@ familiars = {
         [FLAT_HP_B, 1.759], # Max HP: +12
         [FLAT_MAINSTAT_A, 1.759], # Main Stat: +4
         [FLAT_MAINSTAT_B, 1.759], # Main Stat: +3
+        [MAINSTAT_A, 0.264], # Main Stat: +2%
         [DAMAGE_A, 0.264], # Total Damage: +2%
         [INVIN, 0.44], # When hit, get +1 sec of invincibility
       ],
@@ -58,6 +60,7 @@ familiars = {
         [FLAT_HP_B, 1.468], # Max HP: +18
         [FLAT_MAINSTAT_A, 1.468], # Main Stat: +6
         [FLAT_MAINSTAT_B, 1.468], # Main Stat: +5
+        [MAINSTAT_A, 0.22], # Main Stat: +3%
         [DAMAGE_A, 0.22], # Total Damage: +3%
         [INVIN, 0.367], # When hit, get +2 sec of invincibility
       ],
@@ -84,6 +87,8 @@ familiars = {
         [FLAT_MESO, 0.365], # Mesos Obtained: +10
         [FLAT_MAINSTAT_A, 1.46], # Main Stat: +8
         [FLAT_MAINSTAT_B, 1.46], # Main Stat: +7
+        [MAINSTAT_A, 0.219], # Main Stat: +6%
+        [MAINSTAT_B, 0.219], # Main Stat: +5%
         [DAMAGE_A, 0.219], # Total Damage: +6%
         [DAMAGE_B, 0.219], # Total Damage: +5%
         [INVIN, 0.365], # When hit, gain +3 sec of invincibility
@@ -97,6 +102,7 @@ familiars = {
         [CRITDMG_A, 2.912], # Critical Damage: +6%
         [SMALL_DROP, 2.427], # Item Acquisition Rate: +12%
         [FLAT_MESO, 2.427], # Mesos Obtained: +12
+        [MAINSTAT_A, 1.456], # Main Stat: +9%
         [DAMAGE_A, 1.456], # Total Damage: +9%
         [INVIN, 2.427], # When hit, gain +4 sec of invincibility
       ],
@@ -123,6 +129,7 @@ values = {
     FLAT_HP_B: 5,
     FLAT_MAINSTAT_A: 2,
     FLAT_MAINSTAT_B: 1,
+    MAINSTAT_A: 1,
     DAMAGE_A: 1,
   },
   RARE: {
@@ -139,6 +146,7 @@ values = {
     FLAT_HP_B: 12,
     FLAT_MAINSTAT_A: 4,
     FLAT_MAINSTAT_B: 3,
+    MAINSTAT_A: 2,
     DAMAGE_A: 2,
     INVIN: 1,
   },
@@ -160,6 +168,7 @@ values = {
     FLAT_HP_B: 18,
     FLAT_MAINSTAT_A: 6,
     FLAT_MAINSTAT_B: 5,
+    MAINSTAT_A: 3,
     DAMAGE_A: 3,
     INVIN: 2,
   },
@@ -187,6 +196,8 @@ values = {
     FLAT_MESO: 10,
     FLAT_MAINSTAT_A: 8,
     FLAT_MAINSTAT_B: 7,
+    MAINSTAT_A: 6,
+    MAINSTAT_B: 5,
     DAMAGE_A: 6,
     DAMAGE_B: 5,
     INVIN: 3,
@@ -201,6 +212,7 @@ values = {
     CRITDMG_A: 6,
     SMALL_DROP: 12,
     FLAT_MESO: 12,
+    MAINSTAT_A: 9,
     DAMAGE_A: 9,
     INVIN: 4,
   },
@@ -223,6 +235,7 @@ desc = {
     FLAT_HP_B: "Max HP: +5",
     FLAT_MAINSTAT_A: "Main Stat: +2",
     FLAT_MAINSTAT_B: "Main Stat: +1",
+    MAINSTAT_A: "Main Stat: +1%",
     DAMAGE_A: "Total Damage: +1%",
   },
   RARE: {
@@ -238,6 +251,7 @@ desc = {
     FLAT_HP_B: "Max HP: +12",
     FLAT_MAINSTAT_A: "Main Stat: +4",
     FLAT_MAINSTAT_B: "Main Stat: +3",
+    MAINSTAT_A: "Main Stat: +2%",
     DAMAGE_A: "Total Damage: +2%",
     INVIN: "When hit, get +1 sec of invincibility",
   },
@@ -258,6 +272,7 @@ desc = {
     FLAT_HP_B: "Max HP: +18",
     FLAT_MAINSTAT_A: "Main Stat: +6",
     FLAT_MAINSTAT_B: "Main Stat: +5",
+    MAINSTAT_A: "Main Stat: +3%",
     DAMAGE_A: "Total Damage: +3%",
     INVIN: "When hit, get +2 sec of invincibility",
   },
@@ -284,6 +299,8 @@ desc = {
     FLAT_MESO: "Mesos Obtained: +10",
     FLAT_MAINSTAT_A: "Main Stat: +8",
     FLAT_MAINSTAT_B: "Main Stat: +7",
+    MAINSTAT_A: "Main Stat: +6%",
+    MAINSTAT_B: "Main Stat: +5%",
     DAMAGE_A: "Total Damage: +6%",
     DAMAGE_B: "Total Damage: +5%",
     INVIN: "When hit, gain +3 sec of invincibility",
@@ -297,6 +314,7 @@ desc = {
     CRITDMG_A: "Critical Damage: +6%",
     SMALL_DROP: "Item Acquisition Rate: +12%",
     FLAT_MESO: "Mesos Obtained: +12",
+    MAINSTAT_A: "Main Stat: +9%",
     DAMAGE_A: "Total Damage: +9%",
     INVIN: "When hit, gain +4 sec of invincibility",
   },
@@ -321,6 +339,8 @@ red_card_estimate = {
         [FLAT_HP_B, 27 / 2903 * 100],
         [CRITDMG_B, 22 / 2903 * 100],
         [FLAT_MAINSTAT_B, 21 / 2903 * 100],
+        [MAINSTAT_B, 18 / 2903 * 100],
+        [MAINSTAT_A, 17 / 2903 * 100],
         [CRITDMG_A, 17 / 2903 * 100],
         [FLAT_MESO, 16 / 2903 * 100],
         [DAMAGE_A, 9 / 2903 * 100],
@@ -334,6 +354,7 @@ red_card_estimate = {
       ],
       LEGENDARY: [
         [INVIN, 88 / 2903 * 100],
+        [MAINSTAT_A, 72 / 2903 * 100],
         [CRITDMG_A, 34 / 2903 * 100],
         [IED_B, 23 / 2903 * 100],
         [FLAT_MESO, 23 / 2903 * 100],

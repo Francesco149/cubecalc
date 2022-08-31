@@ -50,7 +50,7 @@ line_conversion = {
   "最大HP": FLAT_HP_A,
   "全屬性": FLAT_ALLSTAT_A,
   "物理攻擊力": FLAT_ATT_A,
-  "STR%": MAINSTAT,
+  "STR%": MAINSTAT_A,
   "最大HP%": HP,
   "全屬性%": ALLSTAT,
   "物理攻擊力%": ATT,

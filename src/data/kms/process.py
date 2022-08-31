@@ -22,7 +22,7 @@ def stat_name(s):
   return s.split(':')[0].strip()
 
 convert_s = {
-  KW_STAT: MAINSTAT,
+  KW_STAT: MAINSTAT_A,
   KW_ATT: ATT,
   "메소 획득량": MESO_A,
   "아이템 드롭률": DROP_A,

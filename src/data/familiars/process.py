@@ -172,7 +172,6 @@ known_lines = {
   "Restores #RecoveryHP HP every 4 sec",
 
   "ATT: +#incPADr%",
-  "STR: +#incSTRr%",
   "Max HP: +#incMHPr%",
   "All Stats: +#incSTRr%",
   "Increases party members' STR by a small percentage",
@@ -232,8 +231,9 @@ convert_lines = {
   "Increases STR, INT, DEX, and LUK of players on the same map": FLAT_ALLSTAT_A,
   "Increases Speed, Jump, DEX, and Defense by a small amount": FLAT_DEX_ONLY,
   "Max HP: +#incMHP": FLAT_HP_A,
-
   "ATT: +#incPAD": FLAT_ATT_A,
+
+  "STR: +#incSTRr%": MAINSTAT_A,
 }
 
 
@@ -344,6 +344,10 @@ with open("cache/familiars.txt") as f:
               (tier == EPIC and amount == 18) or
               (tier == UNIQUE and amount == 22)):
               stat = FLAT_HP_B
+
+        elif stat == MAINSTAT_A:
+          if ((tier == UNIQUE and amount == 5)):
+            stat = MAINSTAT_B
 
         desc = line_description(rawtext, stat, amount)
         line = (stat, percent, amount, desc)

@@ -207,7 +207,7 @@ def find_line_values(cube, category, region):
       FLAT_MAINSTAT_A: flat_mainstat_13,
       FLAT_HP_A: flat_hp_125,
       FLAT_ATT_A: flat_att_13,
-      MAINSTAT: mpot_4,
+      MAINSTAT_A: mpot_4,
       HP: mpot_4,
       FLAT_ALLSTAT_A: flat_allstat_6,
       ATT: mpot_4,
@@ -217,7 +217,7 @@ def find_line_values(cube, category, region):
 
     EPIC: {
       ANY: 1,
-      MAINSTAT: mpot_7,
+      MAINSTAT_A: mpot_7,
       ALLSTAT: mpot_4,
       HP: mpot_7,
       INVIN: 1,
@@ -232,7 +232,7 @@ def find_line_values(cube, category, region):
       IED_C: minlvl(50, 30),
       ATT: mpot_10,
       DAMAGE_A: mpot_10,
-      MAINSTAT: mpot_10,
+      MAINSTAT_A: mpot_10,
       ALLSTAT: mpot_7,
       HP: mpot_10_kms,
       INVIN: 2,
@@ -249,7 +249,7 @@ def find_line_values(cube, category, region):
       IED_A: minlvl(100, 40),
       ATT: mpot_13,
       DAMAGE_A: mpot_13,
-      MAINSTAT: mpot_13,
+      MAINSTAT_A: mpot_13,
       ALLSTAT: mpot_10,
       HP: mpot_13_kms,
       COOLDOWN_2: minlvl(120, 2),
@@ -459,7 +459,7 @@ def find_line_values(cube, category, region):
       FLAT_MAINSTAT_A: flat_mainstat_11,
       FLAT_ATT_A: flat_att_11,
       FLAT_HP_A: flat_hp_125,
-      MAINSTAT: mainstat_3,
+      MAINSTAT_A: mainstat_3,
       HP: mainstat_3,
       FLAT_ALLSTAT_A: flat_allstat_3,
     },
@@ -469,7 +469,7 @@ def find_line_values(cube, category, region):
       FLAT_MAINSTAT_A: flat_mainstat_15,
       FLAT_ATT_A: flat_att_12,
       FLAT_HP_A: flat_hp_195,
-      MAINSTAT: mainstat_5,
+      MAINSTAT_A: mainstat_5,
       HP: hp_6,
       ALLSTAT: allstat_3,
     },
@@ -479,7 +479,7 @@ def find_line_values(cube, category, region):
       FLAT_MAINSTAT_A: flat_mainstat_17,
       FLAT_ATT_A: flat_att_13,
       FLAT_HP_A: flat_hp_250,
-      MAINSTAT: mainstat_6,
+      MAINSTAT_A: mainstat_6,
       HP: hp_8,
       ALLSTAT: allstat_5,
       MAINSTAT_PER_10_LVLS: 1,
@@ -490,7 +490,7 @@ def find_line_values(cube, category, region):
       FLAT_MAINSTAT_A: flat_mainstat_19,
       FLAT_ATT_A: flat_att_15,
       FLAT_HP_A: flat_hp_310,
-      MAINSTAT: mainstat_8,
+      MAINSTAT_A: mainstat_8,
       HP: hp_11,
       CRITDMG_A: 1,
       ALLSTAT: allstat_6,
@@ -522,7 +522,7 @@ def find_line_values(cube, category, region):
       FLAT_MAINSTAT_A: flat_mainstat_13,
       FLAT_ATT_A: flat_att_13,
       FLAT_HP_A: flat_hp_125_wse,
-      MAINSTAT: mpot_4,
+      MAINSTAT_A: mpot_4,
       ATT: mpot_4,
       DAMAGE_A: mpot_4,
       HP: mainstat_3,
@@ -531,7 +531,7 @@ def find_line_values(cube, category, region):
 
     EPIC: {
       ANY: 1,
-      MAINSTAT: mpot_7,
+      MAINSTAT_A: mpot_7,
       ATT: mpot_7,
       DAMAGE_A: mpot_7,
       HP: hp_6,
@@ -541,7 +541,7 @@ def find_line_values(cube, category, region):
 
     UNIQUE: {
       ANY: 1,
-      MAINSTAT: mpot_10,
+      MAINSTAT_A: mpot_10,
       ATT: mpot_10,
       DAMAGE_A: mpot_10,
       HP: hp_8,
@@ -553,7 +553,7 @@ def find_line_values(cube, category, region):
 
     LEGENDARY: {
       ANY: 1,
-      MAINSTAT: mpot_13,
+      MAINSTAT_A: mpot_13,
       ATT: mpot_13,
       DAMAGE_A: mpot_13,
       HP: hp_11,
@@ -818,7 +818,7 @@ def cube_calc(wants, category, type, tier, level, region, lines):
 
     #       this is also useful to match multiple lines later. for example
     #       when we look for stat we also want to match allstat so we can check that
-    #       line_type & (MAINSTAT | ALLSTAT) != 0
+    #       line_type & (MAINSTAT_A | ALLSTAT) != 0
 
     for n, forbidden in forbidden_combos:
       if np.any(c.types & reduce(or_, forbidden) != 0):
