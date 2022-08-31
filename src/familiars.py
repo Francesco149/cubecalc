@@ -49,6 +49,8 @@ familiars = {
         [INVIN, 0.44], # When hit, get +1 sec of invincibility
       ],
       EPIC: [
+        [AUTOSTEAL_B, 0.367], # 1% chance to Auto Steal
+        [AUTOSTEAL_A, 0.367], # 2% chance to Auto Steal
         [FLAT_ATT_A, 1.101], # ATT: +6
         [FLAT_ATT_B, 1.101], # ATT: +5
         [ATT_A, 0.22], # ATT: +3%
@@ -73,6 +75,11 @@ familiars = {
         [INVIN, 0.367], # When hit, get +2 sec of invincibility
       ],
       UNIQUE: [
+        [AUTOSTEAL_E, 0.365], # 3% chance to Auto Steal
+        [AUTOSTEAL_C, 0.365], # 5% chance to Auto Steal
+        [AUTOSTEAL_A, 0.365], # 7% chance to Auto Steal
+        [AUTOSTEAL_D, 0.365], # 4% chance to Auto Steal
+        [AUTOSTEAL_B, 0.365], # 6% chance to Auto Steal
         [FLAT_ATT_A, 1.095], # ATT: +8
         [FLAT_ATT_B, 1.095], # ATT: +7
         [ATT_A, 0.219], # ATT: +6%
@@ -107,6 +114,9 @@ familiars = {
         [INVIN, 0.365], # When hit, gain +3 sec of invincibility
       ],
       LEGENDARY: [
+        [AUTOSTEAL_C, 2.427], # 4% chance to Auto Steal
+        [AUTOSTEAL_B, 2.427], # 6% chance to Auto Steal
+        [AUTOSTEAL_A, 2.427], # 8% chance to Auto Steal
         [ATT_A, 1.456], # ATT: +9%
         [ALLSTAT_A, 0.971], # All Stats: +5%
         [IED_B, 1.456], # Attacks ignore 45% Monster DEF
@@ -173,6 +183,8 @@ values = {
   },
   EPIC: {
     ANY: 1,
+    AUTOSTEAL_B: 1,
+    AUTOSTEAL_A: 2,
     FLAT_ATT_A: 6,
     FLAT_ATT_B: 5,
     ATT_A: 3,
@@ -198,6 +210,11 @@ values = {
   },
   UNIQUE: {
     ANY: 1,
+    AUTOSTEAL_E: 3,
+    AUTOSTEAL_C: 5,
+    AUTOSTEAL_A: 7,
+    AUTOSTEAL_D: 4,
+    AUTOSTEAL_B: 6,
     FLAT_ATT_A: 8,
     FLAT_ATT_B: 7,
     ATT_A: 6,
@@ -233,6 +250,9 @@ values = {
   },
   LEGENDARY: {
     ANY: 1,
+    AUTOSTEAL_C: 4,
+    AUTOSTEAL_B: 6,
+    AUTOSTEAL_A: 8,
     ATT_A: 9,
     ALLSTAT_A: 5,
     IED_B: 45,
@@ -293,6 +313,8 @@ desc = {
     INVIN: "When hit, get +1 sec of invincibility",
   },
   EPIC: {
+    AUTOSTEAL_B: "1% chance to Auto Steal",
+    AUTOSTEAL_A: "2% chance to Auto Steal",
     FLAT_ATT_A: "ATT: +6",
     FLAT_ATT_B: "ATT: +5",
     ATT_A: "ATT: +3%",
@@ -317,6 +339,11 @@ desc = {
     INVIN: "When hit, get +2 sec of invincibility",
   },
   UNIQUE: {
+    AUTOSTEAL_E: "3% chance to Auto Steal",
+    AUTOSTEAL_C: "5% chance to Auto Steal",
+    AUTOSTEAL_A: "7% chance to Auto Steal",
+    AUTOSTEAL_D: "4% chance to Auto Steal",
+    AUTOSTEAL_B: "6% chance to Auto Steal",
     FLAT_ATT_A: "ATT: +8",
     FLAT_ATT_B: "ATT: +7",
     ATT_A: "ATT: +6%",
@@ -351,6 +378,9 @@ desc = {
     INVIN: "When hit, gain +3 sec of invincibility",
   },
   LEGENDARY: {
+    AUTOSTEAL_C: "4% chance to Auto Steal",
+    AUTOSTEAL_B: "6% chance to Auto Steal",
+    AUTOSTEAL_A: "8% chance to Auto Steal",
     ATT_A: "ATT: +9%",
     ALLSTAT_A: "All Stats: +5%",
     IED_B: "Attacks ignore 45% Monster DEF",
@@ -385,9 +415,14 @@ red_card_estimate = {
         [INVIN, 33 / 2903 * 100],
         [FLAT_ATT_A, 28 / 2903 * 100],
         [FLAT_ALLSTAT_A, 28 / 2903 * 100],
+        [AUTOSTEAL_D, 28 / 2903 * 100],
         [FLAT_HP_B, 27 / 2903 * 100],
+        [AUTOSTEAL_A, 27 / 2903 * 100],
+        [AUTOSTEAL_E, 26 / 2903 * 100],
+        [AUTOSTEAL_B, 25 / 2903 * 100],
         [HP_B, 24 / 2903 * 100],
         [CRITDMG_B, 22 / 2903 * 100],
+        [AUTOSTEAL_C, 21 / 2903 * 100],
         [FLAT_MAINSTAT_B, 21 / 2903 * 100],
         [MAINSTAT_B, 18 / 2903 * 100],
         [HP_A, 18 / 2903 * 100],
@@ -407,9 +442,13 @@ red_card_estimate = {
         [IED_C, 6 / 2903 * 100],
         [DAMAGE_B, 6 / 2903 * 100],
         [IED_A, 3 / 2903 * 100],
+        [BOSS_A, 1 / 2903 * 100],
       ],
       LEGENDARY: [
+        [AUTOSTEAL_A, 104 / 2903 * 100],
         [INVIN, 88 / 2903 * 100],
+        [AUTOSTEAL_C, 88 / 2903 * 100],
+        [AUTOSTEAL_B, 83 / 2903 * 100],
         [MAINSTAT_A, 72 / 2903 * 100],
         [HP_A, 68 / 2903 * 100],
         [ATT_A, 37 / 2903 * 100],

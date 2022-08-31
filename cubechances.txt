@@ -998,10 +998,10 @@ any 2l combo of meso and drop 1 in 2074 cubes, 0.0482%
  50+ ied 1 in 68 cubes, 1.4656%
  60+ ied 1 in 5227 cubes, 0.0191%
 ================== familiar (red_fam_card on lv150 legendary) ==================
-40+ boss 1 in 49 cubes, 2.0587%
-45+ boss 1 in 71 cubes, 1.4031%
-50+ boss 1 in 122 cubes, 0.8179%
-60+ boss 1 in 9454 cubes, 0.0106%
+40+ boss 1 in 48 cubes, 2.0902%
+45+ boss 1 in 71 cubes, 1.4035%
+50+ boss 1 in 122 cubes, 0.8182%
+60+ boss 1 in 8931 cubes, 0.0112%
  40+ ied 1 in 67 cubes, 1.4917%
  45+ ied 1 in 72 cubes, 1.3967%
  50+ ied 1 in 180 cubes, 0.5561%

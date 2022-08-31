@@ -91,6 +91,8 @@ class Line(IntFlag):
   MAINSTAT_PER_10_LVLS = auto()
   ATT_PER_10_LVLS = auto()
   FLAT_MESO = auto()
+  AUTOSTEAL_1 = auto()
+  AUTOSTEAL_2 = auto()
 
   # special keys for matching lines
   LINES = auto() # match by number of lines and what lines are allowed
@@ -135,6 +137,11 @@ class LineVariants(IntFlag):
   HP_B = HP | LINE_B
   ALLSTAT_A = ALLSTAT | LINE_A
   ALLSTAT_B = ALLSTAT | LINE_B
+  AUTOSTEAL_A = AUTOSTEAL_1 | LINE_A
+  AUTOSTEAL_B = AUTOSTEAL_1 | LINE_B
+  AUTOSTEAL_C = AUTOSTEAL_1 | LINE_C
+  AUTOSTEAL_D = AUTOSTEAL_2 | LINE_A
+  AUTOSTEAL_E = AUTOSTEAL_2 | LINE_B
 
 @global_enum
 class LineMasks(IntFlag):
@@ -145,6 +152,7 @@ class LineMasks(IntFlag):
   DECENTS = DECENT_SPEED_INFUSION | DECENT_SHARP_EYES | DECENT_COMBAT_ORDERS
   MESO = MESO_ONLY | DROP_MESO
   DROP = DROP_ONLY | DROP_MESO
+  AUTOSTEAL = AUTOSTEAL_1 | AUTOSTEAL_2
 
 @global_enum
 class Tier(IntEnum):

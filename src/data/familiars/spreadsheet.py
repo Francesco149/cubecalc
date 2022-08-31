@@ -26,9 +26,6 @@ known = {
     "INT: +9%",
     "Magic ATT: +9%",
 
-    "8% chance to Auto Steal",
-    "6% chance to Auto Steal",
-    "4% chance to Auto Steal",
     "Abnormal Status Resistance: +7%",
     "All Skill Levels: +1",
     "HP Recovery Items and Skills: +30%",
@@ -99,9 +96,6 @@ known = {
     "Continually restores a large amount of HP & MP to nearby allies",
     "Critical Rate: +5%",
     "Critical Rate: +6%",
-    "3% chance to Auto Steal",
-    "5% chance to Auto Steal",
-    "7% chance to Auto Steal",
   }
 }
 
@@ -121,6 +115,9 @@ conversion = {
     "ATT: +9%": ATT_A,
     "Max HP: +9%": HP_A,
     "All Stats: +5%": ALLSTAT_A,
+    "8% chance to Auto Steal": AUTOSTEAL_A,
+    "6% chance to Auto Steal": AUTOSTEAL_B,
+    "4% chance to Auto Steal": AUTOSTEAL_C,
   },
   UNIQUE: {
     "Item Acquisition Rate: +10%": SMALL_DROP,
@@ -155,6 +152,11 @@ conversion = {
     "Max HP: +6%": HP_A,
     "All Stats: +2%": ALLSTAT_B,
     "All Stats: +3%": ALLSTAT_A,
+    "3% chance to Auto Steal": AUTOSTEAL_E,
+    "4% chance to Auto Steal": AUTOSTEAL_D,
+    "5% chance to Auto Steal": AUTOSTEAL_C,
+    "6% chance to Auto Steal": AUTOSTEAL_B,
+    "7% chance to Auto Steal": AUTOSTEAL_A,
   },
 }
 
@@ -165,14 +167,14 @@ def process(tier, line, count):
   if line in known[tier]:
     return
 
-  # double prime
-  if (tier + 1) in known and line in known[tier + 1]:
-    return
-
-  if (tier + 1) in conversion and line in conversion[tier + 1].keys():
-    return
-
   if line not in conversion[tier]:
+    # double prime
+    if (tier + 1) in known and line in known[tier + 1]:
+      return
+
+    if (tier + 1) in conversion and line in conversion[tier + 1].keys():
+      return
+
     raise RuntimeError(f"unknown line: {line}")
 
   conv = conversion[tier][line]

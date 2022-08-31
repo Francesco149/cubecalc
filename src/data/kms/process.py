@@ -41,6 +41,7 @@ boss_text = lambda x: f"보스 몬스터 공격 시 데미지 : +{x}%"
 cd_text = lambda x: f"모든 스킬의 재사용 대기시간 : -{x}초(10초 이하는 {5*x}%감소 5초 미만으로 감소 불가)"
 invin_text = lambda x: f"피격 후 무적시간 : +{x}초"
 flat_text = lambda k, x=12: f"{k} : +{x}"
+steal_text = lambda x=7: f"공격 시 {x}% 확률로 오토스틸"
 
 convert = {
   flat_text(KW_STAT, 10): FLAT_MAINSTAT_A,
@@ -75,6 +76,9 @@ convert = {
   "<쓸만한 윈드 부스터> 스킬 사용 가능": DECENT_SPEED_INFUSION,
   "<쓸만한 샤프 아이즈> 스킬 사용 가능": DECENT_SHARP_EYES,
   "<쓸만한 컴뱃 오더스> 스킬 사용 가능": DECENT_COMBAT_ORDERS,
+  steal_text(7): AUTOSTEAL_A,
+  steal_text(5): AUTOSTEAL_B,
+  steal_text(3): AUTOSTEAL_C,
 }
 
 # we only take 1 stat and 1 type of att since they're all the same

@@ -118,7 +118,6 @@ known_lines = {
   "#prop% chance to become invincible for #time seconds when attacked.",
 
   "Critical Rate: +#incCr%",
-  "#prop% chance to Auto Steal",
   "All Skill Levels: +#incAllskill",
 
   "Continually restores a small amount of HP",
@@ -204,6 +203,8 @@ convert_lines = {
   "Max HP: +#incMHPr%": HP_A,
   "ATT: +#incPADr%": ATT_A,
   "All Stats: +#incSTRr%": ALLSTAT_A,
+
+  "#prop% chance to Auto Steal": AUTOSTEAL_A,
 }
 
 
@@ -264,8 +265,13 @@ with open("cache/familiars.txt") as f:
         break
 
       if stat != ANY:
-        linetext = re.split(r"[0-9]", line)[1]
-        linetext = line.split(f"2{linetext}")[0][1:]
+
+        if stat == AUTOSTEAL_A:
+          linetext = re.findall(r"1[0-9]%[^0-9]+2", line)[0][1:-1]
+        else:
+          linetext = re.split(r"[0-9]", line)[1]
+          linetext = line.split(f"2{linetext}")[0][1:]
+
         amount = int(re.findall(r"[0-9]+", linetext)[-1])
         i = 2
         if stat & (IED | BOSS_ONLY):
@@ -286,6 +292,7 @@ with open("cache/familiars.txt") as f:
             stat = DAMAGE_B
 
         elif stat == LARGE_DROP_MESO:
+
           if amount == 60:
             # this line doesn't seem to be used
             # it's the big spider line i think
@@ -326,6 +333,25 @@ with open("cache/familiars.txt") as f:
         elif stat == ALLSTAT_A:
           if (tier == UNIQUE and amount == 2):
             stat = ALLSTAT_B
+
+        elif stat == AUTOSTEAL_A:
+          if tier == LEGENDARY:
+            if amount == 6:
+              stat = AUTOSTEAL_B
+            elif amount == 4:
+              stat = AUTOSTEAL_C
+          elif tier == UNIQUE:
+            if amount == 6:
+              stat = AUTOSTEAL_B
+            elif amount == 5:
+              stat = AUTOSTEAL_C
+            elif amount == 4:
+              stat = AUTOSTEAL_D
+            elif amount == 3:
+              stat = AUTOSTEAL_E
+          elif tier == EPIC:
+            if amount == 1:
+              stat = AUTOSTEAL_B
 
         desc = line_description(rawtext, stat, amount)
         line = (stat, percent, amount, desc)
