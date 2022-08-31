@@ -162,23 +162,30 @@ conversion = {
 
 df = pd.read_excel("red-card-data.ods", engine="odf", header=None, usecols=[0, 1])
 datapoints = len(df[0])
+nonprimes = 0
 
-def process(tier, line, count):
+def process(tier, line, count, pr=True):
   if line in known[tier]:
-    return
+    return count
 
   if line not in conversion[tier]:
     # double prime
     if (tier + 1) in known and line in known[tier + 1]:
-      return
+      return 0
 
     if (tier + 1) in conversion and line in conversion[tier + 1].keys():
-      return
+      return 0
 
     raise RuntimeError(f"unknown line: {line}")
 
-  conv = conversion[tier][line]
-  print(f"        [{conv.name}, {count} / {datapoints} * 100],")
+  if pr:
+    conv = conversion[tier][line]
+    nonprime = f" / ({nonprimes} / {datapoints})" if tier == UNIQUE else ""
+    print(f"        [{conv.name}, {count} / {datapoints} * 100{nonprime}],")
+
+  return count
+
+nonprimes=sum([process(UNIQUE, *x, False) for x in df[1].value_counts().items()])
 
 print("red_card_estimate = {")
 print("  RED_FAM_CARD: {")

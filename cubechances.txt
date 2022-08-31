@@ -1119,21 +1119,21 @@ any 2l combo of drop and auto steal 1 in 353 cubes, 0.2835%
                      13+ auto steal 1 in 2822 cubes, 0.0354%
                      14+ auto steal 1 in 5644 cubes, 0.0177%
 ================== familiar (red_fam_card on lv150 legendary) ==================
-                           40+ boss 1 in 51 cubes, 1.9726%
-                           45+ boss 1 in 76 cubes, 1.3212%
-                           50+ boss 1 in 130 cubes, 0.7698%
-                           60+ boss 1 in 10607 cubes, 0.0094%
-any 2l combo of boss and hp healing 1 in 440 cubes, 0.2274%
-        45+ boss and any hp healing 1 in 995 cubes, 0.1006%
-        50+ boss and any hp healing 1 in 1718 cubes, 0.0582%
-                            40+ ied 1 in 71 cubes, 1.4163%
+                           40+ boss 1 in 51 cubes, 1.9750%
+                           45+ boss 1 in 76 cubes, 1.3217%
+                           50+ boss 1 in 130 cubes, 0.7703%
+                           60+ boss 1 in 9935 cubes, 0.0101%
+any 2l combo of boss and hp healing 1 in 411 cubes, 0.2431%
+        45+ boss and any hp healing 1 in 930 cubes, 0.1075%
+        50+ boss and any hp healing 1 in 1607 cubes, 0.0622%
+                            40+ ied 1 in 70 cubes, 1.4233%
                             45+ ied 1 in 76 cubes, 1.3148%
-                            50+ ied 1 in 191 cubes, 0.5234%
-                            60+ ied 1 in 13776 cubes, 0.0073%
-any 2l combo of drop and auto steal 1 in 154 cubes, 0.6496%
-                      4+ auto steal 1 in 8 cubes, 12.6468%
-                      6+ auto steal 1 in 12 cubes, 8.2153%
-                      8+ auto steal 1 in 26 cubes, 3.8290%
-                     12+ auto steal 1 in 562 cubes, 0.1779%
-                     13+ auto steal 1 in 850 cubes, 0.1176%
-                     14+ auto steal 1 in 1530 cubes, 0.0654%
+                            50+ ied 1 in 191 cubes, 0.5237%
+                            60+ ied 1 in 12897 cubes, 0.0078%
+any 2l combo of drop and auto steal 1 in 144 cubes, 0.6940%
+                      4+ auto steal 1 in 8 cubes, 12.8627%
+                      6+ auto steal 1 in 12 cubes, 8.3356%
+                      8+ auto steal 1 in 26 cubes, 3.8448%
+                     12+ auto steal 1 in 526 cubes, 0.1900%
+                     13+ auto steal 1 in 796 cubes, 0.1256%
+                     14+ auto steal 1 in 1433 cubes, 0.0698%
