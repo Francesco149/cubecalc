@@ -34,7 +34,6 @@ known = {
   UNIQUE: {
     "All Skill MP Costs: -5%",
     "Increases the Speed of nearby allies by a large amount",
-    "Continually restores a large amount of MP to nearby allies",
     "DEF: +5%",
     "DEF: +6%",
     "Attacks have a 10% chance to ignore 30% damage",
@@ -42,7 +41,6 @@ known = {
     "DEF: +25",
     "Hitting an enemy has a 15% chance to restore 45 MP",
     "Increases party members' Defense by a large amount",
-    "Continually restores a large amount of MP to party members",
     "Attacks have a 10% chance to ignore 25% damage",
     "Increases the Defense of nearby allies by a large amount",
     "10% chance to reflect 20% damage",
@@ -84,16 +82,11 @@ known = {
 
     # TODO: add these lines
     "Abnormal Status Resistance: +5%",
-    "Continually restores a large amount of HP to nearby allies",
     "Hitting an enemy has a 15% chance to restore 45 HP",
     "3% chance to become invincible for 5 seconds when attacked.",
     "4% chance to become invincible for 5 seconds when attacked.",
-    "Continually restores a large amount of HP & MP",
-    "Continually restores a large amount of HP & MP to party members",
     "HP Recovery Items and Skills: +15%",
     "HP Recovery Items and Skills: +20%",
-    "Continually restores a large amount of HP to party members",
-    "Continually restores a large amount of HP & MP to nearby allies",
     "Critical Rate: +5%",
     "Critical Rate: +6%",
   }
@@ -157,6 +150,13 @@ conversion = {
     "5% chance to Auto Steal": AUTOSTEAL_C,
     "6% chance to Auto Steal": AUTOSTEAL_B,
     "7% chance to Auto Steal": AUTOSTEAL_A,
+    "Continually restores a large amount of HP to nearby allies": HEAL_HP_ONLY_NEAR_A,
+    "Continually restores a large amount of HP to party members": HEAL_HP_ONLY_PARTY_A,
+    "Continually restores a large amount of HP & MP": HEAL_HP_MP_A,
+    "Continually restores a large amount of HP & MP to party members": HEAL_HP_MP_PARTY_A,
+    "Continually restores a large amount of HP & MP to nearby allies": HEAL_HP_MP_NEAR_A,
+    "Continually restores a large amount of MP to party members": HEAL_MP_ONLY_PARTY_A,
+    "Continually restores a large amount of MP to nearby allies": HEAL_MP_ONLY_NEAR_A,
   },
 }
 

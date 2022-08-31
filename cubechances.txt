@@ -1037,9 +1037,12 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
          50+ drop 1 in 111 cubes, 0.9017%
          70+ drop 1 in 9201 cubes, 0.0109%
          70+ meso 1 in 9201 cubes, 0.0109%
+    5+ hp healing 1 in 14 cubes, 7.3189%
+    5+ mp healing 1 in 14 cubes, 7.3189%
 ====================== familiar (familiar on lv150 epic) =======================
                            20+ boss 1 in 340 cubes, 0.2940%
                            30+ boss 1 in 680 cubes, 0.1470%
+any 2l combo of boss and hp healing 1 in 167 cubes, 0.5988%
                             20+ ied 1 in 227 cubes, 0.4400%
                             30+ ied 1 in 453 cubes, 0.2206%
                            25+ drop 1 in 22 cubes, 4.6443%
@@ -1051,9 +1054,14 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
                       1+ auto steal 1 in 136 cubes, 0.7340%
                       2+ auto steal 1 in 272 cubes, 0.3670%
 any 2l combo of drop and auto steal 1 in 1032 cubes, 0.0969%
+                     10+ hp healing 1 in 16 cubes, 6.1666%
+                     10+ mp healing 1 in 16 cubes, 6.1666%
+                     15+ hp healing 1 in 96 cubes, 1.0376%
+                     15+ mp healing 1 in 96 cubes, 1.0376%
 ===================== familiar (familiar on lv150 unique) ======================
                            20+ boss 1 in 137 cubes, 0.7307%
                            30+ boss 1 in 171 cubes, 0.5844%
+any 2l combo of boss and hp healing 1 in 237 cubes, 0.4219%
                             20+ ied 1 in 91 cubes, 1.0941%
                             30+ ied 1 in 114 cubes, 0.8756%
                            25+ drop 1 in 27 cubes, 3.6446%
@@ -1065,8 +1073,14 @@ any 2l combo of drop and auto steal 1 in 1032 cubes, 0.0969%
                       1+ auto steal 1 in 39 cubes, 2.5456%
                       2+ auto steal 1 in 46 cubes, 2.1853%
 any 2l combo of drop and auto steal 1 in 933 cubes, 0.1072%
+                     10+ hp healing 1 in 12 cubes, 8.6005%
+                     10+ mp healing 1 in 12 cubes, 8.6005%
+                     15+ hp healing 1 in 23 cubes, 4.3572%
+                     15+ mp healing 1 in 23 cubes, 4.3572%
                            35+ boss 1 in 341 cubes, 0.2931%
                            40+ boss 1 in 681 cubes, 0.1469%
+        35+ boss and any hp healing 1 in 3888 cubes, 0.0257%
+        40+ boss and any hp healing 1 in 7776 cubes, 0.0129%
                             35+ ied 1 in 228 cubes, 0.4390%
                             40+ ied 1 in 453 cubes, 0.2209%
        any 2l combo of boss and ied 1 in 6838 cubes, 0.0146%
@@ -1083,11 +1097,16 @@ any 2l combo of drop and auto steal 1 in 933 cubes, 0.1072%
                       7+ auto steal 1 in 271 cubes, 0.3690%
                       8+ auto steal 1 in 24884 cubes, 0.0040%
                       9+ auto steal 1 in 74652 cubes, 0.0013%
+                     20+ hp healing 1 in 311 cubes, 0.3215%
+                     20+ mp healing 1 in 311 cubes, 0.3215%
 ==================== familiar (familiar on lv150 legendary) ====================
                            40+ boss 1 in 33 cubes, 3.0569%
                            45+ boss 1 in 51 cubes, 1.9526%
                            50+ boss 1 in 102 cubes, 0.9838%
                            60+ boss 1 in 7838 cubes, 0.0128%
+any 2l combo of boss and hp healing 1 in 506 cubes, 0.1977%
+        45+ boss and any hp healing 1 in 1411 cubes, 0.0709%
+        50+ boss and any hp healing 1 in 2822 cubes, 0.0354%
                             40+ ied 1 in 32 cubes, 3.1246%
                             45+ ied 1 in 34 cubes, 2.9120%
                             50+ ied 1 in 68 cubes, 1.4656%
@@ -1104,6 +1123,9 @@ any 2l combo of drop and auto steal 1 in 353 cubes, 0.2835%
                            45+ boss 1 in 76 cubes, 1.3212%
                            50+ boss 1 in 130 cubes, 0.7698%
                            60+ boss 1 in 10607 cubes, 0.0094%
+any 2l combo of boss and hp healing 1 in 440 cubes, 0.2274%
+        45+ boss and any hp healing 1 in 995 cubes, 0.1006%
+        50+ boss and any hp healing 1 in 1718 cubes, 0.0582%
                             40+ ied 1 in 71 cubes, 1.4163%
                             45+ ied 1 in 76 cubes, 1.3148%
                             50+ ied 1 in 191 cubes, 0.5234%

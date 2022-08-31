@@ -52,7 +52,7 @@ def validate_probabilities(data):
     if tier not in Tier:
       continue
     seen = set()
-    for i, l in enumerate(lines):
+    for l in lines:
       if l[0] in seen:
         raise RuntimeError(f"found duplicate stat {line_name(l[0])} at tier {Tier(tier).name}")
       seen.add(l[0])

@@ -18,6 +18,8 @@ familiars = {
         [ATT_A, 0.37], # ATT: +1%
         [FLAT_ALLSTAT_A, 0.617], # All Stats: +1
         [IED_C, 0.617], # Attacks ignore 15% Monster DEF
+        [HEAL_HP_ONLY_A, 1.235], # Continually restores a small amount of HP (5)
+        [HEAL_MP_ONLY_A, 1.235], # Continually restores a small amount of MP (5)
         [SMALL_DROP, 1.235], # Increases Item Drop Rate by a small amount (30)
         [SMALL_MESO, 1.235], # Increases Meso Drop Rate by a small amount (30)
         [FLAT_HP_A, 2.469], # Max HP: +10
@@ -34,6 +36,17 @@ familiars = {
         [ATT_A, 0.264], # ATT: +2%
         [ALLSTAT_A, 0.176], # All Stats: +1%
         [IED_C, 0.264], # Attacks ignore 15% Monster DEF
+        [HEAL_HP_ONLY_A, 0.88], # Continually restores HP (10)
+        [HEAL_HP_MP_B, 0.88], # Continually restores HP and MP (5)
+        [HEAL_MP_ONLY_A, 0.88], # Continually restores MP (10)
+        [HEAL_HP_ONLY_B, 0.88], # Continually restores a small amount of HP (5)
+        [HEAL_HP_MP_NEAR_B, 0.88], # Continually restores a small amount of HP & MP to nearby allies (5)
+        [HEAL_HP_ONLY_NEAR_B, 0.88], # Continually restores a small amount of HP to nearby allies (5)
+        [HEAL_MP_ONLY_B, 0.88], # Continually restores a small amount of MP (5)
+        [HEAL_MP_ONLY_NEAR_B, 0.88], # Continually restores a small amount of MP to nearby allies (5)
+        [HEAL_HP_MP_PARTY_B, 0.88], # Continually restores the party's HP & MP by a small amount (5)
+        [HEAL_HP_ONLY_PARTY_B, 0.88], # Continually restores the party's HP by a small amount (5)
+        [HEAL_MP_ONLY_PARTY_B, 0.88], # Continually restores the party's MP by a small amount (5)
         [DROP_A, 0.88], # Increases Item Drop Rate (50)
         [SMALL_DROP, 0.88], # Increases Item Drop Rate by a small amount (30)
         [SMALL_DROP_MESO, 0.88], # Increases Item and Meso Drop Rate by a small amount (20)
@@ -57,6 +70,24 @@ familiars = {
         [ALLSTAT_A, 0.147], # All Stats: +2%
         [IED_A, 0.22], # Attacks ignore 30% Monster DEF
         [IED_C, 0.22], # Attacks ignore 20% Monster DEF
+        [HEAL_HP_ONLY_B, 0.734], # Continually restores HP (12)
+        [HEAL_HP_MP_NEAR_A, 0.734], # Continually restores HP & MP to nearby allies (10)
+        [HEAL_HP_MP_PARTY_A, 0.734], # Continually restores HP & MP to party members (10)
+        [HEAL_HP_MP_A, 0.734], # Continually restores HP and MP (10)
+        [HEAL_HP_MP_C, 0.734], # Continually restores HP and MP (7)
+        [HEAL_HP_ONLY_NEAR_A, 0.734], # Continually restores HP to nearby allies (10)
+        [HEAL_HP_ONLY_PARTY_A, 0.734], # Continually restores HP to party members (10)
+        [HEAL_MP_ONLY_B, 0.734], # Continually restores MP (12)
+        [HEAL_MP_ONLY_NEAR_A, 0.734], # Continually restores MP to nearby allies (10)
+        [HEAL_MP_ONLY_PARTY_A, 0.734], # Continually restores MP to party members (10)
+        [HEAL_HP_ONLY_A, 0.734], # Continually restores a large amount of HP (15)
+        [HEAL_MP_ONLY_A, 0.734], # Continually restores a large amount of MP (15)
+        [HEAL_HP_MP_NEAR_C, 0.734], # Continually restores a small amount of HP & MP to nearby allies (7)
+        [HEAL_HP_ONLY_NEAR_C, 0.734], # Continually restores a small amount of HP to nearby allies (7)
+        [HEAL_MP_ONLY_NEAR_C, 0.734], # Continually restores a small amount of MP to nearby allies (7)
+        [HEAL_HP_MP_PARTY_C, 0.734], # Continually restores the party's HP & MP by a small amount (7)
+        [HEAL_HP_ONLY_PARTY_C, 0.734], # Continually restores the party's HP by a small amount (7)
+        [HEAL_MP_ONLY_PARTY_C, 0.734], # Continually restores the party's MP by a small amount (7)
         [BOSS_C, 0.147], # Damage to Bosses: +20%
         [BOSS_A, 0.147], # Damage to Bosses: +30%
         [DROP_A, 0.734], # Increases Item Drop Rate (60)
@@ -93,6 +124,13 @@ familiars = {
         [BOSS_C, 0.146], # Boss Damage: +30%
         [BOSS_B, 0.146], # Boss Damage: +35%
         [BOSS_A, 0.146], # Boss Damage: +40%
+        [HEAL_HP_MP_A, 0.73], # Continually restores a large amount of HP & MP (15)
+        [HEAL_HP_MP_NEAR_A, 0.73], # Continually restores a large amount of HP & MP to nearby allies (15)
+        [HEAL_HP_MP_PARTY_A, 0.73], # Continually restores a large amount of HP & MP to party members (15)
+        [HEAL_HP_ONLY_NEAR_A, 0.73], # Continually restores a large amount of HP to nearby allies (15)
+        [HEAL_HP_ONLY_PARTY_A, 0.73], # Continually restores a large amount of HP to party members (15)
+        [HEAL_MP_ONLY_NEAR_A, 0.73], # Continually restores a large amount of MP to nearby allies (15)
+        [HEAL_MP_ONLY_PARTY_A, 0.73], # Continually restores a large amount of MP to party members (15)
         [CRITDMG_A, 0.438], # Critical Damage: +3%
         [CRITDMG_B, 0.438], # Critical Damage: +2%
         [LARGE_DROP_MESO, 0.73], # Increases Item and Meso Drop Rate by a large amount (50)
@@ -150,6 +188,8 @@ values = {
     ATT_A: 1,
     FLAT_ALLSTAT_A: 1,
     IED_C: 15,
+    HEAL_HP_ONLY_A: 5,
+    HEAL_MP_ONLY_A: 5,
     SMALL_DROP: 30,
     SMALL_MESO: 30,
     FLAT_HP_A: 10,
@@ -167,6 +207,17 @@ values = {
     ATT_A: 2,
     ALLSTAT_A: 1,
     IED_C: 15,
+    HEAL_HP_ONLY_A: 10,
+    HEAL_HP_MP_B: 5,
+    HEAL_MP_ONLY_A: 10,
+    HEAL_HP_ONLY_B: 5,
+    HEAL_HP_MP_NEAR_B: 5,
+    HEAL_HP_ONLY_NEAR_B: 5,
+    HEAL_MP_ONLY_B: 5,
+    HEAL_MP_ONLY_NEAR_B: 5,
+    HEAL_HP_MP_PARTY_B: 5,
+    HEAL_HP_ONLY_PARTY_B: 5,
+    HEAL_MP_ONLY_PARTY_B: 5,
     DROP_A: 50,
     SMALL_DROP: 30,
     SMALL_DROP_MESO: 20,
@@ -191,6 +242,24 @@ values = {
     ALLSTAT_A: 2,
     IED_A: 30,
     IED_C: 20,
+    HEAL_HP_ONLY_B: 12,
+    HEAL_HP_MP_NEAR_A: 10,
+    HEAL_HP_MP_PARTY_A: 10,
+    HEAL_HP_MP_A: 10,
+    HEAL_HP_MP_C: 7,
+    HEAL_HP_ONLY_NEAR_A: 10,
+    HEAL_HP_ONLY_PARTY_A: 10,
+    HEAL_MP_ONLY_B: 12,
+    HEAL_MP_ONLY_NEAR_A: 10,
+    HEAL_MP_ONLY_PARTY_A: 10,
+    HEAL_HP_ONLY_A: 15,
+    HEAL_MP_ONLY_A: 15,
+    HEAL_HP_MP_NEAR_C: 7,
+    HEAL_HP_ONLY_NEAR_C: 7,
+    HEAL_MP_ONLY_NEAR_C: 7,
+    HEAL_HP_MP_PARTY_C: 7,
+    HEAL_HP_ONLY_PARTY_C: 7,
+    HEAL_MP_ONLY_PARTY_C: 7,
     BOSS_C: 20,
     BOSS_A: 30,
     DROP_A: 60,
@@ -228,6 +297,13 @@ values = {
     BOSS_C: 30,
     BOSS_B: 35,
     BOSS_A: 40,
+    HEAL_HP_MP_A: 15,
+    HEAL_HP_MP_NEAR_A: 15,
+    HEAL_HP_MP_PARTY_A: 15,
+    HEAL_HP_ONLY_NEAR_A: 15,
+    HEAL_HP_ONLY_PARTY_A: 15,
+    HEAL_MP_ONLY_NEAR_A: 15,
+    HEAL_MP_ONLY_PARTY_A: 15,
     CRITDMG_A: 3,
     CRITDMG_B: 2,
     LARGE_DROP_MESO: 50,
@@ -282,6 +358,8 @@ desc = {
     ATT_A: "ATT: +1%",
     FLAT_ALLSTAT_A: "All Stats: +1",
     IED_C: "Attacks ignore 15% Monster DEF",
+    HEAL_HP_ONLY_A: "Continually restores a small amount of HP (5)",
+    HEAL_MP_ONLY_A: "Continually restores a small amount of MP (5)",
     SMALL_DROP: "Increases Item Drop Rate by a small amount (30)",
     SMALL_MESO: "Increases Meso Drop Rate by a small amount (30)",
     FLAT_HP_A: "Max HP: +10",
@@ -298,6 +376,17 @@ desc = {
     ATT_A: "ATT: +2%",
     ALLSTAT_A: "All Stats: +1%",
     IED_C: "Attacks ignore 15% Monster DEF",
+    HEAL_HP_ONLY_A: "Continually restores HP (10)",
+    HEAL_HP_MP_B: "Continually restores HP and MP (5)",
+    HEAL_MP_ONLY_A: "Continually restores MP (10)",
+    HEAL_HP_ONLY_B: "Continually restores a small amount of HP (5)",
+    HEAL_HP_MP_NEAR_B: "Continually restores a small amount of HP & MP to nearby allies (5)",
+    HEAL_HP_ONLY_NEAR_B: "Continually restores a small amount of HP to nearby allies (5)",
+    HEAL_MP_ONLY_B: "Continually restores a small amount of MP (5)",
+    HEAL_MP_ONLY_NEAR_B: "Continually restores a small amount of MP to nearby allies (5)",
+    HEAL_HP_MP_PARTY_B: "Continually restores the party's HP & MP by a small amount (5)",
+    HEAL_HP_ONLY_PARTY_B: "Continually restores the party's HP by a small amount (5)",
+    HEAL_MP_ONLY_PARTY_B: "Continually restores the party's MP by a small amount (5)",
     DROP_A: "Increases Item Drop Rate (50)",
     SMALL_DROP: "Increases Item Drop Rate by a small amount (30)",
     SMALL_DROP_MESO: "Increases Item and Meso Drop Rate by a small amount (20)",
@@ -321,6 +410,24 @@ desc = {
     ALLSTAT_A: "All Stats: +2%",
     IED_A: "Attacks ignore 30% Monster DEF",
     IED_C: "Attacks ignore 20% Monster DEF",
+    HEAL_HP_ONLY_B: "Continually restores HP (12)",
+    HEAL_HP_MP_NEAR_A: "Continually restores HP & MP to nearby allies (10)",
+    HEAL_HP_MP_PARTY_A: "Continually restores HP & MP to party members (10)",
+    HEAL_HP_MP_A: "Continually restores HP and MP (10)",
+    HEAL_HP_MP_C: "Continually restores HP and MP (7)",
+    HEAL_HP_ONLY_NEAR_A: "Continually restores HP to nearby allies (10)",
+    HEAL_HP_ONLY_PARTY_A: "Continually restores HP to party members (10)",
+    HEAL_MP_ONLY_B: "Continually restores MP (12)",
+    HEAL_MP_ONLY_NEAR_A: "Continually restores MP to nearby allies (10)",
+    HEAL_MP_ONLY_PARTY_A: "Continually restores MP to party members (10)",
+    HEAL_HP_ONLY_A: "Continually restores a large amount of HP (15)",
+    HEAL_MP_ONLY_A: "Continually restores a large amount of MP (15)",
+    HEAL_HP_MP_NEAR_C: "Continually restores a small amount of HP & MP to nearby allies (7)",
+    HEAL_HP_ONLY_NEAR_C: "Continually restores a small amount of HP to nearby allies (7)",
+    HEAL_MP_ONLY_NEAR_C: "Continually restores a small amount of MP to nearby allies (7)",
+    HEAL_HP_MP_PARTY_C: "Continually restores the party's HP & MP by a small amount (7)",
+    HEAL_HP_ONLY_PARTY_C: "Continually restores the party's HP by a small amount (7)",
+    HEAL_MP_ONLY_PARTY_C: "Continually restores the party's MP by a small amount (7)",
     BOSS_C: "Damage to Bosses: +20%",
     BOSS_A: "Damage to Bosses: +30%",
     DROP_A: "Increases Item Drop Rate (60)",
@@ -357,6 +464,13 @@ desc = {
     BOSS_C: "Boss Damage: +30%",
     BOSS_B: "Boss Damage: +35%",
     BOSS_A: "Boss Damage: +40%",
+    HEAL_HP_MP_A: "Continually restores a large amount of HP & MP (15)",
+    HEAL_HP_MP_NEAR_A: "Continually restores a large amount of HP & MP to nearby allies (15)",
+    HEAL_HP_MP_PARTY_A: "Continually restores a large amount of HP & MP to party members (15)",
+    HEAL_HP_ONLY_NEAR_A: "Continually restores a large amount of HP to nearby allies (15)",
+    HEAL_HP_ONLY_PARTY_A: "Continually restores a large amount of HP to party members (15)",
+    HEAL_MP_ONLY_NEAR_A: "Continually restores a large amount of MP to nearby allies (15)",
+    HEAL_MP_ONLY_PARTY_A: "Continually restores a large amount of MP to party members (15)",
     CRITDMG_A: "Critical Damage: +3%",
     CRITDMG_B: "Critical Damage: +2%",
     LARGE_DROP_MESO: "Increases Item and Meso Drop Rate by a large amount (50)",
@@ -406,11 +520,18 @@ red_card_estimate = {
       RARE: [],
       EPIC: [],
       UNIQUE: [
+        [HEAL_HP_ONLY_PARTY_A, 54 / 2903 * 100],
+        [HEAL_HP_MP_PARTY_A, 54 / 2903 * 100],
         [LARGE_DROP_MESO, 54 / 2903 * 100],
         [FLAT_ALLSTAT_B, 53 / 2903 * 100],
+        [HEAL_MP_ONLY_PARTY_A, 53 / 2903 * 100],
+        [HEAL_MP_ONLY_NEAR_A, 50 / 2903 * 100],
         [FLAT_DEX_ONLY, 49 / 2903 * 100],
+        [HEAL_HP_ONLY_NEAR_A, 45 / 2903 * 100],
         [FLAT_HP_A, 37 / 2903 * 100],
+        [HEAL_HP_MP_A, 36 / 2903 * 100],
         [FLAT_ATT_B, 35 / 2903 * 100],
+        [HEAL_HP_MP_NEAR_A, 35 / 2903 * 100],
         [FLAT_MAINSTAT_A, 33 / 2903 * 100],
         [INVIN, 33 / 2903 * 100],
         [FLAT_ATT_A, 28 / 2903 * 100],

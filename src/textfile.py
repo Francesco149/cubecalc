@@ -460,11 +460,14 @@ def familiar_calcs():
     ("50+ drop", [{DROP: 50}]),
     ("70+ drop", [{DROP: 70}]),
     ("70+ meso", [{DROP: 70}]),
+    ("5+ hp healing", [{HEAL_HP: 5}]),
+    ("5+ mp healing", [{HEAL_MP: 5}]),
   ]
 
   combos_fam_epic = [
     ("20+ boss", [{BOSS: 20}]),
     ("30+ boss", [{BOSS: 30}]),
+    ("any 2l combo of boss and hp healing", [{BOSS: 1, HEAL_HP: 1, LINES: 2}]),
     ("20+ ied", [{IED: 20}]),
     ("30+ ied", [{IED: 30}]),
     ("25+ drop", [{DROP: 25}]),
@@ -476,11 +479,17 @@ def familiar_calcs():
     ("1+ auto steal", [{AUTOSTEAL: 1}]),
     ("2+ auto steal", [{AUTOSTEAL: 2}]),
     ("any 2l combo of drop and auto steal", [{AUTOSTEAL: 1, DROP: 1, LINES: 2}]),
+    ("10+ hp healing", [{HEAL_HP: 10}]),
+    ("10+ mp healing", [{HEAL_MP: 10}]),
+    ("15+ hp healing", [{HEAL_HP: 15}]),
+    ("15+ mp healing", [{HEAL_MP: 15}]),
   ]
 
   combos_fam_unique = combos_fam_epic + [
     ("35+ boss", [{BOSS: 35}]),
     ("40+ boss", [{BOSS: 40}]),
+    ("35+ boss and any hp healing", [{BOSS: 35, HEAL_HP: 1}]),
+    ("40+ boss and any hp healing", [{BOSS: 40, HEAL_HP: 1}]),
     ("35+ ied", [{IED: 35}]),
     ("40+ ied", [{IED: 40}]),
     ("any 2l combo of boss and ied", [{BOSS: 1, IED: 1, LINES: 2}]),
@@ -498,6 +507,9 @@ def familiar_calcs():
     ("7+ auto steal", [{AUTOSTEAL: 7}]),
     ("8+ auto steal", [{AUTOSTEAL: 8}]),
     ("9+ auto steal", [{AUTOSTEAL: 9}]),
+
+    ("20+ hp healing", [{HEAL_HP: 20}]),
+    ("20+ mp healing", [{HEAL_MP: 20}]),
   ]
 
   combos_fam_legendary = [
@@ -505,6 +517,9 @@ def familiar_calcs():
     ("45+ boss", [{BOSS: 45}]),
     ("50+ boss", [{BOSS: 50}]),
     ("60+ boss", [{BOSS: 60}]),
+    ("any 2l combo of boss and hp healing", [{BOSS: 1, HEAL_HP: 1, LINES: 2}]),
+    ("45+ boss and any hp healing", [{BOSS: 45, HEAL_HP: 1}]),
+    ("50+ boss and any hp healing", [{BOSS: 50, HEAL_HP: 1}]),
 
     ("40+ ied", [{IED: 40}]),
     ("45+ ied", [{IED: 45}]),

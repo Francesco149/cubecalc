@@ -34,7 +34,6 @@ known_lines = {
   "Attacks have a #prop% chance to inflict Lv. #level Stun",
   "Attacks have a #prop% chance to restore #HP HP",
   "Attacks have a #prop% chance to restore #MP MP",
-  "Continually restores a small amount of MP",
   "DEF: +#incPDDr%",
   "Increases Defense by a small amount",
   "Increases Speed and Jump slightly",
@@ -44,9 +43,6 @@ known_lines = {
   "Prevents slipping in El Nath",
   "Restores #RecoveryMP MP every 4 sec",
   "Attacks have a #prop% chance to ignore #ignoreDAM damage",
-  "Continually restores MP",
-  "Continually restores a small amount of MP to nearby allies",
-  "Continually restores the party's MP by a small amount",
   "Hitting an enemy has a #prop% chance to restore #MP MP",
   "Increases Defense",
   "Increases Speed and Jump",
@@ -61,9 +57,6 @@ known_lines = {
   "Increases Speed and Jump by a large amount",
   "Increases party members' Defense"
   "Attacks have a #prop% chance to ignore #ignoreDAMr% damage",
-  "Continually restores MP to nearby allies",
-  "Continually restores MP to party members",
-  "Continually restores a large amount of MP",
   "Attacks have a #prop% chance to ignore #ignoreDAMr% damage",
   "Increases party members' Defense",
   "Increases party members' Jump",
@@ -73,8 +66,6 @@ known_lines = {
   "Increases the Speed of nearby allies",
   "All Elemental Resistances: +#incTerR",
   "All Skill MP Costs: -#mpconReduce%",
-  "Continually restores a large amount of MP to nearby allies",
-  "Continually restores a large amount of MP to party members",
   "Increases party members' Defense by a large amount",
   "Increases the Defense of nearby allies by a large amount",
   "Increases the Jump of nearby allies by a large amount",
@@ -119,27 +110,6 @@ known_lines = {
 
   "Critical Rate: +#incCr%",
   "All Skill Levels: +#incAllskill",
-
-  "Continually restores a small amount of HP",
-  "Continually restores HP",
-  "Continually restores HP and MP",
-  "Continually restores a large amount of HP",
-  "Continually restores a large amount of HP & MP",
-
-  "Continually restores a small amount of HP & MP to nearby allies",
-  "Continually restores a small amount of HP to nearby allies",
-  "Continually restores HP to nearby allies",
-  "Continually restores HP & MP to nearby allies",
-  "Continually restores a large amount of HP to nearby allies",
-  "Continually restores a large amount of HP & MP to nearby allies",
-
-  "Continually restores HP to party members",
-  "Continually restores HP & MP to party members",
-  "Continually restores a large amount of HP to party members",
-  "Continually restores a large amount of HP & MP to party members",
-
-  "Continually restores the party's HP & MP by a small amount",
-  "Continually restores the party's HP by a small amount",
 
   "Hitting an enemy has a #prop% chance to restore #HP HP",
   "HP Recovery Items and Skills: +#RecoveryUP%",
@@ -205,6 +175,41 @@ convert_lines = {
   "All Stats: +#incSTRr%": ALLSTAT_A,
 
   "#prop% chance to Auto Steal": AUTOSTEAL_A,
+
+  "Continually restores a small amount of HP": HEAL_HP_ONLY_A,
+  "Continually restores HP": HEAL_HP_ONLY_A,
+  "Continually restores a large amount of HP": HEAL_HP_ONLY_A,
+
+  "Continually restores HP and MP": HEAL_HP_MP_A,
+  "Continually restores a large amount of HP & MP": HEAL_HP_MP_A,
+
+  "Continually restores a small amount of HP & MP to nearby allies": HEAL_HP_MP_NEAR_A,
+  "Continually restores HP & MP to nearby allies": HEAL_HP_MP_NEAR_A,
+  "Continually restores a large amount of HP & MP to nearby allies": HEAL_HP_MP_NEAR_A,
+
+  "Continually restores a small amount of HP to nearby allies": HEAL_HP_ONLY_NEAR_A,
+  "Continually restores HP to nearby allies": HEAL_HP_ONLY_NEAR_A,
+  "Continually restores a large amount of HP to nearby allies": HEAL_HP_ONLY_NEAR_A,
+
+  "Continually restores the party's HP by a small amount": HEAL_HP_ONLY_PARTY_A,
+  "Continually restores HP to party members": HEAL_HP_ONLY_PARTY_A,
+  "Continually restores a large amount of HP to party members": HEAL_HP_ONLY_PARTY_A,
+
+  "Continually restores the party's HP & MP by a small amount": HEAL_HP_MP_PARTY_A,
+  "Continually restores HP & MP to party members": HEAL_HP_MP_PARTY_A,
+  "Continually restores a large amount of HP & MP to party members": HEAL_HP_MP_PARTY_A,
+
+  "Continually restores a small amount of MP": HEAL_MP_ONLY_A,
+  "Continually restores MP": HEAL_MP_ONLY_A,
+  "Continually restores a large amount of MP": HEAL_MP_ONLY_A,
+
+  "Continually restores MP to nearby allies": HEAL_MP_ONLY_NEAR_A,
+  "Continually restores a small amount of MP to nearby allies": HEAL_MP_ONLY_NEAR_A,
+  "Continually restores a large amount of MP to nearby allies": HEAL_MP_ONLY_NEAR_A,
+
+  "Continually restores the party's MP by a small amount": HEAL_MP_ONLY_PARTY_A,
+  "Continually restores MP to party members": HEAL_MP_ONLY_PARTY_A,
+  "Continually restores a large amount of MP to party members": HEAL_MP_ONLY_PARTY_A,
 }
 
 
@@ -267,7 +272,9 @@ with open("cache/familiars.txt") as f:
       if stat != ANY:
 
         if stat == AUTOSTEAL_A:
-          linetext = re.findall(r"1[0-9]%[^0-9]+2", line)[0][1:-1]
+          linetext = re.findall(r"[0-9]+% chance to Auto Steal", line)[0][1:]
+        elif (stat & (HEAL_HP | HEAL_MP)) != 0:
+          linetext = re.findall(r"\(\+?[0-9]+%[^0-9]+ every", line)[0]
         else:
           linetext = re.split(r"[0-9]", line)[1]
           linetext = line.split(f"2{linetext}")[0][1:]
@@ -352,6 +359,24 @@ with open("cache/familiars.txt") as f:
           elif tier == EPIC:
             if amount == 1:
               stat = AUTOSTEAL_B
+
+        # as far as I know, the 12% is either never used or only applies to special legacy fams
+        # like golem and snail
+        elif (stat & (HEAL_HP | HEAL_MP)) != 0:
+          if tier == UNIQUE:
+            if amount == 12:
+              continue
+          elif tier == EPIC:
+            if amount == 12:
+              stat &= ~LINE_A
+              stat |= LINE_B
+            elif amount == 7:
+              stat &= ~LINE_A
+              stat |= LINE_C
+          elif tier == RARE:
+            if amount == 5:
+              stat &= ~LINE_A
+              stat |= LINE_B
 
         desc = line_description(rawtext, stat, amount)
         line = (stat, percent, amount, desc)
