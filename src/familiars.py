@@ -11,6 +11,7 @@ familiars = {
         [FLAT_MAINSTAT_A, 5.882], # Main Stat: +1
       ],
       COMMON: [
+        [FLAT_ALLSTAT_A, 0.617], # All Stats: +1
         [IED_C, 0.617], # Attacks ignore 15% Monster DEF
         [SMALL_DROP, 1.235], # Increases Item Drop Rate by a small amount (30)
         [SMALL_MESO, 1.235], # Increases Meso Drop Rate by a small amount (30)
@@ -47,6 +48,7 @@ familiars = {
         [INVIN, 0.367], # When hit, get +2 sec of invincibility
       ],
       UNIQUE: [
+        [FLAT_ALLSTAT_A, 0.365], # All Stats: +4
         [IED_B, 0.219], # Attacks ignore 35% Monster DEF
         [IED_A, 0.219], # Attacks ignore 40% Monster DEF
         [IED_C, 0.219], # Attacks ignore 30% Monster DEF
@@ -56,6 +58,9 @@ familiars = {
         [CRITDMG_A, 0.438], # Critical Damage: +3%
         [CRITDMG_B, 0.438], # Critical Damage: +2%
         [LARGE_DROP_MESO, 0.73], # Increases Item and Meso Drop Rate by a large amount (50)
+        [FLAT_ALLSTAT_C, 0.73], # Increases Main Stat, INT, DEX, and LUK of players on the same map (2)
+        [FLAT_ALLSTAT_B, 0.73], # Increases your party's Main Stat, INT, DEX, and LUK (3)
+        [FLAT_ALLSTAT_D, 0.73], # Increases your party's Main Stat, INT, DEX, and LUK (1)
         [SMALL_DROP, 0.365], # Item Acquisition Rate: +10%
         [FLAT_MESO, 0.365], # Mesos Obtained: +10
         [FLAT_MAINSTAT_A, 1.46], # Main Stat: +8
@@ -87,6 +92,7 @@ values = {
   },
   COMMON: {
     ANY: 1,
+    FLAT_ALLSTAT_A: 1,
     IED_C: 15,
     SMALL_DROP: 30,
     SMALL_MESO: 30,
@@ -126,6 +132,7 @@ values = {
   },
   UNIQUE: {
     ANY: 1,
+    FLAT_ALLSTAT_A: 4,
     IED_B: 35,
     IED_A: 40,
     IED_C: 30,
@@ -135,6 +142,9 @@ values = {
     CRITDMG_A: 3,
     CRITDMG_B: 2,
     LARGE_DROP_MESO: 50,
+    FLAT_ALLSTAT_C: 2,
+    FLAT_ALLSTAT_B: 3,
+    FLAT_ALLSTAT_D: 1,
     SMALL_DROP: 10,
     FLAT_MESO: 10,
     FLAT_MAINSTAT_A: 8,
@@ -163,6 +173,7 @@ desc = {
     FLAT_MAINSTAT_A: "Main Stat: +1",
   },
   COMMON: {
+    FLAT_ALLSTAT_A: "All Stats: +1",
     IED_C: "Attacks ignore 15% Monster DEF",
     SMALL_DROP: "Increases Item Drop Rate by a small amount (30)",
     SMALL_MESO: "Increases Meso Drop Rate by a small amount (30)",
@@ -199,6 +210,7 @@ desc = {
     INVIN: "When hit, get +2 sec of invincibility",
   },
   UNIQUE: {
+    FLAT_ALLSTAT_A: "All Stats: +4",
     IED_B: "Attacks ignore 35% Monster DEF",
     IED_A: "Attacks ignore 40% Monster DEF",
     IED_C: "Attacks ignore 30% Monster DEF",
@@ -208,6 +220,9 @@ desc = {
     CRITDMG_A: "Critical Damage: +3%",
     CRITDMG_B: "Critical Damage: +2%",
     LARGE_DROP_MESO: "Increases Item and Meso Drop Rate by a large amount (50)",
+    FLAT_ALLSTAT_C: "Increases Main Stat, INT, DEX, and LUK of players on the same map (2)",
+    FLAT_ALLSTAT_B: "Increases your party's Main Stat, INT, DEX, and LUK (3)",
+    FLAT_ALLSTAT_D: "Increases your party's Main Stat, INT, DEX, and LUK (1)",
     SMALL_DROP: "Item Acquisition Rate: +10%",
     FLAT_MESO: "Mesos Obtained: +10",
     FLAT_MAINSTAT_A: "Main Stat: +8",

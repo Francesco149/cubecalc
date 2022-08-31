@@ -174,10 +174,6 @@ known_lines = {
   "ATT: +#incPAD",
   "Max HP: +#incMHP",
 
-  "All Stats: +#incSTR",
-  "Increases your party's STR, INT, DEX, and LUK",
-  "Increases STR, INT, DEX, and LUK of players on the same map",
-
   "Increases Speed, Jump, DEX, and Defense by a small amount",
 
 
@@ -236,6 +232,10 @@ convert_lines = {
   "Increases STR by a small amount": FLAT_MAINSTAT_A,
   "Increases STR": FLAT_MAINSTAT_A,
   "Increases STR by a large amount": FLAT_MAINSTAT_A,
+
+  "All Stats: +#incSTR": FLAT_ALLSTAT_A,
+  "Increases your party's STR, INT, DEX, and LUK": FLAT_ALLSTAT_A,
+  "Increases STR, INT, DEX, and LUK of players on the same map": FLAT_ALLSTAT_A,
 }
 
 
@@ -329,6 +329,14 @@ with open("cache/familiars.txt") as f:
               (tier == EPIC and amount == 5) or
               (tier == UNIQUE and amount == 7)):
             stat = FLAT_MAINSTAT_B
+
+        if stat == FLAT_ALLSTAT_A and tier == UNIQUE:
+          if amount == 3:
+            stat = FLAT_ALLSTAT_B
+          elif amount == 2:
+            stat = FLAT_ALLSTAT_C
+          elif amount == 1:
+            stat = FLAT_ALLSTAT_D
 
         desc = line_description(rawtext, stat, amount)
         line = (stat, percent, amount, desc)

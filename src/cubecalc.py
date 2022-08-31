@@ -209,7 +209,7 @@ def find_line_values(cube, category, region):
       FLAT_ATT: flat_att_13,
       MAINSTAT: mpot_4,
       HP: mpot_4,
-      FLAT_ALLSTAT: flat_allstat_6,
+      FLAT_ALLSTAT_A: flat_allstat_6,
       ATT: mpot_4,
       DAMAGE_A: mpot_4,
       IED_C: minlvl(30, 15),
@@ -461,7 +461,7 @@ def find_line_values(cube, category, region):
       FLAT_HP: flat_hp_125,
       MAINSTAT: mainstat_3,
       HP: mainstat_3,
-      FLAT_ALLSTAT: flat_allstat_3,
+      FLAT_ALLSTAT_A: flat_allstat_3,
     },
 
     EPIC: {
@@ -526,7 +526,7 @@ def find_line_values(cube, category, region):
       ATT: mpot_4,
       DAMAGE_A: mpot_4,
       HP: mainstat_3,
-      FLAT_ALLSTAT: flat_allstat_6,
+      FLAT_ALLSTAT_A: flat_allstat_6,
     },
 
     EPIC: {

@@ -19,7 +19,7 @@ cubes = {
         [MAINSTAT, 6.1224],
         [ATT, 2.0408],
         [DAMAGE_A, 2.0408],
-        [FLAT_ALLSTAT, 4.0816],
+        [FLAT_ALLSTAT_A, 4.0816],
         [IED_C, 2.0408],
       ],
       EPIC: [
@@ -63,7 +63,7 @@ cubes = {
         [MAINSTAT, 6.1224],
         [ATT, 2.0408],
         [DAMAGE_A, 2.0408],
-        [FLAT_ALLSTAT, 4.0816],
+        [FLAT_ALLSTAT_A, 4.0816],
         [IED_C, 2.0408],
       ],
       EPIC: [
@@ -104,7 +104,7 @@ cubes = {
         [MAINSTAT, 6.1224],
         [ATT, 2.0408],
         [DAMAGE_A, 2.0408],
-        [FLAT_ALLSTAT, 4.0816],
+        [FLAT_ALLSTAT_A, 4.0816],
         [IED_C, 2.0408],
       ],
       EPIC: [
@@ -148,7 +148,7 @@ cubes = {
         [MAINSTAT, 6.5217],
         [ATT, 2.1739],
         [DAMAGE_A, 2.1739],
-        [FLAT_ALLSTAT, 4.3478],
+        [FLAT_ALLSTAT_A, 4.3478],
         [IED_C, 2.1739],
       ],
       EPIC: [
@@ -189,7 +189,7 @@ cubes = {
         [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
-        [FLAT_ALLSTAT, 5.0],
+        [FLAT_ALLSTAT_A, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -219,7 +219,7 @@ cubes = {
         [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
-        [FLAT_ALLSTAT, 5.0],
+        [FLAT_ALLSTAT_A, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 13.1579],
@@ -250,7 +250,7 @@ cubes = {
         [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
-        [FLAT_ALLSTAT, 5.0],
+        [FLAT_ALLSTAT_A, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -278,7 +278,7 @@ cubes = {
         [FLAT_HP, 6.8182],
         [MAINSTAT, 6.8182],
         [HP, 4.5455],
-        [FLAT_ALLSTAT, 4.5455],
+        [FLAT_ALLSTAT_A, 4.5455],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -307,7 +307,7 @@ cubes = {
         [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
-        [FLAT_ALLSTAT, 5.0],
+        [FLAT_ALLSTAT_A, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 12.1951],
@@ -339,7 +339,7 @@ cubes = {
         [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
-        [FLAT_ALLSTAT, 5.0],
+        [FLAT_ALLSTAT_A, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -367,7 +367,7 @@ cubes = {
         [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
-        [FLAT_ALLSTAT, 5.0],
+        [FLAT_ALLSTAT_A, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -397,7 +397,7 @@ cubes = {
         [FLAT_HP, 7.5],
         [MAINSTAT, 7.5],
         [HP, 5.0],
-        [FLAT_ALLSTAT, 5.0],
+        [FLAT_ALLSTAT_A, 5.0],
       ],
       EPIC: [
         [MAINSTAT, 14.2857],
@@ -430,7 +430,7 @@ cubes = {
         [MAINSTAT, 3.5088],
         [ATT, 1.7544],
         [DAMAGE_A, 1.7544],
-        [FLAT_ALLSTAT, 3.5088],
+        [FLAT_ALLSTAT_A, 3.5088],
         [IED_C, 1.7544],
       ],
       EPIC: [
@@ -473,7 +473,7 @@ cubes = {
         [MAINSTAT, 3.5088],
         [ATT, 1.7544],
         [DAMAGE_A, 1.7544],
-        [FLAT_ALLSTAT, 3.5088],
+        [FLAT_ALLSTAT_A, 3.5088],
         [IED_C, 1.7544],
       ],
       EPIC: [
@@ -513,7 +513,7 @@ cubes = {
         [MAINSTAT, 3.5088],
         [ATT, 1.7544],
         [DAMAGE_A, 1.7544],
-        [FLAT_ALLSTAT, 3.5088],
+        [FLAT_ALLSTAT_A, 3.5088],
         [IED_C, 1.7544],
       ],
       EPIC: [
@@ -556,7 +556,7 @@ cubes = {
         [MAINSTAT, 3.9216],
         [ATT, 1.9608],
         [DAMAGE_A, 1.9608],
-        [FLAT_ALLSTAT, 3.9216],
+        [FLAT_ALLSTAT_A, 3.9216],
         [IED_C, 1.9608],
       ],
       EPIC: [
@@ -596,7 +596,7 @@ cubes = {
         [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
-        [FLAT_ALLSTAT, 5.5556],
+        [FLAT_ALLSTAT_A, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 7.4074],
@@ -626,7 +626,7 @@ cubes = {
         [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
-        [FLAT_ALLSTAT, 5.5556],
+        [FLAT_ALLSTAT_A, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 6.6667],
@@ -657,7 +657,7 @@ cubes = {
         [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
-        [FLAT_ALLSTAT, 5.5556],
+        [FLAT_ALLSTAT_A, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 7.4074],
@@ -685,7 +685,7 @@ cubes = {
         [FLAT_HP, 7.1429],
         [MAINSTAT, 4.7619],
         [HP, 7.1429],
-        [FLAT_ALLSTAT, 4.7619],
+        [FLAT_ALLSTAT_A, 4.7619],
       ],
       EPIC: [
         [MAINSTAT, 7.4074],
@@ -714,7 +714,7 @@ cubes = {
         [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
-        [FLAT_ALLSTAT, 5.5556],
+        [FLAT_ALLSTAT_A, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 6.0606],
@@ -745,7 +745,7 @@ cubes = {
         [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
-        [FLAT_ALLSTAT, 5.5556],
+        [FLAT_ALLSTAT_A, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 7.4074],
@@ -773,7 +773,7 @@ cubes = {
         [FLAT_HP, 7.1429],
         [MAINSTAT, 4.7619],
         [HP, 7.1429],
-        [FLAT_ALLSTAT, 4.7619],
+        [FLAT_ALLSTAT_A, 4.7619],
       ],
       EPIC: [
         [MAINSTAT, 11.1111],
@@ -803,7 +803,7 @@ cubes = {
         [FLAT_HP, 8.3333],
         [MAINSTAT, 5.5556],
         [HP, 8.3333],
-        [FLAT_ALLSTAT, 5.5556],
+        [FLAT_ALLSTAT_A, 5.5556],
       ],
       EPIC: [
         [MAINSTAT, 11.1111],
@@ -837,7 +837,7 @@ cubes = {
         [MAINSTAT, 3.9216],
         [ATT, 1.9608],
         [DAMAGE_A, 1.9608],
-        [FLAT_ALLSTAT, 5.8824],
+        [FLAT_ALLSTAT_A, 5.8824],
       ],
       EPIC: [
         [HP, 8.8235],
@@ -883,7 +883,7 @@ cubes = {
         [MAINSTAT, 3.9216],
         [ATT, 1.9608],
         [DAMAGE_A, 1.9608],
-        [FLAT_ALLSTAT, 5.8824],
+        [FLAT_ALLSTAT_A, 5.8824],
       ],
       EPIC: [
         [HP, 8.8235],
@@ -927,7 +927,7 @@ cubes = {
         [MAINSTAT, 3.9216],
         [ATT, 1.9608],
         [DAMAGE_A, 1.9608],
-        [FLAT_ALLSTAT, 5.8824],
+        [FLAT_ALLSTAT_A, 5.8824],
       ],
       EPIC: [
         [HP, 8.8235],
@@ -974,7 +974,7 @@ cubes = {
         [MAINSTAT, 3.9216],
         [ATT, 1.9608],
         [DAMAGE_A, 1.9608],
-        [FLAT_ALLSTAT, 5.8824],
+        [FLAT_ALLSTAT_A, 5.8824],
       ],
       EPIC: [
         [HP, 8.8235],
@@ -1019,7 +1019,7 @@ cubes = {
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
-        [FLAT_ALLSTAT, 4.2553],
+        [FLAT_ALLSTAT_A, 4.2553],
       ],
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
@@ -1064,7 +1064,7 @@ cubes = {
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
-        [FLAT_ALLSTAT, 4.2553],
+        [FLAT_ALLSTAT_A, 4.2553],
       ],
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
@@ -1108,7 +1108,7 @@ cubes = {
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
-        [FLAT_ALLSTAT, 4.2553],
+        [FLAT_ALLSTAT_A, 4.2553],
       ],
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
@@ -1152,7 +1152,7 @@ cubes = {
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
-        [FLAT_ALLSTAT, 4.2553],
+        [FLAT_ALLSTAT_A, 4.2553],
       ],
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
@@ -1196,7 +1196,7 @@ cubes = {
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
-        [FLAT_ALLSTAT, 4.2553],
+        [FLAT_ALLSTAT_A, 4.2553],
       ],
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
@@ -1240,7 +1240,7 @@ cubes = {
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
-        [FLAT_ALLSTAT, 4.2553],
+        [FLAT_ALLSTAT_A, 4.2553],
       ],
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
@@ -1284,7 +1284,7 @@ cubes = {
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
-        [FLAT_ALLSTAT, 4.2553],
+        [FLAT_ALLSTAT_A, 4.2553],
       ],
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],
@@ -1327,7 +1327,7 @@ cubes = {
         [FLAT_ATT, 4.2553],
         [MAINSTAT, 4.2553],
         [HP, 4.2553],
-        [FLAT_ALLSTAT, 4.2553],
+        [FLAT_ALLSTAT_A, 4.2553],
       ],
       EPIC: [
         [FLAT_MAINSTAT_A, 6.0],

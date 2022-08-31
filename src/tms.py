@@ -12,7 +12,7 @@ event = {
         [FLAT_HP, 10.0],
         [MAINSTAT, 6.0],
         [HP, 6.0],
-        [FLAT_ALLSTAT, 4.0],
+        [FLAT_ALLSTAT_A, 4.0],
       ],
     }),
     SHOE: percent({
@@ -21,7 +21,7 @@ event = {
         [FLAT_HP, 9.25],
         [MAINSTAT, 5.56],
         [HP, 5.56],
-        [FLAT_ALLSTAT, 3.7],
+        [FLAT_ALLSTAT_A, 3.7],
       ],
       EPIC: [
         [MAINSTAT, 11.9],
@@ -46,7 +46,7 @@ event = {
         [FLAT_HP, 10.0],
         [MAINSTAT, 6.0],
         [HP, 6.0],
-        [FLAT_ALLSTAT, 4.0],
+        [FLAT_ALLSTAT_A, 4.0],
       ],
       EPIC: [
         [MAINSTAT, 11.9],
@@ -74,7 +74,7 @@ event = {
         [MAINSTAT, 5.56],
         [ATT, 1.85],
         [DAMAGE_A, 1.85],
-        [FLAT_ALLSTAT, 3.7],
+        [FLAT_ALLSTAT_A, 3.7],
         [IED_C, 1.85],
       ],
       EPIC: [
@@ -94,7 +94,7 @@ event = {
         [MAINSTAT, 6.25],
         [ATT, 2.08],
         [DAMAGE_A, 2.08],
-        [FLAT_ALLSTAT, 4.17],
+        [FLAT_ALLSTAT_A, 4.17],
         [IED_C, 2.08],
       ],
       EPIC: [
@@ -240,7 +240,7 @@ event = {
         [FLAT_HP, 9.26],
         [MAINSTAT, 2.78],
         [HP, 2.78],
-        [FLAT_ALLSTAT, 8.33],
+        [FLAT_ALLSTAT_A, 8.33],
       ],
     }),
     SHOE: percent({
@@ -249,7 +249,7 @@ event = {
         [FLAT_HP, 7.3],
         [MAINSTAT, 2.19],
         [HP, 2.19],
-        [FLAT_ALLSTAT, 7.3],
+        [FLAT_ALLSTAT_A, 7.3],
       ],
       EPIC: [
         [MAINSTAT, 13.7],
@@ -274,7 +274,7 @@ event = {
         [FLAT_HP, 9.26],
         [MAINSTAT, 2.78],
         [HP, 2.78],
-        [FLAT_ALLSTAT, 8.33],
+        [FLAT_ALLSTAT_A, 8.33],
       ],
       EPIC: [
         [MAINSTAT, 13.7],
@@ -302,7 +302,7 @@ event = {
         [MAINSTAT, 5.56],
         [ATT, 1.85],
         [DAMAGE_A, 1.85],
-        [FLAT_ALLSTAT, 3.7],
+        [FLAT_ALLSTAT_A, 3.7],
         [IED_C, 1.85],
       ],
       EPIC: [
@@ -322,7 +322,7 @@ event = {
         [MAINSTAT, 6.0],
         [ATT, 2.0],
         [DAMAGE_A, 2.0],
-        [FLAT_ALLSTAT, 4.0],
+        [FLAT_ALLSTAT_A, 4.0],
         [IED_C, 2.0],
       ],
       EPIC: [
