@@ -1038,52 +1038,80 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
          70+ drop 1 in 9201 cubes, 0.0109%
          70+ meso 1 in 9201 cubes, 0.0109%
 ====================== familiar (familiar on lv150 epic) =======================
-         20+ boss 1 in 340 cubes, 0.2940%
-         30+ boss 1 in 680 cubes, 0.1470%
-          20+ ied 1 in 227 cubes, 0.4400%
-          30+ ied 1 in 453 cubes, 0.2206%
-         25+ drop 1 in 22 cubes, 4.6443%
-         50+ drop 1 in 42 cubes, 2.3545%
-        100+ drop 1 in 135 cubes, 0.7405%
-         25+ meso 1 in 22 cubes, 4.6443%
-25+ meso and drop 1 in 66 cubes, 1.5197%
-40+ meso and drop 1 in 130 cubes, 0.7663%
+                           20+ boss 1 in 340 cubes, 0.2940%
+                           30+ boss 1 in 680 cubes, 0.1470%
+                            20+ ied 1 in 227 cubes, 0.4400%
+                            30+ ied 1 in 453 cubes, 0.2206%
+                           25+ drop 1 in 22 cubes, 4.6443%
+                           50+ drop 1 in 42 cubes, 2.3545%
+                          100+ drop 1 in 135 cubes, 0.7405%
+                           25+ meso 1 in 22 cubes, 4.6443%
+                  25+ meso and drop 1 in 66 cubes, 1.5197%
+                  40+ meso and drop 1 in 130 cubes, 0.7663%
+                      1+ auto steal 1 in 136 cubes, 0.7340%
+                      2+ auto steal 1 in 272 cubes, 0.3670%
+any 2l combo of drop and auto steal 1 in 1032 cubes, 0.0969%
 ===================== familiar (familiar on lv150 unique) ======================
-                     20+ boss 1 in 137 cubes, 0.7307%
-                     30+ boss 1 in 171 cubes, 0.5844%
-                      20+ ied 1 in 91 cubes, 1.0941%
-                      30+ ied 1 in 114 cubes, 0.8756%
-                     25+ drop 1 in 27 cubes, 3.6446%
-                     50+ drop 1 in 46 cubes, 2.1900%
-                    100+ drop 1 in 135 cubes, 0.7394%
-                     25+ meso 1 in 27 cubes, 3.6446%
-            25+ meso and drop 1 in 46 cubes, 2.1873%
-            40+ meso and drop 1 in 69 cubes, 1.4586%
-                     35+ boss 1 in 341 cubes, 0.2931%
-                     40+ boss 1 in 681 cubes, 0.1469%
-                      35+ ied 1 in 228 cubes, 0.4390%
-                      40+ ied 1 in 453 cubes, 0.2209%
- any 2l combo of boss and ied 1 in 6838 cubes, 0.0146%
-         any 2l combo of boss 1 in 22209 cubes, 0.0045%
-                    50+ boss  1 in 77657 cubes, 0.0013%
-            50+ meso and drop 1 in 137 cubes, 0.7300%
-        25+ meso and 90+ drop 1 in 6221 cubes, 0.0161%
-any 2l combo of meso and drop 1 in 2074 cubes, 0.0482%
+                           20+ boss 1 in 137 cubes, 0.7307%
+                           30+ boss 1 in 171 cubes, 0.5844%
+                            20+ ied 1 in 91 cubes, 1.0941%
+                            30+ ied 1 in 114 cubes, 0.8756%
+                           25+ drop 1 in 27 cubes, 3.6446%
+                           50+ drop 1 in 46 cubes, 2.1900%
+                          100+ drop 1 in 135 cubes, 0.7394%
+                           25+ meso 1 in 27 cubes, 3.6446%
+                  25+ meso and drop 1 in 46 cubes, 2.1873%
+                  40+ meso and drop 1 in 69 cubes, 1.4586%
+                      1+ auto steal 1 in 39 cubes, 2.5456%
+                      2+ auto steal 1 in 46 cubes, 2.1853%
+any 2l combo of drop and auto steal 1 in 933 cubes, 0.1072%
+                           35+ boss 1 in 341 cubes, 0.2931%
+                           40+ boss 1 in 681 cubes, 0.1469%
+                            35+ ied 1 in 228 cubes, 0.4390%
+                            40+ ied 1 in 453 cubes, 0.2209%
+       any 2l combo of boss and ied 1 in 6838 cubes, 0.0146%
+               any 2l combo of boss 1 in 22209 cubes, 0.0045%
+                          50+ boss  1 in 77657 cubes, 0.0013%
+                  50+ meso and drop 1 in 137 cubes, 0.7300%
+              25+ meso and 90+ drop 1 in 6221 cubes, 0.0161%
+      any 2l combo of meso and drop 1 in 2074 cubes, 0.0482%
+any 2l combo of drop and auto steal 1 in 933 cubes, 0.1072%
+                      3+ auto steal 1 in 55 cubes, 1.8250%
+                      4+ auto steal 1 in 68 cubes, 1.4627%
+                      5+ auto steal 1 in 91 cubes, 1.0990%
+                      6+ auto steal 1 in 136 cubes, 0.7340%
+                      7+ auto steal 1 in 271 cubes, 0.3690%
+                      8+ auto steal 1 in 24884 cubes, 0.0040%
+                      9+ auto steal 1 in 74652 cubes, 0.0013%
 ==================== familiar (familiar on lv150 legendary) ====================
-40+ boss 1 in 33 cubes, 3.0569%
-45+ boss 1 in 51 cubes, 1.9526%
-50+ boss 1 in 102 cubes, 0.9838%
-60+ boss 1 in 7838 cubes, 0.0128%
- 40+ ied 1 in 32 cubes, 3.1246%
- 45+ ied 1 in 34 cubes, 2.9120%
- 50+ ied 1 in 68 cubes, 1.4656%
- 60+ ied 1 in 5227 cubes, 0.0191%
+                           40+ boss 1 in 33 cubes, 3.0569%
+                           45+ boss 1 in 51 cubes, 1.9526%
+                           50+ boss 1 in 102 cubes, 0.9838%
+                           60+ boss 1 in 7838 cubes, 0.0128%
+                            40+ ied 1 in 32 cubes, 3.1246%
+                            45+ ied 1 in 34 cubes, 2.9120%
+                            50+ ied 1 in 68 cubes, 1.4656%
+                            60+ ied 1 in 5227 cubes, 0.0191%
+any 2l combo of drop and auto steal 1 in 353 cubes, 0.2835%
+                      4+ auto steal 1 in 12 cubes, 8.6347%
+                      6+ auto steal 1 in 18 cubes, 5.5751%
+                      8+ auto steal 1 in 40 cubes, 2.5067%
+                     12+ auto steal 1 in 1881 cubes, 0.0532%
+                     13+ auto steal 1 in 2822 cubes, 0.0354%
+                     14+ auto steal 1 in 5644 cubes, 0.0177%
 ================== familiar (red_fam_card on lv150 legendary) ==================
-40+ boss 1 in 51 cubes, 1.9726%
-45+ boss 1 in 76 cubes, 1.3212%
-50+ boss 1 in 130 cubes, 0.7698%
-60+ boss 1 in 10607 cubes, 0.0094%
- 40+ ied 1 in 71 cubes, 1.4163%
- 45+ ied 1 in 76 cubes, 1.3148%
- 50+ ied 1 in 191 cubes, 0.5234%
- 60+ ied 1 in 13776 cubes, 0.0073%
+                           40+ boss 1 in 51 cubes, 1.9726%
+                           45+ boss 1 in 76 cubes, 1.3212%
+                           50+ boss 1 in 130 cubes, 0.7698%
+                           60+ boss 1 in 10607 cubes, 0.0094%
+                            40+ ied 1 in 71 cubes, 1.4163%
+                            45+ ied 1 in 76 cubes, 1.3148%
+                            50+ ied 1 in 191 cubes, 0.5234%
+                            60+ ied 1 in 13776 cubes, 0.0073%
+any 2l combo of drop and auto steal 1 in 154 cubes, 0.6496%
+                      4+ auto steal 1 in 8 cubes, 12.6468%
+                      6+ auto steal 1 in 12 cubes, 8.2153%
+                      8+ auto steal 1 in 26 cubes, 3.8290%
+                     12+ auto steal 1 in 562 cubes, 0.1779%
+                     13+ auto steal 1 in 850 cubes, 0.1176%
+                     14+ auto steal 1 in 1530 cubes, 0.0654%

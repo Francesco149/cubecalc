@@ -473,6 +473,9 @@ def familiar_calcs():
     ("25+ meso", [{MESO: 25}]),
     ("25+ meso and drop", [{MESO: 25, DROP: 25}]),
     ("40+ meso and drop", [{MESO: 40, DROP: 40}]),
+    ("1+ auto steal", [{AUTOSTEAL: 1}]),
+    ("2+ auto steal", [{AUTOSTEAL: 2}]),
+    ("any 2l combo of drop and auto steal", [{AUTOSTEAL: 1, DROP: 1, LINES: 2}]),
   ]
 
   combos_fam_unique = combos_fam_epic + [
@@ -486,6 +489,15 @@ def familiar_calcs():
     ("50+ meso and drop", [{MESO: 50, DROP: 50}]),
     ("25+ meso and 90+ drop", [{MESO: 25, DROP: 90}]),
     ("any 2l combo of meso and drop", [{MESO: 1, DROP: 1, LINES: 2}]),
+    ("any 2l combo of drop and auto steal", [{AUTOSTEAL: 1, DROP: 1, LINES: 2}]),
+
+    ("3+ auto steal", [{AUTOSTEAL: 3}]),
+    ("4+ auto steal", [{AUTOSTEAL: 4}]),
+    ("5+ auto steal", [{AUTOSTEAL: 5}]),
+    ("6+ auto steal", [{AUTOSTEAL: 6}]),
+    ("7+ auto steal", [{AUTOSTEAL: 7}]),
+    ("8+ auto steal", [{AUTOSTEAL: 8}]),
+    ("9+ auto steal", [{AUTOSTEAL: 9}]),
   ]
 
   combos_fam_legendary = [
@@ -498,6 +510,14 @@ def familiar_calcs():
     ("45+ ied", [{IED: 45}]),
     ("50+ ied", [{IED: 50}]),
     ("60+ ied", [{IED: 60}]),
+
+    ("any 2l combo of drop and auto steal", [{AUTOSTEAL: 1, DROP: 1, LINES: 2}]),
+    ("4+ auto steal", [{AUTOSTEAL: 4}]),
+    ("6+ auto steal", [{AUTOSTEAL: 6}]),
+    ("8+ auto steal", [{AUTOSTEAL: 8}]),
+    ("12+ auto steal", [{AUTOSTEAL: 12}]),
+    ("13+ auto steal", [{AUTOSTEAL: 13}]),
+    ("14+ auto steal", [{AUTOSTEAL: 14}]),
   ]
 
   Combos(combos_fam_common, FAMILIAR_STATS, FAMILIAR, COMMON)(familiars)
