@@ -46,7 +46,7 @@ decent_text = lambda x: f"可以使用<{x}> 技能"
 boss_text = lambda x: f"攻擊BOSS怪物時傷害增加+{x}%"
 
 line_conversion = {
-  "STR": FLAT_MAINSTAT,
+  "STR": FLAT_MAINSTAT_A,
   "最大HP": FLAT_HP,
   "全屬性": FLAT_ALLSTAT,
   "物理攻擊力": FLAT_ATT,

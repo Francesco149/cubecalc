@@ -83,7 +83,8 @@ class Line(IntFlag):
   DECENT_SHARP_EYES = auto()
   DECENT_COMBAT_ORDERS = auto()
   FLAT_ATT = auto()
-  FLAT_MAINSTAT = auto()
+  FLAT_MAINSTAT_A = auto()
+  FLAT_MAINSTAT_B = auto()
   FLAT_ALLSTAT = auto()
   FLAT_HP = auto()
   MAINSTAT_PER_10_LVLS = auto()
@@ -105,6 +106,7 @@ class LineMasks(IntFlag):
   MESO = MESO_A | SMALL_MESO | LARGE_DROP | DROP_MESO | LARGE_DROP_MESO
   CRITDMG = CRITDMG_A | CRITDMG_B
   DAMAGE = DAMAGE_A | DAMAGE_B
+  FLAT_MAINSTAT = FLAT_MAINSTAT_A | FLAT_MAINSTAT_B
 
 @global_enum
 class Tier(IntEnum):

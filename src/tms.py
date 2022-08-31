@@ -8,7 +8,7 @@ event = {
   VIOLET | EQUALITY: {
     HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER: percent({
       RARE: [
-        [FLAT_MAINSTAT, 6.0],
+        [FLAT_MAINSTAT_A, 6.0],
         [FLAT_HP, 10.0],
         [MAINSTAT, 6.0],
         [HP, 6.0],
@@ -17,7 +17,7 @@ event = {
     }),
     SHOE: percent({
       RARE: [
-        [FLAT_MAINSTAT, 5.56],
+        [FLAT_MAINSTAT_A, 5.56],
         [FLAT_HP, 9.25],
         [MAINSTAT, 5.56],
         [HP, 5.56],
@@ -42,7 +42,7 @@ event = {
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
       RARE: [
-        [FLAT_MAINSTAT, 6.0],
+        [FLAT_MAINSTAT_A, 6.0],
         [FLAT_HP, 10.0],
         [MAINSTAT, 6.0],
         [HP, 6.0],
@@ -68,7 +68,7 @@ event = {
     }),
     WEAPON | EMBLEM | SECONDARY: percent({
       RARE: [
-        [FLAT_MAINSTAT, 5.56],
+        [FLAT_MAINSTAT_A, 5.56],
         [FLAT_HP, 11.11],
         [FLAT_ATT, 3.7],
         [MAINSTAT, 5.56],
@@ -88,7 +88,7 @@ event = {
     }),
     FORCE_SHIELD_SOUL_RING: percent({
       RARE: [
-        [FLAT_MAINSTAT, 6.25],
+        [FLAT_MAINSTAT_A, 6.25],
         [FLAT_HP, 12.5],
         [FLAT_ATT, 4.17],
         [MAINSTAT, 6.25],
@@ -236,7 +236,7 @@ event = {
   UNI: {
     HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER: percent({
       RARE: [
-        [FLAT_MAINSTAT, 8.33],
+        [FLAT_MAINSTAT_A, 8.33],
         [FLAT_HP, 9.26],
         [MAINSTAT, 2.78],
         [HP, 2.78],
@@ -245,7 +245,7 @@ event = {
     }),
     SHOE: percent({
       RARE: [
-        [FLAT_MAINSTAT, 7.3],
+        [FLAT_MAINSTAT_A, 7.3],
         [FLAT_HP, 7.3],
         [MAINSTAT, 2.19],
         [HP, 2.19],
@@ -270,7 +270,7 @@ event = {
     }),
     FACE_EYE_RING_EARRING_PENDANT: percent({
       RARE: [
-        [FLAT_MAINSTAT, 8.33],
+        [FLAT_MAINSTAT_A, 8.33],
         [FLAT_HP, 9.26],
         [MAINSTAT, 2.78],
         [HP, 2.78],
@@ -296,7 +296,7 @@ event = {
     }),
     WEAPON | EMBLEM | SECONDARY: percent({
       RARE: [
-        [FLAT_MAINSTAT, 7.41],
+        [FLAT_MAINSTAT_A, 7.41],
         [FLAT_HP, 7.41],
         [FLAT_ATT, 3.7],
         [MAINSTAT, 5.56],
@@ -316,7 +316,7 @@ event = {
     }),
     FORCE_SHIELD_SOUL_RING: percent({
       RARE: [
-        [FLAT_MAINSTAT, 8.0],
+        [FLAT_MAINSTAT_A, 8.0],
         [FLAT_HP, 8.0],
         [FLAT_ATT, 4.0],
         [MAINSTAT, 6.0],

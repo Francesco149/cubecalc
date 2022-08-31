@@ -43,12 +43,12 @@ invin_text = lambda x: f"피격 후 무적시간 : +{x}초"
 flat_text = lambda k, x=12: f"{k} : +{x}"
 
 convert = {
-  flat_text(KW_STAT, 10): FLAT_MAINSTAT,
-  flat_text(KW_STAT, 6): FLAT_MAINSTAT,
-  flat_text(KW_STAT): FLAT_MAINSTAT,
-  flat_text(KW_STAT, 14): FLAT_MAINSTAT,
-  flat_text(KW_STAT, 16): FLAT_MAINSTAT,
-  flat_text(KW_STAT, 18): FLAT_MAINSTAT,
+  flat_text(KW_STAT, 10): FLAT_MAINSTAT_A,
+  flat_text(KW_STAT, 6): FLAT_MAINSTAT_A,
+  flat_text(KW_STAT): FLAT_MAINSTAT_A,
+  flat_text(KW_STAT, 14): FLAT_MAINSTAT_A,
+  flat_text(KW_STAT, 16): FLAT_MAINSTAT_A,
+  flat_text(KW_STAT, 18): FLAT_MAINSTAT_A,
   flat_text(KW_ALLSTAT, 3): FLAT_ALLSTAT,
   flat_text(KW_ALLSTAT, 5): FLAT_ALLSTAT,
   flat_text(KW_HP, 60): FLAT_HP,

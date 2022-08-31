@@ -197,14 +197,14 @@ def find_line_values(cube, category, region):
   values = {
     COMMON: {
       ANY: 1,
-      FLAT_MAINSTAT: flat_mainstat_6,
+      FLAT_MAINSTAT_A: flat_mainstat_6,
       FLAT_HP: flat_hp_60,
       FLAT_ATT: flat_att_6,
     },
 
     RARE: {
       ANY: 1,
-      FLAT_MAINSTAT: flat_mainstat_13,
+      FLAT_MAINSTAT_A: flat_mainstat_13,
       FLAT_HP: flat_hp_125,
       FLAT_ATT: flat_att_13,
       MAINSTAT: mpot_4,
@@ -449,14 +449,14 @@ def find_line_values(cube, category, region):
   values_bonus = {
     COMMON: {
       ANY: 1,
-      FLAT_MAINSTAT: flat_mainstat_6,
+      FLAT_MAINSTAT_A: flat_mainstat_6,
       FLAT_ATT: flat_att_3,
       FLAT_HP: flat_hp_60,
     },
 
     RARE: {
       ANY: 1,
-      FLAT_MAINSTAT: flat_mainstat_11,
+      FLAT_MAINSTAT_A: flat_mainstat_11,
       FLAT_ATT: flat_att_11,
       FLAT_HP: flat_hp_125,
       MAINSTAT: mainstat_3,
@@ -466,7 +466,7 @@ def find_line_values(cube, category, region):
 
     EPIC: {
       ANY: 1,
-      FLAT_MAINSTAT: flat_mainstat_15,
+      FLAT_MAINSTAT_A: flat_mainstat_15,
       FLAT_ATT: flat_att_12,
       FLAT_HP: flat_hp_195,
       MAINSTAT: mainstat_5,
@@ -476,7 +476,7 @@ def find_line_values(cube, category, region):
 
     UNIQUE: {
       ANY: 1,
-      FLAT_MAINSTAT: flat_mainstat_17,
+      FLAT_MAINSTAT_A: flat_mainstat_17,
       FLAT_ATT: flat_att_13,
       FLAT_HP: flat_hp_250,
       MAINSTAT: mainstat_6,
@@ -487,7 +487,7 @@ def find_line_values(cube, category, region):
 
     LEGENDARY: {
       ANY: 1,
-      FLAT_MAINSTAT: flat_mainstat_19,
+      FLAT_MAINSTAT_A: flat_mainstat_19,
       FLAT_ATT: flat_att_15,
       FLAT_HP: flat_hp_310,
       MAINSTAT: mainstat_8,
@@ -512,14 +512,14 @@ def find_line_values(cube, category, region):
   values_bonus_wse = {
     COMMON: {
       ANY: 1,
-      FLAT_MAINSTAT: flat_mainstat_6,
+      FLAT_MAINSTAT_A: flat_mainstat_6,
       FLAT_ATT: flat_att_6,
       FLAT_HP: flat_hp_60,
     },
 
     RARE: {
       ANY: 1,
-      FLAT_MAINSTAT: flat_mainstat_13,
+      FLAT_MAINSTAT_A: flat_mainstat_13,
       FLAT_ATT: flat_att_13,
       FLAT_HP: flat_hp_125_wse,
       MAINSTAT: mpot_4,

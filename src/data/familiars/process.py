@@ -171,25 +171,15 @@ known_lines = {
   "HP Recovery Items and Skills: +#RecoveryUP%",
   "Restores #RecoveryHP HP every 4 sec",
 
-  "Increases party members' STR by a small amount",
-  "Increases your party's STR",
-  "Increases your party's STR, INT, DEX, and LUK",
-  "Increases the STR of nearby allies by a small amount",
-  "Increases STR by a small amount",
-  "Increases STR",
-  "Increases STR by a large amount",
-
-  "Increases STR, INT, DEX, and LUK of players on the same map",
-  "Increases Speed, Jump, DEX, and Defense by a small amount",
-
   "ATT: +#incPAD",
   "Max HP: +#incMHP",
-  "STR: +#incSTR",
+
   "All Stats: +#incSTR",
-  "Increases party members' STR",
-  "Increases party members' STR by a large amount",
-  "Increases the STR of nearby allies",
-  "Increases the STR of nearby allies by a large amount",
+  "Increases your party's STR, INT, DEX, and LUK",
+  "Increases STR, INT, DEX, and LUK of players on the same map",
+
+  "Increases Speed, Jump, DEX, and Defense by a small amount",
+
 
   "ATT: +#incPADr%",
   "STR: +#incSTRr%",
@@ -234,6 +224,18 @@ convert_lines = {
   "Damage to Bosses: +#incDAMr%": BOSS_C,
   "Boss Damage: +#incDAMr%": BOSS_C,
   "Critical Damage: +#incCriticaldamage%": CRITDMG_A,
+
+  "STR: +#incSTR": FLAT_MAINSTAT_A,
+  "Increases party members' STR": FLAT_MAINSTAT_A,
+  "Increases party members' STR by a large amount": FLAT_MAINSTAT_A,
+  "Increases the STR of nearby allies": FLAT_MAINSTAT_A,
+  "Increases the STR of nearby allies by a large amount": FLAT_MAINSTAT_A,
+  "Increases party members' STR by a small amount": FLAT_MAINSTAT_A,
+  "Increases your party's STR": FLAT_MAINSTAT_A,
+  "Increases the STR of nearby allies by a small amount": FLAT_MAINSTAT_A,
+  "Increases STR by a small amount": FLAT_MAINSTAT_A,
+  "Increases STR": FLAT_MAINSTAT_A,
+  "Increases STR by a large amount": FLAT_MAINSTAT_A,
 }
 
 def parse_stat(f):
@@ -310,6 +312,13 @@ with open("cache/familiars.txt") as f:
             # this line doesn't seem to be used
             # it's the big spider line i think
             continue
+
+        if stat == FLAT_MAINSTAT_A:
+          if ((tier == COMMON and amount == 1) or
+              (tier == RARE and amount == 3) or
+              (tier == EPIC and amount == 5) or
+              (tier == UNIQUE and amount == 7)):
+            stat = FLAT_MAINSTAT_B
 
         line = (stat, percent, amount)
         if line not in counts:

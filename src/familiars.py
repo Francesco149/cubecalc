@@ -8,11 +8,14 @@ familiars = {
   FAMILIAR: {
     FAMILIAR_STATS: percent({
       BASE: [
+        [FLAT_MAINSTAT_A, 5.882], # 1
       ],
       COMMON: [
         [IED_C, 0.617], # 15
         [SMALL_DROP, 1.235], # 30
         [SMALL_MESO, 1.235], # 30
+        [FLAT_MAINSTAT_A, 2.469], # 2
+        [FLAT_MAINSTAT_B, 2.469], # 1
         [DAMAGE_A, 0.37], # 1
       ],
       RARE: [
@@ -22,6 +25,8 @@ familiars = {
         [SMALL_DROP_MESO, 0.88], # 20
         [MESO_A, 0.88], # 50
         [SMALL_MESO, 0.88], # 30
+        [FLAT_MAINSTAT_A, 1.759], # 4
+        [FLAT_MAINSTAT_B, 1.759], # 3
         [DAMAGE_A, 0.264], # 2
         [INVIN, 0.44], # 1
       ],
@@ -36,6 +41,8 @@ familiars = {
         [SMALL_DROP_MESO, 0.734], # 25
         [MESO_A, 0.734], # 60
         [LARGE_MESO, 0.734], # 100
+        [FLAT_MAINSTAT_A, 1.468], # 6
+        [FLAT_MAINSTAT_B, 1.468], # 5
         [DAMAGE_A, 0.22], # 3
         [INVIN, 0.367], # 2
       ],
@@ -51,6 +58,8 @@ familiars = {
         [LARGE_DROP_MESO, 0.73], # 50
         [SMALL_DROP, 0.365], # 10
         [FLAT_MESO, 0.365], # 10
+        [FLAT_MAINSTAT_A, 1.46], # 8
+        [FLAT_MAINSTAT_B, 1.46], # 7
         [DAMAGE_A, 0.219], # 6
         [DAMAGE_B, 0.219], # 5
         [INVIN, 0.365], # 3
@@ -74,12 +83,15 @@ familiars = {
 values = {
   BASE: {
     ANY: 1,
+    FLAT_MAINSTAT_A: 1,
   },
   COMMON: {
     ANY: 1,
     IED_C: 15,
     SMALL_DROP: 30,
     SMALL_MESO: 30,
+    FLAT_MAINSTAT_A: 2,
+    FLAT_MAINSTAT_B: 1,
     DAMAGE_A: 1,
   },
   RARE: {
@@ -90,6 +102,8 @@ values = {
     SMALL_DROP_MESO: 20,
     MESO_A: 50,
     SMALL_MESO: 30,
+    FLAT_MAINSTAT_A: 4,
+    FLAT_MAINSTAT_B: 3,
     DAMAGE_A: 2,
     INVIN: 1,
   },
@@ -105,6 +119,8 @@ values = {
     SMALL_DROP_MESO: 25,
     MESO_A: 60,
     LARGE_MESO: 100,
+    FLAT_MAINSTAT_A: 6,
+    FLAT_MAINSTAT_B: 5,
     DAMAGE_A: 3,
     INVIN: 2,
   },
@@ -121,6 +137,8 @@ values = {
     LARGE_DROP_MESO: 50,
     SMALL_DROP: 10,
     FLAT_MESO: 10,
+    FLAT_MAINSTAT_A: 8,
+    FLAT_MAINSTAT_B: 7,
     DAMAGE_A: 6,
     DAMAGE_B: 5,
     INVIN: 3,
