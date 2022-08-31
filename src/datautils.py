@@ -53,6 +53,8 @@ def validate_probabilities(data):
       continue
     seen = set()
     for l in lines:
+      if l[0] is None:
+        raise RuntimeError(f"found None stat at tier {Tier(tier).name}")
       if l[0] in seen:
         raise RuntimeError(f"found duplicate stat {line_name(l[0])} at tier {Tier(tier).name}")
       seen.add(l[0])
