@@ -9,7 +9,7 @@ event = {
     HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER: percent({
       RARE: [
         [FLAT_MAINSTAT_A, 6.0],
-        [FLAT_HP, 10.0],
+        [FLAT_HP_A, 10.0],
         [MAINSTAT, 6.0],
         [HP, 6.0],
         [FLAT_ALLSTAT_A, 4.0],
@@ -18,7 +18,7 @@ event = {
     SHOE: percent({
       RARE: [
         [FLAT_MAINSTAT_A, 5.56],
-        [FLAT_HP, 9.25],
+        [FLAT_HP_A, 9.25],
         [MAINSTAT, 5.56],
         [HP, 5.56],
         [FLAT_ALLSTAT_A, 3.7],
@@ -43,7 +43,7 @@ event = {
     FACE_EYE_RING_EARRING_PENDANT: percent({
       RARE: [
         [FLAT_MAINSTAT_A, 6.0],
-        [FLAT_HP, 10.0],
+        [FLAT_HP_A, 10.0],
         [MAINSTAT, 6.0],
         [HP, 6.0],
         [FLAT_ALLSTAT_A, 4.0],
@@ -69,7 +69,7 @@ event = {
     WEAPON | EMBLEM | SECONDARY: percent({
       RARE: [
         [FLAT_MAINSTAT_A, 5.56],
-        [FLAT_HP, 11.11],
+        [FLAT_HP_A, 11.11],
         [FLAT_ATT_A, 3.7],
         [MAINSTAT, 5.56],
         [ATT, 1.85],
@@ -89,7 +89,7 @@ event = {
     FORCE_SHIELD_SOUL_RING: percent({
       RARE: [
         [FLAT_MAINSTAT_A, 6.25],
-        [FLAT_HP, 12.5],
+        [FLAT_HP_A, 12.5],
         [FLAT_ATT_A, 4.17],
         [MAINSTAT, 6.25],
         [ATT, 2.08],
@@ -237,7 +237,7 @@ event = {
     HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER: percent({
       RARE: [
         [FLAT_MAINSTAT_A, 8.33],
-        [FLAT_HP, 9.26],
+        [FLAT_HP_A, 9.26],
         [MAINSTAT, 2.78],
         [HP, 2.78],
         [FLAT_ALLSTAT_A, 8.33],
@@ -246,7 +246,7 @@ event = {
     SHOE: percent({
       RARE: [
         [FLAT_MAINSTAT_A, 7.3],
-        [FLAT_HP, 7.3],
+        [FLAT_HP_A, 7.3],
         [MAINSTAT, 2.19],
         [HP, 2.19],
         [FLAT_ALLSTAT_A, 7.3],
@@ -271,7 +271,7 @@ event = {
     FACE_EYE_RING_EARRING_PENDANT: percent({
       RARE: [
         [FLAT_MAINSTAT_A, 8.33],
-        [FLAT_HP, 9.26],
+        [FLAT_HP_A, 9.26],
         [MAINSTAT, 2.78],
         [HP, 2.78],
         [FLAT_ALLSTAT_A, 8.33],
@@ -297,7 +297,7 @@ event = {
     WEAPON | EMBLEM | SECONDARY: percent({
       RARE: [
         [FLAT_MAINSTAT_A, 7.41],
-        [FLAT_HP, 7.41],
+        [FLAT_HP_A, 7.41],
         [FLAT_ATT_A, 3.7],
         [MAINSTAT, 5.56],
         [ATT, 1.85],
@@ -317,7 +317,7 @@ event = {
     FORCE_SHIELD_SOUL_RING: percent({
       RARE: [
         [FLAT_MAINSTAT_A, 8.0],
-        [FLAT_HP, 8.0],
+        [FLAT_HP_A, 8.0],
         [FLAT_ATT_A, 4.0],
         [MAINSTAT, 6.0],
         [ATT, 2.0],

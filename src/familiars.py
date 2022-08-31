@@ -9,6 +9,7 @@ familiars = {
     FAMILIAR_STATS: percent({
       BASE: [
         [FLAT_ATT_A, 4.412], # ATT: +1
+        [FLAT_HP_A, 5.882], # Max HP: +5
         [FLAT_MAINSTAT_A, 5.882], # Main Stat: +1
       ],
       COMMON: [
@@ -18,6 +19,8 @@ familiars = {
         [IED_C, 0.617], # Attacks ignore 15% Monster DEF
         [SMALL_DROP, 1.235], # Increases Item Drop Rate by a small amount (30)
         [SMALL_MESO, 1.235], # Increases Meso Drop Rate by a small amount (30)
+        [FLAT_HP_A, 2.469], # Max HP: +10
+        [FLAT_HP_B, 2.469], # Max HP: +5
         [FLAT_MAINSTAT_A, 2.469], # Main Stat: +2
         [FLAT_MAINSTAT_B, 2.469], # Main Stat: +1
         [DAMAGE_A, 0.37], # Total Damage: +1%
@@ -31,6 +34,8 @@ familiars = {
         [SMALL_DROP_MESO, 0.88], # Increases Item and Meso Drop Rate by a small amount (20)
         [MESO_A, 0.88], # Increases Meso Drop Rate (50)
         [SMALL_MESO, 0.88], # Increases Meso Drop Rate by a small amount (30)
+        [FLAT_HP_A, 1.759], # Max HP: +15
+        [FLAT_HP_B, 1.759], # Max HP: +12
         [FLAT_MAINSTAT_A, 1.759], # Main Stat: +4
         [FLAT_MAINSTAT_B, 1.759], # Main Stat: +3
         [DAMAGE_A, 0.264], # Total Damage: +2%
@@ -49,6 +54,8 @@ familiars = {
         [SMALL_DROP_MESO, 0.734], # Increases Item and Meso Drop Rate by a small amount (25)
         [MESO_A, 0.734], # Increases Meso Drop Rate (60)
         [LARGE_MESO, 0.734], # Increases Meso Drop Rate by a large amount (100)
+        [FLAT_HP_A, 1.468], # Max HP: +20
+        [FLAT_HP_B, 1.468], # Max HP: +18
         [FLAT_MAINSTAT_A, 1.468], # Main Stat: +6
         [FLAT_MAINSTAT_B, 1.468], # Main Stat: +5
         [DAMAGE_A, 0.22], # Total Damage: +3%
@@ -72,6 +79,8 @@ familiars = {
         [FLAT_ALLSTAT_B, 0.73], # Increases your party's Main Stat, INT, DEX, and LUK (3)
         [FLAT_ALLSTAT_D, 0.73], # Increases your party's Main Stat, INT, DEX, and LUK (1)
         [SMALL_DROP, 0.365], # Item Acquisition Rate: +10%
+        [FLAT_HP_B, 1.46], # Max HP: +22
+        [FLAT_HP_A, 1.46], # Max HP: +25
         [FLAT_MESO, 0.365], # Mesos Obtained: +10
         [FLAT_MAINSTAT_A, 1.46], # Main Stat: +8
         [FLAT_MAINSTAT_B, 1.46], # Main Stat: +7
@@ -99,6 +108,7 @@ values = {
   BASE: {
     ANY: 1,
     FLAT_ATT_A: 1,
+    FLAT_HP_A: 5,
     FLAT_MAINSTAT_A: 1,
   },
   COMMON: {
@@ -109,6 +119,8 @@ values = {
     IED_C: 15,
     SMALL_DROP: 30,
     SMALL_MESO: 30,
+    FLAT_HP_A: 10,
+    FLAT_HP_B: 5,
     FLAT_MAINSTAT_A: 2,
     FLAT_MAINSTAT_B: 1,
     DAMAGE_A: 1,
@@ -123,6 +135,8 @@ values = {
     SMALL_DROP_MESO: 20,
     MESO_A: 50,
     SMALL_MESO: 30,
+    FLAT_HP_A: 15,
+    FLAT_HP_B: 12,
     FLAT_MAINSTAT_A: 4,
     FLAT_MAINSTAT_B: 3,
     DAMAGE_A: 2,
@@ -142,6 +156,8 @@ values = {
     SMALL_DROP_MESO: 25,
     MESO_A: 60,
     LARGE_MESO: 100,
+    FLAT_HP_A: 20,
+    FLAT_HP_B: 18,
     FLAT_MAINSTAT_A: 6,
     FLAT_MAINSTAT_B: 5,
     DAMAGE_A: 3,
@@ -166,6 +182,8 @@ values = {
     FLAT_ALLSTAT_B: 3,
     FLAT_ALLSTAT_D: 1,
     SMALL_DROP: 10,
+    FLAT_HP_B: 22,
+    FLAT_HP_A: 25,
     FLAT_MESO: 10,
     FLAT_MAINSTAT_A: 8,
     FLAT_MAINSTAT_B: 7,
@@ -191,6 +209,7 @@ values = {
 desc = {
   BASE: {
     FLAT_ATT_A: "ATT: +1",
+    FLAT_HP_A: "Max HP: +5",
     FLAT_MAINSTAT_A: "Main Stat: +1",
   },
   COMMON: {
@@ -200,6 +219,8 @@ desc = {
     IED_C: "Attacks ignore 15% Monster DEF",
     SMALL_DROP: "Increases Item Drop Rate by a small amount (30)",
     SMALL_MESO: "Increases Meso Drop Rate by a small amount (30)",
+    FLAT_HP_A: "Max HP: +10",
+    FLAT_HP_B: "Max HP: +5",
     FLAT_MAINSTAT_A: "Main Stat: +2",
     FLAT_MAINSTAT_B: "Main Stat: +1",
     DAMAGE_A: "Total Damage: +1%",
@@ -213,6 +234,8 @@ desc = {
     SMALL_DROP_MESO: "Increases Item and Meso Drop Rate by a small amount (20)",
     MESO_A: "Increases Meso Drop Rate (50)",
     SMALL_MESO: "Increases Meso Drop Rate by a small amount (30)",
+    FLAT_HP_A: "Max HP: +15",
+    FLAT_HP_B: "Max HP: +12",
     FLAT_MAINSTAT_A: "Main Stat: +4",
     FLAT_MAINSTAT_B: "Main Stat: +3",
     DAMAGE_A: "Total Damage: +2%",
@@ -231,6 +254,8 @@ desc = {
     SMALL_DROP_MESO: "Increases Item and Meso Drop Rate by a small amount (25)",
     MESO_A: "Increases Meso Drop Rate (60)",
     LARGE_MESO: "Increases Meso Drop Rate by a large amount (100)",
+    FLAT_HP_A: "Max HP: +20",
+    FLAT_HP_B: "Max HP: +18",
     FLAT_MAINSTAT_A: "Main Stat: +6",
     FLAT_MAINSTAT_B: "Main Stat: +5",
     DAMAGE_A: "Total Damage: +3%",
@@ -254,6 +279,8 @@ desc = {
     FLAT_ALLSTAT_B: "Increases your party's Main Stat, INT, DEX, and LUK (3)",
     FLAT_ALLSTAT_D: "Increases your party's Main Stat, INT, DEX, and LUK (1)",
     SMALL_DROP: "Item Acquisition Rate: +10%",
+    FLAT_HP_B: "Max HP: +22",
+    FLAT_HP_A: "Max HP: +25",
     FLAT_MESO: "Mesos Obtained: +10",
     FLAT_MAINSTAT_A: "Main Stat: +8",
     FLAT_MAINSTAT_B: "Main Stat: +7",
@@ -285,11 +312,13 @@ red_card_estimate = {
       UNIQUE: [
         [LARGE_DROP_MESO, 54 / 2903 * 100],
         [FLAT_DEX_ONLY, 49 / 2903 * 100],
+        [FLAT_HP_A, 37 / 2903 * 100],
         [FLAT_ATT_B, 35 / 2903 * 100],
         [FLAT_MAINSTAT_A, 33 / 2903 * 100],
         [INVIN, 33 / 2903 * 100],
         [FLAT_ATT_A, 28 / 2903 * 100],
         [FLAT_ALLSTAT_A, 28 / 2903 * 100],
+        [FLAT_HP_B, 27 / 2903 * 100],
         [CRITDMG_B, 22 / 2903 * 100],
         [FLAT_MAINSTAT_B, 21 / 2903 * 100],
         [CRITDMG_A, 17 / 2903 * 100],

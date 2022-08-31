@@ -104,8 +104,6 @@ known = {
     "Magic ATT: +6%",
     "Magic ATT: +7",
     "Magic ATT: +8",
-    "Max HP: +22",
-    "Max HP: +25",
     "Increases your party's STR, INT, DEX, and LUK",
     "Continually restores a large amount of HP & MP to party members",
     "HP Recovery Items and Skills: +15%",
@@ -155,6 +153,8 @@ conversion = {
     "ATT: +7": FLAT_ATT_A,
     "ATT: +8": FLAT_ATT_B,
     "Increases Speed, Jump, DEX, and Defense by a small amount": FLAT_DEX_ONLY,
+    "Max HP: +22": FLAT_HP_B,
+    "Max HP: +25": FLAT_HP_A,
   },
 }
 

@@ -47,7 +47,7 @@ boss_text = lambda x: f"攻擊BOSS怪物時傷害增加+{x}%"
 
 line_conversion = {
   "STR": FLAT_MAINSTAT_A,
-  "最大HP": FLAT_HP,
+  "最大HP": FLAT_HP_A,
   "全屬性": FLAT_ALLSTAT_A,
   "物理攻擊力": FLAT_ATT_A,
   "STR%": MAINSTAT,
