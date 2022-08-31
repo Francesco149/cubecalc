@@ -8,14 +8,14 @@ familiars = {
   FAMILIAR: {
     FAMILIAR_STATS: percent({
       BASE: [
-        [FLAT_MAINSTAT_A, 5.882], # STR: +1
+        [FLAT_MAINSTAT_A, 5.882], # Main Stat: +1
       ],
       COMMON: [
         [IED_C, 0.617], # Attacks ignore 15% Monster DEF
         [SMALL_DROP, 1.235], # Increases Item Drop Rate by a small amount (30)
         [SMALL_MESO, 1.235], # Increases Meso Drop Rate by a small amount (30)
-        [FLAT_MAINSTAT_A, 2.469], # STR: +2
-        [FLAT_MAINSTAT_B, 2.469], # STR: +1
+        [FLAT_MAINSTAT_A, 2.469], # Main Stat: +2
+        [FLAT_MAINSTAT_B, 2.469], # Main Stat: +1
         [DAMAGE_A, 0.37], # Total Damage: +1%
       ],
       RARE: [
@@ -25,8 +25,8 @@ familiars = {
         [SMALL_DROP_MESO, 0.88], # Increases Item and Meso Drop Rate by a small amount (20)
         [MESO_A, 0.88], # Increases Meso Drop Rate (50)
         [SMALL_MESO, 0.88], # Increases Meso Drop Rate by a small amount (30)
-        [FLAT_MAINSTAT_A, 1.759], # STR: +4
-        [FLAT_MAINSTAT_B, 1.759], # STR: +3
+        [FLAT_MAINSTAT_A, 1.759], # Main Stat: +4
+        [FLAT_MAINSTAT_B, 1.759], # Main Stat: +3
         [DAMAGE_A, 0.264], # Total Damage: +2%
         [INVIN, 0.44], # When hit, get +1 sec of invincibility
       ],
@@ -41,8 +41,8 @@ familiars = {
         [SMALL_DROP_MESO, 0.734], # Increases Item and Meso Drop Rate by a small amount (25)
         [MESO_A, 0.734], # Increases Meso Drop Rate (60)
         [LARGE_MESO, 0.734], # Increases Meso Drop Rate by a large amount (100)
-        [FLAT_MAINSTAT_A, 1.468], # STR: +6
-        [FLAT_MAINSTAT_B, 1.468], # STR: +5
+        [FLAT_MAINSTAT_A, 1.468], # Main Stat: +6
+        [FLAT_MAINSTAT_B, 1.468], # Main Stat: +5
         [DAMAGE_A, 0.22], # Total Damage: +3%
         [INVIN, 0.367], # When hit, get +2 sec of invincibility
       ],
@@ -58,8 +58,8 @@ familiars = {
         [LARGE_DROP_MESO, 0.73], # Increases Item and Meso Drop Rate by a large amount (50)
         [SMALL_DROP, 0.365], # Item Acquisition Rate: +10%
         [FLAT_MESO, 0.365], # Mesos Obtained: +10
-        [FLAT_MAINSTAT_A, 1.46], # STR: +8
-        [FLAT_MAINSTAT_B, 1.46], # STR: +7
+        [FLAT_MAINSTAT_A, 1.46], # Main Stat: +8
+        [FLAT_MAINSTAT_B, 1.46], # Main Stat: +7
         [DAMAGE_A, 0.219], # Total Damage: +6%
         [DAMAGE_B, 0.219], # Total Damage: +5%
         [INVIN, 0.365], # When hit, gain +3 sec of invincibility
@@ -160,14 +160,14 @@ values = {
 
 desc = {
   BASE: {
-    FLAT_MAINSTAT_A: "STR: +1",
+    FLAT_MAINSTAT_A: "Main Stat: +1",
   },
   COMMON: {
     IED_C: "Attacks ignore 15% Monster DEF",
     SMALL_DROP: "Increases Item Drop Rate by a small amount (30)",
     SMALL_MESO: "Increases Meso Drop Rate by a small amount (30)",
-    FLAT_MAINSTAT_A: "STR: +2",
-    FLAT_MAINSTAT_B: "STR: +1",
+    FLAT_MAINSTAT_A: "Main Stat: +2",
+    FLAT_MAINSTAT_B: "Main Stat: +1",
     DAMAGE_A: "Total Damage: +1%",
   },
   RARE: {
@@ -177,8 +177,8 @@ desc = {
     SMALL_DROP_MESO: "Increases Item and Meso Drop Rate by a small amount (20)",
     MESO_A: "Increases Meso Drop Rate (50)",
     SMALL_MESO: "Increases Meso Drop Rate by a small amount (30)",
-    FLAT_MAINSTAT_A: "STR: +4",
-    FLAT_MAINSTAT_B: "STR: +3",
+    FLAT_MAINSTAT_A: "Main Stat: +4",
+    FLAT_MAINSTAT_B: "Main Stat: +3",
     DAMAGE_A: "Total Damage: +2%",
     INVIN: "When hit, get +1 sec of invincibility",
   },
@@ -193,8 +193,8 @@ desc = {
     SMALL_DROP_MESO: "Increases Item and Meso Drop Rate by a small amount (25)",
     MESO_A: "Increases Meso Drop Rate (60)",
     LARGE_MESO: "Increases Meso Drop Rate by a large amount (100)",
-    FLAT_MAINSTAT_A: "STR: +6",
-    FLAT_MAINSTAT_B: "STR: +5",
+    FLAT_MAINSTAT_A: "Main Stat: +6",
+    FLAT_MAINSTAT_B: "Main Stat: +5",
     DAMAGE_A: "Total Damage: +3%",
     INVIN: "When hit, get +2 sec of invincibility",
   },
@@ -210,8 +210,8 @@ desc = {
     LARGE_DROP_MESO: "Increases Item and Meso Drop Rate by a large amount (50)",
     SMALL_DROP: "Item Acquisition Rate: +10%",
     FLAT_MESO: "Mesos Obtained: +10",
-    FLAT_MAINSTAT_A: "STR: +8",
-    FLAT_MAINSTAT_B: "STR: +7",
+    FLAT_MAINSTAT_A: "Main Stat: +8",
+    FLAT_MAINSTAT_B: "Main Stat: +7",
     DAMAGE_A: "Total Damage: +6%",
     DAMAGE_B: "Total Damage: +5%",
     INVIN: "When hit, gain +3 sec of invincibility",

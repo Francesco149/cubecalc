@@ -245,7 +245,7 @@ def line_description(rawtext, line, amount):
     s.insert(1, f"{amount}")
   else:
     s.append(f" ({amount})")
-  return "".join(s)
+  return "".join(s).replace("STR", "Main Stat")
 
 
 def parse_stat(f):
