@@ -936,6 +936,52 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 17+ auto steal 1 in 79189886 cubes, 0.0000%
 19+ auto steal 1 in 197974715 cubes, 0.0000%
  21 auto steal 1 in 791898859 cubes, 0.0000%
+===================== heart/badge (red on lv150 legendary) =====================
+                        18+ stat 1 in 12 cubes, 8.2215%
+                        21+ stat 1 in 27 cubes, 3.6464%
+                        30+ stat 1 in 461 cubes, 0.2169%
+                        33+ stat 1 in 4732 cubes, 0.0211%
+                          18+ hp 1 in 20 cubes, 4.8801%
+                          21+ hp 1 in 29 cubes, 3.4371%
+                          30+ hp 1 in 419 cubes, 0.2385%
+                          33+ hp 1 in 4043 cubes, 0.0247%
+                    12+ all stat 1 in 41 cubes, 2.4370%
+                    15+ all stat 1 in 56 cubes, 1.7719%
+                    21+ all stat 1 in 1242 cubes, 0.0805%
+30+ hp items and skills recovery 1 in 6 cubes, 16.4454%
+60+ hp items and skills recovery 1 in 136 cubes, 0.7364%
+==================== heart/badge (black on lv150 legendary) ====================
+                        18+ stat 1 in 12 cubes, 8.6328%
+                        21+ stat 1 in 24 cubes, 4.1226%
+                        30+ stat 1 in 356 cubes, 0.2808%
+                        33+ stat 1 in 1980 cubes, 0.0505%
+                          18+ hp 1 in 21 cubes, 4.8565%
+                          21+ hp 1 in 28 cubes, 3.6257%
+                          30+ hp 1 in 422 cubes, 0.2367%
+                          33+ hp 1 in 1839 cubes, 0.0544%
+                    12+ all stat 1 in 41 cubes, 2.4510%
+                    15+ all stat 1 in 53 cubes, 1.8837%
+                    21+ all stat 1 in 1230 cubes, 0.0813%
+30+ hp items and skills recovery 1 in 7 cubes, 15.2810%
+60+ hp items and skills recovery 1 in 159 cubes, 0.6281%
+=================== heart/badge (meister on lv150 legendary) ===================
+                         18+ stat 1 in 21 cubes, 4.8318%
+                         21+ stat 1 in 54 cubes, 1.8639%
+                         30+ stat 1 in 1202 cubes, 0.0832%
+                         33+ stat 1 in 317686 cubes, 0.0003%
+                           18+ hp 1 in 19 cubes, 5.3797%
+                           21+ hp 1 in 28 cubes, 3.6242%
+                           30+ hp 1 in 359 cubes, 0.2782%
+                           33+ hp 1 in 94398 cubes, 0.0011%
+                     12+ all stat 1 in 95 cubes, 1.0536%
+                     15+ all stat 1 in 118 cubes, 0.8483%
+                     21+ all stat 1 in 4833 cubes, 0.0207%
+ 30+ hp items and skills recovery 1 in 3 cubes, 36.5473%
+ 60+ hp items and skills recovery 1 in 19 cubes, 5.3797%
+ 70+ hp items and skills recovery 1 in 28 cubes, 3.6242%
+100+ hp items and skills recovery 1 in 359 cubes, 0.2782%
+110+ hp items and skills recovery 1 in 94398 cubes, 0.0011%
+ 120 hp items and skills recovery 1 in 98987357 cubes, 0.0000%
 ======== weapon, 2ndary/force shield/soul ring (uni on lv150 legendary) ========
 9+ att or 30+ boss or 30+ ied 1 in 8 cubes, 12.2847%
            9+ att or 30+ boss 1 in 23 cubes, 4.3587%
@@ -1059,81 +1105,87 @@ any 2l combo of drop and auto steal 1 in 1032 cubes, 0.0969%
                      15+ hp healing 1 in 96 cubes, 1.0376%
                      15+ mp healing 1 in 96 cubes, 1.0376%
 ===================== familiar (familiar on lv150 unique) ======================
-                           20+ boss 1 in 137 cubes, 0.7307%
-                           30+ boss 1 in 171 cubes, 0.5844%
-any 2l combo of boss and hp healing 1 in 237 cubes, 0.4219%
-                            20+ ied 1 in 91 cubes, 1.0941%
-                            30+ ied 1 in 114 cubes, 0.8756%
-                           25+ drop 1 in 27 cubes, 3.6446%
-                           50+ drop 1 in 46 cubes, 2.1900%
-                          100+ drop 1 in 135 cubes, 0.7394%
-                           25+ meso 1 in 27 cubes, 3.6446%
-                  25+ meso and drop 1 in 46 cubes, 2.1873%
-                  40+ meso and drop 1 in 69 cubes, 1.4586%
-                      1+ auto steal 1 in 39 cubes, 2.5456%
-                      2+ auto steal 1 in 46 cubes, 2.1853%
-any 2l combo of drop and auto steal 1 in 933 cubes, 0.1072%
-                     10+ hp healing 1 in 12 cubes, 8.6005%
-                     10+ mp healing 1 in 12 cubes, 8.6005%
-                     15+ hp healing 1 in 23 cubes, 4.3572%
-                     15+ mp healing 1 in 23 cubes, 4.3572%
-                           35+ boss 1 in 341 cubes, 0.2931%
-                           40+ boss 1 in 681 cubes, 0.1469%
-        35+ boss and any hp healing 1 in 3888 cubes, 0.0257%
-        40+ boss and any hp healing 1 in 7776 cubes, 0.0129%
-                            35+ ied 1 in 228 cubes, 0.4390%
-                            40+ ied 1 in 453 cubes, 0.2209%
-       any 2l combo of boss and ied 1 in 6838 cubes, 0.0146%
-               any 2l combo of boss 1 in 22209 cubes, 0.0045%
-                          50+ boss  1 in 77657 cubes, 0.0013%
-                  50+ meso and drop 1 in 137 cubes, 0.7300%
-              25+ meso and 90+ drop 1 in 6221 cubes, 0.0161%
-      any 2l combo of meso and drop 1 in 2074 cubes, 0.0482%
-any 2l combo of drop and auto steal 1 in 933 cubes, 0.1072%
-                      3+ auto steal 1 in 55 cubes, 1.8250%
-                      4+ auto steal 1 in 68 cubes, 1.4627%
-                      5+ auto steal 1 in 91 cubes, 1.0990%
-                      6+ auto steal 1 in 136 cubes, 0.7340%
-                      7+ auto steal 1 in 271 cubes, 0.3690%
-                      8+ auto steal 1 in 24884 cubes, 0.0040%
-                      9+ auto steal 1 in 74652 cubes, 0.0013%
-                     20+ hp healing 1 in 311 cubes, 0.3215%
-                     20+ mp healing 1 in 311 cubes, 0.3215%
+                                    20+ boss 1 in 137 cubes, 0.7307%
+                                    30+ boss 1 in 171 cubes, 0.5844%
+         any 2l combo of boss and hp healing 1 in 237 cubes, 0.4219%
+                                     20+ ied 1 in 91 cubes, 1.0941%
+                                     30+ ied 1 in 114 cubes, 0.8756%
+                                    25+ drop 1 in 27 cubes, 3.6446%
+                                    50+ drop 1 in 46 cubes, 2.1900%
+                                   100+ drop 1 in 135 cubes, 0.7394%
+                                    25+ meso 1 in 27 cubes, 3.6446%
+                           25+ meso and drop 1 in 46 cubes, 2.1873%
+                           40+ meso and drop 1 in 69 cubes, 1.4586%
+                               1+ auto steal 1 in 39 cubes, 2.5456%
+                               2+ auto steal 1 in 46 cubes, 2.1853%
+         any 2l combo of drop and auto steal 1 in 933 cubes, 0.1072%
+                              10+ hp healing 1 in 12 cubes, 8.6005%
+                              10+ mp healing 1 in 12 cubes, 8.6005%
+                              15+ hp healing 1 in 23 cubes, 4.3572%
+                              15+ mp healing 1 in 23 cubes, 4.3572%
+                                    35+ boss 1 in 341 cubes, 0.2931%
+                                    40+ boss 1 in 681 cubes, 0.1469%
+                 35+ boss and any hp healing 1 in 3888 cubes, 0.0257%
+                 40+ boss and any hp healing 1 in 7776 cubes, 0.0129%
+                                     35+ ied 1 in 228 cubes, 0.4390%
+                                     40+ ied 1 in 453 cubes, 0.2209%
+                any 2l combo of boss and ied 1 in 6838 cubes, 0.0146%
+                        any 2l combo of boss 1 in 22209 cubes, 0.0045%
+                                   50+ boss  1 in 77657 cubes, 0.0013%
+                           50+ meso and drop 1 in 137 cubes, 0.7300%
+                       25+ meso and 90+ drop 1 in 6221 cubes, 0.0161%
+               any 2l combo of meso and drop 1 in 2074 cubes, 0.0482%
+         any 2l combo of drop and auto steal 1 in 933 cubes, 0.1072%
+                               3+ auto steal 1 in 55 cubes, 1.8250%
+                               4+ auto steal 1 in 68 cubes, 1.4627%
+                               5+ auto steal 1 in 91 cubes, 1.0990%
+                               6+ auto steal 1 in 136 cubes, 0.7340%
+                               7+ auto steal 1 in 271 cubes, 0.3690%
+                               8+ auto steal 1 in 24884 cubes, 0.0040%
+                               9+ auto steal 1 in 74652 cubes, 0.0013%
+any 2l combo of hp heal and items/skills rec 1 in 249 cubes, 0.4019%
+     15+ hp healing and 15+ items/skills rec 1 in 18663 cubes, 0.0054%
+                              20+ hp healing 1 in 311 cubes, 0.3215%
+                              20+ mp healing 1 in 311 cubes, 0.3215%
 ==================== familiar (familiar on lv150 legendary) ====================
-                           40+ boss 1 in 33 cubes, 3.0569%
-                           45+ boss 1 in 51 cubes, 1.9526%
-                           50+ boss 1 in 102 cubes, 0.9838%
-                           60+ boss 1 in 7838 cubes, 0.0128%
-any 2l combo of boss and hp healing 1 in 506 cubes, 0.1977%
-        45+ boss and any hp healing 1 in 1411 cubes, 0.0709%
-        50+ boss and any hp healing 1 in 2822 cubes, 0.0354%
-                            40+ ied 1 in 32 cubes, 3.1246%
-                            45+ ied 1 in 34 cubes, 2.9120%
-                            50+ ied 1 in 68 cubes, 1.4656%
-                            60+ ied 1 in 5227 cubes, 0.0191%
-any 2l combo of drop and auto steal 1 in 353 cubes, 0.2835%
-                      4+ auto steal 1 in 12 cubes, 8.6347%
-                      6+ auto steal 1 in 18 cubes, 5.5751%
-                      8+ auto steal 1 in 40 cubes, 2.5067%
-                     12+ auto steal 1 in 1881 cubes, 0.0532%
-                     13+ auto steal 1 in 2822 cubes, 0.0354%
-                     14+ auto steal 1 in 5644 cubes, 0.0177%
+                                    40+ boss 1 in 33 cubes, 3.0569%
+                                    45+ boss 1 in 51 cubes, 1.9526%
+                                    50+ boss 1 in 102 cubes, 0.9838%
+                                    60+ boss 1 in 7838 cubes, 0.0128%
+         any 2l combo of boss and hp healing 1 in 506 cubes, 0.1977%
+                 45+ boss and any hp healing 1 in 1411 cubes, 0.0709%
+                 50+ boss and any hp healing 1 in 2822 cubes, 0.0354%
+any 2l combo of hp heal and items/skills rec 1 in 941 cubes, 0.1063%
+     15+ hp healing and 15+ items/skills rec 1 in 1129 cubes, 0.0886%
+                                     40+ ied 1 in 32 cubes, 3.1246%
+                                     45+ ied 1 in 34 cubes, 2.9120%
+                                     50+ ied 1 in 68 cubes, 1.4656%
+                                     60+ ied 1 in 5227 cubes, 0.0191%
+         any 2l combo of drop and auto steal 1 in 353 cubes, 0.2835%
+                               4+ auto steal 1 in 12 cubes, 8.6347%
+                               6+ auto steal 1 in 18 cubes, 5.5751%
+                               8+ auto steal 1 in 40 cubes, 2.5067%
+                              12+ auto steal 1 in 1881 cubes, 0.0532%
+                              13+ auto steal 1 in 2822 cubes, 0.0354%
+                              14+ auto steal 1 in 5644 cubes, 0.0177%
 ================== familiar (red_fam_card on lv150 legendary) ==================
-                           40+ boss 1 in 51 cubes, 1.9727%
-                           45+ boss 1 in 76 cubes, 1.3213%
-                           50+ boss 1 in 130 cubes, 0.7698%
-                           60+ boss 1 in 10560 cubes, 0.0095%
-any 2l combo of boss and hp healing 1 in 438 cubes, 0.2285%
-        45+ boss and any hp healing 1 in 990 cubes, 0.1010%
-        50+ boss and any hp healing 1 in 1710 cubes, 0.0585%
-                            40+ ied 1 in 71 cubes, 1.4168%
-                            45+ ied 1 in 76 cubes, 1.3148%
-                            50+ ied 1 in 191 cubes, 0.5234%
-                            60+ ied 1 in 13715 cubes, 0.0073%
-any 2l combo of drop and auto steal 1 in 153 cubes, 0.6525%
-                      4+ auto steal 1 in 8 cubes, 12.6609%
-                      6+ auto steal 1 in 12 cubes, 8.2232%
-                      8+ auto steal 1 in 26 cubes, 3.8301%
-                     12+ auto steal 1 in 560 cubes, 0.1787%
-                     13+ auto steal 1 in 846 cubes, 0.1182%
-                     14+ auto steal 1 in 1523 cubes, 0.0657%
+                                    40+ boss 1 in 51 cubes, 1.9727%
+                                    45+ boss 1 in 76 cubes, 1.3213%
+                                    50+ boss 1 in 130 cubes, 0.7698%
+                                    60+ boss 1 in 10560 cubes, 0.0095%
+         any 2l combo of boss and hp healing 1 in 438 cubes, 0.2285%
+                 45+ boss and any hp healing 1 in 990 cubes, 0.1010%
+                 50+ boss and any hp healing 1 in 1710 cubes, 0.0585%
+any 2l combo of hp heal and items/skills rec 1 in 306 cubes, 0.3265%
+     15+ hp healing and 15+ items/skills rec 1 in 372 cubes, 0.2685%
+                                     40+ ied 1 in 71 cubes, 1.4168%
+                                     45+ ied 1 in 76 cubes, 1.3148%
+                                     50+ ied 1 in 191 cubes, 0.5234%
+                                     60+ ied 1 in 13715 cubes, 0.0073%
+         any 2l combo of drop and auto steal 1 in 153 cubes, 0.6525%
+                               4+ auto steal 1 in 8 cubes, 12.6609%
+                               6+ auto steal 1 in 12 cubes, 8.2232%
+                               8+ auto steal 1 in 26 cubes, 3.8301%
+                              12+ auto steal 1 in 560 cubes, 0.1787%
+                              13+ auto steal 1 in 846 cubes, 0.1182%
+                              14+ auto steal 1 in 1523 cubes, 0.0657%

@@ -28,7 +28,6 @@ known = {
 
     "Abnormal Status Resistance: +7%",
     "All Skill Levels: +1",
-    "HP Recovery Items and Skills: +30%",
     "Critical Rate: +9%",
   },
   UNIQUE: {
@@ -91,8 +90,6 @@ known = {
     "Hitting an enemy has a 15% chance to restore 45 HP",
     "3% chance to become invincible for 5 seconds when attacked.",
     "4% chance to become invincible for 5 seconds when attacked.",
-    "HP Recovery Items and Skills: +15%",
-    "HP Recovery Items and Skills: +20%",
     "Critical Rate: +5%",
     "Critical Rate: +6%",
   }
@@ -117,6 +114,7 @@ conversion = {
     "8% chance to Auto Steal": AUTOSTEAL_A,
     "6% chance to Auto Steal": AUTOSTEAL_B,
     "4% chance to Auto Steal": AUTOSTEAL_C,
+    "HP Recovery Items and Skills: +30%": HP_ITEMS_AND_SKILLS_A,
   },
   UNIQUE: {
     "Item Acquisition Rate: +10%": SMALL_DROP,
@@ -163,6 +161,8 @@ conversion = {
     "Continually restores a large amount of HP & MP to nearby allies": HEAL_HP_MP_NEAR_A,
     "Continually restores a large amount of MP to party members": HEAL_MP_ONLY_PARTY_A,
     "Continually restores a large amount of MP to nearby allies": HEAL_MP_ONLY_NEAR_A,
+    "HP Recovery Items and Skills: +15%": HP_ITEMS_AND_SKILLS_B,
+    "HP Recovery Items and Skills: +20%": HP_ITEMS_AND_SKILLS_A,
   },
 }
 

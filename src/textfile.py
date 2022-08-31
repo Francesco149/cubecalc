@@ -26,6 +26,7 @@ hat = prob_cash(HAT)
 accessory = prob_cash(FACE_EYE_RING_EARRING_PENDANT)
 cape_belt_shoulder = prob_cash(CAPE_BELT_SHOULDER)
 glove = prob_cash(GLOVE)
+heart_badge = prob_cash(HEART_BADGE)
 
 prob_noncash = partial(find_probabilities, kms.cubes, NONCASH_MAIN)
 weapon_noncash = prob_noncash(WEAPON)
@@ -37,6 +38,7 @@ hat_noncash = prob_noncash(HAT)
 accessory_noncash = prob_noncash(FACE_EYE_RING_EARRING_PENDANT)
 cape_belt_shoulder_noncash = prob_noncash(CAPE_BELT_SHOULDER)
 glove_noncash = prob_noncash(GLOVE)
+heart_badge_noncash = prob_noncash(HEART_BADGE)
 
 prob_bonus = partial(find_probabilities, kms.cubes, BONUS)
 weapon_bonus = prob_bonus(WEAPON)
@@ -242,6 +244,18 @@ def cube_calcs():
     ("6+s cooldown", [{COOLDOWN: 6}]),
   ]
 
+  combos_heart_badge = combos_stat + [
+    ("30+ hp items and skills recovery", [{HP_ITEMS_AND_SKILLS: 30}]),
+    ("60+ hp items and skills recovery", [{HP_ITEMS_AND_SKILLS: 60}]),
+  ]
+
+  combos_heart_badge_meister = combos_heart_badge + [
+    ("70+ hp items and skills recovery", [{HP_ITEMS_AND_SKILLS: 70}]),
+    ("100+ hp items and skills recovery", [{HP_ITEMS_AND_SKILLS: 100}]),
+    ("110+ hp items and skills recovery", [{HP_ITEMS_AND_SKILLS: 110}]),
+    ("120 hp items and skills recovery", [{HP_ITEMS_AND_SKILLS: 120}]),
+  ]
+
   combos_occult_stat = [
     ("6+ stat", [{STAT: 6}]),
     ("9+ stat", [{STAT: 9}]),
@@ -354,6 +368,14 @@ def cube_calcs():
 
   Combos(combos_glove_steal, GLOVE)(
     glove_noncash,
+  )
+
+  Combos(combos_heart_badge, HEART_BADGE)(
+    heart_badge,
+  )
+
+  Combos(combos_heart_badge_meister, HEART_BADGE)(
+    heart_badge_noncash,
   )
 
 
@@ -508,6 +530,8 @@ def familiar_calcs():
     ("8+ auto steal", [{AUTOSTEAL: 8}]),
     ("9+ auto steal", [{AUTOSTEAL: 9}]),
 
+    ("any 2l combo of hp heal and items/skills rec", [{HEAL_HP: 1, HP_ITEMS_AND_SKILLS: 1, LINES: 2}]),
+    ("15+ hp healing and 15+ items/skills rec", [{HEAL_HP: 15, HP_ITEMS_AND_SKILLS: 15}]),
     ("20+ hp healing", [{HEAL_HP: 20}]),
     ("20+ mp healing", [{HEAL_MP: 20}]),
   ]
@@ -520,6 +544,9 @@ def familiar_calcs():
     ("any 2l combo of boss and hp healing", [{BOSS: 1, HEAL_HP: 1, LINES: 2}]),
     ("45+ boss and any hp healing", [{BOSS: 45, HEAL_HP: 1}]),
     ("50+ boss and any hp healing", [{BOSS: 50, HEAL_HP: 1}]),
+
+    ("any 2l combo of hp heal and items/skills rec", [{HEAL_HP: 1, HP_ITEMS_AND_SKILLS: 1, LINES: 2}]),
+    ("15+ hp healing and 15+ items/skills rec", [{HEAL_HP: 15, HP_ITEMS_AND_SKILLS: 15}]),
 
     ("40+ ied", [{IED: 40}]),
     ("45+ ied", [{IED: 45}]),

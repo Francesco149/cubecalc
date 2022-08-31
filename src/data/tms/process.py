@@ -75,6 +75,7 @@ line_conversion = {
   "道具掉落率%": DROP_A,
   "以角色等級為準每10級增加力量": MAINSTAT_PER_10_LVLS,
   "以角色等級為準每10級增加物理攻擊力": ATT_PER_10_LVLS,
+  "HP恢復道具及恢復技能效果增加": HP_ITEMS_AND_SKILLS_A,
 }
 
 irrelevant_lines = [
@@ -95,7 +96,6 @@ irrelevant_lines = [
   "移動速度", "跳躍力",
   "被擊中時有一定機率無視傷害",
   "擊殺怪物有一定機率恢復HP",
-  "HP恢復道具及恢復技能效果增加",
   "被擊中時有一定機率在時間內無敵", # chance to be invincibile
   "擊殺怪物有一定機率恢復MP",
   "有一定機率反射所受的傷害",

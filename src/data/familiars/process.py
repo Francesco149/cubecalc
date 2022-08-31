@@ -112,7 +112,6 @@ known_lines = {
   "All Skill Levels: +#incAllskill",
 
   "Hitting an enemy has a #prop% chance to restore #HP HP",
-  "HP Recovery Items and Skills: +#RecoveryUP%",
   "Restores #RecoveryHP HP every 4 sec",
 
   "Outlines your character in black",
@@ -210,6 +209,8 @@ convert_lines = {
   "Continually restores the party's MP by a small amount": HEAL_MP_ONLY_PARTY_A,
   "Continually restores MP to party members": HEAL_MP_ONLY_PARTY_A,
   "Continually restores a large amount of MP to party members": HEAL_MP_ONLY_PARTY_A,
+
+  "HP Recovery Items and Skills: +#RecoveryUP%": HP_ITEMS_AND_SKILLS_A,
 }
 
 
@@ -377,6 +378,10 @@ with open("cache/familiars.txt") as f:
             if amount == 5:
               stat &= ~LINE_A
               stat |= LINE_B
+
+        elif stat == HP_ITEMS_AND_SKILLS_A:
+          if tier == UNIQUE and amount == 15:
+            stat = HP_ITEMS_AND_SKILLS_B
 
         desc = line_description(rawtext, stat, amount)
         line = (stat, percent, amount, desc)

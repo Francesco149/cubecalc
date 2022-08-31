@@ -90,6 +90,7 @@ familiars = {
         [HEAL_MP_ONLY_PARTY_C, 0.734], # Continually restores the party's MP by a small amount (7)
         [BOSS_C, 0.147], # Damage to Bosses: +20%
         [BOSS_A, 0.147], # Damage to Bosses: +30%
+        [HP_ITEMS_AND_SKILLS_A, 0.367], # HP Recovery Items and Skills: +10%
         [DROP_A, 0.734], # Increases Item Drop Rate (60)
         [LARGE_DROP, 0.734], # Increases Item Drop Rate by a large amount (100)
         [NORMAL_DROP_MESO, 0.734], # Increases Item and Meso Drop Rate (40)
@@ -133,6 +134,8 @@ familiars = {
         [HEAL_MP_ONLY_PARTY_A, 0.73], # Continually restores a large amount of MP to party members (15)
         [CRITDMG_A, 0.438], # Critical Damage: +3%
         [CRITDMG_B, 0.438], # Critical Damage: +2%
+        [HP_ITEMS_AND_SKILLS_A, 0.365], # HP Recovery Items and Skills: +20%
+        [HP_ITEMS_AND_SKILLS_B, 0.365], # HP Recovery Items and Skills: +15%
         [LARGE_DROP_MESO, 0.73], # Increases Item and Meso Drop Rate by a large amount (50)
         [FLAT_ALLSTAT_C, 0.73], # Increases Main Stat, INT, DEX, and LUK of players on the same map (2)
         [FLAT_DEX_ONLY, 1.46], # Increases Speed, Jump, DEX, and Defense by a small amount (1)
@@ -163,6 +166,7 @@ familiars = {
         [BOSS_B, 0.971], # Boss Damage: +45%
         [BOSS_A, 0.971], # Boss Damage: +50%
         [CRITDMG_A, 2.912], # Critical Damage: +6%
+        [HP_ITEMS_AND_SKILLS_A, 2.427], # HP Recovery Items and Skills: +30%
         [SMALL_DROP, 2.427], # Item Acquisition Rate: +12%
         [HP_A, 1.456], # Max HP: +9%
         [FLAT_MESO, 2.427], # Mesos Obtained: +12
@@ -262,6 +266,7 @@ values = {
     HEAL_MP_ONLY_PARTY_C: 7,
     BOSS_C: 20,
     BOSS_A: 30,
+    HP_ITEMS_AND_SKILLS_A: 10,
     DROP_A: 60,
     LARGE_DROP: 100,
     NORMAL_DROP_MESO: 40,
@@ -306,6 +311,8 @@ values = {
     HEAL_MP_ONLY_PARTY_A: 15,
     CRITDMG_A: 3,
     CRITDMG_B: 2,
+    HP_ITEMS_AND_SKILLS_A: 20,
+    HP_ITEMS_AND_SKILLS_B: 15,
     LARGE_DROP_MESO: 50,
     FLAT_ALLSTAT_C: 2,
     FLAT_DEX_ONLY: 1,
@@ -337,6 +344,7 @@ values = {
     BOSS_B: 45,
     BOSS_A: 50,
     CRITDMG_A: 6,
+    HP_ITEMS_AND_SKILLS_A: 30,
     SMALL_DROP: 12,
     HP_A: 9,
     FLAT_MESO: 12,
@@ -430,6 +438,7 @@ desc = {
     HEAL_MP_ONLY_PARTY_C: "Continually restores the party's MP by a small amount (7)",
     BOSS_C: "Damage to Bosses: +20%",
     BOSS_A: "Damage to Bosses: +30%",
+    HP_ITEMS_AND_SKILLS_A: "HP Recovery Items and Skills: +10%",
     DROP_A: "Increases Item Drop Rate (60)",
     LARGE_DROP: "Increases Item Drop Rate by a large amount (100)",
     NORMAL_DROP_MESO: "Increases Item and Meso Drop Rate (40)",
@@ -473,6 +482,8 @@ desc = {
     HEAL_MP_ONLY_PARTY_A: "Continually restores a large amount of MP to party members (15)",
     CRITDMG_A: "Critical Damage: +3%",
     CRITDMG_B: "Critical Damage: +2%",
+    HP_ITEMS_AND_SKILLS_A: "HP Recovery Items and Skills: +20%",
+    HP_ITEMS_AND_SKILLS_B: "HP Recovery Items and Skills: +15%",
     LARGE_DROP_MESO: "Increases Item and Meso Drop Rate by a large amount (50)",
     FLAT_ALLSTAT_C: "Increases Main Stat, INT, DEX, and LUK of players on the same map (2)",
     FLAT_DEX_ONLY: "Increases Speed, Jump, DEX, and Defense by a small amount (1)",
@@ -503,6 +514,7 @@ desc = {
     BOSS_B: "Boss Damage: +45%",
     BOSS_A: "Boss Damage: +50%",
     CRITDMG_A: "Critical Damage: +6%",
+    HP_ITEMS_AND_SKILLS_A: "HP Recovery Items and Skills: +30%",
     SMALL_DROP: "Item Acquisition Rate: +12%",
     HP_A: "Max HP: +9%",
     FLAT_MESO: "Mesos Obtained: +12",
@@ -538,12 +550,14 @@ red_card_estimate = {
         [FLAT_ALLSTAT_A, 28 / 2903 * 100 / (2890 / 2903)],
         [AUTOSTEAL_D, 28 / 2903 * 100 / (2890 / 2903)],
         [FLAT_HP_B, 27 / 2903 * 100 / (2890 / 2903)],
+        [HP_ITEMS_AND_SKILLS_B, 27 / 2903 * 100 / (2890 / 2903)],
         [AUTOSTEAL_A, 27 / 2903 * 100 / (2890 / 2903)],
         [AUTOSTEAL_E, 26 / 2903 * 100 / (2890 / 2903)],
         [AUTOSTEAL_B, 25 / 2903 * 100 / (2890 / 2903)],
         [HP_B, 24 / 2903 * 100 / (2890 / 2903)],
         [CRITDMG_B, 22 / 2903 * 100 / (2890 / 2903)],
         [AUTOSTEAL_C, 21 / 2903 * 100 / (2890 / 2903)],
+        [HP_ITEMS_AND_SKILLS_A, 21 / 2903 * 100 / (2890 / 2903)],
         [FLAT_MAINSTAT_B, 21 / 2903 * 100 / (2890 / 2903)],
         [MAINSTAT_B, 18 / 2903 * 100 / (2890 / 2903)],
         [HP_A, 18 / 2903 * 100 / (2890 / 2903)],
@@ -567,6 +581,7 @@ red_card_estimate = {
       ],
       LEGENDARY: [
         [AUTOSTEAL_A, 104 / 2903 * 100],
+        [HP_ITEMS_AND_SKILLS_A, 101 / 2903 * 100],
         [INVIN, 88 / 2903 * 100],
         [AUTOSTEAL_C, 88 / 2903 * 100],
         [AUTOSTEAL_B, 83 / 2903 * 100],

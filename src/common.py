@@ -103,6 +103,8 @@ class Line(IntFlag):
   HEAL_HP_MP = auto()
   HEAL_MP_ONLY = auto()
 
+  HP_ITEMS_AND_SKILLS = auto()
+
   # special keys for matching lines
   LINES = auto() # match by number of lines and what lines are allowed
 
@@ -181,6 +183,9 @@ class LineVariants(IntFlag):
   HEAL_MP_ONLY_PARTY_A = HEAL_MP_ONLY | LINE_A | HEAL_PARTY
   HEAL_MP_ONLY_PARTY_B = HEAL_MP_ONLY | LINE_B | HEAL_PARTY
   HEAL_MP_ONLY_PARTY_C = HEAL_MP_ONLY | LINE_C | HEAL_PARTY
+
+  HP_ITEMS_AND_SKILLS_A = HP_ITEMS_AND_SKILLS | LINE_A
+  HP_ITEMS_AND_SKILLS_B = HP_ITEMS_AND_SKILLS | LINE_B
 
 @global_enum
 class LineMasks(IntFlag):

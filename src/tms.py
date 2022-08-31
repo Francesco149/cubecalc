@@ -32,6 +32,7 @@ event = {
         [MAINSTAT_A, 7.94],
         [HP_A, 9.52],
         [ALLSTAT_A, 6.35],
+        [HP_ITEMS_AND_SKILLS_A, 7.94],
       ],
       LEGENDARY: [
         [DECENT_COMBAT_ORDERS, 6.25],
@@ -57,6 +58,7 @@ event = {
         [MAINSTAT_A, 9.8],
         [HP_A, 11.76],
         [ALLSTAT_A, 7.84],
+        [HP_ITEMS_AND_SKILLS_A, 9.8],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 7.84],
@@ -125,6 +127,7 @@ event = {
         [MAINSTAT_A, 6.85],
         [HP_A, 8.22],
         [ALLSTAT_A, 5.48],
+        [HP_ITEMS_AND_SKILLS_A, 6.85],
       ],
       LEGENDARY: [
         [INVIN, 5.88],
@@ -145,6 +148,7 @@ event = {
         [MAINSTAT_A, 7.46],
         [HP_A, 8.96],
         [ALLSTAT_A, 5.97],
+        [HP_ITEMS_AND_SKILLS_A, 7.46],
       ],
       LEGENDARY: [
         [CRITDMG_A, 7.69],
@@ -159,6 +163,7 @@ event = {
         [MAINSTAT_A, 7.94],
         [HP_A, 9.52],
         [ALLSTAT_A, 6.35],
+        [HP_ITEMS_AND_SKILLS_A, 7.94],
       ],
       LEGENDARY: [
         [COOLDOWN_1, 5.66],
@@ -173,6 +178,7 @@ event = {
         [MAINSTAT_A, 7.94],
         [HP_A, 9.52],
         [ALLSTAT_A, 6.35],
+        [HP_ITEMS_AND_SKILLS_A, 7.94],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 8.89],
@@ -185,6 +191,7 @@ event = {
         [MAINSTAT_A, 8.47],
         [HP_A, 10.17],
         [ALLSTAT_A, 6.78],
+        [HP_ITEMS_AND_SKILLS_A, 8.47],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 8.89],
@@ -260,6 +267,7 @@ event = {
         [MAINSTAT_A, 6.33],
         [HP_A, 6.33],
         [ALLSTAT_A, 1.27],
+        [HP_ITEMS_AND_SKILLS_A, 12.66],
       ],
       LEGENDARY: [
         [DECENT_COMBAT_ORDERS, 10.91],
@@ -285,6 +293,7 @@ event = {
         [MAINSTAT_A, 11.63],
         [HP_A, 11.63],
         [ALLSTAT_A, 2.33],
+        [HP_ITEMS_AND_SKILLS_A, 13.95],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 6.06],
@@ -353,6 +362,7 @@ event = {
         [MAINSTAT_A, 4.08],
         [HP_A, 4.08],
         [ALLSTAT_A, 1.02],
+        [HP_ITEMS_AND_SKILLS_A, 9.18],
       ],
       LEGENDARY: [
         [INVIN, 12.31],
@@ -373,6 +383,7 @@ event = {
         [MAINSTAT_A, 5.26],
         [HP_A, 5.26],
         [ALLSTAT_A, 1.05],
+        [HP_ITEMS_AND_SKILLS_A, 9.47],
       ],
       LEGENDARY: [
         [CRITDMG_A, 2.9],
@@ -387,6 +398,7 @@ event = {
         [MAINSTAT_A, 5.8],
         [HP_A, 5.8],
         [ALLSTAT_A, 1.45],
+        [HP_ITEMS_AND_SKILLS_A, 11.59],
       ],
       LEGENDARY: [
         [COOLDOWN_1, 10.0],
@@ -401,6 +413,7 @@ event = {
         [MAINSTAT_A, 6.35],
         [HP_A, 6.35],
         [ALLSTAT_A, 1.59],
+        [HP_ITEMS_AND_SKILLS_A, 11.11],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 8.89],
@@ -413,6 +426,7 @@ event = {
         [MAINSTAT_A, 7.69],
         [HP_A, 7.69],
         [ALLSTAT_A, 1.54],
+        [HP_ITEMS_AND_SKILLS_A, 12.31],
       ],
       LEGENDARY: [
         [MAINSTAT_A, 8.89],

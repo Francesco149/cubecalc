@@ -194,6 +194,18 @@ def find_line_values(cube, category, region):
     (MAXLVL, 6),
   ]
 
+  hp_recovery_30 = [
+    (30, 10),
+    (70, 20),
+    (MAXLVL, 30),
+  ]
+
+  hp_recovery_40 = [
+    (30, 20),
+    (70, 30),
+    (MAXLVL, 40),
+  ]
+
   values = {
     COMMON: {
       ANY: 1,
@@ -238,6 +250,7 @@ def find_line_values(cube, category, region):
       INVIN: 2,
       DECENT_SHARP_EYES: minlvl(120, 1),
       MAINSTAT_PER_10_LVLS: minlvl(30, 1),
+      HP_ITEMS_AND_SKILLS_A: hp_recovery_30,
     },
 
     LEGENDARY: {
@@ -264,6 +277,7 @@ def find_line_values(cube, category, region):
       AUTOSTEAL_A: 7,
       AUTOSTEAL_B: 5,
       AUTOSTEAL_C: 3,
+      HP_ITEMS_AND_SKILLS_A: hp_recovery_40,
     },
   }
 

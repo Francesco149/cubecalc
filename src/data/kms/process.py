@@ -34,6 +34,7 @@ convert_s = {
   "캐릭터 기준 10레벨 당 공격력": ATT_PER_10_LVLS,
   "몬스터 방어율 무시": IED_C,
   "보스 몬스터 공격 시 데미지": BOSS_C,
+  "HP 회복 아이템 및 회복 스킬 효율": HP_ITEMS_AND_SKILLS_A,
 }
 
 ied_text = lambda x: f"몬스터 방어율 무시 : +{x}%"
