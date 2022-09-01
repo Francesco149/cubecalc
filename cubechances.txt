@@ -476,7 +476,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
          12+ all stat 1 in 51 cubes, 1.9452%
          15+ all stat 1 in 79 cubes, 1.2603%
          21+ all stat 1 in 1780 cubes, 0.0562%
- 20+ meso or 20+ drop 1 in 7 cubes, 15.3803%
+ 20+ meso or 20+ drop 1 in 7 cubes, 15.2724%
              20+ meso 1 in 13 cubes, 7.6901%
              20+ drop 1 in 13 cubes, 7.6901%
    40 meso or 40 drop 1 in 927 cubes, 0.1079%
@@ -495,7 +495,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
          12+ all stat 1 in 53 cubes, 1.9018%
          15+ all stat 1 in 76 cubes, 1.3175%
          21+ all stat 1 in 1840 cubes, 0.0543%
- 20+ meso or 20+ drop 1 in 6 cubes, 17.1890%
+ 20+ meso or 20+ drop 1 in 6 cubes, 16.9379%
              20+ meso 1 in 12 cubes, 8.5947%
              20+ drop 1 in 12 cubes, 8.5943%
    40 meso or 40 drop 1 in 398 cubes, 0.2514%
@@ -514,7 +514,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
          12+ all stat 1 in 131 cubes, 0.7608%
          15+ all stat 1 in 182 cubes, 0.5482%
          21+ all stat 1 in 7490 cubes, 0.0134%
- 20+ meso or 20+ drop 1 in 6 cubes, 17.7112%
+ 20+ meso or 20+ drop 1 in 6 cubes, 17.7050%
              20+ meso 1 in 11 cubes, 8.8556%
              20+ drop 1 in 11 cubes, 8.8556%
    40 meso or 40 drop 1 in 16075 cubes, 0.0062%
@@ -533,7 +533,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
          12+ all stat 1 in 15 cubes, 6.7781%
          15+ all stat 1 in 38 cubes, 2.6466%
          21+ all stat 1 in 281 cubes, 0.3556%
- 20+ meso or 20+ drop 1 in 7 cubes, 14.2948%
+ 20+ meso or 20+ drop 1 in 7 cubes, 14.1265%
              20+ meso 1 in 14 cubes, 7.1476%
              20+ drop 1 in 14 cubes, 7.1472%
    40 meso or 40 drop 1 in 593 cubes, 0.1686%
@@ -552,7 +552,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
          12+ all stat 1 in 100 cubes, 0.9966%
          15+ all stat 1 in 100 cubes, 0.9966%
          21+ all stat 1 in 4919 cubes, 0.0203%
- 20+ meso or 20+ drop 1 in 3 cubes, 33.2259%
+ 20+ meso or 20+ drop 1 in 3 cubes, 31.2734%
              20+ meso 1 in 6 cubes, 16.6231%
              20+ drop 1 in 6 cubes, 16.6028%
    40 meso or 40 drop 1 in 51 cubes, 1.9728%

@@ -784,79 +784,88 @@ def cube_calc(wants, category, type, tier, level, region, lines):
   prime_chance =         np.array(prime_chance, dtype='float64') .reshape(1, -1)
   nonprime_chance = (1 - np.array(prime_chance, dtype='float64')).reshape(1, -1)
 
-  def combo_chance(want):
-    c = line_cache.copy()
+  # this copy of the line cache will hold all possible combinations that contain any of the lines
+  # we want
+  c = line_cache.copy()
 
-    # filter out lines that are not in our want dict to exponentially reduce combinations
-    relevant_line_bits = reduce(or_, want.keys()) | ANY
-    c.filt(c.types & relevant_line_bits != 0)
+  # filter out lines that are not in our want dict to exponentially reduce combinations
+  relevant_line_bits = reduce(or_, [reduce(or_, want.keys()) for want in wants]) | ANY
+  c.filt(c.types & relevant_line_bits != 0)
 
-    # remember to update the number of prime lines
-    num_prime = np.count_nonzero(c.is_prime)
+  # remember to update the number of prime lines
+  num_prime = np.count_nonzero(c.is_prime)
 
-    # calculate ANY line chance
-    any_p = sum(1/c.onein[:num_prime-1])
-    any_n = sum(1/c.onein[num_prime:-1])
-    c.onein[num_prime - 1] = 1/(1 - any_p)
-    c.onein[-1] = 1/(1 - any_n)
+  # calculate ANY line chance
+  any_p = sum(1/c.onein[:num_prime-1])
+  any_n = sum(1/c.onein[num_prime:-1])
+  c.onein[num_prime - 1] = 1/(1 - any_p)
+  c.onein[-1] = 1/(1 - any_n)
 
-    # arrays of line indices to generate combinations
-    p = np.arange(num_prime)
-    n = np.arange(len(c.types))
+  # arrays of line indices to generate combinations
+  p = np.arange(num_prime)
+  n = np.arange(len(c.types))
 
-    if cube_category == VIOLET:
-      combo_idxs = np.array(np.meshgrid(p, n, n, n, n, n)).T.reshape(-1, 6)
-    elif cube_category == UNI:
-      combo_idxs = np.array(np.meshgrid(n)).T.reshape(-1, 1)
-    elif cube_category == EQUALITY:
-      combo_idxs = np.array(np.meshgrid(p, p, p)).T.reshape(-1, 3)
-    elif cube_category == FAMILIAR:
-      if type == FAMILIAR:
-        n = n[len(p):] # prevent division by 0
-      combo_idxs = np.array(np.meshgrid(p, n)).T.reshape(-1, 2)
-    else:
-      combo_idxs = np.array(np.meshgrid(p, n, n)).T.reshape(-1, 3)
+  if cube_category == VIOLET:
+    combo_idxs = np.array(np.meshgrid(p, n, n, n, n, n)).T.reshape(-1, 6)
+  elif cube_category == UNI:
+    combo_idxs = np.array(np.meshgrid(n)).T.reshape(-1, 1)
+  elif cube_category == EQUALITY:
+    combo_idxs = np.array(np.meshgrid(p, p, p)).T.reshape(-1, 3)
+  elif cube_category == FAMILIAR:
+    if type == FAMILIAR:
+      n = n[len(p):] # prevent division by 0
+    combo_idxs = np.array(np.meshgrid(p, n)).T.reshape(-1, 2)
+  else:
+    combo_idxs = np.array(np.meshgrid(p, n, n)).T.reshape(-1, 3)
 
-    c.filt(combo_idxs)
-    # combo_idxs is an array of line combos as indices into pn: [[1, 2, 3], [1, 3, 2], ...]
+  c.filt(combo_idxs)
+  # combo_idxs is an array of line combos as indices into pn: [[1, 2, 3], [1, 3, 2], ...]
 
-    # when we do x[mask] in filt() and mask is an array of indices, we replace those indices
-    #  with elements from x
-    # so for example [a, b, c][ [[1, 2, 0], [0, 0, 0]] ] returns [[b, c, a], [a, a, a]]
+  # when we do x[mask] in filt() and mask is an array of indices, we replace those indices
+  #  with elements from x
+  # so for example [a, b, c][ [[1, 2, 0], [0, 0, 0]] ] returns [[b, c, a], [a, a, a]]
 
-    # when we do x[mask] in filt() and mask is an array of bools, we filter only the elements
-    #  that are True in mask
-    # so for example [a, b, c][ [True, False, True] ] returns [a, c]
+  # when we do x[mask] in filt() and mask is an array of bools, we filter only the elements
+  #  that are True in mask
+  # so for example [a, b, c][ [True, False, True] ] returns [a, c]
 
-    # note: line types are a bitmask so that we can check for multiple line types in one operation
-    #       by just ANDing by a bit mask of all the types we want.
+  # note: line types are a bitmask so that we can check for multiple line types in one operation
+  #       by just ANDing by a bit mask of all the types we want.
 
-    #       this is also useful to match multiple lines later. for example
-    #       when we look for stat we also want to match allstat so we can check that
-    #       line_type & (MAINSTAT_A | ALLSTAT_A) != 0
+  #       this is also useful to match multiple lines later. for example
+  #       when we look for stat we also want to match allstat so we can check that
+  #       line_type & (MAINSTAT_A | ALLSTAT_A) != 0
 
-    for n, forbidden in forbidden_combos:
-      if np.any(c.types & reduce(or_, forbidden) != 0):
-        mask = reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > n for x in forbidden])
-        c.filt(np.logical_not(mask))
-
+  def matching_combos_mask(want):
     if LINES in want:
       # all combinations that contains at least n lines of any of the stats specified
       # TODO: allow specifying minimum amount for the lines
-      mask = np.count_nonzero(c.types & (relevant_line_bits & ~ANY) != 0, axis=1) >= want[LINES]
+      return np.count_nonzero(c.types & (relevant_line_bits & ~ANY) != 0, axis=1) >= want[LINES]
     else:
       # all combinations that contain all of the stats and with at least the requested amt.
-      mask = reduce(and_, [np.sum(c.values * (c.types & x != 0).astype(int), axis=1) >= want[x]
+      return reduce(and_, [np.sum(c.values * (c.types & x != 0).astype(int), axis=1) >= want[x]
                            for x in want.keys()])
 
-    good = c.filt(mask)
+  mask = reduce(or_, [matching_combos_mask(want) for want in wants])
 
-    # adjust the probability of prime lines by their prime chance,
-    # and the probability of non-prime lines by the inverse of the prime chance.
-    # this way, the sum of all proababilities of prime and non-prime lines will add up to 1
-    good.onein /= np.where(good.is_prime, np.repeat(prime_chance, len(good.onein), axis=0),
-                           np.repeat(nonprime_chance, len(good.onein), axis=0))
+  def needs_forbidden_mask(n, forbidden):
+    return np.any(c.types & reduce(or_, forbidden) != 0)
 
-    return sum(np.prod(1/(good.onein * chance_multiplier), axis=1))
+  def make_forbidden_mask(n, forbidden):
+    return reduce(or_, [np.count_nonzero(c.types & x != 0, axis=1) > n for x in forbidden])
 
-  return sum([combo_chance(want) for want in wants]), tier
+  forbidden_masks = [make_forbidden_mask(*x) for x in forbidden_combos if needs_forbidden_mask(*x)]
+  if len(forbidden_masks):
+    mask &= reduce(or_, map(np.logical_not, forbidden_masks))
+
+  good = c.filt(mask)
+
+  # adjust the probability of prime lines by their prime chance,
+  # and the probability of non-prime lines by the inverse of the prime chance.
+  # this way, the sum of all proababilities of prime and non-prime lines will add up to 1
+  good.onein /= np.where(good.is_prime, np.repeat(prime_chance, len(good.onein), axis=0),
+                         np.repeat(nonprime_chance, len(good.onein), axis=0))
+  probability = sum(np.prod(1/(good.onein * chance_multiplier), axis=1))
+
+  return probability, tier
+
