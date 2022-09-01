@@ -8,6 +8,7 @@
 from cubecalc import disclaimer, cube_calc
 from common import *
 from functools import partial
+from operator import or_, and_
 
 from datautils import percent
 from datautils import find_validate_probabilities as find_probabilities
@@ -85,7 +86,7 @@ def tabulate(rows):
 def __cube_calc_print(print_combos, category, type, tier, level, region, lines):
   def fmt_chance(text, wants):
     nonlocal tier
-    chance, tier = cube_calc(wants, category, type, tier, level, region, lines)
+    chance, tier = cube_calc(wants + [or_], category, type, tier, level, region, lines)
     return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
 
   # janky but we run this first to get the actual tier that's being computed
@@ -200,6 +201,41 @@ def cube_calcs():
     ("40 meso", [{MESO: 40}]),
     ("40 drop", [{DROP: 40}]),
     ("20+ meso and 20+ drop", [{MESO: 20, DROP: 20}]),
+    ("20+ meso or drop, with 6+ stat", [
+      {MESO: 20},
+      {DROP: 20},
+      or_,
+      {STAT: 6},
+      and_,
+    ]),
+    ("20+ meso or drop, with 9+ stat", [
+      {MESO: 20},
+      {DROP: 20},
+      or_,
+      {STAT: 9},
+      and_,
+    ]),
+    ("20+ meso or drop, with 15+ stat", [
+      {MESO: 20},
+      {DROP: 20},
+      or_,
+      {STAT: 15},
+      and_,
+    ]),
+    ("20+ meso or drop, with 18+ stat", [
+      {MESO: 20},
+      {DROP: 20},
+      or_,
+      {STAT: 18},
+      and_,
+    ]),
+    ("20+ meso or drop, with 21+ stat", [
+      {MESO: 20},
+      {DROP: 20},
+      or_,
+      {STAT: 21},
+      and_,
+    ]),
   ]
 
   combos_glove = combos_stat + [

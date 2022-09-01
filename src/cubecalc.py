@@ -621,7 +621,7 @@ def cube_calc(wants, category, type, tier, level, region, lines):
 
   Parameters
   ----------
-  wants : dict
+  wants : list of dict or function
     maps stats to the desired minimum amount.
     for example, {STAT: 6, CRITDMG: 8} means "8%+ crit dmg and 6+stat together"
 
@@ -629,6 +629,26 @@ def cube_calc(wants, category, type, tier, level, region, lines):
     that contains wants[LINES] or more of any of the lines specified, and the amount is ignored.
     for example, {ATT_A: 1, BOSS: 1, LINES: 3} means
       "any combination of 3 lines of either att or boss"
+
+    this can also be used to express complicated operations as a stack machine, for example:
+
+      [
+        {ATT: 21, BOSS: 30},
+        {BOSS: 40, ATT: 18},
+        operator.or_
+      ]
+
+      means 21+ att and 30+ boss or 40+boss and 18+ att
+
+      [
+        {MESO: 20},
+        {DROP: 20},
+        operator.or_
+        {STAT: 6},
+        operator.and_
+      ]
+
+      means 20+ meso and 6+ stat or 20+ drop and 6+ stat
 
   category : Category enum
     equip category. see the enum
@@ -789,7 +809,8 @@ def cube_calc(wants, category, type, tier, level, region, lines):
   c = line_cache.copy()
 
   # filter out lines that are not in our want dict to exponentially reduce combinations
-  relevant_line_bits = reduce(or_, [reduce(or_, want.keys()) for want in wants]) | ANY
+  lineswants = [reduce(or_, want.keys()) for want in wants if isinstance(want, dict)]
+  relevant_line_bits = reduce(or_, lineswants) | ANY
   c.filt(c.types & relevant_line_bits != 0)
 
   # remember to update the number of prime lines
@@ -846,7 +867,24 @@ def cube_calc(wants, category, type, tier, level, region, lines):
       return reduce(and_, [np.sum(c.values * (c.types & x != 0).astype(int), axis=1) >= want[x]
                            for x in want.keys()])
 
-  mask = reduce(or_, [matching_combos_mask(want) for want in wants])
+  stack = []
+
+  def popargs():
+    while len(stack) and isinstance(stack[-1], (dict, np.ndarray, np.generic)):
+      x = stack.pop()
+      yield matching_combos_mask(x) if isinstance(x, dict) else x
+
+  for x in wants:
+    if isinstance(x, dict):
+      stack.append(x)
+    else:
+      stack.append(reduce(x, popargs()))
+
+  if len(stack) != 1:
+    raise RuntimeError(f"invalid wants returned {len(stack)} values. " +
+        f"stack: {stack} | wants: {wants}")
+
+  mask = next(popargs())
 
   def needs_forbidden_mask(n, forbidden):
     return np.any(c.types & reduce(or_, forbidden) != 0)

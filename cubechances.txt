@@ -465,100 +465,125 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 15+ all stat 1 in 78 cubes, 1.2753%
 21+ all stat 1 in 3370 cubes, 0.0297%
 ========= accessory (face/eye/ring/ear/pend) (red on lv150 legendary) ==========
-             18+ stat 1 in 16 cubes, 6.1718%
-             21+ stat 1 in 39 cubes, 2.5467%
-             30+ stat 1 in 702 cubes, 0.1425%
-             33+ stat 1 in 9190 cubes, 0.0109%
-               18+ hp 1 in 25 cubes, 3.9534%
-               21+ hp 1 in 41 cubes, 2.4507%
-               30+ hp 1 in 599 cubes, 0.1669%
-               33+ hp 1 in 7798 cubes, 0.0128%
-         12+ all stat 1 in 51 cubes, 1.9452%
-         15+ all stat 1 in 79 cubes, 1.2603%
-         21+ all stat 1 in 1780 cubes, 0.0562%
- 20+ meso or 20+ drop 1 in 7 cubes, 15.2724%
-             20+ meso 1 in 13 cubes, 7.6901%
-             20+ drop 1 in 13 cubes, 7.6901%
-   40 meso or 40 drop 1 in 927 cubes, 0.1079%
-              40 meso 1 in 1853 cubes, 0.0540%
-              40 drop 1 in 1854 cubes, 0.0539%
-20+ meso and 20+ drop 1 in 927 cubes, 0.1079%
+                       18+ stat 1 in 16 cubes, 6.1718%
+                       21+ stat 1 in 39 cubes, 2.5467%
+                       30+ stat 1 in 702 cubes, 0.1425%
+                       33+ stat 1 in 9190 cubes, 0.0109%
+                         18+ hp 1 in 25 cubes, 3.9534%
+                         21+ hp 1 in 41 cubes, 2.4507%
+                         30+ hp 1 in 599 cubes, 0.1669%
+                         33+ hp 1 in 7798 cubes, 0.0128%
+                   12+ all stat 1 in 51 cubes, 1.9452%
+                   15+ all stat 1 in 79 cubes, 1.2603%
+                   21+ all stat 1 in 1780 cubes, 0.0562%
+           20+ meso or 20+ drop 1 in 7 cubes, 15.2724%
+                       20+ meso 1 in 13 cubes, 7.6901%
+                       20+ drop 1 in 13 cubes, 7.6901%
+             40 meso or 40 drop 1 in 927 cubes, 0.1079%
+                        40 meso 1 in 1853 cubes, 0.0540%
+                        40 drop 1 in 1854 cubes, 0.0539%
+          20+ meso and 20+ drop 1 in 927 cubes, 0.1079%
+ 20+ meso or drop, with 6+ stat 1 in 18 cubes, 5.5412%
+ 20+ meso or drop, with 9+ stat 1 in 28 cubes, 3.5328%
+20+ meso or drop, with 15+ stat 1 in 193 cubes, 0.5189%
+20+ meso or drop, with 18+ stat 1 in 412 cubes, 0.2429%
+20+ meso or drop, with 21+ stat 1 in 3052 cubes, 0.0328%
 ======== accessory (face/eye/ring/ear/pend) (black on lv150 legendary) =========
-             18+ stat 1 in 16 cubes, 6.3169%
-             21+ stat 1 in 36 cubes, 2.7819%
-             30+ stat 1 in 589 cubes, 0.1699%
-             33+ stat 1 in 3963 cubes, 0.0252%
-               18+ hp 1 in 26 cubes, 3.8310%
-               21+ hp 1 in 39 cubes, 2.5493%
-               30+ hp 1 in 627 cubes, 0.1594%
-               33+ hp 1 in 3578 cubes, 0.0279%
-         12+ all stat 1 in 53 cubes, 1.9018%
-         15+ all stat 1 in 76 cubes, 1.3175%
-         21+ all stat 1 in 1840 cubes, 0.0543%
- 20+ meso or 20+ drop 1 in 6 cubes, 16.9379%
-             20+ meso 1 in 12 cubes, 8.5947%
-             20+ drop 1 in 12 cubes, 8.5943%
-   40 meso or 40 drop 1 in 398 cubes, 0.2514%
-              40 meso 1 in 794 cubes, 0.1259%
-              40 drop 1 in 797 cubes, 0.1255%
-20+ meso and 20+ drop 1 in 398 cubes, 0.2511%
+                       18+ stat 1 in 16 cubes, 6.3169%
+                       21+ stat 1 in 36 cubes, 2.7819%
+                       30+ stat 1 in 589 cubes, 0.1699%
+                       33+ stat 1 in 3963 cubes, 0.0252%
+                         18+ hp 1 in 26 cubes, 3.8310%
+                         21+ hp 1 in 39 cubes, 2.5493%
+                         30+ hp 1 in 627 cubes, 0.1594%
+                         33+ hp 1 in 3578 cubes, 0.0279%
+                   12+ all stat 1 in 53 cubes, 1.9018%
+                   15+ all stat 1 in 76 cubes, 1.3175%
+                   21+ all stat 1 in 1840 cubes, 0.0543%
+           20+ meso or 20+ drop 1 in 6 cubes, 16.9379%
+                       20+ meso 1 in 12 cubes, 8.5947%
+                       20+ drop 1 in 12 cubes, 8.5943%
+             40 meso or 40 drop 1 in 398 cubes, 0.2514%
+                        40 meso 1 in 794 cubes, 0.1259%
+                        40 drop 1 in 797 cubes, 0.1255%
+          20+ meso and 20+ drop 1 in 398 cubes, 0.2511%
+ 20+ meso or drop, with 6+ stat 1 in 16 cubes, 6.0627%
+ 20+ meso or drop, with 9+ stat 1 in 25 cubes, 4.0811%
+20+ meso or drop, with 15+ stat 1 in 172 cubes, 0.5809%
+20+ meso or drop, with 18+ stat 1 in 311 cubes, 0.3210%
+20+ meso or drop, with 21+ stat 1 in 1300 cubes, 0.0769%
 ======= accessory (face/eye/ring/ear/pend) (meister on lv150 legendary) ========
-             18+ stat 1 in 29 cubes, 3.4430%
-             21+ stat 1 in 83 cubes, 1.2040%
-             30+ stat 1 in 1866 cubes, 0.0536%
-             33+ stat 1 in 759777 cubes, 0.0001%
-               18+ hp 1 in 24 cubes, 4.1972%
-               21+ hp 1 in 43 cubes, 2.3439%
-               30+ hp 1 in 556 cubes, 0.1798%
-               33+ hp 1 in 225541 cubes, 0.0004%
-         12+ all stat 1 in 131 cubes, 0.7608%
-         15+ all stat 1 in 182 cubes, 0.5482%
-         21+ all stat 1 in 7490 cubes, 0.0134%
- 20+ meso or 20+ drop 1 in 6 cubes, 17.7050%
-             20+ meso 1 in 11 cubes, 8.8556%
-             20+ drop 1 in 11 cubes, 8.8556%
-   40 meso or 40 drop 1 in 16075 cubes, 0.0062%
-              40 meso 1 in 32149 cubes, 0.0031%
-              40 drop 1 in 32152 cubes, 0.0031%
-20+ meso and 20+ drop 1 in 16076 cubes, 0.0062%
+                       18+ stat 1 in 29 cubes, 3.4430%
+                       21+ stat 1 in 83 cubes, 1.2040%
+                       30+ stat 1 in 1866 cubes, 0.0536%
+                       33+ stat 1 in 759777 cubes, 0.0001%
+                         18+ hp 1 in 24 cubes, 4.1972%
+                         21+ hp 1 in 43 cubes, 2.3439%
+                         30+ hp 1 in 556 cubes, 0.1798%
+                         33+ hp 1 in 225541 cubes, 0.0004%
+                   12+ all stat 1 in 131 cubes, 0.7608%
+                   15+ all stat 1 in 182 cubes, 0.5482%
+                   21+ all stat 1 in 7490 cubes, 0.0134%
+           20+ meso or 20+ drop 1 in 6 cubes, 17.7050%
+                       20+ meso 1 in 11 cubes, 8.8556%
+                       20+ drop 1 in 11 cubes, 8.8556%
+             40 meso or 40 drop 1 in 16075 cubes, 0.0062%
+                        40 meso 1 in 32149 cubes, 0.0031%
+                        40 drop 1 in 32152 cubes, 0.0031%
+          20+ meso and 20+ drop 1 in 16076 cubes, 0.0062%
+ 20+ meso or drop, with 6+ stat 1 in 21 cubes, 4.6957%
+ 20+ meso or drop, with 9+ stat 1 in 31 cubes, 3.2556%
+20+ meso or drop, with 15+ stat 1 in 311 cubes, 0.3212%
+20+ meso or drop, with 18+ stat 1 in 620 cubes, 0.1614%
+20+ meso or drop, with 21+ stat 1 in 126592 cubes, 0.0008%
 ======== accessory (face/eye/ring/ear/pend) (violet on lv150 legendary) ========
-             18+ stat 1 in 6 cubes, 16.0127%
-             21+ stat 1 in 12 cubes, 8.3394%
-             30+ stat 1 in 73 cubes, 1.3609%
-             33+ stat 1 in 155 cubes, 0.6455%
-               18+ hp 1 in 7 cubes, 13.3391%
-               21+ hp 1 in 19 cubes, 5.3235%
-               30+ hp 1 in 99 cubes, 1.0061%
-               33+ hp 1 in 446 cubes, 0.2240%
-         12+ all stat 1 in 15 cubes, 6.7781%
-         15+ all stat 1 in 38 cubes, 2.6466%
-         21+ all stat 1 in 281 cubes, 0.3556%
- 20+ meso or 20+ drop 1 in 7 cubes, 14.1265%
-             20+ meso 1 in 14 cubes, 7.1476%
-             20+ drop 1 in 14 cubes, 7.1472%
-   40 meso or 40 drop 1 in 593 cubes, 0.1686%
-              40 meso 1 in 1184 cubes, 0.0845%
-              40 drop 1 in 1188 cubes, 0.0841%
-20+ meso and 20+ drop 1 in 594 cubes, 0.1683%
+                       18+ stat 1 in 6 cubes, 16.0127%
+                       21+ stat 1 in 12 cubes, 8.3394%
+                       30+ stat 1 in 73 cubes, 1.3609%
+                       33+ stat 1 in 155 cubes, 0.6455%
+                         18+ hp 1 in 7 cubes, 13.3391%
+                         21+ hp 1 in 19 cubes, 5.3235%
+                         30+ hp 1 in 99 cubes, 1.0061%
+                         33+ hp 1 in 446 cubes, 0.2240%
+                   12+ all stat 1 in 15 cubes, 6.7781%
+                   15+ all stat 1 in 38 cubes, 2.6466%
+                   21+ all stat 1 in 281 cubes, 0.3556%
+           20+ meso or 20+ drop 1 in 7 cubes, 14.1265%
+                       20+ meso 1 in 14 cubes, 7.1476%
+                       20+ drop 1 in 14 cubes, 7.1472%
+             40 meso or 40 drop 1 in 593 cubes, 0.1686%
+                        40 meso 1 in 1184 cubes, 0.0845%
+                        40 drop 1 in 1188 cubes, 0.0841%
+          20+ meso and 20+ drop 1 in 594 cubes, 0.1683%
+ 20+ meso or drop, with 6+ stat 1 in 11 cubes, 8.6970%
+ 20+ meso or drop, with 9+ stat 1 in 16 cubes, 6.3159%
+20+ meso or drop, with 15+ stat 1 in 39 cubes, 2.5589%
+20+ meso or drop, with 18+ stat 1 in 68 cubes, 1.4609%
+20+ meso or drop, with 21+ stat 1 in 160 cubes, 0.6267%
 ======= accessory (face/eye/ring/ear/pend) (equality on lv150 legendary) =======
-             18+ stat 1 in 19 cubes, 5.1306%
-             21+ stat 1 in 24 cubes, 4.2357%
-             30+ stat 1 in 420 cubes, 0.2379%
-             33+ stat 1 in 639 cubes, 0.1566%
-               18+ hp 1 in 57 cubes, 1.7476%
-               21+ hp 1 in 57 cubes, 1.7476%
-               30+ hp 1 in 2075 cubes, 0.0482%
-               33+ hp 1 in 2075 cubes, 0.0482%
-         12+ all stat 1 in 100 cubes, 0.9966%
-         15+ all stat 1 in 100 cubes, 0.9966%
-         21+ all stat 1 in 4919 cubes, 0.0203%
- 20+ meso or 20+ drop 1 in 3 cubes, 31.2734%
-             20+ meso 1 in 6 cubes, 16.6231%
-             20+ drop 1 in 6 cubes, 16.6028%
-   40 meso or 40 drop 1 in 51 cubes, 1.9728%
-              40 meso 1 in 100 cubes, 0.9966%
-              40 drop 1 in 102 cubes, 0.9762%
-20+ meso and 20+ drop 1 in 51 cubes, 1.9525%
+                       18+ stat 1 in 19 cubes, 5.1306%
+                       21+ stat 1 in 24 cubes, 4.2357%
+                       30+ stat 1 in 420 cubes, 0.2379%
+                       33+ stat 1 in 639 cubes, 0.1566%
+                         18+ hp 1 in 57 cubes, 1.7476%
+                         21+ hp 1 in 57 cubes, 1.7476%
+                         30+ hp 1 in 2075 cubes, 0.0482%
+                         33+ hp 1 in 2075 cubes, 0.0482%
+                   12+ all stat 1 in 100 cubes, 0.9966%
+                   15+ all stat 1 in 100 cubes, 0.9966%
+                   21+ all stat 1 in 4919 cubes, 0.0203%
+           20+ meso or 20+ drop 1 in 3 cubes, 31.2734%
+                       20+ meso 1 in 6 cubes, 16.6231%
+                       20+ drop 1 in 6 cubes, 16.6028%
+             40 meso or 40 drop 1 in 51 cubes, 1.9728%
+                        40 meso 1 in 100 cubes, 0.9966%
+                        40 drop 1 in 102 cubes, 0.9762%
+          20+ meso and 20+ drop 1 in 51 cubes, 1.9525%
+ 20+ meso or drop, with 6+ stat 1 in 12 cubes, 8.4475%
+ 20+ meso or drop, with 9+ stat 1 in 12 cubes, 8.4475%
+20+ meso or drop, with 15+ stat 1 in 151 cubes, 0.6641%
+20+ meso or drop, with 18+ stat 1 in 151 cubes, 0.6641%
+20+ meso or drop, with 21+ stat 1 in 184 cubes, 0.5421%
 ========================= hat (red on lv150 legendary) =========================
                  18+ stat 1 in 22 cubes, 4.6216%
                  21+ stat 1 in 52 cubes, 1.9162%
