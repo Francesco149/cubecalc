@@ -230,10 +230,11 @@ def cube_calcs():
       and_,
     ]),
     ("20+ meso or drop, with 21+ stat", [
+      # test for more complex cases
+      {STAT: 21},
       {MESO: 20},
       {DROP: 20},
-      or_,
-      {STAT: 21},
+      (or_, 2),
       and_,
     ]),
   ]

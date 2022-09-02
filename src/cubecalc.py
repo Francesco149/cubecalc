@@ -650,6 +650,19 @@ def cube_calc(wants, category, type, tier, level, region, lines):
 
       means 20+ meso and 6+ stat or 20+ drop and 6+ stat
 
+      for more complex case, an operator can be a tuple of the operator and how many args it takes
+
+      [
+        {STAT: 6},
+        {MESO: 20},
+        {DROP: 20},
+        (operator.or_, 2)
+        operator.and_
+      ]
+
+      this is the same thing as above but in different order to show off when arg count is
+      necessary. without the tuple form, it would take all the remaining args (including STAT: 6)
+
   category : Category enum
     equip category. see the enum
 
@@ -869,14 +882,19 @@ def cube_calc(wants, category, type, tier, level, region, lines):
 
   stack = []
 
-  def popargs():
-    while len(stack) and isinstance(stack[-1], (dict, np.ndarray, np.generic)):
+  def popargs(n=None):
+    if n is None:
+      n = len(stack)
+    for _ in range(n):
       x = stack.pop()
       yield matching_combos_mask(x) if isinstance(x, dict) else x
 
   for x in wants:
     if isinstance(x, dict):
       stack.append(x)
+    elif isinstance(x, tuple):
+      op, n = x
+      stack.append(reduce(op, popargs(n)))
     else:
       stack.append(reduce(x, popargs()))
 
@@ -884,7 +902,7 @@ def cube_calc(wants, category, type, tier, level, region, lines):
     raise RuntimeError(f"invalid wants returned {len(stack)} values. " +
         f"stack: {stack} | wants: {wants}")
 
-  mask = next(popargs())
+  mask = next(popargs(1))
 
   def needs_forbidden_mask(n, forbidden):
     return np.any(c.types & reduce(or_, forbidden) != 0)
