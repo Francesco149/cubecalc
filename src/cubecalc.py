@@ -923,5 +923,5 @@ def cube_calc(wants, category, type, tier, level, region, lines):
                          np.repeat(nonprime_chance, len(good.onein), axis=0))
   probability = sum(np.prod(1/(good.onein * chance_multiplier), axis=1))
 
-  return probability, tier
+  return probability, tier, good
 

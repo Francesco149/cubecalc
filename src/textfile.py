@@ -86,7 +86,7 @@ def tabulate(rows):
 def __cube_calc_print(print_combos, category, type, tier, level, region, lines):
   def fmt_chance(text, wants):
     nonlocal tier
-    chance, tier = cube_calc(wants + [or_], category, type, tier, level, region, lines)
+    chance, tier, _ = cube_calc(wants + [or_], category, type, tier, level, region, lines)
     return (text, f"1 in {round(1.0/chance)} cubes, {chance*100:.4f}%")
 
   # janky but we run this first to get the actual tier that's being computed
