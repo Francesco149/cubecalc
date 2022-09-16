@@ -85,10 +85,10 @@ prime_chances = {
 # line values from https://strategywiki.org/wiki/MapleStory/Potential_System#Bonus_Potential
 # TODO: consider scraping this data or at least moving it out of this file
 
-MAXLVL = 300
-HIGHLVL_KMS = 250
-
 def find_line_values(cube, category, region):
+  MAXLVL = 300
+  HIGHLVL_KMS = 250
+
   has_gms_lines = (region & HAS_GMS_LINES) != 0
   highlvl = 151 if has_gms_lines else HIGHLVL_KMS
   lowlvlmax = highlvl - 1
@@ -349,7 +349,7 @@ def find_line_values(cube, category, region):
   ]
 
   if has_gms_lines:
-    flat_hp_195 += (HIGHLVL_KMS - 1, 185)
+    flat_hp_195 += [(HIGHLVL_KMS - 1, 185)]
 
   flat_hp_195 += [(MAXLVL, 195)]
 
