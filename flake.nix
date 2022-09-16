@@ -18,6 +18,10 @@
           buildInputs = [
             python310
             htmlq
+            clang
+            gcc
+            tinycc
+            mold
           ] ++ (with python310Packages; [
             numpy
             pandas
