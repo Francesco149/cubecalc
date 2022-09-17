@@ -132,7 +132,7 @@ void BufFree(void* pp);
 // returns a pointer to the start of the new elements (fancy index -count)
 #define BufReserve(pp, count) \
   (_BufAlloc((pp), (count), ArrayElementSize(*(pp)), &allocatorDefault), \
-   &BufAt(*(pp), -(count)))
+   &BufAt(*(pp), -(intmax_t)(count)))
 
 #define BufAlloc(pp) BufReserve(pp, 1)
 
@@ -140,7 +140,7 @@ void BufFree(void* pp);
 // count can be 0
 #define BufReserveWithAllocator(pp, count, allocator) \
   (_BufAlloc((pp), (count), ArrayElementSize(*(pp)), allocator), \
-   &BufAt(*(pp), -(count)))
+   &BufAt(*(pp), -(intmax_t)(count)))
 
 // it's recommended to call this through macros like BufReserve and BufAlloc.
 // see the description of BufReserve
@@ -315,7 +315,7 @@ int Log2i(int n);
 size_t RoundUp2(size_t v);
 
 // hash functions
-int HashInt(int x);
+unsigned HashInt(unsigned x);
 
 #endif
 
@@ -503,7 +503,7 @@ void _BufAlloc(void* p, size_t count, size_t elementSize, Allocator const* alloc
 void _BufAllocZero(void* pp, size_t count, size_t elementSize, Allocator const* allocator) {
   char** b = pp;
   _BufAlloc(pp, count, elementSize, allocator);
-  memset(*b + (BufLen(*b) - count) * elementSize, 0, count * elementSize);
+  memset(*b + BufI(*b, -(intmax_t)count) * elementSize, 0, count * elementSize);
 }
 
 void* _MemZero(void* p, size_t size) {
@@ -831,7 +831,7 @@ size_t RoundUp2(size_t v) {
   return ++v;
 }
 
-int HashInt(int x) {
+unsigned HashInt(unsigned x) {
   x *= 0x85ebca6b;
   x ^= x >> 16;
   return x;
