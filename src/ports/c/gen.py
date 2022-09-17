@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 
 import sys
+from utils import enum_bits
 sys.path.append("../../")
 from common import *
 from cubecalc import prime_chances, find_line_values
 import itertools
 import inspect
 import pickle
+from functools import reduce
+from operator import or_
+import json
 
 from kms import cubes
 from tms import event
 from familiars import familiars
-
-def enum_bits(e, x, suff=""):
-  return " | ".join([b.name + suff for b in e if x & b])
 
 indent = 0
 
@@ -71,29 +72,68 @@ try:
 except:
   source = ""
 
+# this is a very inefficient way to run the values function for every combination of params and
+# generate all the level ranges that have the same values/region/category etc
 cursource = inspect.getsource(find_line_values)
 if source != cursource:
   source = cursource
   NonSpecialCategory = [x for x in Category if x not in { LINE_CACHE, NAME, DEFAULT_CUBE }]
+
+  # map params by values returned
+  merge = {}
   for cube, category, region in itertools.product(Cube, NonSpecialCategory, Region):
+    vals = find_line_values(cube, category, region)
     for level in range(301):
-      tupl = (level, cube, category, region)
-      vals = find_line_values(cube, category, region)
-      vals = {
+      valsmap = {
         tier: {
           line: get_lval(vals, level, tier, line) for line in vals[tier]
         } for tier in vals
       }
-      foundk = None
-      for k, kvals in values.items():
-        if kvals == vals:
-          foundk = k
-      if foundk:
-        flevel, fcube, fcategory, fregion = foundk
-        ftupl = (max(flevel, level), cube | fcube, category | fcategory, region | fregion)
-        del values[foundk]
-        tupl = ftupl
-      values[tupl] = vals
+      k = json.dumps(valsmap, sort_keys=True, default=str)
+      if k not in merge:
+        merge[k] = (valsmap, [])
+      merge[k] = (valsmap, merge[k][1] + [(level, cube, category, region)])
+
+  for _, (valsmap, params) in merge.items():
+    # group parameters by region
+    regions = {}
+    for level, cube, category, region in params:
+      if region not in regions:
+        regions[region] = []
+      regions[region] += [(level, cube, category)]
+
+    # generate a map of region_mask -> minlvl, maxlvl, cube_mask, category_mask
+    # making sure to merge all overlapping ranges
+    region_ranges = {}
+    for k, v in regions.items():
+      maxlvl = max([level for level, cube, category in v])
+      minlvl = min([level for level, cube, category in v])
+      cubemask = reduce(or_, [cube for level, cube, category in v])
+      categorymask = reduce(or_, [category for level, cube, category in v])
+
+      # see if we can merge with any existing range
+      found = False
+      for ok, (other_minlvl, other_maxlvl, other_cube, other_category) in region_ranges.items():
+        if other_maxlvl == maxlvl and other_minlvl == minlvl:
+          found = True
+          break
+
+      if found:
+        # merge
+        del region_ranges[ok]
+        region_ranges[ok | k] = (
+            minlvl,
+            maxlvl,
+            other_cube | cubemask,
+            other_category | categorymask,
+        )
+      else:
+        # new range
+        region_ranges[k] = (minlvl, maxlvl, cube, category)
+
+    # finally generate the values map
+    for region, (_, maxlvl, cube, category) in region_ranges.items():
+      values[(maxlvl, cube, category, region)] = valsmap
 
   with open("gen_find_line_values.pickle", "wb") as f:
     pickle.dump(values, f)

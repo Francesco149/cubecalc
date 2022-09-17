@@ -9,11 +9,11 @@ extern Map* primeChances;
 extern Map* kms;
 extern Map* tms;
 extern Map* fams;
-extern int const valueGroupsMaxLevel[47];
-extern int const valueGroupsCubeMask[47];
-extern int const valueGroupsCategoryMask[47];
-extern int const valueGroupsRegionMask[47];
-extern Map* valueGroups[47];
+extern int const valueGroupsMaxLevel[51];
+extern int const valueGroupsCubeMask[51];
+extern int const valueGroupsCategoryMask[51];
+extern int const valueGroupsRegionMask[51];
+extern Map* valueGroups[51];
 extern int const allLinesHi[41];
 extern int const allLinesLo[41];
 extern char const* const allLineNames[41];
@@ -8528,36 +8528,8 @@ void cubecalcGeneratedGlobalFree()
   famsFree();
   valueGroupsFree();
 }
-int const valueGroupsMaxLevel[47] = 
+int const valueGroupsMaxLevel[51] = 
 {
-  10,
-  20,
-  30,
-  40,
-  50,
-  60,
-  70,
-  80,
-  90,
-  100,
-  110,
-  249,
-  300,
-  249,
-  10,
-  20,
-  30,
-  40,
-  50,
-  60,
-  70,
-  80,
-  90,
-  100,
-  110,
-  249,
-  300,
-  249,
   10,
   20,
   29,
@@ -8574,39 +8546,44 @@ int const valueGroupsMaxLevel[47] =
   100,
   110,
   119,
+  150,
+  249,
+  300,
+  249,
+  10,
+  20,
+  30,
+  40,
+  50,
+  60,
+  70,
+  80,
+  90,
+  100,
+  110,
+  150,
   249,
   300,
   300,
+  10,
+  20,
+  30,
+  40,
+  50,
+  60,
+  70,
+  80,
+  90,
+  100,
+  110,
+  150,
+  249,
+  300,
+  249,
+  300,
 };
-int const valueGroupsCubeMask[47] = 
+int const valueGroupsCubeMask[51] = 
 {
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
-  BONUS,
   RED | MEISTER | MASTER | OCCULT | BLACK | VIOLET | EQUALITY | UNI,
   RED | MEISTER | MASTER | OCCULT | BLACK | VIOLET | EQUALITY | UNI,
   RED | MEISTER | MASTER | OCCULT | BLACK | VIOLET | EQUALITY | UNI,
@@ -8626,10 +8603,61 @@ int const valueGroupsCubeMask[47] =
   RED | MEISTER | MASTER | OCCULT | BLACK | VIOLET | EQUALITY | UNI,
   RED | MEISTER | MASTER | OCCULT | BLACK | VIOLET | EQUALITY | UNI,
   RED | MEISTER | MASTER | OCCULT | BLACK | VIOLET | EQUALITY | UNI,
+  RED | MEISTER | MASTER | OCCULT | BLACK | VIOLET | EQUALITY | UNI,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
+  BONUS,
   FAMILIAR | RED_FAM_CARD,
 };
-int const valueGroupsCategoryMask[47] = 
+int const valueGroupsCategoryMask[51] = 
 {
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
   WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING,
   WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING,
   WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING,
@@ -8643,6 +8671,8 @@ int const valueGroupsCategoryMask[47] =
   WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING,
   WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING,
   WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING,
+  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING,
   HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
   HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
   HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
@@ -8657,29 +8687,14 @@ int const valueGroupsCategoryMask[47] =
   HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
   HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
   HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
-  WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
+  HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
   WEAPON | EMBLEM | SECONDARY | FORCE_SHIELD_SOUL_RING | HAT | TOP_OVERALL | BOTTOM | SHOE | GLOVE | CAPE_BELT_SHOULDER | FACE_EYE_RING_EARRING_PENDANT | HEART_BADGE | FAMILIAR_STATS,
 };
-int const valueGroupsRegionMask[47] = 
+int const valueGroupsRegionMask[51] = 
 {
+  KMS | MSEA | GMS | JMS | TMS | CMS,
+  KMS | MSEA | GMS | JMS | TMS | CMS,
+  KMS | MSEA | GMS | JMS | TMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
@@ -8694,18 +8709,7 @@ int const valueGroupsRegionMask[47] =
   KMS | MSEA | GMS | JMS | TMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
   GMS | TMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
-  KMS | MSEA | GMS | JMS | TMS | CMS,
+  KMS | MSEA | JMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
   GMS | TMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
@@ -8719,6 +8723,10 @@ int const valueGroupsRegionMask[47] =
   KMS | MSEA | GMS | JMS | TMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
+  GMS | TMS,
+  KMS | MSEA | JMS | CMS,
+  GMS | TMS,
+  KMS | MSEA | JMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
@@ -8726,9 +8734,17 @@ int const valueGroupsRegionMask[47] =
   KMS | MSEA | GMS | JMS | TMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
+  KMS | MSEA | GMS | JMS | TMS | CMS,
+  KMS | MSEA | GMS | JMS | TMS | CMS,
+  KMS | MSEA | GMS | JMS | TMS | CMS,
+  KMS | MSEA | GMS | JMS | TMS | CMS,
+  GMS | TMS,
+  KMS | MSEA | JMS | CMS,
+  KMS | MSEA | GMS | JMS | TMS | CMS,
+  GMS | TMS,
   KMS | MSEA | GMS | JMS | TMS | CMS,
 };
-Map* valueGroups[47];
+Map* valueGroups[51];
 static void valuesInit()
 {
   {
@@ -8743,6 +8759,4686 @@ static void valuesInit()
     {
       ANY_LO,
       LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      1,
+      5,
+      1,
+    };
+    valueGroupsSet(0, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      2,
+      10,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+    };
+    valueGroupsSet(0, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      2,
+      0,
+    };
+    valueGroupsSet(0, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      2,
+      3,
+      2,
+      0,
+      0,
+      10,
+    };
+    valueGroupsSet(0, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6,
+      6,
+      6,
+      3,
+      6,
+      0,
+      0,
+      0,
+      10,
+      10,
+      3,
+      0,
+      0,
+      0,
+      7,
+      5,
+      3,
+      20,
+    };
+    valueGroupsSet(0, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      1,
+      10,
+      1,
+    };
+    valueGroupsSet(1, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      2,
+      20,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+    };
+    valueGroupsSet(1, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      2,
+      0,
+    };
+    valueGroupsSet(1, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      2,
+      3,
+      2,
+      0,
+      0,
+      10,
+    };
+    valueGroupsSet(1, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6,
+      6,
+      6,
+      3,
+      6,
+      0,
+      0,
+      0,
+      10,
+      10,
+      3,
+      0,
+      0,
+      0,
+      7,
+      5,
+      3,
+      20,
+    };
+    valueGroupsSet(1, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      2,
+      15,
+      2,
+    };
+    valueGroupsSet(2, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      4,
+      30,
+      4,
+      1,
+      1,
+      2,
+      1,
+      1,
+      0,
+    };
+    valueGroupsSet(2, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      2,
+      0,
+    };
+    valueGroupsSet(2, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      2,
+      3,
+      2,
+      0,
+      0,
+      10,
+    };
+    valueGroupsSet(2, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6,
+      6,
+      6,
+      3,
+      6,
+      0,
+      0,
+      0,
+      10,
+      10,
+      3,
+      0,
+      0,
+      0,
+      7,
+      5,
+      3,
+      20,
+    };
+    valueGroupsSet(2, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      2,
+      15,
+      2,
+    };
+    valueGroupsSet(3, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      4,
+      30,
+      4,
+      1,
+      1,
+      2,
+      1,
+      1,
+      15,
+    };
+    valueGroupsSet(3, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      2,
+      1,
+      2,
+      1,
+      2,
+      2,
+      0,
+    };
+    valueGroupsSet(3, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      0,
+      3,
+      3,
+      3,
+      2,
+      3,
+      2,
+      0,
+      1,
+      10,
+    };
+    valueGroupsSet(3, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6,
+      6,
+      6,
+      3,
+      6,
+      0,
+      0,
+      0,
+      10,
+      10,
+      3,
+      0,
+      0,
+      1,
+      7,
+      5,
+      3,
+      20,
+    };
+    valueGroupsSet(3, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      2,
+      20,
+      2,
+    };
+    valueGroupsSet(4, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      4,
+      40,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      15,
+    };
+    valueGroupsSet(4, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      4,
+      2,
+      4,
+      1,
+      4,
+      4,
+      0,
+    };
+    valueGroupsSet(4, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      0,
+      6,
+      6,
+      6,
+      4,
+      6,
+      2,
+      0,
+      1,
+      20,
+    };
+    valueGroupsSet(4, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      9,
+      9,
+      9,
+      6,
+      9,
+      0,
+      0,
+      0,
+      15,
+      15,
+      3,
+      0,
+      0,
+      1,
+      7,
+      5,
+      3,
+      30,
+    };
+    valueGroupsSet(4, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      3,
+      25,
+      3,
+    };
+    valueGroupsSet(5, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      6,
+      50,
+      6,
+      2,
+      2,
+      3,
+      2,
+      2,
+      15,
+    };
+    valueGroupsSet(5, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      4,
+      2,
+      4,
+      1,
+      4,
+      4,
+      0,
+    };
+    valueGroupsSet(5, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      0,
+      6,
+      6,
+      6,
+      4,
+      6,
+      2,
+      0,
+      1,
+      20,
+    };
+    valueGroupsSet(5, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      9,
+      9,
+      9,
+      6,
+      9,
+      0,
+      0,
+      0,
+      15,
+      15,
+      3,
+      0,
+      0,
+      1,
+      7,
+      5,
+      3,
+      30,
+    };
+    valueGroupsSet(5, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      3,
+      25,
+      3,
+    };
+    valueGroupsSet(6, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      6,
+      50,
+      6,
+      2,
+      2,
+      3,
+      2,
+      2,
+      15,
+    };
+    valueGroupsSet(6, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      4,
+      2,
+      4,
+      1,
+      4,
+      4,
+      15,
+    };
+    valueGroupsSet(6, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      30,
+      6,
+      6,
+      6,
+      4,
+      6,
+      2,
+      0,
+      1,
+      20,
+    };
+    valueGroupsSet(6, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      0,
+      0,
+      35,
+      0,
+      9,
+      9,
+      9,
+      6,
+      9,
+      0,
+      0,
+      5,
+      15,
+      15,
+      3,
+      0,
+      0,
+      1,
+      7,
+      5,
+      3,
+      30,
+    };
+    valueGroupsSet(6, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      4,
+      30,
+      3,
+    };
+    valueGroupsSet(7, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      8,
+      60,
+      6,
+      2,
+      2,
+      3,
+      2,
+      2,
+      15,
+    };
+    valueGroupsSet(7, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      4,
+      2,
+      4,
+      1,
+      4,
+      4,
+      15,
+    };
+    valueGroupsSet(7, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      30,
+      6,
+      6,
+      6,
+      4,
+      6,
+      2,
+      0,
+      1,
+      20,
+    };
+    valueGroupsSet(7, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      0,
+      0,
+      35,
+      0,
+      9,
+      9,
+      9,
+      6,
+      9,
+      0,
+      0,
+      5,
+      15,
+      15,
+      3,
+      0,
+      0,
+      1,
+      7,
+      5,
+      3,
+      30,
+    };
+    valueGroupsSet(7, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      4,
+      35,
+      4,
+    };
+    valueGroupsSet(8, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      8,
+      70,
+      8,
+      2,
+      2,
+      4,
+      2,
+      2,
+      15,
+    };
+    valueGroupsSet(8, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      4,
+      2,
+      4,
+      1,
+      4,
+      4,
+      15,
+    };
+    valueGroupsSet(8, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      30,
+      6,
+      6,
+      6,
+      4,
+      6,
+      2,
+      0,
+      1,
+      20,
+    };
+    valueGroupsSet(8, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      0,
+      0,
+      35,
+      0,
+      9,
+      9,
+      9,
+      6,
+      9,
+      0,
+      0,
+      6,
+      15,
+      15,
+      3,
+      0,
+      0,
+      1,
+      7,
+      5,
+      3,
+      30,
+    };
+    valueGroupsSet(8, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      4,
+      35,
+      4,
+    };
+    valueGroupsSet(9, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      8,
+      70,
+      8,
+      2,
+      2,
+      4,
+      2,
+      2,
+      15,
+    };
+    valueGroupsSet(9, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      4,
+      2,
+      4,
+      1,
+      4,
+      4,
+      15,
+    };
+    valueGroupsSet(9, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      30,
+      6,
+      6,
+      6,
+      4,
+      6,
+      2,
+      0,
+      1,
+      20,
+    };
+    valueGroupsSet(9, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      0,
+      0,
+      35,
+      0,
+      9,
+      9,
+      9,
+      6,
+      9,
+      0,
+      1,
+      6,
+      15,
+      15,
+      3,
+      0,
+      1,
+      1,
+      7,
+      5,
+      3,
+      30,
+    };
+    valueGroupsSet(9, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      5,
+      40,
+      4,
+    };
+    valueGroupsSet(10, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      10,
+      80,
+      8,
+      3,
+      3,
+      4,
+      3,
+      3,
+      15,
+    };
+    valueGroupsSet(10, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      6,
+      3,
+      6,
+      1,
+      6,
+      6,
+      15,
+    };
+    valueGroupsSet(10, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      30,
+      9,
+      9,
+      9,
+      6,
+      9,
+      2,
+      0,
+      1,
+      30,
+    };
+    valueGroupsSet(10, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      0,
+      0,
+      35,
+      0,
+      12,
+      12,
+      12,
+      9,
+      12,
+      0,
+      1,
+      6,
+      20,
+      20,
+      3,
+      0,
+      1,
+      1,
+      7,
+      5,
+      3,
+      40,
+    };
+    valueGroupsSet(10, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      5,
+      45,
+      5,
+    };
+    valueGroupsSet(11, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      10,
+      90,
+      10,
+      3,
+      3,
+      5,
+      3,
+      3,
+      15,
+    };
+    valueGroupsSet(11, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      6,
+      3,
+      6,
+      1,
+      6,
+      6,
+      15,
+    };
+    valueGroupsSet(11, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      30,
+      9,
+      9,
+      9,
+      6,
+      9,
+      2,
+      0,
+      1,
+      30,
+    };
+    valueGroupsSet(11, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      0,
+      0,
+      35,
+      0,
+      12,
+      12,
+      12,
+      9,
+      12,
+      0,
+      1,
+      8,
+      20,
+      20,
+      3,
+      0,
+      1,
+      1,
+      7,
+      5,
+      3,
+      40,
+    };
+    valueGroupsSet(11, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      6,
+      50,
+      6,
+    };
+    valueGroupsSet(12, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      12,
+      100,
+      12,
+      3,
+      3,
+      5,
+      3,
+      3,
+      15,
+    };
+    valueGroupsSet(12, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      6,
+      3,
+      6,
+      1,
+      6,
+      6,
+      15,
+    };
+    valueGroupsSet(12, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      0,
+      30,
+      9,
+      9,
+      9,
+      6,
+      9,
+      2,
+      0,
+      1,
+      30,
+    };
+    valueGroupsSet(12, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      0,
+      0,
+      35,
+      0,
+      12,
+      12,
+      12,
+      9,
+      12,
+      0,
+      1,
+      8,
+      20,
+      20,
+      3,
+      0,
+      1,
+      1,
+      7,
+      5,
+      3,
+      40,
+    };
+    valueGroupsSet(12, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      6,
+      50,
+      6,
+    };
+    valueGroupsSet(13, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      12,
+      100,
+      12,
+      3,
+      3,
+      5,
+      3,
+      3,
+      15,
+    };
+    valueGroupsSet(13, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      6,
+      3,
+      6,
+      1,
+      6,
+      6,
+      15,
+    };
+    valueGroupsSet(13, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      30,
+      30,
+      9,
+      9,
+      9,
+      6,
+      9,
+      2,
+      0,
+      1,
+      30,
+    };
+    valueGroupsSet(13, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      35,
+      40,
+      35,
+      40,
+      12,
+      12,
+      12,
+      9,
+      12,
+      0,
+      1,
+      8,
+      20,
+      20,
+      3,
+      0,
+      1,
+      1,
+      7,
+      5,
+      3,
+      40,
+    };
+    valueGroupsSet(13, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      6,
+      55,
+      6,
+    };
+    valueGroupsSet(14, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      12,
+      110,
+      12,
+      3,
+      3,
+      5,
+      3,
+      3,
+      15,
+    };
+    valueGroupsSet(14, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      6,
+      3,
+      6,
+      1,
+      6,
+      6,
+      15,
+    };
+    valueGroupsSet(14, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      30,
+      30,
+      9,
+      9,
+      9,
+      6,
+      9,
+      2,
+      0,
+      1,
+      30,
+    };
+    valueGroupsSet(14, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      35,
+      40,
+      35,
+      40,
+      12,
+      12,
+      12,
+      9,
+      12,
+      0,
+      1,
+      8,
+      20,
+      20,
+      3,
+      0,
+      1,
+      1,
+      7,
+      5,
+      3,
+      40,
+    };
+    valueGroupsSet(14, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      6,
+      60,
+      6,
+    };
+    valueGroupsSet(15, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      12,
+      120,
+      12,
+      3,
+      3,
+      5,
+      3,
+      3,
+      15,
+    };
+    valueGroupsSet(15, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      6,
+      3,
+      6,
+      1,
+      6,
+      6,
+      15,
+    };
+    valueGroupsSet(15, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      30,
+      30,
+      9,
+      9,
+      9,
+      6,
+      9,
+      2,
+      0,
+      1,
+      30,
+    };
+    valueGroupsSet(15, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      35,
+      40,
+      35,
+      40,
+      12,
+      12,
+      12,
+      9,
+      12,
+      0,
+      1,
+      8,
+      20,
+      20,
+      3,
+      0,
+      1,
+      1,
+      7,
+      5,
+      3,
+      40,
+    };
+    valueGroupsSet(15, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      6,
+      60,
+      6,
+    };
+    valueGroupsSet(16, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      12,
+      120,
+      12,
+      3,
+      3,
+      5,
+      3,
+      3,
+      15,
+    };
+    valueGroupsSet(16, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      6,
+      3,
+      6,
+      1,
+      6,
+      6,
+      15,
+    };
+    valueGroupsSet(16, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      30,
+      30,
+      9,
+      9,
+      9,
+      6,
+      9,
+      2,
+      1,
+      1,
+      30,
+    };
+    valueGroupsSet(16, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      35,
+      40,
+      35,
+      40,
+      12,
+      12,
+      12,
+      9,
+      12,
+      2,
+      1,
+      8,
+      20,
+      20,
+      3,
+      1,
+      1,
+      1,
+      7,
+      5,
+      3,
+      40,
+    };
+    valueGroupsSet(16, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      6,
+      60,
+      6,
+    };
+    valueGroupsSet(17, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      12,
+      120,
+      12,
+      3,
+      3,
+      5,
+      3,
+      3,
+      15,
+    };
+    valueGroupsSet(17, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      6,
+      3,
+      6,
+      1,
+      6,
+      6,
+      15,
+    };
+    valueGroupsSet(17, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      30,
+      30,
+      9,
+      9,
+      9,
+      6,
+      9,
+      2,
+      1,
+      1,
+      30,
+    };
+    valueGroupsSet(17, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      35,
+      40,
+      35,
+      40,
+      12,
+      12,
+      12,
+      9,
+      12,
+      2,
+      1,
+      8,
+      20,
+      20,
+      3,
+      1,
+      1,
+      1,
+      7,
+      5,
+      3,
+      40,
+    };
+    valueGroupsSet(17, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      6,
+      60,
+      6,
+    };
+    valueGroupsSet(18, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      13,
+      125,
+      13,
+      4,
+      4,
+      6,
+      4,
+      4,
+      15,
+    };
+    valueGroupsSet(18, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      7,
+      4,
+      7,
+      1,
+      7,
+      7,
+      15,
+    };
+    valueGroupsSet(18, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      30,
+      30,
+      10,
+      10,
+      10,
+      7,
+      10,
+      2,
+      1,
+      1,
+      30,
+    };
+    valueGroupsSet(18, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      35,
+      40,
+      35,
+      40,
+      13,
+      13,
+      13,
+      10,
+      13,
+      2,
+      1,
+      8,
+      20,
+      20,
+      3,
+      1,
+      1,
+      1,
+      7,
+      5,
+      3,
+      40,
+    };
+    valueGroupsSet(18, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      6,
+      60,
+      6,
+    };
+    valueGroupsSet(19, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[10] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[10] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[10] = 
+    {
+      1,
+      13,
+      125,
+      13,
+      4,
+      4,
+      6,
+      4,
+      4,
+      15,
+    };
+    valueGroupsSet(19, 3, 10, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      7,
+      4,
+      7,
+      1,
+      7,
+      7,
+      15,
+    };
+    valueGroupsSet(19, 4, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      INVIN_LO,
+      DECENT_SHARP_EYES_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      30,
+      30,
+      10,
+      10,
+      10,
+      7,
+      9,
+      2,
+      1,
+      1,
+      30,
+    };
+    valueGroupsSet(19, 5, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[24] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      HP_ITEMS_AND_SKILLS_HI,
+    };
+    static const int linesLo[24] = 
+    {
+      ANY_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_B_LO | BOSS_ONLY_LO,
+      LINE_A_LO | BOSS_ONLY_LO,
+      LINE_B_LO | IED_LO,
+      LINE_A_LO | IED_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_B_LO | COOLDOWN_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+      INVIN_LO,
+      DECENT_SPEED_INFUSION_LO,
+      DECENT_COMBAT_ORDERS_LO,
+      ATT_PER_10_LVLS_LO,
+      LINE_A_LO | AUTOSTEAL_1_LO,
+      LINE_B_LO | AUTOSTEAL_1_LO,
+      LINE_C_LO | AUTOSTEAL_1_LO,
+      LINE_A_LO,
+    };
+    static const int vals[24] = 
+    {
+      1,
+      30,
+      35,
+      40,
+      35,
+      40,
+      13,
+      13,
+      13,
+      10,
+      12,
+      2,
+      1,
+      8,
+      20,
+      20,
+      3,
+      1,
+      1,
+      1,
+      7,
+      5,
+      3,
+      40,
+    };
+    valueGroupsSet(19, 6, 24, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
       LINE_A_LO | FLAT_ATT_LO,
       LINE_A_LO | FLAT_HP_LO,
     };
@@ -8753,7 +13449,7 @@ static void valuesInit()
       1,
       5,
     };
-    valueGroupsSet(0, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(20, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -8792,7 +13488,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(0, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(20, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -8825,7 +13521,7 @@ static void valuesInit()
       1,
       3,
     };
-    valueGroupsSet(0, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(20, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -8864,7 +13560,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(0, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(20, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -8909,7 +13605,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(0, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(20, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -8933,7 +13629,7 @@ static void valuesInit()
       1,
       10,
     };
-    valueGroupsSet(1, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(21, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -8972,7 +13668,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(1, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(21, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -9005,7 +13701,7 @@ static void valuesInit()
       1,
       3,
     };
-    valueGroupsSet(1, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(21, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9044,7 +13740,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(1, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(21, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -9089,7 +13785,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(1, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(21, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -9113,7 +13809,7 @@ static void valuesInit()
       2,
       15,
     };
-    valueGroupsSet(2, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(22, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9152,7 +13848,7 @@ static void valuesInit()
       1,
       2,
     };
-    valueGroupsSet(2, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(22, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -9185,7 +13881,7 @@ static void valuesInit()
       1,
       3,
     };
-    valueGroupsSet(2, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(22, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9224,7 +13920,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(2, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(22, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -9269,7 +13965,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(2, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(22, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -9293,7 +13989,7 @@ static void valuesInit()
       2,
       20,
     };
-    valueGroupsSet(3, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(23, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9332,7 +14028,7 @@ static void valuesInit()
       1,
       2,
     };
-    valueGroupsSet(3, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(23, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -9365,7 +14061,7 @@ static void valuesInit()
       2,
       3,
     };
-    valueGroupsSet(3, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(23, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9404,7 +14100,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(3, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(23, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -9449,7 +14145,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(3, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(23, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -9473,7 +14169,7 @@ static void valuesInit()
       3,
       25,
     };
-    valueGroupsSet(4, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(24, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9512,7 +14208,7 @@ static void valuesInit()
       1,
       3,
     };
-    valueGroupsSet(4, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(24, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -9545,7 +14241,7 @@ static void valuesInit()
       2,
       3,
     };
-    valueGroupsSet(4, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(24, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9584,7 +14280,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(4, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(24, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -9629,7 +14325,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(4, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(24, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -9653,7 +14349,7 @@ static void valuesInit()
       3,
       30,
     };
-    valueGroupsSet(5, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(25, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9692,7 +14388,7 @@ static void valuesInit()
       1,
       3,
     };
-    valueGroupsSet(5, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(25, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -9725,7 +14421,7 @@ static void valuesInit()
       2,
       3,
     };
-    valueGroupsSet(5, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(25, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9764,7 +14460,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(5, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(25, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -9809,7 +14505,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(5, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(25, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -9833,7 +14529,7 @@ static void valuesInit()
       4,
       35,
     };
-    valueGroupsSet(6, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(26, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9872,7 +14568,7 @@ static void valuesInit()
       1,
       4,
     };
-    valueGroupsSet(6, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(26, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -9905,7 +14601,7 @@ static void valuesInit()
       2,
       3,
     };
-    valueGroupsSet(6, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(26, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -9944,7 +14640,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(6, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(26, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -9989,7 +14685,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(6, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(26, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -10013,7 +14709,7 @@ static void valuesInit()
       4,
       40,
     };
-    valueGroupsSet(7, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(27, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10052,7 +14748,7 @@ static void valuesInit()
       1,
       4,
     };
-    valueGroupsSet(7, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(27, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -10085,7 +14781,7 @@ static void valuesInit()
       3,
       3,
     };
-    valueGroupsSet(7, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(27, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10124,7 +14820,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(7, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(27, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -10169,7 +14865,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(7, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(27, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -10193,7 +14889,7 @@ static void valuesInit()
       5,
       45,
     };
-    valueGroupsSet(8, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(28, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10232,7 +14928,7 @@ static void valuesInit()
       1,
       5,
     };
-    valueGroupsSet(8, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(28, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -10265,7 +14961,7 @@ static void valuesInit()
       3,
       3,
     };
-    valueGroupsSet(8, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(28, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10304,7 +15000,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(8, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(28, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -10349,7 +15045,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(8, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(28, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -10373,7 +15069,7 @@ static void valuesInit()
       6,
       50,
     };
-    valueGroupsSet(9, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(29, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10412,7 +15108,7 @@ static void valuesInit()
       2,
       5,
     };
-    valueGroupsSet(9, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(29, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -10445,7 +15141,7 @@ static void valuesInit()
       3,
       3,
     };
-    valueGroupsSet(9, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(29, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10484,7 +15180,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(9, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(29, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -10529,7 +15225,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(9, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(29, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -10553,7 +15249,7 @@ static void valuesInit()
       6,
       55,
     };
-    valueGroupsSet(10, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(30, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10592,7 +15288,7 @@ static void valuesInit()
       2,
       5,
     };
-    valueGroupsSet(10, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(30, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -10625,7 +15321,7 @@ static void valuesInit()
       3,
       3,
     };
-    valueGroupsSet(10, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(30, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10664,7 +15360,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(10, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(30, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -10709,7 +15405,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(10, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(30, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -10733,7 +15429,7 @@ static void valuesInit()
       6,
       60,
     };
-    valueGroupsSet(11, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(31, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10772,7 +15468,7 @@ static void valuesInit()
       2,
       5,
     };
-    valueGroupsSet(11, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(31, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -10805,7 +15501,7 @@ static void valuesInit()
       3,
       3,
     };
-    valueGroupsSet(11, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(31, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10844,7 +15540,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(11, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(31, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -10889,7 +15585,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(11, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(31, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -10913,7 +15609,187 @@ static void valuesInit()
       6,
       60,
     };
-    valueGroupsSet(12, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(32, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[9] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[9] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+    };
+    static const int vals[9] = 
+    {
+      1,
+      12,
+      12,
+      100,
+      3,
+      3,
+      3,
+      2,
+      5,
+    };
+    valueGroupsSet(32, 3, 9, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[7] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[7] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_C_LO | IED_LO,
+    };
+    static const int vals[7] = 
+    {
+      1,
+      6,
+      6,
+      6,
+      5,
+      3,
+      3,
+    };
+    valueGroupsSet(32, 4, 7, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[9] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[9] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+    };
+    static const int vals[9] = 
+    {
+      1,
+      9,
+      9,
+      9,
+      7,
+      6,
+      12,
+      4,
+      1,
+    };
+    valueGroupsSet(32, 5, 9, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[11] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[11] = 
+    {
+      ANY_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      ATT_PER_10_LVLS_LO,
+    };
+    static const int vals[11] = 
+    {
+      1,
+      12,
+      12,
+      12,
+      10,
+      9,
+      1,
+      18,
+      5,
+      2,
+      1,
+    };
+    valueGroupsSet(32, 6, 11, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      6,
+      6,
+      60,
+    };
+    valueGroupsSet(33, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -10952,7 +15828,7 @@ static void valuesInit()
       3,
       6,
     };
-    valueGroupsSet(12, 3, 9, linesHi, linesLo, vals);
+    valueGroupsSet(33, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -10985,7 +15861,7 @@ static void valuesInit()
       4,
       3,
     };
-    valueGroupsSet(12, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(33, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[9] = 
@@ -11024,7 +15900,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(12, 5, 9, linesHi, linesLo, vals);
+    valueGroupsSet(33, 5, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[11] = 
@@ -11069,7 +15945,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(12, 6, 11, linesHi, linesLo, vals);
+    valueGroupsSet(33, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -11090,13 +15966,13 @@ static void valuesInit()
     {
       1,
       6,
-      3,
+      6,
       60,
     };
-    valueGroupsSet(13, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(34, 2, 4, linesHi, linesLo, vals);
   }
   {
-    static const int linesHi[7] = 
+    static const int linesHi[9] = 
     {
       0,
       0,
@@ -11105,28 +15981,34 @@ static void valuesInit()
       0,
       0,
       0,
+      0,
+      0,
     };
-    static const int linesLo[7] = 
+    static const int linesLo[9] = 
     {
       ANY_LO,
       LINE_A_LO | FLAT_MAINSTAT_LO,
       LINE_A_LO | FLAT_ATT_LO,
       LINE_A_LO | FLAT_HP_LO,
       LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
       LINE_A_LO | HP_LO,
       LINE_A_LO | FLAT_ALLSTAT_LO,
     };
-    static const int vals[7] = 
+    static const int vals[9] = 
     {
       1,
-      11,
-      11,
+      13,
+      13,
       125,
+      4,
+      4,
+      4,
       3,
-      3,
-      3,
+      6,
     };
-    valueGroupsSet(13, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(34, 3, 9, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -11142,28 +16024,29 @@ static void valuesInit()
     static const int linesLo[7] = 
     {
       ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | FLAT_HP_LO,
       LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
       LINE_A_LO | HP_LO,
       LINE_A_LO | ALLSTAT_LO,
+      LINE_C_LO | IED_LO,
     };
     static const int vals[7] = 
     {
       1,
-      15,
-      12,
-      185,
-      4,
+      7,
+      7,
+      7,
       6,
+      4,
       3,
     };
-    valueGroupsSet(13, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(34, 4, 7, linesHi, linesLo, vals);
   }
   {
-    static const int linesHi[8] = 
+    static const int linesHi[9] = 
     {
+      0,
       0,
       0,
       0,
@@ -11173,34 +16056,35 @@ static void valuesInit()
       0,
       0,
     };
-    static const int linesLo[8] = 
+    static const int linesLo[9] = 
     {
       ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | FLAT_HP_LO,
       LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
       LINE_A_LO | HP_LO,
       LINE_A_LO | ALLSTAT_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
       MAINSTAT_PER_10_LVLS_LO,
     };
-    static const int vals[8] = 
+    static const int vals[9] = 
     {
       1,
-      17,
-      13,
-      250,
-      6,
+      10,
+      10,
+      10,
       8,
-      5,
+      7,
+      12,
+      4,
       1,
     };
-    valueGroupsSet(13, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(34, 5, 9, linesHi, linesLo, vals);
   }
   {
-    static const int linesHi[12] = 
+    static const int linesHi[11] = 
     {
-      0,
       0,
       0,
       0,
@@ -11213,37 +16097,35 @@ static void valuesInit()
       0,
       0,
     };
-    static const int linesLo[12] = 
+    static const int linesLo[11] = 
     {
       ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | FLAT_HP_LO,
       LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | ATT_LO,
+      LINE_A_LO | DAMAGE_LO,
       LINE_A_LO | HP_LO,
+      LINE_A_LO | ALLSTAT_LO,
       LINE_A_LO | CRITDMG_LO,
-      LINE_A_LO | ALLSTAT_LO,
+      LINE_C_LO | BOSS_ONLY_LO,
+      LINE_C_LO | IED_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
+      ATT_PER_10_LVLS_LO,
     };
-    static const int vals[12] = 
+    static const int vals[11] = 
     {
       1,
-      19,
-      15,
-      310,
-      8,
+      13,
+      13,
+      13,
       11,
+      10,
       1,
-      6,
+      18,
+      5,
       2,
       1,
-      5,
-      5,
     };
-    valueGroupsSet(13, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(34, 6, 11, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -11267,7 +16149,7 @@ static void valuesInit()
       1,
       5,
     };
-    valueGroupsSet(14, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(35, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -11300,7 +16182,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(14, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(35, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -11333,7 +16215,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(14, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(35, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -11369,7 +16251,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(14, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(35, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -11417,7 +16299,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(14, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(35, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -11441,7 +16323,7 @@ static void valuesInit()
       1,
       10,
     };
-    valueGroupsSet(15, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(36, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -11474,7 +16356,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(15, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(36, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -11507,7 +16389,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(15, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(36, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -11543,7 +16425,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(15, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(36, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -11591,7 +16473,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(15, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(36, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -11615,7 +16497,7 @@ static void valuesInit()
       1,
       15,
     };
-    valueGroupsSet(16, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(37, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -11648,7 +16530,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(16, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(37, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -11681,7 +16563,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(16, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(37, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -11717,7 +16599,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(16, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(37, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -11765,7 +16647,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(16, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(37, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -11789,7 +16671,7 @@ static void valuesInit()
       1,
       20,
     };
-    valueGroupsSet(17, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(38, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -11822,7 +16704,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(17, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(38, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -11855,7 +16737,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(17, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(38, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -11891,7 +16773,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(17, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(38, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -11939,7 +16821,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(17, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(38, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -11963,7 +16845,7 @@ static void valuesInit()
       1,
       25,
     };
-    valueGroupsSet(18, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(39, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -11996,7 +16878,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(18, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(39, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12029,7 +16911,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(18, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(39, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -12065,7 +16947,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(18, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(39, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -12113,7 +16995,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(18, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(39, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -12137,7 +17019,7 @@ static void valuesInit()
       2,
       30,
     };
-    valueGroupsSet(19, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(40, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12170,7 +17052,7 @@ static void valuesInit()
       1,
       2,
     };
-    valueGroupsSet(19, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(40, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12203,7 +17085,7 @@ static void valuesInit()
       3,
       1,
     };
-    valueGroupsSet(19, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(40, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -12239,7 +17121,7 @@ static void valuesInit()
       3,
       1,
     };
-    valueGroupsSet(19, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(40, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -12287,7 +17169,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(19, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(40, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -12311,7 +17193,7 @@ static void valuesInit()
       2,
       35,
     };
-    valueGroupsSet(20, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(41, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12344,7 +17226,7 @@ static void valuesInit()
       1,
       2,
     };
-    valueGroupsSet(20, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(41, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12377,7 +17259,7 @@ static void valuesInit()
       3,
       1,
     };
-    valueGroupsSet(20, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(41, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -12413,7 +17295,7 @@ static void valuesInit()
       3,
       1,
     };
-    valueGroupsSet(20, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(41, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -12461,7 +17343,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(20, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(41, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -12485,7 +17367,7 @@ static void valuesInit()
       2,
       40,
     };
-    valueGroupsSet(21, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(42, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12518,7 +17400,7 @@ static void valuesInit()
       1,
       2,
     };
-    valueGroupsSet(21, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(42, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12551,7 +17433,7 @@ static void valuesInit()
       3,
       1,
     };
-    valueGroupsSet(21, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(42, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -12587,7 +17469,7 @@ static void valuesInit()
       3,
       1,
     };
-    valueGroupsSet(21, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(42, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -12635,7 +17517,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(21, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(42, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -12659,7 +17541,7 @@ static void valuesInit()
       2,
       45,
     };
-    valueGroupsSet(22, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(43, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12692,7 +17574,7 @@ static void valuesInit()
       1,
       2,
     };
-    valueGroupsSet(22, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(43, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12725,7 +17607,7 @@ static void valuesInit()
       3,
       1,
     };
-    valueGroupsSet(22, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(43, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -12761,7 +17643,7 @@ static void valuesInit()
       3,
       1,
     };
-    valueGroupsSet(22, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(43, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -12809,7 +17691,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(22, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(43, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -12833,7 +17715,7 @@ static void valuesInit()
       2,
       50,
     };
-    valueGroupsSet(23, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(44, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12866,7 +17748,7 @@ static void valuesInit()
       2,
       3,
     };
-    valueGroupsSet(23, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(44, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -12899,7 +17781,7 @@ static void valuesInit()
       5,
       2,
     };
-    valueGroupsSet(23, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(44, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -12935,7 +17817,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(23, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(44, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -12983,7 +17865,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(23, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(44, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -13007,7 +17889,7 @@ static void valuesInit()
       3,
       55,
     };
-    valueGroupsSet(24, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(45, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -13040,7 +17922,7 @@ static void valuesInit()
       2,
       3,
     };
-    valueGroupsSet(24, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(45, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -13073,7 +17955,7 @@ static void valuesInit()
       5,
       2,
     };
-    valueGroupsSet(24, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(45, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -13109,7 +17991,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(24, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(45, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -13157,7 +18039,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(24, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(45, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -13181,7 +18063,7 @@ static void valuesInit()
       3,
       60,
     };
-    valueGroupsSet(25, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(46, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -13214,7 +18096,7 @@ static void valuesInit()
       2,
       3,
     };
-    valueGroupsSet(25, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(46, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -13247,7 +18129,7 @@ static void valuesInit()
       5,
       2,
     };
-    valueGroupsSet(25, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(46, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -13283,7 +18165,7 @@ static void valuesInit()
       4,
       1,
     };
-    valueGroupsSet(25, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(46, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -13331,7 +18213,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(25, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(46, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -13355,7 +18237,181 @@ static void valuesInit()
       3,
       60,
     };
-    valueGroupsSet(26, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(47, 2, 4, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[7] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[7] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | FLAT_ALLSTAT_LO,
+    };
+    static const int vals[7] = 
+    {
+      1,
+      10,
+      10,
+      100,
+      2,
+      2,
+      3,
+    };
+    valueGroupsSet(47, 3, 7, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[7] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[7] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | ALLSTAT_LO,
+    };
+    static const int vals[7] = 
+    {
+      1,
+      14,
+      11,
+      180,
+      4,
+      5,
+      2,
+    };
+    valueGroupsSet(47, 4, 7, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      16,
+      12,
+      240,
+      5,
+      7,
+      4,
+      1,
+    };
+    valueGroupsSet(47, 5, 8, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[12] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[12] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
+    };
+    static const int vals[12] = 
+    {
+      1,
+      18,
+      14,
+      300,
+      7,
+      10,
+      1,
+      5,
+      2,
+      1,
+      5,
+      5,
+    };
+    valueGroupsSet(47, 6, 12, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[4] = 
+    {
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[4] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+    };
+    static const int vals[4] = 
+    {
+      1,
+      6,
+      3,
+      60,
+    };
+    valueGroupsSet(48, 2, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -13388,7 +18444,7 @@ static void valuesInit()
       3,
       3,
     };
-    valueGroupsSet(26, 3, 7, linesHi, linesLo, vals);
+    valueGroupsSet(48, 3, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[7] = 
@@ -13421,7 +18477,7 @@ static void valuesInit()
       6,
       3,
     };
-    valueGroupsSet(26, 4, 7, linesHi, linesLo, vals);
+    valueGroupsSet(48, 4, 7, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[8] = 
@@ -13457,7 +18513,7 @@ static void valuesInit()
       5,
       1,
     };
-    valueGroupsSet(26, 5, 8, linesHi, linesLo, vals);
+    valueGroupsSet(48, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -13505,7 +18561,7 @@ static void valuesInit()
       5,
       5,
     };
-    valueGroupsSet(26, 6, 12, linesHi, linesLo, vals);
+    valueGroupsSet(48, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -13519,20 +18575,20 @@ static void valuesInit()
     {
       ANY_LO,
       LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
       LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
     };
     static const int vals[4] = 
     {
       1,
       6,
+      3,
       60,
-      6,
     };
-    valueGroupsSet(27, 2, 4, linesHi, linesLo, vals);
+    valueGroupsSet(49, 2, 4, linesHi, linesLo, vals);
   }
   {
-    static const int linesHi[10] = 
+    static const int linesHi[7] = 
     {
       0,
       0,
@@ -13541,307 +18597,97 @@ static void valuesInit()
       0,
       0,
       0,
-      0,
-      0,
-      0,
     };
-    static const int linesLo[10] = 
+    static const int linesLo[7] = 
     {
       ANY_LO,
       LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
       LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
       LINE_A_LO | MAINSTAT_LO,
       LINE_A_LO | HP_LO,
       LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
     };
-    static const int vals[10] = 
+    static const int vals[7] = 
     {
       1,
-      13,
+      11,
+      11,
       125,
+      3,
+      3,
+      3,
+    };
+    valueGroupsSet(49, 3, 7, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[7] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[7] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | ALLSTAT_LO,
+    };
+    static const int vals[7] = 
+    {
+      1,
+      15,
+      12,
+      185,
+      4,
+      6,
+      3,
+    };
+    valueGroupsSet(49, 4, 7, linesHi, linesLo, vals);
+  }
+  {
+    static const int linesHi[8] = 
+    {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    };
+    static const int linesLo[8] = 
+    {
+      ANY_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
+      LINE_A_LO | MAINSTAT_LO,
+      LINE_A_LO | HP_LO,
+      LINE_A_LO | ALLSTAT_LO,
+      MAINSTAT_PER_10_LVLS_LO,
+    };
+    static const int vals[8] = 
+    {
+      1,
+      17,
       13,
-      4,
-      4,
+      250,
       6,
-      4,
-      4,
-      15,
-    };
-    valueGroupsSet(27, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      7,
-      4,
-      7,
-      1,
-      7,
-      7,
-      15,
-    };
-    valueGroupsSet(27, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      30,
-      30,
-      10,
-      10,
-      10,
-      7,
-      9,
-      2,
-      1,
-      1,
-      30,
-    };
-    valueGroupsSet(27, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      35,
-      40,
-      35,
-      40,
-      13,
-      13,
-      13,
-      10,
-      12,
-      2,
-      1,
       8,
-      20,
-      20,
-      3,
-      1,
-      1,
-      1,
-      7,
-      5,
-      3,
-      40,
-    };
-    valueGroupsSet(27, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      1,
       5,
       1,
     };
-    valueGroupsSet(28, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      2,
-      10,
-      2,
-      1,
-      1,
-      1,
-      1,
-      1,
-      0,
-    };
-    valueGroupsSet(28, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      2,
-      1,
-      2,
-      1,
-      2,
-      2,
-      0,
-    };
-    valueGroupsSet(28, 4, 8, linesHi, linesLo, vals);
+    valueGroupsSet(49, 5, 8, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[12] = 
@@ -13857,4101 +18703,39 @@ static void valuesInit()
       0,
       0,
       0,
-      HP_ITEMS_AND_SKILLS_HI,
+      0,
     };
     static const int linesLo[12] = 
     {
       ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
+      LINE_A_LO | FLAT_MAINSTAT_LO,
+      LINE_A_LO | FLAT_ATT_LO,
+      LINE_A_LO | FLAT_HP_LO,
       LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
       LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
+      LINE_A_LO | CRITDMG_LO,
+      LINE_A_LO | ALLSTAT_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | COOLDOWN_LO,
+      LINE_B_LO | MESO_ONLY_LO,
+      LINE_B_LO | DROP_ONLY_LO,
     };
     static const int vals[12] = 
     {
       1,
-      0,
-      0,
-      3,
-      3,
-      3,
-      2,
-      3,
-      2,
-      0,
-      0,
-      10,
-    };
-    valueGroupsSet(28, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      0,
-      0,
-      0,
-      0,
-      0,
-      6,
-      6,
-      6,
-      3,
-      6,
-      0,
-      0,
-      0,
-      10,
-      10,
-      3,
-      0,
-      0,
-      0,
-      7,
-      5,
-      3,
-      20,
-    };
-    valueGroupsSet(28, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      1,
-      10,
-      1,
-    };
-    valueGroupsSet(29, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      2,
-      20,
-      2,
-      1,
-      1,
-      1,
-      1,
-      1,
-      0,
-    };
-    valueGroupsSet(29, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      2,
-      1,
-      2,
-      1,
-      2,
-      2,
-      0,
-    };
-    valueGroupsSet(29, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      0,
-      3,
-      3,
-      3,
-      2,
-      3,
-      2,
-      0,
-      0,
-      10,
-    };
-    valueGroupsSet(29, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      0,
-      0,
-      0,
-      0,
-      0,
-      6,
-      6,
-      6,
-      3,
-      6,
-      0,
-      0,
-      0,
-      10,
-      10,
-      3,
-      0,
-      0,
-      0,
-      7,
-      5,
-      3,
-      20,
-    };
-    valueGroupsSet(29, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      2,
+      19,
       15,
-      2,
-    };
-    valueGroupsSet(30, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      4,
-      30,
-      4,
-      1,
-      1,
-      2,
-      1,
-      1,
-      0,
-    };
-    valueGroupsSet(30, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      2,
-      1,
-      2,
-      1,
-      2,
-      2,
-      0,
-    };
-    valueGroupsSet(30, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      0,
-      3,
-      3,
-      3,
-      2,
-      3,
-      2,
-      0,
-      0,
-      10,
-    };
-    valueGroupsSet(30, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      0,
-      0,
-      0,
-      0,
-      0,
-      6,
-      6,
-      6,
-      3,
-      6,
-      0,
-      0,
-      0,
-      10,
-      10,
-      3,
-      0,
-      0,
-      0,
-      7,
-      5,
-      3,
-      20,
-    };
-    valueGroupsSet(30, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      2,
-      15,
-      2,
-    };
-    valueGroupsSet(31, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      4,
-      30,
-      4,
-      1,
-      1,
-      2,
-      1,
-      1,
-      15,
-    };
-    valueGroupsSet(31, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      2,
-      1,
-      2,
-      1,
-      2,
-      2,
-      0,
-    };
-    valueGroupsSet(31, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      0,
-      3,
-      3,
-      3,
-      2,
-      3,
-      2,
-      0,
-      1,
-      10,
-    };
-    valueGroupsSet(31, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      0,
-      0,
-      0,
-      0,
-      0,
-      6,
-      6,
-      6,
-      3,
-      6,
-      0,
-      0,
-      0,
-      10,
-      10,
-      3,
-      0,
-      0,
-      1,
-      7,
-      5,
-      3,
-      20,
-    };
-    valueGroupsSet(31, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      2,
-      20,
-      2,
-    };
-    valueGroupsSet(32, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      4,
-      40,
-      4,
-      2,
-      2,
-      2,
-      2,
-      2,
-      15,
-    };
-    valueGroupsSet(32, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      4,
-      2,
-      4,
-      1,
-      4,
-      4,
-      0,
-    };
-    valueGroupsSet(32, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      0,
-      6,
-      6,
-      6,
-      4,
-      6,
-      2,
-      0,
-      1,
-      20,
-    };
-    valueGroupsSet(32, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      0,
-      0,
-      0,
-      0,
-      0,
-      9,
-      9,
-      9,
-      6,
-      9,
-      0,
-      0,
-      0,
-      15,
-      15,
-      3,
-      0,
-      0,
-      1,
-      7,
-      5,
-      3,
-      30,
-    };
-    valueGroupsSet(32, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      3,
-      25,
-      3,
-    };
-    valueGroupsSet(33, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      6,
-      50,
-      6,
-      2,
-      2,
-      3,
-      2,
-      2,
-      15,
-    };
-    valueGroupsSet(33, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      4,
-      2,
-      4,
-      1,
-      4,
-      4,
-      0,
-    };
-    valueGroupsSet(33, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      0,
-      6,
-      6,
-      6,
-      4,
-      6,
-      2,
-      0,
-      1,
-      20,
-    };
-    valueGroupsSet(33, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      0,
-      0,
-      0,
-      0,
-      0,
-      9,
-      9,
-      9,
-      6,
-      9,
-      0,
-      0,
-      0,
-      15,
-      15,
-      3,
-      0,
-      0,
-      1,
-      7,
-      5,
-      3,
-      30,
-    };
-    valueGroupsSet(33, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      3,
-      25,
-      3,
-    };
-    valueGroupsSet(34, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      6,
-      50,
-      6,
-      2,
-      2,
-      3,
-      2,
-      2,
-      15,
-    };
-    valueGroupsSet(34, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      4,
-      2,
-      4,
-      1,
-      4,
-      4,
-      15,
-    };
-    valueGroupsSet(34, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      30,
-      6,
-      6,
-      6,
-      4,
-      6,
-      2,
-      0,
-      1,
-      20,
-    };
-    valueGroupsSet(34, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      0,
-      0,
-      35,
-      0,
-      9,
-      9,
-      9,
-      6,
-      9,
-      0,
-      0,
-      5,
-      15,
-      15,
-      3,
-      0,
-      0,
-      1,
-      7,
-      5,
-      3,
-      30,
-    };
-    valueGroupsSet(34, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      4,
-      30,
-      3,
-    };
-    valueGroupsSet(35, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
+      310,
       8,
-      60,
-      6,
-      2,
-      2,
-      3,
-      2,
-      2,
-      15,
-    };
-    valueGroupsSet(35, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      4,
-      2,
-      4,
-      1,
-      4,
-      4,
-      15,
-    };
-    valueGroupsSet(35, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      30,
-      6,
-      6,
-      6,
-      4,
-      6,
-      2,
-      0,
-      1,
-      20,
-    };
-    valueGroupsSet(35, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      0,
-      0,
-      35,
-      0,
-      9,
-      9,
-      9,
-      6,
-      9,
-      0,
-      0,
-      5,
-      15,
-      15,
-      3,
-      0,
-      0,
-      1,
-      7,
-      5,
-      3,
-      30,
-    };
-    valueGroupsSet(35, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      4,
-      35,
-      4,
-    };
-    valueGroupsSet(36, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      8,
-      70,
-      8,
-      2,
-      2,
-      4,
-      2,
-      2,
-      15,
-    };
-    valueGroupsSet(36, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      4,
-      2,
-      4,
-      1,
-      4,
-      4,
-      15,
-    };
-    valueGroupsSet(36, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      30,
-      6,
-      6,
-      6,
-      4,
-      6,
-      2,
-      0,
-      1,
-      20,
-    };
-    valueGroupsSet(36, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      0,
-      0,
-      35,
-      0,
-      9,
-      9,
-      9,
-      6,
-      9,
-      0,
-      0,
-      6,
-      15,
-      15,
-      3,
-      0,
-      0,
-      1,
-      7,
-      5,
-      3,
-      30,
-    };
-    valueGroupsSet(36, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      4,
-      35,
-      4,
-    };
-    valueGroupsSet(37, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      8,
-      70,
-      8,
-      2,
-      2,
-      4,
-      2,
-      2,
-      15,
-    };
-    valueGroupsSet(37, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      4,
-      2,
-      4,
-      1,
-      4,
-      4,
-      15,
-    };
-    valueGroupsSet(37, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      30,
-      6,
-      6,
-      6,
-      4,
-      6,
-      2,
-      0,
-      1,
-      20,
-    };
-    valueGroupsSet(37, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      0,
-      0,
-      35,
-      0,
-      9,
-      9,
-      9,
-      6,
-      9,
-      0,
+      11,
       1,
       6,
-      15,
-      15,
-      3,
-      0,
-      1,
-      1,
-      7,
-      5,
-      3,
-      30,
-    };
-    valueGroupsSet(37, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
+      2,
       1,
       5,
-      40,
-      4,
-    };
-    valueGroupsSet(38, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      10,
-      80,
-      8,
-      3,
-      3,
-      4,
-      3,
-      3,
-      15,
-    };
-    valueGroupsSet(38, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      6,
-      3,
-      6,
-      1,
-      6,
-      6,
-      15,
-    };
-    valueGroupsSet(38, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      30,
-      9,
-      9,
-      9,
-      6,
-      9,
-      2,
-      0,
-      1,
-      30,
-    };
-    valueGroupsSet(38, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      0,
-      0,
-      35,
-      0,
-      12,
-      12,
-      12,
-      9,
-      12,
-      0,
-      1,
-      6,
-      20,
-      20,
-      3,
-      0,
-      1,
-      1,
-      7,
-      5,
-      3,
-      40,
-    };
-    valueGroupsSet(38, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      5,
-      45,
       5,
     };
-    valueGroupsSet(39, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      10,
-      90,
-      10,
-      3,
-      3,
-      5,
-      3,
-      3,
-      15,
-    };
-    valueGroupsSet(39, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      6,
-      3,
-      6,
-      1,
-      6,
-      6,
-      15,
-    };
-    valueGroupsSet(39, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      30,
-      9,
-      9,
-      9,
-      6,
-      9,
-      2,
-      0,
-      1,
-      30,
-    };
-    valueGroupsSet(39, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      0,
-      0,
-      35,
-      0,
-      12,
-      12,
-      12,
-      9,
-      12,
-      0,
-      1,
-      8,
-      20,
-      20,
-      3,
-      0,
-      1,
-      1,
-      7,
-      5,
-      3,
-      40,
-    };
-    valueGroupsSet(39, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      6,
-      50,
-      6,
-    };
-    valueGroupsSet(40, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      12,
-      100,
-      12,
-      3,
-      3,
-      5,
-      3,
-      3,
-      15,
-    };
-    valueGroupsSet(40, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      6,
-      3,
-      6,
-      1,
-      6,
-      6,
-      15,
-    };
-    valueGroupsSet(40, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      0,
-      30,
-      9,
-      9,
-      9,
-      6,
-      9,
-      2,
-      0,
-      1,
-      30,
-    };
-    valueGroupsSet(40, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      0,
-      0,
-      35,
-      0,
-      12,
-      12,
-      12,
-      9,
-      12,
-      0,
-      1,
-      8,
-      20,
-      20,
-      3,
-      0,
-      1,
-      1,
-      7,
-      5,
-      3,
-      40,
-    };
-    valueGroupsSet(40, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      6,
-      50,
-      6,
-    };
-    valueGroupsSet(41, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      12,
-      100,
-      12,
-      3,
-      3,
-      5,
-      3,
-      3,
-      15,
-    };
-    valueGroupsSet(41, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      6,
-      3,
-      6,
-      1,
-      6,
-      6,
-      15,
-    };
-    valueGroupsSet(41, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      30,
-      30,
-      9,
-      9,
-      9,
-      6,
-      9,
-      2,
-      0,
-      1,
-      30,
-    };
-    valueGroupsSet(41, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      35,
-      40,
-      35,
-      40,
-      12,
-      12,
-      12,
-      9,
-      12,
-      0,
-      1,
-      8,
-      20,
-      20,
-      3,
-      0,
-      1,
-      1,
-      7,
-      5,
-      3,
-      40,
-    };
-    valueGroupsSet(41, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      6,
-      55,
-      6,
-    };
-    valueGroupsSet(42, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      12,
-      110,
-      12,
-      3,
-      3,
-      5,
-      3,
-      3,
-      15,
-    };
-    valueGroupsSet(42, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      6,
-      3,
-      6,
-      1,
-      6,
-      6,
-      15,
-    };
-    valueGroupsSet(42, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      30,
-      30,
-      9,
-      9,
-      9,
-      6,
-      9,
-      2,
-      0,
-      1,
-      30,
-    };
-    valueGroupsSet(42, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      35,
-      40,
-      35,
-      40,
-      12,
-      12,
-      12,
-      9,
-      12,
-      0,
-      1,
-      8,
-      20,
-      20,
-      3,
-      0,
-      1,
-      1,
-      7,
-      5,
-      3,
-      40,
-    };
-    valueGroupsSet(42, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      6,
-      60,
-      6,
-    };
-    valueGroupsSet(43, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      12,
-      120,
-      12,
-      3,
-      3,
-      5,
-      3,
-      3,
-      15,
-    };
-    valueGroupsSet(43, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      6,
-      3,
-      6,
-      1,
-      6,
-      6,
-      15,
-    };
-    valueGroupsSet(43, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      30,
-      30,
-      9,
-      9,
-      9,
-      6,
-      9,
-      2,
-      0,
-      1,
-      30,
-    };
-    valueGroupsSet(43, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      35,
-      40,
-      35,
-      40,
-      12,
-      12,
-      12,
-      9,
-      12,
-      0,
-      1,
-      8,
-      20,
-      20,
-      3,
-      0,
-      1,
-      1,
-      7,
-      5,
-      3,
-      40,
-    };
-    valueGroupsSet(43, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      6,
-      60,
-      6,
-    };
-    valueGroupsSet(44, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      12,
-      120,
-      12,
-      3,
-      3,
-      5,
-      3,
-      3,
-      15,
-    };
-    valueGroupsSet(44, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      6,
-      3,
-      6,
-      1,
-      6,
-      6,
-      15,
-    };
-    valueGroupsSet(44, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      30,
-      30,
-      9,
-      9,
-      9,
-      6,
-      9,
-      2,
-      1,
-      1,
-      30,
-    };
-    valueGroupsSet(44, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      35,
-      40,
-      35,
-      40,
-      12,
-      12,
-      12,
-      9,
-      12,
-      2,
-      1,
-      8,
-      20,
-      20,
-      3,
-      1,
-      1,
-      1,
-      7,
-      5,
-      3,
-      40,
-    };
-    valueGroupsSet(44, 6, 24, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[4] = 
-    {
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[4] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-    };
-    static const int vals[4] = 
-    {
-      1,
-      6,
-      60,
-      6,
-    };
-    valueGroupsSet(45, 2, 4, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[10] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[10] = 
-    {
-      ANY_LO,
-      LINE_A_LO | FLAT_MAINSTAT_LO,
-      LINE_A_LO | FLAT_HP_LO,
-      LINE_A_LO | FLAT_ATT_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_A_LO | FLAT_ALLSTAT_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[10] = 
-    {
-      1,
-      13,
-      125,
-      13,
-      4,
-      4,
-      6,
-      4,
-      4,
-      15,
-    };
-    valueGroupsSet(45, 3, 10, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[8] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-    };
-    static const int linesLo[8] = 
-    {
-      ANY_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_C_LO | IED_LO,
-    };
-    static const int vals[8] = 
-    {
-      1,
-      7,
-      4,
-      7,
-      1,
-      7,
-      7,
-      15,
-    };
-    valueGroupsSet(45, 4, 8, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[12] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[12] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_C_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      INVIN_LO,
-      DECENT_SHARP_EYES_LO,
-      MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
-    };
-    static const int vals[12] = 
-    {
-      1,
-      30,
-      30,
-      10,
-      10,
-      10,
-      7,
-      10,
-      2,
-      1,
-      1,
-      30,
-    };
-    valueGroupsSet(45, 5, 12, linesHi, linesLo, vals);
-  }
-  {
-    static const int linesHi[24] = 
-    {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-    };
-    static const int linesLo[24] = 
-    {
-      ANY_LO,
-      LINE_C_LO | BOSS_ONLY_LO,
-      LINE_B_LO | BOSS_ONLY_LO,
-      LINE_A_LO | BOSS_ONLY_LO,
-      LINE_B_LO | IED_LO,
-      LINE_A_LO | IED_LO,
-      LINE_A_LO | ATT_LO,
-      LINE_A_LO | DAMAGE_LO,
-      LINE_A_LO | MAINSTAT_LO,
-      LINE_A_LO | ALLSTAT_LO,
-      LINE_A_LO | HP_LO,
-      LINE_B_LO | COOLDOWN_LO,
-      LINE_A_LO | COOLDOWN_LO,
-      LINE_A_LO | CRITDMG_LO,
-      LINE_B_LO | MESO_ONLY_LO,
-      LINE_B_LO | DROP_ONLY_LO,
-      INVIN_LO,
-      DECENT_SPEED_INFUSION_LO,
-      DECENT_COMBAT_ORDERS_LO,
-      ATT_PER_10_LVLS_LO,
-      LINE_A_LO | AUTOSTEAL_1_LO,
-      LINE_B_LO | AUTOSTEAL_1_LO,
-      LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
-    };
-    static const int vals[24] = 
-    {
-      1,
-      30,
-      35,
-      40,
-      35,
-      40,
-      13,
-      13,
-      13,
-      10,
-      13,
-      2,
-      1,
-      8,
-      20,
-      20,
-      3,
-      1,
-      1,
-      1,
-      7,
-      5,
-      3,
-      40,
-    };
-    valueGroupsSet(45, 6, 24, linesHi, linesLo, vals);
+    valueGroupsSet(49, 6, 12, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[4] = 
@@ -17975,7 +18759,7 @@ static void valuesInit()
       5,
       1,
     };
-    valueGroupsSet(46, 1, 4, linesHi, linesLo, vals);
+    valueGroupsSet(50, 1, 4, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[17] = 
@@ -18038,7 +18822,7 @@ static void valuesInit()
       1,
       1,
     };
-    valueGroupsSet(46, 2, 17, linesHi, linesLo, vals);
+    valueGroupsSet(50, 2, 17, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[30] = 
@@ -18140,7 +18924,7 @@ static void valuesInit()
       2,
       1,
     };
-    valueGroupsSet(46, 3, 30, linesHi, linesLo, vals);
+    valueGroupsSet(50, 3, 30, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[44] = 
@@ -18284,7 +19068,7 @@ static void valuesInit()
       3,
       2,
     };
-    valueGroupsSet(46, 4, 44, linesHi, linesLo, vals);
+    valueGroupsSet(50, 4, 44, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[47] = 
@@ -18437,7 +19221,7 @@ static void valuesInit()
       5,
       3,
     };
-    valueGroupsSet(46, 5, 47, linesHi, linesLo, vals);
+    valueGroupsSet(50, 5, 47, linesHi, linesLo, vals);
   }
   {
     static const int linesHi[19] = 
@@ -18506,7 +19290,7 @@ static void valuesInit()
       9,
       4,
     };
-    valueGroupsSet(46, 6, 19, linesHi, linesLo, vals);
+    valueGroupsSet(50, 6, 19, linesHi, linesLo, vals);
   }
 }
 void cubecalcGeneratedGlobalInit()

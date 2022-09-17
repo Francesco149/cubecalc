@@ -35,12 +35,21 @@ typedef intptr_t intmax_t; // TODO: more robust fallback
 #define Clamp(x, lo, hi) Max(lo, Min(hi, x))
 
 // this treats the int array as a bitmask (32bit per element for int) and checks if bit i is set
-#define ArrayElementBitSize(array) (ArrayElementSize(array) << 3)
-#define ArrayBitSlot(array, bit) (array)[bit / ArrayElementBitSize(array)]
-#define ArrayBitMask(array, bit) (1 << (bit % ArrayElementBitSize(array)))
 #define ArrayBit(array, bit)     (ArrayBitSlot(array, bit) & ArrayBitMask(array, bit))
 #define ArrayBitSet(array, bit)   ArrayBitSlot(array, bit) |= ArrayBitMask(array, bit)
 #define ArrayBitClear(array, bit) ArrayBitSlot(array, bit) &= ~ArrayBitMask(array, bit)
+
+// returns the allocation size for an array bitmask that will be stored in arr. arr is an integer
+// pointer of any size, the purpose of this function is to figure out how many bits can be stored
+// per element and therefore how big the array should be for nbits
+#define ArrayBitSize(arr, nbits) \
+  _ArrayBitSize(ArrayElementBitSize(arr), ArrayElementSize(arr), nbits)
+size_t _ArrayBitSize(size_t elementBitSize, size_t elementSize, size_t nbits);
+
+// array bitmask macros used internally
+#define ArrayElementBitSize(array) (ArrayElementSize(array) << 3)
+#define ArrayBitSlot(array, bit) (array)[bit / ArrayElementBitSize(array)]
+#define ArrayBitMask(array, bit) (1 << (bit % ArrayElementBitSize(array)))
 
 // these are for macros that define a list of things that will be passed to another macro
 #define PREFIX
@@ -150,8 +159,11 @@ void _BufAlloc(void* pp, size_t count, size_t elementSize, Allocator const* allo
 #define BufAllocZero(b) MemZero(BufAlloc(b))
 #define BufReserveZero(pp, count) \
   (_BufAllocZero((pp), (count), ArrayElementSize(*(pp)), &allocatorDefault), \
-   &BufAt(*(pp), -(count)))
+   &BufAt(*(pp), -(intmax_t)(count)))
 void _BufAllocZero(void* pp, size_t count, size_t elementSize, Allocator const* allocator);
+
+// append other (Buf ptr) to pp (ptr to Buf ptr) in place. return *pp
+void* BufCat(void* pp, void const* other);
 
 //
 // shortcut to loop over every element
@@ -314,6 +326,9 @@ int Log2i(int n);
 // round to the next higher power of 2
 size_t RoundUp2(size_t v);
 
+// number of set bits in arbitrary array of bytes
+size_t BitCount(void* data, size_t bytes);
+
 // hash functions
 unsigned HashInt(unsigned x);
 
@@ -327,6 +342,17 @@ unsigned HashInt(unsigned x);
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
+
+//
+// Misc
+//
+
+size_t _ArrayBitSize(size_t elementBitSize, size_t elementSize, size_t count) {
+  size_t alignBits = elementBitSize - 1;
+  size_t bitCnt = (count + alignBits) & ~(alignBits);
+  size_t elements = bitCnt / elementBitSize;
+  return elements * elementSize;
+}
 
 //
 // Allocator
@@ -506,6 +532,18 @@ void _BufAllocZero(void* pp, size_t count, size_t elementSize, Allocator const* 
   memset(*b + BufI(*b, -(intmax_t)count) * elementSize, 0, count * elementSize);
 }
 
+void* BufCat(void* b, void const* other) {
+  char** pp = b;
+  if (BufLen(other)) {
+    Allocator const* allocator = *pp ? BufHdr(*pp)->allocator : &allocatorDefault_;
+    intmax_t len = BufLen(other);
+    size_t es = BufHdr(other)->elementSize;
+    _BufAlloc(pp, len, es, allocator);
+    memcpy(*pp + BufI(*pp, -len) * es, other, len * es);
+  }
+  return *pp;
+}
+
 void* _MemZero(void* p, size_t size) {
   memset(p, 0, size);
   return p;
@@ -676,10 +714,7 @@ static Map* MapRealloc(Allocator const* allocator, Map* m, size_t newCap) {
   newMap->cap = newCap;
   newMap->keys = ArenaAlloc(arena, ArrayElementSize(newMap->keys) * newCap);
   newMap->values = ArenaAlloc(arena, ArrayElementSize(newMap->values) * newCap);
-  size_t alignBits = ArrayElementBitSize(newMap->present) - 1;
-  size_t bitCnt = (newCap + alignBits) & ~(alignBits);
-  size_t elements = bitCnt / ArrayElementBitSize(newMap->present);
-  size_t allocSize = elements * ArrayElementSize(newMap->present);
+  size_t allocSize = ArrayBitSize(newMap->present, newCap);
   newMap->present = ArenaAlloc(arena, allocSize);
   memset(newMap->present, 0, allocSize);
   if (m) {
@@ -829,6 +864,16 @@ size_t RoundUp2(size_t v) {
   v |= v >> 32;
 #endif
   return ++v;
+}
+
+size_t BitCount(void* data, size_t bytes) {
+  size_t res = 0;
+  for (unsigned char* p = data; bytes--; ) {
+    for (unsigned char c = *p++; c; c >>= 1) {
+      res += c & 1;
+    }
+  }
+  return res;
 }
 
 unsigned HashInt(unsigned x) {

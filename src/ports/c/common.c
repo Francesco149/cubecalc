@@ -98,25 +98,6 @@ void valueGroupsFree() {
   }
 }
 
-size_t valueGroupFind(int cubeMask, int categoryMask, int regionMask, int maxLevel) {
-  size_t i;
-  // TODO: vectorize
-  for (i = 0; i < valueGroupsLen; ++i) {
-    if ((valueGroupsCubeMask[i] & cubeMask) &&
-        (valueGroupsCategoryMask[i] & categoryMask) &&
-        (valueGroupsRegionMask[i] & regionMask) &&
-        (valueGroupsMaxLevel[i] >= maxLevel))
-    {
-      break;
-    }
-  }
-  if (i >= valueGroupsLen) {
-    fprintf(stderr, "couldn't match cube 0x%x category 0x%x region 0x%x maxLevel %d\n",
-      cubeMask, categoryMask, regionMask, maxLevel);
-  }
-  return i;
-}
-
 static Map* MapGetOrInit(Map* map, int key) {
   Map* m = MapGet(map, key);
   if (!m) {

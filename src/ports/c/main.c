@@ -107,12 +107,11 @@ Map* DataFind(int categoryMask, int cubeMask) {
       }
     }
   }
-cleanup:
   BufFree(&cubes);
   return res;
 }
 
-void DataPrint(Map* data, int tier) {
+void DataPrint(Map* data, int tier, int* values) {
   LineData* ld = MapGet(data, tier);
   if (!ld) {
     puts("(null)");
@@ -130,40 +129,117 @@ void DataPrint(Map* data, int tier) {
   }
   BufEachi(ld->lineHi, i) {
     for (size_t x = 0; x < maxlen + 1 - lens[i]; ++x) putchar(' ');
-    printf("%s 1 in %g\n", ss[i], ld->onein[i]);
+    printf("%d %s 1 in %g\n", values[i], ss[i], ld->onein[i]);
     BufFree(&ss[i]);
   }
   BufFree(&lens);
   BufFree(&ss);
 }
 
-// return non-zero on success
-int ValueGet(int* out, int cubeMask, int categoryMask, int regionMask, int maxLevel, int tier,
-    int lineHi, int lineLo)
-{
-  size_t i = valueGroupFind(cubeMask, categoryMask, regionMask, maxLevel);
-  if (i >= valueGroupsLen) return 0;
-  if (!valueGroups[i]) return 0;
+typedef struct _Lines {
+  int* lineHi;
+  int* lineLo;
+  float* onein;
+  int* value;
+  int* prime;
+} Lines;
 
-  Map* hi = MapGet(valueGroups[i], tier);
-  if (!hi) return 0;
+void LinesFree(Lines* l) {
+  BufFree(&l->lineHi);
+  BufFree(&l->lineLo);
+  BufFree(&l->onein);
+  BufFree(&l->value);
+  BufFree(&l->prime);
+}
 
-  Map* lo = MapGet(hi, lineHi);
-  if (!lo) return 0;
-
-  if (!MapHas(lo, lineLo)) return 0;
-  *out = (int)(intptr_t)MapGet(lo, lineLo);
-
+int LinesCatData(Lines* l, Map* data, size_t group, int tier) {
+  Map* hi = MapGet(valueGroups[group], tier);
+  if (!hi) {
+    fprintf(stderr, "no data for tier %d\n", tier);
+    return 0;
+  }
+  LineData* ld = MapGet(data, tier);
+  if (ld) {
+    BufCat(&l->lineHi, ld->lineHi);
+    BufCat(&l->lineLo, ld->lineLo);
+    BufCat(&l->onein, ld->onein);
+    BufEachi(ld->lineHi, i) {
+      int lineHi = ld->lineHi[i];
+      int lineLo = ld->lineLo[i];
+      Map* lo = MapGet(hi, lineHi);
+      if (!lo || !MapHas(lo, lineLo)) {
+        char* s = LineToStr(lineHi, lineLo);
+        fprintf(stderr, "no value for %s\n", s);
+        BufFree(&s);
+        return 0;
+      }
+      *BufAlloc(&l->value) = (int)(intptr_t)MapGet(lo, lineLo);
+    }
+  }
   return 1;
 }
 
+int LinesInit(Lines* l, Map* data, size_t group, int tier) {
+  if (!LinesCatData(l, data, group, tier)) return 0;
+  size_t numPrimes = BufLen(l->lineHi);
+  if (!LinesCatData(l, data, group, tier - 1)) return 0;
+  size_t bitSize = ArrayBitSize(l->prime, BufLen(l->lineHi));
+  (void)BufReserve(&l->prime, bitSize / ArrayElementSize(l->prime));
+  BufZero(l->prime);
+  for (size_t i = 0; i < numPrimes; ++i) {
+    ArrayBitSet(l->prime, i);
+  }
+  return 1;
+}
+
+size_t valueGroupFind(int cubeMask, int categoryMask, int regionMask, int level) {
+  int minLevel = 300;
+  size_t match = valueGroupsLen;
+  // TODO: vectorize
+  for (size_t i = 0; i < valueGroupsLen; ++i) {
+    if ((valueGroupsCubeMask[i] & cubeMask) &&
+        (valueGroupsCategoryMask[i] & categoryMask) &&
+        (valueGroupsRegionMask[i] & regionMask) &&
+        (valueGroupsMaxLevel[i] >= level))
+    {
+      printf("%d\n", valueGroupsMaxLevel[i]);
+      if (valueGroupsMaxLevel[i] < minLevel) {
+        minLevel = valueGroupsMaxLevel[i];
+        match = i;
+      }
+    }
+  }
+  if (match >= valueGroupsLen) {
+    fprintf(stderr, "couldn't match cube 0x%x category 0x%x region 0x%x level %d\n",
+      cubeMask, categoryMask, regionMask, level);
+  }
+  return match;
+}
+
 double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int region, Map* data) {
+  size_t group = valueGroupFind(cube, category, region, lvl);
+  if (group >= valueGroupsLen || !valueGroups[group]) {
+    fprintf(stderr, "failed to find value group\n");
+    return 0;
+  }
+
+  Lines l = {0};
+  if (!LinesInit(&l, data, group, tier)) {
+    goto cleanup;
+  }
+
+  size_t numPrimes = BitCount(l.prime, ArrayElementSize(l.prime) * BufLen(l.prime));
+  printf("num primes: %zu\n", numPrimes);
+
   WantPrint(wantBuf);
   puts("# prime");
-  DataPrint(data, tier);
+  DataPrint(data, tier, l.value);
   puts("");
   puts("# nonprime");
-  DataPrint(data, tier - 1);
+  DataPrint(data, tier - 1, l.value + numPrimes);
+
+cleanup:
+  LinesFree(&l);
   return 0;
 }
 
@@ -181,7 +257,7 @@ int main() {
     WantStat(BOSS, 30),
   );
 
-  double p = CubeCalc(want, WEAPON, RED, LEGENDARY, 150, KMS, weaponCash);
+  double p = CubeCalc(want, WEAPON, RED, LEGENDARY, 150, GMS, weaponCash);
   puts("");
   if (p > 0) {
     printf("1 in %d\n", (int)round(1/p));
