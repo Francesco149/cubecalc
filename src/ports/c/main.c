@@ -6,22 +6,22 @@
 #include <string.h>
 
 #define WantOps(f) \
-  f(NULL) \
+  f(NULLOP) \
   f(AND) \
   f(OR) \
 
-#undef SUFFIX
-#define SUFFIX WANT
-enum WantOp { WantOps(AppendComma) };
-#undef SUFFIX
-#define SUFFIX
-char const* const wantOpNames[] = { WantOps(StringifyComma) };
+#define WantTypes(f) \
+  f(NULLTYPE) \
+  f(STAT) \
+  f(OP) \
+  f(MASK) \
 
-typedef enum _WantType {
-  WANT_STAT,
-  WANT_OPERATOR,
-  WANT_MASK,
-} WantType;
+#undef PREFIX
+#define PREFIX(x) WANT_##x
+DefEnum(WantOp);
+DefEnum(WantType);
+#undef PREFIX
+#define PREFIX(x) DEF_PREFIX(x)
 
 typedef struct _Want {
   WantType type;
@@ -31,7 +31,7 @@ typedef struct _Want {
       int lineHi;
       int value;
     };
-    int op;
+    WantOp op;
     int* mask;
   };
 } Want;
@@ -66,11 +66,12 @@ void WantPrint(Want* wantBuf) {
         BufFree(&line);
         break;
       }
-      case WANT_OPERATOR:
-        printf("<%s>\n", wantOpNames[w->op]);
+      case WANT_OP:
+        printf("<%s>\n", WantOpNames[w->op]);
         break;
       case WANT_MASK:
-        puts("*mask*");
+      case WANT_NULLTYPE:
+        puts(WantTypeNames[w->type]);
         break;
     }
   }

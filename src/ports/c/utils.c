@@ -52,10 +52,31 @@ size_t _ArrayBitSize(size_t elementBitSize, size_t elementSize, size_t nbits);
 #define ArrayBitMask(array, bit) (1 << (bit % ArrayElementBitSize(array)))
 
 // these are for macros that define a list of things that will be passed to another macro
-#define PREFIX
-#define SUFFIX
-#define StringifyComma(x) PREFIX #x SUFFIX,
-#define AppendComma(x) PREFIX##x##SUFFIX,
+#define DEF_PREFIX(x) x
+#define DEF_SUFFIX(x) x
+#define PREFIX(x) DEF_PREFIX(x)
+#define SUFFIX(x) DEF_SUFFIX(x)
+#define Stringify(x) #x
+#define StringifyComma(x) Stringify(SUFFIX(PREFIX(x))),
+#define AppendComma(x) SUFFIX(PREFIX(x)),
+
+//
+// shortcut to define an enum and a table of the value names
+// x should be a macro that calls the macro it gets passed on every value.
+// redefine PREFIX and/or SUFFIX to add a prefix/suffix to the enum values (not the strings)
+//
+
+/*
+     #define MyEnum(f) \
+       f(VALUE_ONE) \
+       f(VALUE_TWO) \
+
+     DefEnum(MyEnum);
+*/
+
+#define DefEnum(x) \
+  typedef enum _##x { x##s(AppendComma) } x; \
+  char const* const x##Names[] = { x##s(StringifyComma) }
 
 //
 // Allocator: can be passed to some utilities to use a custom allocator
