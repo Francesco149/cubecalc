@@ -110,6 +110,7 @@ Map* DataFind(int categoryMask, int cubeMask) {
   return res;
 }
 
+#ifdef CUBECALC_DEBUG
 void DataPrint(Map* data, int tier, int* values) {
   LineData* ld = MapGet(data, tier);
   if (!ld) {
@@ -119,21 +120,24 @@ void DataPrint(Map* data, int tier, int* values) {
   size_t maxlen = 0;
   size_t* lens = 0;
   char** ss = 0;
+#define FMT "%d %s 1"
   BufEachi(ld->lineHi, i) {
     char* s = LineToStr(ld->lineHi[i], ld->lineLo[i]);
-    size_t len = strlen(s);
+    size_t len = snprintf(0, 0, FMT, values[i], s, ld->onein[i]);
     maxlen = Max(len, maxlen);
     *BufAlloc(&lens) = len;
     *BufAlloc(&ss) = s;
   }
   BufEachi(ld->lineHi, i) {
     for (size_t x = 0; x < maxlen + 1 - lens[i]; ++x) putchar(' ');
-    printf("%d %s 1 in %g\n", values[i], ss[i], ld->onein[i]);
+    printf(FMT " in %g\n", values[i], ss[i], ld->onein[i]);
     BufFree(&ss[i]);
   }
+#undef FMT
   BufFree(&lens);
   BufFree(&ss);
 }
+#endif
 
 typedef struct _Lines {
   int* lineHi;
@@ -226,15 +230,18 @@ double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int re
     goto cleanup;
   }
 
+#ifdef CUBECALC_DEBUG
   size_t numPrimes = BitCount(l.prime, ArrayElementSize(l.prime) * BufLen(l.prime));
-  printf("num primes: %zu\n", numPrimes);
-
   WantPrint(wantBuf);
   puts("# prime");
   DataPrint(data, tier, l.value);
   puts("");
   puts("# nonprime");
   DataPrint(data, tier - 1, l.value + numPrimes);
+  puts("");
+#endif
+
+
 
 cleanup:
   LinesFree(&l);
