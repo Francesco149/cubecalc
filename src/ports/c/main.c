@@ -91,7 +91,6 @@ Map* DataFind(int categoryMask, int cubeMask) {
   Map* data = DataFindMap(categoryMask);
   int* cubes = MapKeys(data);
   BufEach(int, cubes, cube) {
-    // TODO: vectorize
     if (*cube & cubeMask) {
       Map* categoryMap = MapGet(data, *cube);
       int* categories = MapKeys(categoryMap);
@@ -195,7 +194,6 @@ int LinesInit(Lines* l, Map* data, size_t group, int tier) {
 size_t valueGroupFind(int cubeMask, int categoryMask, int regionMask, int level) {
   int minLevel = 300;
   size_t match = valueGroupsLen;
-  // TODO: vectorize
   for (size_t i = 0; i < valueGroupsLen; ++i) {
     if ((valueGroupsCubeMask[i] & cubeMask) &&
         (valueGroupsCategoryMask[i] & categoryMask) &&
