@@ -204,7 +204,6 @@ size_t valueGroupFind(int cubeMask, int categoryMask, int regionMask, int level)
         (valueGroupsRegionMask[i] & regionMask) &&
         (valueGroupsMaxLevel[i] >= level))
     {
-      printf("%d\n", valueGroupsMaxLevel[i]);
       if (valueGroupsMaxLevel[i] < minLevel) {
         minLevel = valueGroupsMaxLevel[i];
         match = i;
