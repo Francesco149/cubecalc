@@ -124,7 +124,7 @@ void DataPrint(Map* data, int tier, int* values) {
 #define FMT "%d %s 1"
   BufEachi(ld->lineHi, i) {
     char* s = LineToStr(ld->lineHi[i], ld->lineLo[i]);
-    size_t len = snprintf(0, 0, FMT, values[i], s, ld->onein[i]);
+    size_t len = snprintf(0, 0, FMT, values[i], s);
     maxlen = Max(len, maxlen);
     *BufAlloc(&lens) = len;
     *BufAlloc(&ss) = s;
