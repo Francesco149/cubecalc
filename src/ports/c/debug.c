@@ -56,8 +56,6 @@ void AlignFree(Align* al) {
   BufFree(&al->ss);
   BufFree(&al->lens);
 }
-#undef allocatorDefault
-#define allocatorDefault allocatorDefault_
 
 void DataPrint(Map* data, int tier, int* values) {
   LineData* ld = MapGet(data, tier);
