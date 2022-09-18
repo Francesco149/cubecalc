@@ -3,6 +3,7 @@
 
 #include <stddef.h> // size_t
 #include <limits.h>
+#include <stdarg.h>
 
 #ifndef UTILS_NO_STDINT
 #include <stdint.h> // intmax_t
@@ -46,6 +47,9 @@ typedef intptr_t intmax_t; // TODO: more robust fallback
   _ArrayBitSize(ArrayElementBitSize(arr), ArrayElementSize(arr), nbits)
 size_t _ArrayBitSize(size_t elementBitSize, size_t elementSize, size_t nbits);
 
+#define ArrayBitElements(arr, nbits) \
+  (ArrayBitSize(arr, nbits) / ArrayElementBitSize(arr))
+
 // array bitmask macros used internally
 #define ArrayElementBitSize(array) (ArrayElementSize(array) << 3)
 #define ArrayBitSlot(array, bit) (array)[bit / ArrayElementBitSize(array)]
@@ -56,7 +60,8 @@ size_t _ArrayBitSize(size_t elementBitSize, size_t elementSize, size_t nbits);
 #define DEF_SUFFIX(x) x
 #define PREFIX(x) DEF_PREFIX(x)
 #define SUFFIX(x) DEF_SUFFIX(x)
-#define Stringify(x) #x
+#define Stringify_(x) #x
+#define Stringify(x) Stringify_(x)
 #define StringifyComma(x) Stringify(SUFFIX(PREFIX(x))),
 #define AppendComma(x) SUFFIX(PREFIX(x)),
 
@@ -153,7 +158,8 @@ int BufDelFindInt(int* b, int value);
 void BufClear(void* b);
 
 // call free on every element of a buf of pointers, then empty it without freeing memory
-void BufFreeClear(void** b);
+#define BufFreeClear(b) _BufFreeClear(b, &allocatorDefault)
+void _BufFreeClear(void** b, Allocator const* allocator);
 
 // release memory. the buf pointer is also zeroed by this
 void BufFree(void* pp);
@@ -197,7 +203,35 @@ void* BufCat(void* pp, void const* other);
 //   }
 //
 #define BufEach(type, b, x) \
-  if (b) for (type* x = b; x < b + BufLen(b); ++x)
+  BufEachRange(type, b, 0, -1, x)
+
+#define BufEachRange(type, b, start, end, x) \
+  if (b) for (type* x = (b) + BufI(b, start); x <= (b) + BufI(b, end); ++x)
+
+#define BufCount(type, b, condition, countVar) \
+  BufCountRange(type, b, 0, -1, condition, countVar)
+
+#define BufCountRange(type, b, start, end, condition, countVar) \
+  BufEachRange(type, b, BufI(b, start), BufI(b, end), x) { \
+    if (condition) { \
+      ++(countVar); \
+    } \
+  }
+
+#define BufMask(type, b, condition, maskVar) \
+  maskVar = 0; \
+  BufReserve(&maskVar, ArrayBitSize(maskVar, BufLen(b))); \
+  BufEachi(b, i) { \
+    type* x = &(b)[i]; \
+    if (condition) { \
+      ArrayBitSet(maskVar, i); \
+    } else { \
+      ArrayBitClear(maskVar, i); \
+    } \
+  }
+
+int* BufAND(int* a, int* b); // a &= b; return a
+int* BufOR(int* a, int* b); // a |= b; return a
 
 //
 // shortcut to loop over every index
@@ -215,7 +249,10 @@ void* BufCat(void* pp, void const* other);
 // pp points to a buf of char pointers.
 // malloc and format a string and append it to the buf.
 // returns the formatted string (same pointer that will be appended to the buf).
-char* BufAllocStrf(char*** pp, char* fmt, ...);
+#define BufAllocStrf(b, fmt, ...) _BufAllocStrf(&allocatorDefault, b, fmt, __VA_ARGS__)
+#define BufAllocVStrf(b, fmt, va) _BufAllocVStrf(&allocatorDefault, b, fmt, va)
+char* _BufAllocStrf(Allocator const* allocator, char*** pp, char* fmt, ...);
+char* _BufAllocVStrf(Allocator const* allocator, char*** pp, char* fmt, va_list va);
 
 // append formatted string to a char buf. the buf is kept zero terminated
 char* BufAllocCharsf(char** pp, char* fmt, ...);
@@ -498,10 +535,10 @@ void BufClear(void* b) {
   }
 }
 
-void BufFreeClear(void** b) {
+void _BufFreeClear(void** b, Allocator const* allocator) {
   if (b) {
     BufEach(void*, b, pp) {
-      free(*pp);
+      allocatorFree(allocator, *pp);
     }
     BufClear(b);
   }
@@ -570,16 +607,35 @@ void* _MemZero(void* p, size_t size) {
   return p;
 }
 
-char* BufAllocStrf(char*** b, char* fmt, ...) {
+int* BufAND(int* a, int* b) {
+  BufEachi(a, i) {
+    a[i] |= b[i];
+  }
+  return a;
+}
+
+int* BufOR(int* a, int* b) {
+  BufEachi(a, i) {
+    a[i] &= b[i];
+  }
+  return a;
+}
+
+char* _BufAllocStrf(Allocator const* allocator, char*** b, char* fmt, ...) {
   va_list va;
   va_start(va, fmt);
+  char* res = _BufAllocVStrf(allocator, b, fmt, va);
+  va_end(va);
+  return res;
+}
+
+char* _BufAllocVStrf(Allocator const* allocator, char*** pp, char* fmt, va_list va) {
+  va_list va2;
+  va_copy(va2, va);
   int n = vsnprintf(0, 0, fmt, va);
-  va_end(va);
   int sz = n + 1;
-  char* p = *BufAlloc(b) = malloc(sz);
-  va_start(va, fmt);
-  vsnprintf(p, sz, fmt, va);
-  va_end(va);
+  char* p = *BufAlloc(pp) = allocatorAlloc(allocator, sz);
+  vsnprintf(p, sz, fmt, va2);
   return p;
 }
 

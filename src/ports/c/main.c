@@ -31,7 +31,10 @@ typedef struct _Want {
       int lineHi;
       int value;
     };
-    WantOp op;
+    struct {
+      WantOp op;
+      int opCount;
+    };
     int* mask;
   };
 } Want;
@@ -57,24 +60,10 @@ char* LineToStr(int hi, int lo) {
   return res;
 }
 
-void WantPrint(Want* wantBuf) {
-  BufEach(Want, wantBuf, w) {
-    switch (w->type) {
-      case WANT_STAT: {
-        char* line = LineToStr(w->lineHi, w->lineLo);
-        printf("%d %s\n", w->value, line);
-        BufFree(&line);
-        break;
-      }
-      case WANT_OP:
-        printf("<%s>\n", WantOpNames[w->op]);
-        break;
-      case WANT_MASK:
-      case WANT_NULLTYPE:
-        puts(WantTypeNames[w->type]);
-        break;
-    }
-  }
+// a |= b
+void WantOr(Want* a, Want* b) {
+  a->lineLo |= b->lineLo;
+  a->lineHi |= b->lineHi;
 }
 
 Map* DataFindMap(int cubeMask) {
@@ -111,49 +100,43 @@ Map* DataFind(int categoryMask, int cubeMask) {
   return res;
 }
 
-#ifdef CUBECALC_DEBUG
-void DataPrint(Map* data, int tier, int* values) {
-  LineData* ld = MapGet(data, tier);
-  if (!ld) {
-    puts("(null)");
-    return;
-  }
-  size_t maxlen = 0;
-  size_t* lens = 0;
-  char** ss = 0;
-#define FMT "%d %s 1"
-  BufEachi(ld->lineHi, i) {
-    char* s = LineToStr(ld->lineHi[i], ld->lineLo[i]);
-    size_t len = snprintf(0, 0, FMT, values[i], s);
-    maxlen = Max(len, maxlen);
-    *BufAlloc(&lens) = len;
-    *BufAlloc(&ss) = s;
-  }
-  BufEachi(ld->lineHi, i) {
-    for (size_t x = 0; x < maxlen + 1 - lens[i]; ++x) putchar(' ');
-    printf(FMT " in %g\n", values[i], ss[i], ld->onein[i]);
-    BufFree(&ss[i]);
-  }
-#undef FMT
-  BufFree(&lens);
-  BufFree(&ss);
-}
-#endif
+#define LinesFields(f) \
+  f(int*, lineHi) \
+  f(int*, lineLo) \
+  f(float*, onein) \
+  f(int*, value) \
 
-typedef struct _Lines {
-  int* lineHi;
-  int* lineLo;
-  float* onein;
-  int* value;
-  int* prime;
-} Lines;
+#define LinesAllFields(f) \
+  LinesFields(f) \
+  f(int*, prime) \
 
+#define DeclField(type, name) type name;
+typedef struct _Lines { LinesAllFields(DeclField) } Lines;
+
+#define FreeField(type, name) BufFree(&l->name);
 void LinesFree(Lines* l) {
-  BufFree(&l->lineHi);
-  BufFree(&l->lineLo);
-  BufFree(&l->onein);
-  BufFree(&l->value);
-  BufFree(&l->prime);
+  LinesAllFields(FreeField)
+}
+
+void LinesFilt(Lines* l, int* mask) {
+  size_t j = 0;
+  BufEachi(l->lineHi, i) {
+    if (ArrayBit(mask, i)) {
+#define a(t, x) l->x[j] = l->x[i];
+      LinesFields(a)
+#undef a
+      if (ArrayBit(l->prime, i)) {
+        ArrayBitSet(l->prime, j);
+      } else {
+        ArrayBitClear(l->prime, j);
+      }
+      ++j;
+    }
+  }
+#define a(t, x) BufHdr(l->x)->len = j;
+  LinesFields(a)
+  BufHdr(l->prime)->len = ArrayBitElements(l->prime, j);
+#undef a
 }
 
 int LinesCatData(Lines* l, Map* data, size_t group, int tier) {
@@ -187,8 +170,7 @@ int LinesInit(Lines* l, Map* data, size_t group, int tier) {
   if (!LinesCatData(l, data, group, tier)) return 0;
   size_t numPrimes = BufLen(l->lineHi);
   if (!LinesCatData(l, data, group, tier - 1)) return 0;
-  size_t bitSize = ArrayBitSize(l->prime, BufLen(l->lineHi));
-  (void)BufReserve(&l->prime, bitSize / ArrayElementSize(l->prime));
+  (void)BufReserve(&l->prime, ArrayBitElements(l->prime, BufLen(l->lineHi)));
   BufZero(l->prime);
   for (size_t i = 0; i < numPrimes; ++i) {
     ArrayBitSet(l->prime, i);
@@ -218,13 +200,132 @@ size_t valueGroupFind(int cubeMask, int categoryMask, int regionMask, int level)
   return match;
 }
 
+void WantFree(Want* w) {
+  if (w->type == WANT_MASK) BufFree(&w->mask);
+}
+
+void WantStackPop(Want* stack, intmax_t n) {
+  BufEachRange(Want, stack, -n, -1, w) {
+    WantFree(w);
+  }
+  BufHdr(stack)->len -= n;
+}
+
+void WantStackFree(Want** pstack) {
+  BufEach(Want, *pstack, w) {
+    WantFree(w);
+  }
+  BufFree(pstack);
+}
+
+#include "debug.c"
+
+int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
+  int res = 0;
+  wantBuf = BufDup(wantBuf);
+
+  size_t numOps = 0;
+  BufCount(Want, wantBuf, x->type == WANT_OP, numOps);
+  if (!numOps) {
+    *BufAlloc(&wantBuf) = (Want){
+      .type = WANT_OP,
+      .op = WANT_AND,
+      .opCount = -1,
+    };
+  }
+
+  BufEach(Want, wantBuf, w) {
+    switch (w->type) {
+      case WANT_STAT:
+        *BufAlloc(pstack) = *w;
+        break;
+      case WANT_OP: {
+        int* result = 0;
+        int opCount = w->opCount >= 0 ? w->opCount : BufLen(*pstack);
+        BufEachRange(Want, *pstack, -opCount, -1, s) {
+          int* match = 0;
+          switch (s->type) {
+            case WANT_STAT: {
+              int* matchLo;
+              BufMask(int, l->lineHi, *x & s->lineHi, match);
+              BufMask(int, l->lineLo, *x & s->lineLo, matchLo);
+              BufAND(match, matchLo);
+              BufFree(&matchLo);
+
+              s->type = WANT_MASK;
+              s->mask = match;
+
+              if (!result) {
+                result = match;
+                s->mask = 0; // prevent result from being freed
+                break;
+              }
+
+              // fall through to the MASK case
+            }
+            case WANT_MASK:
+#define c(x) case WANT_##x: Buf##x(result, s->mask); break
+              switch (w->op) {
+                c(AND);
+                c(OR);
+                default:
+                  fprintf(stderr, "unsupported operator %s\n", WantOpNames[w->op]);
+                  goto cleanup;
+              }
+#undef c
+              break;
+            default:
+              fprintf(stderr, "unsupported operand %s\n", WantTypeNames[s->type]);
+              goto cleanup;
+          }
+        }
+        WantStackPop(*pstack, opCount);
+        *BufAlloc(pstack) = (Want){
+          .type = WANT_MASK,
+          .mask = result,
+        };
+        break;
+      }
+      default:
+        fprintf(stderr, "%s is only for internal use\n", WantTypeNames[w->type]);
+        goto cleanup;
+    }
+  }
+
+  if (BufLen(*pstack) > 1) {
+    fprintf(stderr, "%zu values on the stack, expected 1\n", BufLen(*pstack));
+#ifdef CUBECALC_DEBUG
+    puts("");
+    puts("# final stack");
+    WantPrint(*pstack);
+    puts("");
+#endif
+    goto cleanup;
+  }
+
+  int typ =(*pstack)[0].type;
+  if (typ != WANT_MASK) {
+    fprintf(stderr, "expected WANT_MASK result, got %s\n", WantTypeNames[typ]);
+    goto cleanup;
+  }
+
+  res = 1;
+
+cleanup:
+  BufFree(&wantBuf);
+  return res;
+}
+
 double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int region, Map* data) {
+  double res = 0;
+
   size_t group = valueGroupFind(cube, category, region, lvl);
   if (group >= valueGroupsLen || !valueGroups[group]) {
     fprintf(stderr, "failed to find value group\n");
     return 0;
   }
 
+  Want* stack = 0;
   Lines l = {0};
   if (!LinesInit(&l, data, group, tier)) {
     goto cleanup;
@@ -232,20 +333,32 @@ double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int re
 
 #ifdef CUBECALC_DEBUG
   size_t numPrimes = BitCount(l.prime, ArrayElementSize(l.prime) * BufLen(l.prime));
-  WantPrint(wantBuf);
   puts("# prime");
   DataPrint(data, tier, l.value);
   puts("");
   puts("# nonprime");
   DataPrint(data, tier - 1, l.value + numPrimes);
-  puts("");
 #endif
 
+  if (!WantEval(&l, &stack, wantBuf)) {
+    goto cleanup;
+  }
 
+  if (!stack[0].mask) {
+    fprintf(stderr, "NULL line filter mask\n");
+    goto cleanup;
+  }
+
+  LinesFilt(&l, stack[0].mask);
+#ifdef CUBECALC_DEBUG
+  LinesPrint(&l);
+#endif
 
 cleanup:
   LinesFree(&l);
-  return 0;
+  WantStackFree(&stack);
+
+  return res;
 }
 
 #define _WantStatLine(line) .lineLo = line##_LO, .lineHi = line##_HI
@@ -258,8 +371,9 @@ int main() {
   Map* weaponCash = DataFind(RED, WEAPON);
 
   BufStatic(Want, want,
-    WantStat(ATT, 21),
-    WantStat(BOSS, 30),
+    WantStat(MESO, 20),
+    WantStat(DROP, 20),
+    WantStat(STAT, 6),
   );
 
   double p = CubeCalc(want, WEAPON, RED, LEGENDARY, 150, GMS, weaponCash);
