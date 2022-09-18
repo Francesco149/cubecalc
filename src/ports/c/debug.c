@@ -31,7 +31,9 @@ typedef struct _Align {
   char** ss;
 } Align;
 
-void AlignFeed(Align* al, char* alignFmt, char* fmt, ...) {
+#define AlignFeed(al, alignFmt, restFmt, ...) \
+  _AlignFeed(al, alignFmt, alignFmt restFmt, __VA_ARGS__)
+void _AlignFeed(Align* al, char* alignFmt, char* fmt, ...) {
   va_list va;
   va_start(va, fmt);
   size_t len = vsnprintf(0, 0, alignFmt, va);
@@ -66,9 +68,7 @@ void DataPrint(Map* data, int tier, int* values) {
   Align al = {0};
   BufEachi(ld->lineHi, i) {
     char* s = LineToStr(ld->lineHi[i], ld->lineLo[i]);
-#define FMT "%d %s 1"
-    AlignFeed(&al, FMT, FMT " in %g", values[i], s, ld->onein[i]);
-#undef FMT
+    AlignFeed(&al, "%d %s 1", " in %g", values[i], s, ld->onein[i]);
     BufFree(&s);
   }
   AlignPrint(&al, stdout);
