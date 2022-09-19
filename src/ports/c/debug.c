@@ -19,12 +19,6 @@ void WantPrint(Want* wantBuf) {
   }
 }
 
-void LinesPrint(Lines* l) {
-  BufEachi(l->lineHi, i) {
-
-  }
-}
-
 typedef struct _Align {
   size_t maxlen;
   size_t* lens;
@@ -69,6 +63,19 @@ void DataPrint(Map* data, int tier, int* values) {
   BufEachi(ld->lineHi, i) {
     char* s = LineToStr(ld->lineHi[i], ld->lineLo[i]);
     AlignFeed(&al, "%d %s 1", " in %g", values[i], s, ld->onein[i]);
+    BufFree(&s);
+  }
+  AlignPrint(&al, stdout);
+  AlignFree(&al);
+}
+
+
+void LinesPrint(Lines* l) {
+  Align al = {0};
+  BufEachi(l->lineHi, i) {
+    char* s = LineToStr(l->lineHi[i], l->lineLo[i]);
+    AlignFeed(&al, "%d %s %s 1", " in %g",
+      l->value[i], s, ArrayBit(l->prime, i) ? "P" : " ", l->onein[i]);
     BufFree(&s);
   }
   AlignPrint(&al, stdout);

@@ -67,7 +67,7 @@ void WantOr(Want* a, Want* b) {
 }
 
 Map* DataFindMap(int cubeMask) {
-  if (cubeMask & FAMILIAR) {
+  if (cubeMask & (FAMILIAR | RED_FAM_CARD)) {
     return fams;
   }
   if (cubeMask & (VIOLET | EQUALITY | UNI)) {
@@ -78,7 +78,7 @@ Map* DataFindMap(int cubeMask) {
 
 Map* DataFind(int categoryMask, int cubeMask) {
   Map* res = 0;
-  Map* data = DataFindMap(categoryMask);
+  Map* data = DataFindMap(cubeMask);
   int* cubes = MapKeys(data);
   BufEach(int, cubes, cube) {
     if (*cube & cubeMask) {
@@ -351,6 +351,8 @@ double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int re
 
   LinesFilt(&l, stack[0].mask);
 #ifdef CUBECALC_DEBUG
+  puts("");
+  puts("# filtered");
   LinesPrint(&l);
 #endif
 
@@ -368,7 +370,11 @@ cleanup:
 int main() {
   cubecalcGeneratedGlobalInit();
 
-  Map* weaponCash = DataFind(RED, WEAPON);
+  Map* data = DataFind(FACE_EYE_RING_EARRING_PENDANT, RED);
+  if (!data) {
+    fprintf(stderr, "line data not found\n");
+    goto cleanup;
+  }
 
   BufStatic(Want, want,
     WantStat(MESO, 20),
@@ -376,7 +382,7 @@ int main() {
     WantStat(STAT, 6),
   );
 
-  double p = CubeCalc(want, WEAPON, RED, LEGENDARY, 150, GMS, weaponCash);
+  double p = CubeCalc(want, FACE_EYE_RING_EARRING_PENDANT, RED, LEGENDARY, 150, GMS, data);
   puts("");
   if (p > 0) {
     printf("1 in %d\n", (int)round(1/p));
@@ -384,6 +390,7 @@ int main() {
     puts("impossible");
   }
 
+cleanup:
   cubecalcGeneratedGlobalFree();
   return 0;
 }
