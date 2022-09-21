@@ -165,13 +165,17 @@ p(f"extern int const valueGroupsCategoryMask[{len(values)}];")
 p(f"extern int const valueGroupsRegionMask[{len(values)}];")
 p(f"extern Map* valueGroups[{len(values)}];")
 
+NULLBIT = 1<<31
+p("#define NULLBIT (1<<31)")
 
-lines_hi = [(x.name, (x >> 32) & 0xFFFFFFFF) for x in Line]
-lines_lo = [(x.name, (x >>  0) & 0xFFFFFFFF) for x in Line]
+lines_all = [x for x in Line]
+lines_count = len(lines_all)
+lines_hi = [(x.name, ((x >> 31) & 0x7FFFFFFF) or NULLBIT) for x in Line]
+lines_lo = [(x.name, ((x >>  0) & 0x7FFFFFFF) or NULLBIT) for x in Line]
 
-p(f"extern int const allLinesHi[{len(lines_hi)}];")
-p(f"extern int const allLinesLo[{len(lines_hi)}];")
-p(f"extern char const* const allLineNames[{len(lines_hi)}];")
+p(f"extern int const allLinesHi[{lines_count}];")
+p(f"extern int const allLinesLo[{lines_count}];")
+p(f"extern char const* const allLineNames[{lines_count}];")
 
 def enum(e):
   p(f"enum {e.__name__}")
@@ -182,19 +186,25 @@ def enum(e):
 for x in [Cube, Tier, Category, Region]:
   enum(x)
 
+# some lines will have half of the bit all zero. to text for them, we replace those hi/lo parts
+# with a bit that's not already taken
 for name, x in lines_hi:
-  p(f"#define {name}_HI 0x{x:x}")
+  s = f"0x{x:x}" if x != NULLBIT else "NULLBIT"
+  p(f"#define {name}_HI {s}")
 
 for name, x in lines_lo:
-  p(f"#define {name}_LO 0x{x:x}")
+  s = f"0x{x:x}" if x != NULLBIT else "NULLBIT"
+  p(f"#define {name}_LO {s}")
 
 masks = [x for x in LineMasks] + [x for x in LineVariants]
 
-for name, x in [(x.name, (x >> 32) & 0xFFFFFFFF) for x in masks]:
-  p(f"#define {name}_HI {enum_bits(Line, x, '_HI') or 0}")
+for name, x in [(x.name, (x >> 31) & 0x7FFFFFFF) for x in masks]:
+  bits = enum_bits(Line, x, '_HI') or "NULLBIT"
+  p(f"#define {name}_HI ({bits})")
 
-for name, x in [(x.name, (x >>  0) & 0xFFFFFFFF) for x in masks]:
-  p(f"#define {name}_LO ({enum_bits(Line, x, '_LO') or 0})")
+for name, x in [(x.name, (x >>  0) & 0x7FFFFFFF) for x in masks]:
+  bits = enum_bits(Line, x, '_LO') or "NULLBIT"
+  p(f"#define {name}_LO ({bits})")
 
 p("#endif")
 p("#if defined(CUBECALC_GENERATED_IMPLEMENTATION) && !defined(CUBECALC_GENERATED_UNIT)")
@@ -218,20 +228,20 @@ def arr_flag(x, e, suff="", name="buf"):
       p(f"{s},")
   p(f");")
 
-p(f"int const allLinesHi[{len(lines_hi)}] = ")
+p(f"int const allLinesHi[{lines_count}] = ")
 with BlockCol():
-  for name, _ in lines_hi:
-    p(f"{name}_HI,")
+  for x in Line:
+    p(f"{x.name}_HI,")
 
-p(f"int const allLinesLo[{len(lines_hi)}] = ")
+p(f"int const allLinesLo[{lines_count}] = ")
 with BlockCol():
-  for name, _ in lines_lo:
-    p(f"{name}_LO,")
+  for x in Line:
+    p(f"{x.name}_LO,")
 
-p(f"char const* const allLineNames[{len(lines_hi)}] = ")
+p(f"char const* const allLineNames[{lines_count}] = ")
 with BlockCol():
-  for name, _ in lines_lo:
-    p(f"\"{name}\",")
+  for x in Line:
+    p(f"\"{x.name}\",")
 
 init_funcs = []
 
@@ -275,10 +285,8 @@ def lines_map(name, x):
           for tier, linedata in tiers.items():
             with Block():
               lines = [x[0] for x in linedata]
-              linesHi = [x & 0xFFFFFFFF00000000 if (x >> 32) & 0xFFFFFFFF else 0 for x in lines]
-              linesLo = [x & 0x00000000FFFFFFFF if (x >>  0) & 0xFFFFFFFF else 0 for x in lines]
-              arr_flag(linesHi, Line, "_HI", name="lineHi")
-              arr_flag(linesLo, Line, "_LO", name="lineLo")
+              arr_flag(lines, Line, "_HI", name="lineHi")
+              arr_flag(lines, Line, "_LO", name="lineLo")
               arr([x[1] for x in linedata], "float", name="onein")
               # tcc can't figure out that these arrays are compile time const
               p("static LineData linedata;")
@@ -328,8 +336,6 @@ with BlockCol():
 
 p(f"Map* valueGroups[{len(values)}];")
 
-LineHi = [x for x in Line if (x >> 32) & 0xFFFFFFFF]
-LineLo = [x for x in Line if (x >>  0) & 0xFFFFFFFF]
 init_func("valuesInit")
 with Block():
   for i, (k, v) in enumerate(values.items()):
@@ -338,10 +344,10 @@ with Block():
       lines_hi = []
       lines_lo = []
       for line, value in values.items():
-        line_hi = " | ".join([f"{x.name}_HI" for x in LineHi if line & x])
+        line_hi = " | ".join([f"{x.name}_HI" for x in Line if line & x])
         if not line_hi:
           line_hi = 0
-        line_lo = " | ".join([f"{x.name}_LO" for x in LineLo if line & x])
+        line_lo = " | ".join([f"{x.name}_LO" for x in Line if line & x])
         if not line_lo:
           line_lo = 0
         lines_hi.append(line_hi)

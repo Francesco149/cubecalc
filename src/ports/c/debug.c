@@ -3,7 +3,7 @@ void WantPrint(Want* wantBuf) {
   BufEach(Want, wantBuf, w) {
     switch (w->type) {
       case WANT_STAT: {
-        char* line = LineToStr(w->lineHi, w->lineLo);
+        char* line = LineToStr(w->lineHi, w->lineLo, 0);
         printf("%d %s\n", w->value, line);
         BufFree(&line);
         break;
@@ -61,7 +61,7 @@ void DataPrint(Map* data, int tier, int* values) {
   }
   Align al = {0};
   BufEachi(ld->lineHi, i) {
-    char* s = LineToStr(ld->lineHi[i], ld->lineLo[i]);
+    char* s = LineToStr(ld->lineHi[i], ld->lineLo[i], 0);
     AlignFeed(&al, "%d %s 1", " in %g", values[i], s, ld->onein[i]);
     BufFree(&s);
   }
@@ -70,10 +70,13 @@ void DataPrint(Map* data, int tier, int* values) {
 }
 
 
-void LinesPrint(Lines* l) {
+void LinesPrint(Lines* l, int group) {
   Align al = {0};
   BufEachi(l->lineHi, i) {
-    char* s = LineToStr(l->lineHi[i], l->lineLo[i]);
+    char* s = LineToStr(l->lineHi[i], l->lineLo[i], 0);
+    if (group && !(i % group)) {
+      AlignFeed(&al, "%s", "", "");
+    }
     AlignFeed(&al, "%d %s %s 1", " in %g",
       l->value[i], s, ArrayBit(l->prime, i) ? "P" : " ", l->onein[i]);
     BufFree(&s);

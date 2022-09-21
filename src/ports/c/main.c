@@ -35,19 +35,22 @@ typedef struct _Want {
       WantOp op;
       int opCount;
     };
-    int* mask;
+    intmax_t* mask;
   };
 } Want;
 
-char* LineToStr(int hi, int lo) {
+// some of the hi/lo masks are actually zero and replaced by NULLBIT
+#define LineMask(x) ((x) & ~NULLBIT)
+
+char* LineToStr(int hi, int lo, int full) {
   char* res = 0;
   size_t nflags = 0;
-  hi &= ~(LINE_A_HI | LINE_B_HI | LINE_C_HI);
-  lo &= ~(LINE_A_LO | LINE_B_LO | LINE_C_LO);
+  if (!full) {
+    hi &= ~LineMask(LINE_A_HI | LINE_B_HI | LINE_C_HI);
+    lo &= ~LineMask(LINE_A_LO | LINE_B_LO | LINE_C_LO);
+  }
   for (size_t i = 0; i < ArrayLength(allLinesHi); ++i) {
-    if (((hi & allLinesHi[i]) || !allLinesHi[i]) &&
-        ((lo & allLinesLo[i]) || !allLinesLo[i]))
-    {
+    if ((hi & allLinesHi[i]) && (lo & allLinesLo[i])) {
       BufAllocCharsf(&res, "%s | ", allLineNames[i]);
       ++nflags;
     }
@@ -108,7 +111,7 @@ Map* DataFind(int categoryMask, int cubeMask) {
 
 #define LinesAllFields(f) \
   LinesFields(f) \
-  f(int*, prime) \
+  f(uintmax_t*, prime) \
 
 #define DeclField(type, name) type name;
 typedef struct _Lines { LinesAllFields(DeclField) } Lines;
@@ -118,7 +121,16 @@ void LinesFree(Lines* l) {
   LinesAllFields(FreeField)
 }
 
-void LinesFilt(Lines* l, int* mask) {
+#define DupField(type, name) dst->name = BufDup(src->name);
+void LinesDup(Lines* dst, Lines* src) {
+  LinesAllFields(DupField)
+}
+
+size_t LinesNumPrimes(Lines* l) {
+  return BitCount(l->prime, ArrayElementSize(l->prime) * BufLen(l->prime));
+}
+
+void LinesFilt(Lines* l, intmax_t* mask) {
   size_t j = 0;
   BufEachi(l->lineHi, i) {
     if (ArrayBit(mask, i)) {
@@ -139,6 +151,25 @@ void LinesFilt(Lines* l, int* mask) {
 #undef a
 }
 
+void BufIndexFreeInt(int** buf, intmax_t* indices) {
+  int* result = 0;
+  BufIndex(*buf, indices, &result);
+  BufFree(buf);
+  *buf = result;
+}
+
+void LinesIndex(Lines* l, intmax_t* indices) {
+  // NOTE: I know float is the same size as int so it's fine to cast it to int so I don't need
+  // another version of the function
+#define a(t, x) BufIndexFreeInt((int**)&l->x, indices);
+  LinesFields(a)
+#undef a
+  uintmax_t* result = 0;
+  BufIndexBit(l->prime, indices, &result);
+  BufFree(&l->prime);
+  l->prime = result;
+}
+
 int LinesCatData(Lines* l, Map* data, size_t group, int tier) {
   Map* hi = MapGet(valueGroups[group], tier);
   if (!hi) {
@@ -147,15 +178,22 @@ int LinesCatData(Lines* l, Map* data, size_t group, int tier) {
   }
   LineData* ld = MapGet(data, tier);
   if (ld) {
+    size_t start = BufLen(l->lineHi);
     BufCat(&l->lineHi, ld->lineHi);
     BufCat(&l->lineLo, ld->lineLo);
     BufCat(&l->onein, ld->onein);
-    BufEachi(ld->lineHi, i) {
-      int lineHi = ld->lineHi[i];
-      int lineLo = ld->lineLo[i];
+
+    // ANY line
+    *BufAlloc(&l->lineHi) = ANY_HI;
+    *BufAlloc(&l->lineLo) = ANY_LO;
+    *BufAlloc(&l->onein) = 1;
+
+    BufEachiRange(l->lineHi, start, -1, i) {
+      int lineHi = l->lineHi[i];
+      int lineLo = l->lineLo[i];
       Map* lo = MapGet(hi, lineHi);
       if (!lo || !MapHas(lo, lineLo)) {
-        char* s = LineToStr(lineHi, lineLo);
+        char* s = LineToStr(lineHi, lineLo, 1);
         fprintf(stderr, "no value for %s\n", s);
         BufFree(&s);
         return 0;
@@ -220,19 +258,114 @@ void WantStackFree(Want** pstack) {
 
 #include "debug.c"
 
+//
+// generate all possible combination of ranges of integers.
+// ranges is an array of ranges for each element (min, max inclusive)
+// n is the number of elements
+// the result is a flattened buf containing all the combinations
+//
+// example:
+//   ranges = {
+//     0, 1,
+//     10, 11,
+//     20, 21,
+//   }
+//   n = 3
+//
+//   result = {
+//     0, 10, 20,
+//     0, 10, 21,
+//     0, 11, 20,
+//     0, 11, 21,
+//     1, 10, 20,
+//     1, 10, 21,
+//     1, 11, 20,
+//     1, 11, 21,
+//   }
+//
+intmax_t* Combinations(intmax_t* ranges, size_t n) {
+  intmax_t* thisRange = 0;
+  for (size_t i = ranges[0]; i <= ranges[1]; ++i) {
+    *BufAlloc(&thisRange) = i;
+  }
+  if (n <= 1) {
+    return thisRange;
+  }
+  intmax_t* res = 0;
+  intmax_t* r = Combinations(ranges + 2, n - 1);
+  BufEach(intmax_t, thisRange, y) {
+    BufEach(intmax_t, r, x) {
+      *BufAlloc(&res) = *y;
+      for (size_t i = 0; i < n - 1; ++i) {
+        *BufAlloc(&res) = x[i];
+      }
+      x += n - 2;
+    }
+  }
+  BufFree(&thisRange);
+  BufFree(&r);
+  return res;
+}
+
 int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
   int res = 0;
-  wantBuf = BufDup(wantBuf);
 
-  size_t numOps = 0;
-  BufCount(Want, wantBuf, x->type == WANT_OP, numOps);
-  if (!numOps) {
-    *BufAlloc(&wantBuf) = (Want){
-      .type = WANT_OP,
-      .op = WANT_AND,
-      .opCount = -1,
-    };
+  // make a copy of the line data
+  Lines combos = {0};
+  LinesDup(&combos, l);
+
+  // filter all lines that don't match these stats
+  int lineHiMask = ANY_HI;
+  int lineLoMask = ANY_LO;
+  BufEach(Want, *pstack, s) {
+    if (s->type == WANT_STAT) {
+      lineHiMask |= s->lineHi;
+      lineLoMask |= s->lineLo;
+    }
   }
+
+  // TODO: this is not actually correct, because we need to match both the lo and hi parts,
+  // not either of them. for now this is a fast way to narrow down the search
+  intmax_t* match = 0;
+  intmax_t* matchLo = 0;
+  BufMask(int, combos.lineHi, *x & lineHiMask, &match);
+  BufMask(int, combos.lineLo, *x & lineLoMask, &matchLo);
+  BufOR(match, matchLo);
+  LinesFilt(&combos, match);
+  BufClear(match);
+  BufClear(matchLo);
+
+  // generate combinations (array of indices)
+
+#define P 0, -2
+#define N 0, -1
+#define NN -3, -1
+
+  // TODO: handle different cubes
+  BufStatic(intmax_t, ranges, P, N, N);
+
+#undef P
+#undef N
+
+  size_t numPrimes = LinesNumPrimes(&combos);
+  BufEach(intmax_t, ranges, x) {
+    if (*x == -2) {
+      // primes end
+      *x = numPrimes - 1;
+    } else if (*x == -3) {
+      // non-primes start
+      *x = numPrimes;
+    } else {
+      *x = BufI(combos.lineHi, *x);
+    }
+  }
+
+  intmax_t* indices = Combinations(ranges, BufLen(ranges) / 2);
+  LinesIndex(&combos, indices);
+  BufFree(&indices);
+
+  // TODO: generate ANY line probability
+
 
   BufEach(Want, wantBuf, w) {
     switch (w->type) {
@@ -240,23 +373,42 @@ int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
         *BufAlloc(pstack) = *w;
         break;
       case WANT_OP: {
-        int* result = 0;
+        intmax_t* result = 0;
         int opCount = w->opCount >= 0 ? w->opCount : BufLen(*pstack);
+
         BufEachRange(Want, *pstack, -opCount, -1, s) {
-          int* match = 0;
           switch (s->type) {
             case WANT_STAT: {
-              int* matchLo;
-              BufMask(int, l->lineHi, *x & s->lineHi, match);
-              BufMask(int, l->lineLo, *x & s->lineLo, matchLo);
+              // make a mask of lines that match the stat
+              BufClear(match);
+              BufClear(matchLo);
+              BufMask(int, combos.lineHi, *x & s->lineHi, &match);
+              BufMask(int, combos.lineLo, *x & s->lineLo, &matchLo);
               BufAND(match, matchLo);
-              BufFree(&matchLo);
 
+              // multiply all the values by the mask (non matching values will be 0)
+              int* relevantValues = BufDup(combos.value);
+              BufEachi(relevantValues, i) {
+                relevantValues[i] *= ArrayBitVal(match, i);
+              }
+
+              // sum every 3 elements (repeat sum 3 times in the array to match size)
+              BufEach(int, relevantValues, x) {
+                x[0] = x[1] = x[2] = x[0] + x[1] + x[2];
+                x += 2;
+              }
+
+              // make mask of elements in this sum array that are >= desired value
+              BufClear(match);
+              BufMask(int, relevantValues, *x >= s->value, &match);
+              BufFree(&relevantValues);
+
+              // remember to copy match as it gets reused
               s->type = WANT_MASK;
-              s->mask = match;
+              s->mask = BufDup(match);
 
               if (!result) {
-                result = match;
+                result = s->mask;
                 s->mask = 0; // prevent result from being freed
                 break;
               }
@@ -309,10 +461,24 @@ int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
     goto cleanup;
   }
 
+  if (!(*pstack)[0].mask) {
+    fprintf(stderr, "NULL line filter mask\n");
+    goto cleanup;
+  }
+
   res = 1;
 
+  LinesFilt(&combos, (*pstack)[0].mask);
+#ifdef CUBECALC_DEBUG
+  puts("");
+  puts("# combos");
+  LinesPrint(&combos, 3);
+#endif
+
 cleanup:
-  BufFree(&wantBuf);
+  BufFree(&match);
+  BufFree(&matchLo);
+  LinesFree(&combos);
   return res;
 }
 
@@ -332,7 +498,7 @@ double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int re
   }
 
 #ifdef CUBECALC_DEBUG
-  size_t numPrimes = BitCount(l.prime, ArrayElementSize(l.prime) * BufLen(l.prime));
+  size_t numPrimes = LinesNumPrimes(&l);
   puts("# prime");
   DataPrint(data, tier, l.value);
   puts("");
@@ -344,18 +510,6 @@ double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int re
     goto cleanup;
   }
 
-  if (!stack[0].mask) {
-    fprintf(stderr, "NULL line filter mask\n");
-    goto cleanup;
-  }
-
-  LinesFilt(&l, stack[0].mask);
-#ifdef CUBECALC_DEBUG
-  puts("");
-  puts("# filtered");
-  LinesPrint(&l);
-#endif
-
 cleanup:
   LinesFree(&l);
   WantStackFree(&stack);
@@ -366,6 +520,7 @@ cleanup:
 #define _WantStatLine(line) .lineLo = line##_LO, .lineHi = line##_HI
 #define WantStat(line, val) (Want){ .type = WANT_STAT, _WantStatLine(line), .value = val }
 #define Line(x) x##_LO, x##_HI
+#define WantOp(opname, n) (Want){ .type = WANT_OP, .op = WANT_##opname, .opCount = (n) }
 
 int main() {
   cubecalcGeneratedGlobalInit();
@@ -376,10 +531,23 @@ int main() {
     goto cleanup;
   }
 
+  /*
+   * NOTE: this doesn't work. it ends up returning both the combos with just 6+ stat and
+   * the combos with meso/drop. why?
+
   BufStatic(Want, want,
     WantStat(MESO, 20),
     WantStat(DROP, 20),
+    WantOp(OR, 2),
     WantStat(STAT, 6),
+    WantOp(AND, 2),
+  );
+  */
+
+  BufStatic(Want, want,
+    WantStat(MESO, 20),
+    WantStat(STAT, 6),
+    WantOp(AND, 2),
   );
 
   double p = CubeCalc(want, FACE_EYE_RING_EARRING_PENDANT, RED, LEGENDARY, 150, GMS, data);

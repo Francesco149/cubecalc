@@ -9,11 +9,13 @@
 #include <stdint.h> // intmax_t
 #elif defined(LLONG_MAX)
 typedef long long intmax_t;
+typedef unsigned long long uintmax_t;
 #ifndef SIZE_MAX
 #define SIZE_MAX LLONG_MAX
 #endif
 #else
 typedef long intmax_t;
+typedef unsigned long uintmax_t;
 #ifndef SIZE_MAX
 #define SIZE_MAX LONG_MAX
 #endif
@@ -21,6 +23,7 @@ typedef long intmax_t;
 
 #ifndef UTILS_NO_STDINT
 typedef intptr_t intmax_t; // TODO: more robust fallback
+typedef uintptr_t uintmax_t;
 #endif
 
 //
@@ -40,6 +43,9 @@ typedef intptr_t intmax_t; // TODO: more robust fallback
 #define ArrayBitSet(array, bit)   ArrayBitSlot(array, bit) |= ArrayBitMask(array, bit)
 #define ArrayBitClear(array, bit) ArrayBitSlot(array, bit) &= ~ArrayBitMask(array, bit)
 
+#define ArrayBitVal(array, bit) \
+  ((ArrayBitSlot(array, bit) & ArrayBitMask(array, bit)) >> ArrayBitShift(array, bit))
+
 // returns the allocation size for an array bitmask that will be stored in arr. arr is an integer
 // pointer of any size, the purpose of this function is to figure out how many bits can be stored
 // per element and therefore how big the array should be for nbits
@@ -48,12 +54,13 @@ typedef intptr_t intmax_t; // TODO: more robust fallback
 size_t _ArrayBitSize(size_t elementBitSize, size_t elementSize, size_t nbits);
 
 #define ArrayBitElements(arr, nbits) \
-  (ArrayBitSize(arr, nbits) / ArrayElementBitSize(arr))
+  (ArrayBitSize(arr, nbits) / ArrayElementSize(arr))
 
 // array bitmask macros used internally
 #define ArrayElementBitSize(array) (ArrayElementSize(array) << 3)
-#define ArrayBitSlot(array, bit) (array)[bit / ArrayElementBitSize(array)]
-#define ArrayBitMask(array, bit) (1 << (bit % ArrayElementBitSize(array)))
+#define ArrayBitSlot(array, bit) (array)[(bit) / ArrayElementBitSize(array)]
+#define ArrayBitShift(array, bit) ((bit) % ArrayElementBitSize(array))
+#define ArrayBitMask(array, bit) ((uintmax_t)1 << ArrayBitShift(array, bit))
 
 // these are for macros that define a list of things that will be passed to another macro
 #define DEF_PREFIX(x) x
@@ -136,7 +143,7 @@ void nofree(void* param, void* p);
 // fancy indexing. if i is negative, it will start from the end of the array (BufLen(b) - i)
 // this is used by other functions that take indices
 #define BufI(b, i) \
-  ((i) < 0 ? (BufLen(b) + (i)) : (i))
+  ((i) < 0 ? ((intmax_t)BufLen(b) + (i)) : (i))
 
 // macro to fancy index
 //
@@ -212,26 +219,39 @@ void* BufCat(void* pp, void const* other);
   BufCountRange(type, b, 0, -1, condition, countVar)
 
 #define BufCountRange(type, b, start, end, condition, countVar) \
-  BufEachRange(type, b, BufI(b, start), BufI(b, end), x) { \
+  BufEachRange(type, b, start, end, x) { \
     if (condition) { \
       ++(countVar); \
     } \
   }
 
-#define BufMask(type, b, condition, maskVar) \
-  maskVar = 0; \
-  BufReserve(&maskVar, ArrayBitSize(maskVar, BufLen(b))); \
+// allocates a bit mask at the end of pmaskBuf and fills it according to condition.
+// if elements of buffer b match condition, the corresponding bit in maskBuf will be set.
+#define BufMask(type, b, condition, pmaskBuf) { \
+  intmax_t numElements = ArrayBitElements(*(pmaskBuf), BufLen(b)); \
+  (void)BufReserve(pmaskBuf, numElements); \
+  size_t bi = BufI(*(pmaskBuf), -numElements); \
   BufEachi(b, i) { \
     type* x = &(b)[i]; \
     if (condition) { \
-      ArrayBitSet(maskVar, i); \
+      ArrayBitSet(*(pmaskBuf) + bi, i); \
     } else { \
-      ArrayBitClear(maskVar, i); \
+      ArrayBitClear(*(pmaskBuf) + bi, i); \
     } \
-  }
+  } \
+}
 
-int* BufAND(int* a, int* b); // a &= b; return a
-int* BufOR(int* a, int* b); // a |= b; return a
+intmax_t* BufAND(intmax_t* a, intmax_t* b); // a &= b; return a
+intmax_t* BufOR(intmax_t* a, intmax_t* b); // a |= b; return a
+intmax_t* BufNOR(intmax_t* a, intmax_t* b); // a = ~(a | b); return a
+
+// sumVar += sum(b)
+#define BufSum(b, sumVar) \
+  BufSumRange(b, 0, -1, sumVar)
+#define BufSumRange(b, start, end, sumVar) \
+  BufEachiRange(b, start, end, i) { \
+    (sumVar) += (x)[i]; \
+  }
 
 //
 // shortcut to loop over every index
@@ -244,7 +264,9 @@ int* BufOR(int* a, int* b); // a |= b; return a
 //   }
 //
 #define BufEachi(b, i) \
-  for (size_t i = 0; i < BufLen(b); ++i)
+  BufEachiRange(b, 0, -1, i)
+#define BufEachiRange(b, start, end, i) \
+  for (intmax_t i = BufI(b, start); i <= BufI(b, end); ++i)
 
 // pp points to a buf of char pointers.
 // malloc and format a string and append it to the buf.
@@ -303,6 +325,19 @@ struct BufHdr {
 } __attribute__ ((aligned (8)));
 
 #define BufHdr(b) ((struct BufHdr*)(b) - 1)
+
+// replace indices in indicesBuf with corresponding elements from sourceBuf
+// store result in presultBuf (a pointer to a buf)
+// note: indices are NOT fancy indices. if you want to do fancy indexing you need to do it in
+//       advance before calling this
+#define BufIndex(sourceBuf, indicesBuf, presultBuf) \
+  BufEachi(indicesBuf, i) { \
+    *BufAlloc(presultBuf) = (sourceBuf)[(indicesBuf)[i]]; \
+  } \
+
+// same as BufIndex but on a bitmask array (indices are bit indices)
+// the result is allocated at the end of presultBuf
+void BufIndexBit(uintmax_t* sourceBuf, intmax_t* indices, uintmax_t** presultBuf);
 
 //
 // Statistics
@@ -602,21 +637,23 @@ void* BufCat(void* b, void const* other) {
   return *pp;
 }
 
-void* _MemZero(void* p, size_t size) {
-  memset(p, 0, size);
-  return p;
+intmax_t* BufAND(intmax_t* a, intmax_t* b) {
+  BufEachi(a, i) {
+    a[i] &= b[i];
+  }
+  return a;
 }
 
-int* BufAND(int* a, int* b) {
+intmax_t* BufOR(intmax_t* a, intmax_t* b) {
   BufEachi(a, i) {
     a[i] |= b[i];
   }
   return a;
 }
 
-int* BufOR(int* a, int* b) {
+intmax_t* BufNOR(intmax_t* a, intmax_t* b) {
   BufEachi(a, i) {
-    a[i] &= b[i];
+    a[i] = ~(a[i] | b[i]);
   }
   return a;
 }
@@ -696,6 +733,18 @@ void* _BufToProto(void* b, size_t *pn, Allocator const* allocator) {
     res[i] = p + i * hdr->elementSize;
   }
   return res;
+}
+
+void BufIndexBit(uintmax_t* sourceBuf, intmax_t* indices, uintmax_t** presultBuf) {
+  size_t elements = ArrayBitElements(*presultBuf, BufLen(indices));
+  (void)BufReserve(presultBuf, elements);
+  BufEachi(indices, i) {
+    if (ArrayBit(sourceBuf, indices[i])) {
+      ArrayBitSet(*presultBuf, i);
+    } else {
+      ArrayBitClear(*presultBuf, i);
+    }
+  }
 }
 
 //

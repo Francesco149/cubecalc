@@ -14,6 +14,7 @@ extern int const valueGroupsCubeMask[51];
 extern int const valueGroupsCategoryMask[51];
 extern int const valueGroupsRegionMask[51];
 extern Map* valueGroups[51];
+#define NULLBIT (1<<31)
 extern int const allLinesHi[41];
 extern int const allLinesLo[41];
 extern char const* const allLineNames[41];
@@ -68,47 +69,47 @@ enum Region
   TMS = 0x10,
   CMS = 0x20,
 };
-#define LINE_A_HI 0x0
-#define LINE_B_HI 0x0
-#define LINE_C_HI 0x0
-#define ANY_HI 0x0
-#define BOSS_ONLY_HI 0x0
-#define DAMAGE_HI 0x0
-#define IED_HI 0x0
-#define ATT_HI 0x0
-#define MAINSTAT_HI 0x0
-#define ALLSTAT_HI 0x0
-#define HP_HI 0x0
-#define COOLDOWN_HI 0x0
-#define CRITDMG_HI 0x0
-#define DROP_MESO_HI 0x0
-#define MESO_ONLY_HI 0x0
-#define DROP_ONLY_HI 0x0
-#define INVIN_HI 0x0
-#define DECENT_SPEED_INFUSION_HI 0x0
-#define DECENT_SHARP_EYES_HI 0x0
-#define DECENT_COMBAT_ORDERS_HI 0x0
-#define FLAT_ATT_HI 0x0
-#define FLAT_MAINSTAT_HI 0x0
-#define FLAT_ALLSTAT_HI 0x0
-#define FLAT_DEX_ONLY_HI 0x0
-#define FLAT_HP_HI 0x0
-#define MAINSTAT_PER_10_LVLS_HI 0x0
-#define ATT_PER_10_LVLS_HI 0x0
-#define FLAT_MESO_HI 0x0
-#define AUTOSTEAL_1_HI 0x0
-#define AUTOSTEAL_2_HI 0x0
-#define HEAL_HP_ONLY_HI 0x0
-#define HEAL_HP_MP_HI 0x0
-#define HEAL_MP_ONLY_HI 0x1
-#define HEAL_HP_ONLY_NEAR_HI 0x2
-#define HEAL_HP_MP_NEAR_HI 0x4
-#define HEAL_MP_ONLY_NEAR_HI 0x8
-#define HEAL_HP_ONLY_PARTY_HI 0x10
-#define HEAL_HP_MP_PARTY_HI 0x20
-#define HEAL_MP_ONLY_PARTY_HI 0x40
-#define HP_ITEMS_AND_SKILLS_HI 0x80
-#define LINES_HI 0x100
+#define LINE_A_HI NULLBIT
+#define LINE_B_HI NULLBIT
+#define LINE_C_HI NULLBIT
+#define ANY_HI NULLBIT
+#define BOSS_ONLY_HI NULLBIT
+#define DAMAGE_HI NULLBIT
+#define IED_HI NULLBIT
+#define ATT_HI NULLBIT
+#define MAINSTAT_HI NULLBIT
+#define ALLSTAT_HI NULLBIT
+#define HP_HI NULLBIT
+#define COOLDOWN_HI NULLBIT
+#define CRITDMG_HI NULLBIT
+#define DROP_MESO_HI NULLBIT
+#define MESO_ONLY_HI NULLBIT
+#define DROP_ONLY_HI NULLBIT
+#define INVIN_HI NULLBIT
+#define DECENT_SPEED_INFUSION_HI NULLBIT
+#define DECENT_SHARP_EYES_HI NULLBIT
+#define DECENT_COMBAT_ORDERS_HI NULLBIT
+#define FLAT_ATT_HI NULLBIT
+#define FLAT_MAINSTAT_HI NULLBIT
+#define FLAT_ALLSTAT_HI NULLBIT
+#define FLAT_DEX_ONLY_HI NULLBIT
+#define FLAT_HP_HI NULLBIT
+#define MAINSTAT_PER_10_LVLS_HI NULLBIT
+#define ATT_PER_10_LVLS_HI NULLBIT
+#define FLAT_MESO_HI NULLBIT
+#define AUTOSTEAL_1_HI NULLBIT
+#define AUTOSTEAL_2_HI NULLBIT
+#define HEAL_HP_ONLY_HI NULLBIT
+#define HEAL_HP_MP_HI 0x1
+#define HEAL_MP_ONLY_HI 0x2
+#define HEAL_HP_ONLY_NEAR_HI 0x4
+#define HEAL_HP_MP_NEAR_HI 0x8
+#define HEAL_MP_ONLY_NEAR_HI 0x10
+#define HEAL_HP_ONLY_PARTY_HI 0x20
+#define HEAL_HP_MP_PARTY_HI 0x40
+#define HEAL_MP_ONLY_PARTY_HI 0x80
+#define HP_ITEMS_AND_SKILLS_HI 0x100
+#define LINES_HI 0x200
 #define LINE_A_LO 0x1
 #define LINE_B_LO 0x2
 #define LINE_C_LO 0x4
@@ -140,102 +141,102 @@ enum Region
 #define AUTOSTEAL_1_LO 0x10000000
 #define AUTOSTEAL_2_LO 0x20000000
 #define HEAL_HP_ONLY_LO 0x40000000
-#define HEAL_HP_MP_LO 0x80000000
-#define HEAL_MP_ONLY_LO 0x0
-#define HEAL_HP_ONLY_NEAR_LO 0x0
-#define HEAL_HP_MP_NEAR_LO 0x0
-#define HEAL_MP_ONLY_NEAR_LO 0x0
-#define HEAL_HP_ONLY_PARTY_LO 0x0
-#define HEAL_HP_MP_PARTY_LO 0x0
-#define HEAL_MP_ONLY_PARTY_LO 0x0
-#define HP_ITEMS_AND_SKILLS_LO 0x0
-#define LINES_LO 0x0
-#define BOSS_HI 0
-#define STAT_HI 0
-#define FLAT_STAT_HI 0
-#define FLAT_DEX_HI 0
-#define DECENTS_HI 0
-#define MESO_HI 0
-#define DROP_HI 0
-#define AUTOSTEAL_HI 0
-#define HEAL_HP_HI LINE_B_HI | LINE_C_HI | BOSS_ONLY_HI | DAMAGE_HI
-#define HEAL_MP_HI LINE_A_HI | LINE_C_HI | ANY_HI | DAMAGE_HI | IED_HI
-#define HEAL_HP_NEAR_HI LINE_B_HI | LINE_C_HI
-#define HEAL_HP_PARTY_HI BOSS_ONLY_HI | DAMAGE_HI
-#define HEAL_MP_NEAR_HI LINE_C_HI | ANY_HI
-#define HEAL_MP_PARTY_HI DAMAGE_HI | IED_HI
-#define BOSS_A_HI 0
-#define BOSS_B_HI 0
-#define BOSS_C_HI 0
-#define DAMAGE_A_HI 0
-#define DAMAGE_B_HI 0
-#define IED_A_HI 0
-#define IED_B_HI 0
-#define IED_C_HI 0
-#define COOLDOWN_1_HI 0
-#define COOLDOWN_2_HI 0
-#define CRITDMG_A_HI 0
-#define CRITDMG_B_HI 0
-#define SMALL_DROP_MESO_HI 0
-#define NORMAL_DROP_MESO_HI 0
-#define LARGE_DROP_MESO_HI 0
-#define SMALL_MESO_HI 0
-#define MESO_A_HI 0
-#define LARGE_MESO_HI 0
-#define SMALL_DROP_HI 0
-#define DROP_A_HI 0
-#define LARGE_DROP_HI 0
-#define FLAT_MAINSTAT_A_HI 0
-#define FLAT_MAINSTAT_B_HI 0
-#define FLAT_ALLSTAT_A_HI 0
-#define FLAT_ALLSTAT_B_HI 0
-#define FLAT_ALLSTAT_C_HI 0
-#define FLAT_ATT_A_HI 0
-#define FLAT_ATT_B_HI 0
-#define FLAT_HP_A_HI 0
-#define FLAT_HP_B_HI 0
-#define MAINSTAT_A_HI 0
-#define MAINSTAT_B_HI 0
-#define ATT_A_HI 0
-#define ATT_B_HI 0
-#define HP_A_HI 0
-#define HP_B_HI 0
-#define ALLSTAT_A_HI 0
-#define ALLSTAT_B_HI 0
-#define AUTOSTEAL_A_HI 0
-#define AUTOSTEAL_B_HI 0
-#define AUTOSTEAL_C_HI 0
-#define AUTOSTEAL_D_HI 0
-#define AUTOSTEAL_E_HI 0
-#define HEAL_HP_ONLY_A_HI 0
-#define HEAL_HP_ONLY_B_HI 0
-#define HEAL_HP_ONLY_C_HI 0
-#define HEAL_HP_MP_A_HI 0
-#define HEAL_HP_MP_B_HI 0
-#define HEAL_HP_MP_C_HI 0
-#define HEAL_MP_ONLY_A_HI LINE_A_HI
-#define HEAL_MP_ONLY_B_HI LINE_A_HI
-#define HEAL_MP_ONLY_C_HI LINE_A_HI
-#define HEAL_HP_ONLY_NEAR_A_HI LINE_B_HI
-#define HEAL_HP_ONLY_NEAR_B_HI LINE_B_HI
-#define HEAL_HP_ONLY_NEAR_C_HI LINE_B_HI
-#define HEAL_HP_MP_NEAR_A_HI LINE_C_HI
-#define HEAL_HP_MP_NEAR_B_HI LINE_C_HI
-#define HEAL_HP_MP_NEAR_C_HI LINE_C_HI
-#define HEAL_MP_ONLY_NEAR_A_HI ANY_HI
-#define HEAL_MP_ONLY_NEAR_B_HI ANY_HI
-#define HEAL_MP_ONLY_NEAR_C_HI ANY_HI
-#define HEAL_HP_ONLY_PARTY_A_HI BOSS_ONLY_HI
-#define HEAL_HP_ONLY_PARTY_B_HI BOSS_ONLY_HI
-#define HEAL_HP_ONLY_PARTY_C_HI BOSS_ONLY_HI
-#define HEAL_HP_MP_PARTY_A_HI DAMAGE_HI
-#define HEAL_HP_MP_PARTY_B_HI DAMAGE_HI
-#define HEAL_HP_MP_PARTY_C_HI DAMAGE_HI
-#define HEAL_MP_ONLY_PARTY_A_HI IED_HI
-#define HEAL_MP_ONLY_PARTY_B_HI IED_HI
-#define HEAL_MP_ONLY_PARTY_C_HI IED_HI
-#define HP_ITEMS_AND_SKILLS_A_HI ATT_HI
-#define HP_ITEMS_AND_SKILLS_B_HI ATT_HI
+#define HEAL_HP_MP_LO NULLBIT
+#define HEAL_MP_ONLY_LO NULLBIT
+#define HEAL_HP_ONLY_NEAR_LO NULLBIT
+#define HEAL_HP_MP_NEAR_LO NULLBIT
+#define HEAL_MP_ONLY_NEAR_LO NULLBIT
+#define HEAL_HP_ONLY_PARTY_LO NULLBIT
+#define HEAL_HP_MP_PARTY_LO NULLBIT
+#define HEAL_MP_ONLY_PARTY_LO NULLBIT
+#define HP_ITEMS_AND_SKILLS_LO NULLBIT
+#define LINES_LO NULLBIT
+#define BOSS_HI (NULLBIT)
+#define STAT_HI (NULLBIT)
+#define FLAT_STAT_HI (NULLBIT)
+#define FLAT_DEX_HI (NULLBIT)
+#define DECENTS_HI (NULLBIT)
+#define MESO_HI (NULLBIT)
+#define DROP_HI (NULLBIT)
+#define AUTOSTEAL_HI (NULLBIT)
+#define HEAL_HP_HI (LINE_A_HI | LINE_C_HI | ANY_HI | DAMAGE_HI | IED_HI)
+#define HEAL_MP_HI (LINE_A_HI | LINE_B_HI | ANY_HI | BOSS_ONLY_HI | IED_HI | ATT_HI)
+#define HEAL_HP_NEAR_HI (LINE_C_HI | ANY_HI)
+#define HEAL_HP_PARTY_HI (DAMAGE_HI | IED_HI)
+#define HEAL_MP_NEAR_HI (ANY_HI | BOSS_ONLY_HI)
+#define HEAL_MP_PARTY_HI (IED_HI | ATT_HI)
+#define BOSS_A_HI (NULLBIT)
+#define BOSS_B_HI (NULLBIT)
+#define BOSS_C_HI (NULLBIT)
+#define DAMAGE_A_HI (NULLBIT)
+#define DAMAGE_B_HI (NULLBIT)
+#define IED_A_HI (NULLBIT)
+#define IED_B_HI (NULLBIT)
+#define IED_C_HI (NULLBIT)
+#define COOLDOWN_1_HI (NULLBIT)
+#define COOLDOWN_2_HI (NULLBIT)
+#define CRITDMG_A_HI (NULLBIT)
+#define CRITDMG_B_HI (NULLBIT)
+#define SMALL_DROP_MESO_HI (NULLBIT)
+#define NORMAL_DROP_MESO_HI (NULLBIT)
+#define LARGE_DROP_MESO_HI (NULLBIT)
+#define SMALL_MESO_HI (NULLBIT)
+#define MESO_A_HI (NULLBIT)
+#define LARGE_MESO_HI (NULLBIT)
+#define SMALL_DROP_HI (NULLBIT)
+#define DROP_A_HI (NULLBIT)
+#define LARGE_DROP_HI (NULLBIT)
+#define FLAT_MAINSTAT_A_HI (NULLBIT)
+#define FLAT_MAINSTAT_B_HI (NULLBIT)
+#define FLAT_ALLSTAT_A_HI (NULLBIT)
+#define FLAT_ALLSTAT_B_HI (NULLBIT)
+#define FLAT_ALLSTAT_C_HI (NULLBIT)
+#define FLAT_ATT_A_HI (NULLBIT)
+#define FLAT_ATT_B_HI (NULLBIT)
+#define FLAT_HP_A_HI (NULLBIT)
+#define FLAT_HP_B_HI (NULLBIT)
+#define MAINSTAT_A_HI (NULLBIT)
+#define MAINSTAT_B_HI (NULLBIT)
+#define ATT_A_HI (NULLBIT)
+#define ATT_B_HI (NULLBIT)
+#define HP_A_HI (NULLBIT)
+#define HP_B_HI (NULLBIT)
+#define ALLSTAT_A_HI (NULLBIT)
+#define ALLSTAT_B_HI (NULLBIT)
+#define AUTOSTEAL_A_HI (NULLBIT)
+#define AUTOSTEAL_B_HI (NULLBIT)
+#define AUTOSTEAL_C_HI (NULLBIT)
+#define AUTOSTEAL_D_HI (NULLBIT)
+#define AUTOSTEAL_E_HI (NULLBIT)
+#define HEAL_HP_ONLY_A_HI (NULLBIT)
+#define HEAL_HP_ONLY_B_HI (NULLBIT)
+#define HEAL_HP_ONLY_C_HI (NULLBIT)
+#define HEAL_HP_MP_A_HI (LINE_A_HI)
+#define HEAL_HP_MP_B_HI (LINE_A_HI)
+#define HEAL_HP_MP_C_HI (LINE_A_HI)
+#define HEAL_MP_ONLY_A_HI (LINE_B_HI)
+#define HEAL_MP_ONLY_B_HI (LINE_B_HI)
+#define HEAL_MP_ONLY_C_HI (LINE_B_HI)
+#define HEAL_HP_ONLY_NEAR_A_HI (LINE_C_HI)
+#define HEAL_HP_ONLY_NEAR_B_HI (LINE_C_HI)
+#define HEAL_HP_ONLY_NEAR_C_HI (LINE_C_HI)
+#define HEAL_HP_MP_NEAR_A_HI (ANY_HI)
+#define HEAL_HP_MP_NEAR_B_HI (ANY_HI)
+#define HEAL_HP_MP_NEAR_C_HI (ANY_HI)
+#define HEAL_MP_ONLY_NEAR_A_HI (BOSS_ONLY_HI)
+#define HEAL_MP_ONLY_NEAR_B_HI (BOSS_ONLY_HI)
+#define HEAL_MP_ONLY_NEAR_C_HI (BOSS_ONLY_HI)
+#define HEAL_HP_ONLY_PARTY_A_HI (DAMAGE_HI)
+#define HEAL_HP_ONLY_PARTY_B_HI (DAMAGE_HI)
+#define HEAL_HP_ONLY_PARTY_C_HI (DAMAGE_HI)
+#define HEAL_HP_MP_PARTY_A_HI (IED_HI)
+#define HEAL_HP_MP_PARTY_B_HI (IED_HI)
+#define HEAL_HP_MP_PARTY_C_HI (IED_HI)
+#define HEAL_MP_ONLY_PARTY_A_HI (ATT_HI)
+#define HEAL_MP_ONLY_PARTY_B_HI (ATT_HI)
+#define HEAL_MP_ONLY_PARTY_C_HI (ATT_HI)
+#define HP_ITEMS_AND_SKILLS_A_HI (MAINSTAT_HI)
+#define HP_ITEMS_AND_SKILLS_B_HI (MAINSTAT_HI)
 #define BOSS_LO (BOSS_ONLY_LO | DAMAGE_LO)
 #define STAT_LO (MAINSTAT_LO | ALLSTAT_LO)
 #define FLAT_STAT_LO (FLAT_MAINSTAT_LO | FLAT_ALLSTAT_LO)
@@ -244,12 +245,12 @@ enum Region
 #define MESO_LO (DROP_MESO_LO | MESO_ONLY_LO)
 #define DROP_LO (DROP_MESO_LO | DROP_ONLY_LO)
 #define AUTOSTEAL_LO (AUTOSTEAL_1_LO | AUTOSTEAL_2_LO)
-#define HEAL_HP_LO (HEAL_HP_ONLY_LO | HEAL_HP_MP_LO)
-#define HEAL_MP_LO (HEAL_HP_MP_LO)
-#define HEAL_HP_NEAR_LO (0)
-#define HEAL_HP_PARTY_LO (0)
-#define HEAL_MP_NEAR_LO (0)
-#define HEAL_MP_PARTY_LO (0)
+#define HEAL_HP_LO (HEAL_HP_ONLY_LO)
+#define HEAL_MP_LO (NULLBIT)
+#define HEAL_HP_NEAR_LO (NULLBIT)
+#define HEAL_HP_PARTY_LO (NULLBIT)
+#define HEAL_MP_NEAR_LO (NULLBIT)
+#define HEAL_MP_PARTY_LO (NULLBIT)
 #define BOSS_A_LO (LINE_A_LO | BOSS_ONLY_LO)
 #define BOSS_B_LO (LINE_B_LO | BOSS_ONLY_LO)
 #define BOSS_C_LO (LINE_C_LO | BOSS_ONLY_LO)
@@ -296,9 +297,9 @@ enum Region
 #define HEAL_HP_ONLY_A_LO (LINE_A_LO | HEAL_HP_ONLY_LO)
 #define HEAL_HP_ONLY_B_LO (LINE_B_LO | HEAL_HP_ONLY_LO)
 #define HEAL_HP_ONLY_C_LO (LINE_C_LO | HEAL_HP_ONLY_LO)
-#define HEAL_HP_MP_A_LO (LINE_A_LO | HEAL_HP_MP_LO)
-#define HEAL_HP_MP_B_LO (LINE_B_LO | HEAL_HP_MP_LO)
-#define HEAL_HP_MP_C_LO (LINE_C_LO | HEAL_HP_MP_LO)
+#define HEAL_HP_MP_A_LO (LINE_A_LO)
+#define HEAL_HP_MP_B_LO (LINE_B_LO)
+#define HEAL_HP_MP_C_LO (LINE_C_LO)
 #define HEAL_MP_ONLY_A_LO (LINE_A_LO)
 #define HEAL_MP_ONLY_B_LO (LINE_B_LO)
 #define HEAL_MP_ONLY_C_LO (LINE_C_LO)
@@ -768,9 +769,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -790,14 +791,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -827,12 +828,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -858,12 +859,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -889,15 +890,15 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -934,9 +935,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -956,14 +957,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -993,12 +994,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1024,11 +1025,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1052,13 +1053,13 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1091,9 +1092,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1113,14 +1114,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1150,12 +1151,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1181,12 +1182,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1212,15 +1213,15 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1257,9 +1258,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1279,14 +1280,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1316,12 +1317,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1347,12 +1348,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1378,15 +1379,15 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1423,8 +1424,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1442,11 +1443,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1470,9 +1471,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1492,16 +1493,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           11.199964160114687,
@@ -1517,11 +1518,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | COOLDOWN_HI,
+          LINE_B_HI | COOLDOWN_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1550,8 +1551,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1569,11 +1570,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1597,10 +1598,10 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          INVIN_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1622,18 +1623,18 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          INVIN_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           INVIN_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           13.199926080413949,
@@ -1650,10 +1651,10 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          INVIN_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1680,8 +1681,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1699,11 +1700,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1727,9 +1728,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1749,16 +1750,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           11.199964160114687,
@@ -1774,9 +1775,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1801,8 +1802,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1820,11 +1821,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1848,9 +1849,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1870,16 +1871,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           11.199964160114687,
@@ -1895,10 +1896,10 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          DECENT_COMBAT_ORDERS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1925,8 +1926,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1944,11 +1945,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -1972,9 +1973,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -1994,19 +1995,19 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          DECENT_SHARP_EYES_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           DECENT_SHARP_EYES_LO,
         );
         static const BufStatic(float const, onein,
@@ -2025,11 +2026,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          DECENT_SPEED_INFUSION_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2058,8 +2059,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2077,11 +2078,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2105,9 +2106,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2127,16 +2128,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           10.399983360026626,
@@ -2152,9 +2153,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2179,8 +2180,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2198,11 +2199,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2226,9 +2227,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2248,16 +2249,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           8.800028160090111,
@@ -2273,11 +2274,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2306,8 +2307,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2325,11 +2326,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2353,9 +2354,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2375,16 +2376,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           8.800028160090111,
@@ -2400,9 +2401,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2430,9 +2431,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2452,14 +2453,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2489,12 +2490,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2520,12 +2521,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2551,14 +2552,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2593,9 +2594,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2615,14 +2616,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2652,12 +2653,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2683,11 +2684,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2711,12 +2712,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2747,9 +2748,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2769,14 +2770,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2806,12 +2807,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2837,12 +2838,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2868,14 +2869,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -2910,9 +2911,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2932,14 +2933,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -2969,12 +2970,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -3000,12 +3001,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -3031,14 +3032,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -3073,8 +3074,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3092,11 +3093,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3120,9 +3121,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -3142,16 +3143,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           14.499898500710495,
@@ -3167,18 +3168,18 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | COOLDOWN_HI,
+          LINE_B_HI | COOLDOWN_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_A_LO | COOLDOWN_LO,
           LINE_B_LO | COOLDOWN_LO,
         );
@@ -3203,8 +3204,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3222,11 +3223,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3250,10 +3251,10 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          INVIN_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -3275,18 +3276,18 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          INVIN_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           INVIN_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           16.5000165000165,
@@ -3303,18 +3304,18 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          INVIN_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           INVIN_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           16.999864001087992,
@@ -3336,8 +3337,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3355,11 +3356,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3383,9 +3384,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -3405,16 +3406,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           14.499898500710495,
@@ -3430,16 +3431,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           16.999864001087992,
@@ -3460,8 +3461,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3479,11 +3480,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3507,9 +3508,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -3529,16 +3530,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           14.499898500710495,
@@ -3554,17 +3555,17 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          DECENT_COMBAT_ORDERS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           DECENT_COMBAT_ORDERS_LO,
         );
         static const BufStatic(float const, onein,
@@ -3587,8 +3588,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3606,11 +3607,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3634,9 +3635,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -3656,17 +3657,17 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          DECENT_SHARP_EYES_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           DECENT_SHARP_EYES_LO,
         );
         static const BufStatic(float const, onein,
@@ -3684,22 +3685,22 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_C_HI | AUTOSTEAL_1_HI,
+          LINE_B_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | AUTOSTEAL_1_HI,
+          DECENT_SPEED_INFUSION_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | CRITDMG_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_C_LO | AUTOSTEAL_1_LO,
           LINE_B_LO | AUTOSTEAL_1_LO,
           LINE_A_LO | AUTOSTEAL_1_LO,
@@ -3729,8 +3730,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3748,11 +3749,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3776,9 +3777,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -3798,16 +3799,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           13.5000135000135,
@@ -3823,16 +3824,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           13.999916000503998,
@@ -3853,8 +3854,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3872,11 +3873,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -3900,9 +3901,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -3922,16 +3923,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           10.5000105000105,
@@ -3947,18 +3948,18 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
@@ -3983,8 +3984,8 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4002,11 +4003,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4030,9 +4031,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -4052,16 +4053,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           10.5000105000105,
@@ -4077,16 +4078,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           11.000011000011,
@@ -4110,9 +4111,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4132,14 +4133,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_HP_LO,
@@ -4169,12 +4170,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4200,14 +4201,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4237,15 +4238,15 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4282,9 +4283,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4304,14 +4305,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_HP_LO,
@@ -4341,12 +4342,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4372,13 +4373,13 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4406,14 +4407,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4448,9 +4449,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4470,14 +4471,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_HP_LO,
@@ -4507,12 +4508,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4538,14 +4539,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4575,16 +4576,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4623,9 +4624,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4645,14 +4646,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_HP_LO,
@@ -4682,12 +4683,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4713,14 +4714,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4750,16 +4751,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | HP_LO,
@@ -4798,9 +4799,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4820,12 +4821,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4851,12 +4852,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4882,14 +4883,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4899,7 +4900,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           18.333486112384268,
@@ -4919,18 +4920,18 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | COOLDOWN_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4941,7 +4942,7 @@ static void dataInit()
           LINE_A_LO | CRITDMG_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_A_LO | COOLDOWN_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
@@ -4973,9 +4974,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -4995,12 +4996,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5026,12 +5027,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5057,14 +5058,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5074,7 +5075,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           18.333486112384268,
@@ -5094,17 +5095,17 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5115,7 +5116,7 @@ static void dataInit()
           LINE_A_LO | CRITDMG_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
@@ -5145,9 +5146,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5167,12 +5168,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5198,12 +5199,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5229,14 +5230,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5246,7 +5247,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           18.333486112384268,
@@ -5266,17 +5267,17 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5287,7 +5288,7 @@ static void dataInit()
           LINE_A_LO | CRITDMG_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
@@ -5317,9 +5318,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5339,12 +5340,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5370,12 +5371,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5401,14 +5402,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5418,7 +5419,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           18.333486112384268,
@@ -5438,17 +5439,17 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5459,7 +5460,7 @@ static void dataInit()
           LINE_A_LO | CRITDMG_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
@@ -5489,9 +5490,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5511,12 +5512,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5542,12 +5543,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5573,14 +5574,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5590,7 +5591,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           18.333486112384268,
@@ -5610,17 +5611,17 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5631,7 +5632,7 @@ static void dataInit()
           LINE_A_LO | CRITDMG_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
@@ -5661,9 +5662,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5683,12 +5684,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5714,12 +5715,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5745,14 +5746,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5762,7 +5763,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           18.333486112384268,
@@ -5782,17 +5783,17 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5803,7 +5804,7 @@ static void dataInit()
           LINE_A_LO | CRITDMG_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
@@ -5833,9 +5834,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5855,12 +5856,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5886,12 +5887,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5917,14 +5918,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5934,7 +5935,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           18.333486112384268,
@@ -5954,16 +5955,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -5973,7 +5974,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
@@ -6002,9 +6003,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -6024,12 +6025,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -6055,12 +6056,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -6086,14 +6087,14 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -6103,7 +6104,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           18.333486112384268,
@@ -6123,16 +6124,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -6142,7 +6143,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           MAINSTAT_PER_10_LVLS_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
@@ -6175,11 +6176,11 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -6208,11 +6209,11 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -6236,9 +6237,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -6258,16 +6259,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           12.594458438287154,
@@ -6283,10 +6284,10 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
+          DECENT_COMBAT_ORDERS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           DECENT_COMBAT_ORDERS_LO,
@@ -6313,11 +6314,11 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -6341,9 +6342,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -6363,16 +6364,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           10.20408163265306,
@@ -6388,11 +6389,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -6421,14 +6422,14 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -6458,12 +6459,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_C_HI | IED_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -6494,14 +6495,14 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -6531,12 +6532,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_C_HI | IED_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -6567,9 +6568,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -6594,10 +6595,10 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
+          INVIN_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           INVIN_LO,
@@ -6619,18 +6620,18 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          INVIN_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           INVIN_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           18.248175182481752,
@@ -6647,10 +6648,10 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
+          INVIN_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           INVIN_LO,
@@ -6677,9 +6678,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -6699,12 +6700,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          DECENT_SHARP_EYES_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           MAINSTAT_PER_10_LVLS_LO,
@@ -6712,7 +6713,7 @@ static void dataInit()
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           67.11409395973155,
@@ -6730,11 +6731,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | CRITDMG_HI,
+          DECENT_SPEED_INFUSION_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | CRITDMG_LO,
@@ -6763,16 +6764,16 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           12.594458438287154,
@@ -6788,11 +6789,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | COOLDOWN_HI,
+          LINE_B_HI | COOLDOWN_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | COOLDOWN_LO,
@@ -6821,16 +6822,16 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           12.594458438287154,
@@ -6846,9 +6847,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -6873,16 +6874,16 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           11.806375442739078,
@@ -6898,9 +6899,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -6925,12 +6926,12 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -6956,16 +6957,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -7004,11 +7005,11 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_C_HI | IED_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -7032,13 +7033,13 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -7074,11 +7075,11 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -7107,11 +7108,11 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -7135,9 +7136,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -7157,16 +7158,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           15.797788309636651,
@@ -7182,10 +7183,10 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
+          DECENT_COMBAT_ORDERS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           DECENT_COMBAT_ORDERS_LO,
@@ -7212,11 +7213,11 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -7240,9 +7241,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -7262,16 +7263,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           8.598452278589853,
@@ -7287,11 +7288,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -7320,14 +7321,14 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -7357,12 +7358,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_C_HI | IED_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -7393,14 +7394,14 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
@@ -7430,12 +7431,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_C_HI | IED_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -7466,9 +7467,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -7493,10 +7494,10 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
+          INVIN_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           INVIN_LO,
@@ -7518,18 +7519,18 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          INVIN_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           INVIN_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           12.254901960784313,
@@ -7546,10 +7547,10 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
+          INVIN_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           INVIN_LO,
@@ -7576,9 +7577,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -7598,12 +7599,12 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          MAINSTAT_PER_10_LVLS_HI,
+          DECENT_SHARP_EYES_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           MAINSTAT_PER_10_LVLS_LO,
@@ -7611,7 +7612,7 @@ static void dataInit()
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           19.011406844106464,
@@ -7629,11 +7630,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | CRITDMG_HI,
+          DECENT_SPEED_INFUSION_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | CRITDMG_LO,
@@ -7662,16 +7663,16 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           17.24137931034483,
@@ -7687,11 +7688,11 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | COOLDOWN_HI,
+          LINE_B_HI | COOLDOWN_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | COOLDOWN_LO,
@@ -7720,16 +7721,16 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           15.748031496062993,
@@ -7745,9 +7746,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -7772,16 +7773,16 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
         static const BufStatic(float const, onein,
           13.003901170351103,
@@ -7797,9 +7798,9 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
@@ -7824,12 +7825,12 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -7855,16 +7856,16 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -7903,11 +7904,11 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_C_HI | IED_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -7931,13 +7932,13 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          ATT_PER_10_LVLS_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | ALLSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | ATT_LO,
@@ -7974,9 +7975,9 @@ static void dataInit()
       Map* tiers = MapInit();
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_ATT_LO,
@@ -7996,22 +7997,22 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HEAL_MP_ONLY_HI,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_B_HI | FLAT_ATT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
+          LINE_A_HI | HEAL_HP_ONLY_HI,
+          LINE_A_HI | HEAL_MP_ONLY_HI,
+          LINE_A_HI | DROP_ONLY_HI,
+          LINE_A_HI | MESO_ONLY_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_B_HI | FLAT_HP_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_B_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_ATT_LO,
@@ -8020,7 +8021,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
           LINE_A_LO | HEAL_HP_ONLY_LO,
-          LINE_A_LO,
+          LINE_A_LO | HEAL_MP_ONLY_LO,
           LINE_A_LO | DROP_ONLY_LO,
           LINE_A_LO | MESO_ONLY_LO,
           LINE_A_LO | FLAT_HP_LO,
@@ -8057,35 +8058,35 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HEAL_MP_ONLY_HI,
-          0,
-          HEAL_HP_MP_NEAR_HI,
-          HEAL_HP_ONLY_NEAR_HI,
-          HEAL_MP_ONLY_HI,
-          HEAL_MP_ONLY_NEAR_HI,
-          HEAL_HP_MP_PARTY_HI,
-          HEAL_HP_ONLY_PARTY_HI,
-          HEAL_MP_ONLY_PARTY_HI,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_B_HI | FLAT_ATT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_C_HI | IED_HI,
+          LINE_A_HI | HEAL_HP_ONLY_HI,
+          LINE_B_HI | HEAL_HP_MP_HI,
+          LINE_A_HI | HEAL_MP_ONLY_HI,
+          LINE_B_HI | HEAL_HP_ONLY_HI,
+          LINE_B_HI | HEAL_HP_MP_NEAR_HI,
+          LINE_B_HI | HEAL_HP_ONLY_NEAR_HI,
+          LINE_B_HI | HEAL_MP_ONLY_HI,
+          LINE_B_HI | HEAL_MP_ONLY_NEAR_HI,
+          LINE_B_HI | HEAL_HP_MP_PARTY_HI,
+          LINE_B_HI | HEAL_HP_ONLY_PARTY_HI,
+          LINE_B_HI | HEAL_MP_ONLY_PARTY_HI,
+          LINE_B_HI | DROP_ONLY_HI,
+          LINE_A_HI | DROP_ONLY_HI,
+          LINE_A_HI | DROP_MESO_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_A_HI | MESO_ONLY_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_B_HI | FLAT_HP_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_B_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          INVIN_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_A_LO | FLAT_ATT_LO,
@@ -8095,15 +8096,15 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_A_LO | HEAL_HP_ONLY_LO,
           LINE_B_LO | HEAL_HP_MP_LO,
-          LINE_A_LO,
+          LINE_A_LO | HEAL_MP_ONLY_LO,
           LINE_B_LO | HEAL_HP_ONLY_LO,
-          LINE_B_LO,
-          LINE_B_LO,
-          LINE_B_LO,
-          LINE_B_LO,
-          LINE_B_LO,
-          LINE_B_LO,
-          LINE_B_LO,
+          LINE_B_LO | HEAL_HP_MP_NEAR_LO,
+          LINE_B_LO | HEAL_HP_ONLY_NEAR_LO,
+          LINE_B_LO | HEAL_MP_ONLY_LO,
+          LINE_B_LO | HEAL_MP_ONLY_NEAR_LO,
+          LINE_B_LO | HEAL_HP_MP_PARTY_LO,
+          LINE_B_LO | HEAL_HP_ONLY_PARTY_LO,
+          LINE_B_LO | HEAL_MP_ONLY_PARTY_LO,
           LINE_B_LO | DROP_ONLY_LO,
           LINE_A_LO | DROP_ONLY_LO,
           LINE_A_LO | DROP_MESO_LO,
@@ -8157,49 +8158,49 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HEAL_HP_MP_NEAR_HI,
-          HEAL_HP_MP_PARTY_HI,
-          0,
-          0,
-          HEAL_HP_ONLY_NEAR_HI,
-          HEAL_HP_ONLY_PARTY_HI,
-          HEAL_MP_ONLY_HI,
-          HEAL_MP_ONLY_NEAR_HI,
-          HEAL_MP_ONLY_PARTY_HI,
-          0,
-          HEAL_MP_ONLY_HI,
-          HEAL_HP_MP_NEAR_HI,
-          HEAL_HP_ONLY_NEAR_HI,
-          HEAL_MP_ONLY_NEAR_HI,
-          HEAL_HP_MP_PARTY_HI,
-          HEAL_HP_ONLY_PARTY_HI,
-          HEAL_MP_ONLY_PARTY_HI,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_B_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_B_HI | FLAT_ATT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | IED_HI,
+          LINE_C_HI | IED_HI,
+          LINE_B_HI | HEAL_HP_ONLY_HI,
+          LINE_A_HI | HEAL_HP_MP_NEAR_HI,
+          LINE_A_HI | HEAL_HP_MP_PARTY_HI,
+          LINE_A_HI | HEAL_HP_MP_HI,
+          LINE_C_HI | HEAL_HP_MP_HI,
+          LINE_A_HI | HEAL_HP_ONLY_NEAR_HI,
+          LINE_A_HI | HEAL_HP_ONLY_PARTY_HI,
+          LINE_B_HI | HEAL_MP_ONLY_HI,
+          LINE_A_HI | HEAL_MP_ONLY_NEAR_HI,
+          LINE_A_HI | HEAL_MP_ONLY_PARTY_HI,
+          LINE_A_HI | HEAL_HP_ONLY_HI,
+          LINE_A_HI | HEAL_MP_ONLY_HI,
+          LINE_C_HI | HEAL_HP_MP_NEAR_HI,
+          LINE_C_HI | HEAL_HP_ONLY_NEAR_HI,
+          LINE_C_HI | HEAL_MP_ONLY_NEAR_HI,
+          LINE_C_HI | HEAL_HP_MP_PARTY_HI,
+          LINE_C_HI | HEAL_HP_ONLY_PARTY_HI,
+          LINE_C_HI | HEAL_MP_ONLY_PARTY_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | DROP_ONLY_HI,
+          LINE_C_HI | DROP_ONLY_HI,
+          LINE_B_HI | DROP_MESO_HI,
+          LINE_A_HI | DROP_MESO_HI,
+          LINE_B_HI | MESO_ONLY_HI,
+          LINE_C_HI | MESO_ONLY_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_B_HI | FLAT_HP_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_B_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          INVIN_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_B_LO | AUTOSTEAL_1_LO,
@@ -8211,26 +8212,26 @@ static void dataInit()
           LINE_A_LO | IED_LO,
           LINE_C_LO | IED_LO,
           LINE_B_LO | HEAL_HP_ONLY_LO,
-          LINE_A_LO,
-          LINE_A_LO,
+          LINE_A_LO | HEAL_HP_MP_NEAR_LO,
+          LINE_A_LO | HEAL_HP_MP_PARTY_LO,
           LINE_A_LO | HEAL_HP_MP_LO,
           LINE_C_LO | HEAL_HP_MP_LO,
-          LINE_A_LO,
-          LINE_A_LO,
-          LINE_B_LO,
-          LINE_A_LO,
-          LINE_A_LO,
+          LINE_A_LO | HEAL_HP_ONLY_NEAR_LO,
+          LINE_A_LO | HEAL_HP_ONLY_PARTY_LO,
+          LINE_B_LO | HEAL_MP_ONLY_LO,
+          LINE_A_LO | HEAL_MP_ONLY_NEAR_LO,
+          LINE_A_LO | HEAL_MP_ONLY_PARTY_LO,
           LINE_A_LO | HEAL_HP_ONLY_LO,
-          LINE_A_LO,
-          LINE_C_LO,
-          LINE_C_LO,
-          LINE_C_LO,
-          LINE_C_LO,
-          LINE_C_LO,
-          LINE_C_LO,
+          LINE_A_LO | HEAL_MP_ONLY_LO,
+          LINE_C_LO | HEAL_HP_MP_NEAR_LO,
+          LINE_C_LO | HEAL_HP_ONLY_NEAR_LO,
+          LINE_C_LO | HEAL_MP_ONLY_NEAR_LO,
+          LINE_C_LO | HEAL_HP_MP_PARTY_LO,
+          LINE_C_LO | HEAL_HP_ONLY_PARTY_LO,
+          LINE_C_LO | HEAL_MP_ONLY_PARTY_LO,
           LINE_C_LO | BOSS_ONLY_LO,
           LINE_A_LO | BOSS_ONLY_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_B_LO | DROP_ONLY_LO,
           LINE_C_LO | DROP_ONLY_LO,
           LINE_B_LO | DROP_MESO_LO,
@@ -8299,52 +8300,52 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HEAL_HP_MP_NEAR_HI,
-          HEAL_HP_MP_PARTY_HI,
-          HEAL_HP_ONLY_NEAR_HI,
-          HEAL_HP_ONLY_PARTY_HI,
-          HEAL_MP_ONLY_NEAR_HI,
-          HEAL_MP_ONLY_PARTY_HI,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_B_HI | AUTOSTEAL_2_HI,
+          LINE_C_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | AUTOSTEAL_2_HI,
+          LINE_B_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_B_HI | FLAT_ATT_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_B_HI | ATT_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_B_HI | ALLSTAT_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          LINE_C_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
+          LINE_A_HI | HEAL_HP_MP_HI,
+          LINE_A_HI | HEAL_HP_MP_NEAR_HI,
+          LINE_A_HI | HEAL_HP_MP_PARTY_HI,
+          LINE_A_HI | HEAL_HP_ONLY_NEAR_HI,
+          LINE_A_HI | HEAL_HP_ONLY_PARTY_HI,
+          LINE_A_HI | HEAL_MP_ONLY_NEAR_HI,
+          LINE_A_HI | HEAL_MP_ONLY_PARTY_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_B_HI | CRITDMG_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_C_HI | DROP_MESO_HI,
+          LINE_C_HI | FLAT_ALLSTAT_HI,
+          FLAT_DEX_ONLY_HI,
+          LINE_B_HI | FLAT_ALLSTAT_HI,
+          LINE_A_HI | DROP_ONLY_HI,
+          LINE_B_HI | FLAT_HP_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | HP_HI,
+          LINE_B_HI | HP_HI,
+          FLAT_MESO_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          LINE_B_HI | FLAT_MAINSTAT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_B_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_B_HI | DAMAGE_HI,
+          INVIN_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_B_LO | AUTOSTEAL_2_LO,
@@ -8366,16 +8367,16 @@ static void dataInit()
           LINE_B_LO | BOSS_ONLY_LO,
           LINE_A_LO | BOSS_ONLY_LO,
           LINE_A_LO | HEAL_HP_MP_LO,
-          LINE_A_LO,
-          LINE_A_LO,
-          LINE_A_LO,
-          LINE_A_LO,
-          LINE_A_LO,
-          LINE_A_LO,
+          LINE_A_LO | HEAL_HP_MP_NEAR_LO,
+          LINE_A_LO | HEAL_HP_MP_PARTY_LO,
+          LINE_A_LO | HEAL_HP_ONLY_NEAR_LO,
+          LINE_A_LO | HEAL_HP_ONLY_PARTY_LO,
+          LINE_A_LO | HEAL_MP_ONLY_NEAR_LO,
+          LINE_A_LO | HEAL_MP_ONLY_PARTY_LO,
           LINE_A_LO | CRITDMG_LO,
           LINE_B_LO | CRITDMG_LO,
-          LINE_A_LO,
-          LINE_B_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
+          LINE_B_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_C_LO | DROP_MESO_LO,
           LINE_C_LO | FLAT_ALLSTAT_LO,
           FLAT_DEX_ONLY_LO,
@@ -8450,24 +8451,24 @@ static void dataInit()
       }
       {
         static const BufStatic(int const, lineHi,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          HP_ITEMS_AND_SKILLS_HI,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          LINE_C_HI | AUTOSTEAL_1_HI,
+          LINE_B_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_B_HI | IED_HI,
+          LINE_A_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | DROP_ONLY_HI,
+          LINE_A_HI | HP_HI,
+          FLAT_MESO_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          INVIN_HI,
         );
         static const BufStatic(int const, lineLo,
           LINE_C_LO | AUTOSTEAL_1_LO,
@@ -8481,7 +8482,7 @@ static void dataInit()
           LINE_B_LO | BOSS_ONLY_LO,
           LINE_A_LO | BOSS_ONLY_LO,
           LINE_A_LO | CRITDMG_LO,
-          LINE_A_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           LINE_A_LO | DROP_ONLY_LO,
           LINE_A_LO | HP_LO,
           FLAT_MESO_LO,
@@ -8750,10 +8751,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -8774,16 +8775,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -8816,14 +8817,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -8852,18 +8853,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -8878,7 +8879,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -8900,30 +8901,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -8950,7 +8951,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -8984,10 +8985,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -9008,16 +9009,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -9050,14 +9051,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -9086,18 +9087,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -9112,7 +9113,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -9134,30 +9135,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -9184,7 +9185,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -9218,10 +9219,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -9242,16 +9243,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -9284,14 +9285,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -9320,18 +9321,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -9346,7 +9347,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -9368,30 +9369,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -9418,7 +9419,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -9452,10 +9453,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -9476,16 +9477,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -9518,14 +9519,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -9554,18 +9555,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -9580,7 +9581,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -9602,30 +9603,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -9652,7 +9653,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -9686,10 +9687,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -9710,16 +9711,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -9752,14 +9753,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -9788,18 +9789,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -9814,7 +9815,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -9836,30 +9837,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -9886,7 +9887,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -9920,10 +9921,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -9944,16 +9945,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -9986,14 +9987,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -10022,18 +10023,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -10048,7 +10049,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -10070,30 +10071,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -10120,7 +10121,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -10154,10 +10155,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -10178,16 +10179,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -10220,14 +10221,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -10256,18 +10257,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -10282,7 +10283,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -10304,30 +10305,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -10354,7 +10355,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -10388,10 +10389,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -10412,16 +10413,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -10454,14 +10455,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -10490,18 +10491,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -10516,7 +10517,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -10538,30 +10539,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -10588,7 +10589,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -10622,10 +10623,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -10646,16 +10647,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -10688,14 +10689,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -10724,18 +10725,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -10750,7 +10751,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -10772,30 +10773,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -10822,7 +10823,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -10856,10 +10857,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -10880,16 +10881,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -10922,14 +10923,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -10958,18 +10959,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -10984,7 +10985,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -11006,30 +11007,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -11056,7 +11057,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -11090,10 +11091,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -11114,16 +11115,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -11156,14 +11157,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -11192,18 +11193,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -11218,7 +11219,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -11240,30 +11241,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -11290,7 +11291,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -11324,10 +11325,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -11348,16 +11349,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -11390,14 +11391,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -11426,18 +11427,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -11452,7 +11453,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -11474,30 +11475,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -11524,7 +11525,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -11558,10 +11559,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -11582,16 +11583,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -11624,14 +11625,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -11660,18 +11661,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -11686,7 +11687,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -11708,30 +11709,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -11758,7 +11759,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -11792,10 +11793,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -11816,16 +11817,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -11858,14 +11859,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -11894,18 +11895,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -11920,7 +11921,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -11942,30 +11943,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -11992,7 +11993,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -12026,10 +12027,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -12050,16 +12051,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -12092,14 +12093,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -12128,18 +12129,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -12154,7 +12155,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -12176,30 +12177,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -12226,7 +12227,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -12260,10 +12261,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -12284,16 +12285,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -12326,14 +12327,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -12362,18 +12363,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -12388,7 +12389,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -12410,30 +12411,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -12460,7 +12461,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -12494,10 +12495,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -12518,16 +12519,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -12560,14 +12561,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -12596,18 +12597,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -12622,7 +12623,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -12644,30 +12645,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -12694,7 +12695,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -12728,10 +12729,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -12752,16 +12753,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -12794,14 +12795,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -12830,18 +12831,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -12856,7 +12857,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -12878,30 +12879,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -12928,7 +12929,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -12962,10 +12963,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -12986,16 +12987,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -13028,14 +13029,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -13064,18 +13065,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -13090,7 +13091,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -13112,30 +13113,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -13162,7 +13163,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -13196,10 +13197,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -13220,16 +13221,16 @@ static void valuesInit()
   {
     static const int linesHi[10] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[10] = 
     {
@@ -13262,14 +13263,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[8] = 
     {
@@ -13298,18 +13299,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      INVIN_HI,
+      DECENT_SHARP_EYES_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[12] = 
     {
@@ -13324,7 +13325,7 @@ static void valuesInit()
       INVIN_LO,
       DECENT_SHARP_EYES_LO,
       MAINSTAT_PER_10_LVLS_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[12] = 
     {
@@ -13346,30 +13347,30 @@ static void valuesInit()
   {
     static const int linesHi[24] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
+      ANY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | COOLDOWN_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      INVIN_HI,
+      DECENT_SPEED_INFUSION_HI,
+      DECENT_COMBAT_ORDERS_HI,
+      ATT_PER_10_LVLS_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
     };
     static const int linesLo[24] = 
     {
@@ -13396,7 +13397,7 @@ static void valuesInit()
       LINE_A_LO | AUTOSTEAL_1_LO,
       LINE_B_LO | AUTOSTEAL_1_LO,
       LINE_C_LO | AUTOSTEAL_1_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
     };
     static const int vals[24] = 
     {
@@ -13430,10 +13431,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -13454,15 +13455,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -13493,13 +13494,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -13526,15 +13527,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -13565,17 +13566,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -13610,10 +13611,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -13634,15 +13635,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -13673,13 +13674,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -13706,15 +13707,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -13745,17 +13746,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -13790,10 +13791,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -13814,15 +13815,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -13853,13 +13854,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -13886,15 +13887,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -13925,17 +13926,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -13970,10 +13971,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -13994,15 +13995,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14033,13 +14034,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -14066,15 +14067,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14105,17 +14106,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -14150,10 +14151,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -14174,15 +14175,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14213,13 +14214,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -14246,15 +14247,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14285,17 +14286,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -14330,10 +14331,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -14354,15 +14355,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14393,13 +14394,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -14426,15 +14427,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14465,17 +14466,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -14510,10 +14511,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -14534,15 +14535,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14573,13 +14574,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -14606,15 +14607,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14645,17 +14646,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -14690,10 +14691,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -14714,15 +14715,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14753,13 +14754,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -14786,15 +14787,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14825,17 +14826,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -14870,10 +14871,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -14894,15 +14895,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -14933,13 +14934,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -14966,15 +14967,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15005,17 +15006,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -15050,10 +15051,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -15074,15 +15075,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15113,13 +15114,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -15146,15 +15147,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15185,17 +15186,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -15230,10 +15231,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -15254,15 +15255,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15293,13 +15294,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -15326,15 +15327,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15365,17 +15366,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -15410,10 +15411,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -15434,15 +15435,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15473,13 +15474,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -15506,15 +15507,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15545,17 +15546,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -15590,10 +15591,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -15614,15 +15615,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15653,13 +15654,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -15686,15 +15687,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15725,17 +15726,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -15770,10 +15771,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -15794,15 +15795,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15833,13 +15834,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -15866,15 +15867,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -15905,17 +15906,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -15950,10 +15951,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -15974,15 +15975,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[9] = 
     {
@@ -16013,13 +16014,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16046,15 +16047,15 @@ static void valuesInit()
   {
     static const int linesHi[9] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[9] = 
     {
@@ -16085,17 +16086,17 @@ static void valuesInit()
   {
     static const int linesHi[11] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_C_HI | IED_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      ATT_PER_10_LVLS_HI,
     };
     static const int linesLo[11] = 
     {
@@ -16130,10 +16131,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -16154,13 +16155,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16187,13 +16188,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16220,14 +16221,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -16256,18 +16257,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -16304,10 +16305,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -16328,13 +16329,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16361,13 +16362,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16394,14 +16395,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -16430,18 +16431,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -16478,10 +16479,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -16502,13 +16503,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16535,13 +16536,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16568,14 +16569,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -16604,18 +16605,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -16652,10 +16653,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -16676,13 +16677,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16709,13 +16710,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16742,14 +16743,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -16778,18 +16779,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -16826,10 +16827,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -16850,13 +16851,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16883,13 +16884,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -16916,14 +16917,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -16952,18 +16953,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -17000,10 +17001,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -17024,13 +17025,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17057,13 +17058,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17090,14 +17091,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -17126,18 +17127,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -17174,10 +17175,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -17198,13 +17199,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17231,13 +17232,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17264,14 +17265,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -17300,18 +17301,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -17348,10 +17349,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -17372,13 +17373,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17405,13 +17406,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17438,14 +17439,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -17474,18 +17475,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -17522,10 +17523,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -17546,13 +17547,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17579,13 +17580,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17612,14 +17613,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -17648,18 +17649,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -17696,10 +17697,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -17720,13 +17721,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17753,13 +17754,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17786,14 +17787,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -17822,18 +17823,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -17870,10 +17871,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -17894,13 +17895,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17927,13 +17928,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -17960,14 +17961,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -17996,18 +17997,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -18044,10 +18045,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -18068,13 +18069,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -18101,13 +18102,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -18134,14 +18135,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -18170,18 +18171,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -18218,10 +18219,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -18242,13 +18243,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -18275,13 +18276,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -18308,14 +18309,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -18344,18 +18345,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -18392,10 +18393,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -18416,13 +18417,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -18449,13 +18450,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -18482,14 +18483,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -18518,18 +18519,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -18566,10 +18567,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
     };
     static const int linesLo[4] = 
     {
@@ -18590,13 +18591,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -18623,13 +18624,13 @@ static void valuesInit()
   {
     static const int linesHi[7] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
     };
     static const int linesLo[7] = 
     {
@@ -18656,14 +18657,14 @@ static void valuesInit()
   {
     static const int linesHi[8] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
     };
     static const int linesLo[8] = 
     {
@@ -18692,18 +18693,18 @@ static void valuesInit()
   {
     static const int linesHi[12] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      MAINSTAT_PER_10_LVLS_HI,
+      LINE_A_HI | COOLDOWN_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
     };
     static const int linesLo[12] = 
     {
@@ -18740,10 +18741,10 @@ static void valuesInit()
   {
     static const int linesHi[4] = 
     {
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
     };
     static const int linesLo[4] = 
     {
@@ -18764,23 +18765,23 @@ static void valuesInit()
   {
     static const int linesHi[17] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HEAL_MP_ONLY_HI,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_B_HI | FLAT_ATT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | HEAL_HP_ONLY_HI,
+      LINE_A_HI | HEAL_MP_ONLY_HI,
+      LINE_A_HI | DROP_ONLY_HI,
+      LINE_A_HI | MESO_ONLY_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_B_HI | FLAT_HP_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_B_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | DAMAGE_HI,
     };
     static const int linesLo[17] = 
     {
@@ -18791,7 +18792,7 @@ static void valuesInit()
       LINE_A_LO | FLAT_ALLSTAT_LO,
       LINE_C_LO | IED_LO,
       LINE_A_LO | HEAL_HP_ONLY_LO,
-      LINE_A_LO,
+      LINE_A_LO | HEAL_MP_ONLY_LO,
       LINE_A_LO | DROP_ONLY_LO,
       LINE_A_LO | MESO_ONLY_LO,
       LINE_A_LO | FLAT_HP_LO,
@@ -18827,36 +18828,36 @@ static void valuesInit()
   {
     static const int linesHi[30] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HEAL_MP_ONLY_HI,
-      0,
-      HEAL_HP_MP_NEAR_HI,
-      HEAL_HP_ONLY_NEAR_HI,
-      HEAL_MP_ONLY_HI,
-      HEAL_MP_ONLY_NEAR_HI,
-      HEAL_HP_MP_PARTY_HI,
-      HEAL_HP_ONLY_PARTY_HI,
-      HEAL_MP_ONLY_PARTY_HI,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_B_HI | FLAT_ATT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_C_HI | IED_HI,
+      LINE_A_HI | HEAL_HP_ONLY_HI,
+      LINE_B_HI | HEAL_HP_MP_HI,
+      LINE_A_HI | HEAL_MP_ONLY_HI,
+      LINE_B_HI | HEAL_HP_ONLY_HI,
+      LINE_B_HI | HEAL_HP_MP_NEAR_HI,
+      LINE_B_HI | HEAL_HP_ONLY_NEAR_HI,
+      LINE_B_HI | HEAL_MP_ONLY_HI,
+      LINE_B_HI | HEAL_MP_ONLY_NEAR_HI,
+      LINE_B_HI | HEAL_HP_MP_PARTY_HI,
+      LINE_B_HI | HEAL_HP_ONLY_PARTY_HI,
+      LINE_B_HI | HEAL_MP_ONLY_PARTY_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      LINE_A_HI | DROP_ONLY_HI,
+      LINE_A_HI | DROP_MESO_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_A_HI | MESO_ONLY_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_B_HI | FLAT_HP_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_B_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      INVIN_HI,
     };
     static const int linesLo[30] = 
     {
@@ -18868,15 +18869,15 @@ static void valuesInit()
       LINE_C_LO | IED_LO,
       LINE_A_LO | HEAL_HP_ONLY_LO,
       LINE_B_LO | HEAL_HP_MP_LO,
-      LINE_A_LO,
+      LINE_A_LO | HEAL_MP_ONLY_LO,
       LINE_B_LO | HEAL_HP_ONLY_LO,
-      LINE_B_LO,
-      LINE_B_LO,
-      LINE_B_LO,
-      LINE_B_LO,
-      LINE_B_LO,
-      LINE_B_LO,
-      LINE_B_LO,
+      LINE_B_LO | HEAL_HP_MP_NEAR_LO,
+      LINE_B_LO | HEAL_HP_ONLY_NEAR_LO,
+      LINE_B_LO | HEAL_MP_ONLY_LO,
+      LINE_B_LO | HEAL_MP_ONLY_NEAR_LO,
+      LINE_B_LO | HEAL_HP_MP_PARTY_LO,
+      LINE_B_LO | HEAL_HP_ONLY_PARTY_LO,
+      LINE_B_LO | HEAL_MP_ONLY_PARTY_LO,
       LINE_B_LO | DROP_ONLY_LO,
       LINE_A_LO | DROP_ONLY_LO,
       LINE_A_LO | DROP_MESO_LO,
@@ -18929,50 +18930,50 @@ static void valuesInit()
   {
     static const int linesHi[44] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HEAL_HP_MP_NEAR_HI,
-      HEAL_HP_MP_PARTY_HI,
-      0,
-      0,
-      HEAL_HP_ONLY_NEAR_HI,
-      HEAL_HP_ONLY_PARTY_HI,
-      HEAL_MP_ONLY_HI,
-      HEAL_MP_ONLY_NEAR_HI,
-      HEAL_MP_ONLY_PARTY_HI,
-      0,
-      HEAL_MP_ONLY_HI,
-      HEAL_HP_MP_NEAR_HI,
-      HEAL_HP_ONLY_NEAR_HI,
-      HEAL_MP_ONLY_NEAR_HI,
-      HEAL_HP_MP_PARTY_HI,
-      HEAL_HP_ONLY_PARTY_HI,
-      HEAL_MP_ONLY_PARTY_HI,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_B_HI | FLAT_ATT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_A_HI | IED_HI,
+      LINE_C_HI | IED_HI,
+      LINE_B_HI | HEAL_HP_ONLY_HI,
+      LINE_A_HI | HEAL_HP_MP_NEAR_HI,
+      LINE_A_HI | HEAL_HP_MP_PARTY_HI,
+      LINE_A_HI | HEAL_HP_MP_HI,
+      LINE_C_HI | HEAL_HP_MP_HI,
+      LINE_A_HI | HEAL_HP_ONLY_NEAR_HI,
+      LINE_A_HI | HEAL_HP_ONLY_PARTY_HI,
+      LINE_B_HI | HEAL_MP_ONLY_HI,
+      LINE_A_HI | HEAL_MP_ONLY_NEAR_HI,
+      LINE_A_HI | HEAL_MP_ONLY_PARTY_HI,
+      LINE_A_HI | HEAL_HP_ONLY_HI,
+      LINE_A_HI | HEAL_MP_ONLY_HI,
+      LINE_C_HI | HEAL_HP_MP_NEAR_HI,
+      LINE_C_HI | HEAL_HP_ONLY_NEAR_HI,
+      LINE_C_HI | HEAL_MP_ONLY_NEAR_HI,
+      LINE_C_HI | HEAL_HP_MP_PARTY_HI,
+      LINE_C_HI | HEAL_HP_ONLY_PARTY_HI,
+      LINE_C_HI | HEAL_MP_ONLY_PARTY_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+      LINE_B_HI | DROP_ONLY_HI,
+      LINE_C_HI | DROP_ONLY_HI,
+      LINE_B_HI | DROP_MESO_HI,
+      LINE_A_HI | DROP_MESO_HI,
+      LINE_B_HI | MESO_ONLY_HI,
+      LINE_C_HI | MESO_ONLY_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_B_HI | FLAT_HP_HI,
+      LINE_A_HI | HP_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_B_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      INVIN_HI,
     };
     static const int linesLo[44] = 
     {
@@ -18986,26 +18987,26 @@ static void valuesInit()
       LINE_A_LO | IED_LO,
       LINE_C_LO | IED_LO,
       LINE_B_LO | HEAL_HP_ONLY_LO,
-      LINE_A_LO,
-      LINE_A_LO,
+      LINE_A_LO | HEAL_HP_MP_NEAR_LO,
+      LINE_A_LO | HEAL_HP_MP_PARTY_LO,
       LINE_A_LO | HEAL_HP_MP_LO,
       LINE_C_LO | HEAL_HP_MP_LO,
-      LINE_A_LO,
-      LINE_A_LO,
-      LINE_B_LO,
-      LINE_A_LO,
-      LINE_A_LO,
+      LINE_A_LO | HEAL_HP_ONLY_NEAR_LO,
+      LINE_A_LO | HEAL_HP_ONLY_PARTY_LO,
+      LINE_B_LO | HEAL_MP_ONLY_LO,
+      LINE_A_LO | HEAL_MP_ONLY_NEAR_LO,
+      LINE_A_LO | HEAL_MP_ONLY_PARTY_LO,
       LINE_A_LO | HEAL_HP_ONLY_LO,
-      LINE_A_LO,
-      LINE_C_LO,
-      LINE_C_LO,
-      LINE_C_LO,
-      LINE_C_LO,
-      LINE_C_LO,
-      LINE_C_LO,
+      LINE_A_LO | HEAL_MP_ONLY_LO,
+      LINE_C_LO | HEAL_HP_MP_NEAR_LO,
+      LINE_C_LO | HEAL_HP_ONLY_NEAR_LO,
+      LINE_C_LO | HEAL_MP_ONLY_NEAR_LO,
+      LINE_C_LO | HEAL_HP_MP_PARTY_LO,
+      LINE_C_LO | HEAL_HP_ONLY_PARTY_LO,
+      LINE_C_LO | HEAL_MP_ONLY_PARTY_LO,
       LINE_C_LO | BOSS_ONLY_LO,
       LINE_A_LO | BOSS_ONLY_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
       LINE_B_LO | DROP_ONLY_LO,
       LINE_C_LO | DROP_ONLY_LO,
       LINE_B_LO | DROP_MESO_LO,
@@ -19073,53 +19074,53 @@ static void valuesInit()
   {
     static const int linesHi[47] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HEAL_HP_MP_NEAR_HI,
-      HEAL_HP_MP_PARTY_HI,
-      HEAL_HP_ONLY_NEAR_HI,
-      HEAL_HP_ONLY_PARTY_HI,
-      HEAL_MP_ONLY_NEAR_HI,
-      HEAL_MP_ONLY_PARTY_HI,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-      HP_ITEMS_AND_SKILLS_HI,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_B_HI | AUTOSTEAL_2_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | AUTOSTEAL_2_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | FLAT_ATT_HI,
+      LINE_B_HI | FLAT_ATT_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_B_HI | ATT_HI,
+      LINE_A_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_B_HI | ALLSTAT_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_C_HI | IED_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_A_HI | HEAL_HP_MP_HI,
+      LINE_A_HI | HEAL_HP_MP_NEAR_HI,
+      LINE_A_HI | HEAL_HP_MP_PARTY_HI,
+      LINE_A_HI | HEAL_HP_ONLY_NEAR_HI,
+      LINE_A_HI | HEAL_HP_ONLY_PARTY_HI,
+      LINE_A_HI | HEAL_MP_ONLY_NEAR_HI,
+      LINE_A_HI | HEAL_MP_ONLY_PARTY_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_B_HI | CRITDMG_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+      LINE_B_HI | HP_ITEMS_AND_SKILLS_HI,
+      LINE_C_HI | DROP_MESO_HI,
+      LINE_C_HI | FLAT_ALLSTAT_HI,
+      FLAT_DEX_ONLY_HI,
+      LINE_B_HI | FLAT_ALLSTAT_HI,
+      LINE_A_HI | DROP_ONLY_HI,
+      LINE_B_HI | FLAT_HP_HI,
+      LINE_A_HI | FLAT_HP_HI,
+      LINE_A_HI | HP_HI,
+      LINE_B_HI | HP_HI,
+      FLAT_MESO_HI,
+      LINE_A_HI | FLAT_MAINSTAT_HI,
+      LINE_B_HI | FLAT_MAINSTAT_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_B_HI | MAINSTAT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      LINE_B_HI | DAMAGE_HI,
+      INVIN_HI,
     };
     static const int linesLo[47] = 
     {
@@ -19143,16 +19144,16 @@ static void valuesInit()
       LINE_B_LO | BOSS_ONLY_LO,
       LINE_A_LO | BOSS_ONLY_LO,
       LINE_A_LO | HEAL_HP_MP_LO,
-      LINE_A_LO,
-      LINE_A_LO,
-      LINE_A_LO,
-      LINE_A_LO,
-      LINE_A_LO,
-      LINE_A_LO,
+      LINE_A_LO | HEAL_HP_MP_NEAR_LO,
+      LINE_A_LO | HEAL_HP_MP_PARTY_LO,
+      LINE_A_LO | HEAL_HP_ONLY_NEAR_LO,
+      LINE_A_LO | HEAL_HP_ONLY_PARTY_LO,
+      LINE_A_LO | HEAL_MP_ONLY_NEAR_LO,
+      LINE_A_LO | HEAL_MP_ONLY_PARTY_LO,
       LINE_A_LO | CRITDMG_LO,
       LINE_B_LO | CRITDMG_LO,
-      LINE_A_LO,
-      LINE_B_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
+      LINE_B_LO | HP_ITEMS_AND_SKILLS_LO,
       LINE_C_LO | DROP_MESO_LO,
       LINE_C_LO | FLAT_ALLSTAT_LO,
       FLAT_DEX_ONLY_LO,
@@ -19226,25 +19227,25 @@ static void valuesInit()
   {
     static const int linesHi[19] = 
     {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      HP_ITEMS_AND_SKILLS_HI,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      ANY_HI,
+      LINE_C_HI | AUTOSTEAL_1_HI,
+      LINE_B_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | AUTOSTEAL_1_HI,
+      LINE_A_HI | ATT_HI,
+      LINE_A_HI | ALLSTAT_HI,
+      LINE_B_HI | IED_HI,
+      LINE_A_HI | IED_HI,
+      LINE_C_HI | BOSS_ONLY_HI,
+      LINE_B_HI | BOSS_ONLY_HI,
+      LINE_A_HI | BOSS_ONLY_HI,
+      LINE_A_HI | CRITDMG_HI,
+      LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+      LINE_A_HI | DROP_ONLY_HI,
+      LINE_A_HI | HP_HI,
+      FLAT_MESO_HI,
+      LINE_A_HI | MAINSTAT_HI,
+      LINE_A_HI | DAMAGE_HI,
+      INVIN_HI,
     };
     static const int linesLo[19] = 
     {
@@ -19260,7 +19261,7 @@ static void valuesInit()
       LINE_B_LO | BOSS_ONLY_LO,
       LINE_A_LO | BOSS_ONLY_LO,
       LINE_A_LO | CRITDMG_LO,
-      LINE_A_LO,
+      LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
       LINE_A_LO | DROP_ONLY_LO,
       LINE_A_LO | HP_LO,
       FLAT_MESO_LO,
