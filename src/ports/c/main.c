@@ -574,9 +574,7 @@ double CubeCalc(Want const* wantBuf, int category, int cube, int tier, int lvl, 
     BufFree(&primeMul);
   }
 
-  BufEachi(combos.onein, i) {
-    combos.onein[i] *= primeChanceBuf[i];
-  }
+  BufOp2(*, combos.onein, primeChanceBuf);
   BufFree(&primeChanceBuf);
 
 #ifdef CUBECALC_DEBUG

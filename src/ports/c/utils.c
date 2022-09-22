@@ -305,6 +305,12 @@ intmax_t* BufNOR(intmax_t* a, intmax_t* b); // a = ~(a | b); return a
 #define BufOpRange(op, b, start, end, paccum) \
   OpRange(op, b, BufI(b, start), BufI(b, end), paccum)
 
+// a op= b
+#define BufOp2(op, a, b) \
+  BufEachi(a, Concat(i, __LINE__)) { \
+    (a)[Concat(i, __LINE__)] op##= (b)[Concat(i, __LINE__)]; \
+  }
+
 //
 // shortcut to loop over every index
 //
