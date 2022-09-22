@@ -77,8 +77,12 @@ void LinesPrint(Lines* l, int group) {
     if (group && !(i % group)) {
       AlignFeed(&al, "%s", "", "");
     }
+    float p = l->onein[i];
+    if (p < 1) {
+      p = 1/p;
+    }
     AlignFeed(&al, "%d %s %s 1", " in %g",
-      l->value[i], s, ArrayBit(l->prime, i) ? "P" : " ", l->onein[i]);
+      l->value[i], s, ArrayBit(l->prime, i) ? "P" : " ", p);
     BufFree(&s);
   }
   AlignPrint(&al, stdout);

@@ -298,6 +298,21 @@ int WantEval(Lines const* l, Want* wantBuf) {
   LinesMatch(&combos, lineHiMask, lineLoMask, &match, &matchLo);
   LinesFilt(&combos, match);
 
+  // convert "one in" to probability (onein = 1/onein)
+  BufEach(float, combos.onein, x) {
+    *x = 1 / *x;
+  }
+
+  // calculate prime ANY line chance
+  float otherLinesChance = 0;
+  BufSumRange(combos.onein, 0, numPrimes - 2, &otherLinesChance);
+  combos.onein[numPrimes - 1] = 1 - otherLinesChance;
+
+  // calculate non-prime ANY line chance
+  otherLinesChance = 0;
+  BufSumRange(combos.onein, numPrimes, -2, &otherLinesChance);
+  BufAt(combos.onein, -1) = 1 - otherLinesChance;
+
   // generate combinations (array of indices)
 
 #define P 0, -2
@@ -323,12 +338,10 @@ int WantEval(Lines const* l, Want* wantBuf) {
     }
   }
 
+  // convert list of lines to flattened array of all possible line combinations
   intmax_t* indices = BufCombos(ranges, BufLen(ranges) / 2);
   LinesIndex(&combos, indices);
   BufFree(&indices);
-
-  // TODO: generate ANY line probability
-
 
   BufEach(Want, wantBuf, w) {
     switch (w->type) {

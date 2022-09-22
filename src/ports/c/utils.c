@@ -270,12 +270,13 @@ intmax_t* BufAND(intmax_t* a, intmax_t* b); // a &= b; return a
 intmax_t* BufOR(intmax_t* a, intmax_t* b); // a |= b; return a
 intmax_t* BufNOR(intmax_t* a, intmax_t* b); // a = ~(a | b); return a
 
-// sumVar += sum(b)
-#define BufSum(b, sumVar) \
+// *psumVar += sum(b)
+#define BufSum(b, psumVar) \
   BufSumRange(b, 0, -1, sumVar)
-#define BufSumRange(b, start, end, sumVar) \
+
+#define BufSumRange(b, start, end, psumVar) \
   BufEachiRange(b, start, end, i) { \
-    (sumVar) += (x)[i]; \
+    *(psumVar) += (b)[i]; \
   }
 
 //
