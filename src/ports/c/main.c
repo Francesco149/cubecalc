@@ -122,7 +122,7 @@ void LinesFree(Lines* l) {
 }
 
 #define DupField(type, name) dst->name = BufDup(src->name);
-void LinesDup(Lines* dst, Lines* src) {
+void LinesDup(Lines* dst, Lines const* src) {
   LinesAllFields(DupField)
 }
 
