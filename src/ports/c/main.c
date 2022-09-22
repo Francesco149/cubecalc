@@ -283,7 +283,7 @@ void LinesMatch(Lines* l, int lineHiMask, int lineLoMask, intmax_t** pmatch, int
   BufAND(*pmatch, *pmatchLo);
 }
 
-int WantEval(int category, int cube, Lines const* l, Want* wantBuf) {
+int WantEval(int category, int cube, Lines const* l, Want const* wantBuf) {
   Want* stack = 0;
   int res = 0;
 
@@ -294,7 +294,7 @@ int WantEval(int category, int cube, Lines const* l, Want* wantBuf) {
   // filter all lines that don't match these stats
   int lineHiMask = 0;
   int lineLoMask = 0;
-  BufEach(Want, wantBuf, s) {
+  BufEach(Want const, wantBuf, s) {
     if (s->type == WANT_STAT) {
       lineHiMask |= s->lineHi;
       lineLoMask |= s->lineLo;
@@ -377,7 +377,7 @@ int WantEval(int category, int cube, Lines const* l, Want* wantBuf) {
   BufFree(&indices);
   BufFree(&ranges);
 
-  BufEach(Want, wantBuf, w) {
+  BufEach(Want const, wantBuf, w) {
     switch (w->type) {
       case WANT_STAT:
         *BufAlloc(&stack) = *w;
@@ -493,7 +493,7 @@ cleanup:
   return res;
 }
 
-double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int region) {
+double CubeCalc(Want const* wantBuf, int category, int cube, int tier, int lvl, int region) {
   double res = 0;
 
   LineData const* dataPrime = DataFind(category, cube, tier);
@@ -558,7 +558,7 @@ int main() {
   );
   */
 
-  BufStatic(Want, want,
+  const BufStatic(Want const, want,
     WantStat(ATT, 33),
     WantOp(AND, -1),
   );
@@ -571,7 +571,6 @@ int main() {
     puts("impossible");
   }
 
-cleanup:
   cubecalcGeneratedGlobalFree();
   return 0;
 }
