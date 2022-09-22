@@ -407,15 +407,14 @@ int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
               s->type = WANT_MASK;
               s->mask = BufDup(match);
 
+              // fall through to the MASK case
+            }
+            case WANT_MASK:
               if (!result) {
                 result = s->mask;
                 s->mask = 0; // prevent result from being freed
                 break;
               }
-
-              // fall through to the MASK case
-            }
-            case WANT_MASK:
 #define c(x) case WANT_##x: Buf##x(result, s->mask); break
               switch (w->op) {
                 c(AND);
@@ -531,21 +530,10 @@ int main() {
     goto cleanup;
   }
 
-  /*
-   * NOTE: this doesn't work. it ends up returning both the combos with just 6+ stat and
-   * the combos with meso/drop. why?
-
   BufStatic(Want, want,
     WantStat(MESO, 20),
     WantStat(DROP, 20),
     WantOp(OR, 2),
-    WantStat(STAT, 6),
-    WantOp(AND, 2),
-  );
-  */
-
-  BufStatic(Want, want,
-    WantStat(MESO, 20),
     WantStat(STAT, 6),
     WantOp(AND, 2),
   );
