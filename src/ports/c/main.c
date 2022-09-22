@@ -268,20 +268,18 @@ int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
   // filter all lines that don't match these stats
   int lineHiMask = ANY_HI;
   int lineLoMask = ANY_LO;
-  BufEach(Want, *pstack, s) {
+  BufEach(Want, wantBuf, s) {
     if (s->type == WANT_STAT) {
       lineHiMask |= s->lineHi;
       lineLoMask |= s->lineLo;
     }
   }
 
-  // TODO: this is not actually correct, because we need to match both the lo and hi parts,
-  // not either of them. for now this is a fast way to narrow down the search
   intmax_t* match = 0;
   intmax_t* matchLo = 0;
   BufMask(int, combos.lineHi, *x & lineHiMask, &match);
   BufMask(int, combos.lineLo, *x & lineLoMask, &matchLo);
-  BufOR(match, matchLo);
+  BufAND(match, matchLo);
   LinesFilt(&combos, match);
   BufClear(match);
   BufClear(matchLo);
@@ -423,6 +421,7 @@ int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
   puts("");
   puts("# combos");
   LinesPrint(&combos, 3);
+  printf("%zu total combos\n", BufLen(combos.lineHi) / 3);
 #endif
 
 cleanup:
@@ -485,11 +484,13 @@ int main() {
     WantStat(MESO, 20),
     WantStat(DROP, 20),
     WantOp(OR, 2),
-    WantStat(STAT, 6),
+    WantStat(STAT, 10),
     WantOp(AND, 2),
+    WantStat(STAT, 23),
+    WantOp(OR, 2),
   );
 
-  double p = CubeCalc(want, FACE_EYE_RING_EARRING_PENDANT, RED, LEGENDARY, 150, GMS, data);
+  double p = CubeCalc(want, FACE_EYE_RING_EARRING_PENDANT, RED, LEGENDARY, 160, GMS, data);
   puts("");
   if (p > 0) {
     printf("1 in %d\n", (int)round(1/p));
