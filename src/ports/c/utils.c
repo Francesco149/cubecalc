@@ -362,7 +362,7 @@ struct BufHdr {
 
 // same as BufIndex but on a bitmask array (indices are bit indices)
 // the result is allocated at the end of presultBuf
-void BufIndexBit(uintmax_t* sourceBuf, intmax_t* indices, uintmax_t** presultBuf);
+void BufIndexBit(intmax_t* sourceBuf, intmax_t* indices, intmax_t** presultBuf);
 
 //
 // generate all possible combination of ranges of integers.
@@ -787,7 +787,7 @@ void* _BufToProto(void* b, size_t *pn, Allocator const* allocator) {
   return res;
 }
 
-void BufIndexBit(uintmax_t* sourceBuf, intmax_t* indices, uintmax_t** presultBuf) {
+void BufIndexBit(intmax_t* sourceBuf, intmax_t* indices, intmax_t** presultBuf) {
   size_t elements = ArrayBitElements(*presultBuf, BufLen(indices));
   (void)BufReserve(presultBuf, elements);
   BufEachi(indices, i) {

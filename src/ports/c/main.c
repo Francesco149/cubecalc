@@ -108,7 +108,7 @@ typedef struct _Lines {
   int* lineLo;
   float* onein;
   int* value;
-  uintmax_t* prime;
+  intmax_t* prime;
 } Lines;
 
 typedef union _LineFields {
@@ -169,7 +169,7 @@ void LinesIndex(Lines* l, intmax_t* indices) {
   ArrayEach(int*, F(l)->fields, x) {
     BufIndexFreeInt(x, indices);
   }
-  uintmax_t* result = 0;
+  intmax_t* result = 0;
   BufIndexBit(l->prime, indices, &result);
   BufFree(&l->prime);
   l->prime = result;
