@@ -103,27 +103,32 @@ Map* DataFind(int categoryMask, int cubeMask) {
   return res;
 }
 
-#define LinesFields(f) \
-  f(int*, lineHi) \
-  f(int*, lineLo) \
-  f(float*, onein) \
-  f(int*, value) \
+typedef struct _Lines {
+  int* lineHi;
+  int* lineLo;
+  float* onein;
+  int* value;
+  uintmax_t* prime;
+} Lines;
 
-#define LinesAllFields(f) \
-  LinesFields(f) \
-  f(uintmax_t*, prime) \
+typedef union _LineFields {
+  Lines data;
+  int* fields[offsetof(Lines, prime) / sizeof(void*)];
+  int* allFields[sizeof(Lines) / sizeof(void*)];
+} LineFields;
 
-#define DeclField(type, name) type name;
-typedef struct _Lines { LinesAllFields(DeclField) } Lines;
+#define F(x) ((LineFields*)(x))
 
-#define FreeField(type, name) BufFree(&l->name);
 void LinesFree(Lines* l) {
-  LinesAllFields(FreeField)
+  ArrayEach(int*, F(l)->allFields, x) {
+    BufFree(x);
+  }
 }
 
-#define DupField(type, name) dst->name = BufDup(src->name);
 void LinesDup(Lines* dst, Lines const* src) {
-  LinesAllFields(DupField)
+  ArrayEachi(F(dst)->allFields, i) {
+    F(dst)->allFields[i] = BufDup(F(src)->allFields[i]);
+  }
 }
 
 size_t LinesNumPrimes(Lines* l) {
@@ -134,9 +139,11 @@ void LinesFilt(Lines* l, intmax_t* mask) {
   size_t j = 0;
   BufEachi(l->lineHi, i) {
     if (ArrayBit(mask, i)) {
-#define a(t, x) l->x[j] = l->x[i];
-      LinesFields(a)
-#undef a
+      ArrayEachi(F(l)->fields, k) {
+        // NOTE: this will not work on platforms where float is not representable as a 32-bit int
+        // because we are casting onein to an int array
+        F(l)->fields[k][j] = F(l)->fields[k][i];
+      }
       if (ArrayBit(l->prime, i)) {
         ArrayBitSet(l->prime, j);
       } else {
@@ -145,10 +152,10 @@ void LinesFilt(Lines* l, intmax_t* mask) {
       ++j;
     }
   }
-#define a(t, x) BufHdr(l->x)->len = j;
-  LinesFields(a)
+  ArrayEach(int*, F(l)->fields, x) {
+    BufHdr(*x)->len = j;
+  }
   BufHdr(l->prime)->len = ArrayBitElements(l->prime, j);
-#undef a
 }
 
 void BufIndexFreeInt(int** buf, intmax_t* indices) {
@@ -159,16 +166,16 @@ void BufIndexFreeInt(int** buf, intmax_t* indices) {
 }
 
 void LinesIndex(Lines* l, intmax_t* indices) {
-  // NOTE: I know float is the same size as int so it's fine to cast it to int so I don't need
-  // another version of the function
-#define a(t, x) BufIndexFreeInt((int**)&l->x, indices);
-  LinesFields(a)
-#undef a
+  ArrayEach(int*, F(l)->fields, x) {
+    BufIndexFreeInt(x, indices);
+  }
   uintmax_t* result = 0;
   BufIndexBit(l->prime, indices, &result);
   BufFree(&l->prime);
   l->prime = result;
 }
+
+#undef F
 
 int LinesCatData(Lines* l, Map* data, size_t group, int tier) {
   Map* hi = MapGet(valueGroups[group], tier);

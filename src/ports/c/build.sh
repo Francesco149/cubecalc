@@ -1,6 +1,6 @@
 #!/bin/sh
 
-flags="-std=c99 -Wall -lm"
+flags="-std=c11 -Wall -lm"
 buildflags="-O0 -DCUBECALC_DEBUG -D_FORTIFY_SOURCE=0"
 units=compilation-units/monolith.c
 cc=tcc

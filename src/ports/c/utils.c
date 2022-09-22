@@ -32,6 +32,31 @@ typedef uintptr_t uintmax_t;
 
 #define ArrayElementSize(array) sizeof((array)[0])
 #define ArrayLength(array) (sizeof(array) / ArrayElementSize(array))
+
+// see BufI
+#define ArrayI(arr, i) \
+  ((i) < 0 ? ((intmax_t)ArrayLength(arr) + (i)) : (i))
+
+// see BufEach
+#define ArrayEach(type, arr, x) \
+  ArrayEachRange(type, arr, 0, -1, x)
+
+#define ArrayEachRange(type, arr, start, end, x) \
+  EachRange(type, arr, ArrayI(arr, start), ArrayI(arr, end), x)
+
+#define EachRange(type, arr, start, end, x) \
+  for (type* x = (arr) + start; x <= (arr) + end; ++x)
+
+// see BufEachi
+#define ArrayEachi(arr, i) \
+  ArrayEachiRange(arr, 0, -1, i)
+
+#define ArrayEachiRange(arr, start, end, i) \
+  EachiRange(arr, ArrayI(arr, start), ArrayI(arr, end), i)
+
+#define EachiRange(arr, start, end, i) \
+  for (intmax_t i = start; i <= end; ++i)
+
 #define ArgsLength(type, ...) (sizeof((type[]){__VA_ARGS__}) / sizeof(type))
 #define MemZero(p) memset(p, 0, sizeof(*p))
 #define Min(a, b) ((a) < (b) ? (a) : (b))
@@ -140,7 +165,7 @@ void nofree(void* param, void* p);
 #define BufLen(b) \
   ((b) ? BufHdr(b)->len : 0)
 
-// fancy indexing. if i is negative, it will start from the end of the array (BufLen(b) - i)
+// fancy indexing. if i is negative, it will start from the end of the array (ArrayLength(arr) - i)
 // this is used by other functions that take indices
 #define BufI(b, i) \
   ((i) < 0 ? ((intmax_t)BufLen(b) + (i)) : (i))
@@ -213,7 +238,7 @@ void* BufCat(void* pp, void const* other);
   BufEachRange(type, b, 0, -1, x)
 
 #define BufEachRange(type, b, start, end, x) \
-  if (b) for (type* x = (b) + BufI(b, start); x <= (b) + BufI(b, end); ++x)
+  if (b) EachRange(type, b, BufI(b, start), BufI(b, end), x)
 
 #define BufCount(type, b, condition, countVar) \
   BufCountRange(type, b, 0, -1, condition, countVar)
@@ -266,7 +291,7 @@ intmax_t* BufNOR(intmax_t* a, intmax_t* b); // a = ~(a | b); return a
 #define BufEachi(b, i) \
   BufEachiRange(b, 0, -1, i)
 #define BufEachiRange(b, start, end, i) \
-  for (intmax_t i = BufI(b, start); i <= BufI(b, end); ++i)
+  EachiRange(b, BufI(b, start), BufI(b, end), i)
 
 // pp points to a buf of char pointers.
 // malloc and format a string and append it to the buf.
