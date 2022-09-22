@@ -57,6 +57,18 @@ typedef uintptr_t uintmax_t;
 #define EachiRange(arr, start, end, i) \
   for (intmax_t i = start; i <= end; ++i)
 
+// see BufSum
+#define ArraySum(type, arr, psumVar) \
+  ArraySumRange(type, arr, 0, -1, psumVar)
+
+#define ArraySumRange(type, arr, start, end, psumVar) \
+  SumRange(type, arr, ArrayI(arr, start), ArrayI(arr, end), psumVar)
+
+#define SumRange(type, arr, start, end, psumVar) \
+  EachRange(type, arr, start, end, x) { \
+    *(psumVar) += *x; \
+  }
+
 #define ArgsLength(type, ...) (sizeof((type[]){__VA_ARGS__}) / sizeof(type))
 #define MemZero(p) memset(p, 0, sizeof(*p))
 #define Min(a, b) ((a) < (b) ? (a) : (b))
@@ -271,13 +283,11 @@ intmax_t* BufOR(intmax_t* a, intmax_t* b); // a |= b; return a
 intmax_t* BufNOR(intmax_t* a, intmax_t* b); // a = ~(a | b); return a
 
 // *psumVar += sum(b)
-#define BufSum(b, psumVar) \
-  BufSumRange(b, 0, -1, sumVar)
+#define BufSum(type, b, psumVar) \
+  BufSumRange(type, b, 0, -1, sumVar)
 
-#define BufSumRange(b, start, end, psumVar) \
-  BufEachiRange(b, start, end, i) { \
-    *(psumVar) += (b)[i]; \
-  }
+#define BufSumRange(type, b, start, end, psumVar) \
+  SumRange(type, b, BufI(b, start), BufI(b, end), psumVar)
 
 //
 // shortcut to loop over every index

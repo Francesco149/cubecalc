@@ -79,8 +79,8 @@ Map* DataFindMap(int cubeMask) {
   return kms;
 }
 
-Map* DataFind(int categoryMask, int cubeMask) {
-  Map* res = 0;
+LineData const* DataFind(int categoryMask, int cubeMask, int tier) {
+  LineData const* res = 0;
   Map* data = DataFindMap(cubeMask);
   int* cubes = MapKeys(data);
   BufEach(int, cubes, cube) {
@@ -89,8 +89,11 @@ Map* DataFind(int categoryMask, int cubeMask) {
       int* categories = MapKeys(categoryMap);
       BufEach(int, categories, category) {
         if (*category & categoryMask) {
-          res = MapGet(categoryMap, *category);
-          break;
+          Map* tiers = MapGet(categoryMap, *category);
+          if (MapHas(tiers, tier)) {
+            res = MapGet(tiers, tier);
+            break;
+          }
         }
       }
       BufFree(&categories);
@@ -156,6 +159,11 @@ void LinesFilt(Lines* l, intmax_t* mask) {
     BufHdr(*x)->len = j;
   }
   BufHdr(l->prime)->len = ArrayBitElements(l->prime, j);
+
+  // important: fill the rest of the bit mask with zeros so they dont get counted by NumPrimes
+  for (; j % ArrayElementBitSize(l->prime); ++j) {
+    ArrayBitClear(l->prime, j);
+  }
 }
 
 void BufIndexFreeInt(int** buf, intmax_t* indices) {
@@ -177,13 +185,12 @@ void LinesIndex(Lines* l, intmax_t* indices) {
 
 #undef F
 
-int LinesCatData(Lines* l, Map* data, size_t group, int tier) {
+int LinesCatData(Lines* l, LineData const* ld, size_t group, int tier) {
   Map* hi = MapGet(valueGroups[group], tier);
   if (!hi) {
     fprintf(stderr, "no data for tier %d\n", tier);
     return 0;
   }
-  LineData* ld = MapGet(data, tier);
   if (ld) {
     size_t start = BufLen(l->lineHi);
     BufCat(&l->lineHi, ld->lineHi);
@@ -212,10 +219,12 @@ int LinesCatData(Lines* l, Map* data, size_t group, int tier) {
   return 1;
 }
 
-int LinesInit(Lines* l, Map* data, size_t group, int tier) {
-  if (!LinesCatData(l, data, group, tier)) return 0;
+int LinesInit(Lines* l, LineData const* dataPrime, LineData const* dataNonPrime,
+  size_t group, int tier)
+{
+  if (!LinesCatData(l, dataPrime, group, tier)) return 0;
   size_t numPrimes = BufLen(l->lineHi);
-  if (!LinesCatData(l, data, group, tier - 1)) return 0;
+  if (!LinesCatData(l, dataNonPrime, group, tier - 1)) return 0;
   (void)BufReserve(&l->prime, ArrayBitElements(l->prime, BufLen(l->lineHi)));
   BufZero(l->prime);
   for (size_t i = 0; i < numPrimes; ++i) {
@@ -264,9 +273,9 @@ void WantStackFree(Want** pstack) {
 
 #include "debug.c"
 
-void LinesMatch(Lines* l, int lineHiMask, int lineLoMask,
-    intmax_t** pmatch, intmax_t** pmatchLo)
-{
+void LinesMatch(Lines* l, int lineHiMask, int lineLoMask, intmax_t** pmatch, intmax_t** pmatchLo) {
+  lineHiMask |= ANY_HI;
+  lineLoMask |= ANY_LO;
   BufClear(*pmatch);
   BufClear(*pmatchLo);
   BufMask(int, l->lineHi, *x & lineHiMask, pmatch);
@@ -274,7 +283,7 @@ void LinesMatch(Lines* l, int lineHiMask, int lineLoMask,
   BufAND(*pmatch, *pmatchLo);
 }
 
-int WantEval(Lines const* l, Want* wantBuf) {
+int WantEval(int category, int cube, Lines const* l, Want* wantBuf) {
   Want* stack = 0;
   int res = 0;
 
@@ -283,8 +292,8 @@ int WantEval(Lines const* l, Want* wantBuf) {
   LinesDup(&combos, l);
 
   // filter all lines that don't match these stats
-  int lineHiMask = ANY_HI;
-  int lineLoMask = ANY_LO;
+  int lineHiMask = 0;
+  int lineLoMask = 0;
   BufEach(Want, wantBuf, s) {
     if (s->type == WANT_STAT) {
       lineHiMask |= s->lineHi;
@@ -298,6 +307,8 @@ int WantEval(Lines const* l, Want* wantBuf) {
   LinesMatch(&combos, lineHiMask, lineLoMask, &match, &matchLo);
   LinesFilt(&combos, match);
 
+  size_t numPrimes = LinesNumPrimes(&combos);
+
   // convert "one in" to probability (onein = 1/onein)
   BufEach(float, combos.onein, x) {
     *x = 1 / *x;
@@ -305,27 +316,48 @@ int WantEval(Lines const* l, Want* wantBuf) {
 
   // calculate prime ANY line chance
   float otherLinesChance = 0;
-  BufSumRange(combos.onein, 0, numPrimes - 2, &otherLinesChance);
+  BufSumRange(float, combos.onein, 0, numPrimes - 2, &otherLinesChance);
   combos.onein[numPrimes - 1] = 1 - otherLinesChance;
 
   // calculate non-prime ANY line chance
   otherLinesChance = 0;
-  BufSumRange(combos.onein, numPrimes, -2, &otherLinesChance);
+  BufSumRange(float, combos.onein, numPrimes, -2, &otherLinesChance);
   BufAt(combos.onein, -1) = 1 - otherLinesChance;
 
   // generate combinations (array of indices)
 
 #define P 0, -2
 #define N 0, -1
-#define NN -3, -1
+#define O -3, -1
+// O is non-prime only
 
-  // TODO: handle different cubes
-  BufStatic(intmax_t, ranges, P, N, N);
+#define rangeIf(cond, ...) if (cond) { range(__VA_ARGS__); }
+#define range(...) \
+  static const BufStatic(intmax_t const, r, __VA_ARGS__); \
+  ranges = BufDup((void*)r)
+
+  intmax_t* ranges;
+
+  rangeIf(cube & VIOLET, P, N, N, N, N, N)
+  else rangeIf(cube & UNI, N)
+  else rangeIf(cube & EQUALITY, P, P, P)
+  else if (cube & (FAMILIAR | RED_FAM_CARD)) {
+    // assuming no double primes on fam reveal (we don't know if this is accurate)
+    rangeIf(category & FAMILIAR, P, O)
+    else {
+      range(P, N);
+    }
+  } else {
+    range(P, N, N);
+  }
+
+#undef range
+#undef rangeIf
 
 #undef P
 #undef N
+#undef O
 
-  size_t numPrimes = LinesNumPrimes(&combos);
   BufEach(intmax_t, ranges, x) {
     if (*x == -2) {
       // primes end
@@ -339,9 +371,11 @@ int WantEval(Lines const* l, Want* wantBuf) {
   }
 
   // convert list of lines to flattened array of all possible line combinations
-  intmax_t* indices = BufCombos(ranges, BufLen(ranges) / 2);
+  size_t comboSize = BufLen(ranges) / 2;
+  intmax_t* indices = BufCombos(ranges, comboSize);
   LinesIndex(&combos, indices);
   BufFree(&indices);
+  BufFree(&ranges);
 
   BufEach(Want, wantBuf, w) {
     switch (w->type) {
@@ -364,10 +398,14 @@ int WantEval(Lines const* l, Want* wantBuf) {
                 relevantValues[i] *= ArrayBitVal(match, i);
               }
 
-              // sum every 3 elements (repeat sum 3 times in the array to match size)
-              BufEach(int, relevantValues, x) {
-                x[0] = x[1] = x[2] = x[0] + x[1] + x[2];
-                x += 2;
+              // sum every N elements (repeat sum N times in the array to match size)
+              BufEachi(relevantValues, i) {
+                int sum = 0;
+                BufSumRange(int, relevantValues, i, i + comboSize - 1, &sum);
+                for (size_t j = 0; j < comboSize; ++j) {
+                  relevantValues[i + j] = sum;
+                }
+                i += comboSize - 1;
               }
 
               // make mask of elements in this sum array that are >= desired value
@@ -443,8 +481,8 @@ int WantEval(Lines const* l, Want* wantBuf) {
 #ifdef CUBECALC_DEBUG
   puts("");
   puts("# combos");
-  LinesPrint(&combos, 3);
-  printf("%zu total combos\n", BufLen(combos.lineHi) / 3);
+  LinesPrint(&combos, comboSize);
+  printf("%zu total combos\n", BufLen(combos.lineHi) / comboSize);
 #endif
 
 cleanup:
@@ -455,8 +493,20 @@ cleanup:
   return res;
 }
 
-double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int region, Map* data) {
+double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int region) {
   double res = 0;
+
+  LineData const* dataPrime = DataFind(category, cube, tier);
+  if (!dataPrime) {
+    fprintf(stderr, "prime line data not found\n");
+    goto cleanup;
+  }
+
+  LineData const* dataNonPrime = DataFind(category, cube, tier - 1);
+  if (!dataNonPrime) {
+    fprintf(stderr, "non-prime line data not found\n");
+    goto cleanup;
+  }
 
   size_t group = valueGroupFind(cube, category, region, lvl);
   if (group >= valueGroupsLen || !valueGroups[group]) {
@@ -465,20 +515,20 @@ double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int re
   }
 
   Lines l = {0};
-  if (!LinesInit(&l, data, group, tier)) {
+  if (!LinesInit(&l, dataPrime, dataNonPrime, group, tier)) {
     goto cleanup;
   }
 
 #ifdef CUBECALC_DEBUG
   size_t numPrimes = LinesNumPrimes(&l);
   puts("# prime");
-  DataPrint(data, tier, l.value);
+  DataPrint(dataPrime, tier, l.value);
   puts("");
   puts("# nonprime");
-  DataPrint(data, tier - 1, l.value + numPrimes);
+  DataPrint(dataNonPrime, tier - 1, l.value + numPrimes);
 #endif
 
-  if (!WantEval(&l, wantBuf)) {
+  if (!WantEval(category, cube, &l, wantBuf)) {
     goto cleanup;
   }
 
@@ -496,12 +546,7 @@ cleanup:
 int main() {
   cubecalcGeneratedGlobalInit();
 
-  Map* data = DataFind(FACE_EYE_RING_EARRING_PENDANT, RED);
-  if (!data) {
-    fprintf(stderr, "line data not found\n");
-    goto cleanup;
-  }
-
+  /*
   BufStatic(Want, want,
     WantStat(MESO, 20),
     WantStat(DROP, 20),
@@ -511,8 +556,14 @@ int main() {
     WantStat(STAT, 23),
     WantOp(OR, 2),
   );
+  */
 
-  double p = CubeCalc(want, FACE_EYE_RING_EARRING_PENDANT, RED, LEGENDARY, 160, GMS, data);
+  BufStatic(Want, want,
+    WantStat(ATT, 33),
+    WantOp(AND, -1),
+  );
+
+  double p = CubeCalc(want, WEAPON, VIOLET, LEGENDARY, 200, GMS);
   puts("");
   if (p > 0) {
     printf("1 in %d\n", (int)round(1/p));

@@ -53,8 +53,7 @@ void AlignFree(Align* al) {
   BufFree(&al->lens);
 }
 
-void DataPrint(Map* data, int tier, int* values) {
-  LineData* ld = MapGet(data, tier);
+void DataPrint(LineData const* ld, int tier, int* values) {
   if (!ld) {
     puts("(null)");
     return;
