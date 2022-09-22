@@ -403,7 +403,7 @@ int WantEval(Lines* l, Want* wantBuf) {
     goto cleanup;
   }
 
-  int typ =stack[0].type;
+  int typ = stack[0].type;
   if (typ != WANT_MASK) {
     fprintf(stderr, "expected WANT_MASK result, got %s\n", WantTypeNames[typ]);
     goto cleanup;
