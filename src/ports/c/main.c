@@ -198,6 +198,7 @@ int LinesCatData(Lines* l, Map* data, size_t group, int tier) {
         BufFree(&s);
         return 0;
       }
+      // int value = valueGroups[group][tier][lineHi][lineLo]
       *BufAlloc(&l->value) = (int)(intptr_t)MapGet(lo, lineLo);
     }
   }
