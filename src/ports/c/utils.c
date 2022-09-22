@@ -33,6 +33,11 @@ typedef uintptr_t uintmax_t;
 #define ArrayElementSize(array) sizeof((array)[0])
 #define ArrayLength(array) (sizeof(array) / ArrayElementSize(array))
 
+#define Concat_(x, y) x##y
+#define Concat(x, y) Concat_(x, y)
+
+#define Repeat(n) for (size_t Concat(i, __LINE__) = n; Concat(i, __LINE__)--;)
+
 // see BufI
 #define ArrayI(arr, i) \
   ((i) < 0 ? ((intmax_t)ArrayLength(arr) + (i)) : (i))
@@ -52,21 +57,31 @@ typedef uintptr_t uintmax_t;
   ArrayEachiRange(arr, 0, -1, i)
 
 #define ArrayEachiRange(arr, start, end, i) \
-  EachiRange(arr, ArrayI(arr, start), ArrayI(arr, end), i)
+  Range(ArrayI(arr, start), ArrayI(arr, end), i)
 
-#define EachiRange(arr, start, end, i) \
+// for (size_t i = 0; i < end; ++i)
+#define RangeBefore(end, i) RangeFromBefore(0, end, i)
+
+// for (size_t i = start; i < end; ++i)
+#define RangeFromBefore(start, end, i) Range(start, (end) - 1, i)
+
+// for (size_t i = 0; i <= end; ++i)
+#define RangeTill(end, i) Range(0, end, i)
+
+// for (size_t i = start; i <= end; ++i)
+#define Range(start, end, i) \
   for (intmax_t i = start; i <= end; ++i)
 
-// see BufSum
-#define ArraySum(type, arr, psumVar) \
-  ArraySumRange(type, arr, 0, -1, psumVar)
+// see BufOp
+#define ArrayOp(op, arr, paccum) \
+  ArrayOpRange(op, arr, 0, -1, paccum)
 
-#define ArraySumRange(type, arr, start, end, psumVar) \
-  SumRange(type, arr, ArrayI(arr, start), ArrayI(arr, end), psumVar)
+#define ArrayOpRange(op, arr, start, end, paccum) \
+  OpRange(op, arr, ArrayI(arr, start), ArrayI(arr, end), paccum)
 
-#define SumRange(type, arr, start, end, psumVar) \
-  EachRange(type, arr, start, end, x) { \
-    *(psumVar) += *x; \
+#define OpRange(op, arr, start, end, paccum) \
+  Range(start, end, Concat(i, __LINE__)) { \
+    *(paccum) op##= (arr)[Concat(i, __LINE__)]; \
   }
 
 #define ArgsLength(type, ...) (sizeof((type[]){__VA_ARGS__}) / sizeof(type))
@@ -282,12 +297,13 @@ intmax_t* BufAND(intmax_t* a, intmax_t* b); // a &= b; return a
 intmax_t* BufOR(intmax_t* a, intmax_t* b); // a |= b; return a
 intmax_t* BufNOR(intmax_t* a, intmax_t* b); // a = ~(a | b); return a
 
-// *psumVar += sum(b)
-#define BufSum(type, b, psumVar) \
-  BufSumRange(type, b, 0, -1, sumVar)
+// foreach (x in b)
+//   *paccum op= x
+#define BufOp(op, b, paccum) \
+  BufOpRange(op, b, 0, -1, paccum)
 
-#define BufSumRange(type, b, start, end, psumVar) \
-  SumRange(type, b, BufI(b, start), BufI(b, end), psumVar)
+#define BufOpRange(op, b, start, end, paccum) \
+  OpRange(op, b, BufI(b, start), BufI(b, end), paccum)
 
 //
 // shortcut to loop over every index
@@ -302,7 +318,7 @@ intmax_t* BufNOR(intmax_t* a, intmax_t* b); // a = ~(a | b); return a
 #define BufEachi(b, i) \
   BufEachiRange(b, 0, -1, i)
 #define BufEachiRange(b, start, end, i) \
-  EachiRange(b, BufI(b, start), BufI(b, end), i)
+  Range(BufI(b, start), BufI(b, end), i)
 
 // pp points to a buf of char pointers.
 // malloc and format a string and append it to the buf.

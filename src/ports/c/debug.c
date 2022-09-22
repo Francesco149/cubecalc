@@ -41,7 +41,7 @@ void _AlignFeed(Align* al, char* alignFmt, char* fmt, ...) {
 
 void AlignPrint(Align* al, FILE* f) {
   BufEachi(al->ss, i) {
-    for (size_t x = 0; x < al->maxlen + 1 - al->lens[i]; ++x) putc(' ', f);
+    Repeat(al->maxlen + 1 - al->lens[i]) putc(' ', f);
     fputs(al->ss[i], f);
     putc('\n', f);
   }
@@ -69,11 +69,11 @@ void DataPrint(LineData const* ld, int tier, int* values) {
 }
 
 
-void LinesPrint(Lines* l, int group) {
+void LinesPrint(Lines* l) {
   Align al = {0};
   BufEachi(l->lineHi, i) {
     char* s = LineToStr(l->lineHi[i], l->lineLo[i], 0);
-    if (group && !(i % group)) {
+    if (!(i % l->comboSize)) {
       AlignFeed(&al, "%s", "", "");
     }
     float p = l->onein[i];
