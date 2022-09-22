@@ -558,14 +558,17 @@ double CubeCalc(Want const* wantBuf, int category, int cube, int tier, int lvl, 
 
   {
     float* primeMul = 0;
+    BufReserve(&primeMul, combos.comboSize * 2);
     RangeBefore(combos.comboSize, i) {
-      *BufAlloc(&primeMul) = 1 - primeChanceData[i];
+      primeMul[i] = 1 - primeChanceData[i];
+      primeMul[i + combos.comboSize] = primeChanceData[i];
     }
-    BufCat(&primeMul, primeChanceData);
 
-    RangeBefore(BufLen(combos.lineHi), i) {
+    size_t numLines = BufLen(combos.lineHi);
+    BufReserve(&primeChanceBuf, numLines);
+    RangeBefore(numLines, i) {
       size_t idx = (i % combos.comboSize) + ArrayBitVal(combos.prime, i) * combos.comboSize;
-      *BufAlloc(&primeChanceBuf) = primeMul[idx];
+      primeChanceBuf[i] = primeMul[idx];
     }
 
     BufFree(&primeMul);
