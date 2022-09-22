@@ -250,15 +250,14 @@ void WantStackPop(Want* stack, intmax_t n) {
 }
 
 void WantStackFree(Want** pstack) {
-  BufEach(Want, *pstack, w) {
-    WantFree(w);
-  }
+  WantStackPop(*pstack, BufLen(*pstack));
   BufFree(pstack);
 }
 
 #include "debug.c"
 
-int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
+int WantEval(Lines* l, Want* wantBuf) {
+  Want* stack = 0;
   int res = 0;
 
   // make a copy of the line data
@@ -319,13 +318,13 @@ int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
   BufEach(Want, wantBuf, w) {
     switch (w->type) {
       case WANT_STAT:
-        *BufAlloc(pstack) = *w;
+        *BufAlloc(&stack) = *w;
         break;
       case WANT_OP: {
         intmax_t* result = 0;
-        int opCount = w->opCount >= 0 ? w->opCount : BufLen(*pstack);
+        int opCount = w->opCount >= 0 ? w->opCount : BufLen(stack);
 
-        BufEachRange(Want, *pstack, -opCount, -1, s) {
+        BufEachRange(Want, stack, -opCount, -1, s) {
           switch (s->type) {
             case WANT_STAT: {
               // make a mask of lines that match the stat
@@ -379,8 +378,8 @@ int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
               goto cleanup;
           }
         }
-        WantStackPop(*pstack, opCount);
-        *BufAlloc(pstack) = (Want){
+        WantStackPop(stack, opCount);
+        *BufAlloc(&stack) = (Want){
           .type = WANT_MASK,
           .mask = result,
         };
@@ -392,31 +391,31 @@ int WantEval(Lines* l, Want** pstack, Want* wantBuf) {
     }
   }
 
-  if (BufLen(*pstack) > 1) {
-    fprintf(stderr, "%zu values on the stack, expected 1\n", BufLen(*pstack));
+  if (BufLen(stack) > 1) {
+    fprintf(stderr, "%zu values on the stack, expected 1\n", BufLen(stack));
 #ifdef CUBECALC_DEBUG
     puts("");
     puts("# final stack");
-    WantPrint(*pstack);
+    WantPrint(stack);
     puts("");
 #endif
     goto cleanup;
   }
 
-  int typ =(*pstack)[0].type;
+  int typ =stack[0].type;
   if (typ != WANT_MASK) {
     fprintf(stderr, "expected WANT_MASK result, got %s\n", WantTypeNames[typ]);
     goto cleanup;
   }
 
-  if (!(*pstack)[0].mask) {
+  if (!stack[0].mask) {
     fprintf(stderr, "NULL line filter mask\n");
     goto cleanup;
   }
 
   res = 1;
 
-  LinesFilt(&combos, (*pstack)[0].mask);
+  LinesFilt(&combos, stack[0].mask);
 #ifdef CUBECALC_DEBUG
   puts("");
   puts("# combos");
@@ -428,6 +427,7 @@ cleanup:
   BufFree(&match);
   BufFree(&matchLo);
   LinesFree(&combos);
+  WantStackFree(&stack);
   return res;
 }
 
@@ -440,7 +440,6 @@ double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int re
     return 0;
   }
 
-  Want* stack = 0;
   Lines l = {0};
   if (!LinesInit(&l, data, group, tier)) {
     goto cleanup;
@@ -455,13 +454,12 @@ double CubeCalc(Want* wantBuf, int category, int cube, int tier, int lvl, int re
   DataPrint(data, tier - 1, l.value + numPrimes);
 #endif
 
-  if (!WantEval(&l, &stack, wantBuf)) {
+  if (!WantEval(&l, wantBuf)) {
     goto cleanup;
   }
 
 cleanup:
   LinesFree(&l);
-  WantStackFree(&stack);
 
   return res;
 }
