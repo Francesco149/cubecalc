@@ -276,8 +276,6 @@ void WantStackFree(Want** pstack) {
 #include "debug.c"
 
 void LinesMatch(Lines* l, int lineHiMask, int lineLoMask, intmax_t** pmatch, intmax_t** pmatchLo) {
-  lineHiMask |= ANY_HI;
-  lineLoMask |= ANY_LO;
   BufClear(*pmatch);
   BufClear(*pmatchLo);
   BufMask(int, l->lineHi, *x & lineHiMask, pmatch);
@@ -290,8 +288,8 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
   int res = 0;
 
   // filter all lines that don't match these stats
-  int lineHiMask = 0;
-  int lineLoMask = 0;
+  int lineHiMask = ANY_HI;
+  int lineLoMask = ANY_LO;
   BufEach(Want const, wantBuf, s) {
     if (s->type == WANT_STAT) {
       lineHiMask |= s->lineHi;
@@ -623,7 +621,6 @@ int main() {
   );
   */
 
-  // TODO: violet cube results are wrong
   // TODO: lvl 151+ doesn't find a match with bpot cubes
 
   const BufStatic(Want const, want,
