@@ -340,6 +340,33 @@ struct BufHdr {
 void BufIndexBit(uintmax_t* sourceBuf, intmax_t* indices, uintmax_t** presultBuf);
 
 //
+// generate all possible combination of ranges of integers.
+// ranges is an array of ranges for each element (min, max inclusive)
+// n is the number of elements
+// the result is a flattened buf containing all the combinations
+//
+// example:
+//   ranges = {
+//     0, 1,
+//     10, 11,
+//     20, 21,
+//   }
+//   n = 3
+//
+//   result = {
+//     0, 10, 20,
+//     0, 10, 21,
+//     0, 11, 20,
+//     0, 11, 21,
+//     1, 10, 20,
+//     1, 10, 21,
+//     1, 11, 20,
+//     1, 11, 21,
+//   }
+//
+intmax_t* BufCombos(intmax_t* ranges, size_t n);
+
+//
 // Statistics
 //
 
@@ -745,6 +772,30 @@ void BufIndexBit(uintmax_t* sourceBuf, intmax_t* indices, uintmax_t** presultBuf
       ArrayBitClear(*presultBuf, i);
     }
   }
+}
+
+intmax_t* BufCombos(intmax_t* ranges, size_t n) {
+  intmax_t* thisRange = 0;
+  for (size_t i = ranges[0]; i <= ranges[1]; ++i) {
+    *BufAlloc(&thisRange) = i;
+  }
+  if (n <= 1) {
+    return thisRange;
+  }
+  intmax_t* res = 0;
+  intmax_t* r = BufCombos(ranges + 2, n - 1);
+  BufEach(intmax_t, thisRange, y) {
+    BufEach(intmax_t, r, x) {
+      *BufAlloc(&res) = *y;
+      for (size_t i = 0; i < n - 1; ++i) {
+        *BufAlloc(&res) = x[i];
+      }
+      x += n - 2;
+    }
+  }
+  BufFree(&thisRange);
+  BufFree(&r);
+  return res;
 }
 
 //
