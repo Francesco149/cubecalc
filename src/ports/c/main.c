@@ -257,7 +257,17 @@ void WantStackFree(Want** pstack) {
 
 #include "debug.c"
 
-int WantEval(Lines* l, Want* wantBuf) {
+void LinesMatch(Lines* l, int lineHiMask, int lineLoMask,
+    intmax_t** pmatch, intmax_t** pmatchLo)
+{
+  BufClear(*pmatch);
+  BufClear(*pmatchLo);
+  BufMask(int, l->lineHi, *x & lineHiMask, pmatch);
+  BufMask(int, l->lineLo, *x & lineLoMask, pmatchLo);
+  BufAND(*pmatch, *pmatchLo);
+}
+
+int WantEval(Lines const* l, Want* wantBuf) {
   Want* stack = 0;
   int res = 0;
 
@@ -277,12 +287,9 @@ int WantEval(Lines* l, Want* wantBuf) {
 
   intmax_t* match = 0;
   intmax_t* matchLo = 0;
-  BufMask(int, combos.lineHi, *x & lineHiMask, &match);
-  BufMask(int, combos.lineLo, *x & lineLoMask, &matchLo);
-  BufAND(match, matchLo);
+
+  LinesMatch(&combos, lineHiMask, lineLoMask, &match, &matchLo);
   LinesFilt(&combos, match);
-  BufClear(match);
-  BufClear(matchLo);
 
   // generate combinations (array of indices)
 
@@ -329,11 +336,7 @@ int WantEval(Lines* l, Want* wantBuf) {
           switch (s->type) {
             case WANT_STAT: {
               // make a mask of lines that match the stat
-              BufClear(match);
-              BufClear(matchLo);
-              BufMask(int, combos.lineHi, *x & s->lineHi, &match);
-              BufMask(int, combos.lineLo, *x & s->lineLo, &matchLo);
-              BufAND(match, matchLo);
+              LinesMatch(&combos, s->lineHi, s->lineLo, &match, &matchLo);
 
               // multiply all the values by the mask (non matching values will be 0)
               int* relevantValues = BufDup(combos.value);
