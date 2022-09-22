@@ -633,7 +633,7 @@ void BufDel(void* b, intmax_t i) {
 }
 
 int BufFindInt(int* b, int value) {
-  for (int i = 0; i < BufLen(b); ++i) {
+  BufEachi(b, i) {
     if (b[i] == value) {
       return i;
     }
@@ -723,16 +723,12 @@ void* BufCat(void* b, void const* other) {
 }
 
 intmax_t* BufAND(intmax_t* a, intmax_t* b) {
-  BufEachi(a, i) {
-    a[i] &= b[i];
-  }
+  BufOp2(&, a, b);
   return a;
 }
 
 intmax_t* BufOR(intmax_t* a, intmax_t* b) {
-  BufEachi(a, i) {
-    a[i] |= b[i];
-  }
+  BufOp2(|, a, b);
   return a;
 }
 
@@ -834,7 +830,7 @@ void BufIndexBit(intmax_t* sourceBuf, intmax_t* indices, intmax_t** presultBuf) 
 
 intmax_t* BufCombos(intmax_t* ranges, size_t n) {
   intmax_t* thisRange = 0;
-  for (size_t i = ranges[0]; i <= ranges[1]; ++i) {
+  Range(ranges[0], ranges[1], i) {
     *BufAlloc(&thisRange) = i;
   }
   if (n <= 1) {
@@ -845,7 +841,7 @@ intmax_t* BufCombos(intmax_t* ranges, size_t n) {
   BufEach(intmax_t, thisRange, y) {
     BufEach(intmax_t, r, x) {
       *BufAlloc(&res) = *y;
-      for (size_t i = 0; i < n - 1; ++i) {
+      RangeBefore(n - 1, i) {
         *BufAlloc(&res) = x[i];
       }
       x += n - 2;
@@ -953,7 +949,7 @@ static Map* MapRealloc(Allocator const* allocator, Map* m, size_t newCap) {
   newMap->present = ArenaAlloc(arena, allocSize);
   memset(newMap->present, 0, allocSize);
   if (m) {
-    for (size_t i = 0; i < m->cap; ++i) {
+    RangeBefore(m->cap, i) {
       if (ArrayBit(m->present, i)) {
         MapSet(newMap, m->keys[i], m->values[i]);
       }
@@ -992,7 +988,7 @@ static size_t MapNextIndex(size_t cap, size_t i) {
 int* _MapKeys(Map* m, Allocator const* allocator) {
   int* res = 0;
   _BufAlloc(&res, 0, ArrayElementSize(res), allocator);
-  for (size_t i = 0; i < m->cap; ++i) {
+  RangeBefore(m->cap, i) {
     if (ArrayBit(m->present, i)) {
       *BufAlloc(&res) = m->keys[i];
     }

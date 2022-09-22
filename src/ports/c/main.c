@@ -49,7 +49,7 @@ char* LineToStr(int hi, int lo, int full) {
     hi &= ~LineMask(LINE_A_HI | LINE_B_HI | LINE_C_HI);
     lo &= ~LineMask(LINE_A_LO | LINE_B_LO | LINE_C_LO);
   }
-  RangeBefore(ArrayLength(allLinesHi), i) {
+  ArrayEachi(allLinesHi, i) {
     if ((hi & allLinesHi[i]) && (lo & allLinesLo[i])) {
       BufAllocCharsf(&res, "%s | ", allLineNames[i]);
       ++nflags;
@@ -400,7 +400,7 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
               BufEachi(relevantValues, i) {
                 int sum = 0;
                 BufOpRange(+, relevantValues, i, i + combos->comboSize - 1, &sum);
-                for (size_t j = 0; j < combos->comboSize; ++j) {
+                RangeBefore(combos->comboSize, j) {
                   relevantValues[i + j] = sum;
                 }
                 i += combos->comboSize - 1;

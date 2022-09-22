@@ -80,7 +80,7 @@ void tmsFree() { linesFree(tms); }
 void famsFree() { linesFree(fams); }
 
 void valueGroupsFree() {
-  for (size_t i = 0; i < ArrayLength(valueGroups); ++i) {
+  ArrayEachi(valueGroups, i) {
     Map* tiers = valueGroups[i];
     if (!tiers) continue;
     int* tierKeys = MapKeys(tiers);
@@ -114,7 +114,7 @@ void valueGroupsSet(size_t i, int tier,
     valueGroups[i] = MapInit();
   }
   Map* hi = MapGetOrInit(valueGroups[i], tier);
-  for (size_t j = 0; j < count; ++j) {
+  RangeBefore(count, j) {
     Map* lo = MapGetOrInit(hi, linesHi[j]);
     MapSet(lo, linesLo[j], (void*)(intptr_t)vals[j]);
   }
