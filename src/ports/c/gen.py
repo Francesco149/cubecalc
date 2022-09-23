@@ -295,7 +295,7 @@ def lines_map(name, x):
               p("linedata.lineLo = lineLo;")
               p(f"MapSet(tiers, {Tier(tier).name}, (void*)&linedata);")
           p(f"MapSet(categories, {enum_bits(Category, category_mask)}, tiers);")
-        p(f"MapSet({name}, {enum_bits(Cube, cube_mask)}, categories);")
+      p(f"MapSet({name}, {enum_bits(Cube, cube_mask)}, categories);")
 
 
 init_func("dataInit")

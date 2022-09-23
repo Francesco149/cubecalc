@@ -930,7 +930,6 @@ static void dataInit()
       }
       MapSet(categories, WEAPON, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -1087,7 +1086,6 @@ static void dataInit()
       }
       MapSet(categories, EMBLEM, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -1253,7 +1251,6 @@ static void dataInit()
       }
       MapSet(categories, SECONDARY, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -1419,7 +1416,6 @@ static void dataInit()
       }
       MapSet(categories, FORCE_SHIELD_SOUL_RING, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -1546,7 +1542,6 @@ static void dataInit()
       }
       MapSet(categories, HAT, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -1676,7 +1671,6 @@ static void dataInit()
       }
       MapSet(categories, TOP_OVERALL, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -1797,7 +1791,6 @@ static void dataInit()
       }
       MapSet(categories, BOTTOM, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -1921,7 +1914,6 @@ static void dataInit()
       }
       MapSet(categories, SHOE, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -2054,7 +2046,6 @@ static void dataInit()
       }
       MapSet(categories, GLOVE, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -2175,7 +2166,6 @@ static void dataInit()
       }
       MapSet(categories, CAPE_BELT_SHOULDER, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -2302,7 +2292,6 @@ static void dataInit()
       }
       MapSet(categories, FACE_EYE_RING_EARRING_PENDANT, tiers);
     }
-    MapSet(kms, RED | BLACK, categories);
     {
       Map* tiers = MapInit();
       {
@@ -2589,7 +2578,6 @@ static void dataInit()
       }
       MapSet(categories, WEAPON, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -2743,7 +2731,6 @@ static void dataInit()
       }
       MapSet(categories, EMBLEM, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -2906,7 +2893,6 @@ static void dataInit()
       }
       MapSet(categories, SECONDARY, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -3069,7 +3055,6 @@ static void dataInit()
       }
       MapSet(categories, FORCE_SHIELD_SOUL_RING, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -3199,7 +3184,6 @@ static void dataInit()
       }
       MapSet(categories, HAT, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -3332,7 +3316,6 @@ static void dataInit()
       }
       MapSet(categories, TOP_OVERALL, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -3456,7 +3439,6 @@ static void dataInit()
       }
       MapSet(categories, BOTTOM, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -3583,7 +3565,6 @@ static void dataInit()
       }
       MapSet(categories, SHOE, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -3725,7 +3706,6 @@ static void dataInit()
       }
       MapSet(categories, GLOVE, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -3849,7 +3829,6 @@ static void dataInit()
       }
       MapSet(categories, CAPE_BELT_SHOULDER, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -3979,7 +3958,6 @@ static void dataInit()
       }
       MapSet(categories, FACE_EYE_RING_EARRING_PENDANT, tiers);
     }
-    MapSet(kms, MEISTER | MASTER | OCCULT, categories);
     {
       Map* tiers = MapInit();
       {
@@ -4278,7 +4256,6 @@ static void dataInit()
       }
       MapSet(categories, WEAPON, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -4444,7 +4421,6 @@ static void dataInit()
       }
       MapSet(categories, EMBLEM, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -4619,7 +4595,6 @@ static void dataInit()
       }
       MapSet(categories, SECONDARY, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -4794,7 +4769,6 @@ static void dataInit()
       }
       MapSet(categories, FORCE_SHIELD_SOUL_RING, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -4969,7 +4943,6 @@ static void dataInit()
       }
       MapSet(categories, HAT, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -5141,7 +5114,6 @@ static void dataInit()
       }
       MapSet(categories, TOP_OVERALL, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -5313,7 +5285,6 @@ static void dataInit()
       }
       MapSet(categories, BOTTOM, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -5485,7 +5456,6 @@ static void dataInit()
       }
       MapSet(categories, SHOE, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -5657,7 +5627,6 @@ static void dataInit()
       }
       MapSet(categories, GLOVE, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -5829,7 +5798,6 @@ static void dataInit()
       }
       MapSet(categories, CAPE_BELT_SHOULDER, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -5998,7 +5966,6 @@ static void dataInit()
       }
       MapSet(categories, FACE_EYE_RING_EARRING_PENDANT, tiers);
     }
-    MapSet(kms, BONUS, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6204,7 +6171,6 @@ static void dataInit()
       }
       MapSet(categories, HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6309,7 +6275,6 @@ static void dataInit()
       }
       MapSet(categories, SHOE, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6417,7 +6382,6 @@ static void dataInit()
       }
       MapSet(categories, FACE_EYE_RING_EARRING_PENDANT, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6490,7 +6454,6 @@ static void dataInit()
       }
       MapSet(categories, WEAPON | EMBLEM | SECONDARY, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6563,7 +6526,6 @@ static void dataInit()
       }
       MapSet(categories, FORCE_SHIELD_SOUL_RING, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6590,7 +6552,6 @@ static void dataInit()
       }
       MapSet(categories, HAT | BOTTOM | CAPE_BELT_SHOULDER, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6673,7 +6634,6 @@ static void dataInit()
       }
       MapSet(categories, TOP_OVERALL, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6759,7 +6719,6 @@ static void dataInit()
       }
       MapSet(categories, GLOVE, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6817,7 +6776,6 @@ static void dataInit()
       }
       MapSet(categories, HAT, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6869,7 +6827,6 @@ static void dataInit()
       }
       MapSet(categories, BOTTOM, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -6921,7 +6878,6 @@ static void dataInit()
       }
       MapSet(categories, CAPE_BELT_SHOULDER, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7000,7 +6956,6 @@ static void dataInit()
       }
       MapSet(categories, WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING, tiers);
     }
-    MapSet(tms, VIOLET | EQUALITY, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7103,7 +7058,6 @@ static void dataInit()
       }
       MapSet(categories, HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7208,7 +7162,6 @@ static void dataInit()
       }
       MapSet(categories, SHOE, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7316,7 +7269,6 @@ static void dataInit()
       }
       MapSet(categories, FACE_EYE_RING_EARRING_PENDANT, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7389,7 +7341,6 @@ static void dataInit()
       }
       MapSet(categories, WEAPON | EMBLEM | SECONDARY, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7462,7 +7413,6 @@ static void dataInit()
       }
       MapSet(categories, FORCE_SHIELD_SOUL_RING, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7489,7 +7439,6 @@ static void dataInit()
       }
       MapSet(categories, HAT | BOTTOM | CAPE_BELT_SHOULDER, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7572,7 +7521,6 @@ static void dataInit()
       }
       MapSet(categories, TOP_OVERALL, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7658,7 +7606,6 @@ static void dataInit()
       }
       MapSet(categories, GLOVE, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7716,7 +7663,6 @@ static void dataInit()
       }
       MapSet(categories, HAT, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7768,7 +7714,6 @@ static void dataInit()
       }
       MapSet(categories, BOTTOM, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7820,7 +7765,6 @@ static void dataInit()
       }
       MapSet(categories, CAPE_BELT_SHOULDER, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
@@ -7899,7 +7843,6 @@ static void dataInit()
       }
       MapSet(categories, WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING, tiers);
     }
-    MapSet(tms, UNI, categories);
     {
       Map* tiers = MapInit();
       {
