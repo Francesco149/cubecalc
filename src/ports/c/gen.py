@@ -152,6 +152,23 @@ p("#define CUBECALC_GENERATED_H")
 p("#include \"common.c\"")
 p("#include \"utils.c\"")
 
+
+discl = ""
+discl_len = 0
+with open("../../../cubechances.txt") as f:
+  f.readline()
+  f.readline()
+  for line in f:
+    if line.startswith("="):
+      break
+    s = line.strip()
+    discl += (f"\"{s}\\n\"")
+    discl_len += len(s) + 1
+
+discl_len += 1
+
+p(f"extern char const disclaimer[{discl_len}];")
+
 p(f"void cubecalcGeneratedGlobalInit();")
 p(f"void cubecalcGeneratedGlobalFree();")
 maps = [ "primeChances", "kms", "tms", "fams" ]
@@ -371,5 +388,10 @@ with Block():
 p(f"void cubecalcGeneratedGlobalInit()")
 with Block():
   [p(f"{x}();") for x in init_funcs]
+
+
+p(f"char const disclaimer[{discl_len}] = ")
+p(discl)
+p(";")
 
 p("#endif")

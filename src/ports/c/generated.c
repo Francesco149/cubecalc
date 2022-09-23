@@ -3,6 +3,7 @@
 #define CUBECALC_GENERATED_H
 #include "common.c"
 #include "utils.c"
+extern char const disclaimer[1333];
 void cubecalcGeneratedGlobalInit();
 void cubecalcGeneratedGlobalFree();
 extern Map* primeChances;
@@ -19243,4 +19244,7 @@ void cubecalcGeneratedGlobalInit()
   dataInit();
   valuesInit();
 }
+char const disclaimer[1333] = 
+"even though the numbers look reasonable, I cannot guarantee that the math here\n""is correct. this is a calculator I made for myself and you should never\n""blindly trust anything like this. before you gamble your time and/or money,\n""double check the math yourself\n""\n""I also make a few assumptions that might not be true but we just don't know\n""because GMS hasn't released any official data:\n""- that line rates are the same as KMS\n""- that line rates for TMS cubes like violet, uni are the same as TMS\n""- that prime chance for violets on strategywiki applies to GMS\n""(it's lower than TMS)\n""\n""the assumptions are reasonable in my opinion but we just don't know for sure\n""\n""you can check line probabilities in the source and see where I got them from\n""\n""familiar calculations are very speculative and might not be accurate at all:\n""- for familiars we use the data mined rates from southperry. we don't know\n""whether these refer to reveal or familiard cards or both. we don't even\n""know the prime rates so it's hardcoded to never get double prime\n""- for red cards we use the data I collected from 2.9k rolls to estimate\n""line rates. this is probably not a big enough sample size to be\n""truly representative of the averages.\n""\n""NOTE: for cases where the tier is lower than the max tier of the cube\n""(such as red cubes on unique) it's assumed that you won't tier up\n""\n"
+;
 #endif

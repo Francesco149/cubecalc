@@ -7,6 +7,8 @@
 int main() {
   CubeGlobalInit();
 
+  printf("%s", disclaimer);
+
   const BufStatic(Want const, want,
     WantStat(ATT, 33),
     WantOp(AND, -1),
