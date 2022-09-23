@@ -17,7 +17,6 @@
         devShell = mkShell {
           buildInputs = [
             clang
-            gcc
             tinycc
             mold
           ];
