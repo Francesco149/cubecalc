@@ -157,6 +157,8 @@ DefEnumNames(WantType);
 #include "debug.c"
 #endif
 
+#include <string.h>
+
 // some of the hi/lo masks are actually zero and replaced by NULLBIT
 #define LineMask(x) ((x) & ~NULLBIT)
 
