@@ -1,6 +1,8 @@
 #ifndef CUBECALC_COMMON_H
 #define CUBECALC_COMMON_H
 
+#include <stddef.h>
+
 typedef enum _ContainerType {
   CONTAINER_NULL,
   CONTAINER_BUF,

@@ -1,5 +1,8 @@
-void WantPrint(Want* wantBuf) {
-  BufEach(Want, wantBuf, w) {
+#include <stdio.h>
+
+static
+void WantPrint(Want const* wantBuf) {
+  BufEach(Want const, wantBuf, w) {
     switch (w->type) {
       case WANT_STAT: {
         char* line = LineToStr(w->lineHi, w->lineLo, 0);
@@ -26,6 +29,7 @@ typedef struct _Align {
 
 #define AlignFeed(al, alignFmt, restFmt, ...) \
   _AlignFeed(al, alignFmt, alignFmt restFmt, __VA_ARGS__)
+static
 void _AlignFeed(Align* al, char* alignFmt, char* fmt, ...) {
   va_list va;
   va_start(va, fmt);
@@ -38,6 +42,7 @@ void _AlignFeed(Align* al, char* alignFmt, char* fmt, ...) {
   va_end(va);
 }
 
+static
 void AlignPrint(Align* al, FILE* f) {
   BufEachi(al->ss, i) {
     Repeat(al->maxlen + 1 - al->lens[i]) putc(' ', f);
@@ -46,12 +51,14 @@ void AlignPrint(Align* al, FILE* f) {
   }
 }
 
+static
 void AlignFree(Align* al) {
   BufFreeClear((void**)al->ss);
   BufFree(&al->ss);
   BufFree(&al->lens);
 }
 
+static
 void DataPrint(LineData const* ld, int tier, int* values) {
   if (!ld) {
     puts("(null)");
@@ -67,7 +74,7 @@ void DataPrint(LineData const* ld, int tier, int* values) {
   AlignFree(&al);
 }
 
-
+static
 void LinesPrint(Lines* l) {
   Align al = {0};
   BufEachi(l->lineHi, i) {

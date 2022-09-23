@@ -123,6 +123,7 @@ size_t _ArrayBitSize(size_t elementBitSize, size_t elementSize, size_t nbits);
 #define Stringify(x) Stringify_(x)
 #define StringifyComma(x) Stringify(SUFFIX(PREFIX(x))),
 #define AppendComma(x) SUFFIX(PREFIX(x)),
+#define CountMacroCalls(x) 1+
 
 //
 // shortcut to define an enum and a table of the value names
@@ -140,6 +141,14 @@ size_t _ArrayBitSize(size_t elementBitSize, size_t elementSize, size_t nbits);
 
 #define DefEnum(x) \
   typedef enum _##x { x##s(AppendComma) } x; \
+  DefEnumNames(x) \
+
+// same as above but the names is external for headers
+#define DefEnumHdr(x) \
+  typedef enum _##x { x##s(AppendComma) } x; \
+  extern char const* const x##Names[x##s(CountMacroCalls) 0]
+
+#define DefEnumNames(x) \
   char const* const x##Names[] = { x##s(StringifyComma) }
 
 //
