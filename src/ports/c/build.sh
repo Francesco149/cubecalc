@@ -1,7 +1,7 @@
 #!/bin/sh
 
 flags="-std=c11 -Wall -lm"
-buildflags="-O0 -DCUBECALC_DEBUG -D_FORTIFY_SOURCE=0"
+buildflags="-O0 -D_FORTIFY_SOURCE=0"
 units=compilation-units/monolith.c
 cc=tcc
 gen=false
@@ -24,6 +24,9 @@ for x in $@; do
       ;;
     gen*)
       gen=true
+      ;;
+    dbg*)
+      flags="$flags -DCUBECALC_DEBUG"
       ;;
 
     # optionally build as separate compilation units to test that

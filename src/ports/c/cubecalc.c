@@ -59,8 +59,11 @@ typedef enum Cube Cube;
 typedef enum Tier Tier;
 typedef enum Region Region;
 
-// calculate probability of rolling any line combination matching wantBuf.
-// lvl is the level of the item
+// calculate probability of rolling any line combination matching wantBuf
+//
+// - lvl: the level of the item
+// - outCombos: if non-NULL, this pointer will be set to the matching combos data.
+//              you are expected to free this yourself using LinesFree
 //
 // wantBuf defines the combination of stats we're looking for. it's a simple stack machine
 // expression language where each element either pushes an operand on the stack or calls an
@@ -94,13 +97,42 @@ typedef enum Region Region;
 //    WantOp(OR, 2),      // stack(1): [(((20_meso or 20_drop) and 10_stat) or 23_stat)         ]
 //  );
 //
+// complete usage example:
+//
+//   #include "cubecalc.c"
+//   #include "generated.c"
+//
+//   #include <stdio.h>
+//   #include <math.h>
+//
+//   int main() {
+//     CubeGlobalInit();
+//
+//     const BufStatic(Want const, want,
+//       WantStat(ATT, 33),
+//       WantOp(AND, -1),
+//     );
+//
+//     float p = CubeCalc(want, WEAPON, BONUS, LEGENDARY, 200, GMS, 0);
+//     puts("");
+//     if (p > 0) {
+//       printf("1 in %d\n", (int)round(1/p));
+//     } else {
+//       puts("impossible");
+//     }
+//
+//     CubeGlobalFree();
+//     return 0;
+//   }
+//
 float CubeCalc(
   Want const* wantBuf,
   Category category,
   Cube cube,
   Tier tier,
   int lvl,
-  Region region
+  Region region,
+  Lines* outCombos
 );
 
 // structs and enums used for wantBuf. usually you don't need to use these directly
@@ -600,11 +632,12 @@ cleanup:
 
 float CubeCalc(
   Want const* wantBuf,
-  enum Category category,
-  enum Cube cube,
-  enum Tier tier,
+  Category category,
+  Cube cube,
+  Tier tier,
   int lvl,
-  enum Region region
+  Region region,
+  Lines* outCombos
 ) {
   float res = 0;
 
@@ -726,7 +759,11 @@ float CubeCalc(
   BufFree(&comboProbs);
 
 cleanup:
-  LinesFree(&combos);
+  if (outCombos) {
+    *outCombos = combos;
+  } else {
+    LinesFree(&combos);
+  }
 
   return res;
 }

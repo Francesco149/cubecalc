@@ -4,6 +4,7 @@
 #include <stddef.h> // size_t
 #include <limits.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 #ifndef UTILS_NO_STDINT
 #include <stdint.h> // intmax_t
@@ -368,13 +369,18 @@ void* _BufToProto(void* b, size_t *pn, Allocator const* allocator);
 
 // declares a statically initialized buf with the given name.
 #define BufStatic(type, name, ...) \
-  BufStatic_(type, name, ArgsLength(type, __VA_ARGS__), __VA_ARGS__)
+  BufStaticHdr(type, name##Hdr, __VA_ARGS__); \
+  type* const name = &name##Hdr.data[0]
 
-#define BufStatic_(type, name, n, ...) \
+// if you don't want the pointer to be automatically declared, use this and use name.data as a buf
+#define BufStaticHdr(type, name, ...) \
+  BufStaticHdr_(type, name, ArgsLength(type, __VA_ARGS__), __VA_ARGS__)
+
+#define BufStaticHdr_(type, name, n, ...) \
 struct { \
   struct BufHdr hdr; \
   type data[n]; \
-} name##Hdr = { \
+} name = { \
   .hdr = (struct BufHdr){ \
     .allocator = &allocatorNull_, \
     .len = n, \
@@ -382,7 +388,7 @@ struct { \
     .elementSize = sizeof(type), \
   }, \
   .data = { __VA_ARGS__ }, \
-}; type* const name = &name##Hdr.data[0]
+};
 
 // header internally used by Bufs. this is only exposed so that we can declare const/static Buf's
 // must be aligned so that the data is also aligned (which is right after the header)
@@ -519,6 +525,35 @@ size_t BitCount(void* data, size_t bytes);
 // hash functions
 unsigned HashInt(unsigned x);
 
+//
+// Align: right justifies a group of lines
+//
+// example usage:
+//
+//   Align* a = AlignInit();
+//   Range(1, 3, i) {
+//     AlignFeed(a, "%d", " <- look at this cool power of two!", 1 << (i * 8));
+//   }
+//   AlignPrint(a, stdout);
+//   AlignFree(a);
+//
+// output:
+//       256 <- look at this cool power of two!
+//     65536 <- look at this cool power of two!
+//  16777216 <- look at this cool power of two!
+//
+
+typedef struct _Align Align;
+
+#define AlignFeed(al, alignFmt, restFmt, ...) \
+  _AlignFeed(al, alignFmt, alignFmt restFmt, __VA_ARGS__)
+
+#define AlignInit() _AlignInit(&allocatorDefault)
+Align* _AlignInit(Allocator const* allocator);
+void _AlignFeed(Align* al, char* alignFmt, char* fmt, ...);
+void AlignPrint(Align* al, FILE* f);
+void AlignFree(Align* al);
+
 #endif
 
 #if defined(UTILS_IMPLEMENTATION) && !defined(UTILS_UNIT)
@@ -527,8 +562,6 @@ unsigned HashInt(unsigned x);
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
 
 //
 // Misc
@@ -1121,4 +1154,54 @@ unsigned HashInt(unsigned x) {
   x ^= x >> 16;
   return x;
 }
+
+//
+// Align
+//
+
+struct _Align {
+  Allocator const* allocator;
+  size_t maxlen;
+  size_t* lens;
+  char** ss;
+};
+
+Align* _AlignInit(Allocator const* allocator) {
+  Align* a = AllocatorAlloc(allocator, sizeof(Align));
+  MemZero(a);
+  a->allocator = allocator;
+  return a;
+}
+
+#undef allocatorDefault
+#define allocatorDefault (*al->allocator)
+void _AlignFeed(Align* al, char* alignFmt, char* fmt, ...) {
+  va_list va;
+  va_start(va, fmt);
+  size_t len = vsnprintf(0, 0, alignFmt, va);
+  va_end(va);
+  al->maxlen = Max(len, al->maxlen);
+  *BufAlloc(&al->lens) = len;
+  va_start(va, fmt);
+  BufAllocVStrf(&al->ss, fmt, va);
+  va_end(va);
+}
+
+void AlignPrint(Align* al, FILE* f) {
+  BufEachi(al->ss, i) {
+    Repeat(al->maxlen + 1 - al->lens[i]) putc(' ', f);
+    fputs(al->ss[i], f);
+    putc('\n', f);
+  }
+}
+
+void AlignFree(Align* al) {
+  BufFreeClear((void**)al->ss);
+  BufFree(&al->ss);
+  BufFree(&al->lens);
+  AllocatorFree(al->allocator, al);
+}
+#undef allocatorDefault
+#define allocatorDefault allocatorDefault_
+
 #endif
