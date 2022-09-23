@@ -1,4 +1,3 @@
-#ifdef CUBECALC_DEBUG
 void WantPrint(Want* wantBuf) {
   BufEach(Want, wantBuf, w) {
     switch (w->type) {
@@ -87,4 +86,3 @@ void LinesPrint(Lines* l) {
   AlignPrint(&al, stdout);
   AlignFree(&al);
 }
-#endif

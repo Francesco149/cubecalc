@@ -273,7 +273,9 @@ void WantStackFree(Want** pstack) {
   BufFree(pstack);
 }
 
+#ifdef CUBECALC_DEBUG
 #include "debug.c"
+#endif
 
 void LinesMatch(Lines* l, int lineHiMask, int lineLoMask, intmax_t** pmatch, intmax_t** pmatchLo) {
   BufClear(*pmatch);
