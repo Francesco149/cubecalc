@@ -12,7 +12,7 @@ int main() {
     WantOp(AND, -1),
   );
 
-  double p = CubeCalc(want, WEAPON, BONUS, LEGENDARY, 200, GMS);
+  float p = CubeCalc(want, WEAPON, BONUS, LEGENDARY, 200, GMS);
   puts("");
   if (p > 0) {
     printf("1 in %d\n", (int)round(1/p));

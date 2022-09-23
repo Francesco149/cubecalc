@@ -94,7 +94,7 @@ typedef enum Region Region;
 //    WantOp(OR, 2),      // stack(1): [(((20_meso or 20_drop) and 10_stat) or 23_stat)         ]
 //  );
 //
-double CubeCalc(
+float CubeCalc(
   Want const* wantBuf,
   Category category,
   Cube cube,
@@ -451,7 +451,7 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
   else rangeIf(cube & UNI, N)
   else rangeIf(cube & EQUALITY, P, P, P)
   else if (cube & (FAMILIAR | RED_FAM_CARD)) {
-    // assuming no double primes on fam reveal (we don't know if this is accurate)
+    // assuming no float primes on fam reveal (we don't know if this is accurate)
     rangeIf(category & FAMILIAR, P, O)
     else {
       range(P, N);
@@ -596,7 +596,7 @@ cleanup:
 }
 
 
-double CubeCalc(
+float CubeCalc(
   Want const* wantBuf,
   enum Category category,
   enum Cube cube,
@@ -604,7 +604,7 @@ double CubeCalc(
   int lvl,
   enum Region region
 ) {
-  double res = 0;
+  float res = 0;
 
 #ifdef CUBECALC_DEBUG
   puts("");
