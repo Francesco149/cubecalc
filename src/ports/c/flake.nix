@@ -1,6 +1,6 @@
 {
-  description = "personal maplestory cubing averages calculations";
-  nixConfig.bash-prompt = "\[cubecalc-dev\]$ ";
+  description = "maplestory cubing averages calculations, C version";
+  nixConfig.bash-prompt = "\[cubecalc-c-dev\]$ ";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
@@ -17,12 +17,10 @@
         devShell = mkShell {
           buildInputs = [
             python310
-            htmlq
-          ] ++ (with python310Packages; [
-            numpy
-            pandas
-            odfpy
-          ]);
+            clang
+            tinycc
+            mold
+          ];
         };
       }
     );
