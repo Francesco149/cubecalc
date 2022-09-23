@@ -236,7 +236,7 @@ int LinesInit(Lines* l, LineData const* dataPrime, LineData const* dataNonPrime,
 }
 
 size_t valueGroupFind(int cubeMask, int categoryMask, int regionMask, int level) {
-  int minLevel = 300;
+  int minLevel = 301;
   size_t match = valueGroupsLen;
   RangeBefore(valueGroupsLen, i) {
     if ((valueGroupsCubeMask[i] & cubeMask) &&
@@ -628,7 +628,7 @@ int main() {
     WantOp(AND, -1),
   );
 
-  double p = CubeCalc(want, WEAPON, RED, LEGENDARY, 200, GMS);
+  double p = CubeCalc(want, WEAPON, BONUS, LEGENDARY, 200, GMS);
   puts("");
   if (p > 0) {
     printf("1 in %d\n", (int)round(1/p));
