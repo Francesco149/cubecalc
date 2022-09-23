@@ -21,9 +21,9 @@ typedef unsigned long uintmax_t;
 #endif
 #endif
 
-#ifndef UTILS_NO_STDINT
-typedef intptr_t intmax_t; // TODO: more robust fallback
-typedef uintptr_t uintmax_t;
+#ifdef UTILS_NO_STDINT
+typedef intmax_t intptr_t; // TODO: more robust fallback
+typedef uintmax_t uintptr_t;
 #endif
 
 //
@@ -162,13 +162,13 @@ typedef struct _Allocator {
   void (* free)(void* param, void* p);
 } Allocator;
 
-void* allocatorAlloc(Allocator const* allocator, size_t n);
-void* allocatorRealloc(Allocator const* allocator, void* p, size_t n);
-void allocatorFree(Allocator const* allocator, void* p);
+void* AllocatorAlloc(Allocator const* allocator, size_t n);
+void* AllocatorRealloc(Allocator const* allocator, void* p, size_t n);
+void AllocatorFree(Allocator const* allocator, void* p);
 
 // these versions do nothing without erroring if realloc/free are unavailable
-void* allocatorTryRealloc(Allocator const* allocator, void* p, size_t n);
-void allocatorTryFree(Allocator const* allocator, void* p);
+void* AllocatorTryRealloc(Allocator const* allocator, void* p, size_t n);
+void AllocatorTryFree(Allocator const* allocator, void* p);
 
 extern Allocator const allocatorDefault_;
 extern Allocator const allocatorNull_; // this allocator errors on any attempt to (re)alloc/free
@@ -545,28 +545,28 @@ size_t _ArrayBitSize(size_t elementBitSize, size_t elementSize, size_t count) {
 // Allocator
 //
 
-void* allocatorAlloc(Allocator const* allocator, size_t n) {
+void* AllocatorAlloc(Allocator const* allocator, size_t n) {
   return allocator->alloc(allocator->param, n);
 }
 
-void* allocatorRealloc(Allocator const* allocator, void* p, size_t n) {
+void* AllocatorRealloc(Allocator const* allocator, void* p, size_t n) {
   return allocator->realloc(allocator->param, p, n);
 }
 
-void* allocatorTryRealloc(Allocator const* allocator, void* p, size_t n) {
+void* AllocatorTryRealloc(Allocator const* allocator, void* p, size_t n) {
   if (allocator->realloc == norealloc) {
     return 0;
   }
-  return allocatorRealloc(allocator, p, n);
+  return AllocatorRealloc(allocator, p, n);
 }
 
-void allocatorTryFree(Allocator const* allocator, void* p) {
+void AllocatorTryFree(Allocator const* allocator, void* p) {
   if (allocator->free != nofree) {
-    allocatorFree(allocator, p);
+    AllocatorFree(allocator, p);
   }
 }
 
-void allocatorFree(Allocator const* allocator, void* p) {
+void AllocatorFree(Allocator const* allocator, void* p) {
   return allocator->free(allocator->param, p);
 }
 
@@ -667,7 +667,7 @@ void BufClear(void* b) {
 void _BufFreeClear(void** b, Allocator const* allocator) {
   if (b) {
     BufEach(void*, b, pp) {
-      allocatorFree(allocator, *pp);
+      AllocatorFree(allocator, *pp);
     }
     BufClear(b);
   }
@@ -701,9 +701,9 @@ void _BufAlloc(void* p, size_t count, size_t elementSize, Allocator const* alloc
     cap <<= 1;
     size_t allocSize = sizeof(struct BufHdr) + elementSize * cap;
     if (hdr) {
-      hdr = allocatorRealloc(hdr->allocator, hdr, allocSize);
+      hdr = AllocatorRealloc(hdr->allocator, hdr, allocSize);
     } else {
-      hdr = allocatorAlloc(allocator, allocSize);
+      hdr = AllocatorAlloc(allocator, allocSize);
       hdr->allocator = allocator;
     }
     hdr->cap = cap;
@@ -761,7 +761,7 @@ char* _BufAllocVStrf(Allocator const* allocator, char*** pp, char* fmt, va_list 
   va_copy(va2, va);
   int n = vsnprintf(0, 0, fmt, va);
   int sz = n + 1;
-  char* p = *BufAlloc(pp) = allocatorAlloc(allocator, sz);
+  char* p = *BufAlloc(pp) = AllocatorAlloc(allocator, sz);
   vsnprintf(p, sz, fmt, va2);
   return p;
 }
@@ -790,7 +790,7 @@ void* _BufDup(void* p, Allocator const* allocator) {
   struct BufHdr* hdr = BufHdr(p);
   size_t cap = RoundUp2(hdr->len);
   size_t allocSize = sizeof(struct BufHdr) + hdr->elementSize * cap;
-  struct BufHdr* copy = allocatorAlloc(allocator, allocSize);
+  struct BufHdr* copy = AllocatorAlloc(allocator, allocSize);
   copy->allocator = allocator;
   copy->len = hdr->len;
   copy->cap = cap;
@@ -886,7 +886,7 @@ struct _Arena {
 };
 
 Arena* _ArenaInit(Allocator const* allocator) {
-  Arena* a = allocatorAlloc(allocator, sizeof(Arena));
+  Arena* a = AllocatorAlloc(allocator, sizeof(Arena));
   a->allocator = allocator;
   a->chunks = 0;
   a->align = 4096;
@@ -918,7 +918,7 @@ void ArenaFree(Arena* a) {
     }
     BufFree(&a->chunks);
   }
-  allocatorTryFree(a->allocator, a);
+  AllocatorTryFree(a->allocator, a);
 }
 
 static void* _ArenaAlloc(void* param, size_t x) {
@@ -947,7 +947,7 @@ struct _Map {
 };
 
 static Map* MapRealloc(Allocator const* allocator, Map* m, size_t newCap) {
-  Map* newMap = allocatorAlloc(allocator, sizeof(Map));
+  Map* newMap = AllocatorAlloc(allocator, sizeof(Map));
   Arena* arena = _ArenaInit(allocator);
   memset(newMap, 0, sizeof(*newMap));
   newMap->arena = arena;
@@ -982,7 +982,7 @@ Map* _MapInit(Allocator const* allocator) {
 void MapFree(Map* m) {
   Allocator const* allocator = m->arena->allocator;
   ArenaFree(m->arena);
-  allocatorFree(allocator, m);
+  AllocatorFree(allocator, m);
 }
 
 static size_t MapNextIndex(size_t cap, size_t i) {
@@ -1020,7 +1020,7 @@ int MapSet(Map* m, int key, void* value) {
     Map* newMap = MapRealloc(m->arena->allocator, m, m->cap * 2);
     ArenaFree(m->arena);
     *m = *newMap;
-    allocatorFree(newMap->arena->allocator, newMap);
+    AllocatorFree(newMap->arena->allocator, newMap);
   }
 
   // first, just see if the key is already there
