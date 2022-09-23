@@ -235,7 +235,7 @@ int LinesInit(Lines* l, LineData const* dataPrime, LineData const* dataNonPrime,
   return 1;
 }
 
-size_t valueGroupFind(int cubeMask, int categoryMask, int regionMask, int level) {
+size_t ValueGroupFind(int cubeMask, int categoryMask, int regionMask, int level) {
   int minLevel = 301;
   size_t match = valueGroupsLen;
   RangeBefore(valueGroupsLen, i) {
@@ -497,7 +497,7 @@ double CubeCalc(Want const* wantBuf, int category, int cube, int tier, int lvl, 
     goto cleanup;
   }
 
-  size_t group = valueGroupFind(cube, category, region, lvl);
+  size_t group = ValueGroupFind(cube, category, region, lvl);
   if (group >= valueGroupsLen || !valueGroups[group]) {
     fprintf(stderr, "failed to find value group\n");
     return 0;
