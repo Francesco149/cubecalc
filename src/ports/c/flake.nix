@@ -20,7 +20,9 @@
             clang
             tinycc
             mold
-          ];
+          ] ++ (with python310Packages; [
+            numpy
+          ]);
         };
       }
     );
