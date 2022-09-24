@@ -25,6 +25,17 @@ void LinesFree(Lines* l);
 // full: if non-zero, the string will include the line variant, such as LINE_A/B/C
 char* LineToStr(int hi, int lo, int full);
 
+// these return a Buf that you need to free
+#define CubeToStr(x) _BitEnumToStr(cubeValues, cubeNames, ArrayLength(cubeNames), x)
+#define CategoryToStr(x) _BitEnumToStr(categoryValues, categoryNames, ArrayLength(categoryNames), x)
+
+// these return a const char pointer, no need to free
+#define TierToStr(x) _EnumToStr(tierValues, tierNames, ArrayLength(tierNames), x)
+
+// internally used by macros
+char* _BitEnumToStr(int const* values, char const* const* names, size_t n, int val);
+char const* _EnumToStr(int const* values, char const* const* names, size_t n, int val);
+
 // deep copy lines. dst struct should be initialized to zero
 void LinesDup(Lines* dst, Lines const* src);
 
@@ -213,6 +224,33 @@ char* LineToStr(int hi, int lo, int full) {
     BufAt(res, -1) = 0;
   }
   return res;
+}
+
+char* _BitEnumToStr(int const* values, char const* const* names, size_t n, int val) {
+  // TODO: DRY this with the LineToStr code
+  char* res = 0;
+  size_t nflags = 0;
+  RangeBefore(n, i) {
+    if (values[i] & val) {
+      BufAllocCharsf(&res, "%s | ", names[i]);
+      ++nflags;
+    }
+  }
+  if (nflags) {
+    BufHdr(res)->len -= 3;
+    BufAt(res, -1) = 0;
+  }
+  return res;
+}
+
+char const* _EnumToStr(int const* values, char const* const* names, size_t n, int val) {
+  // TODO: binary search or hashmap or something
+  RangeBefore(n, i) {
+    if (values[i] == val) {
+      return names[i];
+    }
+  }
+  return 0;
 }
 
 static

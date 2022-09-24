@@ -19,6 +19,12 @@ extern Map* valueGroups[51];
 extern int const allLinesHi[41];
 extern int const allLinesLo[41];
 extern char const* const allLineNames[41];
+extern char const* const categoryNames[16];
+extern int const categoryValues[16];
+extern char const* const cubeNames[11];
+extern int const cubeValues[11];
+extern char const* const tierNames[6];
+extern int const tierValues[6];
 enum Cube
 {
   RED = 0x1,
@@ -462,6 +468,90 @@ char const* const allLineNames[41] =
   "HEAL_MP_ONLY_PARTY",
   "HP_ITEMS_AND_SKILLS",
   "LINES",
+};
+char const* const categoryNames[16] = 
+{
+  "weapon",
+  "emblem",
+  "2ndary excl. force shield/soul ring",
+  "force shield/soul ring",
+  "hat",
+  "top/overall",
+  "bottom",
+  "shoe",
+  "glove",
+  "cape/belt/shoulder",
+  "accessory (face/eye/ring/ear/pend)",
+  "heart/badge",
+  "familiar",
+  "line_cache",
+  "name",
+  "default_cube",
+};
+char const* const cubeNames[11] = 
+{
+  "red",
+  "meister",
+  "master",
+  "occult",
+  "black",
+  "violet",
+  "equality",
+  "bonus",
+  "uni",
+  "familiar",
+  "red_fam_card",
+};
+int const cubeValues[11] = 
+{
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64,
+  128,
+  256,
+  512,
+  1024,
+};
+char const* const tierNames[6] = 
+{
+  "base",
+  "common",
+  "rare",
+  "epic",
+  "unique",
+  "legendary",
+};
+int const tierValues[6] = 
+{
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+};
+int const categoryValues[16] = 
+{
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64,
+  128,
+  256,
+  512,
+  1024,
+  2048,
+  4096,
+  8192,
+  16384,
+  32768,
 };
 static void primeChancesInit()
 {

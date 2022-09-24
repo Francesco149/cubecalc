@@ -190,9 +190,22 @@ lines_count = len(lines_all)
 lines_hi = [(x.name, ((x >> 31) & 0x7FFFFFFF) or NULLBIT) for x in Line]
 lines_lo = [(x.name, ((x >>  0) & 0x7FFFFFFF) or NULLBIT) for x in Line]
 
+categories_count = len([x for x in Category])
+cubes_count = len([x for x in Cube])
+tiers_count = len([x for x in Tier])
+
 p(f"extern int const allLinesHi[{lines_count}];")
 p(f"extern int const allLinesLo[{lines_count}];")
 p(f"extern char const* const allLineNames[{lines_count}];")
+
+p(f"extern char const* const categoryNames[{categories_count}];")
+p(f"extern int const categoryValues[{categories_count}];")
+
+p(f"extern char const* const cubeNames[{cubes_count}];")
+p(f"extern int const cubeValues[{cubes_count}];")
+
+p(f"extern char const* const tierNames[{tiers_count}];")
+p(f"extern int const tierValues[{tiers_count}];")
 
 def enum(e):
   p(f"enum {e.__name__}")
@@ -259,6 +272,31 @@ p(f"char const* const allLineNames[{lines_count}] = ")
 with BlockCol():
   for x in Line:
     p(f"\"{x.name}\",")
+
+p(f"char const* const categoryNames[{categories_count}] = ")
+with BlockCol():
+  for x in Category:
+    p(f"\"{category_name(x)}\",")
+
+def simple_enum(e, with_names=True):
+  count = len([x for x in e])
+  def d(t, x):
+    p(f"{t} const {e.__name__.lower()}{x}[{count}] = ")
+  if with_names:
+    d("char const*", "Names")
+    with BlockCol():
+      for x in e:
+        p(f"\"{x.name.lower()}\",")
+  d("int", "Values")
+  with BlockCol():
+    for x in e:
+      p(f"{x.value},")
+
+for x in [Cube, Tier]:
+  simple_enum(x)
+
+for x in [Category]:
+  simple_enum(x, with_names=False)
 
 init_funcs = []
 
