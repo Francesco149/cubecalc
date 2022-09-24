@@ -17,6 +17,36 @@ int main() {
 
   printf("%s", disclaimer);
 
+  static const BufStaticHdr(Want const, wantAny2lAttBoss,
+    WantStat(ATT, 1),
+    WantStat(BOSS_ONLY, 1),
+    WantStat(LINES, 2),
+    WantOp(AND, -1),
+  );
+
+  static const BufStaticHdr(Want const, wantAny2lAttBossIed,
+    WantStat(ATT, 1),
+    WantStat(BOSS_ONLY, 1),
+    WantStat(IED, 1),
+    WantStat(LINES, 2),
+    WantOp(AND, -1),
+  );
+
+  static const BufStaticHdr(Want const, wantAny3lAttBoss,
+    WantStat(ATT, 1),
+    WantStat(BOSS_ONLY, 1),
+    WantStat(LINES, 3),
+    WantOp(AND, -1),
+  );
+
+  static const BufStaticHdr(Want const, wantAny3lAttBossIed,
+    WantStat(ATT, 1),
+    WantStat(BOSS_ONLY, 1),
+    WantStat(IED, 1),
+    WantStat(LINES, 3),
+    WantOp(AND, -1),
+  );
+
   static const BufStaticHdr(Want const, want18Att,
     WantStat(ATT, 18),
     WantOp(AND, -1),
@@ -28,6 +58,10 @@ int main() {
   );
 
   static const BufStatic(ComboData const, combosWs,
+    Combo("any 2l combo of att+boss", wantAny2lAttBoss.data),
+    Combo("any 2l combo of att+boss+ied", wantAny2lAttBossIed.data),
+    Combo("any 3l combo of att+boss", wantAny3lAttBoss.data),
+    Combo("any 3l combo of att+boss+ied", wantAny3lAttBossIed.data),
     Combo("18+ att", want18Att.data),
     Combo("21+ att", want21Att.data),
   );

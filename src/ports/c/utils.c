@@ -306,6 +306,7 @@ void* BufCat(void* pp, void const* other);
 intmax_t* BufAND(intmax_t* a, intmax_t* b); // a &= b; return a
 intmax_t* BufOR(intmax_t* a, intmax_t* b); // a |= b; return a
 intmax_t* BufNOR(intmax_t* a, intmax_t* b); // a = ~(a | b); return a
+intmax_t* BufNOT(intmax_t* a); // a = ~a; return a
 
 // foreach (x in b)
 //   *paccum op= x
@@ -777,6 +778,13 @@ intmax_t* BufOR(intmax_t* a, intmax_t* b) {
 intmax_t* BufNOR(intmax_t* a, intmax_t* b) {
   BufEachi(a, i) {
     a[i] = ~(a[i] | b[i]);
+  }
+  return a;
+}
+
+intmax_t* BufNOT(intmax_t* a) {
+  BufEach(intmax_t, a, x) {
+    *x = ~(*x);
   }
   return a;
 }

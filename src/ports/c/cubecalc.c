@@ -421,12 +421,43 @@ void WantStackFree(Want** pstack) {
 }
 
 static
-void LinesMatch(Lines* l, int lineHiMask, int lineLoMask, intmax_t** pmatch, intmax_t** pmatchLo) {
+void LinesMatch(Lines* l, int maskHi, int maskLo, intmax_t** pmatch, intmax_t** pmatchLo) {
   BufClear(*pmatch);
   BufClear(*pmatchLo);
-  BufMask(int, l->lineHi, *x & lineHiMask, pmatch);
-  BufMask(int, l->lineLo, *x & lineLoMask, pmatchLo);
+  BufMask(int, l->lineHi, *x & maskHi, pmatch);
+  BufMask(int, l->lineLo, *x & maskLo, pmatchLo);
   BufAND(*pmatch, *pmatchLo);
+}
+
+// match any combo that has at least numLines lines matching maskHi maskLo 
+// result stored in *pmatch
+static
+void LinesAnyNCombo(
+  Lines* combos,
+  int numLines,
+  int maskHi, int maskLo,
+  intmax_t** pmatch, intmax_t** pmatchLo,
+  int** pcounts
+) {
+  LinesMatch(combos, maskHi, maskLo, pmatch, pmatchLo);
+
+  // create a Buf with repeated line counts for each combo
+  BufClear(*pcounts);
+  (void)BufReserve(pcounts, BufLen(combos->lineHi));
+  BufEachi(combos->lineHi, i) {
+    int count = 0;
+    RangeBefore(combos->comboSize, j) {
+      count += ArrayBitVal(*pmatch, i + j);
+    }
+    RangeBefore(combos->comboSize, j) {
+      (*pcounts)[i + j] = count;
+    }
+    i += combos->comboSize - 1;
+  }
+
+  // mask by line count on the repeated Buf. this will keep combos matching the line count
+  BufClear(*pmatch);
+  BufMask(int, *pcounts, *x >= numLines, pmatch);
 }
 
 static
@@ -435,19 +466,20 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
   int res = 0;
 
   // filter all lines that don't match these stats
-  int lineHiMask = ANY_HI;
-  int lineLoMask = ANY_LO;
+  int maskHi = ANY_HI;
+  int maskLo = ANY_LO;
   BufEach(Want const, wantBuf, s) {
     if (s->type == WANT_STAT) {
-      lineHiMask |= s->lineHi;
-      lineLoMask |= s->lineLo;
+      maskHi |= s->lineHi;
+      maskLo |= s->lineLo;
     }
   }
 
   intmax_t* match = 0;
   intmax_t* matchLo = 0;
+  int* counts = 0; // used for "any combination of N lines"
 
-  LinesMatch(combos, lineHiMask, lineLoMask, &match, &matchLo);
+  LinesMatch(combos, maskHi, maskLo, &match, &matchLo);
   LinesFilt(combos, match);
 
   size_t numPrimes = LinesNumPrimes(combos);
@@ -515,10 +547,51 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
 
   // convert list of lines to flattened array of all possible line combinations
   combos->comboSize = BufLen(ranges) / 2;
-  intmax_t* indices = BufCombos(ranges, combos->comboSize);
-  LinesIndex(combos, indices);
-  BufFree(&indices);
+  intmax_t* tmpIntMax = BufCombos(ranges, combos->comboSize);
+  LinesIndex(combos, tmpIntMax);
   BufFree(&ranges);
+
+  // filter out impossible combos
+
+  static const BufStaticHdr(Want, forbiddenCombos,
+    WantStat(DECENTS, 0), // 2+ lines of any decent impossible
+    WantStat(INVIN, 0),   // 2+ lines of invincibility impossible
+    WantStat(LINES, 2),
+
+    // same as above but 3+ lines
+    WantStat(BOSS, 0),
+    WantStat(IED, 0),
+    WantStat(DROP, 0),
+    WantStat(LINES, 3),
+  );
+
+  // tmpIntMax stores the final mask
+  BufClear(tmpIntMax);
+  (void)BufReserve(&tmpIntMax, ArrayBitElements(tmpIntMax, BufLen(combos->lineHi)));
+  BufZero(tmpIntMax);
+
+  Want const* lastLines = forbiddenCombos.data;
+
+  BufEach(Want const, forbiddenCombos.data, w) {
+    switch (w->type) {
+      case WANT_STAT:
+        if ((w->lineHi & LINES_HI) && (w->lineLo & LINES_LO)) {
+          for (Want const* s = lastLines; s != w; ++s) {
+            LinesAnyNCombo(combos, w->value, s->lineHi, s->lineLo, &match, &matchLo, &counts);
+            BufOR(tmpIntMax, match);
+          }
+          lastLines = w;
+        }
+        break;
+
+      default:
+        fprintf(stderr, "unexpected %s in forbidden lines buf\n", WantTypeNames[w->type]);
+        goto cleanup;
+    }
+  }
+
+  BufNOT(tmpIntMax);
+  LinesFilt(combos, tmpIntMax);
 
   BufEach(Want const, wantBuf, w) {
     switch (w->type) {
@@ -529,7 +602,44 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
         intmax_t* result = 0;
         int opCount = w->opCount >= 0 ? w->opCount : BufLen(stack);
 
+        // check if we're looking for "any combination of N lines". also check for masks since
+        // this operation can only work on stats
+        int numLines = 0;
+        size_t masks = 0;
+        maskHi = maskLo = 0;
         BufEachRange(Want, stack, -opCount, -1, s) {
+          switch (s->type) {
+            case WANT_STAT:
+              if ((s->lineHi & LINES_HI) && (s->lineLo & LINES_LO)) {
+                numLines = s->value;
+              } else {
+                // create a mask of all the stats, minus LINES (only used by "any combination")
+                maskHi |= s->lineHi;
+                maskLo |= s->lineLo;
+              }
+              break;
+            case WANT_MASK:
+              ++masks;
+              break;
+            default:
+              break;
+          }
+        }
+
+        if (numLines) {
+          // any N lines combination with ANY of these lines
+          if (masks) {
+            fprintf(stderr, "got LINES=%d with %d operands but there are %zu masks on the stack",
+              numLines, opCount, masks);
+            goto cleanup;
+          }
+
+          LinesAnyNCombo(combos, numLines, maskHi, maskLo, &match, &matchLo, &counts);
+          result = BufDup(match);
+        }
+
+        // regular operator, mask lines for every stat/mask on the stack
+        else BufEachRange(Want, stack, -opCount, -1, s) {
           switch (s->type) {
             case WANT_STAT: {
               // make a mask of lines that match the stat
@@ -623,8 +733,10 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
   LinesFilt(combos, stack[0].mask);
 
 cleanup:
+  BufFree(&tmpIntMax);
   BufFree(&match);
   BufFree(&matchLo);
+  BufFree(&counts);
   WantStackFree(&stack);
   return res;
 }
