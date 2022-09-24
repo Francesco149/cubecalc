@@ -11,7 +11,7 @@ typedef struct _ComboData {
 
 typedef struct _ComboGroup {
   int category;
-  int cube;
+  int* cubes;
   int tier;
   int level;
   int region;
@@ -21,10 +21,10 @@ typedef struct _ComboGroup {
 #define Combo(desc, want) \
   (ComboData){ .description = (desc), .wantBuf = (want) }
 
-#define ComboGroup(category_, cube_, tier_, combos_) \
+#define ComboGroup(category_, cubes_, tier_, combos_) \
   (ComboGroup){ \
     .category = (category_), \
-    .cube = (cube_), \
+    .cubes = (cubes_), \
     .tier = (tier_), \
     .level = 150, \
     .region = GMS, \
@@ -109,30 +109,37 @@ int main() {
     Combo("21+ att", want21Att.data),
   );
 
+  static const BufStaticHdr(int, redBlack, RED, BLACK);
+
   static const BufStaticHdr(ComboGroup, groups,
-    ComboGroup(WEAPON, RED, LEGENDARY, combosWs.data),
+    ComboGroup(WEAPON, redBlack.data, LEGENDARY, combosWs.data),
   );
 
   BufEach(ComboGroup const, groups.data, g) {
-    Align* a = AlignInit();
-
-    char* scube = CubeToStr(g->cube);
     char* scategory = CategoryToStr(g->category);
-    PrintHdr(" %s (%s on lvl%d %s) ", scategory, scube, g->level, TierToStr(g->tier));
-    BufFree(&scube);
-    BufFree(&scategory);
 
-    BufEach(ComboData const, g->combos, x) {
-      float p = CubeCalc(x->wantBuf, g->category, g->cube, g->tier, g->level, g->region, 0);
-      if (p > 0) {
-        AlignFeed(a, "%s", " 1 in %d cubes, %.4f%%", x->description, (int)round(1/p), p * 100);
-      } else {
-        AlignFeed(a, "%s", " impossible", x->description);
+    BufEach(int const, g->cubes, cube) {
+      Align* a = AlignInit();
+
+      char* scube = CubeToStr(*cube);
+      PrintHdr(" %s (%s on lvl%d %s) ", scategory, scube, g->level, TierToStr(g->tier));
+
+      BufEach(ComboData const, g->combos, x) {
+        float p = CubeCalc(x->wantBuf, g->category, *cube, g->tier, g->level, g->region, 0);
+        if (p > 0) {
+          AlignFeed(a, "%s", " 1 in %d cubes, %.4f%%", x->description, (int)round(1/p), p * 100);
+        } else {
+          AlignFeed(a, "%s", " impossible", x->description);
+        }
       }
+
+      BufFree(&scube);
+
+      AlignPrint(a, stdout);
+      AlignFree(a);
     }
 
-    AlignPrint(a, stdout);
-    AlignFree(a);
+    BufFree(&scategory);
   }
 
   CubeGlobalFree();
