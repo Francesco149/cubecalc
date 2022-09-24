@@ -1197,7 +1197,7 @@ void _AlignFeed(Align* al, char* alignFmt, char* fmt, ...) {
 
 void AlignPrint(Align* al, FILE* f) {
   BufEachi(al->ss, i) {
-    Repeat(al->maxlen + 1 - al->lens[i]) putc(' ', f);
+    Repeat(al->maxlen - al->lens[i]) putc(' ', f);
     fputs(al->ss[i], f);
     putc('\n', f);
   }

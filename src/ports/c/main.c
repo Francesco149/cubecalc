@@ -66,15 +66,19 @@ int main() {
     Combo("21+ att", want21Att.data),
   );
 
+  Align* a = AlignInit();
+
   BufEach(ComboData const, combosWs, x) {
     float p = CubeCalc(x->wantBuf, WEAPON, RED, LEGENDARY, 150, GMS, 0);
-    printf("%s ", x->description);
     if (p > 0) {
-      printf("1 in %d cubes, %.4f%%\n", (int)round(1/p), p * 100);
+      AlignFeed(a, "%s", " 1 in %d cubes, %.4f%%", x->description, (int)round(1/p), p * 100);
     } else {
-      puts("impossible");
+      AlignFeed(a, "%s", " impossible", x->description);
     }
   }
+
+  AlignPrint(a, stdout);
+  AlignFree(a);
 
   CubeGlobalFree();
   return 0;
