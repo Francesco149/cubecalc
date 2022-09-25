@@ -26,15 +26,19 @@ void LinesFree(Lines* l);
 char* LineToStr(int hi, int lo, int full);
 
 // these return a Buf that you need to free
-#define CubeToStr(x) _BitEnumToStr(cubeValues, cubeNames, ArrayLength(cubeNames), x)
-#define CategoryToStr(x) _BitEnumToStr(categoryValues, categoryNames, ArrayLength(categoryNames), x)
+#define CubeToStr(x) CubeToStrSep(" | ", x)
+#define CubeToStrSep(sep, x) \
+  _BitEnumToStr(sep, cubeValues, cubeNames, ArrayLength(cubeNames), x)
+#define CategoryToStr(x) CategoryToStrSep(" | ", x)
+#define CategoryToStrSep(sep, x) \
+  _BitEnumToStr(sep, categoryValues, categoryNames, ArrayLength(categoryNames), x)
 
 // these return a const char pointer, no need to free
 #define TierToStr(x) _EnumToStr(tierValues, tierNames, ArrayLength(tierNames), x)
 
 // internally used by macros
-char* _BitEnumToStr(int const* values, char const* const* names, size_t n, int val);
-char const* _EnumToStr(int const* values, char const* const* names, size_t n, int val);
+char* _BitEnumToStr(char const* s, int const* vals, char const* const* names, size_t n, int v);
+char const* _EnumToStr(int const* vals, char const* const* names, size_t n, int v);
 
 // deep copy lines. dst struct should be initialized to zero
 void LinesDup(Lines* dst, Lines const* src);
@@ -226,27 +230,28 @@ char* LineToStr(int hi, int lo, int full) {
   return res;
 }
 
-char* _BitEnumToStr(int const* values, char const* const* names, size_t n, int val) {
+char* _BitEnumToStr(char const* s, int const* vals, char const* const* names, size_t n, int v) {
   // TODO: DRY this with the LineToStr code
   char* res = 0;
   size_t nflags = 0;
   RangeBefore(n, i) {
-    if (values[i] & val) {
-      BufAllocCharsf(&res, "%s | ", names[i]);
+    if ((v & vals[i]) == vals[i]) {
+      BufAllocCharsf(&res, "%s%s", names[i], s);
+      v &= ~vals[i];
       ++nflags;
     }
   }
   if (nflags) {
-    BufHdr(res)->len -= 3;
+    BufHdr(res)->len -= strlen(s);
     BufAt(res, -1) = 0;
   }
   return res;
 }
 
-char const* _EnumToStr(int const* values, char const* const* names, size_t n, int val) {
+char const* _EnumToStr(int const* vals, char const* const* names, size_t n, int v) {
   // TODO: binary search or hashmap or something
   RangeBefore(n, i) {
-    if (values[i] == val) {
+    if (vals[i] == v) {
       return names[i];
     }
   }
@@ -407,6 +412,7 @@ int LinesInit(Lines* l, LineData const* dataPrime, LineData const* dataNonPrime,
   l->comboSize = 1;
   if (!LinesCatData(l, dataPrime, group, tier)) return 0;
   size_t numPrimes = BufLen(l->lineHi);
+  if (numPrimes == 1) return 0; // no lines found
   if (!LinesCatData(l, dataNonPrime, group, tier - 1)) return 0;
   (void)BufReserve(&l->prime, ArrayBitElements(l->prime, BufLen(l->lineHi)));
   BufZero(l->prime);
@@ -421,9 +427,9 @@ size_t ValueGroupFind(int cubeMask, int categoryMask, int regionMask, int level)
   int minLevel = 301;
   size_t match = valueGroupsLen;
   RangeBefore(valueGroupsLen, i) {
-    if ((valueGroupsCubeMask[i] & cubeMask) &&
-        (valueGroupsCategoryMask[i] & categoryMask) &&
-        (valueGroupsRegionMask[i] & regionMask) &&
+    if ((valueGroupsCubeMask[i] & cubeMask) == cubeMask &&
+        (valueGroupsCategoryMask[i] & categoryMask) == categoryMask &&
+        (valueGroupsRegionMask[i] & regionMask) == regionMask &&
         (valueGroupsMaxLevel[i] >= level))
     {
       if (valueGroupsMaxLevel[i] < minLevel) {
@@ -520,7 +526,7 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
   LinesMatch(combos, maskHi, maskLo, &match, &matchLo);
   LinesFilt(combos, match);
 
-  size_t numPrimes = LinesNumPrimes(combos);
+  intmax_t numPrimes = LinesNumPrimes(combos);
 
   // convert "one in" to probability (onein = 1/onein)
   BufEach(float, combos->onein, x) {

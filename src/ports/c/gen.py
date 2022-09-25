@@ -161,7 +161,7 @@ with open("../../../cubechances.txt") as f:
   for line in f:
     if line.startswith("="):
       break
-    s = line.strip()
+    s = line[:-1]
     discl += (f"\"{s}\\n\"")
     discl_len += len(s) + 1
 
@@ -190,7 +190,8 @@ lines_count = len(lines_all)
 lines_hi = [(x.name, ((x >> 31) & 0x7FFFFFFF) or NULLBIT) for x in Line]
 lines_lo = [(x.name, ((x >>  0) & 0x7FFFFFFF) or NULLBIT) for x in Line]
 
-categories_count = len([x for x in Category])
+categories_combined = [ SECONDARY | FORCE_SHIELD_SOUL_RING ]
+categories_count = len([x for x in Category]) + len(categories_combined)
 cubes_count = len([x for x in Cube])
 tiers_count = len([x for x in Tier])
 
@@ -198,6 +199,7 @@ p(f"extern int const allLinesHi[{lines_count}];")
 p(f"extern int const allLinesLo[{lines_count}];")
 p(f"extern char const* const allLineNames[{lines_count}];")
 
+p(f"#define CATEGORIES_NUM_COMBINED {len(categories_combined)}")
 p(f"extern char const* const categoryNames[{categories_count}];")
 p(f"extern int const categoryValues[{categories_count}];")
 
@@ -273,15 +275,20 @@ with BlockCol():
   for x in Line:
     p(f"\"{x.name}\",")
 
+
+CategoryCombined = categories_combined + [x for x in Category]
+
 p(f"char const* const categoryNames[{categories_count}] = ")
 with BlockCol():
-  for x in Category:
+  for x in CategoryCombined:
     p(f"\"{category_name(x)}\",")
 
-def simple_enum(e, with_names=True):
+def simple_enum(e, with_names=True, name=None):
+  if not name:
+    name = e.__name__
   count = len([x for x in e])
   def d(t, x):
-    p(f"{t} const {e.__name__.lower()}{x}[{count}] = ")
+    p(f"{t} const {name.lower()}{x}[{count}] = ")
   if with_names:
     d("char const*", "Names")
     with BlockCol():
@@ -295,8 +302,7 @@ def simple_enum(e, with_names=True):
 for x in [Cube, Tier]:
   simple_enum(x)
 
-for x in [Category]:
-  simple_enum(x, with_names=False)
+simple_enum(CategoryCombined, with_names=False, name="Category")
 
 init_funcs = []
 

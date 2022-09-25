@@ -47,8 +47,8 @@ def category_name(c):
     if c & x == x:
       combined += [combined_category_names[x]]
       c &= ~x
-  return ", ".join([category_names[x] if x in category_names else x.name.lower()
-                    for x in enumbits(c, Category)] + combined)
+  return ", ".join(combined + [category_names[x] if x in category_names else x.name.lower()
+                    for x in enumbits(c, Category)])
 
 @global_enum
 class Line(IntFlag):

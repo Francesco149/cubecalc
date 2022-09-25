@@ -129,7 +129,7 @@ any 3l combo of att+boss+ied 1 in 258 cubes, 0.3880%
                       70+ied 1 in 525 cubes, 0.1904%
               60+ied and att 1 in 2644 cubes, 0.0378%
              60+ied and boss 1 in 1920 cubes, 0.0521%
-====== weapon, 2ndary/force shield/soul ring (violet on lv150 legendary) =======
+====== 2ndary/force shield/soul ring, weapon (violet on lv150 legendary) =======
     any 2l combo of att+boss 1 in 5 cubes, 19.2373%
 any 2l combo of att+boss+ied 1 in 2 cubes, 41.2118%
     any 3l combo of att+boss 1 in 32 cubes, 3.1385%
@@ -146,7 +146,7 @@ any 3l combo of att+boss+ied 1 in 8 cubes, 12.5944%
                       70+ied 1 in 39 cubes, 2.5443%
               60+ied and att 1 in 44 cubes, 2.2774%
              60+ied and boss 1 in 36 cubes, 2.7931%
-===== weapon, 2ndary/force shield/soul ring (equality on lv150 legendary) ======
+===== 2ndary/force shield/soul ring, weapon (equality on lv150 legendary) ======
     any 2l combo of att+boss 1 in 12 cubes, 8.1058%
 any 2l combo of att+boss+ied 1 in 4 cubes, 22.5265%
     any 3l combo of att+boss 1 in 309 cubes, 0.3239%
@@ -1007,7 +1007,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
 100+ hp items and skills recovery 1 in 359 cubes, 0.2782%
 110+ hp items and skills recovery 1 in 94398 cubes, 0.0011%
  120 hp items and skills recovery 1 in 98987357 cubes, 0.0000%
-======== weapon, 2ndary/force shield/soul ring (uni on lv150 legendary) ========
+======== 2ndary/force shield/soul ring, weapon (uni on lv150 legendary) ========
 9+ att or 30+ boss or 30+ ied 1 in 8 cubes, 12.2847%
            9+ att or 30+ boss 1 in 23 cubes, 4.3587%
                      30+ boss 1 in 54 cubes, 1.8677%

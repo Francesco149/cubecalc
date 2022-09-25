@@ -20,7 +20,7 @@ for x in $@; do
       ;;
     san*)
       cc=clang
-      buildflags="-Og -g -fsanitize=address,undefined,leak -DCUBECALC_DEBUG -Werror"
+      buildflags="-Og -g -fsanitize=address,undefined,leak -Werror"
       ;;
     gen*)
       gen=true
@@ -64,4 +64,16 @@ echo
 echo "=== running"
 time env ASAN_OPTIONS=use_sigaltstack=false,symbolize=1 \
 ASAN_SYMBOLIZER_PATH=$(which addr2line) \
-./cubecalc
+./cubecalc | tee cubechances.txt
+
+# compare without percentages
+(
+  echo "" &&
+  echo "### these are the differences from the reference python implementation ###" &&
+  echo "### as long as the difference is tiny, it's probably just rounding     ###" &&
+  echo "" &&
+  echo "" &&
+    diff \
+      <(sed 's/, [0-9.%]\+$//g' < cubechances.txt) \
+      <(sed 's/, [0-9.%]\+$//g' < ../../../cubechances.txt)
+) | less
