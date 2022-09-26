@@ -112,10 +112,10 @@ typedef enum Region Region;
 //    WantOp(OR, 2),      // stack(1): [(((20_meso or 20_drop) and 10_stat) or 23_stat)         ]
 //  );
 //
-// complete usage example:
+// complete usage example (compile with `tcc -DCUBECALC_DEBUG main.c -lm` to see line combos):
 //
+//   #define CUBECALC_MONOLITH
 //   #include "cubecalc.c"
-//   #include "generated.c"
 //
 //   #include <stdio.h>
 //   #include <math.h>
@@ -123,15 +123,14 @@ typedef enum Region Region;
 //   int main() {
 //     CubeGlobalInit();
 //
-//     const BufStatic(Want const, want,
+//     static const BufStaticHdr(Want, want,
 //       WantStat(ATT, 33),
 //       WantOp(AND, -1),
 //     );
 //
-//     float p = CubeCalc(want, WEAPON, BONUS, LEGENDARY, 200, GMS, 0);
-//     puts("");
+//     float p = CubeCalc(want.data, WEAPON, BONUS, LEGENDARY, 200, GMS, 0);
 //     if (p > 0) {
-//       printf("1 in %d\n", (int)round(1/p));
+//       printf("1 in %.0f\n", round(1 / p));
 //     } else {
 //       puts("impossible");
 //     }
@@ -188,6 +187,16 @@ typedef struct _Want {
 } Want;
 
 #endif
+
+#ifdef CUBECALC_MONOLITH
+#define CUBECALC_IMPLEMENTATION
+#define CUBECALC_GENERATED_IMPLEMENTATION
+#define CUBECALC_COMMON_IMPLEMENTATION
+#define UTILS_IMPLEMENTATION
+#include "common.c"
+#include "utils.c"
+#endif
+
 #if defined(CUBECALC_IMPLEMENTATION) && !defined(CUBECALC_UNIT)
 #define CUBECALC_UNIT
 

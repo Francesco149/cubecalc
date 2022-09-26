@@ -1,3 +1,4 @@
 .direnv
 __pycache__
 /src/ports/c/cubecalc
+/src/ports/c/example/example
