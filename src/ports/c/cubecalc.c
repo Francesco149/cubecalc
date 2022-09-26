@@ -535,12 +535,18 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
 
   // calculate prime ANY line chance
   float otherLinesChance = 0;
-  BufOpRange(+, combos->onein, 0, numPrimes - 2, &otherLinesChance);
+  if (numPrimes >= 2) {
+    // only if there's at least 1 line other than the ANY prime line
+    BufOpRange(+, combos->onein, 0, numPrimes - 2, &otherLinesChance);
+  }
   combos->onein[numPrimes - 1] = 1 - otherLinesChance;
 
   // calculate non-prime ANY line chance
   otherLinesChance = 0;
-  BufOpRange(+, combos->onein, numPrimes, -2, &otherLinesChance);
+  if (BufLen(combos->onein) - numPrimes >= 2) {
+    // only if there's at least 1 line other than the ANY non prime line
+    BufOpRange(+, combos->onein, numPrimes, -2, &otherLinesChance);
+  }
   BufAt(combos->onein, -1) = 1 - otherLinesChance;
 
   // generate combinations (array of indices)
