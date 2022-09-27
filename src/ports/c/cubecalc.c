@@ -577,7 +577,7 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
   else rangeIf(cube & EQUALITY, P, P, P)
   else if (cube & (FAMILIAR | RED_FAM_CARD)) {
     // assuming no dbl primes on fam reveal (we don't know if this is accurate)
-    rangeIf(category & FAMILIAR, P, O)
+    rangeIf(cube & FAMILIAR, P, O)
     else {
       range(P, N);
     }
