@@ -215,18 +215,15 @@ DefEnumNames(WantType);
 
 #include <string.h>
 
-// some of the hi/lo masks are actually zero and replaced by NULLBIT
-#define LineMask(x) ((x) & ~NULLBIT)
-
 char* LineToStr(int hi, int lo, int full) {
   char* res = 0;
   size_t nflags = 0;
   if (!full) {
-    hi &= ~LineMask(LINE_A_HI | LINE_B_HI | LINE_C_HI);
-    lo &= ~LineMask(LINE_A_LO | LINE_B_LO | LINE_C_LO);
+    hi &= ~(LINE_A_HI | LINE_B_HI | LINE_C_HI);
+    lo &= ~(LINE_A_LO | LINE_B_LO | LINE_C_LO);
   }
   ArrayEachi(allLinesHi, i) {
-    if ((hi & allLinesHi[i]) && (lo & allLinesLo[i])) {
+    if ((hi & allLinesHi[i]) || (lo & allLinesLo[i])) {
       BufAllocCharsf(&res, "%s | ", allLineNames[i]);
       ++nflags;
     }
@@ -473,13 +470,14 @@ void WantStackFree(Want** pstack) {
   BufFree(pstack);
 }
 
+// NOTE: LINE_A/B/C should NEVER be used with this
 static
 void LinesMatch(Lines* l, int maskHi, int maskLo, intmax_t** pmatch, intmax_t** pmatchLo) {
   BufClear(*pmatch);
   BufClear(*pmatchLo);
   BufMask(int, l->lineHi, *x & maskHi, pmatch);
   BufMask(int, l->lineLo, *x & maskLo, pmatchLo);
-  BufAND(*pmatch, *pmatchLo);
+  BufOR(*pmatch, *pmatchLo);
 }
 
 // match any combo that has at least numLines lines matching maskHi maskLo 
@@ -634,7 +632,7 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
   BufEach(Want const, forbiddenCombos.data, w) {
     switch (w->type) {
       case WANT_STAT:
-        if ((w->lineHi & LINES_HI) && (w->lineLo & LINES_LO)) {
+        if ((w->lineHi & LINES_HI) || (w->lineLo & LINES_LO)) {
           for (Want const* s = lastLines; s != w; ++s) {
             LinesAnyNCombo(combos, w->value, s->lineHi, s->lineLo, &match, &matchLo, &counts);
             BufOR(tmpIntMax, match);
@@ -669,7 +667,7 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
         BufEachRange(Want, stack, -opCount, -1, s) {
           switch (s->type) {
             case WANT_STAT:
-              if ((s->lineHi & LINES_HI) && (s->lineLo & LINES_LO)) {
+              if ((s->lineHi & LINES_HI) || (s->lineLo & LINES_LO)) {
                 numLines = s->value;
               } else {
                 // create a mask of all the stats, minus LINES (only used by "any combination")

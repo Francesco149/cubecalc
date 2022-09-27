@@ -182,13 +182,10 @@ p(f"extern int const valueGroupsCategoryMask[{len(values)}];")
 p(f"extern int const valueGroupsRegionMask[{len(values)}];")
 p(f"extern Map* valueGroups[{len(values)}];")
 
-NULLBIT = 1<<31
-p("#define NULLBIT (1<<31)")
-
 lines_all = [x for x in Line]
 lines_count = len(lines_all)
-lines_hi = [(x.name, ((x >> 31) & 0x7FFFFFFF) or NULLBIT) for x in Line]
-lines_lo = [(x.name, ((x >>  0) & 0x7FFFFFFF) or NULLBIT) for x in Line]
+lines_hi = [(x.name, ((x >> 32) & 0xFFFFFFFF)) for x in Line]
+lines_lo = [(x.name, ((x >>  0) & 0xFFFFFFFF)) for x in Line]
 
 categories_combined = [ SECONDARY | FORCE_SHIELD_SOUL_RING ]
 categories_count = len([x for x in Category]) + len(categories_combined)
@@ -221,21 +218,21 @@ for x in [Cube, Tier, Category, Region]:
 # some lines will have half of the bit all zero. to text for them, we replace those hi/lo parts
 # with a bit that's not already taken
 for name, x in lines_hi:
-  s = f"0x{x:x}" if x != NULLBIT else "NULLBIT"
+  s = f"0x{x:x}"
   p(f"#define {name}_HI {s}")
 
 for name, x in lines_lo:
-  s = f"0x{x:x}" if x != NULLBIT else "NULLBIT"
+  s = f"0x{x:x}"
   p(f"#define {name}_LO {s}")
 
 masks = [x for x in LineMasks] + [x for x in LineVariants]
 
 for x in masks:
-  bits = enum_bits(Line, x, '_HI') or "NULLBIT"
+  bits = enum_bits(Line, x, '_HI')
   p(f"#define {x.name}_HI ({bits})")
 
 for x in masks:
-  bits = enum_bits(Line, x, '_LO') or "NULLBIT"
+  bits = enum_bits(Line, x, '_LO')
   p(f"#define {x.name}_LO ({bits})")
 
 p("#endif")

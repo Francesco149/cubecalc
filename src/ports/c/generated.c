@@ -15,7 +15,6 @@ extern int const valueGroupsCubeMask[51];
 extern int const valueGroupsCategoryMask[51];
 extern int const valueGroupsRegionMask[51];
 extern Map* valueGroups[51];
-#define NULLBIT (1<<31)
 extern int const allLinesHi[41];
 extern int const allLinesLo[41];
 extern char const* const allLineNames[41];
@@ -77,47 +76,47 @@ enum Region
   TMS = 0x10,
   CMS = 0x20,
 };
-#define LINE_A_HI NULLBIT
-#define LINE_B_HI NULLBIT
-#define LINE_C_HI NULLBIT
-#define ANY_HI NULLBIT
-#define BOSS_ONLY_HI NULLBIT
-#define DAMAGE_HI NULLBIT
-#define IED_HI NULLBIT
-#define ATT_HI NULLBIT
-#define MAINSTAT_HI NULLBIT
-#define ALLSTAT_HI NULLBIT
-#define HP_HI NULLBIT
-#define COOLDOWN_HI NULLBIT
-#define CRITDMG_HI NULLBIT
-#define DROP_MESO_HI NULLBIT
-#define MESO_ONLY_HI NULLBIT
-#define DROP_ONLY_HI NULLBIT
-#define INVIN_HI NULLBIT
-#define DECENT_SPEED_INFUSION_HI NULLBIT
-#define DECENT_SHARP_EYES_HI NULLBIT
-#define DECENT_COMBAT_ORDERS_HI NULLBIT
-#define FLAT_ATT_HI NULLBIT
-#define FLAT_MAINSTAT_HI NULLBIT
-#define FLAT_ALLSTAT_HI NULLBIT
-#define FLAT_DEX_ONLY_HI NULLBIT
-#define FLAT_HP_HI NULLBIT
-#define MAINSTAT_PER_10_LVLS_HI NULLBIT
-#define ATT_PER_10_LVLS_HI NULLBIT
-#define FLAT_MESO_HI NULLBIT
-#define AUTOSTEAL_1_HI NULLBIT
-#define AUTOSTEAL_2_HI NULLBIT
-#define HEAL_HP_ONLY_HI NULLBIT
-#define HEAL_HP_MP_HI 0x1
-#define HEAL_MP_ONLY_HI 0x2
-#define HEAL_HP_ONLY_NEAR_HI 0x4
-#define HEAL_HP_MP_NEAR_HI 0x8
-#define HEAL_MP_ONLY_NEAR_HI 0x10
-#define HEAL_HP_ONLY_PARTY_HI 0x20
-#define HEAL_HP_MP_PARTY_HI 0x40
-#define HEAL_MP_ONLY_PARTY_HI 0x80
-#define HP_ITEMS_AND_SKILLS_HI 0x100
-#define LINES_HI 0x200
+#define LINE_A_HI 0x0
+#define LINE_B_HI 0x0
+#define LINE_C_HI 0x0
+#define ANY_HI 0x0
+#define BOSS_ONLY_HI 0x0
+#define DAMAGE_HI 0x0
+#define IED_HI 0x0
+#define ATT_HI 0x0
+#define MAINSTAT_HI 0x0
+#define ALLSTAT_HI 0x0
+#define HP_HI 0x0
+#define COOLDOWN_HI 0x0
+#define CRITDMG_HI 0x0
+#define DROP_MESO_HI 0x0
+#define MESO_ONLY_HI 0x0
+#define DROP_ONLY_HI 0x0
+#define INVIN_HI 0x0
+#define DECENT_SPEED_INFUSION_HI 0x0
+#define DECENT_SHARP_EYES_HI 0x0
+#define DECENT_COMBAT_ORDERS_HI 0x0
+#define FLAT_ATT_HI 0x0
+#define FLAT_MAINSTAT_HI 0x0
+#define FLAT_ALLSTAT_HI 0x0
+#define FLAT_DEX_ONLY_HI 0x0
+#define FLAT_HP_HI 0x0
+#define MAINSTAT_PER_10_LVLS_HI 0x0
+#define ATT_PER_10_LVLS_HI 0x0
+#define FLAT_MESO_HI 0x0
+#define AUTOSTEAL_1_HI 0x0
+#define AUTOSTEAL_2_HI 0x0
+#define HEAL_HP_ONLY_HI 0x0
+#define HEAL_HP_MP_HI 0x0
+#define HEAL_MP_ONLY_HI 0x1
+#define HEAL_HP_ONLY_NEAR_HI 0x2
+#define HEAL_HP_MP_NEAR_HI 0x4
+#define HEAL_MP_ONLY_NEAR_HI 0x8
+#define HEAL_HP_ONLY_PARTY_HI 0x10
+#define HEAL_HP_MP_PARTY_HI 0x20
+#define HEAL_MP_ONLY_PARTY_HI 0x40
+#define HP_ITEMS_AND_SKILLS_HI 0x80
+#define LINES_HI 0x100
 #define LINE_A_LO 0x1
 #define LINE_B_LO 0x2
 #define LINE_C_LO 0x4
@@ -149,16 +148,16 @@ enum Region
 #define AUTOSTEAL_1_LO 0x10000000
 #define AUTOSTEAL_2_LO 0x20000000
 #define HEAL_HP_ONLY_LO 0x40000000
-#define HEAL_HP_MP_LO NULLBIT
-#define HEAL_MP_ONLY_LO NULLBIT
-#define HEAL_HP_ONLY_NEAR_LO NULLBIT
-#define HEAL_HP_MP_NEAR_LO NULLBIT
-#define HEAL_MP_ONLY_NEAR_LO NULLBIT
-#define HEAL_HP_ONLY_PARTY_LO NULLBIT
-#define HEAL_HP_MP_PARTY_LO NULLBIT
-#define HEAL_MP_ONLY_PARTY_LO NULLBIT
-#define HP_ITEMS_AND_SKILLS_LO NULLBIT
-#define LINES_LO NULLBIT
+#define HEAL_HP_MP_LO 0x80000000
+#define HEAL_MP_ONLY_LO 0x0
+#define HEAL_HP_ONLY_NEAR_LO 0x0
+#define HEAL_HP_MP_NEAR_LO 0x0
+#define HEAL_MP_ONLY_NEAR_LO 0x0
+#define HEAL_HP_ONLY_PARTY_LO 0x0
+#define HEAL_HP_MP_PARTY_LO 0x0
+#define HEAL_MP_ONLY_PARTY_LO 0x0
+#define HP_ITEMS_AND_SKILLS_LO 0x0
+#define LINES_LO 0x0
 #define BOSS_HI (BOSS_ONLY_HI | DAMAGE_HI)
 #define STAT_HI (MAINSTAT_HI | ALLSTAT_HI)
 #define FLAT_STAT_HI (FLAT_MAINSTAT_HI | FLAT_ALLSTAT_HI)
