@@ -918,10 +918,12 @@ float CubeCalc(
 
   // calculate combo probabilities
   float* comboProbs = 0;
+  float multiplier = cube == UNI ? 1 / 3.0 : 1;
+  // ^ on unicubes, you spend an average of 3 cubes to select the line and roll it once
   BufEach(float, combos.onein, x) {
     float comboProb = 1;
     OpRange(*, x, 0, combos.comboSize - 1, &comboProb);
-    *BufAlloc(&comboProbs) = comboProb;
+    *BufAlloc(&comboProbs) = comboProb * multiplier;
     x += combos.comboSize - 1;
   }
 
