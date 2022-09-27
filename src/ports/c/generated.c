@@ -561,7 +561,7 @@ static void primeChancesInit()
 {
   primeChances = MapInit();
   {
-    static const BufStatic(float const, buf,
+    static const BufH(float const, buf,
       1,
       0.1,
       0.01,
@@ -570,11 +570,11 @@ static void primeChancesInit()
     {
       .type = CONTAINER_BUF,
     };
-    container.data = (void*)buf;
+    container.data = (void*)buf.data;
     MapSet(primeChances, RED, (void*)&container);
   }
   {
-    static const BufStatic(float const, buf,
+    static const BufH(float const, buf,
       1,
       0.2,
       0.05,
@@ -583,11 +583,11 @@ static void primeChancesInit()
     {
       .type = CONTAINER_BUF,
     };
-    container.data = (void*)buf;
+    container.data = (void*)buf.data;
     MapSet(primeChances, BLACK, (void*)&container);
   }
   {
-    static const BufStatic(float const, buf,
+    static const BufH(float const, buf,
       1,
       0.1,
       0.01,
@@ -599,11 +599,11 @@ static void primeChancesInit()
     {
       .type = CONTAINER_BUF,
     };
-    container.data = (void*)buf;
+    container.data = (void*)buf.data;
     MapSet(primeChances, VIOLET, (void*)&container);
   }
   {
-    static const BufStatic(float const, buf,
+    static const BufH(float const, buf,
       1,
       1,
       1,
@@ -612,58 +612,58 @@ static void primeChancesInit()
     {
       .type = CONTAINER_BUF,
     };
-    container.data = (void*)buf;
+    container.data = (void*)buf.data;
     MapSet(primeChances, EQUALITY, (void*)&container);
   }
   {
     Map* cube = MapInit();
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         1,
         1,
       );
-      MapSet(cube, BASE, (void*)buf);
+      MapSet(cube, BASE, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         1,
         1,
       );
-      MapSet(cube, COMMON, (void*)buf);
+      MapSet(cube, COMMON, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.0196078431372549,
         0.0196078431372549,
       );
-      MapSet(cube, RARE, (void*)buf);
+      MapSet(cube, RARE, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.047619047619047616,
         0.047619047619047616,
       );
-      MapSet(cube, EPIC, (void*)buf);
+      MapSet(cube, EPIC, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.0196078431372549,
         0.0196078431372549,
       );
-      MapSet(cube, UNIQUE, (void*)buf);
+      MapSet(cube, UNIQUE, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.004975,
         0.004975,
       );
-      MapSet(cube, LEGENDARY, (void*)buf);
+      MapSet(cube, LEGENDARY, (void*)buf.data);
     }
     static Container container =
     {
@@ -675,36 +675,36 @@ static void primeChancesInit()
   {
     Map* cube = MapInit();
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         1,
         1,
       );
-      MapSet(cube, BASE, (void*)buf);
+      MapSet(cube, BASE, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         1,
         1,
       );
-      MapSet(cube, COMMON, (void*)buf);
+      MapSet(cube, COMMON, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.000999000999000999,
         0.000999000999000999,
       );
-      MapSet(cube, RARE, (void*)buf);
+      MapSet(cube, RARE, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.009900990099009901,
         0.009900990099009901,
       );
-      MapSet(cube, EPIC, (void*)buf);
+      MapSet(cube, EPIC, (void*)buf.data);
     }
     static Container container =
     {
@@ -716,44 +716,44 @@ static void primeChancesInit()
   {
     Map* cube = MapInit();
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         1,
         1,
       );
-      MapSet(cube, BASE, (void*)buf);
+      MapSet(cube, BASE, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         1,
         1,
       );
-      MapSet(cube, COMMON, (void*)buf);
+      MapSet(cube, COMMON, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.16666666666666666,
         0.16666666666666666,
       );
-      MapSet(cube, RARE, (void*)buf);
+      MapSet(cube, RARE, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.047619047619047616,
         0.047619047619047616,
       );
-      MapSet(cube, EPIC, (void*)buf);
+      MapSet(cube, EPIC, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.011857712196724188,
         0.011857712196724188,
       );
-      MapSet(cube, UNIQUE, (void*)buf);
+      MapSet(cube, UNIQUE, (void*)buf.data);
     }
     static Container container =
     {
@@ -765,52 +765,52 @@ static void primeChancesInit()
   {
     Map* cube = MapInit();
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         1,
         1,
       );
-      MapSet(cube, BASE, (void*)buf);
+      MapSet(cube, BASE, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         1,
         1,
       );
-      MapSet(cube, COMMON, (void*)buf);
+      MapSet(cube, COMMON, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.16666666666666666,
         0.16666666666666666,
       );
-      MapSet(cube, RARE, (void*)buf);
+      MapSet(cube, RARE, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.07999488032765903,
         0.07999488032765903,
       );
-      MapSet(cube, EPIC, (void*)buf);
+      MapSet(cube, EPIC, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.016958752921145192,
         0.016958752921145192,
       );
-      MapSet(cube, UNIQUE, (void*)buf);
+      MapSet(cube, UNIQUE, (void*)buf.data);
     }
     {
-      static const BufStatic(float const, buf,
+      static const BufH(float const, buf,
         1,
         0.001996,
         0.001996,
       );
-      MapSet(cube, LEGENDARY, (void*)buf);
+      MapSet(cube, LEGENDARY, (void*)buf.data);
     }
     static Container container =
     {
@@ -820,18 +820,18 @@ static void primeChancesInit()
     MapSet(primeChances, MEISTER, (void*)&container);
   }
   {
-    static const BufStatic(float const, buf,
+    static const BufH(float const, buf,
       0.15,
     );
     static Container container =
     {
       .type = CONTAINER_BUF,
     };
-    container.data = (void*)buf;
+    container.data = (void*)buf.data;
     MapSet(primeChances, UNI, (void*)&container);
   }
   {
-    static const BufStatic(float const, buf,
+    static const BufH(float const, buf,
       1,
       0,
     );
@@ -839,11 +839,11 @@ static void primeChancesInit()
     {
       .type = CONTAINER_BUF,
     };
-    container.data = (void*)buf;
+    container.data = (void*)buf.data;
     MapSet(primeChances, FAMILIAR, (void*)&container);
   }
   {
-    static const BufStatic(float const, buf,
+    static const BufH(float const, buf,
       1,
       0.0044781260764726145,
     );
@@ -851,7 +851,7 @@ static void primeChancesInit()
     {
       .type = CONTAINER_BUF,
     };
-    container.data = (void*)buf;
+    container.data = (void*)buf.data;
     MapSet(primeChances, RED_FAM_CARD, (void*)&container);
   }
 }
@@ -863,29 +863,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.14816625518427,
           8.14816625518427,
           12.222249382776406,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -895,7 +897,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -905,7 +907,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.333464001045343,
           16.333464001045343,
           24.500196001568014,
@@ -915,14 +917,16 @@ static void dataInit()
           24.500196001568014,
           49.00039200313603,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
@@ -930,7 +934,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
@@ -938,7 +942,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.199970560094208,
           9.199970560094208,
           23.000138000828002,
@@ -946,14 +950,16 @@ static void dataInit()
           23.000138000828002,
           23.000138000828002,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -961,7 +967,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -969,7 +975,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.600005160003096,
           14.33342411168604,
           14.33342411168604,
@@ -977,14 +983,16 @@ static void dataInit()
           14.33342411168604,
           14.33342411168604,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -995,7 +1003,7 @@ static void dataInit()
           LINE_B_HI | BOSS_ONLY_HI,
           LINE_A_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -1006,7 +1014,7 @@ static void dataInit()
           LINE_B_LO | BOSS_ONLY_LO,
           LINE_A_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.24999743750064,
           20.50020500205002,
           20.50020500205002,
@@ -1017,10 +1025,12 @@ static void dataInit()
           10.24999743750064,
           20.50020500205002,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, WEAPON, tiers);
@@ -1028,29 +1038,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.14816625518427,
           8.14816625518427,
           12.222249382776406,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -1060,7 +1072,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -1070,7 +1082,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.333464001045343,
           16.333464001045343,
           24.500196001568014,
@@ -1080,14 +1092,16 @@ static void dataInit()
           24.500196001568014,
           49.00039200313603,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
@@ -1095,7 +1109,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
@@ -1103,7 +1117,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.199970560094208,
           9.199970560094208,
           23.000138000828002,
@@ -1111,42 +1125,46 @@ static void dataInit()
           23.000138000828002,
           23.000138000828002,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.0,
           13.333333333333334,
           13.333333333333334,
           10.0,
           13.333333333333334,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -1155,7 +1173,7 @@ static void dataInit()
           LINE_B_HI | IED_HI,
           LINE_A_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -1164,7 +1182,7 @@ static void dataInit()
           LINE_B_LO | IED_LO,
           LINE_A_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.749978125054687,
           17.499956250109374,
           17.499956250109374,
@@ -1173,10 +1191,12 @@ static void dataInit()
           17.499956250109374,
           17.499956250109374,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, EMBLEM, tiers);
@@ -1184,29 +1204,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.14816625518427,
           8.14816625518427,
           12.222249382776406,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -1216,7 +1238,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -1226,7 +1248,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.333464001045343,
           16.333464001045343,
           24.500196001568014,
@@ -1236,14 +1258,16 @@ static void dataInit()
           24.500196001568014,
           49.00039200313603,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
@@ -1251,7 +1275,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
@@ -1259,7 +1283,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.199970560094208,
           9.199970560094208,
           23.000138000828002,
@@ -1267,14 +1291,16 @@ static void dataInit()
           23.000138000828002,
           23.000138000828002,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -1282,7 +1308,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -1290,7 +1316,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.200022440049368,
           16.999864001087992,
           16.999864001087992,
@@ -1298,14 +1324,16 @@ static void dataInit()
           16.999864001087992,
           16.999864001087992,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -1316,7 +1344,7 @@ static void dataInit()
           LINE_B_HI | BOSS_ONLY_HI,
           LINE_A_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -1327,7 +1355,7 @@ static void dataInit()
           LINE_B_LO | BOSS_ONLY_LO,
           LINE_A_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.75005287523794,
           23.50010575047588,
           23.50010575047588,
@@ -1338,10 +1366,12 @@ static void dataInit()
           11.75005287523794,
           23.50010575047588,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, SECONDARY, tiers);
@@ -1349,29 +1379,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.037050068611237,
           7.037050068611237,
           10.555537962992286,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -1381,7 +1413,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -1391,7 +1423,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.333425333885337,
           15.333425333885337,
           23.000138000828002,
@@ -1401,14 +1433,16 @@ static void dataInit()
           23.000138000828002,
           46.000276001656005,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
@@ -1416,7 +1450,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
@@ -1424,7 +1458,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.200014760026567,
           8.200014760026567,
           20.50020500205002,
@@ -1432,14 +1466,16 @@ static void dataInit()
           20.50020500205002,
           20.50020500205002,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -1447,7 +1483,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -1455,7 +1491,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.200022440049368,
           16.999864001087992,
           16.999864001087992,
@@ -1463,14 +1499,16 @@ static void dataInit()
           16.999864001087992,
           16.999864001087992,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -1481,7 +1519,7 @@ static void dataInit()
           LINE_B_HI | BOSS_ONLY_HI,
           LINE_A_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -1492,7 +1530,7 @@ static void dataInit()
           LINE_B_LO | BOSS_ONLY_LO,
           LINE_A_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.75005287523794,
           23.50010575047588,
           23.50010575047588,
@@ -1503,10 +1541,12 @@ static void dataInit()
           11.75005287523794,
           23.50010575047588,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, FORCE_SHIELD_SOUL_RING, tiers);
@@ -1514,125 +1554,135 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.7778037037901235,
           7.7778037037901235,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.333333333333334,
           13.333333333333334,
           13.333333333333334,
           20.0,
           20.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.000007000007,
           7.000007000007,
           17.499956250109374,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.199964160114687,
           9.333320888905481,
           13.999916000503998,
           13.999916000503998,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | COOLDOWN_HI,
           LINE_B_HI | COOLDOWN_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | COOLDOWN_LO,
           LINE_B_LO | COOLDOWN_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.249985937517579,
           11.249985937517579,
           14.999925000375,
           14.999925000375,
           22.500225002250023,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, HAT, tiers);
@@ -1640,128 +1690,138 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.7778037037901235,
           7.7778037037901235,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.333333333333334,
           13.333333333333334,
           13.333333333333334,
           20.0,
           20.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           INVIN_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           INVIN_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.599996960001216,
           7.599996960001216,
           18.999848001215987,
           12.66672577805363,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           INVIN_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           INVIN_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.199926080413949,
           11.000011000011,
           16.5000165000165,
           16.5000165000165,
           16.5000165000165,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           INVIN_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           INVIN_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.750029562581297,
           10.750029562581297,
           14.33342411168604,
           14.33342411168604,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, TOP_OVERALL, tiers);
@@ -1769,119 +1829,129 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.7778037037901235,
           7.7778037037901235,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.333333333333334,
           13.333333333333334,
           13.333333333333334,
           20.0,
           20.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.000007000007,
           7.000007000007,
           17.499956250109374,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.199964160114687,
           9.333320888905481,
           13.999916000503998,
           13.999916000503998,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.25000925000925,
           9.25000925000925,
           12.333345666679,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, BOTTOM, tiers);
@@ -1889,122 +1959,132 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.25925925925926,
           9.25925925925926,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           14.66662755565985,
           14.66662755565985,
           14.66662755565985,
           21.99978000219998,
           21.99978000219998,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.000007000007,
           7.000007000007,
           17.499956250109374,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.199964160114687,
           9.333320888905481,
           13.999916000503998,
           13.999916000503998,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           DECENT_COMBAT_ORDERS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           DECENT_COMBAT_ORDERS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.0,
           10.0,
           13.333333333333334,
           13.333333333333334,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, SHOE, tiers);
@@ -2012,76 +2092,82 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.7778037037901235,
           7.7778037037901235,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.333333333333334,
           13.333333333333334,
           13.333333333333334,
           20.0,
           20.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.200014760026567,
           8.200014760026567,
           20.50020500205002,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
@@ -2089,7 +2175,7 @@ static void dataInit()
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
           DECENT_SHARP_EYES_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
@@ -2097,7 +2183,7 @@ static void dataInit()
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           DECENT_SHARP_EYES_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.000048000192,
           10.0,
           14.999925000375,
@@ -2105,38 +2191,42 @@ static void dataInit()
           14.999925000375,
           14.999925000375,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | CRITDMG_HI,
           LINE_A_HI | ALLSTAT_HI,
           DECENT_SPEED_INFUSION_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | CRITDMG_LO,
           LINE_A_LO | ALLSTAT_LO,
           DECENT_SPEED_INFUSION_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.000011000011,
           11.000011000011,
           11.000011000011,
           14.66662755565985,
           14.66662755565985,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, GLOVE, tiers);
@@ -2144,119 +2234,129 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.7778037037901235,
           7.7778037037901235,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.333333333333334,
           13.333333333333334,
           13.333333333333334,
           20.0,
           20.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.000007000007,
           7.000007000007,
           17.499956250109374,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.399983360026626,
           8.666637777874072,
           13.000013000013,
           13.000013000013,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.25000925000925,
           9.25000925000925,
           12.333345666679,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, CAPE_BELT_SHOULDER, tiers);
@@ -2264,125 +2364,135 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.7778037037901235,
           7.7778037037901235,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.333333333333334,
           13.333333333333334,
           13.333333333333334,
           20.0,
           20.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.000007000007,
           7.000007000007,
           17.499956250109374,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.800028160090111,
           7.333313777829925,
           11.000011000011,
           11.000011000011,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.750029562581297,
           10.750029562581297,
           14.33342411168604,
           14.33342411168604,
           14.33342411168604,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, FACE_EYE_RING_EARRING_PENDANT, tiers);
@@ -2390,119 +2500,129 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.7778037037901235,
           7.7778037037901235,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.333333333333334,
           13.333333333333334,
           13.333333333333334,
           20.0,
           20.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.000007000007,
           7.000007000007,
           17.499956250109374,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.800028160090111,
           7.333313777829925,
           11.000011000011,
           11.000011000011,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.750015500031,
           7.750015500031,
           10.333354000041332,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, HEART_BADGE, tiers);
@@ -2514,29 +2634,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.599969280098303,
           6.4,
           19.200122880786434,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -2546,7 +2668,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -2556,7 +2678,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           28.499772001823985,
           18.999848001215987,
           28.499772001823985,
@@ -2566,14 +2688,16 @@ static void dataInit()
           28.499772001823985,
           56.99954400364797,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
@@ -2581,7 +2705,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
@@ -2589,7 +2713,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.000013000013,
           8.666637777874072,
           25.999688003743955,
@@ -2597,14 +2721,16 @@ static void dataInit()
           25.999688003743955,
           25.999688003743955,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -2612,7 +2738,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -2620,7 +2746,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.500018750046876,
           14.999925000375,
           14.999925000375,
@@ -2628,14 +2754,16 @@ static void dataInit()
           14.999925000375,
           14.999925000375,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -2645,7 +2773,7 @@ static void dataInit()
           LINE_B_HI | BOSS_ONLY_HI,
           LINE_A_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -2655,7 +2783,7 @@ static void dataInit()
           LINE_B_LO | BOSS_ONLY_LO,
           LINE_A_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.000009000009,
           17.99985600115199,
           17.99985600115199,
@@ -2665,10 +2793,12 @@ static void dataInit()
           9.000009000009,
           35.99971200230398,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, WEAPON, tiers);
@@ -2676,29 +2806,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.599969280098303,
           6.4,
           19.200122880786434,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -2708,7 +2840,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -2718,7 +2850,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           28.499772001823985,
           18.999848001215987,
           28.499772001823985,
@@ -2728,14 +2860,16 @@ static void dataInit()
           28.499772001823985,
           56.99954400364797,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
@@ -2743,7 +2877,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
@@ -2751,7 +2885,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.000013000013,
           8.666637777874072,
           25.999688003743955,
@@ -2759,42 +2893,46 @@ static void dataInit()
           25.999688003743955,
           25.999688003743955,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.000007000007,
           13.999916000503998,
           13.999916000503998,
           13.999916000503998,
           13.999916000503998,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -2802,7 +2940,7 @@ static void dataInit()
           LINE_B_HI | IED_HI,
           LINE_A_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -2810,7 +2948,7 @@ static void dataInit()
           LINE_B_LO | IED_LO,
           LINE_A_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.750015500031,
           15.500031000062,
           15.500031000062,
@@ -2818,10 +2956,12 @@ static void dataInit()
           15.500031000062,
           31.000062000124,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, EMBLEM, tiers);
@@ -2829,29 +2969,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.599969280098303,
           6.4,
           19.200122880786434,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -2861,7 +3003,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -2871,7 +3013,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           28.499772001823985,
           18.999848001215987,
           28.499772001823985,
@@ -2881,14 +3023,16 @@ static void dataInit()
           28.499772001823985,
           56.99954400364797,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
@@ -2896,7 +3040,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
@@ -2904,7 +3048,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.499956250109374,
           11.666705555685185,
           35.00052500787512,
@@ -2912,14 +3056,16 @@ static void dataInit()
           35.00052500787512,
           35.00052500787512,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -2927,7 +3073,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -2935,7 +3081,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.5000105000105,
           21.000021000021,
           21.000021000021,
@@ -2943,14 +3089,16 @@ static void dataInit()
           21.000021000021,
           21.000021000021,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -2960,7 +3108,7 @@ static void dataInit()
           LINE_B_HI | BOSS_ONLY_HI,
           LINE_A_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -2970,7 +3118,7 @@ static void dataInit()
           LINE_B_LO | BOSS_ONLY_LO,
           LINE_A_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.000048000192,
           23.999808001535992,
           23.999808001535992,
@@ -2980,10 +3128,12 @@ static void dataInit()
           12.000048000192,
           48.0007680122882,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, SECONDARY, tiers);
@@ -2991,29 +3141,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.8000078000078,
           5.199991680013313,
           15.599893920721339,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -3023,7 +3175,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -3033,7 +3185,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           25.499796001631985,
           16.999864001087992,
           25.499796001631985,
@@ -3043,14 +3195,16 @@ static void dataInit()
           25.499796001631985,
           50.99959200326397,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
@@ -3058,7 +3212,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
@@ -3066,7 +3220,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           14.499898500710495,
           9.666692444513187,
           28.99979700142099,
@@ -3074,14 +3228,16 @@ static void dataInit()
           28.99979700142099,
           28.99979700142099,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -3089,7 +3245,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -3097,7 +3253,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.5000105000105,
           21.000021000021,
           21.000021000021,
@@ -3105,14 +3261,16 @@ static void dataInit()
           21.000021000021,
           21.000021000021,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
@@ -3122,7 +3280,7 @@ static void dataInit()
           LINE_B_HI | BOSS_ONLY_HI,
           LINE_A_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
@@ -3132,7 +3290,7 @@ static void dataInit()
           LINE_B_LO | BOSS_ONLY_LO,
           LINE_A_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.000048000192,
           23.999808001535992,
           23.999808001535992,
@@ -3142,10 +3300,12 @@ static void dataInit()
           12.000048000192,
           48.0007680122882,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, FORCE_SHIELD_SOUL_RING, tiers);
@@ -3153,101 +3313,109 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           19.200122880786434,
           12.8,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.5000135000135,
           9.000009000009,
           27.000027000027,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           14.499898500710495,
           9.666692444513187,
           28.99979700142099,
           9.666692444513187,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
@@ -3255,7 +3423,7 @@ static void dataInit()
           LINE_A_HI | COOLDOWN_HI,
           LINE_B_HI | COOLDOWN_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
@@ -3263,7 +3431,7 @@ static void dataInit()
           LINE_A_LO | COOLDOWN_LO,
           LINE_B_LO | COOLDOWN_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
@@ -3271,10 +3439,12 @@ static void dataInit()
           12.000048000192,
           17.99985600115199,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, HAT, tiers);
@@ -3282,131 +3452,141 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.200022440049368,
           6.799991840009792,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           INVIN_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           INVIN_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           14.999925000375,
           10.0,
           30.00030000300003,
           10.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           INVIN_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           INVIN_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.5000165000165,
           11.000011000011,
           33.000033000033,
           11.000011000011,
           11.000011000011,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           INVIN_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           INVIN_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.999864001087992,
           11.333371111237039,
           16.999864001087992,
           11.333371111237039,
           11.333371111237039,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, TOP_OVERALL, tiers);
@@ -3414,122 +3594,132 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.200022440049368,
           6.799991840009792,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.5000135000135,
           9.000009000009,
           27.000027000027,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           14.499898500710495,
           9.666692444513187,
           28.99979700142099,
           9.666692444513187,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.999864001087992,
           11.333371111237039,
           16.999864001087992,
           11.333371111237039,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, BOTTOM, tiers);
@@ -3537,125 +3727,135 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.799955840141312,
           9.199970560094208,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.000021000021,
           13.999916000503998,
           21.000021000021,
           13.999916000503998,
           21.000021000021,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.5000135000135,
           9.000009000009,
           27.000027000027,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           14.499898500710495,
           9.666692444513187,
           28.99979700142099,
           9.666692444513187,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
           DECENT_COMBAT_ORDERS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           DECENT_COMBAT_ORDERS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.500031000062,
           10.333354000041332,
           15.500031000062,
           10.333354000041332,
           10.333354000041332,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, SHOE, tiers);
@@ -3663,104 +3863,112 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.200022440049368,
           6.799991840009792,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.5000165000165,
           11.000011000011,
           33.000033000033,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
           DECENT_SHARP_EYES_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           DECENT_SHARP_EYES_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.499956250109374,
           11.666705555685185,
           35.00052500787512,
           11.666705555685185,
           17.499956250109374,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | CRITDMG_HI,
@@ -3771,7 +3979,7 @@ static void dataInit()
           LINE_A_HI | AUTOSTEAL_1_HI,
           DECENT_SPEED_INFUSION_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | CRITDMG_LO,
@@ -3782,7 +3990,7 @@ static void dataInit()
           LINE_A_LO | AUTOSTEAL_1_LO,
           DECENT_SPEED_INFUSION_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.99978000219998,
           14.66662755565985,
           11.000011000011,
@@ -3793,10 +4001,12 @@ static void dataInit()
           14.66662755565985,
           14.66662755565985,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, GLOVE, tiers);
@@ -3804,122 +4014,132 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.200022440049368,
           6.799991840009792,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.5000135000135,
           9.000009000009,
           27.000027000027,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.5000135000135,
           9.000009000009,
           27.000027000027,
           9.000009000009,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.999916000503998,
           9.333320888905481,
           13.999916000503998,
           9.333320888905481,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, CAPE_BELT_SHOULDER, tiers);
@@ -3927,101 +4147,109 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.200022440049368,
           6.799991840009792,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.000021000021,
           13.999916000503998,
           21.000021000021,
           13.999916000503998,
           21.000021000021,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.000009000009,
           5.9999880000240005,
           17.99985600115199,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.5000105000105,
           7.000007000007,
           21.000021000021,
           7.000007000007,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
@@ -4029,7 +4257,7 @@ static void dataInit()
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
@@ -4037,7 +4265,7 @@ static void dataInit()
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.999864001087992,
           11.333371111237039,
           16.999864001087992,
@@ -4045,10 +4273,12 @@ static void dataInit()
           11.333371111237039,
           11.333371111237039,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, FACE_EYE_RING_EARRING_PENDANT, tiers);
@@ -4056,122 +4286,132 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.200022440049368,
           6.799991840009792,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
           12.000048000192,
           17.99985600115199,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.000009000009,
           5.9999880000240005,
           17.99985600115199,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.5000105000105,
           7.000007000007,
           21.000021000021,
           7.000007000007,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.000011000011,
           7.333313777829925,
           11.000011000011,
           7.333313777829925,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, HEART_BADGE, tiers);
@@ -4183,29 +4423,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -4215,7 +4457,7 @@ static void dataInit()
           LINE_A_HI | DAMAGE_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -4225,7 +4467,7 @@ static void dataInit()
           LINE_A_LO | DAMAGE_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.999864001087992,
           16.999864001087992,
           25.499796001631985,
@@ -4235,14 +4477,16 @@ static void dataInit()
           50.99959200326397,
           16.999864001087992,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -4250,7 +4494,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -4258,7 +4502,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.333371111237039,
           16.999864001087992,
           11.333371111237039,
@@ -4266,14 +4510,16 @@ static void dataInit()
           16.999864001087992,
           16.999864001087992,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -4283,7 +4529,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -4293,7 +4539,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           14.33342411168604,
           21.499828001375988,
           14.33342411168604,
@@ -4303,14 +4549,16 @@ static void dataInit()
           42.999656002751976,
           42.999656002751976,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -4321,7 +4569,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -4332,7 +4580,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.000013000013,
           19.5000195000195,
           13.000013000013,
@@ -4343,10 +4591,12 @@ static void dataInit()
           39.000039000039,
           39.000039000039,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, WEAPON, tiers);
@@ -4354,29 +4604,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -4386,7 +4638,7 @@ static void dataInit()
           LINE_A_HI | DAMAGE_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -4396,7 +4648,7 @@ static void dataInit()
           LINE_A_LO | DAMAGE_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.999864001087992,
           16.999864001087992,
           25.499796001631985,
@@ -4406,14 +4658,16 @@ static void dataInit()
           50.99959200326397,
           16.999864001087992,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -4421,7 +4675,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -4429,7 +4683,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.333371111237039,
           16.999864001087992,
           11.333371111237039,
@@ -4437,14 +4691,16 @@ static void dataInit()
           16.999864001087992,
           16.999864001087992,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -4453,7 +4709,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -4462,7 +4718,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.999916000503998,
           21.000021000021,
           13.999916000503998,
@@ -4471,14 +4727,16 @@ static void dataInit()
           21.000021000021,
           41.99916001679967,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -4488,7 +4746,7 @@ static void dataInit()
           ATT_PER_10_LVLS_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -4498,7 +4756,7 @@ static void dataInit()
           ATT_PER_10_LVLS_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.66672577805363,
           18.999848001215987,
           12.66672577805363,
@@ -4508,10 +4766,12 @@ static void dataInit()
           37.999696002431975,
           37.999696002431975,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, EMBLEM, tiers);
@@ -4519,29 +4779,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -4551,7 +4813,7 @@ static void dataInit()
           LINE_A_HI | DAMAGE_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -4561,7 +4823,7 @@ static void dataInit()
           LINE_A_LO | DAMAGE_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.999864001087992,
           16.999864001087992,
           25.499796001631985,
@@ -4571,14 +4833,16 @@ static void dataInit()
           50.99959200326397,
           16.999864001087992,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -4586,7 +4850,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -4594,7 +4858,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.333371111237039,
           16.999864001087992,
           11.333371111237039,
@@ -4602,14 +4866,16 @@ static void dataInit()
           16.999864001087992,
           16.999864001087992,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -4619,7 +4885,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -4629,7 +4895,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           14.33342411168604,
           21.499828001375988,
           14.33342411168604,
@@ -4639,14 +4905,16 @@ static void dataInit()
           42.999656002751976,
           42.999656002751976,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | CRITDMG_HI,
@@ -4658,7 +4926,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | CRITDMG_LO,
@@ -4670,7 +4938,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.666616555739298,
           20.50020500205002,
           20.50020500205002,
@@ -4682,10 +4950,12 @@ static void dataInit()
           41.00041000410004,
           41.00041000410004,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, SECONDARY, tiers);
@@ -4693,29 +4963,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -4725,7 +4997,7 @@ static void dataInit()
           LINE_A_HI | DAMAGE_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -4735,7 +5007,7 @@ static void dataInit()
           LINE_A_LO | DAMAGE_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.999864001087992,
           16.999864001087992,
           25.499796001631985,
@@ -4745,14 +5017,16 @@ static void dataInit()
           50.99959200326397,
           16.999864001087992,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -4760,7 +5034,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -4768,7 +5042,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.333371111237039,
           16.999864001087992,
           11.333371111237039,
@@ -4776,14 +5050,16 @@ static void dataInit()
           16.999864001087992,
           16.999864001087992,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -4793,7 +5069,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -4803,7 +5079,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           14.33342411168604,
           21.499828001375988,
           14.33342411168604,
@@ -4813,14 +5089,16 @@ static void dataInit()
           42.999656002751976,
           42.999656002751976,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | CRITDMG_HI,
@@ -4832,7 +5110,7 @@ static void dataInit()
           LINE_C_HI | IED_HI,
           LINE_C_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | CRITDMG_LO,
@@ -4844,7 +5122,7 @@ static void dataInit()
           LINE_C_LO | IED_LO,
           LINE_C_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.666616555739298,
           20.50020500205002,
           20.50020500205002,
@@ -4856,10 +5134,12 @@ static void dataInit()
           41.00041000410004,
           41.00041000410004,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, FORCE_SHIELD_SOUL_RING, tiers);
@@ -4867,29 +5147,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -4897,7 +5179,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -4905,7 +5187,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.666614444618517,
           15.666614444618517,
           23.50010575047588,
@@ -4913,14 +5195,16 @@ static void dataInit()
           23.50010575047588,
           23.50010575047588,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -4928,7 +5212,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -4936,7 +5220,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.666666666666664,
           16.666666666666664,
           25.0,
@@ -4944,14 +5228,16 @@ static void dataInit()
           16.666666666666664,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -4961,7 +5247,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -4971,7 +5257,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           18.333486112384268,
           18.333486112384268,
           27.49972500274997,
@@ -4981,14 +5267,16 @@ static void dataInit()
           27.49972500274997,
           18.333486112384268,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5002,7 +5290,7 @@ static void dataInit()
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5016,7 +5304,7 @@ static void dataInit()
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.99978000219998,
           21.99978000219998,
           33.000033000033,
@@ -5030,10 +5318,12 @@ static void dataInit()
           21.99978000219998,
           21.99978000219998,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, HAT, tiers);
@@ -5041,29 +5331,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5071,7 +5363,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5079,7 +5371,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.666614444618517,
           15.666614444618517,
           23.50010575047588,
@@ -5087,14 +5379,16 @@ static void dataInit()
           23.50010575047588,
           23.50010575047588,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5102,7 +5396,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5110,7 +5404,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.666666666666664,
           16.666666666666664,
           25.0,
@@ -5118,14 +5412,16 @@ static void dataInit()
           16.666666666666664,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5135,7 +5431,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5145,7 +5441,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           18.333486112384268,
           18.333486112384268,
           27.49972500274997,
@@ -5155,14 +5451,16 @@ static void dataInit()
           27.49972500274997,
           18.333486112384268,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5175,7 +5473,7 @@ static void dataInit()
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5188,7 +5486,7 @@ static void dataInit()
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.000021000021,
           21.000021000021,
           31.5000315000315,
@@ -5201,10 +5499,12 @@ static void dataInit()
           21.000021000021,
           21.000021000021,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, TOP_OVERALL, tiers);
@@ -5212,29 +5512,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5242,7 +5544,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5250,7 +5552,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.666614444618517,
           15.666614444618517,
           23.50010575047588,
@@ -5258,14 +5560,16 @@ static void dataInit()
           23.50010575047588,
           23.50010575047588,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5273,7 +5577,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5281,7 +5585,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.666666666666664,
           16.666666666666664,
           25.0,
@@ -5289,14 +5593,16 @@ static void dataInit()
           16.666666666666664,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5306,7 +5612,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5316,7 +5622,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           18.333486112384268,
           18.333486112384268,
           27.49972500274997,
@@ -5326,14 +5632,16 @@ static void dataInit()
           27.49972500274997,
           18.333486112384268,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5346,7 +5654,7 @@ static void dataInit()
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5359,7 +5667,7 @@ static void dataInit()
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.000021000021,
           21.000021000021,
           31.5000315000315,
@@ -5372,10 +5680,12 @@ static void dataInit()
           21.000021000021,
           21.000021000021,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, BOTTOM, tiers);
@@ -5383,29 +5693,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5413,7 +5725,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5421,7 +5733,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.666614444618517,
           15.666614444618517,
           23.50010575047588,
@@ -5429,14 +5741,16 @@ static void dataInit()
           23.50010575047588,
           23.50010575047588,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5444,7 +5758,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5452,7 +5766,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.666666666666664,
           16.666666666666664,
           25.0,
@@ -5460,14 +5774,16 @@ static void dataInit()
           16.666666666666664,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5477,7 +5793,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5487,7 +5803,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           18.333486112384268,
           18.333486112384268,
           27.49972500274997,
@@ -5497,14 +5813,16 @@ static void dataInit()
           27.49972500274997,
           18.333486112384268,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5517,7 +5835,7 @@ static void dataInit()
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5530,7 +5848,7 @@ static void dataInit()
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.000021000021,
           21.000021000021,
           31.5000315000315,
@@ -5543,10 +5861,12 @@ static void dataInit()
           21.000021000021,
           21.000021000021,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, SHOE, tiers);
@@ -5554,29 +5874,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5584,7 +5906,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5592,7 +5914,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.666614444618517,
           15.666614444618517,
           23.50010575047588,
@@ -5600,14 +5922,16 @@ static void dataInit()
           23.50010575047588,
           23.50010575047588,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5615,7 +5939,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5623,7 +5947,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.666666666666664,
           16.666666666666664,
           25.0,
@@ -5631,14 +5955,16 @@ static void dataInit()
           16.666666666666664,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5648,7 +5974,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5658,7 +5984,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           18.333486112384268,
           18.333486112384268,
           27.49972500274997,
@@ -5668,14 +5994,16 @@ static void dataInit()
           27.49972500274997,
           18.333486112384268,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5688,7 +6016,7 @@ static void dataInit()
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5701,7 +6029,7 @@ static void dataInit()
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.666594444685185,
           21.666594444685185,
           32.50024375182814,
@@ -5714,10 +6042,12 @@ static void dataInit()
           21.666594444685185,
           21.666594444685185,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, GLOVE, tiers);
@@ -5725,29 +6055,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5755,7 +6087,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5763,7 +6095,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.666614444618517,
           15.666614444618517,
           23.50010575047588,
@@ -5771,14 +6103,16 @@ static void dataInit()
           23.50010575047588,
           23.50010575047588,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5786,7 +6120,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5794,7 +6128,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.666666666666664,
           16.666666666666664,
           25.0,
@@ -5802,14 +6136,16 @@ static void dataInit()
           16.666666666666664,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5819,7 +6155,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5829,7 +6165,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           18.333486112384268,
           18.333486112384268,
           27.49972500274997,
@@ -5839,14 +6175,16 @@ static void dataInit()
           27.49972500274997,
           18.333486112384268,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5859,7 +6197,7 @@ static void dataInit()
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5872,7 +6210,7 @@ static void dataInit()
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.000021000021,
           21.000021000021,
           31.5000315000315,
@@ -5885,10 +6223,12 @@ static void dataInit()
           21.000021000021,
           21.000021000021,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, CAPE_BELT_SHOULDER, tiers);
@@ -5896,29 +6236,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5926,7 +6268,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5934,7 +6276,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.666614444618517,
           15.666614444618517,
           23.50010575047588,
@@ -5942,14 +6284,16 @@ static void dataInit()
           23.50010575047588,
           23.50010575047588,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5957,7 +6301,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -5965,7 +6309,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.666666666666664,
           16.666666666666664,
           25.0,
@@ -5973,14 +6317,16 @@ static void dataInit()
           16.666666666666664,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -5990,7 +6336,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -6000,7 +6346,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           18.333486112384268,
           18.333486112384268,
           27.49972500274997,
@@ -6010,14 +6356,16 @@ static void dataInit()
           27.49972500274997,
           18.333486112384268,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -6029,7 +6377,7 @@ static void dataInit()
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -6041,7 +6389,7 @@ static void dataInit()
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.333333333333336,
           21.333333333333336,
           32.0,
@@ -6053,10 +6401,12 @@ static void dataInit()
           21.333333333333336,
           21.333333333333336,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, FACE_EYE_RING_EARRING_PENDANT, tiers);
@@ -6064,29 +6414,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.769931976536038,
           9.180038923365034,
           13.769931976536038,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -6094,7 +6446,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -6102,7 +6454,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.666614444618517,
           15.666614444618517,
           23.50010575047588,
@@ -6110,14 +6462,16 @@ static void dataInit()
           23.50010575047588,
           23.50010575047588,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -6125,7 +6479,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -6133,7 +6487,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.666666666666664,
           16.666666666666664,
           25.0,
@@ -6141,14 +6495,16 @@ static void dataInit()
           16.666666666666664,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -6158,7 +6514,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -6168,7 +6524,7 @@ static void dataInit()
           MAINSTAT_PER_10_LVLS_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           18.333486112384268,
           18.333486112384268,
           27.49972500274997,
@@ -6178,14 +6534,16 @@ static void dataInit()
           27.49972500274997,
           18.333486112384268,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -6197,7 +6555,7 @@ static void dataInit()
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -6209,7 +6567,7 @@ static void dataInit()
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           20.3334688897926,
           20.3334688897926,
           30.49989325037362,
@@ -6221,10 +6579,12 @@ static void dataInit()
           20.3334688897926,
           20.3334688897926,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, HEART_BADGE, tiers);
@@ -6237,31 +6597,33 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.666666666666664,
           10.0,
           16.666666666666664,
           16.666666666666664,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       MapSet(categories, HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER, tiers);
@@ -6269,103 +6631,111 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.98561151079137,
           10.81081081081081,
           17.98561151079137,
           17.98561151079137,
           27.027027027027025,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.403361344537814,
           5.998800239952009,
           21.008403361344538,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.594458438287154,
           10.504201680672269,
           15.748031496062993,
           12.594458438287154,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           DECENT_COMBAT_ORDERS_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           DECENT_COMBAT_ORDERS_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.0,
           12.004801920768307,
           12.004801920768307,
           16.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, SHOE, tiers);
@@ -6373,106 +6743,114 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.666666666666664,
           10.0,
           16.666666666666664,
           16.666666666666664,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.403361344537814,
           5.998800239952009,
           21.008403361344538,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.20408163265306,
           8.503401360544217,
           12.755102040816327,
           10.20408163265306,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.755102040816327,
           12.755102040816327,
           17.006802721088434,
           17.006802721088434,
           17.006802721088434,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, FACE_EYE_RING_EARRING_PENDANT, tiers);
@@ -6480,7 +6858,7 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -6490,7 +6868,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -6500,7 +6878,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.98561151079137,
           9.000900090009,
           27.027027027027025,
@@ -6510,14 +6888,16 @@ static void dataInit()
           27.027027027027025,
           54.05405405405405,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_C_HI | IED_HI,
@@ -6525,7 +6905,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_C_LO | IED_LO,
@@ -6533,7 +6913,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           25.0,
           25.0,
           25.0,
@@ -6541,10 +6921,12 @@ static void dataInit()
           7.142857142857142,
           25.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       MapSet(categories, WEAPON | EMBLEM | SECONDARY, tiers);
@@ -6552,7 +6934,7 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -6562,7 +6944,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -6572,7 +6954,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.0,
           8.0,
           23.980815347721823,
@@ -6582,14 +6964,16 @@ static void dataInit()
           23.980815347721823,
           48.07692307692307,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_C_HI | IED_HI,
@@ -6597,7 +6981,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_C_LO | IED_LO,
@@ -6605,7 +6989,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.50537634408602,
           21.50537634408602,
           21.50537634408602,
@@ -6613,10 +6997,12 @@ static void dataInit()
           6.142506142506142,
           21.50537634408602,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       MapSet(categories, FORCE_SHIELD_SOUL_RING, tiers);
@@ -6624,25 +7010,27 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.403361344537814,
           5.998800239952009,
           21.008403361344538,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       MapSet(categories, HAT | BOTTOM | CAPE_BELT_SHOULDER, tiers);
@@ -6650,81 +7038,87 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           INVIN_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           INVIN_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.0,
           9.596928982725528,
           6.858710562414267,
           23.980815347721823,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           INVIN_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           INVIN_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           18.248175182481752,
           14.598540145985403,
           12.1654501216545,
           18.248175182481752,
           14.598540145985403,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           INVIN_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           INVIN_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.006802721088434,
           12.755102040816327,
           12.755102040816327,
           17.006802721088434,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, TOP_OVERALL, tiers);
@@ -6732,29 +7126,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.596928982725528,
           6.858710562414267,
           23.980815347721823,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           MAINSTAT_PER_10_LVLS_HI,
           DECENT_SHARP_EYES_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -6762,7 +7158,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           MAINSTAT_PER_10_LVLS_LO,
           DECENT_SHARP_EYES_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -6770,7 +7166,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           67.11409395973155,
           16.750418760469014,
           13.404825737265416,
@@ -6778,38 +7174,42 @@ static void dataInit()
           16.750418760469014,
           13.404825737265416,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | CRITDMG_HI,
           DECENT_SPEED_INFUSION_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | CRITDMG_LO,
           DECENT_SPEED_INFUSION_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.003901170351103,
           17.33102253032929,
           13.003901170351103,
           13.003901170351103,
           17.33102253032929,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, GLOVE, tiers);
@@ -6817,56 +7217,60 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.594458438287154,
           10.504201680672269,
           15.748031496062993,
           12.594458438287154,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | COOLDOWN_HI,
           LINE_B_HI | COOLDOWN_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | COOLDOWN_LO,
           LINE_B_LO | COOLDOWN_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.6678445229682,
           26.525198938992045,
           13.245033112582782,
           13.245033112582782,
           17.6678445229682,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, HAT, tiers);
@@ -6874,50 +7278,54 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.594458438287154,
           10.504201680672269,
           15.748031496062993,
           12.594458438287154,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.248593925759279,
           11.248593925759279,
           14.992503748125937,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, BOTTOM, tiers);
@@ -6925,50 +7333,54 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.806375442739078,
           9.83284169124877,
           14.749262536873156,
           11.806375442739078,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.248593925759279,
           11.248593925759279,
           14.992503748125937,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, CAPE_BELT_SHOULDER, tiers);
@@ -6976,7 +7388,7 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_C_HI | IED_HI,
@@ -6984,7 +7396,7 @@ static void dataInit()
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_C_LO | IED_LO,
@@ -6992,7 +7404,7 @@ static void dataInit()
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.337423312883436,
           15.337423312883436,
           11.49425287356322,
@@ -7000,14 +7412,16 @@ static void dataInit()
           9.199632014719413,
           9.199632014719413,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_B_HI | IED_HI,
@@ -7019,7 +7433,7 @@ static void dataInit()
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_B_LO | IED_LO,
@@ -7031,7 +7445,7 @@ static void dataInit()
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           22.52252252252252,
           22.52252252252252,
           14.992503748125937,
@@ -7043,10 +7457,12 @@ static void dataInit()
           11.248593925759279,
           14.992503748125937,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING, tiers);
@@ -7054,35 +7470,37 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_C_HI | IED_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_C_LO | IED_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           14.326647564469914,
           14.326647564469914,
           10.75268817204301,
           8.598452278589853,
           8.598452278589853,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_B_HI | IED_HI,
@@ -7091,7 +7509,7 @@ static void dataInit()
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_B_LO | IED_LO,
@@ -7100,7 +7518,7 @@ static void dataInit()
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           19.493177387914233,
           19.493177387914233,
           13.003901170351103,
@@ -7109,10 +7527,12 @@ static void dataInit()
           9.746588693957117,
           13.003901170351103,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, EMBLEM, tiers);
@@ -7124,31 +7544,33 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.004801920768307,
           10.799136069114471,
           35.97122302158274,
           35.97122302158274,
           12.004801920768307,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       MapSet(categories, HAT | TOP_OVERALL | BOTTOM | GLOVE | CAPE_BELT_SHOULDER, tiers);
@@ -7156,103 +7578,111 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.698630136986301,
           13.698630136986301,
           45.662100456621005,
           45.662100456621005,
           13.698630136986301,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.299270072992702,
           7.299270072992702,
           72.99270072992701,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.797788309636651,
           15.797788309636651,
           78.74015748031495,
           7.898894154818326,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           DECENT_COMBAT_ORDERS_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           DECENT_COMBAT_ORDERS_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           9.165902841429881,
           13.755158184319122,
           13.755158184319122,
           54.94505494505494,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, SHOE, tiers);
@@ -7260,106 +7690,114 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | FLAT_ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | FLAT_ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.004801920768307,
           10.799136069114471,
           35.97122302158274,
           35.97122302158274,
           12.004801920768307,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.299270072992702,
           7.299270072992702,
           72.99270072992701,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.598452278589853,
           8.598452278589853,
           42.91845493562232,
           7.168458781362008,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_B_HI | MESO_ONLY_HI,
           LINE_B_HI | DROP_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_B_LO | MESO_ONLY_LO,
           LINE_B_LO | DROP_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           16.5016501650165,
           16.5016501650165,
           65.78947368421053,
           11.001100110011002,
           11.001100110011002,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, FACE_EYE_RING_EARRING_PENDANT, tiers);
@@ -7367,7 +7805,7 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -7377,7 +7815,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -7387,7 +7825,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.49527665317139,
           13.49527665317139,
           27.027027027027025,
@@ -7397,14 +7835,16 @@ static void dataInit()
           27.027027027027025,
           54.05405405405405,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_C_HI | IED_HI,
@@ -7412,7 +7852,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_C_LO | IED_LO,
@@ -7420,7 +7860,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           24.330900243309,
           24.330900243309,
           14.598540145985403,
@@ -7428,10 +7868,12 @@ static void dataInit()
           10.427528675703858,
           12.1654501216545,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       MapSet(categories, WEAPON | EMBLEM | SECONDARY, tiers);
@@ -7439,7 +7881,7 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_MAINSTAT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -7449,7 +7891,7 @@ static void dataInit()
           LINE_A_HI | FLAT_ALLSTAT_HI,
           LINE_C_HI | IED_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_MAINSTAT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -7459,7 +7901,7 @@ static void dataInit()
           LINE_A_LO | FLAT_ALLSTAT_LO,
           LINE_C_LO | IED_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.5,
           12.5,
           25.0,
@@ -7469,14 +7911,16 @@ static void dataInit()
           25.0,
           50.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_C_HI | IED_HI,
@@ -7484,7 +7928,7 @@ static void dataInit()
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_C_LO | IED_LO,
@@ -7492,7 +7936,7 @@ static void dataInit()
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           21.978021978021978,
           21.978021978021978,
           13.192612137203167,
@@ -7500,10 +7944,12 @@ static void dataInit()
           9.42507068803016,
           11.001100110011002,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       MapSet(categories, FORCE_SHIELD_SOUL_RING, tiers);
@@ -7511,25 +7957,27 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.1022727272727275,
           7.1022727272727275,
           70.92198581560284,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       MapSet(categories, HAT | BOTTOM | CAPE_BELT_SHOULDER, tiers);
@@ -7537,81 +7985,87 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           INVIN_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           INVIN_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.857142857142858,
           7.64525993883792,
           7.64525993883792,
           107.5268817204301,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           INVIN_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           INVIN_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.254901960784313,
           24.509803921568626,
           24.509803921568626,
           98.0392156862745,
           10.893246187363834,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           INVIN_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           INVIN_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           8.123476848090982,
           16.260162601626014,
           16.260162601626014,
           64.93506493506493,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, TOP_OVERALL, tiers);
@@ -7619,29 +8073,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           7.64525993883792,
           7.64525993883792,
           107.5268817204301,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           MAINSTAT_PER_10_LVLS_HI,
           DECENT_SHARP_EYES_HI,
           LINE_A_HI | MAINSTAT_HI,
@@ -7649,7 +8105,7 @@ static void dataInit()
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           MAINSTAT_PER_10_LVLS_LO,
           DECENT_SHARP_EYES_LO,
           LINE_A_LO | MAINSTAT_LO,
@@ -7657,7 +8113,7 @@ static void dataInit()
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           19.011406844106464,
           11.876484560570072,
           19.011406844106464,
@@ -7665,38 +8121,42 @@ static void dataInit()
           95.23809523809523,
           10.559662090813093,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | CRITDMG_HI,
           DECENT_SPEED_INFUSION_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | CRITDMG_LO,
           DECENT_SPEED_INFUSION_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           34.48275862068966,
           8.628127696289905,
           17.24137931034483,
           17.24137931034483,
           68.96551724137932,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, GLOVE, tiers);
@@ -7704,56 +8164,60 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           17.24137931034483,
           17.24137931034483,
           68.96551724137932,
           8.628127696289905,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | COOLDOWN_HI,
           LINE_B_HI | COOLDOWN_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | COOLDOWN_LO,
           LINE_B_LO | COOLDOWN_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           10.0,
           10.0,
           20.0,
           20.0,
           80.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, HAT, tiers);
@@ -7761,50 +8225,54 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           15.748031496062993,
           15.748031496062993,
           62.893081761006286,
           9.000900090009,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.248593925759279,
           11.248593925759279,
           45.04504504504504,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, BOTTOM, tiers);
@@ -7812,50 +8280,54 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           13.003901170351103,
           13.003901170351103,
           64.93506493506493,
           8.123476848090982,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | HP_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | HP_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.248593925759279,
           11.248593925759279,
           14.992503748125937,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, CAPE_BELT_SHOULDER, tiers);
@@ -7863,7 +8335,7 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_C_HI | IED_HI,
@@ -7871,7 +8343,7 @@ static void dataInit()
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_C_LO | IED_LO,
@@ -7879,7 +8351,7 @@ static void dataInit()
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           12.1654501216545,
           6.08272506082725,
           4.8661800486618,
@@ -7887,14 +8359,16 @@ static void dataInit()
           36.496350364963504,
           36.496350364963504,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_B_HI | IED_HI,
@@ -7906,7 +8380,7 @@ static void dataInit()
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_B_LO | IED_LO,
@@ -7918,7 +8392,7 @@ static void dataInit()
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           30.864197530864196,
           6.180469715698393,
           3.8624951718810348,
@@ -7930,10 +8404,12 @@ static void dataInit()
           88.49557522123894,
           88.49557522123894,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING, tiers);
@@ -7941,35 +8417,37 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_C_HI | IED_HI,
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_C_LO | IED_LO,
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           11.49425287356322,
           5.750431282346176,
           4.599816007359706,
           34.48275862068966,
           34.48275862068966,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | ATT_HI,
           LINE_A_HI | DAMAGE_HI,
           LINE_B_HI | IED_HI,
@@ -7978,7 +8456,7 @@ static void dataInit()
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | ATT_LO,
           LINE_A_LO | DAMAGE_LO,
           LINE_B_LO | IED_LO,
@@ -7987,7 +8465,7 @@ static void dataInit()
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           28.985507246376812,
           5.790387955993052,
           3.6192544335866814,
@@ -7996,10 +8474,12 @@ static void dataInit()
           82.64462809917356,
           82.64462809917356,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, EMBLEM, tiers);
@@ -8012,29 +8492,31 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_ATT_HI,
           LINE_A_HI | FLAT_HP_HI,
           LINE_A_HI | FLAT_MAINSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_ATT_LO,
           LINE_A_LO | FLAT_HP_LO,
           LINE_A_LO | FLAT_MAINSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           4.412,
           5.882,
           5.882,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, BASE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_ATT_HI,
           LINE_B_HI | FLAT_ATT_HI,
           LINE_A_HI | ATT_HI,
@@ -8052,7 +8534,7 @@ static void dataInit()
           LINE_A_HI | MAINSTAT_HI,
           LINE_A_HI | DAMAGE_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_ATT_LO,
           LINE_B_LO | FLAT_ATT_LO,
           LINE_A_LO | ATT_LO,
@@ -8070,7 +8552,7 @@ static void dataInit()
           LINE_A_LO | MAINSTAT_LO,
           LINE_A_LO | DAMAGE_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           53.99568034557235,
           53.99568034557235,
           270.27027027027026,
@@ -8088,14 +8570,16 @@ static void dataInit()
           270.27027027027026,
           270.27027027027026,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | FLAT_ATT_HI,
           LINE_B_HI | FLAT_ATT_HI,
           LINE_A_HI | ATT_HI,
@@ -8126,7 +8610,7 @@ static void dataInit()
           LINE_A_HI | DAMAGE_HI,
           INVIN_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | FLAT_ATT_LO,
           LINE_B_LO | FLAT_ATT_LO,
           LINE_A_LO | ATT_LO,
@@ -8157,7 +8641,7 @@ static void dataInit()
           LINE_A_LO | DAMAGE_LO,
           INVIN_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           75.8150113722517,
           75.8150113722517,
           378.78787878787875,
@@ -8188,14 +8672,16 @@ static void dataInit()
           378.78787878787875,
           227.27272727272728,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_B_HI | AUTOSTEAL_1_HI,
           LINE_A_HI | AUTOSTEAL_1_HI,
           LINE_A_HI | FLAT_ATT_HI,
@@ -8240,7 +8726,7 @@ static void dataInit()
           LINE_A_HI | DAMAGE_HI,
           INVIN_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_B_LO | AUTOSTEAL_1_LO,
           LINE_A_LO | AUTOSTEAL_1_LO,
           LINE_A_LO | FLAT_ATT_LO,
@@ -8285,7 +8771,7 @@ static void dataInit()
           LINE_A_LO | DAMAGE_LO,
           INVIN_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           272.47956403269757,
           272.47956403269757,
           90.82652134423252,
@@ -8330,14 +8816,16 @@ static void dataInit()
           454.54545454545456,
           272.47956403269757,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_B_HI | AUTOSTEAL_2_HI,
           LINE_C_HI | AUTOSTEAL_1_HI,
           LINE_A_HI | AUTOSTEAL_1_HI,
@@ -8385,7 +8873,7 @@ static void dataInit()
           LINE_B_HI | DAMAGE_HI,
           INVIN_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_B_LO | AUTOSTEAL_2_LO,
           LINE_C_LO | AUTOSTEAL_1_LO,
           LINE_A_LO | AUTOSTEAL_1_LO,
@@ -8433,7 +8921,7 @@ static void dataInit()
           LINE_B_LO | DAMAGE_LO,
           INVIN_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           273.972602739726,
           273.972602739726,
           273.972602739726,
@@ -8481,14 +8969,16 @@ static void dataInit()
           456.62100456621005,
           273.972602739726,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_C_HI | AUTOSTEAL_1_HI,
           LINE_B_HI | AUTOSTEAL_1_HI,
           LINE_A_HI | AUTOSTEAL_1_HI,
@@ -8508,7 +8998,7 @@ static void dataInit()
           LINE_A_HI | DAMAGE_HI,
           INVIN_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_C_LO | AUTOSTEAL_1_LO,
           LINE_B_LO | AUTOSTEAL_1_LO,
           LINE_A_LO | AUTOSTEAL_1_LO,
@@ -8528,7 +9018,7 @@ static void dataInit()
           LINE_A_LO | DAMAGE_LO,
           INVIN_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           41.203131437989285,
           41.203131437989285,
           41.203131437989285,
@@ -8548,10 +9038,12 @@ static void dataInit()
           68.68131868131869,
           41.203131437989285,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, FAMILIAR_STATS, tiers);
@@ -8564,59 +9056,67 @@ static void dataInit()
     {
       Map* tiers = MapInit();
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, BASE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, COMMON, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, RARE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, EPIC, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | HEAL_HP_ONLY_PARTY_HI,
           LINE_A_HI | HEAL_HP_MP_PARTY_HI,
           LINE_C_HI | DROP_MESO_HI,
@@ -8664,7 +9164,7 @@ static void dataInit()
           LINE_A_HI | IED_HI,
           LINE_A_HI | BOSS_ONLY_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | HEAL_HP_ONLY_PARTY_LO,
           LINE_A_LO | HEAL_HP_MP_PARTY_LO,
           LINE_C_LO | DROP_MESO_LO,
@@ -8712,7 +9212,7 @@ static void dataInit()
           LINE_A_LO | IED_LO,
           LINE_A_LO | BOSS_ONLY_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           53.51851851851852,
           53.51851851851852,
           53.51851851851852,
@@ -8760,14 +9260,16 @@ static void dataInit()
           963.3333333333335,
           2890.0,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, UNIQUE, (void*)&linedata);
       }
       {
-        static const BufStatic(int const, lineHi,
+        static const BufH(int const, lineHi,
           LINE_A_HI | AUTOSTEAL_1_HI,
           LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
           INVIN_HI,
@@ -8787,7 +9289,7 @@ static void dataInit()
           LINE_A_HI | IED_HI,
           LINE_A_HI | ALLSTAT_HI,
         );
-        static const BufStatic(int const, lineLo,
+        static const BufH(int const, lineLo,
           LINE_A_LO | AUTOSTEAL_1_LO,
           LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
           INVIN_LO,
@@ -8807,7 +9309,7 @@ static void dataInit()
           LINE_A_LO | IED_LO,
           LINE_A_LO | ALLSTAT_LO,
         );
-        static const BufStatic(float const, onein,
+        static const BufH(float const, onein,
           27.913461538461537,
           28.74257425742574,
           32.98863636363636,
@@ -8827,10 +9329,12 @@ static void dataInit()
           193.53333333333333,
           241.91666666666666,
         );
-        static LineData linedata;
-        linedata.onein = onein;
-        linedata.lineHi = lineHi;
-        linedata.lineLo = lineLo;
+        static const LineData linedata = 
+        {
+          .onein = onein.data,
+          .lineHi = lineHi.data,
+          .lineLo = lineLo.data,
+        };
         MapSet(tiers, LEGENDARY, (void*)&linedata);
       }
       MapSet(categories, FAMILIAR_STATS, tiers);

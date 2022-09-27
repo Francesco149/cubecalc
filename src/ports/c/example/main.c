@@ -7,7 +7,7 @@
 int main() {
   CubeGlobalInit();
 
-  static const BufStaticHdr(Want, want,
+  static const BufH(Want, want,
     WantStat(ATT, 33),
     WantOp(AND, -1),
   );

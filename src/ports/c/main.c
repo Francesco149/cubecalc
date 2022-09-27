@@ -68,7 +68,7 @@ int main() {
   printf("\n%s", disclaimer);
 
 #define WantBoss(x) \
-  static const BufStaticHdr(Want, want##x##Boss, \
+  static const BufH(Want, want##x##Boss, \
     WantStat(BOSS, x), \
     WantOp(OR, -1), \
   )
@@ -82,7 +82,7 @@ int main() {
   WantBoss(60);
 
 #define WantIed(x) \
-  static const BufStaticHdr(Want, want##x##Ied, \
+  static const BufH(Want, want##x##Ied, \
     WantStat(IED, x), \
     WantOp(OR, -1), \
   )
@@ -98,14 +98,14 @@ int main() {
   WantIed(70);
 
 #define AnyNl1(name, x, a) \
-  static const BufStaticHdr(Want, wantAny##x##l##name, \
+  static const BufH(Want, wantAny##x##l##name, \
     WantStat(a, 1), \
     WantStat(LINES, x), \
     WantOp(AND, -1), \
   )
 
 #define AnyNl(name, x, a, b) \
-  static const BufStaticHdr(Want, wantAny##x##l##name, \
+  static const BufH(Want, wantAny##x##l##name, \
     WantStat(a, 1), \
     WantStat(b, 1), \
     WantStat(LINES, x), \
@@ -113,7 +113,7 @@ int main() {
   )
 
 #define AnyNl3(name, x, a, b, c) \
-  static const BufStaticHdr(Want, wantAny##x##l##name, \
+  static const BufH(Want, wantAny##x##l##name, \
     WantStat(a, 1), \
     WantStat(b, 1), \
     WantStat(c, 1), \
@@ -129,7 +129,7 @@ int main() {
   AnyNl3(AttBossIed, 3, ATT, BOSS_ONLY, IED);
 
 #define WantAtt(n) \
-  static const BufStaticHdr(Want, want##n##Att, \
+  static const BufH(Want, want##n##Att, \
     WantStat(ATT, n), \
     WantOp(AND, -1), \
   )
@@ -143,43 +143,43 @@ int main() {
   WantAtt(30);
   WantAtt(33);
 
-  static const BufStaticHdr(Want, want21AttAndBoss,
+  static const BufH(Want, want21AttAndBoss,
     WantStat(ATT, 21),
     WantStat(BOSS_ONLY, 1),
     WantOp(AND, -1),
   );
 
-  static const BufStaticHdr(Want, want21AttAndIed,
+  static const BufH(Want, want21AttAndIed,
     WantStat(ATT, 21),
     WantStat(IED, 1),
     WantOp(AND, -1),
   );
 
-  static const BufStaticHdr(Want, want18AttAndBoss,
+  static const BufH(Want, want18AttAndBoss,
     WantStat(ATT, 18),
     WantStat(BOSS_ONLY, 1),
     WantOp(AND, -1),
   );
 
-  static const BufStaticHdr(Want, want18AttAndIed,
+  static const BufH(Want, want18AttAndIed,
     WantStat(ATT, 18),
     WantStat(IED, 1),
     WantOp(AND, -1),
   );
 
-  static const BufStaticHdr(Want, want60IedAndAtt,
+  static const BufH(Want, want60IedAndAtt,
     WantStat(IED, 60),
     WantStat(ATT, 1),
     WantOp(AND, -1),
   );
 
-  static const BufStaticHdr(Want, want60IedAndBoss,
+  static const BufH(Want, want60IedAndBoss,
     WantStat(IED, 60),
     WantStat(BOSS_ONLY, 1),
     WantOp(AND, -1),
   );
 
-  static const BufStaticHdr(Want, wantAnyBoss,
+  static const BufH(Want, wantAnyBoss,
     WantStat(BOSS_ONLY, 1),
     WantOp(AND, -1),
   );
@@ -196,7 +196,7 @@ int main() {
     Combo("30+ att", want30Att.data), \
     Combo("33+ att", want33Att.data), \
 
-  static const BufStaticHdr(ComboData, combosWs,
+  static const BufH(ComboData, combosWs,
     CombosWsCommon
     CombosLegendaryAttCommon
     Combo("21+ att and boss", want21AttAndBoss.data),
@@ -215,7 +215,7 @@ int main() {
     Combo("15+ att", want15Att.data), \
     Combo("21+ att", want21Att.data), \
 
-  static const BufStaticHdr(ComboData, combosWsMaster,
+  static const BufH(ComboData, combosWsMaster,
     CombosWsCommon
     CombosWSEMasterCommon
     Combo("any boss", wantAnyBoss.data),
@@ -225,30 +225,30 @@ int main() {
     Combo("any 2l combo of att+ied", wantAny2lAttIed.data), \
     Combo("any 3l combo of att+ied", wantAny3lAttIed.data), \
 
-  static const BufStaticHdr(ComboData, combosE,
+  static const BufH(ComboData, combosE,
     CombosECommon
     CombosLegendaryAttCommon
     Combo("21+ att and ied", want21AttAndIed.data),
   );
 
-  static const BufStaticHdr(ComboData, combosEMaster,
+  static const BufH(ComboData, combosEMaster,
     CombosECommon
     CombosWSEMasterCommon
   );
 
-  static const BufStaticHdr(ComboData, combosWSEOccult,
+  static const BufH(ComboData, combosWSEOccult,
     Combo("6+ att", want6Att.data),
     Combo("9+ att", want9Att.data),
     Combo("12+ att", want12Att.data),
   );
 
-  static const BufStaticHdr(ComboData, combosWSEBonus,
+  static const BufH(ComboData, combosWSEBonus,
     CombosLegendaryAttCommon
   );
 
 
 #define WantFAtt(x) \
-  static const BufStaticHdr(Want, want##x##FAtt, \
+  static const BufH(Want, want##x##FAtt, \
     WantStat(FLAT_ATT, x),\
     WantOp(AND, -1), \
   )
@@ -257,19 +257,19 @@ int main() {
   WantFAtt(13);
 
 #define DefWantStat(x) \
-  static const BufStaticHdr(Want, want##x##Stat, \
+  static const BufH(Want, want##x##Stat, \
     WantStat(STAT, x),\
     WantOp(AND, -1), \
   )
 
 #define WantHP(x) \
-  static const BufStaticHdr(Want, want##x##Hp, \
+  static const BufH(Want, want##x##Hp, \
     WantStat(HP, x),\
     WantOp(AND, -1), \
   )
 
 #define WantAllStat(x) \
-  static const BufStaticHdr(Want, want##x##AllStat, \
+  static const BufH(Want, want##x##AllStat, \
     WantStat(ALLSTAT, x),\
     WantOp(AND, -1), \
   )
@@ -301,7 +301,7 @@ int main() {
   WantAllStat(15);
   WantAllStat(21);
 
-  static const BufStaticHdr(ComboData, combosBonusRare,
+  static const BufH(ComboData, combosBonusRare,
     Combo("10+ flat att", want10FAtt.data),
     Combo("13+ flat att", want13FAtt.data),
   );
@@ -319,39 +319,39 @@ int main() {
     Combo("15+ all stat", want15AllStat.data), \
     Combo("21+ all stat", want21AllStat.data),
 
-  static const BufStaticHdr(ComboData, combosStat,
+  static const BufH(ComboData, combosStat,
     CombosStatLegendary
   );
 
 
 #define WantMeso(x) \
-  static const BufStaticHdr(Want, want##x##Meso, \
+  static const BufH(Want, want##x##Meso, \
     WantStat(MESO, x),\
     WantOp(AND, -1), \
   )
 
 #define WantDrop(x) \
-  static const BufStaticHdr(Want, want##x##Drop, \
+  static const BufH(Want, want##x##Drop, \
     WantStat(DROP, x),\
     WantOp(AND, -1), \
   )
 
 #define WantMesoDrop(x) \
-  static const BufStaticHdr(Want, want##x##MesoDrop, \
+  static const BufH(Want, want##x##MesoDrop, \
     WantStat(MESO, x),\
     WantStat(DROP, x),\
     WantOp(AND, -1), \
   )
 
 #define WantMesoOrDrop(x) \
-  static const BufStaticHdr(Want, want##x##MesoOrDrop, \
+  static const BufH(Want, want##x##MesoOrDrop, \
     WantStat(MESO, x),\
     WantStat(DROP, x),\
     WantOp(OR, -1), \
   )
 
 #define WantMesoOrDropWithStat(x, s) \
-  static const BufStaticHdr(Want, want##x##MesoOrDropWith##s##Stat, \
+  static const BufH(Want, want##x##MesoOrDropWith##s##Stat, \
     WantStat(MESO, x),\
     WantStat(DROP, x),\
     WantOp(OR, 2), \
@@ -384,7 +384,7 @@ int main() {
   WantMesoOrDropWithStat(20, 18);
   WantMesoOrDropWithStat(20, 21);
 
-  static const BufStaticHdr(ComboData, combosAccessory,
+  static const BufH(ComboData, combosAccessory,
     CombosStatLegendary
     Combo("20+ meso or 20+ drop", want20MesoOrDrop.data),
     Combo("20+ meso", want20Meso.data),
@@ -401,14 +401,14 @@ int main() {
   );
 
 #define WantCdAndStat(x, s) \
-  static const BufStaticHdr(Want, want##x##CdAnd##s##Stat, \
+  static const BufH(Want, want##x##CdAnd##s##Stat, \
     WantStat(COOLDOWN, x),\
     WantStat(STAT, s),\
     WantOp(AND, -1), \
   )
 
 #define WantCd(x) \
-  static const BufStaticHdr(Want, want##x##Cd, \
+  static const BufH(Want, want##x##Cd, \
     WantStat(COOLDOWN, x),\
     WantOp(AND, -1), \
   )
@@ -426,7 +426,7 @@ int main() {
   WantCdAndStat(3, 1);
   WantCdAndStat(4, 1);
 
-  static const BufStaticHdr(ComboData, combosHat,
+  static const BufH(ComboData, combosHat,
     CombosStatLegendary
     Combo("2+s cooldown", want2Cd.data),
     Combo("2+s cooldown and any stat", want2CdAnd1Stat.data),
@@ -451,11 +451,11 @@ int main() {
     Combo("9+ hp", want9Hp.data), \
     Combo("12+ hp", want12Hp.data),
 
-  static const BufStaticHdr(ComboData, combosStatOccult,
+  static const BufH(ComboData, combosStatOccult,
     CombosStatOccult
   );
 
-  static const BufStaticHdr(ComboData, combosStatMaster,
+  static const BufH(ComboData, combosStatMaster,
     CombosStatOccult
     Combo("15+ stat", want15Stat.data),
     Combo("9+ all stat", want9AllStat.data),
@@ -463,13 +463,13 @@ int main() {
   );
 
 #define WantCritDmg(x) \
-  static const BufStaticHdr(Want, want##x##CritDmg, \
+  static const BufH(Want, want##x##CritDmg, \
     WantStat(CRITDMG, x),\
     WantOp(AND, -1), \
   )
 
 #define WantCritDmgStat(x, s) \
-  static const BufStaticHdr(Want, want##x##CritDmg##s##Stat, \
+  static const BufH(Want, want##x##CritDmg##s##Stat, \
     WantStat(CRITDMG, x),\
     WantStat(STAT, s),\
     WantOp(AND, -1), \
@@ -487,7 +487,7 @@ int main() {
   WantCritDmgStat(16, 12);
   WantCritDmg(24);
 
-  static const BufStaticHdr(ComboData, combosGlove,
+  static const BufH(ComboData, combosGlove,
     CombosStatLegendary
     Combo("8+ crit damage", want8CritDmg.data),
     Combo("8+ crit damage and 6+ stat", want8CritDmg6Stat.data),
@@ -503,7 +503,7 @@ int main() {
   );
 
 #define WantAutoSteal(x) \
-  static const BufStaticHdr(Want, want##x##AutoSteal, \
+  static const BufH(Want, want##x##AutoSteal, \
     WantStat(AUTOSTEAL, x),\
     WantOp(AND, -1), \
   )
@@ -526,7 +526,7 @@ int main() {
   WantAutoSteal(19);
   WantAutoSteal(21);
 
-  static const BufStaticHdr(ComboData, combosAutoSteal,
+  static const BufH(ComboData, combosAutoSteal,
     Combo("3+ auto steal", want3AutoSteal.data),
     Combo("5+ auto steal", want5AutoSteal.data),
     Combo("7+ auto steal", want7AutoSteal.data),
@@ -541,7 +541,7 @@ int main() {
   );
 
 #define WantItemsRecovery(x) \
-  static const BufStaticHdr(Want, want##x##ItemsRecovery, \
+  static const BufH(Want, want##x##ItemsRecovery, \
     WantStat(HP_ITEMS_AND_SKILLS, x),\
     WantOp(AND, -1), \
   )
@@ -553,13 +553,13 @@ int main() {
   WantItemsRecovery(110);
   WantItemsRecovery(120);
 
-  static const BufStaticHdr(ComboData, combosHeartBadge,
+  static const BufH(ComboData, combosHeartBadge,
     CombosStatLegendary
     Combo("30+ hp items and skills recovery", want30ItemsRecovery.data),
     Combo("60+ hp items and skills recovery", want60ItemsRecovery.data),
   );
 
-  static const BufStaticHdr(ComboData, combosHeartBadgeMeister,
+  static const BufH(ComboData, combosHeartBadgeMeister,
     CombosStatLegendary
     Combo("30+ hp items and skills recovery", want30ItemsRecovery.data),
     Combo("60+ hp items and skills recovery", want60ItemsRecovery.data),
@@ -569,27 +569,27 @@ int main() {
     Combo("120 hp items and skills recovery", want120ItemsRecovery.data),
   );
 
-  static const BufStaticHdr(Want, want9AttOr30BossOr30Ied,
+  static const BufH(Want, want9AttOr30BossOr30Ied,
     WantStat(ATT, 9),
     WantStat(BOSS, 30),
     WantStat(IED, 30),
     WantOp(OR, -1),
   );
 
-  static const BufStaticHdr(Want, want9AttOr30Boss,
+  static const BufH(Want, want9AttOr30Boss,
     WantStat(ATT, 9),
     WantStat(BOSS, 30),
     WantOp(OR, -1),
   );
 
-  static const BufStaticHdr(Want, want9AttOr30Ied,
+  static const BufH(Want, want9AttOr30Ied,
     WantStat(ATT, 9),
     WantStat(IED, 30),
     WantOp(OR, -1),
   );
 
 
-  static const BufStaticHdr(ComboData, combosWsUni,
+  static const BufH(ComboData, combosWsUni,
     Combo("9+ att or 30+ boss or 30+ ied", want9AttOr30BossOr30Ied.data),
     Combo("9+ att or 30+ boss", want9AttOr30Boss.data),
     Combo("30+ boss", want30Boss.data),
@@ -603,7 +603,7 @@ int main() {
     Combo("35+ ied", want35Ied.data),
   );
 
-  static const BufStaticHdr(ComboData, combosEUni,
+  static const BufH(ComboData, combosEUni,
     Combo("9+ att or 30+ ied", want9AttOr30Ied.data),
     Combo("9+ att", want9Att.data),
     Combo("30+ ied", want30Ied.data),
@@ -621,30 +621,30 @@ int main() {
     Combo("12 hp", want12Stat.data), \
     Combo("9 allstat", want9AllStat.data), \
 
-  static const BufStaticHdr(ComboData, combosStatUni,
+  static const BufH(ComboData, combosStatUni,
     CombosStatUniCommon
   );
 
-  static const BufStaticHdr(ComboData, combosAccessoryUni,
+  static const BufH(ComboData, combosAccessoryUni,
     CombosStatUniCommon
     Combo("20 meso", want20Meso.data),
     Combo("20 drop", want20Drop.data),
     Combo("20 meso or 20 drop", want20MesoOrDrop.data),
   );
 
-  static const BufStaticHdr(ComboData, combosGloveUni,
+  static const BufH(ComboData, combosGloveUni,
     CombosStatUniCommon
     Combo("8 crit damage", want8CritDmg.data),
   );
 
-  static const BufStaticHdr(ComboData, combosHatUni,
+  static const BufH(ComboData, combosHatUni,
     CombosStatUniCommon
     Combo("1+s cooldown", want1Cd.data),
     Combo("2s cooldown", want2Cd.data),
   );
 
 #define WantHpHeal(x) \
-  static const BufStaticHdr(Want, want##x##HpHealing, \
+  static const BufH(Want, want##x##HpHealing, \
     WantStat(HEAL_HP, x), \
     WantOp(AND, -1), \
   )
@@ -655,7 +655,7 @@ int main() {
   WantHpHeal(20);
 
 #define WantMpHeal(x) \
-  static const BufStaticHdr(Want, want##x##MpHealing, \
+  static const BufH(Want, want##x##MpHealing, \
     WantStat(HEAL_MP, x), \
     WantOp(AND, -1), \
   )
@@ -669,7 +669,7 @@ int main() {
   AnyNl(DropAutoSteal, 2, DROP, AUTOSTEAL);
 
 #define WantDamage(x) \
-  static const BufStaticHdr(Want, want##x##Damage, \
+  static const BufH(Want, want##x##Damage, \
     WantStat(DAMAGE, x), \
     WantOp(AND, -1), \
   )
@@ -685,11 +685,11 @@ int main() {
     Combo("30+ drop", want30Drop.data), \
     Combo("1+ damage", want1Damage.data), \
 
-  static const BufStaticHdr(ComboData, combosFamCommon,
+  static const BufH(ComboData, combosFamCommon,
     CombosFamCommon
   );
 
-  static const BufStaticHdr(ComboData, combosFamRare,
+  static const BufH(ComboData, combosFamRare,
     CombosFamCommon
     Combo("30+ ied", want30Ied.data),
     Combo("2+ damage", want2Damage.data),
@@ -725,7 +725,7 @@ int main() {
     Combo("15+ hp healing", want15HpHealing.data), \
     Combo("15+ mp healing", want15MpHealing.data), \
 
-  static const BufStaticHdr(ComboData, combosFamEpic,
+  static const BufH(ComboData, combosFamEpic,
     CombosFamEpic
   );
 
@@ -735,7 +735,7 @@ int main() {
   AnyNl1(Boss, 2, BOSS_ONLY);
 
 #define WantBossHpHealing(x) \
-  static const BufStaticHdr(Want, want##x##BossAndHpHealing, \
+  static const BufH(Want, want##x##BossAndHpHealing, \
     WantStat(BOSS_ONLY, x), \
     WantStat(HEAL_HP, 1), \
     WantOp(AND, -1), \
@@ -746,19 +746,19 @@ int main() {
   WantBossHpHealing(45);
   WantBossHpHealing(50);
 
-  static const BufStaticHdr(Want, want25Meso90Drop,
+  static const BufH(Want, want25Meso90Drop,
     WantStat(MESO, 25),
     WantStat(DROP, 90),
     WantOp(AND, -1),
   );
 
-  static const BufStaticHdr(Want, want15HpHealingHpItems,
+  static const BufH(Want, want15HpHealingHpItems,
     WantStat(HEAL_HP, 15),
     WantStat(HP_ITEMS_AND_SKILLS, 15),
     WantOp(AND, -1),
   );
 
-  static const BufStaticHdr(ComboData, combosFamUnique,
+  static const BufH(ComboData, combosFamUnique,
     CombosFamEpic
     Combo("35+ boss", want35Boss.data),
     Combo("40+ boss", want40Boss.data),
@@ -786,7 +786,7 @@ int main() {
     Combo("20+ mp healing", want20MpHealing.data),
   );
 
-  static const BufStaticHdr(ComboData, combosFamLegendary,
+  static const BufH(ComboData, combosFamLegendary,
     Combo("40+ boss", want40Boss.data),
     Combo("45+ boss", want45Boss.data),
     Combo("50+ boss", want50Boss.data),
@@ -809,19 +809,19 @@ int main() {
     Combo("14+ auto steal", want14AutoSteal.data),
   );
 
-  static const BufStaticHdr(int, redBlackMeister, RED, BLACK, MEISTER);
-  static const BufStaticHdr(int, redBlack, RED, BLACK);
-  static const BufStaticHdr(int, violetEquality, VIOLET, EQUALITY);
-  static const BufStaticHdr(int, master, MASTER);
-  static const BufStaticHdr(int, meister, MEISTER);
-  static const BufStaticHdr(int, red, RED);
-  static const BufStaticHdr(int, occult, OCCULT);
-  static const BufStaticHdr(int, bonus, BONUS);
-  static const BufStaticHdr(int, uni, UNI);
-  static const BufStaticHdr(int, familiar, FAMILIAR);
-  static const BufStaticHdr(int, familiarCard, RED_FAM_CARD);
+  static const BufH(int, redBlackMeister, RED, BLACK, MEISTER);
+  static const BufH(int, redBlack, RED, BLACK);
+  static const BufH(int, violetEquality, VIOLET, EQUALITY);
+  static const BufH(int, master, MASTER);
+  static const BufH(int, meister, MEISTER);
+  static const BufH(int, red, RED);
+  static const BufH(int, occult, OCCULT);
+  static const BufH(int, bonus, BONUS);
+  static const BufH(int, uni, UNI);
+  static const BufH(int, familiar, FAMILIAR);
+  static const BufH(int, familiarCard, RED_FAM_CARD);
 
-  static const BufStaticHdr(ComboGroup, groups,
+  static const BufH(ComboGroup, groups,
     ComboGroup(WEAPON, redBlackMeister.data, LEGENDARY, combosWs.data),
     ComboGroup(SECONDARY, redBlackMeister.data, LEGENDARY, combosWs.data),
     ComboGroup(WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING,

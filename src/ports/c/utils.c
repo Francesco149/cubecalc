@@ -369,15 +369,15 @@ char* _BufStrDup(char* p, Allocator const* allocator);
 void* _BufToProto(void* b, size_t *pn, Allocator const* allocator);
 
 // declares a statically initialized buf with the given name.
-#define BufStatic(type, name, ...) \
-  BufStaticHdr(type, name##Hdr, __VA_ARGS__); \
+#define Buf(type, name, ...) \
+  BufH(type, name##Hdr, __VA_ARGS__); \
   type* const name = &name##Hdr.data[0]
 
 // if you don't want the pointer to be automatically declared, use this and use name.data as a buf
-#define BufStaticHdr(type, name, ...) \
-  BufStaticHdr_(type, name, ArgsLength(type, __VA_ARGS__), __VA_ARGS__)
+#define BufH(type, name, ...) \
+  BufH_(type, name, ArgsLength(type, __VA_ARGS__), __VA_ARGS__)
 
-#define BufStaticHdr_(type, name, n, ...) \
+#define BufH_(type, name, n, ...) \
 struct { \
   struct BufHdr hdr; \
   type data[n]; \

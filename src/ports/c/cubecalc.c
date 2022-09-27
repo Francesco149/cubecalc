@@ -92,7 +92,7 @@ typedef enum Region Region;
 //
 // example: 33+ att
 //
-//  BufStatic(Want, want,
+//  Buf(Want, want,
 //    WantStat(ATT, 33),
 //    WantOp(AND, -1),
 //  );
@@ -102,7 +102,7 @@ typedef enum Region Region;
 // //    and 10+ stat)
 // //  or 23+ stat)
 //
-//  BufStatic(Want, want,
+//  Buf(Want, want,
 //    WantStat(MESO, 20), // stack(1): [20_meso                                                 ]
 //    WantStat(DROP, 20), // stack(2): [20_meso                                        , 20_drop]
 //    WantOp(OR, 2),      // stack(1): [(20_meso or 20_drop)                                    ]
@@ -123,7 +123,7 @@ typedef enum Region Region;
 //   int main() {
 //     CubeGlobalInit();
 //
-//     static const BufStaticHdr(Want, want,
+//     static const BufH(Want, want,
 //       WantStat(ATT, 33),
 //       WantOp(AND, -1),
 //     );
@@ -568,7 +568,7 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
 
 #define rangeIf(cond, ...) if (cond) { range(__VA_ARGS__); }
 #define range(...) \
-  static const BufStatic(intmax_t const, r, __VA_ARGS__); \
+  static const Buf(intmax_t const, r, __VA_ARGS__); \
   ranges = BufDup((void*)r)
 
   intmax_t* ranges;
@@ -613,7 +613,7 @@ int WantEval(int category, int cube, Lines* combos, Want const* wantBuf) {
 
   // filter out impossible combos
 
-  static const BufStaticHdr(Want, forbiddenCombos,
+  static const BufH(Want, forbiddenCombos,
     WantStat(DECENTS, 0), // 2+ lines of any decent impossible
     WantStat(INVIN, 0),   // 2+ lines of invincibility impossible
     WantStat(LINES, 2),

@@ -243,14 +243,14 @@ for x in maps:
   p(f"Map* {x};");
 
 def arr(x, ctyp, name="buf"):
-  p(f"static const BufStatic({ctyp} const, {name},")
+  p(f"static const BufH({ctyp} const, {name},")
   with IndentBlock():
     for val in x:
       p(f"{val},")
   p(f");")
 
 def arr_flag(x, e, suff="", name="buf"):
-  p(f"static const BufStatic(int const, {name},")
+  p(f"static const BufH(int const, {name},")
   with IndentBlock():
     for val in x:
       s = enum_bits(e, val, suff) if val else "0"
@@ -324,11 +324,11 @@ with Block():
         for tier, x in data.items():
           with Block():
             arr(x, "float")
-            p(f"MapSet(cube, {Tier(tier).name}, (void*)buf);")
+            p(f"MapSet(cube, {Tier(tier).name}, (void*)buf.data);")
         container("map", "cube")
       else:
         arr(data, "float")
-        container("buf", "(void*)buf")
+        container("buf", "(void*)buf.data")
       p(f"MapSet(primeChances, {Cube(cube).name}, (void*)&container);")
 
 
@@ -347,10 +347,11 @@ def lines_map(name, x):
               arr_flag(lines, Line, "_LO", name="lineLo")
               arr([x[1] for x in linedata], "float", name="onein")
               # tcc can't figure out that these arrays are compile time const
-              p("static LineData linedata;")
-              p("linedata.onein = onein;")
-              p("linedata.lineHi = lineHi;")
-              p("linedata.lineLo = lineLo;")
+              p("static const LineData linedata = ")
+              with BlockCol():
+                p(".onein = onein.data,")
+                p(".lineHi = lineHi.data,")
+                p(".lineLo = lineLo.data,")
               p(f"MapSet(tiers, {Tier(tier).name}, (void*)&linedata);")
           p(f"MapSet(categories, {enum_bits(Category, category_mask)}, tiers);")
       p(f"MapSet({name}, {enum_bits(Cube, cube_mask)}, categories);")
