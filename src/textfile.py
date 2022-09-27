@@ -526,7 +526,7 @@ def familiar_calcs():
   combos_fam_epic = [
     ("20+ boss", [{BOSS: 20}]),
     ("30+ boss", [{BOSS: 30}]),
-    ("any 2l combo of boss and hp healing", [{BOSS: 1, HEAL_HP: 1, LINES: 2}]),
+    ("any 2l combo of boss and hp healing", [{BOSS_ONLY: 1, HEAL_HP: 1, LINES: 2}]),
     ("20+ ied", [{IED: 20}]),
     ("30+ ied", [{IED: 30}]),
     ("25+ drop", [{DROP: 25}]),
@@ -551,8 +551,8 @@ def familiar_calcs():
     ("40+ boss and any hp healing", [{BOSS: 40, HEAL_HP: 1}]),
     ("35+ ied", [{IED: 35}]),
     ("40+ ied", [{IED: 40}]),
-    ("any 2l combo of boss and ied", [{BOSS: 1, IED: 1, LINES: 2}]),
-    ("any 2l combo of boss", [{BOSS: 1, LINES: 2}]),
+    ("any 2l combo of boss and ied", [{BOSS_ONLY: 1, IED: 1, LINES: 2}]),
+    ("any 2l combo of boss", [{BOSS_ONLY: 1, LINES: 2}]),
     ("50+ boss ", [{BOSS: 50}]),
     ("50+ meso and drop", [{MESO: 50, DROP: 50}]),
     ("25+ meso and 90+ drop", [{MESO: 25, DROP: 90}]),
@@ -578,7 +578,7 @@ def familiar_calcs():
     ("45+ boss", [{BOSS: 45}]),
     ("50+ boss", [{BOSS: 50}]),
     ("60+ boss", [{BOSS: 60}]),
-    ("any 2l combo of boss and hp healing", [{BOSS: 1, HEAL_HP: 1, LINES: 2}]),
+    ("any 2l combo of boss and hp healing", [{BOSS_ONLY: 1, HEAL_HP: 1, LINES: 2}]),
     ("45+ boss and any hp healing", [{BOSS: 45, HEAL_HP: 1}]),
     ("50+ boss and any hp healing", [{BOSS: 50, HEAL_HP: 1}]),
 
