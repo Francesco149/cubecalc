@@ -230,13 +230,13 @@ for name, x in lines_lo:
 
 masks = [x for x in LineMasks] + [x for x in LineVariants]
 
-for name, x in [(x.name, (x >> 31) & 0x7FFFFFFF) for x in masks]:
-  bits = enum_bits(Line, x, '_HI') or "NULLBIT"
-  p(f"#define {name}_HI ({bits})")
+for x in masks:
+  bits = enum_bits(Line, x & (0x7FFFFFFF << 31), '_HI') or "NULLBIT"
+  p(f"#define {x.name}_HI ({bits})")
 
-for name, x in [(x.name, (x >>  0) & 0x7FFFFFFF) for x in masks]:
-  bits = enum_bits(Line, x, '_LO') or "NULLBIT"
-  p(f"#define {name}_LO ({bits})")
+for x in masks:
+  bits = enum_bits(Line, (x & 0x7FFFFFFF), '_LO') or "NULLBIT"
+  p(f"#define {x.name}_LO ({bits})")
 
 p("#endif")
 p("#if defined(CUBECALC_GENERATED_IMPLEMENTATION) && !defined(CUBECALC_GENERATED_UNIT)")
