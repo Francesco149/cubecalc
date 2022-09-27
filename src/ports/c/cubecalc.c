@@ -266,8 +266,11 @@ char const* _EnumToStr(int const* vals, char const* const* names, size_t n, int 
 
 static
 Map* DataFindMap(int cubeMask) {
-  if (cubeMask & (FAMILIAR | RED_FAM_CARD)) {
+  if (cubeMask & FAMILIAR) {
     return fams;
+  }
+  if (cubeMask & RED_FAM_CARD) {
+    return famsCard;
   }
   if (cubeMask & (VIOLET | EQUALITY | UNI)) {
     return tms;

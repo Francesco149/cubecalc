@@ -14,7 +14,7 @@ import json
 
 from kms import cubes
 from tms import event
-from familiars import familiars
+from familiars import familiars, red_card_estimate
 
 indent = 0
 
@@ -171,7 +171,7 @@ p(f"extern char const disclaimer[{discl_len}];")
 
 p(f"void cubecalcGeneratedGlobalInit();")
 p(f"void cubecalcGeneratedGlobalFree();")
-maps = [ "primeChances", "kms", "tms", "fams" ]
+maps = [ "primeChances", "kms", "tms", "fams", "famsCard" ]
 
 for x in maps:
   p(f"extern Map* {x};");
@@ -361,6 +361,7 @@ with Block():
   lines_map("kms", cubes)
   lines_map("tms", event)
   lines_map("fams", familiars)
+  lines_map("famsCard", red_card_estimate)
 
 p(f"void cubecalcGeneratedGlobalFree()")
 with Block():

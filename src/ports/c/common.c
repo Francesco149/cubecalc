@@ -24,6 +24,7 @@ void primeChancesFree();
 void kmsFree();
 void tmsFree();
 void famsFree();
+void famsCardFree();
 void valueGroupsFree();
 
 // i is the index into valueGroups
@@ -80,6 +81,7 @@ static void linesFree(Map* cubeData) {
 void kmsFree() { linesFree(kms); }
 void tmsFree() { linesFree(tms); }
 void famsFree() { linesFree(fams); }
+void famsCardFree() { linesFree(famsCard); }
 
 void valueGroupsFree() {
   ArrayEachi(valueGroups, i) {

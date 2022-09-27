@@ -10,6 +10,7 @@ extern Map* primeChances;
 extern Map* kms;
 extern Map* tms;
 extern Map* fams;
+extern Map* famsCard;
 extern int const valueGroupsMaxLevel[51];
 extern int const valueGroupsCubeMask[51];
 extern int const valueGroupsCategoryMask[51];
@@ -337,6 +338,7 @@ Map* primeChances;
 Map* kms;
 Map* tms;
 Map* fams;
+Map* famsCard;
 int const allLinesHi[41] = 
 {
   LINE_A_HI,
@@ -8556,6 +8558,285 @@ static void dataInit()
     }
     MapSet(fams, FAMILIAR, categories);
   }
+  famsCard = MapInit();
+  {
+    Map* categories = MapInit();
+    {
+      Map* tiers = MapInit();
+      {
+        static const BufStatic(int const, lineHi,
+        );
+        static const BufStatic(int const, lineLo,
+        );
+        static const BufStatic(float const, onein,
+        );
+        static LineData linedata;
+        linedata.onein = onein;
+        linedata.lineHi = lineHi;
+        linedata.lineLo = lineLo;
+        MapSet(tiers, BASE, (void*)&linedata);
+      }
+      {
+        static const BufStatic(int const, lineHi,
+        );
+        static const BufStatic(int const, lineLo,
+        );
+        static const BufStatic(float const, onein,
+        );
+        static LineData linedata;
+        linedata.onein = onein;
+        linedata.lineHi = lineHi;
+        linedata.lineLo = lineLo;
+        MapSet(tiers, COMMON, (void*)&linedata);
+      }
+      {
+        static const BufStatic(int const, lineHi,
+        );
+        static const BufStatic(int const, lineLo,
+        );
+        static const BufStatic(float const, onein,
+        );
+        static LineData linedata;
+        linedata.onein = onein;
+        linedata.lineHi = lineHi;
+        linedata.lineLo = lineLo;
+        MapSet(tiers, RARE, (void*)&linedata);
+      }
+      {
+        static const BufStatic(int const, lineHi,
+        );
+        static const BufStatic(int const, lineLo,
+        );
+        static const BufStatic(float const, onein,
+        );
+        static LineData linedata;
+        linedata.onein = onein;
+        linedata.lineHi = lineHi;
+        linedata.lineLo = lineLo;
+        MapSet(tiers, EPIC, (void*)&linedata);
+      }
+      {
+        static const BufStatic(int const, lineHi,
+          LINE_A_HI | HEAL_HP_ONLY_PARTY_HI,
+          LINE_A_HI | HEAL_HP_MP_PARTY_HI,
+          LINE_C_HI | DROP_MESO_HI,
+          LINE_B_HI | FLAT_ALLSTAT_HI,
+          LINE_A_HI | HEAL_MP_ONLY_PARTY_HI,
+          LINE_A_HI | HEAL_MP_ONLY_NEAR_HI,
+          FLAT_DEX_ONLY_HI,
+          LINE_A_HI | HEAL_HP_ONLY_NEAR_HI,
+          LINE_A_HI | FLAT_HP_HI,
+          LINE_A_HI | HEAL_HP_MP_HI,
+          LINE_B_HI | FLAT_ATT_HI,
+          LINE_A_HI | HEAL_HP_MP_NEAR_HI,
+          LINE_A_HI | FLAT_MAINSTAT_HI,
+          INVIN_HI,
+          LINE_A_HI | FLAT_ATT_HI,
+          LINE_A_HI | FLAT_ALLSTAT_HI,
+          LINE_A_HI | AUTOSTEAL_2_HI,
+          LINE_B_HI | FLAT_HP_HI,
+          LINE_B_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_A_HI | AUTOSTEAL_1_HI,
+          LINE_B_HI | AUTOSTEAL_2_HI,
+          LINE_B_HI | AUTOSTEAL_1_HI,
+          LINE_B_HI | HP_HI,
+          LINE_B_HI | CRITDMG_HI,
+          LINE_C_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          LINE_B_HI | FLAT_MAINSTAT_HI,
+          LINE_B_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_C_HI | FLAT_ALLSTAT_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | CRITDMG_HI,
+          FLAT_MESO_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_B_HI | ALLSTAT_HI,
+          LINE_A_HI | ALLSTAT_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_B_HI | ATT_HI,
+          LINE_B_HI | IED_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
+          LINE_A_HI | DROP_ONLY_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_C_HI | IED_HI,
+          LINE_B_HI | DAMAGE_HI,
+          LINE_A_HI | IED_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
+        );
+        static const BufStatic(int const, lineLo,
+          LINE_A_LO | HEAL_HP_ONLY_PARTY_LO,
+          LINE_A_LO | HEAL_HP_MP_PARTY_LO,
+          LINE_C_LO | DROP_MESO_LO,
+          LINE_B_LO | FLAT_ALLSTAT_LO,
+          LINE_A_LO | HEAL_MP_ONLY_PARTY_LO,
+          LINE_A_LO | HEAL_MP_ONLY_NEAR_LO,
+          FLAT_DEX_ONLY_LO,
+          LINE_A_LO | HEAL_HP_ONLY_NEAR_LO,
+          LINE_A_LO | FLAT_HP_LO,
+          LINE_A_LO | HEAL_HP_MP_LO,
+          LINE_B_LO | FLAT_ATT_LO,
+          LINE_A_LO | HEAL_HP_MP_NEAR_LO,
+          LINE_A_LO | FLAT_MAINSTAT_LO,
+          INVIN_LO,
+          LINE_A_LO | FLAT_ATT_LO,
+          LINE_A_LO | FLAT_ALLSTAT_LO,
+          LINE_A_LO | AUTOSTEAL_2_LO,
+          LINE_B_LO | FLAT_HP_LO,
+          LINE_B_LO | HP_ITEMS_AND_SKILLS_LO,
+          LINE_A_LO | AUTOSTEAL_1_LO,
+          LINE_B_LO | AUTOSTEAL_2_LO,
+          LINE_B_LO | AUTOSTEAL_1_LO,
+          LINE_B_LO | HP_LO,
+          LINE_B_LO | CRITDMG_LO,
+          LINE_C_LO | AUTOSTEAL_1_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
+          LINE_B_LO | FLAT_MAINSTAT_LO,
+          LINE_B_LO | MAINSTAT_LO,
+          LINE_A_LO | HP_LO,
+          LINE_C_LO | FLAT_ALLSTAT_LO,
+          LINE_A_LO | MAINSTAT_LO,
+          LINE_A_LO | CRITDMG_LO,
+          FLAT_MESO_LO,
+          LINE_A_LO | ATT_LO,
+          LINE_B_LO | ALLSTAT_LO,
+          LINE_A_LO | ALLSTAT_LO,
+          LINE_A_LO | DAMAGE_LO,
+          LINE_B_LO | ATT_LO,
+          LINE_B_LO | IED_LO,
+          LINE_C_LO | BOSS_ONLY_LO,
+          LINE_A_LO | DROP_ONLY_LO,
+          LINE_B_LO | BOSS_ONLY_LO,
+          LINE_C_LO | IED_LO,
+          LINE_B_LO | DAMAGE_LO,
+          LINE_A_LO | IED_LO,
+          LINE_A_LO | BOSS_ONLY_LO,
+        );
+        static const BufStatic(float const, onein,
+          53.51851851851852,
+          53.51851851851852,
+          53.51851851851852,
+          54.52830188679245,
+          54.52830188679245,
+          57.8,
+          58.9795918367347,
+          64.22222222222223,
+          78.1081081081081,
+          80.27777777777779,
+          82.57142857142857,
+          82.57142857142857,
+          87.57575757575758,
+          87.57575757575758,
+          103.21428571428572,
+          103.21428571428572,
+          103.21428571428572,
+          107.03703703703704,
+          107.03703703703704,
+          107.03703703703704,
+          111.15384615384616,
+          115.6,
+          120.41666666666669,
+          131.36363636363637,
+          137.61904761904762,
+          137.61904761904762,
+          137.61904761904762,
+          160.55555555555557,
+          160.55555555555557,
+          160.55555555555557,
+          170.00000000000003,
+          170.00000000000003,
+          180.625,
+          180.625,
+          262.72727272727275,
+          289.0,
+          321.11111111111114,
+          361.25,
+          412.8571428571429,
+          412.8571428571429,
+          481.66666666666674,
+          481.66666666666674,
+          481.66666666666674,
+          481.66666666666674,
+          963.3333333333335,
+          2890.0,
+        );
+        static LineData linedata;
+        linedata.onein = onein;
+        linedata.lineHi = lineHi;
+        linedata.lineLo = lineLo;
+        MapSet(tiers, UNIQUE, (void*)&linedata);
+      }
+      {
+        static const BufStatic(int const, lineHi,
+          LINE_A_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | HP_ITEMS_AND_SKILLS_HI,
+          INVIN_HI,
+          LINE_C_HI | AUTOSTEAL_1_HI,
+          LINE_B_HI | AUTOSTEAL_1_HI,
+          LINE_A_HI | MAINSTAT_HI,
+          LINE_A_HI | HP_HI,
+          LINE_A_HI | ATT_HI,
+          LINE_A_HI | CRITDMG_HI,
+          LINE_B_HI | IED_HI,
+          FLAT_MESO_HI,
+          LINE_A_HI | BOSS_ONLY_HI,
+          LINE_A_HI | DAMAGE_HI,
+          LINE_C_HI | BOSS_ONLY_HI,
+          LINE_A_HI | DROP_ONLY_HI,
+          LINE_B_HI | BOSS_ONLY_HI,
+          LINE_A_HI | IED_HI,
+          LINE_A_HI | ALLSTAT_HI,
+        );
+        static const BufStatic(int const, lineLo,
+          LINE_A_LO | AUTOSTEAL_1_LO,
+          LINE_A_LO | HP_ITEMS_AND_SKILLS_LO,
+          INVIN_LO,
+          LINE_C_LO | AUTOSTEAL_1_LO,
+          LINE_B_LO | AUTOSTEAL_1_LO,
+          LINE_A_LO | MAINSTAT_LO,
+          LINE_A_LO | HP_LO,
+          LINE_A_LO | ATT_LO,
+          LINE_A_LO | CRITDMG_LO,
+          LINE_B_LO | IED_LO,
+          FLAT_MESO_LO,
+          LINE_A_LO | BOSS_ONLY_LO,
+          LINE_A_LO | DAMAGE_LO,
+          LINE_C_LO | BOSS_ONLY_LO,
+          LINE_A_LO | DROP_ONLY_LO,
+          LINE_B_LO | BOSS_ONLY_LO,
+          LINE_A_LO | IED_LO,
+          LINE_A_LO | ALLSTAT_LO,
+        );
+        static const BufStatic(float const, onein,
+          27.913461538461537,
+          28.74257425742574,
+          32.98863636363636,
+          32.98863636363636,
+          34.97590361445783,
+          40.31944444444445,
+          42.69117647058824,
+          78.45945945945945,
+          85.38235294117648,
+          126.21739130434781,
+          126.21739130434781,
+          131.95454545454544,
+          145.15,
+          161.2777777777778,
+          170.76470588235296,
+          181.43749999999997,
+          193.53333333333333,
+          241.91666666666666,
+        );
+        static LineData linedata;
+        linedata.onein = onein;
+        linedata.lineHi = lineHi;
+        linedata.lineLo = lineLo;
+        MapSet(tiers, LEGENDARY, (void*)&linedata);
+      }
+      MapSet(categories, FAMILIAR_STATS, tiers);
+    }
+    MapSet(famsCard, RED_FAM_CARD, categories);
+  }
 }
 void cubecalcGeneratedGlobalFree()
 {
@@ -8563,6 +8844,7 @@ void cubecalcGeneratedGlobalFree()
   kmsFree();
   tmsFree();
   famsFree();
+  famsCardFree();
   valueGroupsFree();
 }
 int const valueGroupsMaxLevel[51] = 
