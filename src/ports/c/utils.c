@@ -64,7 +64,7 @@ typedef uintmax_t uintptr_t;
 #define RangeBefore(end, i) RangeFromBefore(0, end, i)
 
 // for (size_t i = start; i < end; ++i)
-#define RangeFromBefore(start, end, i) Range(start, (end) - 1, i)
+#define RangeFromBefore(start, end, i) Range(start, (intmax_t)(end) - 1, i)
 
 // for (size_t i = 0; i <= end; ++i)
 #define RangeTill(end, i) Range(0, end, i)
