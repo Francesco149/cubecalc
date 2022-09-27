@@ -1,5 +1,7 @@
 this is a C port of the cube calculator. it's mainly intended to be used in [[https://github.com/Francesco149/cubecalc-ui][cubecalc-ui]] but it does a decent job at providing a C api to calculate cubing probabilities. it comes embedded with all the probability and line value data through a lot of code generation.
 
+this *INTENTIONALLY* avoids using 64-bit integers so that it's easy to compile for platforms that don't support them, at the expense of performance. platform specific optimizations might be added later
+
 * how to run it
 ** method 1: manually install dependencies and run it
 - have python3, numpy, mold, tinycc/clang/gcc installed
