@@ -182,8 +182,15 @@ p(f"extern int const valueGroupsCategoryMask[{len(values)}];")
 p(f"extern int const valueGroupsRegionMask[{len(values)}];")
 p(f"extern Map* valueGroups[{len(values)}];")
 
-lines_all = [x for x in Line]
-lines_count = len(lines_all)
+def sorted_enum(e):
+  return sorted(e, key=lambda z: z.name.lower())
+
+masks_only = [x for x in LineMasks]
+masks = masks_only + [x for x in LineVariants]
+sorted_line = masks_only + sorted_enum([x for x in Line
+                           if x not in {LINE_A, LINE_B, LINE_C, LINES, AUTOSTEAL_1, AUTOSTEAL_2}])
+
+lines_count = len(sorted_line)
 lines_hi = [(x.name, ((x >> 32) & 0xFFFFFFFF)) for x in Line]
 lines_lo = [(x.name, ((x >>  0) & 0xFFFFFFFF)) for x in Line]
 
@@ -193,11 +200,12 @@ cubes_count = len([x for x in Cube])
 tiers_count = len([x for x in Tier])
 regions_count = len([x for x in Region])
 
+p(f"#define ALL_LINES_NUM_MASKS {len(masks_only)}")
 p(f"extern int const allLinesHi[{lines_count}];")
 p(f"extern int const allLinesLo[{lines_count}];")
 p(f"extern char const* const allLineNames[{lines_count}];")
 
-p(f"#define CATEGORIES_NUM_COMBINED {len(categories_combined)}")
+p(f"#define CATEGORY_NUM_COMBINED {len(categories_combined)}")
 p(f"extern char const* const categoryNames[{categories_count}];")
 p(f"extern int const categoryValues[{categories_count}];")
 
@@ -209,9 +217,6 @@ p(f"extern int const tierValues[{tiers_count}];")
 
 p(f"extern char const* const regionNames[{regions_count}];")
 p(f"extern int const regionValues[{regions_count}];")
-
-def sorted_enum(e):
-  return sorted(e, key=lambda z: z.name.lower())
 
 def enum(e):
   p(f"enum {e.__name__}")
@@ -237,8 +242,6 @@ for name, x in lines_hi:
 for name, x in lines_lo:
   s = f"0x{x:x}"
   p(f"#define {name}_LO {s}")
-
-masks = [x for x in LineMasks] + [x for x in LineVariants]
 
 for x in masks:
   bits = enum_bits(Line, x, '_HI')
@@ -271,8 +274,6 @@ def arr_flag(x, e, suff="", name="buf"):
   p(f");")
 
 
-sorted_line = sorted_enum([x for x in Line if x not in {LINE_A, LINE_B, LINE_C, LINES}])
-
 p(f"int const allLinesHi[{lines_count}] = ")
 with BlockCol():
   for x in sorted_line:
@@ -286,7 +287,7 @@ with BlockCol():
 p(f"char const* const allLineNames[{lines_count}] = ")
 with BlockCol():
   for x in sorted_line:
-    p(f"\"{x.name}\",")
+    p(f"\"{x.name.lower().replace('_', ' ')}\",")
 
 
 CategoryCombined = categories_combined + sorted_enum(Category)

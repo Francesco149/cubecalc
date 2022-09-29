@@ -16,10 +16,11 @@ extern int const valueGroupsCubeMask[51];
 extern int const valueGroupsCategoryMask[51];
 extern int const valueGroupsRegionMask[51];
 extern Map* valueGroups[51];
-extern int const allLinesHi[41];
-extern int const allLinesLo[41];
-extern char const* const allLineNames[41];
-#define CATEGORIES_NUM_COMBINED 1
+#define ALL_LINES_NUM_MASKS 14
+extern int const allLinesHi[49];
+extern int const allLinesLo[49];
+extern char const* const allLineNames[49];
+#define CATEGORY_NUM_COMBINED 1
 extern char const* const categoryNames[17];
 extern int const categoryValues[17];
 extern char const* const cubeNames[11];
@@ -421,14 +422,26 @@ Map* kms;
 Map* tms;
 Map* fams;
 Map* famsCard;
-int const allLinesHi[41] = 
+int const allLinesHi[49] = 
 {
+  BOSS_HI,
+  STAT_HI,
+  FLAT_STAT_HI,
+  FLAT_DEX_HI,
+  DECENTS_HI,
+  MESO_HI,
+  DROP_HI,
+  AUTOSTEAL_HI,
+  HEAL_HP_HI,
+  HEAL_MP_HI,
+  HEAL_HP_NEAR_HI,
+  HEAL_HP_PARTY_HI,
+  HEAL_MP_NEAR_HI,
+  HEAL_MP_PARTY_HI,
   ALLSTAT_HI,
   ANY_HI,
   ATT_HI,
   ATT_PER_10_LVLS_HI,
-  AUTOSTEAL_1_HI,
-  AUTOSTEAL_2_HI,
   BOSS_ONLY_HI,
   COOLDOWN_HI,
   CRITDMG_HI,
@@ -461,14 +474,26 @@ int const allLinesHi[41] =
   MAINSTAT_PER_10_LVLS_HI,
   MESO_ONLY_HI,
 };
-int const allLinesLo[41] = 
+int const allLinesLo[49] = 
 {
+  BOSS_LO,
+  STAT_LO,
+  FLAT_STAT_LO,
+  FLAT_DEX_LO,
+  DECENTS_LO,
+  MESO_LO,
+  DROP_LO,
+  AUTOSTEAL_LO,
+  HEAL_HP_LO,
+  HEAL_MP_LO,
+  HEAL_HP_NEAR_LO,
+  HEAL_HP_PARTY_LO,
+  HEAL_MP_NEAR_LO,
+  HEAL_MP_PARTY_LO,
   ALLSTAT_LO,
   ANY_LO,
   ATT_LO,
   ATT_PER_10_LVLS_LO,
-  AUTOSTEAL_1_LO,
-  AUTOSTEAL_2_LO,
   BOSS_ONLY_LO,
   COOLDOWN_LO,
   CRITDMG_LO,
@@ -501,45 +526,57 @@ int const allLinesLo[41] =
   MAINSTAT_PER_10_LVLS_LO,
   MESO_ONLY_LO,
 };
-char const* const allLineNames[41] = 
+char const* const allLineNames[49] = 
 {
-  "ALLSTAT",
-  "ANY",
-  "ATT",
-  "ATT_PER_10_LVLS",
-  "AUTOSTEAL_1",
-  "AUTOSTEAL_2",
-  "BOSS_ONLY",
-  "COOLDOWN",
-  "CRITDMG",
-  "DAMAGE",
-  "DECENT_COMBAT_ORDERS",
-  "DECENT_SHARP_EYES",
-  "DECENT_SPEED_INFUSION",
-  "DROP_MESO",
-  "DROP_ONLY",
-  "FLAT_ALLSTAT",
-  "FLAT_ATT",
-  "FLAT_DEX_ONLY",
-  "FLAT_HP",
-  "FLAT_MAINSTAT",
-  "FLAT_MESO",
-  "HEAL_HP_MP",
-  "HEAL_HP_MP_NEAR",
-  "HEAL_HP_MP_PARTY",
-  "HEAL_HP_ONLY",
-  "HEAL_HP_ONLY_NEAR",
-  "HEAL_HP_ONLY_PARTY",
-  "HEAL_MP_ONLY",
-  "HEAL_MP_ONLY_NEAR",
-  "HEAL_MP_ONLY_PARTY",
-  "HP",
-  "HP_ITEMS_AND_SKILLS",
-  "IED",
-  "INVIN",
-  "MAINSTAT",
-  "MAINSTAT_PER_10_LVLS",
-  "MESO_ONLY",
+  "boss",
+  "stat",
+  "flat stat",
+  "flat dex",
+  "decents",
+  "meso",
+  "drop",
+  "autosteal",
+  "heal hp",
+  "heal mp",
+  "heal hp near",
+  "heal hp party",
+  "heal mp near",
+  "heal mp party",
+  "allstat",
+  "any",
+  "att",
+  "att per 10 lvls",
+  "boss only",
+  "cooldown",
+  "critdmg",
+  "damage",
+  "decent combat orders",
+  "decent sharp eyes",
+  "decent speed infusion",
+  "drop meso",
+  "drop only",
+  "flat allstat",
+  "flat att",
+  "flat dex only",
+  "flat hp",
+  "flat mainstat",
+  "flat meso",
+  "heal hp mp",
+  "heal hp mp near",
+  "heal hp mp party",
+  "heal hp only",
+  "heal hp only near",
+  "heal hp only party",
+  "heal mp only",
+  "heal mp only near",
+  "heal mp only party",
+  "hp",
+  "hp items and skills",
+  "ied",
+  "invin",
+  "mainstat",
+  "mainstat per 10 lvls",
+  "meso only",
 };
 char const* const categoryNames[17] = 
 {

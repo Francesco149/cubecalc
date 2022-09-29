@@ -217,7 +217,7 @@ DefEnumNames(WantType);
 char* LineToStr(int hi, int lo) {
   char* res = 0;
   size_t nflags = 0;
-  ArrayEachi(allLinesHi, i) {
+  ArrayEachiRange(allLinesHi, ALL_LINES_NUM_MASKS, -1, i) {
     if ((hi & allLinesHi[i]) || (lo & allLinesLo[i])) {
       BufAllocCharsf(&res, "%s | ", allLineNames[i]);
       ++nflags;
