@@ -3,7 +3,7 @@ void WantPrint(Want const* wantBuf) {
   BufEach(Want const, wantBuf, w) {
     switch (w->type) {
       case WANT_STAT: {
-        char* line = LineToStr(w->lineHi, w->lineLo, 0);
+        char* line = LineToStr(w->lineHi, w->lineLo);
         printf("%d %s\n", w->value, line);
         BufFree(&line);
         break;
@@ -27,7 +27,7 @@ void DataPrint(LineData const* ld, int tier, int* values) {
   }
   Align* al = AlignInit();
   BufEachi(ld->lineHi, i) {
-    char* s = LineToStr(ld->lineHi[i], ld->lineLo[i], 0);
+    char* s = LineToStr(ld->lineHi[i], ld->lineLo[i]);
     AlignFeed(al, "%d %s 1", " in %g", values[i], s, ld->onein[i]);
     BufFree(&s);
   }
@@ -39,7 +39,7 @@ static
 void LinesPrint(Lines* l) {
   Align* al = AlignInit();
   BufEachi(l->lineHi, i) {
-    char* s = LineToStr(l->lineHi[i], l->lineLo[i], 0);
+    char* s = LineToStr(l->lineHi[i], l->lineLo[i]);
     if (!(i % l->comboSize)) {
       AlignFeed(al, "%s", "", "");
     }

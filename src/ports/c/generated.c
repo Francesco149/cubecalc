@@ -26,57 +26,139 @@ extern char const* const cubeNames[11];
 extern int const cubeValues[11];
 extern char const* const tierNames[6];
 extern int const tierValues[6];
+extern char const* const regionNames[6];
+extern int const regionValues[6];
+#define LINE_A_IDX 0
+#define LINE_B_IDX 1
+#define LINE_C_IDX 2
+#define ANY_IDX 3
+#define BOSS_ONLY_IDX 4
+#define DAMAGE_IDX 5
+#define IED_IDX 6
+#define ATT_IDX 7
+#define MAINSTAT_IDX 8
+#define ALLSTAT_IDX 9
+#define HP_IDX 10
+#define COOLDOWN_IDX 11
+#define CRITDMG_IDX 12
+#define DROP_MESO_IDX 13
+#define MESO_ONLY_IDX 14
+#define DROP_ONLY_IDX 15
+#define INVIN_IDX 16
+#define DECENT_SPEED_INFUSION_IDX 17
+#define DECENT_SHARP_EYES_IDX 18
+#define DECENT_COMBAT_ORDERS_IDX 19
+#define FLAT_ATT_IDX 20
+#define FLAT_MAINSTAT_IDX 21
+#define FLAT_ALLSTAT_IDX 22
+#define FLAT_DEX_ONLY_IDX 23
+#define FLAT_HP_IDX 24
+#define MAINSTAT_PER_10_LVLS_IDX 25
+#define ATT_PER_10_LVLS_IDX 26
+#define FLAT_MESO_IDX 27
+#define AUTOSTEAL_1_IDX 28
+#define AUTOSTEAL_2_IDX 29
+#define HEAL_HP_ONLY_IDX 30
+#define HEAL_HP_MP_IDX 31
+#define HEAL_MP_ONLY_IDX 32
+#define HEAL_HP_ONLY_NEAR_IDX 33
+#define HEAL_HP_MP_NEAR_IDX 34
+#define HEAL_MP_ONLY_NEAR_IDX 35
+#define HEAL_HP_ONLY_PARTY_IDX 36
+#define HEAL_HP_MP_PARTY_IDX 37
+#define HEAL_MP_ONLY_PARTY_IDX 38
+#define HP_ITEMS_AND_SKILLS_IDX 39
+#define LINES_IDX 40
 enum Cube
 {
-  RED = 0x1,
-  MEISTER = 0x2,
-  MASTER = 0x4,
-  OCCULT = 0x8,
   BLACK = 0x10,
-  VIOLET = 0x20,
-  EQUALITY = 0x40,
   BONUS = 0x80,
-  UNI = 0x100,
+  EQUALITY = 0x40,
   FAMILIAR = 0x200,
+  MASTER = 0x4,
+  MEISTER = 0x2,
+  OCCULT = 0x8,
+  RED = 0x1,
   RED_FAM_CARD = 0x400,
+  UNI = 0x100,
+  VIOLET = 0x20,
 };
+#define BLACK_IDX 0
+#define BONUS_IDX 1
+#define EQUALITY_IDX 2
+#define FAMILIAR_IDX 3
+#define MASTER_IDX 4
+#define MEISTER_IDX 5
+#define OCCULT_IDX 6
+#define RED_IDX 7
+#define RED_FAM_CARD_IDX 8
+#define UNI_IDX 9
+#define VIOLET_IDX 10
 enum Tier
 {
   BASE = 0x1,
   COMMON = 0x2,
-  RARE = 0x3,
   EPIC = 0x4,
-  UNIQUE = 0x5,
   LEGENDARY = 0x6,
+  RARE = 0x3,
+  UNIQUE = 0x5,
 };
+#define BASE_IDX 0
+#define COMMON_IDX 1
+#define EPIC_IDX 2
+#define LEGENDARY_IDX 3
+#define RARE_IDX 4
+#define UNIQUE_IDX 5
 enum Category
 {
-  WEAPON = 0x1,
-  EMBLEM = 0x2,
-  SECONDARY = 0x4,
-  FORCE_SHIELD_SOUL_RING = 0x8,
-  HAT = 0x10,
-  TOP_OVERALL = 0x20,
   BOTTOM = 0x40,
-  SHOE = 0x80,
-  GLOVE = 0x100,
   CAPE_BELT_SHOULDER = 0x200,
+  DEFAULT_CUBE = 0x8000,
+  EMBLEM = 0x2,
   FACE_EYE_RING_EARRING_PENDANT = 0x400,
-  HEART_BADGE = 0x800,
   FAMILIAR_STATS = 0x1000,
+  FORCE_SHIELD_SOUL_RING = 0x8,
+  GLOVE = 0x100,
+  HAT = 0x10,
+  HEART_BADGE = 0x800,
   LINE_CACHE = 0x2000,
   NAME = 0x4000,
-  DEFAULT_CUBE = 0x8000,
+  SECONDARY = 0x4,
+  SHOE = 0x80,
+  TOP_OVERALL = 0x20,
+  WEAPON = 0x1,
 };
+#define BOTTOM_IDX 0
+#define CAPE_BELT_SHOULDER_IDX 1
+#define DEFAULT_CUBE_IDX 2
+#define EMBLEM_IDX 3
+#define FACE_EYE_RING_EARRING_PENDANT_IDX 4
+#define FAMILIAR_STATS_IDX 5
+#define FORCE_SHIELD_SOUL_RING_IDX 6
+#define GLOVE_IDX 7
+#define HAT_IDX 8
+#define HEART_BADGE_IDX 9
+#define LINE_CACHE_IDX 10
+#define NAME_IDX 11
+#define SECONDARY_IDX 12
+#define SHOE_IDX 13
+#define TOP_OVERALL_IDX 14
+#define WEAPON_IDX 15
 enum Region
 {
-  KMS = 0x1,
-  MSEA = 0x2,
+  CMS = 0x20,
   GMS = 0x4,
   JMS = 0x8,
+  KMS = 0x1,
+  MSEA = 0x2,
   TMS = 0x10,
-  CMS = 0x20,
 };
+#define CMS_IDX 0
+#define GMS_IDX 1
+#define JMS_IDX 2
+#define KMS_IDX 3
+#define MSEA_IDX 4
+#define TMS_IDX 5
 #define LINE_A_HI 0x0
 #define LINE_B_HI 0x0
 #define LINE_C_HI 0x0
@@ -341,221 +423,227 @@ Map* fams;
 Map* famsCard;
 int const allLinesHi[41] = 
 {
-  LINE_A_HI,
-  LINE_B_HI,
-  LINE_C_HI,
-  ANY_HI,
-  BOSS_ONLY_HI,
-  DAMAGE_HI,
-  IED_HI,
-  ATT_HI,
-  MAINSTAT_HI,
   ALLSTAT_HI,
-  HP_HI,
-  COOLDOWN_HI,
-  CRITDMG_HI,
-  DROP_MESO_HI,
-  MESO_ONLY_HI,
-  DROP_ONLY_HI,
-  INVIN_HI,
-  DECENT_SPEED_INFUSION_HI,
-  DECENT_SHARP_EYES_HI,
-  DECENT_COMBAT_ORDERS_HI,
-  FLAT_ATT_HI,
-  FLAT_MAINSTAT_HI,
-  FLAT_ALLSTAT_HI,
-  FLAT_DEX_ONLY_HI,
-  FLAT_HP_HI,
-  MAINSTAT_PER_10_LVLS_HI,
+  ANY_HI,
+  ATT_HI,
   ATT_PER_10_LVLS_HI,
-  FLAT_MESO_HI,
   AUTOSTEAL_1_HI,
   AUTOSTEAL_2_HI,
-  HEAL_HP_ONLY_HI,
+  BOSS_ONLY_HI,
+  COOLDOWN_HI,
+  CRITDMG_HI,
+  DAMAGE_HI,
+  DECENT_COMBAT_ORDERS_HI,
+  DECENT_SHARP_EYES_HI,
+  DECENT_SPEED_INFUSION_HI,
+  DROP_MESO_HI,
+  DROP_ONLY_HI,
+  FLAT_ALLSTAT_HI,
+  FLAT_ATT_HI,
+  FLAT_DEX_ONLY_HI,
+  FLAT_HP_HI,
+  FLAT_MAINSTAT_HI,
+  FLAT_MESO_HI,
   HEAL_HP_MP_HI,
-  HEAL_MP_ONLY_HI,
-  HEAL_HP_ONLY_NEAR_HI,
   HEAL_HP_MP_NEAR_HI,
-  HEAL_MP_ONLY_NEAR_HI,
-  HEAL_HP_ONLY_PARTY_HI,
   HEAL_HP_MP_PARTY_HI,
+  HEAL_HP_ONLY_HI,
+  HEAL_HP_ONLY_NEAR_HI,
+  HEAL_HP_ONLY_PARTY_HI,
+  HEAL_MP_ONLY_HI,
+  HEAL_MP_ONLY_NEAR_HI,
   HEAL_MP_ONLY_PARTY_HI,
+  HP_HI,
   HP_ITEMS_AND_SKILLS_HI,
-  LINES_HI,
+  IED_HI,
+  INVIN_HI,
+  MAINSTAT_HI,
+  MAINSTAT_PER_10_LVLS_HI,
+  MESO_ONLY_HI,
 };
 int const allLinesLo[41] = 
 {
-  LINE_A_LO,
-  LINE_B_LO,
-  LINE_C_LO,
-  ANY_LO,
-  BOSS_ONLY_LO,
-  DAMAGE_LO,
-  IED_LO,
-  ATT_LO,
-  MAINSTAT_LO,
   ALLSTAT_LO,
-  HP_LO,
-  COOLDOWN_LO,
-  CRITDMG_LO,
-  DROP_MESO_LO,
-  MESO_ONLY_LO,
-  DROP_ONLY_LO,
-  INVIN_LO,
-  DECENT_SPEED_INFUSION_LO,
-  DECENT_SHARP_EYES_LO,
-  DECENT_COMBAT_ORDERS_LO,
-  FLAT_ATT_LO,
-  FLAT_MAINSTAT_LO,
-  FLAT_ALLSTAT_LO,
-  FLAT_DEX_ONLY_LO,
-  FLAT_HP_LO,
-  MAINSTAT_PER_10_LVLS_LO,
+  ANY_LO,
+  ATT_LO,
   ATT_PER_10_LVLS_LO,
-  FLAT_MESO_LO,
   AUTOSTEAL_1_LO,
   AUTOSTEAL_2_LO,
-  HEAL_HP_ONLY_LO,
+  BOSS_ONLY_LO,
+  COOLDOWN_LO,
+  CRITDMG_LO,
+  DAMAGE_LO,
+  DECENT_COMBAT_ORDERS_LO,
+  DECENT_SHARP_EYES_LO,
+  DECENT_SPEED_INFUSION_LO,
+  DROP_MESO_LO,
+  DROP_ONLY_LO,
+  FLAT_ALLSTAT_LO,
+  FLAT_ATT_LO,
+  FLAT_DEX_ONLY_LO,
+  FLAT_HP_LO,
+  FLAT_MAINSTAT_LO,
+  FLAT_MESO_LO,
   HEAL_HP_MP_LO,
-  HEAL_MP_ONLY_LO,
-  HEAL_HP_ONLY_NEAR_LO,
   HEAL_HP_MP_NEAR_LO,
-  HEAL_MP_ONLY_NEAR_LO,
-  HEAL_HP_ONLY_PARTY_LO,
   HEAL_HP_MP_PARTY_LO,
+  HEAL_HP_ONLY_LO,
+  HEAL_HP_ONLY_NEAR_LO,
+  HEAL_HP_ONLY_PARTY_LO,
+  HEAL_MP_ONLY_LO,
+  HEAL_MP_ONLY_NEAR_LO,
   HEAL_MP_ONLY_PARTY_LO,
+  HP_LO,
   HP_ITEMS_AND_SKILLS_LO,
-  LINES_LO,
+  IED_LO,
+  INVIN_LO,
+  MAINSTAT_LO,
+  MAINSTAT_PER_10_LVLS_LO,
+  MESO_ONLY_LO,
 };
 char const* const allLineNames[41] = 
 {
-  "LINE_A",
-  "LINE_B",
-  "LINE_C",
-  "ANY",
-  "BOSS_ONLY",
-  "DAMAGE",
-  "IED",
-  "ATT",
-  "MAINSTAT",
   "ALLSTAT",
-  "HP",
-  "COOLDOWN",
-  "CRITDMG",
-  "DROP_MESO",
-  "MESO_ONLY",
-  "DROP_ONLY",
-  "INVIN",
-  "DECENT_SPEED_INFUSION",
-  "DECENT_SHARP_EYES",
-  "DECENT_COMBAT_ORDERS",
-  "FLAT_ATT",
-  "FLAT_MAINSTAT",
-  "FLAT_ALLSTAT",
-  "FLAT_DEX_ONLY",
-  "FLAT_HP",
-  "MAINSTAT_PER_10_LVLS",
+  "ANY",
+  "ATT",
   "ATT_PER_10_LVLS",
-  "FLAT_MESO",
   "AUTOSTEAL_1",
   "AUTOSTEAL_2",
-  "HEAL_HP_ONLY",
+  "BOSS_ONLY",
+  "COOLDOWN",
+  "CRITDMG",
+  "DAMAGE",
+  "DECENT_COMBAT_ORDERS",
+  "DECENT_SHARP_EYES",
+  "DECENT_SPEED_INFUSION",
+  "DROP_MESO",
+  "DROP_ONLY",
+  "FLAT_ALLSTAT",
+  "FLAT_ATT",
+  "FLAT_DEX_ONLY",
+  "FLAT_HP",
+  "FLAT_MAINSTAT",
+  "FLAT_MESO",
   "HEAL_HP_MP",
-  "HEAL_MP_ONLY",
-  "HEAL_HP_ONLY_NEAR",
   "HEAL_HP_MP_NEAR",
-  "HEAL_MP_ONLY_NEAR",
-  "HEAL_HP_ONLY_PARTY",
   "HEAL_HP_MP_PARTY",
+  "HEAL_HP_ONLY",
+  "HEAL_HP_ONLY_NEAR",
+  "HEAL_HP_ONLY_PARTY",
+  "HEAL_MP_ONLY",
+  "HEAL_MP_ONLY_NEAR",
   "HEAL_MP_ONLY_PARTY",
+  "HP",
   "HP_ITEMS_AND_SKILLS",
-  "LINES",
+  "IED",
+  "INVIN",
+  "MAINSTAT",
+  "MAINSTAT_PER_10_LVLS",
+  "MESO_ONLY",
 };
 char const* const categoryNames[17] = 
 {
   "2ndary/force shield/soul ring",
-  "weapon",
-  "emblem",
-  "2ndary excl. force shield/soul ring",
-  "force shield/soul ring",
-  "hat",
-  "top/overall",
   "bottom",
-  "shoe",
-  "glove",
   "cape/belt/shoulder",
+  "default_cube",
+  "emblem",
   "accessory (face/eye/ring/ear/pend)",
-  "heart/badge",
   "familiar",
+  "force shield/soul ring",
+  "glove",
+  "hat",
+  "heart/badge",
   "line_cache",
   "name",
-  "default_cube",
+  "2ndary excl. force shield/soul ring",
+  "shoe",
+  "top/overall",
+  "weapon",
 };
 char const* const cubeNames[11] = 
 {
-  "red",
-  "meister",
-  "master",
-  "occult",
   "black",
-  "violet",
-  "equality",
   "bonus",
-  "uni",
+  "equality",
   "familiar",
+  "master",
+  "meister",
+  "occult",
+  "red",
   "red_fam_card",
+  "uni",
+  "violet",
 };
 int const cubeValues[11] = 
 {
-  1,
-  2,
-  4,
-  8,
   16,
-  32,
-  64,
   128,
-  256,
+  64,
   512,
+  4,
+  2,
+  8,
+  1,
   1024,
+  256,
+  32,
 };
 char const* const tierNames[6] = 
 {
   "base",
   "common",
-  "rare",
   "epic",
-  "unique",
   "legendary",
+  "rare",
+  "unique",
 };
 int const tierValues[6] = 
 {
   1,
   2,
-  3,
   4,
-  5,
   6,
+  3,
+  5,
+};
+char const* const regionNames[6] = 
+{
+  "cms",
+  "gms",
+  "jms",
+  "kms",
+  "msea",
+  "tms",
+};
+int const regionValues[6] = 
+{
+  32,
+  4,
+  8,
+  1,
+  2,
+  16,
 };
 int const categoryValues[17] = 
 {
   12,
-  1,
-  2,
-  4,
-  8,
-  16,
-  32,
   64,
-  128,
-  256,
   512,
+  32768,
+  2,
   1024,
-  2048,
   4096,
+  8,
+  256,
+  16,
+  2048,
   8192,
   16384,
-  32768,
+  4,
+  128,
+  32,
+  1,
 };
 static void primeChancesInit()
 {

@@ -22,8 +22,7 @@ typedef struct _Lines {
 void LinesFree(Lines* l);
 
 // format line into a string such as MESO_ONLY | DROP_ONLY
-// full: if non-zero, the string will include the line variant, such as LINE_A/B/C
-char* LineToStr(int hi, int lo, int full);
+char* LineToStr(int hi, int lo);
 
 // these return a Buf that you need to free
 #define CubeToStr(x) CubeToStrSep(" | ", x)
@@ -215,13 +214,9 @@ DefEnumNames(WantType);
 
 #include <string.h>
 
-char* LineToStr(int hi, int lo, int full) {
+char* LineToStr(int hi, int lo) {
   char* res = 0;
   size_t nflags = 0;
-  if (!full) {
-    hi &= ~(LINE_A_HI | LINE_B_HI | LINE_C_HI);
-    lo &= ~(LINE_A_LO | LINE_B_LO | LINE_C_LO);
-  }
   ArrayEachi(allLinesHi, i) {
     if ((hi & allLinesHi[i]) || (lo & allLinesLo[i])) {
       BufAllocCharsf(&res, "%s | ", allLineNames[i]);
@@ -402,7 +397,7 @@ int LinesCatData(Lines* l, LineData const* ld, size_t group, int tier) {
       int lineLo = l->lineLo[i];
       Map* lo = MapGet(hi, lineHi);
       if (!lo || !MapHas(lo, lineLo)) {
-        char* s = LineToStr(lineHi, lineLo, 1);
+        char* s = LineToStr(lineHi, lineLo);
         fprintf(stderr, "no value for %s\n", s);
         BufFree(&s);
         return 0;

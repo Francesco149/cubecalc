@@ -191,6 +191,7 @@ categories_combined = [ SECONDARY | FORCE_SHIELD_SOUL_RING ]
 categories_count = len([x for x in Category]) + len(categories_combined)
 cubes_count = len([x for x in Cube])
 tiers_count = len([x for x in Tier])
+regions_count = len([x for x in Region])
 
 p(f"extern int const allLinesHi[{lines_count}];")
 p(f"extern int const allLinesLo[{lines_count}];")
@@ -206,11 +207,23 @@ p(f"extern int const cubeValues[{cubes_count}];")
 p(f"extern char const* const tierNames[{tiers_count}];")
 p(f"extern int const tierValues[{tiers_count}];")
 
+p(f"extern char const* const regionNames[{regions_count}];")
+p(f"extern int const regionValues[{regions_count}];")
+
+def sorted_enum(e):
+  return sorted(e, key=lambda z: z.name.lower())
+
 def enum(e):
   p(f"enum {e.__name__}")
+  e = sorted_enum(e)
   with BlockCol():
     for x in e:
       p(f"{x.name} = 0x{x.value:x},")
+  for i, x in enumerate(e):
+    p(f"#define {x.name}_IDX {i}")
+
+for i, x in enumerate(Line):
+  p(f"#define {x.name}_IDX {i}")
 
 for x in [Cube, Tier, Category, Region]:
   enum(x)
@@ -257,23 +270,26 @@ def arr_flag(x, e, suff="", name="buf"):
       p(f"{s},")
   p(f");")
 
+
+sorted_line = sorted_enum([x for x in Line if x not in {LINE_A, LINE_B, LINE_C, LINES}])
+
 p(f"int const allLinesHi[{lines_count}] = ")
 with BlockCol():
-  for x in Line:
+  for x in sorted_line:
     p(f"{x.name}_HI,")
 
 p(f"int const allLinesLo[{lines_count}] = ")
 with BlockCol():
-  for x in Line:
+  for x in sorted_line:
     p(f"{x.name}_LO,")
 
 p(f"char const* const allLineNames[{lines_count}] = ")
 with BlockCol():
-  for x in Line:
+  for x in sorted_line:
     p(f"\"{x.name}\",")
 
 
-CategoryCombined = categories_combined + [x for x in Category]
+CategoryCombined = categories_combined + sorted_enum(Category)
 
 p(f"char const* const categoryNames[{categories_count}] = ")
 with BlockCol():
@@ -283,7 +299,7 @@ with BlockCol():
 def simple_enum(e, with_names=True, name=None):
   if not name:
     name = e.__name__
-  count = len([x for x in e])
+  count = len(e)
   def d(t, x):
     p(f"{t} const {name.lower()}{x}[{count}] = ")
   if with_names:
@@ -296,8 +312,8 @@ def simple_enum(e, with_names=True, name=None):
     for x in e:
       p(f"{x.value},")
 
-for x in [Cube, Tier]:
-  simple_enum(x)
+for x in [Cube, Tier, Region]:
+  simple_enum(sorted_enum(x), name=x.__name__)
 
 simple_enum(CategoryCombined, with_names=False, name="Category")
 
