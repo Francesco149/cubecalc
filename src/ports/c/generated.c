@@ -17,9 +17,9 @@ extern int const valueGroupsCategoryMask[51];
 extern int const valueGroupsRegionMask[51];
 extern Map* valueGroups[51];
 #define ALL_LINES_NUM_MASKS 14
-extern int const allLinesHi[49];
-extern int const allLinesLo[49];
-extern char const* const allLineNames[49];
+extern int const allLinesHi[50];
+extern int const allLinesLo[50];
+extern char const* const allLineNames[50];
 #define CATEGORY_NUM_COMBINED 1
 extern char const* const categoryNames[17];
 extern int const categoryValues[17];
@@ -75,9 +75,10 @@ extern int const regionValues[6];
 #define HP_ITEMS_AND_SKILLS_IDX 43
 #define IED_IDX 44
 #define INVIN_IDX 45
-#define MAINSTAT_IDX 46
-#define MAINSTAT_PER_10_LVLS_IDX 47
-#define MESO_ONLY_IDX 48
+#define LINES_IDX 46
+#define MAINSTAT_IDX 47
+#define MAINSTAT_PER_10_LVLS_IDX 48
+#define MESO_ONLY_IDX 49
 enum Cube
 {
   BLACK = 0x10,
@@ -430,7 +431,7 @@ Map* kms;
 Map* tms;
 Map* fams;
 Map* famsCard;
-int const allLinesHi[49] = 
+int const allLinesHi[50] = 
 {
   BOSS_HI,
   STAT_HI,
@@ -478,11 +479,12 @@ int const allLinesHi[49] =
   HP_ITEMS_AND_SKILLS_HI,
   IED_HI,
   INVIN_HI,
+  LINES_HI,
   MAINSTAT_HI,
   MAINSTAT_PER_10_LVLS_HI,
   MESO_ONLY_HI,
 };
-int const allLinesLo[49] = 
+int const allLinesLo[50] = 
 {
   BOSS_LO,
   STAT_LO,
@@ -530,11 +532,12 @@ int const allLinesLo[49] =
   HP_ITEMS_AND_SKILLS_LO,
   IED_LO,
   INVIN_LO,
+  LINES_LO,
   MAINSTAT_LO,
   MAINSTAT_PER_10_LVLS_LO,
   MESO_ONLY_LO,
 };
-char const* const allLineNames[49] = 
+char const* const allLineNames[50] = 
 {
   "boss",
   "stat",
@@ -582,6 +585,7 @@ char const* const allLineNames[49] =
   "hp items and skills",
   "ied",
   "invin",
+  "lines",
   "mainstat",
   "mainstat per 10 lvls",
   "meso only",

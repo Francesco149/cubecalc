@@ -188,7 +188,7 @@ def sorted_enum(e):
 masks_only = [x for x in LineMasks]
 masks = masks_only + [x for x in LineVariants]
 sorted_line = masks_only + sorted_enum([x for x in Line
-                           if x not in {LINE_A, LINE_B, LINE_C, LINES, AUTOSTEAL_1, AUTOSTEAL_2}])
+                           if x not in {LINE_A, LINE_B, LINE_C, AUTOSTEAL_1, AUTOSTEAL_2}])
 
 lines_count = len(sorted_line)
 lines_hi = [(x.name, ((x >> 32) & 0xFFFFFFFF)) for x in Line]
