@@ -227,7 +227,7 @@ def enum(e):
   for i, x in enumerate(e):
     p(f"#define {x.name}_IDX {i}")
 
-for i, x in enumerate(Line):
+for i, x in enumerate(sorted_line):
   p(f"#define {x.name}_IDX {i}")
 
 for x in [Cube, Tier, Category, Region]:
