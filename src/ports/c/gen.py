@@ -195,6 +195,7 @@ lines_hi = [(x.name, ((x >> 32) & 0xFFFFFFFF)) for x in Line]
 lines_lo = [(x.name, ((x >>  0) & 0xFFFFFFFF)) for x in Line]
 
 categories_combined = [ SECONDARY | FORCE_SHIELD_SOUL_RING ]
+CategoryCombined = categories_combined + sorted_enum(Category)
 categories_count = len([x for x in Category]) + len(categories_combined)
 cubes_count = len([x for x in Cube])
 tiers_count = len([x for x in Tier])
@@ -218,20 +219,27 @@ p(f"extern int const tierValues[{tiers_count}];")
 p(f"extern char const* const regionNames[{regions_count}];")
 p(f"extern int const regionValues[{regions_count}];")
 
-def enum(e):
-  p(f"enum {e.__name__}")
-  e = sorted_enum(e)
+def enum(e, name=None, sort=True):
+  if name is None:
+    name = e.__name__
+  p(f"enum {name}")
+  if sort:
+    e = sorted_enum(e)
   with BlockCol():
     for x in e:
-      p(f"{x.name} = 0x{x.value:x},")
+      if x.name:
+        p(f"{x.name} = 0x{x.value:x},")
   for i, x in enumerate(e):
-    p(f"#define {x.name}_IDX {i}")
+    if x.name:
+      p(f"#define {x.name}_IDX {i}")
 
 for i, x in enumerate(sorted_line):
   p(f"#define {x.name}_IDX {i}")
 
-for x in [Cube, Tier, Category, Region]:
+for x in [Cube, Tier, Region]:
   enum(x)
+
+enum(CategoryCombined, name="Category", sort=False)
 
 # some lines will have half of the bit all zero. to text for them, we replace those hi/lo parts
 # with a bit that's not already taken
@@ -289,8 +297,6 @@ with BlockCol():
   for x in sorted_line:
     p(f"\"{x.name.lower().replace('_', ' ')}\",")
 
-
-CategoryCombined = categories_combined + sorted_enum(Category)
 
 p(f"char const* const categoryNames[{categories_count}] = ")
 with BlockCol():

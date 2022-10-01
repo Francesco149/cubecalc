@@ -119,6 +119,21 @@ enum Tier
 #define LEGENDARY_IDX 3
 #define RARE_IDX 4
 #define UNIQUE_IDX 5
+enum Region
+{
+  CMS = 0x20,
+  GMS = 0x4,
+  JMS = 0x8,
+  KMS = 0x1,
+  MSEA = 0x2,
+  TMS = 0x10,
+};
+#define CMS_IDX 0
+#define GMS_IDX 1
+#define JMS_IDX 2
+#define KMS_IDX 3
+#define MSEA_IDX 4
+#define TMS_IDX 5
 enum Category
 {
   BOTTOM = 0x40,
@@ -138,37 +153,22 @@ enum Category
   TOP_OVERALL = 0x20,
   WEAPON = 0x1,
 };
-#define BOTTOM_IDX 0
-#define CAPE_BELT_SHOULDER_IDX 1
-#define DEFAULT_CUBE_IDX 2
-#define EMBLEM_IDX 3
-#define FACE_EYE_RING_EARRING_PENDANT_IDX 4
-#define FAMILIAR_STATS_IDX 5
-#define FORCE_SHIELD_SOUL_RING_IDX 6
-#define GLOVE_IDX 7
-#define HAT_IDX 8
-#define HEART_BADGE_IDX 9
-#define LINE_CACHE_IDX 10
-#define NAME_IDX 11
-#define SECONDARY_IDX 12
-#define SHOE_IDX 13
-#define TOP_OVERALL_IDX 14
-#define WEAPON_IDX 15
-enum Region
-{
-  CMS = 0x20,
-  GMS = 0x4,
-  JMS = 0x8,
-  KMS = 0x1,
-  MSEA = 0x2,
-  TMS = 0x10,
-};
-#define CMS_IDX 0
-#define GMS_IDX 1
-#define JMS_IDX 2
-#define KMS_IDX 3
-#define MSEA_IDX 4
-#define TMS_IDX 5
+#define BOTTOM_IDX 1
+#define CAPE_BELT_SHOULDER_IDX 2
+#define DEFAULT_CUBE_IDX 3
+#define EMBLEM_IDX 4
+#define FACE_EYE_RING_EARRING_PENDANT_IDX 5
+#define FAMILIAR_STATS_IDX 6
+#define FORCE_SHIELD_SOUL_RING_IDX 7
+#define GLOVE_IDX 8
+#define HAT_IDX 9
+#define HEART_BADGE_IDX 10
+#define LINE_CACHE_IDX 11
+#define NAME_IDX 12
+#define SECONDARY_IDX 13
+#define SHOE_IDX 14
+#define TOP_OVERALL_IDX 15
+#define WEAPON_IDX 16
 #define LINE_A_HI 0x0
 #define LINE_B_HI 0x0
 #define LINE_C_HI 0x0
