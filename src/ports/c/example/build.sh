@@ -5,7 +5,7 @@ flags=""
 for x in $@; do
   case "$x" in
     dbg*)
-      flags="$flags -DCUBECALC_DEBUG"
+      flags="$flags -DCUBECALC_DEBUG -DCUBECALC_PRINTCOMBOS"
       ;;
   esac
 done
