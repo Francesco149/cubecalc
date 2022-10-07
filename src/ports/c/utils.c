@@ -2,30 +2,10 @@
 #define UTILS_H
 
 #include <stddef.h> // size_t
-#include <limits.h>
+#include <stdint.h> // intmax_t
+#include <limits.h> // SIZE_MAX and others
 #include <stdarg.h>
 #include <stdio.h>
-
-#ifndef UTILS_NO_STDINT
-#include <stdint.h> // intmax_t
-#elif defined(LLONG_MAX)
-typedef long long intmax_t;
-typedef unsigned long long uintmax_t;
-#ifndef SIZE_MAX
-#define SIZE_MAX LLONG_MAX
-#endif
-#else
-typedef long intmax_t;
-typedef unsigned long uintmax_t;
-#ifndef SIZE_MAX
-#define SIZE_MAX LONG_MAX
-#endif
-#endif
-
-#ifdef UTILS_NO_STDINT
-typedef intmax_t intptr_t; // TODO: more robust fallback
-typedef uintmax_t uintptr_t;
-#endif
 
 //
 // Misc Macros
@@ -98,6 +78,10 @@ typedef uintmax_t uintptr_t;
 
 #define ArrayBitVal(array, bit) \
   ((ArrayBitSlot(array, bit) & ArrayBitMask(array, bit)) >> ArrayBitShift(array, bit))
+
+// NOTE: this doesn't clear if val is 0
+#define ArrayBitSetVal(array, bit, val) \
+  ArrayBitSlot(array, bit) |= ArrayBitMask(array, bit) * (val & 1)
 
 // returns the allocation size for an array bitmask that will be stored in arr. arr is an integer
 // pointer of any size, the purpose of this function is to figure out how many bits can be stored
@@ -264,6 +248,10 @@ void _BufAllocZero(void* pp, size_t count, size_t elementSize, Allocator const* 
 
 // append other (Buf ptr) to pp (ptr to Buf ptr) in place. return *pp
 void* BufCat(void* pp, void const* other);
+
+#define BufCpy(pdst, src) \
+  BufReserve(pdst, BufLen(src)), \
+  memcpy(*(pdst), src, BufLen(src) * BufHdr(src)->elementSize)
 
 //
 // shortcut to loop over every element
@@ -468,6 +456,12 @@ intmax_t ProbToOneIn(double p);
 //   percent=50: the median
 //
 intmax_t ProbToGeoDistrQuantileDingle(double p, double percent);
+
+//
+// Humanize: write numbers in a human friendly form (for example 2.14b instead of 2147483647
+//
+
+void Humanize(char* buf, size_t sz, intmax_t value);
 
 //
 // Memory arena
@@ -918,6 +912,61 @@ intmax_t ProbToOneIn(double p) {
 intmax_t ProbToGeoDistrQuantileDingle(double p, double percent) {
   if (p <= 0) return 0;
   return round(log(1 - percent / 100) / log(1 - p));
+}
+
+//
+// Humanize
+//
+
+static
+int HumanizeSnprintf(intmax_t x, char* buf, size_t sz, char const* suff) {
+  return snprintf(buf, sz, "%jd%s ", x, suff);
+}
+
+static
+int HumanizeSnprintfWithDot(double x, char* buf, size_t sz, char const* suff) {
+  intmax_t mod = (intmax_t)(x * 10) % 10;
+  if (mod) {
+    return snprintf(buf, sz, "%jd.%jd%s ", (intmax_t)x, mod, suff);
+  }
+  return HumanizeSnprintf((intmax_t)x, buf, sz, suff);
+}
+
+static
+int HumanizeStepWithDot(intmax_t mag, char const* suff, char* buf, size_t sz, int value) {
+  if (value >= mag) {
+    double x = value / (double)mag;
+    int n = HumanizeSnprintfWithDot(x, 0, 0, suff);
+    if (n >= sz) {
+      snprintf(buf, sz, "...");
+    } else {
+      HumanizeSnprintfWithDot(x, buf, sz, suff);
+    }
+    return n;
+  }
+  return 0;
+}
+
+void Humanize(char* buf, size_t sz, intmax_t value) {
+  const intmax_t k = 1000;
+  const intmax_t m = k * k;
+  const intmax_t b = k * m;
+
+  if (value < 0) {
+    int n = snprintf(buf, sz, "-");
+    buf += n;
+    sz -= n;
+    value *= -1;
+  }
+
+  if (value < k) {
+    snprintf(buf, sz, "%jd", value);
+    return;
+  }
+
+  HumanizeStepWithDot(b, "b", buf, sz, value) ||
+  HumanizeStepWithDot(m, "m", buf, sz, value) ||
+  HumanizeStepWithDot(k, "k", buf, sz, value);
 }
 
 //
