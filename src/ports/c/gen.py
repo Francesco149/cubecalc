@@ -72,12 +72,13 @@ try:
 except:
   source = ""
 
+NonSpecialCategory = [x for x in Category if x not in { LINE_CACHE, NAME, DEFAULT_CUBE }]
+
 # this is a very inefficient way to run the values function for every combination of params and
 # generate all the level ranges that have the same values/region/category etc
 cursource = inspect.getsource(find_line_values)
 if source != cursource:
   source = cursource
-  NonSpecialCategory = [x for x in Category if x not in { LINE_CACHE, NAME, DEFAULT_CUBE }]
 
   # map params by values returned
   merge = {}
@@ -195,8 +196,8 @@ lines_hi = [(x.name, ((x >> 32) & 0xFFFFFFFF)) for x in Line]
 lines_lo = [(x.name, ((x >>  0) & 0xFFFFFFFF)) for x in Line]
 
 categories_combined = [ SECONDARY | FORCE_SHIELD_SOUL_RING ]
-CategoryCombined = categories_combined + sorted_enum(Category)
-categories_count = len([x for x in Category]) + len(categories_combined)
+CategoryCombined = categories_combined + sorted_enum(NonSpecialCategory)
+categories_count = len(NonSpecialCategory) + len(categories_combined)
 cubes_count = len([x for x in Cube])
 tiers_count = len([x for x in Tier])
 regions_count = len([x for x in Region])

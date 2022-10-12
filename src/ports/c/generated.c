@@ -21,8 +21,8 @@ extern int const allLinesHi[50];
 extern int const allLinesLo[50];
 extern char const* const allLineNames[50];
 #define CATEGORY_NUM_COMBINED 1
-extern char const* const categoryNames[17];
-extern int const categoryValues[17];
+extern char const* const categoryNames[14];
+extern int const categoryValues[14];
 extern char const* const cubeNames[11];
 extern int const cubeValues[11];
 extern char const* const tierNames[6];
@@ -138,7 +138,6 @@ enum Category
 {
   BOTTOM = 0x40,
   CAPE_BELT_SHOULDER = 0x200,
-  DEFAULT_CUBE = 0x8000,
   EMBLEM = 0x2,
   FACE_EYE_RING_EARRING_PENDANT = 0x400,
   FAMILIAR_STATS = 0x1000,
@@ -146,8 +145,6 @@ enum Category
   GLOVE = 0x100,
   HAT = 0x10,
   HEART_BADGE = 0x800,
-  LINE_CACHE = 0x2000,
-  NAME = 0x4000,
   SECONDARY = 0x4,
   SHOE = 0x80,
   TOP_OVERALL = 0x20,
@@ -155,20 +152,17 @@ enum Category
 };
 #define BOTTOM_IDX 1
 #define CAPE_BELT_SHOULDER_IDX 2
-#define DEFAULT_CUBE_IDX 3
-#define EMBLEM_IDX 4
-#define FACE_EYE_RING_EARRING_PENDANT_IDX 5
-#define FAMILIAR_STATS_IDX 6
-#define FORCE_SHIELD_SOUL_RING_IDX 7
-#define GLOVE_IDX 8
-#define HAT_IDX 9
-#define HEART_BADGE_IDX 10
-#define LINE_CACHE_IDX 11
-#define NAME_IDX 12
-#define SECONDARY_IDX 13
-#define SHOE_IDX 14
-#define TOP_OVERALL_IDX 15
-#define WEAPON_IDX 16
+#define EMBLEM_IDX 3
+#define FACE_EYE_RING_EARRING_PENDANT_IDX 4
+#define FAMILIAR_STATS_IDX 5
+#define FORCE_SHIELD_SOUL_RING_IDX 6
+#define GLOVE_IDX 7
+#define HAT_IDX 8
+#define HEART_BADGE_IDX 9
+#define SECONDARY_IDX 10
+#define SHOE_IDX 11
+#define TOP_OVERALL_IDX 12
+#define WEAPON_IDX 13
 #define LINE_A_HI 0x0
 #define LINE_B_HI 0x0
 #define LINE_C_HI 0x0
@@ -590,12 +584,11 @@ char const* const allLineNames[50] =
   "mainstat per 10 lvls",
   "meso only",
 };
-char const* const categoryNames[17] = 
+char const* const categoryNames[14] = 
 {
   "2ndary/force shield/soul ring",
   "bottom",
   "cape/belt/shoulder",
-  "default_cube",
   "emblem",
   "accessory (face/eye/ring/ear/pend)",
   "familiar",
@@ -603,8 +596,6 @@ char const* const categoryNames[17] =
   "glove",
   "hat",
   "heart/badge",
-  "line_cache",
-  "name",
   "2ndary excl. force shield/soul ring",
   "shoe",
   "top/overall",
@@ -674,12 +665,11 @@ int const regionValues[6] =
   2,
   16,
 };
-int const categoryValues[17] = 
+int const categoryValues[14] = 
 {
   12,
   64,
   512,
-  32768,
   2,
   1024,
   4096,
@@ -687,8 +677,6 @@ int const categoryValues[17] =
   256,
   16,
   2048,
-  8192,
-  16384,
   4,
   128,
   32,
