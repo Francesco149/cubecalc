@@ -463,6 +463,20 @@ def find_line_values(cube, category, region):
     (MAXLVL, 6),
   ]
 
+  hp_recovery_20_bonus = [
+    (20, 5),
+    (50, 10),
+    (90, 15),
+    (MAXLVL, 20),
+  ]
+
+  hp_recovery_30_bonus = [
+    (20, 10),
+    (50, 15),
+    (90, 20),
+    (MAXLVL, 30),
+  ]
+
   values_bonus = {
     COMMON: {
       ANY: 1,
@@ -500,6 +514,7 @@ def find_line_values(cube, category, region):
       HP_A: hp_8,
       ALLSTAT_A: allstat_5,
       MAINSTAT_PER_10_LVLS: 1,
+      HP_ITEMS_AND_SKILLS_A: hp_recovery_20_bonus,
     },
 
     LEGENDARY: {
@@ -515,6 +530,7 @@ def find_line_values(cube, category, region):
       COOLDOWN_1: 1,
       MESO_A: 5,
       DROP_A: 5,
+      HP_ITEMS_AND_SKILLS_A: hp_recovery_30_bonus,
     },
   }
 
@@ -583,12 +599,12 @@ def find_line_values(cube, category, region):
     },
   }
 
-  if cube == BONUS:
+  if cube & BONUS:
     if category & (WEAPON | SECONDARY | FORCE_SHIELD_SOUL_RING | EMBLEM):
       return values_bonus_wse
     else:
       return values_bonus
-  elif cube == FAMILIAR or cube == RED_FAM_CARD:
+  elif cube & (FAMILIAR | RED_FAM_CARD):
     from familiars import values as values_familiar
     return values_familiar
   return values

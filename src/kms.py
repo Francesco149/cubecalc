@@ -53,7 +53,7 @@ cubes = {
     EMBLEM: percent({
       COMMON: [
         [FLAT_MAINSTAT_A, 12.2727],
-        [HP_A, 12.2727],
+        [FLAT_HP_A, 12.2727],
         [FLAT_ATT_A, 8.1818],
       ],
       RARE: [
@@ -138,7 +138,7 @@ cubes = {
     FORCE_SHIELD_SOUL_RING: percent({
       COMMON: [
         [FLAT_MAINSTAT_A, 14.2105],
-        [HP_A, 14.2105],
+        [FLAT_HP_A, 14.2105],
         [FLAT_ATT_A, 9.4737],
       ],
       RARE: [
@@ -471,7 +471,7 @@ cubes = {
     EMBLEM: percent({
       COMMON: [
         [FLAT_MAINSTAT_A, 10.4167],
-        [HP_A, 15.625],
+        [FLAT_HP_A, 15.625],
         [FLAT_ATT_A, 5.2083],
       ],
       RARE: [
@@ -554,7 +554,7 @@ cubes = {
     FORCE_SHIELD_SOUL_RING: percent({
       COMMON: [
         [FLAT_MAINSTAT_A, 12.8205],
-        [HP_A, 19.2308],
+        [FLAT_HP_A, 19.2308],
         [FLAT_ATT_A, 6.4103],
       ],
       RARE: [
@@ -899,7 +899,7 @@ cubes = {
     EMBLEM: percent({
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
-        [HP_A, 10.8932],
+        [FLAT_HP_A, 10.8932],
         [FLAT_ATT_A, 7.2622],
       ],
       RARE: [
@@ -990,7 +990,7 @@ cubes = {
     FORCE_SHIELD_SOUL_RING: percent({
       COMMON: [
         [FLAT_MAINSTAT_A, 7.2622],
-        [HP_A, 10.8932],
+        [FLAT_HP_A, 10.8932],
         [FLAT_ATT_A, 7.2622],
       ],
       RARE: [

@@ -5,7 +5,7 @@
 # hardcoded. once I have a proper UI, this will mainly just be a benchmark and a way to check
 # that changes in the code didn't affect any result unexpectedly
 
-from cubecalc import disclaimer, cube_calc
+from cubecalc import disclaimer, cube_calc, find_line_values
 from common import *
 from functools import partial
 from operator import or_, and_
@@ -14,6 +14,27 @@ from datautils import percent
 from datautils import find_validate_probabilities as find_probabilities
 import kms
 import tms
+from familiars import familiars as familiars_data
+from familiars import red_card_estimate
+
+# validate that every line has a value
+for data in [kms.cubes, tms.event, familiars_data, red_card_estimate]:
+  for cubemask, cubedata in data.items():
+    for categorymask, categorydata in cubedata.items():
+      valuesGMS = find_line_values(cubemask, categorymask, GMS)
+      valuesKMS = find_line_values(cubemask, categorymask, KMS)
+      for tier, lines in categorydata.items():
+        s = f"{tier} {enumbits(cubemask, Cube)} {enumbits(categorymask, Category)}"
+        if tier not in valuesGMS:
+          raise RuntimeError(f"GMS values missing tier {s}")
+        if tier not in valuesKMS:
+          raise RuntimeError(f"KMS values missing tier {s}")
+        for l in lines:
+          if l[0] not in valuesGMS[tier]:
+            raise RuntimeError(f"GMS values missing {enumbits(l[0], Line)} for {s}")
+          if l[0] not in valuesKMS[tier]:
+            raise RuntimeError(f"KMS values missing {enumbits(l[0], Line)} for {s}")
+
 
 TIER_DEFAULT = LEGENDARY
 
@@ -71,8 +92,6 @@ bottom_uni = prob_uni(BOTTOM)
 top_overall_uni = prob_uni(TOP_OVERALL)
 hat_uni = prob_uni(HAT)
 
-from familiars import familiars as familiars_data
-from familiars import red_card_estimate
 familiars = find_probabilities(familiars_data, FAMILIAR, FAMILIAR_STATS)
 familiars_red_card = find_probabilities(red_card_estimate, RED_FAM_CARD, FAMILIAR_STATS)
 

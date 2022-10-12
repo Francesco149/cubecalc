@@ -53,6 +53,7 @@ convert = {
   flat_text(KW_STAT, 18): FLAT_MAINSTAT_A,
   flat_text(KW_ALLSTAT, 3): FLAT_ALLSTAT_A,
   flat_text(KW_ALLSTAT, 5): FLAT_ALLSTAT_A,
+  flat_text(KW_HP, 50): FLAT_HP_A,
   flat_text(KW_HP, 60): FLAT_HP_A,
   flat_text(KW_HP, 100): FLAT_HP_A,
   flat_text(KW_HP, 120): FLAT_HP_A,
