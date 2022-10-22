@@ -1,6 +1,7 @@
 #!/bin/sh
 
 flags="-std=c11 -Wall -lm"
+commonbuildflags="-fno-strict-aliasing"
 buildflags="-O0 -D_FORTIFY_SOURCE=0"
 units=compilation-units/monolith.c
 cc=tcc
@@ -48,7 +49,7 @@ fi
 
 echo
 echo "=== compiling"
-flags="$flags $buildflags"
+flags="$flags $buildflags $commonbuildflags"
 echo "compiler: $cc"
 echo "flags: $flags"
 
