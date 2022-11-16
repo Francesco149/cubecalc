@@ -1014,7 +1014,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
             9+ att or 30+ ied 1 in 10 cubes, 10.4170%
                        9+ att 1 in 40 cubes, 2.4910%
                       30+ ied 1 in 13 cubes, 7.9260%
-                     35+ boss 1 in 619 cubes, 0.1615%
+                     35+ boss 1 in 317 cubes, 0.3150%
                       40 boss 1 in 1770 cubes, 0.0565%
                        12 att 1 in 617 cubes, 0.1620%
                        40 ied 1 in 124 cubes, 0.8090%

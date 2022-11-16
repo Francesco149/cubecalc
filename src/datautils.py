@@ -78,6 +78,7 @@ def merge_duplicate_lines(cubedata):
         else:
           counts[stat] += 1
 
+    dupdata = cubedata[tier]
     cubedata[tier] = list(unique_stats())
 
     def merged_stats():
@@ -85,7 +86,7 @@ def merge_duplicate_lines(cubedata):
         stat = x[0]
         percent = float(x[1])
         if counts[stat] > 1:
-          new_percent = percent * counts[stat]
+          new_percent = sum([float(s[1]) for s in dupdata if s[0] == stat])
           sys.stderr.write(f"{tier.name}: merging duplicate line " +
               f"{stat.name} from {percent}% to {new_percent}%\n")
           percent = new_percent

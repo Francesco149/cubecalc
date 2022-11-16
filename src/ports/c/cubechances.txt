@@ -130,22 +130,22 @@ any 3l combo of att+boss+ied 1 in 258 cubes, 0.3880%
               60+ied and att 1 in 2644 cubes, 0.0378%
              60+ied and boss 1 in 1920 cubes, 0.0521%
 ====== 2ndary/force shield/soul ring, weapon (violet on lv150 legendary) =======
-    any 2l combo of att+boss 1 in 5 cubes, 19.2372%
-any 2l combo of att+boss+ied 1 in 2 cubes, 41.2003%
-    any 3l combo of att+boss 1 in 32 cubes, 3.1385%
-any 3l combo of att+boss+ied 1 in 8 cubes, 12.5927%
+    any 2l combo of att+boss 1 in 5 cubes, 19.2370%
+any 2l combo of att+boss+ied 1 in 2 cubes, 41.2064%
+    any 3l combo of att+boss 1 in 32 cubes, 3.1386%
+any 3l combo of att+boss+ied 1 in 8 cubes, 12.5923%
                      18+ att 1 in 21 cubes, 4.7154%
                      21+ att 1 in 59 cubes, 1.6874%
                      30+ att 1 in 528 cubes, 0.1893%
                      33+ att 1 in 3527 cubes, 0.0284%
             21+ att and boss 1 in 228 cubes, 0.4388%
              21+ att and ied 1 in 186 cubes, 0.5378%
-            18+ att and boss 1 in 72 cubes, 1.3842%
+            18+ att and boss 1 in 72 cubes, 1.3841%
              18+ att and ied 1 in 62 cubes, 1.6236%
                       60+ied 1 in 11 cubes, 9.2956%
                       70+ied 1 in 39 cubes, 2.5443%
               60+ied and att 1 in 44 cubes, 2.2774%
-             60+ied and boss 1 in 36 cubes, 2.7930%
+             60+ied and boss 1 in 36 cubes, 2.7931%
 ===== 2ndary/force shield/soul ring, weapon (equality on lv150 legendary) ======
     any 2l combo of att+boss 1 in 12 cubes, 8.1058%
 any 2l combo of att+boss+ied 1 in 4 cubes, 22.5265%
@@ -1014,7 +1014,7 @@ any 3l combo of att+ied 1 in 1325 cubes, 0.0755%
             9+ att or 30+ ied 1 in 10 cubes, 10.4170%
                        9+ att 1 in 40 cubes, 2.4910%
                       30+ ied 1 in 13 cubes, 7.9260%
-                     35+ boss 1 in 619 cubes, 0.1615%
+                     35+ boss 1 in 317 cubes, 0.3150%
                       40 boss 1 in 1770 cubes, 0.0565%
                        12 att 1 in 617 cubes, 0.1620%
                        40 ied 1 in 124 cubes, 0.8090%

@@ -231,7 +231,16 @@ def fix_cd_lines():
       tierdata = d[cube][category][LEGENDARY]
       tierdata[cd2_idx][0] = COOLDOWN_2
 
+# as of ignition, 30 legendary boss probability is merged into 35
+def fix_boss_lines():
+  for cube, cubedata in d.items():
+    for category, categorydata in cubedata.items():
+      if LEGENDARY in categorydata:
+        categorydata[LEGENDARY] = [(line if line != BOSS_C else BOSS_B, chance)
+                                   for (line, chance) in categorydata[LEGENDARY]]
+
 fix_cd_lines()
+fix_boss_lines()
 
 bitmask_str = lambda i, e: " | ".join([x.name for x in e if i & x])
 
